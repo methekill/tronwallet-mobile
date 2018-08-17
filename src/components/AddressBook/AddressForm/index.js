@@ -13,6 +13,7 @@ import { isAddressValid } from '../../../services/address'
 import { ADD, EDIT } from '../../../utils/constants'
 import { isNameValid, isAddressUnique } from '../../../utils/validations'
 import getContactStore from '../../../store/contacts'
+import tl from '../../../utils/i18n'
 
 export default class ContactsForm extends Component {
   static propTypes = {
@@ -54,7 +55,7 @@ export default class ContactsForm extends Component {
       this.props.navigation.goBack()
     } catch (e) {
       this.setState({
-        generalError: 'There was a problem submitting this form. Please contact an administrator.'
+        generalError: tl.t('addressBook.form.generalError')
       })
     }
   }
@@ -64,7 +65,7 @@ export default class ContactsForm extends Component {
       item: name,
       type: 'name',
       validation: isNameValid,
-      error: 'The name field must start with a letter and it will accept only letters, numbers and white spaces.'
+      error: tl.t('addressBook.form.nameError')
     })
   }
 
@@ -73,7 +74,7 @@ export default class ContactsForm extends Component {
       item: address.trim(),
       type: 'address',
       validation: isAddressValid,
-      error: 'Something isn\'t right with the address. Please double check for typos.'
+      error: tl.t('addressBook.form.addressError')
     })
   }
 
@@ -96,7 +97,7 @@ export default class ContactsForm extends Component {
       if (!addressIsUnique) {
         return {
           ...stateObj,
-          [`${type}Error`]: 'The key must be unique. Please choose a different address.'
+          [`${type}Error`]: tl.t('addressBook.form.uniqueAddressError')
         }
       }
     }
@@ -144,7 +145,7 @@ export default class ContactsForm extends Component {
             <FormGroup>
               <Input
                 innerRef={(input) => { this.name = input }}
-                label='NAME'
+                label={tl.t('addressBook.form.name')}
                 value={name}
                 onChangeText={name => this._changeName(name)}
                 onSubmitEditing={() => this._nextInput('address')}
@@ -158,7 +159,7 @@ export default class ContactsForm extends Component {
               )}
               <Input
                 innerRef={(input) => { this.address = input }}
-                label='ADDRESS'
+                label={tl.t('addressBook.form.address')}
                 value={address}
                 rightContent={this._rightContentTo}
                 onChangeText={address => this._changeAddress(address)}
@@ -182,7 +183,7 @@ export default class ContactsForm extends Component {
                 </React.Fragment>
               )}
               <ButtonGradient
-                text={type}
+                text={tl.t(`addressBook.shared.${type.toLowerCase()}`)}
                 onPress={() => this._onSubmit({
                   name: name.trim(),
                   alias: `@${name.trim().toLowerCase().replace(' ', '_')}`,

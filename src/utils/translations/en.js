@@ -80,6 +80,12 @@ const firstTime = {
 }
 
 const addressBook = {
+  shared: {
+    add: 'ADD',
+    edit: 'EDIT',
+    delete: 'DELETE',
+    send: 'SEND'
+  },
   contacts: {
     delete: {
       title: 'Delete Contact',
@@ -88,6 +94,17 @@ const addressBook = {
       okButton: 'OK'
     },
     empty: 'Your address book is empty, add a new contact or account.'
+  },
+  form: {
+    generalError: 'There was a problem submitting this form. Please contact an administrator.',
+    nameError: 'The name field must start with a letter and it will accept only letters, numbers and white spaces.',
+    addressError: 'Something isn\'t right with the address. Please double check for typos.',
+    uniqueAddressError: 'The key must be unique. Please choose a different address.',
+    name: 'NAME',
+    address: 'ADDRESS'
+  },
+  modal: {
+    title: 'Would you like to'
   }
 }
 
