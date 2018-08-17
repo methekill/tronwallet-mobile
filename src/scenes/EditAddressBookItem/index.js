@@ -7,24 +7,25 @@ import ClearButton from '../../components/ClearButton'
 
 import getContactStore from '../../store/contacts'
 import { EDIT } from '../../utils/constants'
+import tl from '../../utils/i18n'
 
 export default class EditContact extends Component {
   static navigationOptions = ({navigation}) => {
     const { address } = navigation.getParam('item', {})
     return ({
-      header: <NavigationHeader title='EDIT' onBack={() => navigation.goBack()} rightButton={(
+      header: <NavigationHeader title={tl.t('addressBook.shared.edit')} onBack={() => navigation.goBack()} rightButton={(
         <ClearButton onPress={() => {
           Alert.alert(
-            'Delete Contact',
-            'Do you really want to delete this contact?',
+            tl.t('addressBook.contacts.delete.title'),
+            tl.t('addressBook.contacts.delete.message'),
             [
               {
-                text: 'Cancel',
+                text: tl.t('addressBook.contacts.delete.cancelButton'),
                 onPress: null,
                 style: 'cancel'
               },
               {
-                text: 'OK',
+                text: tl.t('addressBook.contacts.delete.okButton'),
                 onPress: async () => {
                   const store = await getContactStore()
                   try {
