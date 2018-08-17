@@ -23,6 +23,7 @@ const general = {
     create: 'Create',
     undefined: 'Undefined Type'
   },
+  close: 'Close',
   ends: 'Ends',
   clear: 'Clear',
   allIn: 'All In'
@@ -49,6 +50,7 @@ const components = {
   },
   QRScanner: {
     title: 'Address Scanner',
+    scan: 'Scan',
     explanation: 'Scan the QRCode to identify the target user',
     permissionMessage: 'To scan the public key the app needs your permission to access the camera.'
   },
@@ -164,6 +166,10 @@ const receive = {
   button: {
     copy: 'Copy',
     share: 'Share'
+  },
+  tabs: {
+    share: 'SHARE',
+    request: 'REQUEST'
   }
 }
 
@@ -220,7 +226,9 @@ const send = {
   input: {
     token: 'TOKEN',
     to: 'TO',
-    amount: 'AMOUNT'
+    amount: 'AMOUNT',
+    description: 'DESCRIPTION (OPTIONAL)',
+    placeholder: 'Describe the transfer'
   },
   available: 'available',
   chooseToken: 'Please, choose a token below.',
@@ -229,6 +237,11 @@ const send = {
 
 const settings = {
   title: 'SETTINGS',
+  sectionTitles: {
+    wallet: 'WALLET',
+    security: 'SECURITY',
+    notification: 'NOTIFICATIONS AND IDIOM'
+  },
   notifications: {
     title: 'Notifications',
     description: 'Enable or disable push notifications'
@@ -286,12 +299,28 @@ const settings = {
     success: 'Language changed to {{language}}, please restart the app',
     error: 'Error saving preferred language'
   },
+  token: {
+    title: 'Token Filter',
+    description: 'Choose which tokens to display',
+    search: 'Search tokens',
+    confirm: 'Save',
+    noResult: 'No results...'
+  },
+  about: {
+    title: 'About',
+    description: 'TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.',
+    tutorial: 'TUTORIAL'
+  },
+  accepts: {
+    title: 'Who accepts TRX?'
+  },
   partners: 'PARTNERS'
 }
 
 const submitTransaction = {
   title: 'TRANSACTION DETAILS',
   notification: 'You have received a transaction from {{address}}',
+  notificationPayment: 'You have received a payment from {{address}}',
   button: {
     tryAgain: 'Try again',
     submit: 'SUBMIT TRANSACTION'
@@ -370,6 +399,40 @@ const votes = {
   error: `Oops, something didn't load correctly. Try to reload`
 }
 
+const scanPayment = {
+  scan: 'SCAN',
+  error: {
+    receiver: 'Receiver address invalid',
+    token: 'Token not valid',
+    amount: 'Amount not valid',
+    description: 'Description too long',
+    code: 'Payment code invalid. Please, scan a valid one'
+  }
+}
+
+const makePayment = {
+  pay: 'PAY',
+  confirm: 'CONFIRM PAYMENT',
+  error: {
+    receiver: 'Receiver is equal to requester',
+    token: 'This account doesn\'t have the token for this transaction',
+    amount: 'This account doesn\'t have enough balance.',
+    description: 'No description available'
+  }
+}
+
+const buildPayment = {
+  generate: 'GENERATE REQUEST',
+  selectCurrency: 'Select the reference currency',
+  error: {
+    currency: 'We weren\'t able to load other currency prices. Please use TRX as reference'
+  }
+}
+
+const requestPayment = {
+  title: 'REQUEST PAYMENT'
+}
+
 export default {
   balance,
   components,
@@ -389,5 +452,9 @@ export default {
   transactionDetails,
   transactionSuccess,
   votes,
+  scanPayment,
+  makePayment,
+  buildPayment,
+  requestPayment,
   ...general
 }

@@ -9,8 +9,9 @@ import translations from './translations'
 AsyncStorage.getItem(USER_PREFERRED_LANGUAGE).then(userLocale => {
   if (userLocale) {
     const locale = userLocale.substr(0, 2)
-    if (locale !== 'en') {
-      moment.locale(locale, { relativeTime: getRelativeTime(locale) })
+    const relativeTime = getRelativeTime(locale)
+    if (locale !== 'en' && relativeTime) {
+      moment.locale(locale, { relativeTime })
     }
     I18n.locale = userLocale
   }

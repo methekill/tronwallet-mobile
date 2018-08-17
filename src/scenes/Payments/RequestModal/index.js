@@ -2,13 +2,16 @@ import React from 'react'
 import { Dimensions } from 'react-native'
 import RNQRCode from 'react-native-qrcode'
 import Modal from 'react-native-modal'
-import LinearGradient from 'react-native-linear-gradient'
 
+// Design
+import LinearGradient from 'react-native-linear-gradient'
 import { DarkButton } from '../elements'
 import * as Utils from '../../../components/Utils'
 import { Colors } from '../../../components/DesignSystem'
 
+// Utils
 import { formatFloat, formatNumber } from '../../../utils/numberUtils'
+import tl from '../../../utils/i18n'
 
 const { width, height } = Dimensions.get('window')
 
@@ -32,7 +35,7 @@ export default ({visible, qrData, onClose, amount, amountTrx, currency}) => {
           borderRadius: 3,
           padding: 20}}
       >
-        <Utils.Text letterSpacing={0.8} size='xsmall' color={Colors.lighterBackground}>REQUEST PAYMENT</Utils.Text>
+        <Utils.Text letterSpacing={0.8} size='xsmall' color={Colors.lighterBackground}>{tl.t('requestPayment.title')}</Utils.Text>
         <Utils.VerticalSpacer size='small' />
         <Utils.Text size='medium'>{formatFloat(amount)} {currency}</Utils.Text>
         {currency !== 'TRX' && <Utils.Text size='tiny'>{formatNumber(amountTrx, true)} TRX</Utils.Text>}
@@ -48,7 +51,7 @@ export default ({visible, qrData, onClose, amount, amountTrx, currency}) => {
 
         <Utils.VerticalSpacer size='medium' />
         <DarkButton onPress={onClose}>
-          <Utils.Text size='tiny' letterSpacing={0.9}>CLOSE</Utils.Text>
+          <Utils.Text size='tiny' letterSpacing={0.9}>{tl.t('close').toUpperCase()}</Utils.Text>
         </DarkButton>
       </LinearGradient>
     </Modal>

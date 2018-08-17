@@ -4,6 +4,7 @@ import { Image, StyleSheet } from 'react-native'
 import ButtonIconGradient from '../../components/ButtonIconGradient'
 
 import * as Utils from '../../components/Utils'
+import tl from '../../utils/i18n'
 
 const ICON_SIZE = 22
 
@@ -15,7 +16,7 @@ const BalanceNavigation = ({ navigation }) => {
       <Utils.VerticalSpacer size='xsmall' />
       <Utils.Row>
         <ButtonIconGradient
-          text='PAY'
+          text={tl.t('makePayment.pay').toUpperCase()}
           icon={<Image
             source={require('../../assets/icon-scan.png')}
             style={styles.icon}
@@ -24,7 +25,7 @@ const BalanceNavigation = ({ navigation }) => {
           onPress={() => navigateNext('ScanPayScene')}
         />
         <ButtonIconGradient
-          text='SEND'
+          text={tl.t('send.title').toUpperCase()}
           full
           icon={<Image
             source={require('../../assets/icon-send.png')}
@@ -33,7 +34,7 @@ const BalanceNavigation = ({ navigation }) => {
           onPress={() => navigateNext('SendScene')}
         />
         <ButtonIconGradient
-          text='RECEIVE'
+          text={tl.t('receive.title').toUpperCase()}
           full
           icon={<Image
             source={require('../../assets/icon-qrcode.png')}
@@ -42,7 +43,7 @@ const BalanceNavigation = ({ navigation }) => {
           onPress={() => navigateNext('PaymentsScene')}
         />
         <ButtonIconGradient
-          text='FREEZE'
+          text={tl.t('freeze.title').toUpperCase()}
           multiColumnButton={{x: 2, y: 3}}
           full
           icon={<Image

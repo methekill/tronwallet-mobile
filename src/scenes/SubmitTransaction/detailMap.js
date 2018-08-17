@@ -1,7 +1,7 @@
 import React from 'react'
 
 import tl from '../../utils/i18n'
-import DetailRow from './detailRow'
+import { DetailRow } from './elements'
 import { ONE_TRX } from '../../services/client'
 
 const dic = {

@@ -158,13 +158,14 @@ class ClientWallet {
     return result
   }
 
-  async getTransferTransaction ({ to, from, token, amount }) {
+  async getTransferTransaction ({ to, from, token, amount, data }) {
     const { nodeIp } = await NodesIp.getAllNodesIp()
     const reqBody = {
       from,
       to,
       amount,
       token,
+      data,
       node: nodeIp
     }
     const { data: { transaction } } = await axios.post(

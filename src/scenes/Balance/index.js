@@ -27,7 +27,7 @@ import { getUserSecrets } from '../../utils/secretsUtils'
 import { updateAssets } from '../../utils/assetsUtils'
 import withContext from '../../utils/hocs/withContext'
 
-const CURRENCIES = [tl.t('cancel'), 'USD', 'EUR', 'BTC', 'ETH']
+const CURRENCIES = [tl.t('cancel'), 'USD', 'EUR', 'BTC', 'ETH', 'AUD']
 
 class BalanceScene extends Component {
   static navigationOptions = {

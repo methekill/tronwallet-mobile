@@ -4,7 +4,7 @@ import getBalanceStore from '../store/balance'
 import getTransactionStore from '../store/transactions'
 import getAssetsStore from '../store/assets'
 import getCandidatesStore from '../store/candidates'
-import { USER_STATUS } from './constants'
+import { USER_STATUS, USER_FILTERED_TOKENS } from './constants'
 
 import NodesIp from '../utils/nodeIp'
 // TODO
@@ -51,7 +51,8 @@ export const restartAllWalletData = async () => {
       resetWalletData(),
       resetListsData(),
       NodesIp.switchTestnet(false),
-      AsyncStorage.setItem(USER_STATUS, 'reset')
+      AsyncStorage.setItem(USER_STATUS, 'reset'),
+      AsyncStorage.removeItem(USER_FILTERED_TOKENS)
     ])
   } catch (error) {
     throw error

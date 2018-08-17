@@ -12,6 +12,7 @@ import {
   WebView
 } from 'react-native'
 
+import SectionedMultiSelect from 'react-native-sectioned-multi-select'
 import ActionSheet from 'react-native-actionsheet'
 import Toast from 'react-native-easy-toast'
 import { Answers } from 'react-native-fabric'
@@ -19,16 +20,17 @@ import { createIconSetFromFontello } from 'react-native-vector-icons'
 import { StackActions, NavigationActions } from 'react-navigation'
 import OneSignal from 'react-native-onesignal'
 import Switch from 'react-native-switch-pro'
-import ConfigJson from '../../../package.json'
 
 // Design
 import * as Utils from '../../components/Utils'
-import { VersionText, SectionTitle, Getty, PayPartner } from './elements'
 import { Colors, Spacing } from '../../components/DesignSystem'
 import NavigationHeader from '../../components/Navigation/Header'
+import { SectionTitle } from './elements'
 
 // Utils
-import { USER_PREFERRED_LANGUAGE } from '../../utils/constants'
+import getBalanceStore from '../../store/balance'
+import { orderAssets } from '../../utils/assetsUtils'
+import { USER_PREFERRED_LANGUAGE, USER_FILTERED_TOKENS, FIXED_TOKENS } from '../../utils/constants'
 import tl from '../../utils/i18n'
 import fontelloConfig from '../../assets/icons/config.json'
 import { withContext } from '../../store/context'
@@ -38,17 +40,21 @@ import Client from '../../services/client'
 import Loading from '../../components/LoadingScene'
 
 const Icon = createIconSetFromFontello(fontelloConfig, 'tronwallet')
+
 const resetAction = StackActions.reset({
   index: 0,
   actions: [NavigationActions.navigate({ routeName: 'Loading' })],
   key: null
 })
+
 const LANGUAGES = [
   { value: tl.t('cancel') },
   { key: 'en-US', value: 'English' },
   { key: 'pt-BR', value: 'Português' },
   { key: 'fr-FR', value: 'Français' },
-  { key: 'nl-NL', value: 'Nederlands' }
+  { key: 'nl-NL', value: 'Nederlands' },
+  { key: 'es-ES', value: 'Español' },
+  { key: 'ch-CH', value: '中文' }
 ]
 
 class Settings extends Component {
@@ -61,15 +67,19 @@ class Settings extends Component {
   state = {
     seed: null,
     loading: true,
+    modalVisible: false,
+    uri: '',
     subscriptionStatus: null,
     changingSubscription: false,
-    modalVisible: false,
-    partnerUri: ''
+    userTokens: [],
+    userSelectedTokens: [],
+    currentSelectedTokens: []
   }
 
   componentDidMount () {
     Answers.logContentView('Tab', 'Settings')
     this._onLoadData()
+    this._getSelectedTokens()
     OneSignal.getPermissionSubscriptionState(
       status => this.setState({ subscriptionStatus: status.userSubscriptionEnabled === 'true' })
     )
@@ -79,6 +89,26 @@ class Settings extends Component {
     const data = await getUserSecrets(this.props.context.pin)
     const seed = data.mnemonic
     this.setState({ seed, loading: false })
+  }
+
+  _getSelectedTokens = async () => {
+    try {
+      const store = await getBalanceStore()
+      const tokens = store.objects('Balance')
+        .map(({ name }) => ({ id: name, name }))
+        .filter(({ name }) => FIXED_TOKENS.findIndex(token => token === name) === -1)
+
+      const filteredTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
+      const selectedTokens = filteredTokens ? JSON.parse(filteredTokens) : []
+
+      this.setState({
+        userTokens: orderAssets(tokens),
+        userSelectedTokens: selectedTokens,
+        currentSelectedTokens: selectedTokens
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   _resetWallet = async () => {
@@ -121,6 +151,8 @@ class Settings extends Component {
     )
   }
 
+  _openLink = (uri) => this.setState({ modalVisible: true, uri })
+
   _handleLanguageChange = async (index) => {
     if (index !== 0) {
       const language = LANGUAGES[index]
@@ -133,123 +165,172 @@ class Settings extends Component {
     }
   }
 
-  _openPartnerLink = (partnerUri) => this.setState({ modalVisible: true, partnerUri })
+  _saveSelectedTokens = async () => {
+    const { currentSelectedTokens } = this.state
+    try {
+      await AsyncStorage.setItem(USER_FILTERED_TOKENS, JSON.stringify(currentSelectedTokens))
+      this.setState({ userSelectedTokens: currentSelectedTokens })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  _renderNoResults = () => (
+    <Utils.Text lineHeight={20} size='small' color={Colors.background}>
+      {tl.t('settings.token.noResult')}
+    </Utils.Text>
+  )
+
+  _showTokenSelect = () => {
+    const { userSelectedTokens } = this.state
+    this.setState({ currentSelectedTokens: userSelectedTokens })
+    this.SectionedMultiSelect._toggleSelector()
+  }
 
   _renderList = () => {
-    const { seed } = this.state
+    const { seed, userTokens } = this.state
     const list = [
       {
-        title: tl.t('settings.notifications.title'),
-        description: tl.t('settings.notifications.description'),
-        icon: 'user,-person,-avtar,-profile-picture,-dp',
-        right: () => {
-          if ((this.state.subscriptionStatus === null) || this.state.changingSubscription) {
-            return <ActivityIndicator size='small' color={Colors.primaryText} />
+        title: tl.t('settings.sectionTitles.wallet'),
+        sectionLinks: [
+          {
+            title: tl.t('settings.token.title'),
+            description: tl.t('settings.token.description'),
+            icon: 'sort,-filter,-arrange,-funnel,-filter',
+            hide: userTokens.length === 0,
+            onPress: this._showTokenSelect
+          },
+          {
+            title: tl.t('settings.about.title'),
+            description: tl.t('settings.about.description'),
+            icon: 'question-mark,-circle,-sign,-more,-info',
+            onPress: () => { this.props.navigation.navigate('About') }
+          },
+          {
+            title: tl.t('settings.accepts.title'),
+            icon: 'question-mark,-circle,-sign,-more,-info',
+            onPress: () => { this._openLink('https://www.tronwallet.me/who-accepts-tronwalletme') }
           }
-          return (
-            <Switch
-              circleStyle={{ backgroundColor: Colors.orange }}
-              backgroundActive={Colors.yellow}
-              backgroundInactive={Colors.secondaryText}
-              value={this.state.subscriptionStatus}
-              onSyncPress={this._changeSubscription}
-            />
-          )
-        }
+        ]
       },
       {
-        title: tl.t('settings.network.title'),
-        description: tl.t('settings.network.description'),
-        icon: 'share,-network,-connect,-community,-media',
-        onPress: () => this.props.navigation.navigate('NetworkConnection')
+        title: tl.t('settings.sectionTitles.security'),
+        sectionLinks: [
+          {
+            title: tl.t('settings.backup.title'),
+            description: tl.t('settings.backup.description'),
+            icon: 'key,-password,-lock,-privacy,-login',
+            onPress: () => this.props.navigation.navigate('Pin', {
+              shouldGoBack: true,
+              testInput: pin => pin === this.props.context.pin,
+              onSuccess: () => this.props.navigation.navigate('SeedCreate', { seed })
+            })
+          },
+          {
+            title: tl.t('settings.restore.title'),
+            description: tl.t('settings.restore.description'),
+            icon: 'folder-sync,-data,-folder,-recovery,-sync',
+            onPress: () => this.props.navigation.navigate('Pin', {
+              shouldGoBack: true,
+              testInput: pin => pin === this.props.context.pin,
+              onSuccess: () => this.props.navigation.navigate('SeedRestore')
+            })
+          },
+          {
+            title: tl.t('settings.reset.title'),
+            description: tl.t('settings.reset.description'),
+            icon: 'delete,-trash,-dust-bin,-remove,-recycle-bin',
+            onPress: this._resetWallet
+          }
+        ]
       },
       {
-        title: tl.t('settings.backup.title'),
-        description: tl.t('settings.backup.description'),
-        icon: 'key,-password,-lock,-privacy,-login',
-        onPress: () => this.props.navigation.navigate('Pin', {
-          shouldGoBack: true,
-          testInput: pin => pin === this.props.context.pin,
-          onSuccess: () => this.props.navigation.navigate('SeedCreate', { seed })
-        })
-      },
-      {
-        title: tl.t('settings.restore.title'),
-        description: tl.t('settings.restore.description'),
-        icon: 'folder-sync,-data,-folder,-recovery,-sync',
-        onPress: () => this.props.navigation.navigate('Pin', {
-          shouldGoBack: true,
-          testInput: pin => pin === this.props.context.pin,
-          onSuccess: () => this.props.navigation.navigate('SeedRestore')
-        })
-      },
-      {
-        title: tl.t('settings.reset.title'),
-        description: tl.t('settings.reset.description'),
-        icon: 'delete,-trash,-dust-bin,-remove,-recycle-bin',
-        onPress: this._resetWallet
-      },
-      {
-        title: tl.t('settings.language.title'),
-        description: tl.t('settings.language.description'),
-        icon: 'earth,-globe,-planet,-world,-universe',
-        onPress: () => this.ActionSheet.show()
+        title: tl.t('settings.sectionTitles.notification'),
+        sectionLinks: [
+          {
+            title: tl.t('settings.language.title'),
+            description: tl.t('settings.language.description'),
+            icon: 'earth,-globe,-planet,-world,-universe',
+            onPress: () => this.ActionSheet.show()
+          },
+          {
+            title: tl.t('settings.notifications.title'),
+            description: tl.t('settings.notifications.description'),
+            icon: 'user,-person,-avtar,-profile-picture,-dp',
+            right: () => {
+              if ((this.state.subscriptionStatus === null) || this.state.changingSubscription) {
+                return <ActivityIndicator size='small' color={Colors.primaryText} />
+              }
+              return (
+                <Switch
+                  circleStyle={{ backgroundColor: Colors.orange }}
+                  backgroundActive={Colors.yellow}
+                  backgroundInactive={Colors.secondaryText}
+                  value={this.state.subscriptionStatus}
+                  onSyncPress={this._changeSubscription}
+                />
+              )
+            }
+          },
+          {
+            title: tl.t('settings.network.title'),
+            description: tl.t('settings.network.description'),
+            icon: 'share,-network,-connect,-community,-media',
+            onPress: () => this.props.navigation.navigate('NetworkConnection')
+          }
+        ]
       }
     ]
 
     return (
       <ScrollView>
-        {list.map(item => {
-          const arrowIconName = 'arrow,-right,-right-arrow,-navigation-right,-arrows'
-          return (
-            <TouchableWithoutFeedback onPress={item.onPress} key={item.title}>
-              <Utils.Item padding={16}>
-                <Utils.Row justify='space-between' align='center'>
-                  <Utils.Row justify='space-between' align='center'>
-                    <View style={styles.rank}>
-                      <Icon
-                        name={item.icon}
-                        size={22}
-                        color={Colors.secondaryText}
-                      />
-                    </View>
-                    <Utils.View>
-                      <Utils.Text lineHeight={20} size='small'>
-                        {item.title}
-                      </Utils.Text>
-                    </Utils.View>
-                  </Utils.Row>
-                  {(!!item.onPress && !item.right) && (
-                    <Icon
-                      name={arrowIconName}
-                      size={15}
-                      color={Colors.secondaryText}
-                    />
-                  )}
-                  {item.right && item.right()}
-                </Utils.Row>
-              </Utils.Item>
-            </TouchableWithoutFeedback>
-          )
-        })}
-        <SectionTitle>{tl.t('settings.partners')}</SectionTitle>
-        <Utils.Row justify='center'>
-          <TouchableWithoutFeedback onPress={() => this._openPartnerLink('https://www.hummingpay.com/')}>
-            <PayPartner source={require('../../assets/paysponsor.png')} />
-          </TouchableWithoutFeedback>
-          <Utils.HorizontalSpacer size='large' />
-          <Utils.HorizontalSpacer size='large' />
-          <TouchableWithoutFeedback onPress={() => this._openPartnerLink('https://getty.io/')}>
-            <Getty source={require('../../assets/gettysponsor.png')} />
-          </TouchableWithoutFeedback>
-        </Utils.Row>
-        <VersionText>{`v${ConfigJson.version}`}</VersionText>
+        {list.map(item => (
+          <View key={item.title}>
+            <SectionTitle>
+              {item.title}
+            </SectionTitle>
+            {item.sectionLinks.map(item => {
+              const arrowIconName = 'arrow,-right,-right-arrow,-navigation-right,-arrows'
+              return !item.hide
+                ? (
+                  <TouchableWithoutFeedback onPress={item.onPress} key={item.title}>
+                    <Utils.Item padding={16}>
+                      <Utils.Row justify='space-between' align='center'>
+                        <Utils.Row justify='space-between' align='center'>
+                          <View style={styles.rank}>
+                            <Icon
+                              name={item.icon}
+                              size={22}
+                              color={Colors.secondaryText}
+                            />
+                          </View>
+                          <Utils.View>
+                            <Utils.Text lineHeight={20} size='small'>
+                              {item.title}
+                            </Utils.Text>
+                          </Utils.View>
+                        </Utils.Row>
+                        {(!!item.onPress && !item.right) && (
+                          <Icon
+                            name={arrowIconName}
+                            size={15}
+                            color={Colors.secondaryText}
+                          />
+                        )}
+                        {item.right && item.right()}
+                      </Utils.Row>
+                    </Utils.Item>
+                  </TouchableWithoutFeedback>
+                ) : null
+            })}
+          </View>
+        ))}
       </ScrollView>
     )
   }
 
   render () {
-    const { partnerUri, modalVisible } = this.state
+    const { userTokens, currentSelectedTokens, uri, modalVisible } = this.state
     const languageOptions = LANGUAGES.map(language => language.value)
 
     return (
@@ -277,12 +358,26 @@ class Settings extends Component {
           visible={modalVisible}
           onRequestClose={() => this.setState({ modalVisible: false })}
         >
+          <NavigationHeader title='' onBack={() => { this.setState({ modalVisible: false }) }} />
           <WebView
-            source={{ uri: partnerUri }}
+            source={{ uri }}
             renderLoading={() => <Loading />}
             startInLoadingState
           />
         </Modal>
+        <SectionedMultiSelect
+          ref={ref => { this.SectionedMultiSelect = ref }}
+          items={userTokens}
+          uniqueKey='id'
+          onSelectedItemsChange={(selected) => this.setState({ currentSelectedTokens: selected })}
+          selectedItems={currentSelectedTokens}
+          onConfirm={this._saveSelectedTokens}
+          showChips={false}
+          hideSelect
+          searchPlaceholderText={tl.t('settings.token.search')}
+          confirmText={tl.t('settings.token.confirm')}
+          noResultsComponent={this._renderNoResults()}
+        />
         <ScrollView>
           {this._renderList()}
         </ScrollView>

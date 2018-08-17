@@ -12,16 +12,14 @@ class TransactionsSuccess extends PureComponent {
     const { navigation } = this.props
     const stackToReset = navigation.getParam('stackToReset', null)
     const resetAction = StackActions.reset({
-      index: 1,
+      index: 0,
       actions: [
-        NavigationActions.navigate({ routeName: 'App' }),
         NavigationActions.navigate({ routeName: stackToReset })
-      ]
+      ],
+      key: stackToReset
     })
     const navigateToHome = NavigationActions.navigate({ routeName: 'Transactions' })
-    if (stackToReset) {
-      navigation.dispatch(resetAction)
-    }
+    if (stackToReset) navigation.dispatch(resetAction)
     navigation.dispatch(navigateToHome)
   }
 

@@ -8,6 +8,9 @@ import ReceiveScene from '../Receive/index'
 import PaymentBuilderScene from './Build'
 import NavigationHeader from '../../components/Navigation/Header'
 
+// Utils
+import tl from '../../utils/i18n'
+
 const initialLayout = {
   height: 0,
   width: Dimensions.get('window').width
@@ -25,8 +28,8 @@ export default class TransferScene extends Component {
   state = {
     index: 0,
     routes: [
-      { key: 'request', title: 'REQUEST' },
-      { key: 'receive', title: 'SHARE' }
+      { key: 'request', title: tl.t('receive.tabs.request') },
+      { key: 'share', title: tl.t('receive.tabs.share') }
     ]
   }
 
@@ -59,14 +62,14 @@ export default class TransferScene extends Component {
 
   _renderScene = SceneMap({
     request: () => <PaymentBuilderScene {...this.props} />,
-    receive: () => <ReceiveScene {...this.props} />
+    share: () => <ReceiveScene {...this.props} />
   })
 
   render () {
     return (
       <React.Fragment>
         <NavigationHeader
-          title='RECEIVE'
+          title={tl.t('receive.title')}
           onBack={() => { this.props.navigation.goBack() }}
         />
         <TabViewAnimated

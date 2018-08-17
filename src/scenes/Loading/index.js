@@ -8,11 +8,12 @@ import { Colors } from '../../components/DesignSystem'
 import { updateAssets } from '../../utils/assetsUtils'
 import SecretStore from '../../store/secrets'
 import { withContext } from '../../store/context'
-import { USER_STATUS } from '../../utils/constants'
+import { USER_STATUS, USER_FILTERED_TOKENS, FIXED_TOKENS } from '../../utils/constants'
 
 class LoadingScene extends Component {
   async componentDidMount () {
     await updateAssets(0, 1, 'twx')
+    await this._setFilteredTokens()
     SplashScreen.hide()
     this._askPin()
   }
@@ -23,6 +24,13 @@ class LoadingScene extends Component {
       return useStatus || true
     } else {
       return false
+    }
+  }
+
+  _setFilteredTokens = async () => {
+    const filteredTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
+    if (filteredTokens === null) {
+      await AsyncStorage.setItem(USER_FILTERED_TOKENS, JSON.stringify(FIXED_TOKENS))
     }
   }
 

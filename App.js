@@ -23,6 +23,7 @@ import TransactionListScene from './src/scenes/Transactions'
 import SubmitTransactionScene from './src/scenes/SubmitTransaction'
 import FreezeScene from './src/scenes/Freeze'
 import Settings from './src/scenes/Settings'
+import About from './src/scenes/About'
 import TokenInfoScene from './src/scenes/Participate/TokenInfo'
 import BuyScene from './src/scenes/Participate/Buy'
 import GetVaultScene from './src/scenes/GetVault'
@@ -67,6 +68,7 @@ YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTIm
 
 const SettingsStack = createStackNavigator({
   Settings,
+  About,
   SeedCreate,
   SeedConfirm,
   NetworkConnection

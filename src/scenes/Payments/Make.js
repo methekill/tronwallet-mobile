@@ -9,6 +9,7 @@ import NavigationHeader from '../../components/Navigation/Header'
 import Badge from '../../components/Badge'
 import ButtonGradient from '../../components/ButtonGradient'
 import { Divider } from './elements'
+import { Colors } from '../../components/DesignSystem'
 
 // Service
 import WalletClient from '../../services/client'
@@ -20,7 +21,7 @@ import getBalanceStore from '../../store/balance'
 import { formatNumber } from '../../utils/numberUtils'
 import { translateError } from '../../scenes/SubmitTransaction/detailMap'
 import getTransactionStore from '../../store/transactions'
-import { Colors } from '../../components/DesignSystem'
+import tl from '../../utils/i18n'
 
 const NOTIFICATION_TRANSACTIONS = ['Transfer', 'Transfer Asset']
 
@@ -75,13 +76,13 @@ class MakePayment extends PureComponent {
         const store = await getBalanceStore()
         store.write(() => balances.map(item => store.create('Balance', item, true)))
       } catch (error) {
-        Alert.alert('Error checking balances, please refresh this tab')
+        Alert.alert(tl.t('warning'), tl.t('balance.error.loadingData'))
       }
     }
 
     _navigateNext = () => {
       const { navigation } = this.props
-      navigation.navigate('TransactionSuccess', {stackToReset: 'BalanceScene', navigation})
+      navigation.navigate('TransactionSuccess', {stackToReset: 'BalanceScene'})
     }
 
     _checkToken = token => !!this.state.balances.find(b => b.name === token)
@@ -94,9 +95,9 @@ class MakePayment extends PureComponent {
       this.setState({loading: true})
       try {
         const { address, amount, token } = navigation.getParam('payment')
-        if (from === address) throw new DataError('Receiver is equal to requester')
-        if (!this._checkToken(token)) throw new DataError('This account doesn\'t have the token for this transaction')
-        if (!this._checkAmount(amount, token)) throw new DataError('This account doesn\'t have enough balance.')
+        if (from === address) throw new DataError(tl.t('makePayment.error.receiver'))
+        if (!this._checkToken(token)) throw new DataError(tl.t('makePayment.error.token'))
+        if (!this._checkAmount(amount, token)) throw new DataError(tl.t('makePayment.error.amount'))
 
         navigation.navigate('Pin', {
           shouldGoBack: true,
@@ -104,8 +105,8 @@ class MakePayment extends PureComponent {
           onSuccess: () => this._buildTransaction({from, to: address, amount, token})
         })
       } catch (error) {
-        if (error.name === 'DataError') Alert.alert('Warning', error.message)
-        else Alert.alert('Warning', 'Payment code invalid. Please, scan a valid one')
+        if (error.name === 'DataError') Alert.alert(tl.t('warning'), error.message)
+        else Alert.alert(tl.t('warning'), tl.t('makePayment.error.receiver'))
         this.setState({loading: false})
       }
     }
@@ -121,7 +122,7 @@ class MakePayment extends PureComponent {
         // Proceed to broadcast
         this._submitTransaction(transactionData, transactionSigned)
       } catch (error) {
-        Alert.alert('Warning', 'Woops something went wrong. Try again or if the error persist try another QRCode payment.')
+        Alert.alert(tl.t('warning'), tl.t('error.default'))
         this.setState({ loading: false })
       }
     }
@@ -140,7 +141,7 @@ class MakePayment extends PureComponent {
             const response = await WalletClient.getDevicesFromPublicKey(transaction.contractData.transferToAddress)
             if (response.data.users.length) {
               const content = {
-                'en': `You have received a payment from ${transaction.contractData.transferFromAddress}`
+                'en': tl.t('submitTransaction.notificationPayment', { address: transaction.contractData.transferFromAddress })
               }
               response.data.users.map(device => {
                 OneSignal.postNotification(content, transaction, device.deviceid)
@@ -153,7 +154,7 @@ class MakePayment extends PureComponent {
       } catch (error) {
         // This needs to be adapted better from serverless api
         const errorMessage = error.response && error.response.data ? translateError(error.response.data.error)
-          : 'Woops something went wrong. Try again or if the error persist try another QRCode payment.'
+          : tl.t('error.default')
         Alert.alert('Warning', errorMessage)
         store.write(() => {
           const lastTransaction = store.objectForPrimaryKey('Transaction', hash)
@@ -177,7 +178,7 @@ class MakePayment extends PureComponent {
           />
           <Utils.VerticalSpacer size='large' />
           <Utils.View align='center' justify='center'>
-            <Utils.Text marginBottom={5} numberOfLines={2} size='xsmall' secondary>AMOUNT</Utils.Text>
+            <Utils.Text marginBottom={5} numberOfLines={2} size='xsmall' secondary>{tl.t('send.input.amount')}</Utils.Text>
             <Utils.Row justify='space-between' align='center'>
               <Utils.Text size='large'>{formatNumber(amount, true)}</Utils.Text>
               <Utils.HorizontalSpacer />
@@ -186,20 +187,20 @@ class MakePayment extends PureComponent {
           </Utils.View>
           <Divider size='medium' marginBottom={10} />
           <Utils.View paddingX='medium'>
-            <Utils.Text marginBottom={15} size='xsmall' secondary>TO</Utils.Text>
+            <Utils.Text marginBottom={15} size='xsmall' secondary>{tl.t('send.input.to')}</Utils.Text>
             <Utils.Text font='regular' size='xsmall'>{address}</Utils.Text>
           </Utils.View>
           <Divider size='medium' marginBottom={10} />
           <Utils.View paddingX='medium'>
-            <Utils.Text marginBottom={15} size='xsmall' secondary>DESCRIPTION</Utils.Text>
-            <Utils.Text font='regular' size='xsmall'>{description || 'No description available'}</Utils.Text>
+            <Utils.Text marginBottom={15} size='xsmall' secondary>{tl.t('send.input.description')}</Utils.Text>
+            <Utils.Text font='regular' size='xsmall'>{description || tl.t('makePayment.error.description')}</Utils.Text>
           </Utils.View>
           <Utils.VerticalSpacer size='large' />
           <Utils.View paddingX='medium'>
             {loading
               ? <ActivityIndicator size='small' color={Colors.primaryText} />
               : <ButtonGradient
-                text='CONFIRM PAYMENT'
+                text={tl.t('makePayment.confirm')}
                 onPress={this._checkPayment}
               />}
           </Utils.View>

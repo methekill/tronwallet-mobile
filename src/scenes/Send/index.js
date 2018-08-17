@@ -6,7 +6,9 @@ import {
   Alert,
   Modal,
   TouchableOpacity,
-  Keyboard
+  Keyboard,
+  ScrollView,
+  AsyncStorage
 } from 'react-native'
 
 import { Answers } from 'react-native-fabric'
@@ -29,10 +31,11 @@ import { signTransaction } from '../../utils/transactionUtils'
 import { formatNumber } from '../../utils/numberUtils'
 import getBalanceStore from '../../store/balance'
 import { withContext } from '../../store/context'
+import { USER_FILTERED_TOKENS } from '../../utils/constants'
 
 class SendScene extends Component {
-  static navigationOptions = {
-    header: null
+  static navigationOptions = ({ navigation }) => {
+    return { header: null }
   }
 
   state = {
@@ -40,6 +43,7 @@ class SendScene extends Component {
     to: this.props.navigation.getParam('address', ''),
     amount: '',
     token: 'TRX',
+    description: '',
     addressError: null,
     formattedToken: ``,
     balances: [{
@@ -93,7 +97,9 @@ class SendScene extends Component {
 
       if (balances.length) {
         balance = balances.find(b => b.name === 'TRX').balance
-        orderedBalances = this._orderBalances(balances)
+        const userTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
+        const filteredBalances = balances.filter(asset => JSON.parse(userTokens).findIndex(name => name === asset.name) !== -1)
+        orderedBalances = this._orderBalances(filteredBalances)
       }
 
       this.setState({
@@ -136,7 +142,7 @@ class SendScene extends Component {
   }
 
   _submit = () => {
-    const { amount, to, balances, token, from } = this.state
+    const { amount, to, balances, token, from, description } = this.state
     const balanceSelected = balances.find(b => b.name === token)
 
     if (!isAddressValid(to) || from === to) {
@@ -145,6 +151,11 @@ class SendScene extends Component {
     }
     if (!balanceSelected) {
       this.setState({ error: tl.t('send.error.selectBalance') })
+      return
+    }
+
+    if (description.length > 500) {
+      this.setState({ error: 'Description too long' })
       return
     }
 
@@ -165,7 +176,7 @@ class SendScene extends Component {
   }
 
   _transferAsset = async () => {
-    const { from, to, amount, token } = this.state
+    const { from, to, amount, token, description } = this.state
     this.setState({ loadingSign: true, error: null })
     try {
       // Serverless
@@ -173,7 +184,8 @@ class SendScene extends Component {
         from,
         to,
         amount,
-        token
+        token,
+        data: description
       })
       this._openTransactionDetails(data)
       this.clearInput()
@@ -270,86 +282,95 @@ class SendScene extends Component {
       <KeyboardScreen>
         <NavigationHeader
           title={tl.t('send.title')}
-          onBack={() => { this.props.navigation.goBack() }}
-          noBorder
+          onBack={() => this.props.navigation.goBack()}
         />
-        <Utils.Content>
-          <ActionSheet
-            ref={ref => { this.ActionSheet = ref }}
-            title={tl.t('send.chooseToken')}
-            options={tokenOptions}
-            cancelButtonIndex={0}
-            onPress={index => this._handleTokenChange(index, tokenOptions[index])}
-          />
-          <TouchableOpacity onPress={() => this.ActionSheet.show()}>
+        <ScrollView>
+          <Utils.Content>
+            <ActionSheet
+              ref={ref => { this.ActionSheet = ref }}
+              title={tl.t('send.chooseToken')}
+              options={tokenOptions}
+              cancelButtonIndex={0}
+              onPress={index => this._handleTokenChange(index, tokenOptions[index])}
+            />
+            <TouchableOpacity onPress={() => this.ActionSheet.show()}>
+              <Input
+                label={tl.t('send.input.token')}
+                value={this.state.formattedToken}
+                rightContent={this._rightContentToken}
+                editable={false}
+              />
+            </TouchableOpacity>
+            <Utils.VerticalSpacer size='medium' />
             <Input
-              label={tl.t('send.input.token')}
-              value={this.state.formattedToken}
-              rightContent={this._rightContentToken}
-              editable={false}
+              innerRef={(input) => { this.to = input }}
+              label={tl.t('send.input.to')}
+              rightContent={this._rightContentTo}
+              value={to}
+              onChangeText={to => this._changeAddress(to)}
+              onSubmitEditing={() => this._nextInput('to')}
             />
-          </TouchableOpacity>
-          <Utils.VerticalSpacer size='medium' />
-          <Input
-            innerRef={(input) => { this.to = input }}
-            label={tl.t('send.input.to')}
-            rightContent={this._rightContentTo}
-            value={to}
-            onChangeText={to => this._changeAddress(to)}
-            onSubmitEditing={() => this._nextInput('to')}
-          />
-          {addressError && (
-            <React.Fragment>
-              <Utils.Text size='xsmall' color='#ff5454'>
-                {addressError}
-              </Utils.Text>
-            </React.Fragment>
-          )}
-          <Modal
-            visible={this.state.QRModalVisible}
-            onRequestClose={this._closeModal}
-            animationType='slide'
-          >
-            <QRScanner
-              onRead={this._readPublicKey}
-              onClose={this._closeModal}
-              checkAndroid6Permissions
+            {addressError && (
+              <React.Fragment>
+                <Utils.Text size='xsmall' color='#ff5454'>
+                  {addressError}
+                </Utils.Text>
+              </React.Fragment>
+            )}
+            <Modal
+              visible={this.state.QRModalVisible}
+              onRequestClose={this._closeModal}
+              animationType='slide'
+            >
+              <QRScanner
+                onRead={this._readPublicKey}
+                onClose={this._closeModal}
+                checkAndroid6Permissions
+              />
+            </Modal>
+            <Utils.VerticalSpacer size='medium' />
+            <Input
+              innerRef={(input) => { this.amount = input }}
+              label={tl.t('send.input.amount')}
+              keyboardType='numeric'
+              value={amount}
+              placeholder='0'
+              onChangeText={text => this._changeInput(text, 'amount')}
+              onSubmitEditing={() => this._nextInput('description')}
+              align='right'
+              type='float'
+              numbersOnly
             />
-          </Modal>
-          <Utils.VerticalSpacer size='medium' />
-          <Input
-            innerRef={(input) => { this.amount = input }}
-            label={tl.t('send.input.amount')}
-            keyboardType='numeric'
-            value={amount}
-            placeholder='0'
-            onChangeText={text => this._changeInput(text, 'amount')}
-            onSubmitEditing={() => this._nextInput('amount')}
-            align='right'
-            type='float'
-            numbersOnly
-          />
-          <Utils.Text light size='xsmall' secondary>
-            {tl.t('send.minimumAmount')}
-          </Utils.Text>
-          <Utils.VerticalSpacer size='large' />
-          {error && (
-            <React.Fragment>
-              <Utils.Error>{error}</Utils.Error>
-              <Utils.VerticalSpacer size='large' />
-            </React.Fragment>
-          )}
-          {loadingSign || loadingData ? (
-            <ActivityIndicator size='small' color={Colors.primaryText} />
-          ) : (
-            <ButtonGradient
-              font='bold'
-              text={tl.t('send.title')}
-              onPress={this._submit}
-              disabled={Number(amount) <= 0 || Number(balanceSelected.balance) < Number(amount) || !isAddressValid(to)}
+            <Utils.Text light size='xsmall' secondary>
+              {tl.t('send.minimumAmount')}
+            </Utils.Text>
+            <Utils.VerticalSpacer size='medium' />
+            <Input
+              innerRef={(input) => { this.description = input }}
+              label={tl.t('send.input.description')}
+              onChangeText={text => this._changeInput(text, 'description')}
+              placeholder={tl.t('send.input.placeholder')}
+              align='right'
             />
-          )}
-        </Utils.Content>
+            {error && (
+              <React.Fragment>
+                <Utils.Error>{error}</Utils.Error>
+                <Utils.VerticalSpacer size='large' />
+              </React.Fragment>
+            )}
+            <Utils.VerticalSpacer size='large' />
+            {loadingSign || loadingData ? (
+              <ActivityIndicator size='small' color={Colors.primaryText} />
+            ) : (
+              <ButtonGradient
+                font='bold'
+                text={tl.t('send.title')}
+                onPress={this._submit}
+                disabled={Number(amount) <= 0 || Number(balanceSelected.balance) < Number(amount) || !isAddressValid(to)}
+              />
+            )}
+          </Utils.Content>
+        </ScrollView>
       </KeyboardScreen>
     )
   }

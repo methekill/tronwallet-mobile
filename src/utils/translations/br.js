@@ -220,7 +220,9 @@ const send = {
   input: {
     token: 'MOEDA',
     to: 'PARA',
-    amount: 'QUANTIA'
+    amount: 'QUANTIA',
+    description: 'DESCRIÇÃO (OPCIONAL)',
+    placeholder: 'Descreva esta transferência'
   },
   available: 'disponível',
   chooseToken: 'Por favor, escolha um moeda abaixo.',
@@ -229,6 +231,11 @@ const send = {
 
 const settings = {
   title: 'CONFIGURAÇÕES',
+  sectionTitles: {
+    wallet: 'CARTEIRA',
+    security: 'SEGURANÇA',
+    notification: 'NOTIFICAÇÕES E IDIOMAS'
+  },
   notifications: {
     title: 'Notificações',
     description: 'Habilita ou desabilita recebimento de notificações'
@@ -285,6 +292,21 @@ const settings = {
     choose: 'Por favor, escolha um Idioma abaixo:',
     success: 'Idioma alterado para {{language}}, por favor reinicie o app',
     error: 'Erro ao salvar Idioma'
+  },
+  token: {
+    title: 'Filtrar Moedas',
+    description: 'Escolha quais moedas exibir',
+    search: 'Buscar moedas',
+    confirm: 'Salvar',
+    noResult: 'Nenhum resultado...'
+  },
+  about: {
+    title: 'Sobre',
+    description: 'TronWallet é uma P2P Crypto Wallet de código aberto para a rede TRON construído com React Native. Com ela você pode enviar/receber Tokens, votar em um Super Representante, participar em uma venda de token, acompanhar suas transações e muito mais. Toque no link abaixo para um tutorial detalhado de como usar o app.',
+    tutorial: 'TUTORIAL'
+  },
+  accepts: {
+    title: 'Quem aceita TRX?'
   },
   partners: 'PARCEIROS'
 }
@@ -370,6 +392,27 @@ const votes = {
   error: `Oops, algo não carregou corretamente. Tente recarregar.`
 }
 
+const makePayment = {
+  pay: 'PAGAMENTO',
+  confirm: 'CONFIRMAR PAGAMENTO',
+  error: {
+    receiver: 'Destinatário é igual ao solicitante',
+    token: 'Esta conta não possui moeda para esta transação',
+    amount: 'Esta conta não tem fundos suficientes',
+    description: 'Não há descrição disponível'
+  }
+}
+const buildPayment = {
+  generate: 'GERAR PEDIDO',
+  selectCurrency: 'Selecione a moeda de referência',
+  error: {
+    currency: 'Não conseguimos carregar outros preços de moedas. Utilize o TRX como referência'
+  }
+}
+const requestPayment = {
+  title: 'REQUERIR PAGAMENTO'
+}
+
 export default {
   balance,
   components,
@@ -389,5 +432,8 @@ export default {
   transactionDetails,
   transactionSuccess,
   votes,
+  makePayment,
+  buildPayment,
+  requestPayment,
   ...general
 }

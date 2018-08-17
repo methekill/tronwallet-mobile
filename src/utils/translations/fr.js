@@ -220,7 +220,9 @@ const send = {
   input: {
     token: 'JETON',
     to: 'À',
-    amount: 'MONTANT'
+    amount: 'MONTANT',
+    description: 'DESCRIPTION (FACULTATIF)',
+    placeholder: 'Décrivez le transfert'
   },
   available: 'disponible',
   chooseToken: 'Veuillez choisir l\'un des jetons ci-dessous',
@@ -229,6 +231,11 @@ const send = {
 
 const settings = {
   title: 'REGLAGES',
+  sectionTitles: {
+    wallet: 'PORTEFEUILLE',
+    security: 'SÉCURITÉ',
+    notification: 'NOTIFICATIONS ET LANGUE'
+  },
   notifications: {
     title: 'Abonnement aux notifications',
     description: 'Activer ou désactiver les notifications push'
@@ -285,6 +292,21 @@ const settings = {
     choose: 'Veuillez choisir une langue ci-dessous:',
     sucess: 'Langue changé en {{language}}. Veuillez redémarrer l\'application',
     error: 'Erreur lors de la sauvegarde la langue préférée.'
+  },
+  token: {
+    title: 'Filtre de Jetons',
+    description: 'Choisissez les jetons à afficher',
+    search: 'Jetons de recherche',
+    confirm: 'Sauvegarder',
+    noResult: 'Aucun résultat...'
+  },
+  about: {
+    title: 'Sur',
+    description: 'TronWallet est un portefeuille de chiffrement P2P entièrement décentralisé open source pour le réseau TRON construit avec React Native. Avec cela, vous pouvez envoyer et recevoir des jetons, voter pour un Super représentant, participer à une vente par jeton, suivre vos soldes et vos transactions et bien plus encore. Appuyez sur le lien ci-dessous pour un tutoriel détaillé sur son utilisation.',
+    tutorial: 'TUTORIAL'
+  },
+  accepts: {
+    title: 'Qui accepte TRX?'
   },
   partners: 'PARTENAIRES'
 }
@@ -371,6 +393,39 @@ const votes = {
   error: `Erreur lors du chargement. Veuillez réessayer ultérieurement.`
 }
 
+const scanPayment = {
+  scan: 'Balayage',
+  error: {
+    receiver: 'Adresse du destinataire non valide',
+    token: 'Jeton non valide',
+    amount: 'Montant non valide',
+    description: 'Description trop longue',
+    code: 'Code de paiement invalide S\'il vous plaît, numérisez un valide'
+  }
+}
+const makePayment = {
+  pay: 'Payer',
+  confirm: 'CONFIRMER LE PAIEMENT',
+  error: {
+    receiver: 'Récepteur est égal à demandeur',
+    token: 'Ce compte n\'a pas le jeton pour cette transaction',
+    amount: 'Ce compte n\'a pas assez d\'équilibre.',
+    description: 'Pas de description disponible'
+  }
+}
+
+const buildPayment = {
+  generate: 'GÉNÉRER LA DEMANDE',
+  selectCurrency: 'Sélectionner la devise de référence',
+  error: {
+    currency: 'Nous n\'avons pas pu charger d\'autres prix en devises. Veuillez utiliser TRX comme référence'
+  }
+}
+
+const requestPayment = {
+  title: 'DEMANDE DE PAIEMENT'
+}
+
 export default {
   balance,
   components,
@@ -390,5 +445,9 @@ export default {
   transactionDetails,
   transactionSuccess,
   votes,
+  scanPayment,
+  makePayment,
+  buildPayment,
+  requestPayment,
   ...general
 }

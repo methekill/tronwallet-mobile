@@ -50,7 +50,7 @@ class RequestPayment extends Component {
       this.setState({ currencyPrices: newCurrencyPrices })
     } catch (err) {
       console.warn(err.message)
-      Alert.alert('Warning', 'We weren\'t able to load other currency prices. Please use TRX as reference')
+      Alert.alert(tl.t('warning'), tl.t('buildPayment.error.currency'))
     } finally {
       this.setState({loading: false})
     }
@@ -83,7 +83,7 @@ class RequestPayment extends Component {
   _buildQrData = () => {
     const { amountTrx, token, description } = this.state
     const address = this.props.context.publicKey.value
-    return JSON.stringify({amount: amountTrx, token, description, address})
+    return JSON.stringify({amount: amountTrx, data: description, token, address})
   }
 
   _renderCurrencySelecter = () => {
@@ -118,7 +118,7 @@ class RequestPayment extends Component {
         <ScrollView>
           <Utils.StatusBar />
           <Utils.Content>
-            <Utils.Text marginBottom={15} size={'tiny'} align='center' secondary>Select the reference currency</Utils.Text>
+            <Utils.Text marginBottom={15} size={'tiny'} align='center' secondary>{tl.t('buildPayment.selectCurrency')}</Utils.Text>
             {this._renderCurrencySelecter()}
             <Utils.VerticalSpacer />
             <Input
@@ -137,11 +137,13 @@ class RequestPayment extends Component {
             />
             <Input
               innerRef={(input) => { this.description = input }}
-              label='DESCRIPTION (OPTIONAL)'
+              label={tl.t('send.input.description')}
               keyboardType='default'
               value={description}
               onChangeText={text => this._changeInput(text, 'description')}
               align='right'
+              placeholder={tl.t('send.input.placeholder')}
+
             />
             <Utils.VerticalSpacer size='large' />
             {loading ? (
@@ -149,7 +151,7 @@ class RequestPayment extends Component {
             ) : (
               <ButtonGradient
                 font='bold'
-                text='GENERATE REQUEST'
+                text={tl.t('buildPayment.generate')}
                 onPress={this._checkRequestData}
               />
             )}

@@ -220,7 +220,9 @@ const send = {
   input: {
     token: 'TOKEN',
     to: 'NAAR',
-    amount: 'HOEVEELHEID'
+    amount: 'HOEVEELHEID',
+    description: 'BESCHRIJVING (OPTIONEEL)',
+    placeholder: 'Beschrijf de overdracht'
   },
   available: 'beschikbaar',
   chooseToken: 'Selecteer een token, alsjeblieft.',
@@ -229,6 +231,11 @@ const send = {
 
 const settings = {
   title: 'INSTELLINGEN',
+  sectionTitles: {
+    wallet: 'PORTEMONNEE',
+    security: 'VEILIGHEID',
+    notification: 'MELDINGEN EN TALEN'
+  },
   notifications: {
     title: 'Notificatie instellingen',
     description: 'Zet push notificaties aan of uit'
@@ -285,6 +292,21 @@ const settings = {
     choose: 'Kies een taal:',
     sucess: 'Taal aangepast naar {{language}}. Start de app opnieuw, alsjeblieft.',
     error: 'Fout tijdens opslaan van voorkeurs taal'
+  },
+  token: {
+    title: 'Token-Filter',
+    description: 'Kies welke tokens moeten worden weergegeven',
+    search: 'Zoek tokens',
+    confirm: 'Opslaan',
+    noResult: 'Geen resultaten...'
+  },
+  about: {
+    title: 'Over',
+    description: 'TronWallet is een open source volledig gedecentraliseerde P2P Crypto Wallet voor TRON Network gebouwd met React Native. Hiermee kun je tokens verzenden en ontvangen, stemmen op een supervertegenwoordiger, deelnemen aan een token-uitverkoop, je saldo\'s en transacties bijhouden en nog veel meer. Tik op de onderstaande link voor een gedetailleerde zelfstudie over het gebruik ervan.',
+    tutorial: 'TUTORIAL'
+  },
+  accepts: {
+    title: 'Wie accepteert TRX?'
   },
   partners: 'PARTNERS'
 }
@@ -371,6 +393,39 @@ const votes = {
   error: `Oeps, er was een fout tijdens het laden. Probeer opnieuw te laden`
 }
 
+const scanPayment = {
+  scan: 'Scannen',
+  error: {
+    receiver: 'Ontvanger-adres ongeldig',
+    token: 'Token niet geldig',
+    amount: 'Bedrag niet geldig',
+    description: 'Beschrijving te lang',
+    code: 'Betalingscode ongeldig. Scan alstublieft een geldige '
+  }
+}
+const makePayment = {
+  pay: 'Betaal',
+  confirm: 'BEVESTIG BETALING',
+  error: {
+    receiver: 'ontvanger is gelijk aan aanvrager',
+    token: 'Dit account heeft niet het token voor deze transactie',
+    amount: 'Dit account heeft niet genoeg saldo.',
+    description: 'Geen beschrijving beschikbaar'
+  }
+}
+
+const buildPayment = {
+  generate: 'GENERATE REQUEST',
+  selectCurrency: 'Selecteer de referentievaluta',
+  error: {
+    currency: 'We konden geen andere valutaprijzen laden. Gebruik TRX als referentie '
+  }
+}
+
+const requestPayment = {
+  title: 'AANVRAAG BETALING'
+}
+
 export default {
   balance,
   components,
@@ -390,5 +445,9 @@ export default {
   transactionDetails,
   transactionSuccess,
   votes,
+  scanPayment,
+  buildPayment,
+  makePayment,
+  requestPayment,
   ...general
 }

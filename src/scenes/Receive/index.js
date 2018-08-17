@@ -5,7 +5,6 @@ import Feather from 'react-native-vector-icons/Feather'
 import { Answers } from 'react-native-fabric'
 
 // Design
-import NavigationHeader from '../../components/Navigation/Header'
 import QRCode from '../../components/QRCode'
 import { Colors, FontSize } from '../../components/DesignSystem'
 import KeyboardScreen from '../../components/KeyboardScreen'
@@ -51,9 +50,6 @@ class ReceiveScreen extends PureComponent {
 
     return (
       <KeyboardScreen>
-        <NavigationHeader title={tl.t('receive.title')}
-          onBack={() => { this.props.navigation.goBack() }}
-        />
         <Utils.Content align='center'>
           <Utils.VerticalSpacer size='medium' />
           {!!publicKey && <QRCode value={publicKey} onLoad={this._onLoad} loading={this.state.loading} size={width * 0.5} />}
