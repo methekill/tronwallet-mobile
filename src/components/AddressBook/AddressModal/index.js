@@ -11,6 +11,8 @@ import {
   Title
 } from './elements'
 
+import tl from '../../../utils/i18n'
+
 const ContactsModal = ({
   visible,
   closeModal,
@@ -27,17 +29,17 @@ const ContactsModal = ({
   >
     <ContactsModalWrapper onPress={closeModal}>
       <ContactsModalCard>
-        <Title>Would you like to</Title>
+        <Title>{tl.t('addressBook.modal.title')}</Title>
         <Action onPress={onPressEdit}>
-          <ActionText>EDIT</ActionText>
+          <ActionText>{tl.t('addressBook.shared.edit')}</ActionText>
         </Action>
         <Divider />
         <Action onPress={onPressDelete}>
-          <ActionText>DELETE</ActionText>
+          <ActionText>{tl.t('addressBook.shared.delete')}</ActionText>
         </Action>
         <Divider />
         <Action onPress={onPressSend}>
-          <ActionText>SEND</ActionText>
+          <ActionText>{tl.t('addressBook.shared.send')}</ActionText>
         </Action>
       </ContactsModalCard>
     </ContactsModalWrapper>
