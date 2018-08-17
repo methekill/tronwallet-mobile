@@ -13,20 +13,21 @@ import { USER_FILTERED_TOKENS } from '../../utils/constants'
 
 class WalletBalances extends PureComponent {
   state = {
-    currentUserTokens: '',
+    currentUserTokens: null,
     balancesToDisplay: []
   }
 
-  async componentDidUpdate () {
+  async componentDidUpdate (prevProps) {
     try {
       const { currentUserTokens } = this.state
-      const { balances } = this.props
+      const { balances: currentBalances } = this.props
+      const { balances: prevBalances } = prevProps
 
       const filteredTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
 
-      if (currentUserTokens !== filteredTokens) {
+      if (currentUserTokens !== filteredTokens || currentBalances.length !== prevBalances.length) {
         const parsedTokens = JSON.parse(filteredTokens)
-        const filteredBalances = balances.filter(asset => parsedTokens.findIndex(name => name === asset.name) !== -1)
+        const filteredBalances = currentBalances.filter(asset => parsedTokens.findIndex(name => name === asset.name) === -1)
         const orderedBalances = orderAssets(filteredBalances)
 
         this.setState({ balancesToDisplay: orderedBalances, currentUserTokens: filteredTokens })

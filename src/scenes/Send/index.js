@@ -98,7 +98,7 @@ class SendScene extends Component {
       if (balances.length) {
         balance = balances.find(b => b.name === 'TRX').balance
         const userTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
-        const filteredBalances = balances.filter(asset => JSON.parse(userTokens).findIndex(name => name === asset.name) !== -1)
+        const filteredBalances = balances.filter(asset => JSON.parse(userTokens).findIndex(name => name === asset.name) === -1)
         orderedBalances = this._orderBalances(filteredBalances)
       }
 

@@ -83,6 +83,11 @@ class Settings extends Component {
     OneSignal.getPermissionSubscriptionState(
       status => this.setState({ subscriptionStatus: status.userSubscriptionEnabled === 'true' })
     )
+    this._didFocus = this.props.navigation.addListener('didFocus', this._getSelectedTokens)
+  }
+
+  componentWillUnmount () {
+    this._didFocus.remove()
   }
 
   _onLoadData = async () => {
@@ -95,8 +100,8 @@ class Settings extends Component {
     try {
       const store = await getBalanceStore()
       const tokens = store.objects('Balance')
-        .map(({ name }) => ({ id: name, name }))
         .filter(({ name }) => FIXED_TOKENS.findIndex(token => token === name) === -1)
+        .map(({ name }) => ({ id: name, name }))
 
       const filteredTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
       const selectedTokens = filteredTokens ? JSON.parse(filteredTokens) : []
@@ -373,6 +378,7 @@ class Settings extends Component {
           selectedItems={currentSelectedTokens}
           onConfirm={this._saveSelectedTokens}
           showChips={false}
+          showCancelButton
           hideSelect
           searchPlaceholderText={tl.t('settings.token.search')}
           confirmText={tl.t('settings.token.confirm')}
