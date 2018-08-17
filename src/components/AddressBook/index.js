@@ -7,6 +7,7 @@ import AddressModal from './AddressModal'
 import AddressCard from './AddressCard'
 
 import getContactStore from '../../store/contacts'
+import tl from '../../utils/i18n'
 
 export default class Contacts extends Component {
   state = {
@@ -61,11 +62,11 @@ export default class Contacts extends Component {
     const { reloadData } = this.props
 
     Alert.alert(
-      'Delete Contact',
-      'Do you really want to delete this contact?',
+      tl.t('addressBook.contacts.delete.title'),
+      tl.t('addressBook.contacts.delete.message'),
       [
         {
-          text: 'Cancel',
+          text: tl.t('addressBook.contacts.delete.cancelButton'),
           onPress: () => {
             this.setState({
               modalVisible: false,
@@ -75,7 +76,7 @@ export default class Contacts extends Component {
           style: 'cancel'
         },
         {
-          text: 'OK',
+          text: tl.t('addressBook.contacts.delete.okButton'),
           onPress: async () => {
             const store = await getContactStore()
             try {
@@ -112,7 +113,7 @@ export default class Contacts extends Component {
       color: white;
     `
     return (
-      <TemporaryEmptyComponent>Your Address Book list is empty. Add a new Contact or Account.</TemporaryEmptyComponent>
+      <TemporaryEmptyComponent>{tl.t('addressBook.contacts.empty')}</TemporaryEmptyComponent>
     )
   }
 

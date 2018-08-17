@@ -79,6 +79,18 @@ const firstTime = {
   }
 }
 
+const addressBook = {
+  contacts: {
+    delete: {
+      title: 'Delete Contact',
+      message: 'Do you really want to delete this contact?',
+      cancelButton: 'Cancel',
+      okButton: 'OK'
+    },
+    empty: 'Your address book is empty, add a new contact or account.'
+  }
+}
+
 const freeze = {
   title: 'FREEZE',
   unfreeze: {
@@ -436,6 +448,7 @@ const requestPayment = {
 export default {
   balance,
   components,
+  addressBook,
   firstTime,
   freeze,
   getVault,
