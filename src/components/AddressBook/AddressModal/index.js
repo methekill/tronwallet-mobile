@@ -16,7 +16,8 @@ const ContactsModal = ({
   closeModal,
   animationType,
   onPressEdit,
-  onPressSend
+  onPressSend,
+  onPressDelete
 }) => (
   <Modal
     modalOpened={visible}
@@ -31,6 +32,10 @@ const ContactsModal = ({
           <ActionText>EDIT</ActionText>
         </Action>
         <Divider />
+        <Action onPress={onPressDelete}>
+          <ActionText>DELETE</ActionText>
+        </Action>
+        <Divider />
         <Action onPress={onPressSend}>
           <ActionText>SEND</ActionText>
         </Action>
@@ -43,6 +48,7 @@ ContactsModal.propTypes = {
   visible: PropTypes.bool.isRequired,
   onPressEdit: PropTypes.func.isRequired,
   onPressSend: PropTypes.func.isRequired,
+  onPressDelete: PropTypes.func.isRequired,
   closeModal: PropTypes.func.isRequired,
   animationType: PropTypes.string
 }

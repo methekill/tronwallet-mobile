@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import { FlatList } from 'react-native'
+import { FlatList, Alert } from 'react-native'
 import styled from 'styled-components'
 
 import { Container } from '../Utils'
 import AddressModal from './AddressModal'
 import AddressCard from './AddressCard'
+
+import getContactStore from '../../store/contacts'
 
 export default class Contacts extends Component {
   state = {
@@ -54,6 +56,47 @@ export default class Contacts extends Component {
     this._navigate('SendScene', { address: currentItem.address })
   }
 
+  _onDeletePress = () => {
+    const { currentItem } = this.state
+    const { reloadData } = this.props
+
+    Alert.alert(
+      'Delete Contact',
+      'Do you really want to delete this contact?',
+      [
+        {
+          text: 'Cancel',
+          onPress: () => {
+            this.setState({
+              modalVisible: false,
+              currentItem: null
+            })
+          },
+          style: 'cancel'
+        },
+        {
+          text: 'OK',
+          onPress: async () => {
+            const store = await getContactStore()
+            try {
+              store.write(() => {
+                let contact = store.objectForPrimaryKey('Contact', currentItem.address)
+                store.delete(contact)
+                reloadData()
+                this.setState({
+                  modalVisible: false,
+                  currentItem: null
+                })
+              })
+            } catch (e) {
+              console.log('There was a problem deleting this contact.')
+            }
+          }
+        }
+      ]
+    )
+  }
+
   _renderCard = ({ item }) => (
     <AddressCard
       item={item}
@@ -85,6 +128,7 @@ export default class Contacts extends Component {
           animationType='fade'
           onPressEdit={this._onEditPress}
           onPressSend={this._onSendPress}
+          onPressDelete={this._onDeletePress}
         />
         <FlatList
           keyExtractor={item => item.address}

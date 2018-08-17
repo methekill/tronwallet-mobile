@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Alert } from 'react-native'
 
 import NavigationHeader from '../../components/Navigation/Header'
 import AddressForm from '../../components/AddressBook/AddressForm'
@@ -12,17 +13,33 @@ export default class EditContact extends Component {
     const { address } = navigation.getParam('item', {})
     return ({
       header: <NavigationHeader title='EDIT' onBack={() => navigation.goBack()} rightButton={(
-        <ClearButton onPress={async () => {
-          const store = await getContactStore()
-          try {
-            store.write(() => {
-              let contact = store.objectForPrimaryKey('Contact', address)
-              store.delete(contact)
-            })
-            navigation.goBack()
-          } catch (e) {
-            console.log('There was a problem deleting this contact.')
-          }
+        <ClearButton onPress={() => {
+          Alert.alert(
+            'Delete Contact',
+            'Do you really want to delete this contact?',
+            [
+              {
+                text: 'Cancel',
+                onPress: null,
+                style: 'cancel'
+              },
+              {
+                text: 'OK',
+                onPress: async () => {
+                  const store = await getContactStore()
+                  try {
+                    store.write(() => {
+                      let contact = store.objectForPrimaryKey('Contact', address)
+                      store.delete(contact)
+                    })
+                    navigation.goBack()
+                  } catch (e) {
+                    console.log('There was a problem deleting this contact.')
+                  }
+                }
+              }
+            ]
+          )
         }} />
       )} />
     })
