@@ -52,7 +52,7 @@ export const restartAllWalletData = async () => {
       resetListsData(),
       NodesIp.switchTestnet(false),
       AsyncStorage.setItem(USER_STATUS, 'reset'),
-      AsyncStorage.removeItem(USER_FILTERED_TOKENS)
+      AsyncStorage.setItem(USER_FILTERED_TOKENS, '[]')
     ])
   } catch (error) {
     throw error

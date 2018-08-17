@@ -8,6 +8,7 @@ import * as Utils from '../../components/Utils'
 import ButtonGradient from '../../components/ButtonGradient'
 import NavigationHeader from '../../components/Navigation/Header'
 
+import { restartAllWalletData } from '../../utils/userAccountUtils'
 import { recoverUserKeypair } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
 
@@ -45,6 +46,7 @@ class Restore extends React.Component {
     Keyboard.dismiss()
     this.setState({ loading: true })
     try {
+      await restartAllWalletData()
       await recoverUserKeypair(this.props.context.pin, this.props.context.oneSignalId, seed)
       await updateWalletData()
       Alert.alert(tl.t('seed.restore.success'))

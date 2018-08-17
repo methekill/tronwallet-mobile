@@ -8,7 +8,7 @@ import { Colors } from '../../components/DesignSystem'
 import { updateAssets } from '../../utils/assetsUtils'
 import SecretStore from '../../store/secrets'
 import { withContext } from '../../store/context'
-import { USER_STATUS, USER_FILTERED_TOKENS, FIXED_TOKENS } from '../../utils/constants'
+import { USER_STATUS, USER_FILTERED_TOKENS } from '../../utils/constants'
 
 class LoadingScene extends Component {
   async componentDidMount () {
@@ -30,7 +30,7 @@ class LoadingScene extends Component {
   _setFilteredTokens = async () => {
     const filteredTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
     if (filteredTokens === null) {
-      await AsyncStorage.setItem(USER_FILTERED_TOKENS, JSON.stringify(FIXED_TOKENS))
+      await AsyncStorage.setItem(USER_FILTERED_TOKENS, '[]')
     }
   }
 

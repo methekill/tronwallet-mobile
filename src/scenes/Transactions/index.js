@@ -79,7 +79,7 @@ class TransactionsScene extends Component {
       const userTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
       const filteredTransactions = transactions.filter(({ type, contractData }) =>
         contractData.tokenName === null ||
-        JSON.parse(userTokens).findIndex(name => name === contractData.tokenName) !== -1
+        JSON.parse(userTokens).findIndex(name => name === contractData.tokenName) === -1
       )
 
       const assetStore = await getAssetsStore()
