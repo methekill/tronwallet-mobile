@@ -93,7 +93,9 @@ const addressBook = {
       cancelButton: 'Cancel',
       okButton: 'OK'
     },
-    empty: 'Your address book is empty, add a new contact or account.'
+    empty: 'Your address book is empty, add a new contact using the button below.',
+    loadError: 'There was a problem loading the contacts. Please try again.',
+    addContact: 'ADD CONTACT'
   },
   form: {
     generalError: 'There was a problem submitting this form. Please contact an administrator.',

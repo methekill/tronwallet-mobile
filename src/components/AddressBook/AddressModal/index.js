@@ -13,7 +13,7 @@ import {
 
 import tl from '../../../utils/i18n'
 
-const ContactsModal = ({
+const AddressBookModal = ({
   visible,
   closeModal,
   animationType,
@@ -46,7 +46,7 @@ const ContactsModal = ({
   </Modal>
 )
 
-ContactsModal.propTypes = {
+AddressBookModal.propTypes = {
   visible: PropTypes.bool.isRequired,
   onPressEdit: PropTypes.func.isRequired,
   onPressSend: PropTypes.func.isRequired,
@@ -55,4 +55,4 @@ ContactsModal.propTypes = {
   animationType: PropTypes.string
 }
 
-export default ContactsModal
+export default AddressBookModal

@@ -4,6 +4,7 @@ import AddressBook from '../../components/AddressBook'
 import FloatingButton from '../../components/FloatingButton'
 
 import { getContactsFromStore } from '../../utils/contactUtils'
+import tl from '../../utils/i18n'
 
 export default class Contacts extends Component {
   state = {
@@ -35,7 +36,7 @@ export default class Contacts extends Component {
       })
     } catch (e) {
       this.setState({
-        error: 'There was a problem loading the contacts. Please try again.'
+        error: tl.t('addressBook.contacts.loadError')
       })
     }
   }
@@ -56,7 +57,7 @@ export default class Contacts extends Component {
         navigation={navigation}
         reloadData={this._loadContacts}
       >
-        <FloatingButton text='ADD CONTACT' onPress={this._onAddPress} />
+        <FloatingButton text={tl.t('addressBook.contacts.addContact')} onPress={this._onAddPress} />
       </AddressBook>
     )
   }
