@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { FlatList, Alert } from 'react-native'
-import styled from 'styled-components'
+import { FlatList, Alert, Image } from 'react-native'
 
 import { Container } from '../Utils'
 import AddressModal from './AddressModal'
@@ -8,6 +7,7 @@ import AddressCard from './AddressCard'
 
 import getContactStore from '../../store/contacts'
 import tl from '../../utils/i18n'
+import { EmptyWrapper, EmptyText } from './elements'
 
 export default class Contacts extends Component {
   state = {
@@ -106,14 +106,17 @@ export default class Contacts extends Component {
   )
 
   _renderEmpty = () => {
-    const TemporaryEmptyComponent = styled.Text`
-      font-family: Rubik-Regular;
-      font-size: 16px;
-      padding: 40px;
-      color: white;
-    `
     return (
-      <TemporaryEmptyComponent>{tl.t('addressBook.contacts.empty')}</TemporaryEmptyComponent>
+      <EmptyWrapper>
+        <Image
+          source={require('../../assets/empty-contacts.png')}
+          resizeMode='contain'
+          style={{ width: 200, height: 200 }}
+        />
+        <EmptyText>
+          {tl.t('addressBook.contacts.empty')}
+        </EmptyText>
+      </EmptyWrapper>
     )
   }
 
