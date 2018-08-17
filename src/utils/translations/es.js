@@ -77,6 +77,37 @@ const firstTime = {
   }
 }
 
+const addressBook = {
+  shared: {
+    add: 'AÑADIR',
+    edit: 'EDITAR',
+    delete: 'BORRAR',
+    send: 'ENVIAR'
+  },
+  contacts: {
+    delete: {
+      title: 'Borrar contacto',
+      message: '¿De verdad quieres eliminar este contacto?',
+      cancelButton: 'Cancelar',
+      okButton: 'OK'
+    },
+    empty: 'Su libreta de direcciones está vacía, agregue un nuevo contacto usando el botón a continuación.',
+    loadError: 'Hubo un problema al cargar los contactos. Inténtalo de nuevo.',
+    addContact: 'AGREGAR CONTACTO'
+  },
+  form: {
+    generalError: 'Hubo un problema al enviar este formulario. Por favor, póngase en contacto con un administrador.',
+    nameError: 'El campo de nombre debe comenzar con una letra y solo aceptará letras, números y espacios en blanco.',
+    addressError: 'Algo no está bien con la dirección. Por favor, comprueba si hay errores tipográficos.',
+    uniqueAddressError: 'La clave debe ser única. Por favor, elija una dirección diferente.',
+    name: 'NOMBRE',
+    address: 'DIRECCIÓN'
+  },
+  modal: {
+    title: 'Te gustaria'
+  }
+}
+
 const freeze = {
   title: 'CONGELAR',
   unfreeze: {
@@ -420,6 +451,7 @@ const requestPayment = {
 
 export default {
   balance,
+  addressBook,
   components,
   firstTime,
   freeze,
