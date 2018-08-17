@@ -94,7 +94,7 @@ class MakePayment extends PureComponent {
       const from = context.publicKey.value
       this.setState({loading: true})
       try {
-        const { address, amount, token } = navigation.getParam('payment')
+        const { address, amount, token, description } = navigation.getParam('payment')
         if (from === address) throw new DataError(tl.t('makePayment.error.receiver'))
         if (!this._checkToken(token)) throw new DataError(tl.t('makePayment.error.token'))
         if (!this._checkAmount(amount, token)) throw new DataError(tl.t('makePayment.error.amount'))
@@ -102,7 +102,7 @@ class MakePayment extends PureComponent {
         navigation.navigate('Pin', {
           shouldGoBack: true,
           testInput: pin => pin === context.pin,
-          onSuccess: () => this._buildTransaction({from, to: address, amount, token})
+          onSuccess: () => this._buildTransaction({from, to: address, amount, token, data: description})
         })
       } catch (error) {
         if (error.name === 'DataError') Alert.alert(tl.t('warning'), error.message)
@@ -111,12 +111,12 @@ class MakePayment extends PureComponent {
       }
     }
 
-    _buildTransaction = async ({to, amount, token, from}) => {
+    _buildTransaction = async ({to, amount, token, from, data}) => {
       try {
         // Build Transaction
-        const data = await WalletClient.getTransferTransaction({from, to, amount, token})
+        const transferData = await WalletClient.getTransferTransaction({from, to, amount, token, data})
         // Sign Transaction
-        const transactionSigned = await signTransaction(this.props.context.pin, data)
+        const transactionSigned = await signTransaction(this.props.context.pin, transferData)
         // Get Transaction Signed Data
         const transactionData = await WalletClient.getTransactionDetails(transactionSigned)
         // Proceed to broadcast
@@ -172,7 +172,7 @@ class MakePayment extends PureComponent {
       return (
         <Utils.Container>
           <NavigationHeader
-            title='PAY'
+            title={tl.t('makePayment.pay')}
             onBack={() => { navigation.goBack() }}
             noBorder
           />
