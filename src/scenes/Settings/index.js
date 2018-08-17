@@ -83,6 +83,11 @@ class Settings extends Component {
     OneSignal.getPermissionSubscriptionState(
       status => this.setState({ subscriptionStatus: status.userSubscriptionEnabled === 'true' })
     )
+    this._didFocus = this.props.navigation.addListener('didFocus', this._getSelectedTokens)
+  }
+
+  componentWillUnmount () {
+    this._didFocus.remove()
   }
 
   _onLoadData = async () => {
