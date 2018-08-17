@@ -77,6 +77,37 @@ const firstTime = {
   }
 }
 
+const addressBook = {
+  shared: {
+    add: 'TOEVOEGEN',
+    edit: 'BEWERK',
+    delete: 'DELETE',
+    send: 'STUREN'
+  },
+  contacts: {
+    delete: {
+      title: 'Verwijder contact',
+      message: 'Wilt u deze contactpersoon echt verwijderen?',
+      cancelButton: 'Annuleer',
+      okButton: 'OK'
+    },
+    empty: 'Uw adresboek is leeg, voeg een nieuw contact toe met behulp van de onderstaande knop.',
+    loadError: 'Er is een probleem opgetreden bij het laden van de contacten. Probeer het opnieuw.',
+    addContact: 'VOEG CONTACT TOE'
+  },
+  form: {
+    generalError: 'Er is een probleem opgetreden bij het indienen van dit formulier. Neem contact op met een beheerder.',
+    nameError: 'Het naamveld moet beginnen met een letter en alleen letters, cijfers en witte spaties accepteren.',
+    addressError: 'Er klopt iets niet met het adres. Controleer alsjeblieft op typefouten.',
+    uniqueAddressError: 'De sleutel moet uniek zijn. Kies een ander adres.',
+    name: 'NAAM',
+    address: 'ADRES'
+  },
+  modal: {
+    title: 'Zou jij willen'
+  }
+}
+
 const freeze = {
   title: 'ZET VAST',
   unfreeze: {
@@ -428,6 +459,7 @@ const requestPayment = {
 
 export default {
   balance,
+  addressBook,
   components,
   firstTime,
   freeze,
