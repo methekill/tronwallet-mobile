@@ -186,7 +186,7 @@ export default class ContactsForm extends Component {
                 text={tl.t(`addressBook.shared.${type.toLowerCase()}`)}
                 onPress={() => this._onSubmit({
                   name: name.trim(),
-                  alias: `@${name.trim().toLowerCase().replace(' ', '_')}`,
+                  alias: `@${name.trim().toLowerCase().replace(/ /g, '_')}`,
                   address
                 })}
                 disabled={this._submitDisabled()}

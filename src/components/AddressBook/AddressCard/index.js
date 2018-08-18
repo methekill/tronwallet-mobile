@@ -8,16 +8,12 @@ import {
   Address
 } from './elements'
 
-const AddressCard = ({item, onCardPress}) => {
-  const formatName = (name) => name.replace(' ', '_').trim().toLowerCase()
-  return (
-    <Card onPress={onCardPress}>
-      <Name>{item.name}</Name>
-      <Alias>@{formatName(item.name)}</Alias>
-      <Address>{item.address}</Address>
-    </Card>
-  )
-}
+const AddressCard = ({ item, onCardPress }) =>
+  <Card onPress={onCardPress}>
+    <Name>{item.name}</Name>
+    <Alias>{item.alias}</Alias>
+    <Address>{item.address}</Address>
+  </Card>
 
 AddressCard.propTypes = {
   item: PropTypes.shape({
