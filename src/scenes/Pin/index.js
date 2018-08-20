@@ -79,6 +79,19 @@ class PinScene extends React.Component {
     }
   }
 
+  _renderTitle = () => {
+    const { isDoubleChecking } = this.state
+    const shouldDoubleCheck = this.props.navigation.getParam('shouldDoubleCheck', false)
+
+    if (isDoubleChecking) {
+      return tl.t('pin.reenter')
+    } else if (shouldDoubleCheck) {
+      return tl.t('pin.new')
+    }
+
+    return tl.t('pin.enter')
+  }
+
   render () {
     const shouldGoBack = this.props.navigation.getParam('shouldGoBack', false)
     return (
@@ -89,7 +102,7 @@ class PinScene extends React.Component {
           <Utils.View align='center'>
             <Elements.Label>{tl.t('pin.title')}</Elements.Label>
             <Utils.VerticalSpacer />
-            <Elements.Text>{this.state.isDoubleChecking ? tl.t('pin.reenter') : tl.t('pin.enter')}</Elements.Text>
+            <Elements.Text>{this._renderTitle()}</Elements.Text>
           </Utils.View>
         </Utils.Content>
         <Utils.View flex={1} justify='center' align='center'>

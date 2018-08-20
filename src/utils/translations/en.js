@@ -157,6 +157,7 @@ const participate = {
 const pin = {
   title: 'SECURITY CHECK',
   enter: 'Enter PIN',
+  new: 'Enter New PIN',
   reenter: 'Re-Enter PIN'
 }
 
@@ -291,6 +292,10 @@ const settings = {
     description: 'Restart all data from current wallet',
     warning: `Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do it before continue.`,
     button: 'OK, I understand it'
+  },
+  pin: {
+    title: 'Change Pin',
+    success: 'Pin successfully changed!'
   },
   language: {
     title: 'Language',

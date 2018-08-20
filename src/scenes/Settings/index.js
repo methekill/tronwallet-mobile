@@ -136,6 +136,20 @@ class Settings extends Component {
     )
   }
 
+  _changePin = () => {
+    this.props.navigation.navigate('Pin', {
+      shouldGoBack: true,
+      testInput: pin => pin === this.props.context.pin,
+      onSuccess: () => {
+        this.props.navigation.navigate('Pin', {
+          shouldDoubleCheck: true,
+          shouldGoBack: true,
+          onSuccess: pin => this.props.context.setPin(pin, () => this.refs.settingsToast.show(tl.t('settings.pin.success')))
+        })
+      }
+    })
+  }
+
   _changeSubscription = () => {
     this.setState(
       ({ subscriptionStatus }) => ({ subscriptionStatus: !subscriptionStatus }),
@@ -163,9 +177,9 @@ class Settings extends Component {
       const language = LANGUAGES[index]
       try {
         await AsyncStorage.setItem(USER_PREFERRED_LANGUAGE, language.key)
-        this.refs.languageToast.show(tl.t('settings.language.success', { language: language.value }))
+        this.refs.settingsToast.show(tl.t('settings.language.success', { language: language.value }))
       } catch (e) {
-        this.refs.languageToast.show(tl.t('settings.language.error'))
+        this.refs.settingsToast.show(tl.t('settings.language.error'))
       }
     }
   }
@@ -246,6 +260,11 @@ class Settings extends Component {
             description: tl.t('settings.reset.description'),
             icon: 'delete,-trash,-dust-bin,-remove,-recycle-bin',
             onPress: this._resetWallet
+          },
+          {
+            title: tl.t('settings.pin.title'),
+            icon: 'refresh,-recycle,-triangle,-trash,-reuse',
+            onPress: this._changePin
           }
         ]
       },
@@ -351,7 +370,7 @@ class Settings extends Component {
           onPress={index => this._handleLanguageChange(index)}
         />
         <Toast
-          ref='languageToast'
+          ref='settingsToast'
           position='top'
           fadeInDuration={1250}
           fadeOutDuration={1250}
