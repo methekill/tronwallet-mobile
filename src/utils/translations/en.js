@@ -244,12 +244,10 @@ const settings = {
     notification: 'NOTIFICATIONS AND IDIOM'
   },
   notifications: {
-    title: 'Notifications',
-    description: 'Enable or disable push notifications'
+    title: 'Notifications'
   },
   network: {
     title: 'Network',
-    description: 'Choose a node of your preference',
     modal: {
       title: 'NETWORK',
       explanation: 'With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051',
@@ -280,16 +278,13 @@ const settings = {
     }
   },
   backup: {
-    title: 'Backup Wallet',
-    description: 'Backup your secret words'
+    title: 'Backup Wallet'
   },
   restore: {
-    title: 'Restore Wallet',
-    description: 'Restore previously used 12 secrets words'
+    title: 'Restore Wallet'
   },
   reset: {
     title: 'Reset Wallet',
-    description: 'Restart all data from current wallet',
     warning: `Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do it before continue.`,
     button: 'OK, I understand it'
   },
@@ -299,21 +294,18 @@ const settings = {
   },
   language: {
     title: 'Language',
-    description: 'Change the app Language',
     choose: 'Please, choose a Language below:',
     success: 'Language changed to {{language}}, please restart the app',
     error: 'Error saving preferred language'
   },
   token: {
     title: 'Token Filter',
-    description: 'Choose which tokens to display',
     search: 'Search tokens',
     confirm: 'Save',
     noResult: 'No results...'
   },
   about: {
     title: 'About',
-    description: 'TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.',
     tutorial: 'TUTORIAL'
   },
   accepts: {

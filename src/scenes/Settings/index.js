@@ -214,14 +214,12 @@ class Settings extends Component {
         sectionLinks: [
           {
             title: tl.t('settings.token.title'),
-            description: tl.t('settings.token.description'),
             icon: 'sort,-filter,-arrange,-funnel,-filter',
             hide: userTokens.length === 0,
             onPress: this._showTokenSelect
           },
           {
             title: tl.t('settings.about.title'),
-            description: tl.t('settings.about.description'),
             icon: 'question-mark,-circle,-sign,-more,-info',
             onPress: () => { this.props.navigation.navigate('About') }
           },
@@ -237,7 +235,6 @@ class Settings extends Component {
         sectionLinks: [
           {
             title: tl.t('settings.backup.title'),
-            description: tl.t('settings.backup.description'),
             icon: 'key,-password,-lock,-privacy,-login',
             onPress: () => this.props.navigation.navigate('Pin', {
               shouldGoBack: true,
@@ -247,7 +244,6 @@ class Settings extends Component {
           },
           {
             title: tl.t('settings.restore.title'),
-            description: tl.t('settings.restore.description'),
             icon: 'folder-sync,-data,-folder,-recovery,-sync',
             onPress: () => this.props.navigation.navigate('Pin', {
               shouldGoBack: true,
@@ -257,7 +253,6 @@ class Settings extends Component {
           },
           {
             title: tl.t('settings.reset.title'),
-            description: tl.t('settings.reset.description'),
             icon: 'delete,-trash,-dust-bin,-remove,-recycle-bin',
             onPress: this._resetWallet
           },
@@ -273,13 +268,11 @@ class Settings extends Component {
         sectionLinks: [
           {
             title: tl.t('settings.language.title'),
-            description: tl.t('settings.language.description'),
             icon: 'earth,-globe,-planet,-world,-universe',
             onPress: () => this.ActionSheet.show()
           },
           {
             title: tl.t('settings.notifications.title'),
-            description: tl.t('settings.notifications.description'),
             icon: 'user,-person,-avtar,-profile-picture,-dp',
             right: () => {
               if ((this.state.subscriptionStatus === null) || this.state.changingSubscription) {
@@ -298,7 +291,6 @@ class Settings extends Component {
           },
           {
             title: tl.t('settings.network.title'),
-            description: tl.t('settings.network.description'),
             icon: 'share,-network,-connect,-community,-media',
             onPress: () => this.props.navigation.navigate('NetworkConnection')
           }
