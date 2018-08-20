@@ -84,7 +84,7 @@ class MarketScene extends Component {
 
   _loadData = async () => {
     const currency = await AsyncStorage.getItem(USER_PREFERRED_CURRENCY)
-    const price = await getPrice(currency)
+    const price = await getPrice(currency || 'USD')
     const { data: { data } } = await axios.get(Config.TRX_PRICE_API)
 
     this.setState({

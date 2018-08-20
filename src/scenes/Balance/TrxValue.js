@@ -28,7 +28,7 @@ class TrxValue extends PureComponent {
     const crypto = ['BTC', 'ETH']
 
     if (Number.isInteger(value) || crypto.indexOf(currency) >= 0) {
-      return formatNumber(value)
+      return formatNumber(value, true)
     } else {
       return value.toFixed(2)
     }
