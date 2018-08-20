@@ -46,6 +46,7 @@
     "react-native-progress": "^3.5.0",
     "react-native-qrcode": "^0.2.6",
     "react-native-qrcode-scanner": "^1.0.1",
+    "react-native-restart": "0.0.6",
     "react-native-sectioned-multi-select": "^0.4.7",
     "react-native-sentry": "^0.38.1",
     "react-native-splash-screen": "^3.0.9",
@@ -97,15 +98,13 @@
       },
       "android.emu.debug": {
         "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
-        "build":
-        "cd android && RN_SRC_EXT=e2e.js ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+        "build": "cd android && RN_SRC_EXT=e2e.js ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
         "type": "android.emulator",
         "name": "Nexus_5X_API_25_x86"
       },
       "android.emu.release": {
         "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
-        "build":
-        "cd android && RN_SRC_EXT=e2e.js ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
+        "build": "cd android && RN_SRC_EXT=e2e.js ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
         "type": "android.emulator",
         "name": "Nexus_5X_API_25_x86"
       }
