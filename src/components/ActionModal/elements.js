@@ -7,7 +7,7 @@ export const ContactsModalWrapper = styled.TouchableHighlight`
   background-color: rgba(0,0,0,0.5);
 `
 export const ContactsModalCard = styled.View`
-  top: 150px;
+  top: 200px;
   border-radius: 5px;
   background-color: ${Colors.dusk};
   padding-horizontal: 15px;

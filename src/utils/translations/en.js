@@ -14,6 +14,7 @@ const general = {
   trxPrice: 'TRX PRICE',
   confirmed: 'Confirmed',
   unconfirmed: 'Unconfirmed',
+  copyAddress: 'COPY ADDRESS',
   transactionType: {
     transfer: 'Transfer',
     transferAsset: 'Transfer Asset',
@@ -96,7 +97,8 @@ const addressBook = {
     },
     empty: 'Your address book is empty, add a new contact using the button below.',
     loadError: 'There was a problem loading the contacts. Please try again.',
-    addContact: 'ADD CONTACT'
+    addContact: 'ADD CONTACT',
+    addToContacts: 'ADD TO CONTACTS'
   },
   form: {
     generalError: 'There was a problem submitting this form. Please contact an administrator.',

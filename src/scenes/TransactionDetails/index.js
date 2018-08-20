@@ -1,6 +1,13 @@
 import React from 'react'
 import moment from 'moment'
-import { ScrollView, Clipboard, View, Text, RefreshControl } from 'react-native'
+import {
+  ScrollView,
+  Clipboard,
+  View,
+  Text,
+  RefreshControl,
+  TouchableOpacity
+} from 'react-native'
 import { string, number, bool, shape, array } from 'prop-types'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Toast from 'react-native-easy-toast'
@@ -18,6 +25,7 @@ import { Colors } from '../../components/DesignSystem'
 import { ONE_TRX } from '../../services/client'
 import { rgb } from '../../../node_modules/polished'
 import Copiable from './CopiableAddress'
+import ActionModal from '../../components/ActionModal'
 
 import { formatFloat } from '../../utils/numberUtils'
 
@@ -64,12 +72,21 @@ class TransactionDetails extends React.Component {
 
   state = {
     refreshing: false,
-    item: null
+    item: null,
+    currentAddress: null,
+    modalVisible: false
   }
 
   async componentDidMount () {
     const { item } = this.props.navigation.state.params
     this.setState({ item })
+  }
+
+  _closeModal = () => {
+    this.setState({
+      modalVisible: false,
+      currentAddress: null
+    })
   }
 
   _copy = async () => {
@@ -302,36 +319,65 @@ class TransactionDetails extends React.Component {
 
   _truncateAddress = address => `${address.substring(0, 8)}...${address.substring(address.length - 8, address.length)}`
 
+  _onAddContactPress = () => {
+    const { currentAddress } = this.state
+    const { navigation } = this.props
+
+    this._closeModal()
+    navigation.navigate('AddContact', { address: currentAddress })
+  }
+
+  _onCopyAddressPress = async () => {
+    const { currentAddress } = this.state
+    try {
+      await Clipboard.setString(currentAddress)
+      this._showToast(tl.t('transactionDetails.clipboard.publicKey'))
+    } catch (error) {
+      this._showToast(tl.t('error.clipboardCopied'))
+    } finally {
+      this._closeModal()
+    }
+  }
+
+  _onAddressPress = (address) => {
+    this.setState({
+      modalVisible: true,
+      currentAddress: address
+    })
+  }
+
   _renderToFrom = () => {
     const { type, confirmed, contractData: { transferFromAddress, transferToAddress } } = this.state.item
+    const { modalVisible } = this.state
 
     return (
       <View>
+        <ActionModal
+          visible={modalVisible}
+          closeModal={this._closeModal}
+          animationType='fade'
+          actions={[
+            {onPress: this._onAddContactPress, text: tl.t('addressBook.contacts.addToContacts')},
+            {onPress: this._onCopyAddressPress, text: tl.t('copyAddress')}
+          ]}
+        />
         {type.toLowerCase() === 'transfer' &&
-          <View>
+          <TouchableOpacity onPress={() => { this._onAddressPress(transferToAddress) }}>
             <Elements.AddressRow>
               <Elements.AddressText>{tl.t('transactionDetails.to')}</Elements.AddressText>
               {this._getIcon('ios-arrow-round-up', 30, confirmed ? rgb(63, 231, 123) : rgb(102, 104, 143))}
             </Elements.AddressRow>
-            <Copiable
-              TextComponent={Elements.CopiableText}
-              showToast={this._showToast}>
-              {transferToAddress}
-            </Copiable>
+            <Elements.CopiableText>{transferToAddress}</Elements.CopiableText>
             <Elements.Divider />
-          </View>
+          </TouchableOpacity>
         }
-        <View>
+        <TouchableOpacity onPress={() => { this._onAddressPress(transferFromAddress) }}>
           <Elements.AddressRow>
             <Elements.AddressText>{tl.t('transactionDetails.from')}</Elements.AddressText>
             {this._getIcon('ios-arrow-round-down', 30, confirmed ? rgb(255, 68, 101) : rgb(102, 104, 143))}
           </Elements.AddressRow>
-          <Copiable
-            TextComponent={Elements.CopiableText}
-            showToast={this._showToast}>
-            {transferFromAddress}
-          </Copiable>
-        </View>
+          <Elements.CopiableText>{transferFromAddress}</Elements.CopiableText>
+        </TouchableOpacity>
       </View>
     )
   }

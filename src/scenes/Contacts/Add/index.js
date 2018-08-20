@@ -13,11 +13,13 @@ export default class EditContact extends Component {
 
   render () {
     const { navigation } = this.props
+    const address = this.props.navigation.getParam('address', null)
 
     return (
       <AddressForm
         navigation={navigation}
         type={ADD}
+        address={address}
       />
     )
   }
