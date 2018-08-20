@@ -3,6 +3,7 @@ const general = {
   warning: 'Warning',
   cancel: 'Cancel',
   ok: 'OK',
+  actionModalTitle: 'Would you like to',
   error: {
     default: 'Woops something went wrong. Try again later, If the error persist try to update the network settings.',
     buildingTransaction: 'Error while building transaction, try again.',
@@ -13,6 +14,7 @@ const general = {
   trxPrice: 'TRX PRICE',
   confirmed: 'Confirmed',
   unconfirmed: 'Unconfirmed',
+  copyAddress: 'COPY ADDRESS',
   transactionType: {
     transfer: 'Transfer',
     transferAsset: 'Transfer Asset',
@@ -76,6 +78,36 @@ const firstTime = {
   button: {
     create: 'CREATE WALLET',
     restore: 'RESTORE WALLET'
+  }
+}
+
+const addressBook = {
+  shared: {
+    add: 'ADD',
+    edit: 'EDIT',
+    delete: 'DELETE',
+    send: 'SEND'
+  },
+  contacts: {
+    delete: {
+      title: 'Delete Contact',
+      message: 'Do you really want to delete this contact?',
+      cancelButton: 'Cancel',
+      okButton: 'OK'
+    },
+    empty: 'Your address book is empty, add a new contact using the button below.',
+    loadError: 'There was a problem loading the contacts. Please try again.',
+    addContact: 'ADD CONTACT',
+    addToContacts: 'ADD TO CONTACTS'
+  },
+  form: {
+    generalError: 'There was a problem submitting this form. Please contact an administrator.',
+    nameError: 'The name field must start with a letter and it will accept only letters, numbers and white spaces.',
+    addressError: 'Something isn\'t right with the address. Please double check for typos.',
+    uniqueAddressError: 'The key must be unique. Please choose a different address.',
+    uniqueAliasError: 'The key must be unique. Please choose a different name.',
+    name: 'NAME',
+    address: 'ADDRESS'
   }
 }
 
@@ -440,6 +472,7 @@ const requestPayment = {
 export default {
   balance,
   components,
+  addressBook,
   firstTime,
   freeze,
   getVault,

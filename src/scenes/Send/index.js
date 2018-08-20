@@ -40,7 +40,7 @@ class SendScene extends Component {
 
   state = {
     from: '',
-    to: '',
+    to: this.props.navigation.getParam('address', ''),
     amount: '',
     token: 'TRX',
     description: '',
@@ -64,6 +64,15 @@ class SendScene extends Component {
       'didFocus',
       this._loadData
     )
+  }
+
+  componentDidUpdate () {
+    const { to } = this.state
+    const address = this.props.navigation.getParam('address', null)
+
+    if (address && address !== to) {
+      this._changeAddress(address)
+    }
   }
 
   componentWillUnmount () {

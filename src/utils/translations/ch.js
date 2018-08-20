@@ -79,6 +79,37 @@ const firstTime = {
   }
 }
 
+const addressBook = {
+  shared: {
+    add: '加',
+    edit: '编辑',
+    delete: '删除',
+    send: '发送'
+  },
+  contacts: {
+    delete: {
+      title: '删除联系人',
+      message: '你真的想删除这个联系人吗？',
+      cancelButton: '取消',
+      okButton: '好'
+    },
+    empty: '您的地址簿为空，请使用下面的按钮添加新联系人',
+    loadError: '加载联系人时出现问题。 请再试一次',
+    addContact: '增加联系人'
+  },
+  form: {
+    generalError: '提交此表单时出现问题。 请联系管理员。',
+    nameError: '名称字段必须以字母开头，并且只接受字母，数字和空格。',
+    addressError: '地址不对劲。 请仔细检查拼写错误。',
+    uniqueAddressError: '密钥必须是唯一的。 请选择其他地址。',
+    name: '名称',
+    address: '地址'
+  },
+  modal: {
+    title: '你是否想要'
+  }
+}
+
 const freeze = {
   title: '冻结',
   unfreeze: {
@@ -422,6 +453,7 @@ const requestPayment = {
 
 export default {
   balance,
+  addressBook,
   components,
   firstTime,
   freeze,

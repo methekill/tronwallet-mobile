@@ -46,6 +46,7 @@ const Input = ({
   value,
   numbersOnly,
   type,
+  editable,
   ...props
 }) => (
   <Elements.Wrapper>
@@ -67,6 +68,7 @@ const Input = ({
         underlineColorAndroid='transparent'
         placeholderTextColor='#66688F'
         onChangeText={text => formatText(text, numbersOnly, onChangeText, type)}
+        editable={editable}
       />
       {rightContent && rightContent()}
     </Elements.InputWrapper>
@@ -75,7 +77,8 @@ const Input = ({
 
 Input.defaultProps = {
   returnKeyType: 'send',
-  numbersOnly: false
+  numbersOnly: false,
+  editable: true
 }
 
 export default Input

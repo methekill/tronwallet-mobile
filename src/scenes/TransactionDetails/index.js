@@ -1,6 +1,13 @@
 import React from 'react'
 import moment from 'moment'
-import { ScrollView, Clipboard, View, Text, RefreshControl } from 'react-native'
+import {
+  ScrollView,
+  Clipboard,
+  View,
+  Text,
+  RefreshControl,
+  TouchableOpacity
+} from 'react-native'
 import { string, number, bool, shape, array } from 'prop-types'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Toast from 'react-native-easy-toast'
@@ -22,6 +29,7 @@ import { Colors } from '../../components/DesignSystem'
 import { ONE_TRX } from '../../services/client'
 import { rgb } from '../../../node_modules/polished'
 import Copiable from './CopiableAddress'
+import ActionModal from '../../components/ActionModal'
 
 import { formatFloat } from '../../utils/numberUtils'
 import getAssetsStore from '../../store/assets'
@@ -69,12 +77,21 @@ class TransactionDetails extends React.Component {
 
   state = {
     refreshing: false,
-    item: null
+    item: null,
+    currentAddress: null,
+    modalVisible: false
   }
 
   async componentDidMount () {
     const { item } = this.props.navigation.state.params
     this.setState({ item })
+  }
+
+  _closeModal = () => {
+    this.setState({
+      modalVisible: false,
+      currentAddress: null
+    })
   }
 
   _copy = async () => {
@@ -307,56 +324,65 @@ class TransactionDetails extends React.Component {
 
   _truncateAddress = address => `${address.substring(0, 8)}...${address.substring(address.length - 8, address.length)}`
 
+  _onAddContactPress = () => {
+    const { currentAddress } = this.state
+    const { navigation } = this.props
+
+    this._closeModal()
+    navigation.navigate('AddContact', { address: currentAddress })
+  }
+
+  _onCopyAddressPress = async () => {
+    const { currentAddress } = this.state
+    try {
+      await Clipboard.setString(currentAddress)
+      this._showToast(tl.t('transactionDetails.clipboard.publicKey'))
+    } catch (error) {
+      this._showToast(tl.t('error.clipboardCopied'))
+    } finally {
+      this._closeModal()
+    }
+  }
+
+  _onAddressPress = (address) => {
+    this.setState({
+      modalVisible: true,
+      currentAddress: address
+    })
+  }
+
   _renderToFrom = () => {
     const { type, confirmed, contractData: { transferFromAddress, transferToAddress } } = this.state.item
-    const TempText = styled.Text`
-      font-family: 'Rubik-Regular';
-      font-size: 13;
-      line-height: 20;
-      color: white;
-      flex: 1;
-    `
+    const { modalVisible } = this.state
+
     return (
       <View>
+        <ActionModal
+          visible={modalVisible}
+          closeModal={this._closeModal}
+          animationType='fade'
+          actions={[
+            {onPress: this._onAddContactPress, text: tl.t('addressBook.contacts.addToContacts')},
+            {onPress: this._onCopyAddressPress, text: tl.t('copyAddress')}
+          ]}
+        />
         {type.toLowerCase() === 'transfer' &&
-          <React.Fragment>
-            <View style={{ justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row' }}>
-              <Text style={{
-                fontFamily: 'Rubik-Medium',
-                fontSize: 11,
-                lineHeight: 11,
-                letterSpacing: 0.6,
-                color: rgb(116, 118, 162)
-              }}>{tl.t('transactionDetails.to')}</Text>
+          <TouchableOpacity onPress={() => { this._onAddressPress(transferToAddress) }}>
+            <Elements.AddressRow>
+              <Elements.AddressText>{tl.t('transactionDetails.to')}</Elements.AddressText>
               {this._getIcon('ios-arrow-round-up', 30, confirmed ? rgb(63, 231, 123) : rgb(102, 104, 143))}
-            </View>
-            <View style={{ flexDirection: 'row', width: '100%' }}>
-              <Copiable
-                TextComponent={TempText}
-                showToast={this._showToast}>
-                {transferToAddress}
-              </Copiable>
-            </View>
-            <View style={{ height: 15 }} />
-            <Utils.View height={1} background='#51526B' />
-            <View style={{ height: 15 }} />
-          </React.Fragment>
+            </Elements.AddressRow>
+            <Elements.CopiableText>{transferToAddress}</Elements.CopiableText>
+            <Elements.Divider />
+          </TouchableOpacity>
         }
-        <View style={{ justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row' }}>
-          <Text style={{
-            fontFamily: 'Rubik-Medium',
-            fontSize: 11,
-            lineHeight: 11,
-            letterSpacing: 0.6,
-            color: rgb(116, 118, 162)
-          }}>{tl.t('transactionDetails.from')}</Text>
-          {this._getIcon('ios-arrow-round-down', 30, confirmed ? rgb(255, 68, 101) : rgb(102, 104, 143))}
-        </View>
-        <Copiable
-          TextComponent={TempText}
-          showToast={this._showToast}>
-          {transferFromAddress}
-        </Copiable>
+        <TouchableOpacity onPress={() => { this._onAddressPress(transferFromAddress) }}>
+          <Elements.AddressRow>
+            <Elements.AddressText>{tl.t('transactionDetails.from')}</Elements.AddressText>
+            {this._getIcon('ios-arrow-round-down', 30, confirmed ? rgb(255, 68, 101) : rgb(102, 104, 143))}
+          </Elements.AddressRow>
+          <Elements.CopiableText>{transferFromAddress}</Elements.CopiableText>
+        </TouchableOpacity>
       </View>
     )
   }

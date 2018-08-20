@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { StatusBar, Platform, YellowBox, SafeAreaView } from 'react-native'
 import {
   createBottomTabNavigator,
-  createStackNavigator
+  createStackNavigator,
+  createMaterialTopTabNavigator
 } from 'react-navigation'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
 import axios from 'axios'
@@ -10,7 +11,7 @@ import Config from 'react-native-config'
 import OneSignal from 'react-native-onesignal'
 import { Sentry } from 'react-native-sentry'
 
-import { Colors } from './src/components/DesignSystem'
+import { Colors, ScreenSize  } from './src/components/DesignSystem'
 
 import LoadingScene from './src/scenes/Loading'
 import SendScene from './src/scenes/Send'
@@ -37,6 +38,11 @@ import ParticipateHome from './src/scenes/Participate'
 import Pin from './src/scenes/Pin'
 import FirstTime from './src/scenes/FirstTime'
 import TransactionSuccess from './src/scenes/TransactionSuccess'
+import AccountsScene from './src/scenes/Accounts'
+import ContactsScene from './src/scenes/Contacts'
+import EditAddressBookItem from './src/scenes/EditAddressBookItem'
+import AddContactScene from './src/scenes/Contacts/Add'
+import NavigationHeader from './src/components/Navigation/Header'
 import MakePayScene from './src/scenes/Payments/Make'
 import PaymentsScene from './src/scenes/Payments'
 import ScanPayScene from './src/scenes/Payments/Scan'
@@ -80,6 +86,48 @@ const SettingsStack = createStackNavigator({
   }
 })
 
+const tabWidth = ScreenSize.width / 2
+const indicatorWidth = 15
+const AddressBookTabs = createMaterialTopTabNavigator(
+  {
+    Contacts: ContactsScene,
+    Accounts: AccountsScene
+  },
+  {
+    tabBarOptions: {
+      activeTintColor: Colors.primaryText,
+      inactiveTintColor: '#66688f',
+      style: {
+        paddingTop: 10,
+        backgroundColor: Colors.background,
+        elevation: 0
+      },
+      labelStyle: {
+        fontSize: 12,
+        lineHeight: 12,
+        letterSpacing: 0.6,
+        fontFamily: 'Rubik-Medium'
+      },
+      indicatorStyle: {
+        width: indicatorWidth,
+        height: 1.2,
+        marginLeft: tabWidth / 2 - indicatorWidth / 2
+      }
+    }
+  }
+)
+
+const AddressBookStack = createStackNavigator({
+    AddressBook: AddressBookTabs,
+    EditAddressBookItem,
+    AddContact: AddContactScene
+  }, {
+    navigationOptions: {
+      header: <NavigationHeader title='ADDRESS BOOK' />
+    }
+  }
+)
+
 const BalanceStack = createStackNavigator({
   BalanceScene,
   ReceiveScene,
@@ -105,6 +153,7 @@ const ParticipateStack = createStackNavigator(
 
 const AppTabs = createBottomTabNavigator({
   Market: MarketScene,
+  AddressBook: AddressBookStack,
   Vote: {
     screen: VoteScene,
     path: 'vote'
@@ -124,6 +173,8 @@ const AppTabs = createBottomTabNavigator({
         iconName = `wallet,-money,-cash,-balance,-purse`
       } else if (routeName === 'Transfer') {
         iconName = `fly,-send,-paper,-submit,-plane`
+      } else if (routeName === 'AddressBook') {
+        iconName = `diary,-contact,-address,-organizer,-book`
       } else if (routeName === 'Vote') {
         iconName = `shout-out,-speaker,-offer,-announcement,-loud`
       } else if (routeName === 'Transactions') {

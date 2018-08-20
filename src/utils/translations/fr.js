@@ -77,6 +77,37 @@ const firstTime = {
   }
 }
 
+const addressBook = {
+  shared: {
+    add: 'AJOUTER',
+    edit: 'MODIFIER',
+    delete: 'EFFACER',
+    send: 'ENVOYER'
+  },
+  contacts: {
+    delete: {
+      title: 'Effacer le contact',
+      message: 'Voulez-vous vraiment supprimer ce contact?',
+      cancelButton: 'Annuler',
+      okButton: 'OK'
+    },
+    empty: 'Votre carnet d\'adresses est vide, ajoutez un nouveau contact en utilisant le bouton ci-dessous.',
+    loadError: 'Un problème est survenu lors du chargement des contacts. Veuillez réessayer.',
+    addContact: 'AJOUTER LE CONTACT'
+  },
+  form: {
+    generalError: 'Un problème est survenu lors de la soumission de ce formulaire. Veuillez contacter un administrateur.',
+    nameError: 'Le champ de nom doit commencer par une lettre et n\'acceptera que des lettres, des chiffres et des espaces.',
+    addressError: 'Quelque chose ne va pas avec l\'adresse. Veuillez vérifier les fautes de frappe.',
+    uniqueAddressError: 'La clé doit être unique. Veuillez choisir une adresse différente.',
+    name: 'PRÉNOM',
+    address: 'ADRESSE'
+  },
+  modal: {
+    title: 'Voudriez-vous'
+  }
+}
+
 const freeze = {
   title: 'GEL',
   unfreeze: {
@@ -428,6 +459,7 @@ const requestPayment = {
 
 export default {
   balance,
+  addressBook,
   components,
   firstTime,
   freeze,

@@ -6,11 +6,12 @@ const ModalComponent = ({
   modalOpened,
   closeModal,
   animationType,
+  transparent = false,
   children
 }) => (
   <Modal
     animationType={animationType}
-    transparent={false}
+    transparent={transparent}
     visible={modalOpened}
     onRequestClose={closeModal}
   >
