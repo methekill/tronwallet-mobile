@@ -8,7 +8,11 @@ import LinearGradient from 'react-native-linear-gradient'
 import styled from 'styled-components'
 
 import tl from '../../utils/i18n'
-import { updateTransactionByHash, getTranslatedType } from '../../utils/transactionUtils'
+import {
+  updateTransactionByHash,
+  getTranslatedType,
+  getTokenPriceFromStore
+} from '../../utils/transactionUtils'
 import getTransactionStore from '../../store/transactions'
 import IconButton from '../../components/IconButton'
 import * as Utils from '../../components/Utils'
@@ -20,6 +24,7 @@ import { rgb } from '../../../node_modules/polished'
 import Copiable from './CopiableAddress'
 
 import { formatFloat } from '../../utils/numberUtils'
+import getAssetsStore from '../../store/assets'
 
 class TransactionDetails extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -493,6 +498,10 @@ class TransactionDetails extends React.Component {
     try {
       await updateTransactionByHash(item.id)
       const transaction = await this._getTransactionByHash(item.id)
+      if (transaction.type === 'Participate') {
+        const tokenPrice = getTokenPriceFromStore(transaction.contractData.tokenName, getAssetsStore())
+        transaction.tokenPrice = tokenPrice
+      }
       this.setState({ item: transaction, refreshing: false })
     } catch (e) {
       console.log('Either the transaction is as of yet unconfirmed or there was a problem with the request.')

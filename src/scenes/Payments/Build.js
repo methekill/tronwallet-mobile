@@ -142,7 +142,7 @@ class RequestPayment extends Component {
               value={description}
               onChangeText={text => this._changeInput(text, 'description')}
               align='right'
-              placeholder={tl.t('send.input.placeholder')}
+              placeholder=' '
 
             />
             <Utils.VerticalSpacer size='large' />
