@@ -13,3 +13,8 @@ export const getAddressesFromStore = async () => {
   const contacts = await getContactsFromStore()
   return contacts.map(contact => contact.address)
 }
+
+export const getAliasFromStore = async () => {
+  const contacts = await getContactsFromStore()
+  return contacts.map(contact => contact.alias)
+}

@@ -66,6 +66,15 @@ class SendScene extends Component {
     )
   }
 
+  componentDidUpdate () {
+    const { to } = this.state
+    const address = this.props.navigation.getParam('address', null)
+
+    if (address && address !== to) {
+      this._changeAddress(address)
+    }
+  }
+
   componentWillUnmount () {
     this._navListener.remove()
   }

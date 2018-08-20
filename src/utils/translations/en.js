@@ -102,6 +102,7 @@ const addressBook = {
     nameError: 'The name field must start with a letter and it will accept only letters, numbers and white spaces.',
     addressError: 'Something isn\'t right with the address. Please double check for typos.',
     uniqueAddressError: 'The key must be unique. Please choose a different address.',
+    uniqueAliasError: 'The key must be unique. Please choose a different name.',
     name: 'NAME',
     address: 'ADDRESS'
   },

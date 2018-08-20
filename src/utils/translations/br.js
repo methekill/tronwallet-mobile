@@ -100,6 +100,7 @@ const addressBook = {
     nameError: 'O campo \'nome\' deve começar com uma letra e aceita somente letras, números e espaços em branco.',
     addressError: 'Algo não está correto com o endereço. Por favor, verifique se não há erros de digitação.',
     uniqueAddressError: 'Não deve haver endereços duplicados. Por favor, use um endereço diferente.',
+    uniqueAliasError: 'Não deve haver nomes duplicados. Por favor, use um nome diferente.',
     name: 'NOME',
     address: 'ENDEREÇO'
   },

@@ -11,7 +11,7 @@ import CancelButton from '../../../components/CancelButton'
 
 import { isAddressValid } from '../../../services/address'
 import { ADD, EDIT } from '../../../utils/constants'
-import { isNameValid, isAddressUnique } from '../../../utils/validations'
+import { isNameValid, isAddressUnique, isAliasUnique } from '../../../utils/validations'
 import getContactStore from '../../../store/contacts'
 import tl from '../../../utils/i18n'
 
@@ -102,6 +102,17 @@ export default class ContactsForm extends Component {
       }
     }
 
+    if (this.props.type === ADD && type === 'name') {
+      const aliasIsUnique = await isAliasUnique(this._formatAlias(item))
+
+      if (!aliasIsUnique) {
+        return {
+          ...stateObj,
+          [`${type}Error`]: tl.t('addressBook.form.uniqueAliasError')
+        }
+      }
+    }
+
     if (!validation(item)) {
       return {
         ...stateObj,
@@ -111,6 +122,8 @@ export default class ContactsForm extends Component {
 
     return stateObj
   }
+
+  _formatAlias = (name) => `@${name.trim().toLowerCase().replace(/ /g, '_')}`
 
   _submitDisabled = () => {
     const { name, address, generalError, nameError, addressError } = this.state
@@ -186,7 +199,7 @@ export default class ContactsForm extends Component {
                 text={tl.t(`addressBook.shared.${type.toLowerCase()}`)}
                 onPress={() => this._onSubmit({
                   name: name.trim(),
-                  alias: `@${name.trim().toLowerCase().replace(' ', '_')}`,
+                  alias: this._formatAlias(name),
                   address
                 })}
                 disabled={this._submitDisabled()}
