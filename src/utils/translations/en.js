@@ -259,8 +259,7 @@ const send = {
     token: 'TOKEN',
     to: 'TO',
     amount: 'AMOUNT',
-    description: 'DESCRIPTION (OPTIONAL)',
-    placeholder: 'Describe the transfer'
+    description: 'DESCRIPTION (OPTIONAL)'
   },
   available: 'available',
   chooseToken: 'Please, choose a token below.',

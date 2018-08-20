@@ -358,7 +358,7 @@ class SendScene extends Component {
               innerRef={(input) => { this.description = input }}
               label={tl.t('send.input.description')}
               onChangeText={text => this._changeInput(text, 'description')}
-              placeholder={tl.t('send.input.placeholder')}
+              placeholder=' '
               align='right'
             />
             {error && (
