@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { FlatList, Alert, Image } from 'react-native'
 
 import { Container } from '../Utils'
-import AddressModal from './AddressModal'
+import ActionModal from '../ActionModal'
 import AddressCard from './AddressCard'
 
 import getContactStore from '../../store/contacts'
@@ -126,13 +126,15 @@ export default class Contacts extends Component {
 
     return (
       <Container style={{position: 'relative'}}>
-        <AddressModal
+        <ActionModal
           visible={modalVisible}
           closeModal={this._closeModal}
           animationType='fade'
-          onPressEdit={this._onEditPress}
-          onPressSend={this._onSendPress}
-          onPressDelete={this._onDeletePress}
+          actions={[
+            {onPress: this._onEditPress, text: tl.t('addressBook.shared.edit')},
+            {onPress: this._onDeletePress, text: tl.t('addressBook.shared.delete')},
+            {onPress: this._onSendPress, text: tl.t('addressBook.shared.send')}
+          ]}
         />
         <FlatList
           keyExtractor={item => item.address}

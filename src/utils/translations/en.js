@@ -3,6 +3,7 @@ const general = {
   warning: 'Warning',
   cancel: 'Cancel',
   ok: 'OK',
+  actionModalTitle: 'Would you like to',
   error: {
     default: 'Woops something went wrong. Try again later, If the error persist try to update the network settings.',
     buildingTransaction: 'Error while building transaction, try again.',
@@ -105,9 +106,6 @@ const addressBook = {
     uniqueAliasError: 'The key must be unique. Please choose a different name.',
     name: 'NAME',
     address: 'ADDRESS'
-  },
-  modal: {
-    title: 'Would you like to'
   }
 }
 

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { Colors } from '../../DesignSystem'
+import { Colors } from '../DesignSystem'
 
 export const ContactsModalWrapper = styled.TouchableHighlight`
   flex: 1;
