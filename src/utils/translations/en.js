@@ -294,7 +294,14 @@ const settings = {
   language: {
     title: 'Language',
     choose: 'Please, choose a Language below:',
-    success: 'Language changed to {{language}}, please restart the app',
+    success: {
+      title: 'Language changed to {{language}}',
+      description: 'However, you still need to restart the app so the changes can take effect. Would you like to do it now?'
+    },
+    button: {
+      confirm: 'Yes, restart now!',
+      cancel: `No, I'll do it later`
+    },
     error: 'Error saving preferred language'
   },
   token: {

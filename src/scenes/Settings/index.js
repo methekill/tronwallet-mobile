@@ -12,6 +12,7 @@ import {
   WebView
 } from 'react-native'
 
+import RNRestart from 'react-native-restart'
 import SectionedMultiSelect from 'react-native-sectioned-multi-select'
 import ActionSheet from 'react-native-actionsheet'
 import Toast from 'react-native-easy-toast'
@@ -177,7 +178,15 @@ class Settings extends Component {
       const language = LANGUAGES[index]
       try {
         await AsyncStorage.setItem(USER_PREFERRED_LANGUAGE, language.key)
-        this.refs.settingsToast.show(tl.t('settings.language.success', { language: language.value }))
+        Alert.alert(
+          tl.t('settings.language.success.title', { language: language.value }),
+          tl.t('settings.language.success.description'),
+          [
+            {text: tl.t('settings.language.button.cancel'), style: 'cancel'},
+            {text: tl.t('settings.language.button.confirm'), onPress: () => RNRestart.Restart()}
+          ],
+          { cancelable: false }
+        )
       } catch (e) {
         this.refs.settingsToast.show(tl.t('settings.language.error'))
       }
