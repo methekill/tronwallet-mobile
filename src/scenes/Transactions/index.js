@@ -12,10 +12,9 @@ import { USER_FILTERED_TOKENS } from '../../utils/constants'
 import getAssetsStore from '../../store/assets'
 import getTransactionStore from '../../store/transactions'
 import { withContext } from '../../store/context'
-import { updateTransactions } from '../../utils/transactionUtils'
+import { updateTransactions, getTokenPriceFromStore } from '../../utils/transactionUtils'
 
 import Empty from './Empty'
-import { ONE_TRX } from '../../services/client'
 
 class TransactionsScene extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -95,28 +94,13 @@ class TransactionsScene extends Component {
   _updateParticipateTransactions = (transactions, assetStore) => (
     transactions.map((transaction) => {
       if (transaction.type === 'Participate') {
-        const tokenPrice = this._getTokenPriceFromStore(transaction.contractData.tokenName, assetStore)
+        const tokenPrice = getTokenPriceFromStore(transaction.contractData.tokenName, assetStore)
         return { ...transaction, tokenPrice }
       } else {
         return transaction
       }
     })
   )
-
-  _getTokenPriceFromStore = (tokenName, assetStore) => {
-    const filtered = assetStore
-      .objects('Asset')
-      .filtered(
-        `name == '${tokenName}'`
-      )
-      .map(item => Object.assign({}, item))
-
-    if (filtered.length) {
-      return filtered[0].price
-    }
-
-    return ONE_TRX
-  }
 
   _navigateToDetails = (item) => {
     this.props.navigation.navigate('TransactionDetails', { item })

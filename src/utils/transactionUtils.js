@@ -5,7 +5,7 @@ import tl from '../utils/i18n'
 import { getUserSecrets } from './secretsUtils'
 import { TronVaultURL } from './deeplinkUtils'
 import getTransactionStore from '../store/transactions'
-import Client from '../services/client'
+import Client, { ONE_TRX } from '../services/client'
 
 export const signTransaction = async (pin, transactionUnsigned) => {
   try {
@@ -102,4 +102,19 @@ export const getTranslatedType = (type) => {
 export const openDeepLink = async dataToSend => {
   const url = `${TronVaultURL}auth/${dataToSend}`
   return Linking.openURL(url)
+}
+
+export const getTokenPriceFromStore = (tokenName, assetStore) => {
+  const filtered = assetStore
+    .objects('Asset')
+    .filtered(
+      `name == '${tokenName}'`
+    )
+    .map(item => Object.assign({}, item))
+
+  if (filtered.length) {
+    return filtered[0].price
+  }
+
+  return ONE_TRX
 }
