@@ -304,54 +304,34 @@ class TransactionDetails extends React.Component {
 
   _renderToFrom = () => {
     const { type, confirmed, contractData: { transferFromAddress, transferToAddress } } = this.state.item
-    const TempText = styled.Text`
-      font-family: 'Rubik-Regular';
-      font-size: 13;
-      line-height: 20;
-      color: white;
-      flex: 1;
-    `
+
     return (
       <View>
         {type.toLowerCase() === 'transfer' &&
-          <React.Fragment>
-            <View style={{ justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row' }}>
-              <Text style={{
-                fontFamily: 'Rubik-Medium',
-                fontSize: 11,
-                lineHeight: 11,
-                letterSpacing: 0.6,
-                color: rgb(116, 118, 162)
-              }}>{tl.t('transactionDetails.to')}</Text>
+          <View>
+            <Elements.AddressRow>
+              <Elements.AddressText>{tl.t('transactionDetails.to')}</Elements.AddressText>
               {this._getIcon('ios-arrow-round-up', 30, confirmed ? rgb(63, 231, 123) : rgb(102, 104, 143))}
-            </View>
-            <View style={{ flexDirection: 'row', width: '100%' }}>
-              <Copiable
-                TextComponent={TempText}
-                showToast={this._showToast}>
-                {transferToAddress}
-              </Copiable>
-            </View>
-            <View style={{ height: 15 }} />
-            <Utils.View height={1} background='#51526B' />
-            <View style={{ height: 15 }} />
-          </React.Fragment>
+            </Elements.AddressRow>
+            <Copiable
+              TextComponent={Elements.CopiableText}
+              showToast={this._showToast}>
+              {transferToAddress}
+            </Copiable>
+            <Elements.Divider />
+          </View>
         }
-        <View style={{ justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row' }}>
-          <Text style={{
-            fontFamily: 'Rubik-Medium',
-            fontSize: 11,
-            lineHeight: 11,
-            letterSpacing: 0.6,
-            color: rgb(116, 118, 162)
-          }}>{tl.t('transactionDetails.from')}</Text>
-          {this._getIcon('ios-arrow-round-down', 30, confirmed ? rgb(255, 68, 101) : rgb(102, 104, 143))}
+        <View>
+          <Elements.AddressRow>
+            <Elements.AddressText>{tl.t('transactionDetails.from')}</Elements.AddressText>
+            {this._getIcon('ios-arrow-round-down', 30, confirmed ? rgb(255, 68, 101) : rgb(102, 104, 143))}
+          </Elements.AddressRow>
+          <Copiable
+            TextComponent={Elements.CopiableText}
+            showToast={this._showToast}>
+            {transferFromAddress}
+          </Copiable>
         </View>
-        <Copiable
-          TextComponent={TempText}
-          showToast={this._showToast}>
-          {transferFromAddress}
-        </Copiable>
       </View>
     )
   }
