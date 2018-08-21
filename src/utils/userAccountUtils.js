@@ -7,54 +7,45 @@ import getCandidatesStore from '../store/candidates'
 import { USER_STATUS, USER_FILTERED_TOKENS } from './constants'
 
 import NodesIp from '../utils/nodeIp'
-// TODO
-// Put all Account Info related functions Here
-// e.g. getBalance, getFreezeAmount, getVotes ...
+import { resetContactsData } from '../utils/contactUtils'
+import { resetSecretData } from '../utils/secretsUtils'
 
 export const resetWalletData = async () => {
-  try {
-    const [balanceStore, transactionStore] = await Promise.all([
-      getBalanceStore(),
-      getTransactionStore()
-    ])
-
-    const allBalances = balanceStore.objects('Balance')
-    await balanceStore.write(() => balanceStore.delete(allBalances))
-
-    const allTransactions = transactionStore.objects('Transaction')
-    await transactionStore.write(() => transactionStore.delete(allTransactions))
-  } catch (error) {
-    throw error
-  }
+  const [balanceStore, transactionStore] = await Promise.all([
+    getBalanceStore(),
+    getTransactionStore()
+  ])
+  const allBalances = balanceStore.objects('Balance')
+  const allTransactions = transactionStore.objects('Transaction')
+  await Promise.all([
+    balanceStore.write(() => balanceStore.delete(allBalances)),
+    transactionStore.write(() => transactionStore.delete(allTransactions))
+  ])
 }
 
+// This is used for testnet mainly
 export const resetListsData = async () => {
-  try {
-    const [assetsStore, candidatesStore] = await Promise.all([
-      getAssetsStore(),
-      getCandidatesStore()
-    ])
+  const [assetsStore, candidatesStore] = await Promise.all([
+    getAssetsStore(),
+    getCandidatesStore()
+  ])
+  const assetsList = assetsStore.objects('Asset')
+  const candidateList = candidatesStore.objects('Candidate')
 
-    const assetsList = assetsStore.objects('Asset')
-    await assetsStore.write(() => assetsStore.delete(assetsList))
-
-    const candidateList = candidatesStore.objects('Candidate')
-    await candidatesStore.write(() => candidatesStore.delete(candidateList))
-  } catch (error) {
-    throw error
-  }
+  await Promise.all([
+    assetsStore.write(() => assetsStore.delete(assetsList)),
+    candidatesStore.write(() => candidatesStore.delete(candidateList))
+  ])
 }
 
-export const restartAllWalletData = async () => {
-  try {
-    await Promise.all([
-      resetWalletData(),
-      resetListsData(),
-      NodesIp.switchTestnet(false),
-      AsyncStorage.setItem(USER_STATUS, 'reset'),
-      AsyncStorage.setItem(USER_FILTERED_TOKENS, '[]')
-    ])
-  } catch (error) {
-    throw error
-  }
-}
+export const hardResetWalletData = async (pin) => (
+  Promise.all([
+    resetWalletData(),
+    resetListsData(),
+    resetContactsData(),
+    resetSecretData(pin),
+    NodesIp.switchTestnet(false),
+    AsyncStorage.setItem(USER_STATUS, 'reset'),
+    AsyncStorage.setItem(USER_FILTERED_TOKENS, '[]')
+  ])
+)

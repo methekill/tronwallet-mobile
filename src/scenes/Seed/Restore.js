@@ -8,8 +8,8 @@ import * as Utils from '../../components/Utils'
 import ButtonGradient from '../../components/ButtonGradient'
 import NavigationHeader from '../../components/Navigation/Header'
 
-import { restartAllWalletData } from '../../utils/userAccountUtils'
-import { recoverUserKeypair } from '../../utils/secretsUtils'
+import { resetWalletData, resetListsData } from '../../utils/userAccountUtils'
+import { recoverUserKeypair, resetSecretData } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
 
 class Restore extends React.Component {
@@ -18,6 +18,10 @@ class Restore extends React.Component {
     loading: false
   }
 
+  _softResetData = async () => {
+    const { pin } = this.props.context
+    await Promise.all([resetWalletData(), resetSecretData(pin), resetListsData()])
+  }
   _navigateToSettings = () => {
     const resetAction = StackActions.reset({
       index: 0,
@@ -40,21 +44,21 @@ class Restore extends React.Component {
   }
 
   _restoreWallet = async () => {
-    const { updateWalletData } = this.props.context
+    const { loadUserData, pin, oneSignalId } = this.props.context
     const seed = this.state.seed.trim()
 
     Keyboard.dismiss()
     this.setState({ loading: true })
     try {
-      await restartAllWalletData()
-      await recoverUserKeypair(this.props.context.pin, this.props.context.oneSignalId, seed)
-      await updateWalletData()
+      await this._softResetData()
+      await recoverUserKeypair(pin, oneSignalId, seed)
+      await loadUserData()
       Alert.alert(tl.t('seed.restore.success'))
       this.setState({ loading: false }, this._navigateToSettings)
       Answers.logCustom('Wallet Operation', { type: 'Restore' })
     } catch (err) {
       console.warn(err)
-      Alert.alert(tl.t('seed.restore.error'))
+      Alert.alert(tl.t('warning'), tl.t('seed.restore.error'))
       this.setState({ loading: false })
     }
   }

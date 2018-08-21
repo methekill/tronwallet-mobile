@@ -71,3 +71,9 @@ export const getUserSecrets = async pin => {
     .map(item => Object.assign({}, item))
   return secrets
 }
+
+export const resetSecretData = async pin => {
+  const secretsStore = await getSecretsStore(pin)
+  const secretList = secretsStore.objects('Account')
+  await secretsStore.write(() => secretsStore.delete(secretList))
+}
