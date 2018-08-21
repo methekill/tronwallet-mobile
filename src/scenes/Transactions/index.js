@@ -72,6 +72,7 @@ class TransactionsScene extends Component {
 
   _updateData = async () => {
     try {
+      await updateTransactions(this.props.context.publicKey)
       const transactionStore = await getTransactionStore()
       const transactions = this._getSortedTransactionList(transactionStore)
 
@@ -117,7 +118,7 @@ class TransactionsScene extends Component {
             <FlatList
               data={transactions}
               keyExtractor={item => item.id}
-              renderItem={({ item }) => <Transaction item={item} onPress={() => this._navigateToDetails(item)} publicKey={publicKey.value} />}
+              renderItem={({ item }) => <Transaction item={item} onPress={() => this._navigateToDetails(item)} publicKey={publicKey} />}
             />
           </Background>
         )

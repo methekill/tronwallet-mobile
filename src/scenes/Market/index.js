@@ -13,7 +13,6 @@ import tl from '../../utils/i18n'
 import * as Utils from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
 import FadeIn from '../../components/Animations/FadeIn'
-import { getPrice } from '../../utils/balanceUtils'
 import { formatNumber } from '../../utils/numberUtils'
 import { USER_PREFERRED_CURRENCY } from '../../utils/constants'
 
@@ -59,10 +58,6 @@ class MarketScene extends Component {
     },
     high: null,
     low: null,
-    marketcap: null,
-    volume: null,
-    supply: null,
-    price: 0,
     selectedIndex: -1
   }
 
@@ -84,15 +79,7 @@ class MarketScene extends Component {
 
   _loadData = async () => {
     const currency = await AsyncStorage.getItem(USER_PREFERRED_CURRENCY)
-    const price = await getPrice(currency || 'USD')
-    const { data: { data } } = await axios.get(Config.TRX_PRICE_API)
-
-    this.setState({
-      marketcap: data.quotes.USD.market_cap,
-      volume: data.quotes.USD.volume_24h,
-      supply: data.circulating_supply,
-      price
-    })
+    this.props.context.getPrice(currency)
   }
 
   _loadGraphData = async () => {
@@ -149,7 +136,7 @@ class MarketScene extends Component {
   }
 
   _renderHeader = () => {
-    const { price } = this.state
+    const { price } = this.props.context.price
 
     return (
       <Utils.ContentWithBackground
@@ -292,7 +279,8 @@ class MarketScene extends Component {
   }
 
   render () {
-    const { marketcap, volume, supply, graph } = this.state
+    const { graph } = this.state
+    const { price, circulatingSupply } = this.props.context
 
     return (
       <Utils.Container>
@@ -300,16 +288,16 @@ class MarketScene extends Component {
         <Utils.Content background={Colors.background}>
           <Utils.Row justify='space-between' align='center'>
             {this._renderLabels()}
-            {(!marketcap || !volume || !supply) && (
+            {(!price.market_cap || !price.volume_24h || !circulatingSupply) && (
               <FadeIn name='market-info-loading'>
                 <Utils.Content>
                   <ActivityIndicator size='small' color={Colors.primaryText} />
                 </Utils.Content>
               </FadeIn>
             )}
-            {marketcap &&
-              volume &&
-              supply && (
+            {price.market_cap &&
+              price.volume_24h &&
+              circulatingSupply && (
                 this._renderValues()
               )}
           </Utils.Row>

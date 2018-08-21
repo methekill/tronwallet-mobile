@@ -13,12 +13,13 @@ import NavigationHeader from '../../components/Navigation/Header'
 import { DetailRow, DataRow } from './elements'
 
 // Service
-import tl from '../../utils/i18n'
 import Client from '../../services/client'
-import getTransactionStore from '../../store/transactions'
-import getBalanceStore from '../../store/balance'
-import { withContext } from '../../store/context'
+
+// Utils
+import tl from '../../utils/i18n'
 import buildTransactionDetails, { translateError } from './detailMap'
+import getTransactionStore from '../../store/transactions'
+import { withContext } from '../../store/context'
 
 const ANSWERS_TRANSACTIONS = ['Transfer', 'Vote', 'Participate', 'Freeze']
 const NOTIFICATION_TRANSACTIONS = ['Transfer', 'Transfer Asset']
@@ -137,7 +138,7 @@ class TransactionDetail extends Component {
             })
           }
         }
-        await this._updateBalancesStore()
+        await this.props.context.updateBalances()
       }
       this.setState({ submitError: null, loadingSubmit: false, disableSubmit: true }, this._navigateNext)
     } catch (error) {
@@ -167,16 +168,6 @@ class TransactionDetail extends Component {
       return 'Vote'
     }
     return null
-  }
-
-  _updateBalancesStore = async balances => {
-    try {
-      const balances = await Client.getBalances(this.props.context.pin)
-      const store = await getBalanceStore()
-      store.write(() => balances.map(item => store.create('Balance', item, true)))
-    } catch (error) {
-      console.log('Error while updating User balance')
-    }
   }
 
   _renderContracts = () => {

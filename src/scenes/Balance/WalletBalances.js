@@ -70,7 +70,7 @@ class WalletBalances extends PureComponent {
 }
 
 WalletBalances.propTypes = {
-  balances: PropTypes.array.isRequired
+  balances: PropTypes.array
 }
 
 export default WalletBalances

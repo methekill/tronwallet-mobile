@@ -185,7 +185,7 @@ class BuyScene extends Component {
         participateAmount: this._fixNumber(amountToPay)
       }
 
-      const data = await Client.getParticipateTransaction(this.props.context.pin, participatePayload)
+      const data = await Client.getParticipateTransaction(this.props.context.publicKey, participatePayload)
       await this._openTransactionDetails(data)
     } catch (err) {
       if (err.message === 'INSUFFICIENT_BALANCE') {
@@ -205,7 +205,11 @@ class BuyScene extends Component {
 
   _openTransactionDetails = async transactionUnsigned => {
     try {
-      const transactionSigned = await signTransaction(this.props.context.pin, transactionUnsigned)
+      const { accounts, publicKey } = this.props.context
+      const transactionSigned = await signTransaction(
+        accounts.find(item => item.address === publicKey).privateKey,
+        transactionUnsigned
+      )
       this.setState({ loading: false }, () => {
         this.props.navigation.navigate('SubmitTransaction', {
           tx: transactionSigned,

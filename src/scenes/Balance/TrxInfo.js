@@ -1,38 +1,21 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
-import { Motion, spring, presets } from 'react-motion'
+import { Motion, spring } from 'react-motion'
 import { Context } from '../../store/context'
 
 import tl from '../../utils/i18n'
 import FadeIn from '../../components/Animations/FadeIn'
 import * as Utils from '../../components/Utils'
-import { getPrice } from '../../utils/balanceUtils'
 import { formatNumber } from '../../utils/numberUtils'
 
 class TrxInfo extends PureComponent {
-  state = {
-    currencyPrice: null
-  }
-
-  async componentDidUpdate (prevProps) {
-    const { currency: currentCurrency } = this.props
-    const { currency: prevCurreny } = prevProps
-
-    if (prevCurreny !== currentCurrency) {
-      const price = await getPrice(currentCurrency)
-      this.setState({ currencyPrice: price })
-    }
-  }
-
   render () {
     const { currency } = this.props
-    const { currencyPrice } = this.state
 
-    return (
+    return !!currency && (
       <Context.Consumer>
-        {({ freeze }) =>
-          currencyPrice &&
-          freeze.value && (
+        {({ freeze, price, publicKey }) =>
+          price.price &&
+          freeze[publicKey] && (
             <FadeIn name='tronprice'>
               <Utils.VerticalSpacer size='medium' />
               <Utils.Row justify='space-between'>
@@ -41,7 +24,7 @@ class TrxInfo extends PureComponent {
                   <Motion
                     defaultStyle={{ power: 0 }}
                     style={{
-                      power: spring(freeze.value.total, presets.gentle)
+                      power: spring(freeze[publicKey].total)
                     }}
                   >
                     {value => (
@@ -53,7 +36,7 @@ class TrxInfo extends PureComponent {
                   <Utils.Text size='xsmall' secondary>{tl.t('trxPrice')}</Utils.Text>
                   <Motion
                     defaultStyle={{ price: 0 }}
-                    style={{ price: spring(currencyPrice, presets.gentle) }}
+                    style={{ price: spring(price.price) }}
                   >
                     {value => (
                       <Utils.Text padding={4}>
@@ -67,10 +50,7 @@ class TrxInfo extends PureComponent {
                   <Motion
                     defaultStyle={{ bandwidth: 0 }}
                     style={{
-                      bandwidth: spring(
-                        freeze.value.bandwidth.netRemaining,
-                        presets.gentle
-                      )
+                      bandwidth: spring(freeze[publicKey].bandwidth.netRemaining)
                     }}
                   >
                     {value => (
@@ -90,12 +70,4 @@ class TrxInfo extends PureComponent {
   }
 }
 
-TrxInfo.propTypes = {
-  currency: PropTypes.string.isRequired
-}
-
-export default props => (
-  <Context.Consumer>
-    {context => <TrxInfo context={context} {...props} />}
-  </Context.Consumer>
-)
+export default TrxInfo

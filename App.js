@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StatusBar, Platform, YellowBox, SafeAreaView } from 'react-native'
+import { StatusBar, Platform, YellowBox, SafeAreaView, AsyncStorage } from 'react-native'
 import {
   createBottomTabNavigator,
   createStackNavigator,
@@ -11,7 +11,7 @@ import Config from 'react-native-config'
 import OneSignal from 'react-native-onesignal'
 import { Sentry } from 'react-native-sentry'
 
-import { Colors, ScreenSize  } from './src/components/DesignSystem'
+import { Colors, ScreenSize } from './src/components/DesignSystem'
 
 import LoadingScene from './src/scenes/Loading'
 import SendScene from './src/scenes/Send'
@@ -51,6 +51,8 @@ import Client from './src/services/client'
 import { Context } from './src/store/context'
 import NodesIp from './src/utils/nodeIp'
 import { getUserSecrets } from './src/utils/secretsUtils'
+import getBalanceStore from './src/store/balance'
+import { USER_PREFERRED_CURRENCY } from './src/utils/constants'
 
 import fontelloConfig from './src/assets/icons/config.json'
 
@@ -118,15 +120,14 @@ const AddressBookTabs = createMaterialTopTabNavigator(
 )
 
 const AddressBookStack = createStackNavigator({
-    AddressBook: AddressBookTabs,
-    EditAddressBookItem,
-    AddContact: AddContactScene
-  }, {
-    navigationOptions: {
-      header: <NavigationHeader title='ADDRESS BOOK' />
-    }
+  AddressBook: AddressBookTabs,
+  EditAddressBookItem,
+  AddContact: AddContactScene
+}, {
+  navigationOptions: {
+    header: <NavigationHeader title='ADDRESS BOOK' />
   }
-)
+})
 
 const BalanceStack = createStackNavigator({
   BalanceScene,
@@ -231,11 +232,14 @@ class App extends Component {
   state = {
     price: {},
     freeze: {},
-    publicKey: {},
+    balances: {},
+    accounts: [],
+    publicKey: null,
     pin: null,
     oneSignalId: null,
     shareModal: false,
-    queue: null
+    queue: null,
+    currency: null
   }
 
   async componentDidMount () {
@@ -248,6 +252,9 @@ class App extends Component {
 
     this._getPrice()
     this._setNodes()
+
+    const preferedCurrency = await AsyncStorage.getItem(USER_PREFERRED_CURRENCY)
+    this.setState({ currency: preferedCurrency })
   }
 
   componentWillUnmount () {
@@ -272,36 +279,60 @@ class App extends Component {
     console.log('openResult: ', openResult)
   }
 
-  _loadUserData = () => {
-    this._getPublicKey()
-    this._getFreeze()
+  _loadUserData = async () => {
+    const accounts = await getUserSecrets(this.state.pin)
+    this.setState({ accounts })
+    if (!this.state.publicKey) {
+      const { address } = accounts[0]
+      this.setState({ publicKey: address })
+      this._getFreeze(address)
+    }
+    this._updateBalances()
   }
 
-  _getFreeze = async () => {
-    try {
-      const value = await Client.getFreeze(this.state.pin)
-      this.setState({ freeze: { value } })
-    } catch (err) {
-      this.setState({ freeze: { err } })
+  _updateBalances = () => {
+    const { accounts } = this.state
+    for (let i = 0; i < accounts.length; i++) {
+      Client.getBalances(accounts[i].address).then(async data => {
+        const { balances } = this.state
+        balances[accounts[i].address] = data
+        accounts[i].balance = data.find(item => item.name === 'TRX').balance
+        this.setState({
+          accounts,
+          balances
+        })
+        getBalanceStore().then(store => {
+          store.write(() => {
+            data.map(item =>
+              store.create('Balance', {
+                ...item,
+                account: accounts[i].address,
+                id: `${accounts[i].address}${item.name}`
+              }, true))
+          })
+        })
+      })
     }
   }
 
-  _getPrice = async () => {
+  _setCurrency = async currency => {
+    await AsyncStorage.setItem(USER_PREFERRED_CURRENCY, currency)
+    const { data: { data } } = await axios.get(`${Config.TRX_PRICE_API}/?convert=${currency}`)
+    this.setState({ currency, price: data.quotes[currency], circulatingSupply: data.circulating_supply })
+  }
+
+  _getFreeze = async (address) => {
     try {
-      const { data: { data } } = await axios.get(Config.TRX_PRICE_API)
-      this.setState({ price: { value: data.quotes.USD.price } })
+      const value = await Client.getFreeze(address)
+      this.setState({ freeze: Object.assign({}, this.state.freeze, { [address]: value }) })
     } catch (err) {
-      this.setState({ price: { err } })
+      this.setState({ freeze: Object.assign({}, this.state.freeze, { err }) })
     }
   }
 
-  _getPublicKey = async () => {
-    try {
-      const { address } = await getUserSecrets(this.state.pin)
-      this.setState({ publicKey: { value: address } })
-    } catch (err) {
-      this.setState({ publicKey: { err } })
-    }
+  _getPrice = async (currency = 'USD') => {
+    const { data: { data } } = await axios.get(`${Config.TRX_PRICE_API}/?convert=${currency}`)
+    this.setState({ price: data.quotes[currency], circulatingSupply: data.circulating_supply })
   }
 
   _setNodes = async () => {
@@ -312,10 +343,12 @@ class App extends Component {
     }
   }
 
+  _setPublicKey = publicKey => this.setState({ publicKey })
+
   _setPin = (pin, callback) => {
     this.setState({ pin }, () => {
-      callback()
       this._loadUserData()
+      callback()
     })
   }
 
@@ -340,15 +373,16 @@ class App extends Component {
   render () {
     const contextProps = {
       ...this.state,
-      updateWalletData: this._loadUserData,
+      loadUserData: this._loadUserData,
       getFreeze: this._getFreeze,
       getPrice: this._getPrice,
-      getPublicKey: this._getPublicKey,
+      setPublicKey: this._setPublicKey,
       setPin: this._setPin,
       openShare: this._openShare,
       closeShare: this._closeShare,
       toggleShare: this._toggleShare,
-      createJobs: this._createJobs
+      updateBalances: this._updateBalances,
+      setCurrency: this._setCurrency
     }
 
     return (

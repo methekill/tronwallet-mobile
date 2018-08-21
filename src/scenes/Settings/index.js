@@ -94,7 +94,7 @@ class Settings extends Component {
 
   _onLoadData = async () => {
     const data = await getUserSecrets(this.props.context.pin)
-    const seed = data.mnemonic
+    const seed = data[0].mnemonic
     this.setState({ seed, loading: false })
   }
 
@@ -163,7 +163,7 @@ class Settings extends Component {
         if (this.state.subscriptionStatus) {
           Client.registerDeviceForNotifications(
             this.props.context.oneSignalId,
-            this.props.context.publicKey.value
+            this.props.context.publicKey
           )
         } else {
           // TODO: remove device from db

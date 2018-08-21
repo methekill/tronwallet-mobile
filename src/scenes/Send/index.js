@@ -95,39 +95,41 @@ class SendScene extends Component {
 
   _getBalancesFromStore = async () => {
     const store = await getBalanceStore()
-    return store.objects('Balance').map(item => Object.assign({}, item))
+    console.log('filter', `account = "${this.props.context.publicKey}"`)
+    return store.objects('Balance').filtered(`account = "${this.props.context.publicKey}"`).map(item => Object.assign({}, item))
   }
 
   _loadData = async () => {
     this.setState({ loading: true })
-    try {
-      const balances = await this._getBalancesFromStore()
-      const userPublicKey = this.props.context.publicKey.value
-      let orderedBalances = []
-      let balance = 0
+    // try {
+    const balances = await this._getBalancesFromStore()
+    console.log('balances', balances)
+    const publicKey = this.props.context.publicKey
+    let orderedBalances = []
+    let balance = 0
 
-      if (balances.length) {
-        balance = balances.find(b => b.name === 'TRX').balance
-        const userTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
-        const filteredBalances = balances.filter(asset => JSON.parse(userTokens).findIndex(name => name === asset.name) === -1)
-        orderedBalances = this._orderBalances(filteredBalances)
-      }
-
-      this.setState({
-        from: userPublicKey,
-        balances: orderedBalances,
-        loadingData: false,
-        trxBalance: balance,
-        formattedToken: this._formatBalance('TRX', balance),
-        warning: balance === 0 ? tl.t('send.error.insufficientBalance') : null
-      })
-    } catch (error) {
-      Alert.alert(tl.t('send.error.gettingBalance'))
-      // TODO - Error handler
-      this.setState({
-        loadingData: false
-      })
+    if (balances.length) {
+      balance = balances.find(asset => asset.name === 'TRX').balance
+      const userTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
+      const filteredBalances = balances.filter(asset => JSON.parse(userTokens).findIndex(name => name === asset.name) === -1)
+      orderedBalances = this._orderBalances(filteredBalances)
     }
+
+    this.setState({
+      from: publicKey,
+      balances: orderedBalances,
+      loadingData: false,
+      trxBalance: balance,
+      formattedToken: this._formatBalance('TRX', balance),
+      warning: balance === 0 ? tl.t('send.error.insufficientBalance') : null
+    })
+    // } catch (error) {
+    //   Alert.alert(tl.t('send.error.gettingBalance'))
+    //   // TODO - Error handler
+    //   this.setState({
+    //     loadingData: false
+    //   })
+    // }
   }
 
   _changeInput = (text, field) => {
@@ -209,7 +211,11 @@ class SendScene extends Component {
 
   _openTransactionDetails = async transactionUnsigned => {
     try {
-      const transactionSigned = await signTransaction(this.props.context.pin, transactionUnsigned)
+      const { accounts, publicKey } = this.props.context
+      const transactionSigned = await signTransaction(
+        accounts.find(item => item.address === publicKey).privateKey,
+        transactionUnsigned
+      )
       this.setState({ loadingSign: false, error: null }, () => {
         this.props.navigation.navigate('SubmitTransaction', {
           tx: transactionSigned

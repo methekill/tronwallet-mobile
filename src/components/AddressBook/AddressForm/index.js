@@ -13,13 +13,21 @@ import { isAddressValid } from '../../../services/address'
 import { ADD, EDIT } from '../../../utils/constants'
 import { isNameValid, isAddressUnique, isAliasUnique } from '../../../utils/validations'
 import getContactStore from '../../../store/contacts'
+import { getUserSecrets } from '../../../utils/secretsUtils'
+import { withContext } from '../../../store/context'
+import getSecretsStore from '../../../store/secrets'
 import tl from '../../../utils/i18n'
 
-export default class ContactsForm extends Component {
+class ContactsForm extends Component {
   static propTypes = {
     name: PropTypes.string,
     address: PropTypes.string,
-    navigation: PropTypes.object.isRequired
+    navigation: PropTypes.object.isRequired,
+    isUserAccount: PropTypes.bool
+  }
+
+  static defaultProps = {
+    isUserAccount: false
   }
 
   state = {
@@ -48,15 +56,31 @@ export default class ContactsForm extends Component {
     })
   }
 
-  _onSubmit = async (contact) => {
-    const store = await getContactStore()
-    try {
-      await store.write(() => { store.create('Contact', contact, true) })
-      this.props.navigation.goBack()
-    } catch (e) {
-      this.setState({
-        generalError: tl.t('addressBook.form.generalError')
-      })
+  _onSubmit = async data => {
+    if (this.props.navigation.getParam('isUserAccount', false)) {
+      const accounts = await getUserSecrets(this.props.context.pin)
+      const store = await getSecretsStore(this.props.context.pin)
+      const account = accounts.find(item => item.address === data.address)
+      account.name = data.name
+      account.alias = data.alias
+      try {
+        await store.write(() => { store.create('Account', account, true) })
+        this.props.navigation.goBack()
+      } catch (e) {
+        this.setState({
+          generalError: tl.t('addressBook.form.generalError')
+        })
+      }
+    } else {
+      const store = await getContactStore()
+      try {
+        await store.write(() => { store.create('Contact', data, true) })
+        this.props.navigation.goBack()
+      } catch (e) {
+        this.setState({
+          generalError: tl.t('addressBook.form.generalError')
+        })
+      }
     }
   }
 
@@ -128,9 +152,13 @@ export default class ContactsForm extends Component {
   _submitDisabled = () => {
     const { name, address, generalError, nameError, addressError } = this.state
 
-    if (!name.length || !address.length) {
-      return true
-    } else if (!!generalError || !!nameError || !!addressError) {
+    if (
+      !name.length ||
+      !address.length ||
+      !!generalError ||
+      !!nameError ||
+      !!addressError
+    ) {
       return true
     }
 
@@ -144,6 +172,8 @@ export default class ContactsForm extends Component {
       this._nextInput('submit')
     }
   }
+
+  _formatAlias = name => `@${name.trim().toLowerCase().replace(' ', '_')}`
 
   _rightContentTo = () => this.props.type === ADD ? <IconButton onPress={this._onPaste} icon='md-clipboard' /> : null
 
@@ -214,3 +244,5 @@ export default class ContactsForm extends Component {
     )
   }
 }
+
+export default withContext(ContactsForm)

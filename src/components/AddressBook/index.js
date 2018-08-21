@@ -19,9 +19,9 @@ export default class Contacts extends Component {
   _onRefresh = () => {
     const { reloadData } = this.props
 
-    this.setState({refreshing: true})
+    this.setState({ refreshing: true })
     reloadData()
-    this.setState({refreshing: false})
+    this.setState({ refreshing: false })
   }
 
   _closeModal = () => {
@@ -48,7 +48,7 @@ export default class Contacts extends Component {
   _onEditPress = () => {
     const { currentItem } = this.state
 
-    this._navigate('EditAddressBookItem', { item: currentItem })
+    this._navigate('EditAddressBookItem', { item: currentItem, isUserAccount: this.props.isUserAccount })
   }
 
   _onSendPress = () => {
