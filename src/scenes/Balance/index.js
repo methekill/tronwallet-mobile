@@ -13,7 +13,6 @@ import * as Utils from '../../components/Utils'
 import WalletBalances from './WalletBalances'
 import BalanceWarning from './BalanceWarning'
 import BalanceNavigation from './BalanceNavigation'
-import TrxInfo from './TrxInfo'
 import AccountsCarousel from './AccountsCarousel'
 
 import tl from '../../utils/i18n'
@@ -96,7 +95,6 @@ class BalanceScene extends Component {
   render () {
     const {
       seed,
-      currency,
       creatingNewAccount,
       refreshing,
       activeAccount
@@ -132,9 +130,8 @@ class BalanceScene extends Component {
             />
             <Utils.VerticalSpacer size='medium' />
             <Utils.Content paddingTop={0}>
-              <TrxInfo currency={currency} />
               <BalanceNavigation navigation={this.props.navigation} />
-              {!accounts[activeAccount].confirmed && (
+              {accounts[activeAccount] && !accounts[activeAccount].confirmed && (
                 <BalanceWarning seed={seed} navigation={this.props.navigation}>
                   {tl.t('balance.confirmSeed')}
                 </BalanceWarning>
