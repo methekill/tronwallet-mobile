@@ -33,8 +33,10 @@ import getBalanceStore from '../../store/balance'
 import { withContext } from '../../store/context'
 import { USER_FILTERED_TOKENS } from '../../utils/constants'
 
+import { ButtonWrapper } from './elements'
+
 class SendScene extends Component {
-  static navigationOptions = ({ navigation }) => {
+  static navigationOptions = () => {
     return { header: null }
   }
 
@@ -153,7 +155,6 @@ class SendScene extends Component {
   _submit = () => {
     const { amount, to, balances, token, from, description } = this.state
     const balanceSelected = balances.find(b => b.name === token)
-
     if (!isAddressValid(to) || from === to) {
       this.setState({ error: tl.t('send.error.invalidReceiver') })
       return
@@ -192,8 +193,8 @@ class SendScene extends Component {
       const data = await Client.getTransferTransaction({
         from,
         to,
-        amount,
         token,
+        amount: Number(amount).toFixed(6),
         data: description
       })
       this._openTransactionDetails(data)
@@ -218,6 +219,12 @@ class SendScene extends Component {
       Alert.alert(tl.t('warning'), tl.t('error.default'))
       this.setState({ loadingSign: false })
     }
+  }
+
+  _setMaxAmount = () => {
+    const { balances, token } = this.state
+    const balanceSelected = balances.find(b => b.name === token) || balances[0]
+    this.setState({amount: balanceSelected.balance})
   }
 
   _readPublicKey = e => this.setState({ to: e.data }, () => {
@@ -257,6 +264,11 @@ class SendScene extends Component {
     </Utils.View>
   )
 
+  _rightContentAmount = () => (
+    <ButtonWrapper onPress={this._setMaxAmount}>
+      <Utils.Text color={Colors.secondaryText} size='tiny'>MAX</Utils.Text>
+    </ButtonWrapper>
+  )
   _nextInput = currentInput => {
     if (currentInput === 'token') {
       this.to.focus()
@@ -346,6 +358,7 @@ class SendScene extends Component {
               placeholder='0'
               onChangeText={text => this._changeInput(text, 'amount')}
               onSubmitEditing={() => this._nextInput('description')}
+              rightContent={this._rightContentAmount}
               align='right'
               type='float'
               numbersOnly
@@ -358,8 +371,7 @@ class SendScene extends Component {
               innerRef={(input) => { this.description = input }}
               label={tl.t('send.input.description')}
               onChangeText={text => this._changeInput(text, 'description')}
-              placeholder=' '
-              align='right'
+              showPlaceholder={false}
             />
             {error && (
               <React.Fragment>
