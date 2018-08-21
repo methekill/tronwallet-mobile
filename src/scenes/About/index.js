@@ -3,7 +3,8 @@ import {
   Modal,
   WebView,
   TouchableWithoutFeedback,
-  View
+  View,
+  SafeAreaView
 } from 'react-native'
 
 import NavigationHeader from '../../components/Navigation/Header'
@@ -11,6 +12,7 @@ import Loading from '../../components/LoadingScene'
 
 // Design
 import { Container, Content, Row, HorizontalSpacer, VerticalSpacer } from '../../components/Utils'
+import { Colors } from '../../components/DesignSystem'
 import {
   Description,
   VersionText,
@@ -57,12 +59,14 @@ class About extends PureComponent {
               visible={modalVisible}
               onRequestClose={() => this.setState({ modalVisible: false })}
             >
-              <NavigationHeader title='' onBack={() => { this.props.navigation.goBack() }} />
-              <WebView
-                source={{ uri: partnerUri }}
-                renderLoading={() => <Loading />}
-                startInLoadingState
-              />
+              <SafeAreaView style={{flex: 1, backgroundColor: Colors.background}}>
+                <NavigationHeader title='' onBack={() => { this.props.navigation.goBack() }} />
+                <WebView
+                  source={{ uri: partnerUri }}
+                  renderLoading={() => <Loading />}
+                  startInLoadingState
+                />
+              </SafeAreaView>
             </Modal>
           </View>
           <View>

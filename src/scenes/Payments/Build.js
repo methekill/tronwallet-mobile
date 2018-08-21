@@ -141,9 +141,6 @@ class RequestPayment extends Component {
               keyboardType='default'
               value={description}
               onChangeText={text => this._changeInput(text, 'description')}
-              align='right'
-              placeholder=' '
-
             />
             <Utils.VerticalSpacer size='large' />
             {loading ? (

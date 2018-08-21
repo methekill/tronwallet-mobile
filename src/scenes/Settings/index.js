@@ -9,7 +9,8 @@ import {
   ScrollView,
   AsyncStorage,
   Modal,
-  WebView
+  WebView,
+  SafeAreaView
 } from 'react-native'
 
 import RNRestart from 'react-native-restart'
@@ -383,12 +384,14 @@ class Settings extends Component {
           visible={modalVisible}
           onRequestClose={() => this.setState({ modalVisible: false })}
         >
-          <NavigationHeader title='' onBack={() => { this.setState({ modalVisible: false }) }} />
-          <WebView
-            source={{ uri }}
-            renderLoading={() => <Loading />}
-            startInLoadingState
-          />
+          <SafeAreaView style={{flex: 1, backgroundColor: Colors.background}}>
+            <NavigationHeader title=' ' onBack={() => { this.setState({ modalVisible: false }) }} />
+            <WebView
+              source={{ uri }}
+              renderLoading={() => <Loading />}
+              startInLoadingState
+            />
+          </SafeAreaView>
         </Modal>
         <SectionedMultiSelect
           ref={ref => { this.SectionedMultiSelect = ref }}
