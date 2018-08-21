@@ -6,7 +6,8 @@ import {
   Image,
   FlatList,
   ActivityIndicator,
-  View
+  View,
+  Platform
 } from 'react-native'
 
 import LinearGradient from 'react-native-linear-gradient'
@@ -114,6 +115,7 @@ class ParticipateHome extends React.Component {
 
   _loadMore = async () => {
     const { start, assetList, searchMode } = this.state
+
     if (searchMode) return
 
     this.props.navigation.setParams({ loading: true })
@@ -283,7 +285,7 @@ class ParticipateHome extends React.Component {
           renderItem={({ item }) => this._renderCard(item)}
           keyExtractor={asset => asset.name}
           scrollEnabled
-          removeClippedSubviews
+          removeClippedSubviews={Platform.OS === 'android'}
           onEndReached={this._loadMore}
           onEndReachedThreshold={0.75}
           refreshing={searching}
