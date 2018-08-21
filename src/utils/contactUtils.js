@@ -18,3 +18,8 @@ export const getAliasFromStore = async () => {
   const contacts = await getContactsFromStore()
   return contacts.map(contact => contact.alias)
 }
+export const resetContactsData = async () => {
+  const contacts = await getContactsStore()
+  const contactsList = contacts.objects('Contact')
+  contacts.write(() => contacts.delete(contactsList))
+}

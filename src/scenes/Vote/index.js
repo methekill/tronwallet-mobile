@@ -194,9 +194,9 @@ class VoteScene extends PureComponent {
   }
 
   _loadUserData = async () => {
-    const { context } = this.props
+    const { freeze, publicKey } = this.props.context
     try {
-      let totalFrozen = context.freeze[context.publicKey].total
+      let totalFrozen = freeze[publicKey].total
 
       let userVotes = await this._getLastUserVotesFromStore()
       if (userVotes) {
