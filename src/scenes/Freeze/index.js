@@ -98,7 +98,7 @@ class FreezeScene extends Component {
       const total = freeze.value.total || 0
       const unfreezeStatus = await this._checkUnfreeze()
       this.setState({
-        from: publicKey.value,
+        from: publicKey,
         balances: freeze,
         trxBalance: balance,
         bandwidth: freeze.value.bandwidth.netReimaining,
@@ -145,7 +145,7 @@ class FreezeScene extends Component {
     const convertedAmount = Number(amount)
 
     try {
-      const data = await Client.getFreezeTransaction(this.props.context.pin, convertedAmount)
+      const data = await Client.getFreezeTransaction(this.props.context.publicKey, convertedAmount)
       this._openTransactionDetails(data)
     } catch (error) {
       Alert.alert(Alert.alert(tl.t('error.buildingTransaction')))
@@ -156,7 +156,11 @@ class FreezeScene extends Component {
 
   _openTransactionDetails = async (transactionUnsigned) => {
     try {
-      const transactionSigned = await signTransaction(this.props.context.pin, transactionUnsigned)
+      const { accounts, publicKey } = this.props.context
+      const transactionSigned = await signTransaction(
+        accounts.find(item => item.address === publicKey).privateKey,
+        transactionUnsigned
+      )
       this.setState({ loadingSign: false }, () => {
         this.props.navigation.navigate('SubmitTransaction', {
           tx: transactionSigned

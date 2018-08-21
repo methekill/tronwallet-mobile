@@ -3,8 +3,8 @@ import Config from 'react-native-config'
 import NodesIp from '../utils/nodeIp'
 import { AUTH_ID } from '../../aws-exports'
 
-import { getUserSecrets } from '../utils/secretsUtils'
 export const ONE_TRX = 1000000
+
 class ClientWallet {
   constructor (opt = null) {
     this.api = Config.MAIN_API_URL
@@ -34,16 +34,13 @@ class ClientWallet {
     const apiUrl = await this.getTronscanUrl()
     const { data: { transaction } } = await axios.post(
       `${apiUrl}/transaction?dry-run`,
-      {
-        transaction: tx
-      }
+      { transaction: tx }
     )
     return transaction
   }
 
-  async getBalances (pin) {
+  async getBalances (address) {
     const apiUrl = await this.getTronscanUrl()
-    const { address } = await getUserSecrets(pin)
     const { data: { balances } } = await axios.get(
       `${apiUrl}/account/${address}`
     )
@@ -53,22 +50,12 @@ class ClientWallet {
     return balances
   }
 
-  async getFreeze (pin) {
+  async getFreeze (address) {
     const apiUrl = await this.getTronscanUrl()
-    const { address } = await getUserSecrets(pin)
     const { data: { frozen, bandwidth, balances } } = await axios.get(
       `${apiUrl}/account/${address}`
     )
     return { ...frozen, total: frozen.total / ONE_TRX, bandwidth, balances }
-  }
-
-  async getUserVotes (pin) {
-    const apiUrl = await this.getTronscanUrl()
-    const { address } = await getUserSecrets(pin)
-    const { data: { votes } } = await axios.get(
-      `${apiUrl}/account/${address}/votes`
-    )
-    return votes
   }
 
   async getTokenList (start, limit, name) {
@@ -79,9 +66,8 @@ class ClientWallet {
     return data
   }
 
-  async getTransactionList (pin) {
+  async getTransactionList (address) {
     const apiUrl = await this.getTronscanUrl()
-    const { address } = await getUserSecrets(pin)
     const tx = () =>
       axios.get(
         `${apiUrl}/transaction?sort=-timestamp&limit=50&address=${address}`
@@ -130,8 +116,7 @@ class ClientWallet {
 
   //* ============TronWalletServerless Api============*//
 
-  async giftUser (pin, deviceId) {
-    const { address } = await getUserSecrets(pin)
+  async giftUser (address, deviceId) {
     const body = { address, deviceId, authid: AUTH_ID }
     const { data: { result } } = await axios.post(`${this.tronwalletApi}/gift`, body)
     return result
@@ -175,8 +160,7 @@ class ClientWallet {
     return transaction
   }
 
-  async getFreezeTransaction (pin, freezeAmount) {
-    const { address } = await getUserSecrets(pin)
+  async getFreezeTransaction (address, freezeAmount) {
     const { nodeIp } = await NodesIp.getAllNodesIp()
     const reqBody = {
       address,
@@ -191,8 +175,7 @@ class ClientWallet {
     return transaction
   }
 
-  async getUnfreezeTransaction (pin) {
-    const { address } = await getUserSecrets(pin)
+  async getUnfreezeTransaction (address, pin) {
     const { nodeIp } = await NodesIp.getAllNodesIp()
     const reqBody = {
       address,
@@ -205,12 +188,11 @@ class ClientWallet {
     return transaction
   }
 
-  async getParticipateTransaction (pin, {
+  async getParticipateTransaction (address, {
     participateAmount,
     participateToken,
     participateAddress
   }) {
-    const { address } = await getUserSecrets(pin)
     const { nodeIp } = await NodesIp.getAllNodesIp()
     const reqBody = {
       address,
@@ -226,8 +208,7 @@ class ClientWallet {
     return transaction
   }
 
-  async getVoteWitnessTransaction (pin, votes) {
-    const { address } = await getUserSecrets(pin)
+  async getVoteWitnessTransaction (address, votes) {
     const { nodeIp } = await NodesIp.getAllNodesIp()
     const reqBody = {
       address,

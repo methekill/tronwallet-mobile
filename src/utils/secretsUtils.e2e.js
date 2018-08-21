@@ -7,7 +7,8 @@ import { resetWalletData } from './userAccountUtils'
 import Client from '../services/client'
 
 export const createUserKeyPair = async (pin, oneSignalId) => {
-  const { mnemonic } = await getUserSecrets(pin)
+  const accounts = await getUserSecrets(pin)
+  const { mnemonic } = accounts[0]
   let newMnemonic = 'twelve polar broken pill ordinary put solve mushroom trumpet script pattern truly'
   if (mnemonic === newMnemonic) {
     newMnemonic = 'swift tissue develop cage struggle minor snack cancel average daughter dutch faculty'
@@ -61,7 +62,7 @@ export const getUserSecrets = async pin => {
     const secretsObject = secretsStore
       .objects('UserSecret')
       .map(item => Object.assign(item, {}))
-    if (secretsObject.length) return secretsObject[0]
+    if (secretsObject.length) return secretsObject
     return emptySecret
   } catch (error) {
     throw error

@@ -36,7 +36,7 @@ class ReceiveScreen extends PureComponent {
 
   _copy = async () => {
     try {
-      await Clipboard.setString(this.props.context.publicKey.value)
+      await Clipboard.setString(this.props.context.publicKey)
       this.refs.toast.show(tl.t('receive.clipboardCopied'))
     } catch (error) {
       this.refs.toast.show(tl.t('error.clipboardCopied'))
@@ -46,7 +46,7 @@ class ReceiveScreen extends PureComponent {
   render () {
     const { width } = Dimensions.get('window')
     const { context } = this.props
-    const publicKey = context.publicKey.value
+    const publicKey = context.publicKey
 
     return (
       <KeyboardScreen>

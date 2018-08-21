@@ -10,6 +10,7 @@ import Badge from '../../components/Badge'
 import ButtonGradient from '../../components/ButtonGradient'
 import { Divider } from './elements'
 import { Colors } from '../../components/DesignSystem'
+import { translateError } from '../../scenes/SubmitTransaction/detailMap'
 
 // Service
 import WalletClient from '../../services/client'
@@ -17,10 +18,9 @@ import WalletClient from '../../services/client'
 // Utils
 import { signTransaction } from '../../utils/transactionUtils'
 import withContext from '../../utils/hocs/withContext'
-import getBalanceStore from '../../store/balance'
 import { formatNumber } from '../../utils/numberUtils'
-import { translateError } from '../../scenes/SubmitTransaction/detailMap'
 import getTransactionStore from '../../store/transactions'
+import getBalanceStore from '../../store/balance'
 import tl from '../../utils/i18n'
 
 const NOTIFICATION_TRANSACTIONS = ['Transfer', 'Transfer Asset']
@@ -70,16 +70,6 @@ class MakePayment extends PureComponent {
       return transaction
     }
 
-    _updateBalancesStore = async balances => {
-      try {
-        const balances = await WalletClient.getBalances(this.props.context.pin)
-        const store = await getBalanceStore()
-        store.write(() => balances.map(item => store.create('Balance', item, true)))
-      } catch (error) {
-        Alert.alert(tl.t('warning'), tl.t('balance.error.loadingData'))
-      }
-    }
-
     _navigateNext = () => {
       const { navigation } = this.props
       navigation.navigate('TransactionSuccess', {stackToReset: 'BalanceScene'})
@@ -91,7 +81,7 @@ class MakePayment extends PureComponent {
 
     _checkPayment = () => {
       const { context, navigation } = this.props
-      const from = context.publicKey.value
+      const from = context.publicKey
       this.setState({loading: true})
       try {
         const { address, amount, token, description } = navigation.getParam('payment')
@@ -114,9 +104,13 @@ class MakePayment extends PureComponent {
     _buildTransaction = async ({to, amount, token, from, data}) => {
       try {
         // Build Transaction
-        const transferData = await WalletClient.getTransferTransaction({from, to, amount, token, data})
+        const transactionUnsigned = await WalletClient.getTransferTransaction({from, to, amount, token})
         // Sign Transaction
-        const transactionSigned = await signTransaction(this.props.context.pin, transferData)
+        const { accounts, publicKey } = this.props.context
+        const transactionSigned = await signTransaction(
+          accounts.find(item => item.address === publicKey).privateKey,
+          transactionUnsigned
+        )
         // Get Transaction Signed Data
         const transactionData = await WalletClient.getTransactionDetails(transactionSigned)
         // Proceed to broadcast
@@ -148,7 +142,7 @@ class MakePayment extends PureComponent {
               })
             }
           }
-          await this._updateBalancesStore()
+          await this.props.context.updateBalances()
         }
         this.setState({ loading: false }, this._navigateNext)
       } catch (error) {

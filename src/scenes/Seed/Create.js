@@ -60,7 +60,8 @@ class Create extends React.Component {
 
   _getMnemonic = async () => {
     try {
-      const { mnemonic } = await getUserSecrets(this.props.context.pin)
+      const accounts = await getUserSecrets(this.props.context.pin)
+      const { mnemonic } = accounts[0]
       this.setState({ seed: mnemonic })
     } catch (e) {
       this.setState({

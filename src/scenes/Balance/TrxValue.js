@@ -6,24 +6,9 @@ import { Context } from '../../store/context'
 import FadeIn from '../../components/Animations/FadeIn'
 import Badge from '../../components/Badge'
 import * as Utils from '../../components/Utils'
-import { getPrice } from '../../utils/balanceUtils'
 import { formatNumber } from '../../utils/numberUtils'
 
 class TrxValue extends PureComponent {
-  state = {
-    currencyPrice: null
-  }
-
-  async componentDidUpdate (prevProps) {
-    const { currency: currentCurrency } = this.props
-    const { currency: prevCurreny } = prevProps
-
-    if (prevCurreny !== currentCurrency) {
-      const price = await getPrice(currentCurrency)
-      this.setState({ currencyPrice: price })
-    }
-  }
-
   _formatBalance = (value, currency) => {
     const crypto = ['BTC', 'ETH']
 
@@ -36,36 +21,33 @@ class TrxValue extends PureComponent {
 
   render () {
     const { trxBalance, currency } = this.props
-    const { currencyPrice } = this.state
 
     return (
       <React.Fragment>
         <Utils.Row justify='center' align='center'>
-          {currencyPrice &&
-            <React.Fragment>
-              <FadeIn name='usd-value'>
-                <Motion
-                  defaultStyle={{ price: 0 }}
-                  style={{
-                    price: spring(
-                      trxBalance * currencyPrice,
-                      presets.gentle
-                    )
-                  }}
-                >
-                  {value => (
-                    <Utils.Text size='large' marginX={8}>
-                      {this._formatBalance(value.price, currency)}
-                    </Utils.Text>
-                  )}
-                </Motion>
-              </FadeIn>
-              <Badge>{currency}</Badge>
-            </React.Fragment>
-          }
+          <React.Fragment>
+            <FadeIn name='usd-value'>
+              <Motion
+                defaultStyle={{ price: 0 }}
+                style={{
+                  price: spring(
+                    trxBalance * this.props.context.price.price,
+                    presets.gentle
+                  )
+                }}
+              >
+                {value => (
+                  <Utils.Text size='large' marginX={8}>
+                    {this._formatBalance(value.price, currency)}
+                  </Utils.Text>
+                )}
+              </Motion>
+            </FadeIn>
+            <Badge>{currency}</Badge>
+          </React.Fragment>
         </Utils.Row>
         <Utils.VerticalSpacer />
-        {currencyPrice && currency !== 'USD' && (
+        {currency !== 'USD' && (
           <Context.Consumer>
             {({ price }) =>
               price.value && (

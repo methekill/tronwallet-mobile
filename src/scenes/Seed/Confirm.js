@@ -75,7 +75,7 @@ class Confirm extends React.Component {
   _handleSuccess = async () => {
     const { navigation, context } = this.props
     try {
-      const result = await WalletClient.giftUser(context.pin, context.oneSignalId)
+      const result = await WalletClient.giftUser(context.publicKey, context.oneSignalId)
       if (result) {
         Answers.logCustom('Wallet Operation', { type: 'Gift' })
 

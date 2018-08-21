@@ -196,13 +196,7 @@ class VoteScene extends PureComponent {
   _loadUserData = async () => {
     const { context } = this.props
     try {
-      let totalFrozen = 0
-      if (context.freeze && context.freeze.value) {
-        totalFrozen = context.freeze.value.total
-      } else {
-        const apiFrozen = await WalletClient.getFreeze(this.props.context.pin)
-        totalFrozen = apiFrozen.total
-      }
+      let totalFrozen = context.freeze[context.publicKey].total
 
       let userVotes = await this._getLastUserVotesFromStore()
       if (userVotes) {
@@ -246,7 +240,7 @@ class VoteScene extends PureComponent {
         currentVotes[key] = Number(value)
       })
       try {
-        const data = await WalletClient.getVoteWitnessTransaction(this.props.context.pin, currentVotes)
+        const data = await WalletClient.getVoteWitnessTransaction(this.props.context.publicKey, currentVotes)
         this._openTransactionDetails(data)
       } catch (error) {
         Alert.alert(tl.t('error.buildingTransaction'))
@@ -258,7 +252,11 @@ class VoteScene extends PureComponent {
 
   _openTransactionDetails = async transactionUnsigned => {
     try {
-      const transactionSigned = await signTransaction(this.props.context.pin, transactionUnsigned)
+      const { accounts, publicKey } = this.props.context
+      const transactionSigned = await signTransaction(
+        accounts.find(item => item.address === publicKey).privateKey,
+        transactionUnsigned
+      )
       this.setState({ ...this.resetAddModal, loadingList: false, refreshing: false }, () => {
         this.props.navigation.navigate('SubmitTransaction', {
           tx: transactionSigned
@@ -285,7 +283,8 @@ class VoteScene extends PureComponent {
 
   _onChangeVotes = async (value) => {
     const { currentVotes, currentVoteItem } = this.state
-    const totalFrozen = this.props.context.freeze.value.total
+    const { context } = this.props
+    const totalFrozen = context.freeze[context.publicKey].total
     const newVotes = { ...currentVotes, [currentVoteItem.address]: value }
 
     const totalUserVotes = this._getVoteCountFromList(newVotes)
@@ -366,7 +365,8 @@ class VoteScene extends PureComponent {
 
   _removeVoteFromList = async (address = null) => {
     const { currentVotes, currentVoteItem } = this.state
-    const totalFrozen = this.props.context.freeze.value.total
+    const { context } = this.props
+    const totalFrozen = context.freeze[context.publicKey].total
 
     const voteToRemove = address || currentVoteItem.address
     delete currentVotes[voteToRemove]

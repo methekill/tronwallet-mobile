@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
 
+import { withContext } from '../../store/context'
+
 import AddressBook from '../../components/AddressBook'
 
-export default class Contacts extends Component {
-  state = {
-    accounts: []
-  }
-
+class Contacts extends Component {
   render () {
-    const { accounts } = this.state
     const { navigation } = this.props
 
     return (
-      <AddressBook items={accounts} navigation={navigation} />
+      <AddressBook
+        items={this.props.context.accounts}
+        navigation={navigation}
+        reloadData={this.props.context.loadUserData}
+        isUserAccount
+      />
     )
   }
 }
+
+export default withContext(Contacts)

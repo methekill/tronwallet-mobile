@@ -82,7 +82,7 @@ class RequestPayment extends Component {
 
   _buildQrData = () => {
     const { amountTrx, token, description } = this.state
-    const address = this.props.context.publicKey.value
+    const address = this.props.context.publicKey
     return JSON.stringify({amount: amountTrx, data: description, token, address})
   }
 
