@@ -142,7 +142,7 @@ class MakePayment extends PureComponent {
               })
             }
           }
-          await this.props.context.updateBalances()
+          await this.props.context.loadUserData()
         }
         this.setState({ loading: false }, this._navigateNext)
       } catch (error) {

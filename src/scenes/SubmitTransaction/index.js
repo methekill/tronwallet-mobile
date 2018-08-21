@@ -138,7 +138,7 @@ class TransactionDetail extends Component {
             })
           }
         }
-        await this.props.context.updateBalances()
+        await this.props.context.loadUserData()
       }
       this.setState({ submitError: null, loadingSubmit: false, disableSubmit: true }, this._navigateNext)
     } catch (error) {

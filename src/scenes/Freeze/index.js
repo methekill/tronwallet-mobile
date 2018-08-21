@@ -26,10 +26,6 @@ class FreezeScene extends Component {
   }
 
   state = {
-    from: '',
-    balances: [],
-    trxBalance: 0,
-    bandwidth: 0,
     total: 0,
     amount: '',
     loading: true,
@@ -61,6 +57,7 @@ class FreezeScene extends Component {
 
       const queryFreeze = transactionStore
         .objects('Transaction')
+        .filtered(`ownerAddress = "${this.props.context.publicKey}"`)
         .sorted([['timestamp', true]])
         .filtered('type == "Unfreeze" or type == "Freeze"')
       const lastFreeze = queryFreeze.length && queryFreeze[0].type === 'Freeze'
@@ -93,18 +90,13 @@ class FreezeScene extends Component {
 
   _loadData = async () => {
     try {
-      const { freeze, publicKey } = this.props.context
-      const { balance } = freeze.value.balances.find(b => b.name === 'TRX')
-      const total = freeze.value.total || 0
+      const { accounts, publicKey } = this.props.context
+      const { tronPower } = accounts.find(account => account.address === publicKey)
       const unfreezeStatus = await this._checkUnfreeze()
       this.setState({
-        from: publicKey,
-        balances: freeze,
-        trxBalance: balance,
-        bandwidth: freeze.value.bandwidth.netReimaining,
         loading: false,
         unfreezeStatus,
-        total
+        total: tronPower
       })
     } catch (error) {
       console.log(error)
@@ -125,13 +117,15 @@ class FreezeScene extends Component {
     }
   }
   _submit = async () => {
-    const { amount, trxBalance } = this.state
+    const { accounts, publicKey } = this.props.context
+    const { balance } = accounts.find(account => account.address === publicKey)
+    const { amount } = this.state
     const convertedAmount = Number(amount)
 
     this.setState({ loading: true })
     try {
       if (convertedAmount <= 0) { throw new Error(tl.t('freeze.error.minimiumAmount')) }
-      if (trxBalance < convertedAmount) { throw new Error(tl.t('freeze.error.insufficientAmount')) }
+      if (balance < convertedAmount) { throw new Error(tl.t('freeze.error.insufficientAmount')) }
       if (!Number.isInteger(convertedAmount)) { throw new Error(tl.t('freeze.error.roundNumbers')) }
       await this._freezeToken()
     } catch (error) {
@@ -188,10 +182,11 @@ class FreezeScene extends Component {
   )
 
   render () {
-    const { trxBalance, amount, loading, unfreezeStatus } = this.state
-    const { freeze } = this.props.context
+    const { amount, loading, unfreezeStatus } = this.state
+    const { freeze, accounts, publicKey } = this.props.context
     const userTotalPower = freeze.value ? Number(freeze.value.total) : 0
     const newTotalPower = userTotalPower + Number(amount.replace(/,/g, ''))
+    const trxBalance = accounts.find(account => account.address === publicKey).balance
 
     return (
       <KeyboardScreen>
