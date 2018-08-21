@@ -36,7 +36,7 @@ import { USER_PREFERRED_LANGUAGE, USER_FILTERED_TOKENS, FIXED_TOKENS } from '../
 import tl from '../../utils/i18n'
 import fontelloConfig from '../../assets/icons/config.json'
 import { withContext } from '../../store/context'
-import { restartAllWalletData } from '../../utils/userAccountUtils'
+import { hardResetWalletData } from '../../utils/userAccountUtils'
 import { getUserSecrets } from '../../utils/secretsUtils'
 import Client from '../../services/client'
 import Loading from '../../components/LoadingScene'
@@ -129,7 +129,7 @@ class Settings extends Component {
             shouldGoBack: true,
             testInput: pin => pin === this.props.context.pin,
             onSuccess: async () => {
-              await restartAllWalletData()
+              await hardResetWalletData(this.props.context.pin)
               this.props.navigation.dispatch(resetAction)
             }
           })}
