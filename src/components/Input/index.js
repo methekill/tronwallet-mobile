@@ -70,8 +70,8 @@ const Input = ({
         autoCapitalize='none'
         underlineColorAndroid='transparent'
         onChangeText={text => formatText(text, numbersOnly, onChangeText, type)}
-        placeholderTextColor={showPlaceholder ? Colors.background : props.placeholderTextColor}
-        placeholder={showPlaceholder ? 'hidden placeholder' : props.placeholder}
+        placeholderTextColor={showPlaceholder ? props.placeholderTextColor : Colors.background}
+        placeholder={showPlaceholder ? props.placeholder : 'hidden placeholder'}
         editable={editable}
       />
       {rightContent && rightContent()}
