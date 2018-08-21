@@ -8,6 +8,7 @@ import ActionSheet from 'react-native-actionsheet'
 import { withContext } from '../../store/context'
 
 import TrxValue from './TrxValue'
+import Info from './Info'
 import * as Utils from '../../components/Utils'
 import tl from '../../utils/i18n'
 
@@ -31,18 +32,25 @@ class AccountsCarousel extends React.Component {
     }
   }
 
-  _renderItem = ({ item }) => (
-    <CarouselCard>
-      <Utils.Text color='#66688F'>{item.name}</Utils.Text>
-      <Utils.Text>{item.address}</Utils.Text>
-      <Utils.VerticalSpacer size='medium' />
-      {(item.balance !== undefined) && (
-        <TouchableOpacity onPress={() => this.ActionSheet.show()}>
-          <TrxValue trxBalance={item.balance} currency={this.props.context.currency} />
-        </TouchableOpacity>
-      )}
-    </CarouselCard>
-  )
+  _renderItem = ({ item }) => {
+    const { freeze, publicKey, currency } = this.props.context
+    return (
+      <CarouselCard>
+        <Utils.Text color='#66688F'>{item.name}</Utils.Text>
+        <Utils.Text>{item.address}</Utils.Text>
+        <Utils.VerticalSpacer size='medium' />
+        {(item.balance !== undefined) && (
+          <TouchableOpacity onPress={() => this.ActionSheet.show()}>
+            <TrxValue trxBalance={item.balance} currency={currency} />
+          </TouchableOpacity>
+        )}
+        {!!freeze[publicKey] && <Utils.Row justify='space-around'>
+          <Info label='TRON POWER' value={item.tronPower} />
+          <Info label='BANDWIDTH' value={item.bandwidth} />
+        </Utils.Row>}
+      </CarouselCard>
+    )
+  }
 
   render () {
     return !!this.props.accounts && (
