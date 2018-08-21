@@ -75,7 +75,7 @@ class BalanceScene extends Component {
       const preferedCurrency = await AsyncStorage.getItem(USER_PREFERRED_CURRENCY)
       const currency = preferedCurrency || 'USD'
       accounts.map(account => getFreeze(account.address))
-      this.setState({ currency })
+      this.props.context.setCurrency(currency)
     } catch (e) {
       this.setState({ error: e.message })
       throw e

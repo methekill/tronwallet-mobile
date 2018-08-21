@@ -43,7 +43,7 @@ class TrxValue extends PureComponent {
                 )}
               </Motion>
             </FadeIn>
-            <Badge>{currency}</Badge>
+            <Badge bg='#191a2b'>{currency}</Badge>
           </React.Fragment>
         </Utils.Row>
         <Utils.VerticalSpacer />
