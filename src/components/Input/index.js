@@ -49,7 +49,7 @@ const Input = ({
   numbersOnly,
   type,
   editable,
-  showPlaceholder,
+  placeholder,
   ...props
 }) => (
   <Elements.Wrapper>
@@ -70,8 +70,8 @@ const Input = ({
         autoCapitalize='none'
         underlineColorAndroid='transparent'
         onChangeText={text => formatText(text, numbersOnly, onChangeText, type)}
-        placeholderTextColor={showPlaceholder ? props.placeholderTextColor : Colors.background}
-        placeholder={showPlaceholder ? props.placeholder : 'hidden placeholder'}
+        placeholderTextColor={placeholder ? props.placeholderTextColor : Colors.background}
+        placeholder={placeholder || 'hidden'}
         editable={editable}
       />
       {rightContent && rightContent()}
