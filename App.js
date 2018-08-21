@@ -281,17 +281,15 @@ class App extends Component {
 
   _loadUserData = async () => {
     const accounts = await getUserSecrets(this.state.pin)
-    this.setState({ accounts })
+    this._updateBalances(accounts)
+    this._updateFreeze(accounts)
     if (!this.state.publicKey) {
       const { address } = accounts[0]
       this.setState({ publicKey: address })
-      this._getFreeze(address)
     }
-    this._updateBalances()
   }
 
-  _updateBalances = () => {
-    const { accounts } = this.state
+  _updateBalances = accounts => {
     for (let i = 0; i < accounts.length; i++) {
       Client.getBalances(accounts[i].address).then(async data => {
         const { balances } = this.state
@@ -310,6 +308,21 @@ class App extends Component {
                 id: `${accounts[i].address}${item.name}`
               }, true))
           })
+        })
+      })
+    }
+  }
+
+  _updateFreeze = accounts => {
+    for (let i = 0; i < accounts.length; i++) {
+      Client.getFreeze(accounts[i].address).then(async data => {
+        const { freeze } = this.state
+        freeze[accounts[i].address] = data
+        accounts[i].tronPower = data.total
+        accounts[i].bandwidth = data.bandwidth.netRemaining
+        this.setState({
+          accounts,
+          freeze
         })
       })
     }
