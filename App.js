@@ -233,7 +233,7 @@ class App extends Component {
     price: {},
     freeze: {},
     balances: {},
-    accounts: [],
+    accounts: null,
     publicKey: null,
     pin: null,
     oneSignalId: null,
@@ -280,51 +280,75 @@ class App extends Component {
   }
 
   _loadUserData = async () => {
-    const accounts = await getUserSecrets(this.state.pin)
-    this._updateBalances(accounts)
-    this._updateFreeze(accounts)
-    if (!this.state.publicKey) {
-      const { address } = accounts[0]
-      this.setState({ publicKey: address })
+    let accounts = await getUserSecrets(this.state.pin)
+    if (this.state.accounts) {
+      // merge store with state
+      accounts = accounts.map(account => {
+        const stateAccount = this.state.accounts.find(item => item.address === account.address)
+        return Object.assign({}, stateAccount, account)
+      })
+    }
+    this.setState({ accounts }, async () => {
+      await this._updateBalances(accounts)
+      await this._updateAllFreeze(accounts)
+      if (!this.state.publicKey) {
+        const { address } = accounts[0]
+        this.setState({ publicKey: address })
+      }
+    })
+  }
+
+  _updateBalance = async address => {
+    const addressBalances = await Client.getBalances(address)
+    const balances = { ...this.state.balances, [address]: addressBalances }
+    let { accounts } = this.state
+    accounts = accounts.map(account => {
+      if (account.address === address) {
+        account.balance = addressBalances.find(item => item.name === 'TRX').balance
+      }
+      return account
+    })
+    this.setState({ accounts, balances })
+    getBalanceStore().then(store => {
+      store.write(() => {
+        addressBalances.map(item =>
+          store.create('Balance', {
+            ...item,
+            account: address,
+            id: `${address}${item.name}`
+          }, true))
+      })
+    })
+  }
+
+  _updateBalances = async accounts => {
+    await this._updateBalance(accounts[0].address)
+    for (let i = 1; i < accounts.length; i++) {
+      this._updateBalance(accounts[i].address)
     }
   }
 
-  _updateBalances = accounts => {
-    for (let i = 0; i < accounts.length; i++) {
-      Client.getBalances(accounts[i].address).then(async data => {
-        const { balances } = this.state
-        balances[accounts[i].address] = data
-        accounts[i].balance = data.find(item => item.name === 'TRX').balance
-        this.setState({
-          accounts,
-          balances
-        })
-        getBalanceStore().then(store => {
-          store.write(() => {
-            data.map(item =>
-              store.create('Balance', {
-                ...item,
-                account: accounts[i].address,
-                id: `${accounts[i].address}${item.name}`
-              }, true))
-          })
-        })
-      })
-    }
+  _updatePower = async address => {
+    const data = await Client.getFreeze(address)
+    let { freeze, accounts } = this.state
+    freeze[address] = data
+    accounts = accounts.map(account => {
+      if (account.address === address) {
+        account.tronPower = data.total
+        account.bandwidth = data.bandwidth.netRemaining
+      }
+      return account
+    })
+    this.setState({
+      accounts,
+      freeze
+    })
   }
 
-  _updateFreeze = accounts => {
-    for (let i = 0; i < accounts.length; i++) {
-      Client.getFreeze(accounts[i].address).then(async data => {
-        const { freeze } = this.state
-        freeze[accounts[i].address] = data
-        accounts[i].tronPower = data.total
-        accounts[i].bandwidth = data.bandwidth.netRemaining
-        this.setState({
-          accounts,
-          freeze
-        })
-      })
+  _updateAllFreeze = async accounts => {
+    await this._updatePower(accounts[0].address)
+    for (let i = 1; i < accounts.length; i++) {
+      this._updatePower(accounts[i].address)
     }
   }
 

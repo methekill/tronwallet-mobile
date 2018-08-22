@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { Motion, spring, presets } from 'react-motion'
-import { Context } from '../../store/context'
+import { Motion, spring } from 'react-motion'
+import { withContext } from '../../store/context'
 
 import FadeIn from '../../components/Animations/FadeIn'
 import Badge from '../../components/Badge'
@@ -20,7 +20,8 @@ class TrxValue extends PureComponent {
   }
 
   render () {
-    const { trxBalance, currency } = this.props
+    const { trxBalance } = this.props
+    const { currency, price } = this.props.context
 
     return (
       <React.Fragment>
@@ -29,12 +30,7 @@ class TrxValue extends PureComponent {
             <FadeIn name='usd-value'>
               <Motion
                 defaultStyle={{ price: 0 }}
-                style={{
-                  price: spring(
-                    trxBalance * this.props.context.price.price,
-                    presets.gentle
-                  )
-                }}
+                style={{ price: spring(trxBalance * price.price) }}
               >
                 {value => (
                   <Utils.Text size='large' marginX={8}>
@@ -48,29 +44,18 @@ class TrxValue extends PureComponent {
         </Utils.Row>
         <Utils.VerticalSpacer />
         {currency !== 'USD' && (
-          <Context.Consumer>
-            {({ price }) =>
-              price.value && (
-                <FadeIn name='usd-value'>
-                  <Motion
-                    defaultStyle={{ price: 0 }}
-                    style={{
-                      price: spring(
-                        trxBalance * price.value,
-                        presets.gentle
-                      )
-                    }}
-                  >
-                    {value => (
-                      <Utils.Text align='center'>
-                        {`${value.price.toFixed(2)} USD`}
-                      </Utils.Text>
-                    )}
-                  </Motion>
-                </FadeIn>
-              )
-            }
-          </Context.Consumer>
+          <FadeIn name='usd-value'>
+            <Motion
+              defaultStyle={{ price: 0 }}
+              style={{ price: spring(trxBalance * price.value) }}
+            >
+              {value => (
+                <Utils.Text align='center'>
+                  {`${value.price.toFixed(2)} USD`}
+                </Utils.Text>
+              )}
+            </Motion>
+          </FadeIn>
         )}
       </React.Fragment>
     )
@@ -78,12 +63,7 @@ class TrxValue extends PureComponent {
 }
 
 TrxValue.propTypes = {
-  trxBalance: PropTypes.number.isRequired,
-  currency: PropTypes.string.isRequired
+  trxBalance: PropTypes.number
 }
 
-export default props => (
-  <Context.Consumer>
-    {context => <TrxValue context={context} {...props} />}
-  </Context.Consumer>
-)
+export default withContext(TrxValue)

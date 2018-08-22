@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react'
 import { View } from 'react-native'
-import { TransitionMotion, spring, presets } from 'react-motion'
+import { TransitionMotion, spring } from 'react-motion'
 
-const willLeave = () => ({ opacity: spring(0, presets.gentle) })
+const willLeave = () => ({ opacity: spring(0) })
 
 const willEnter = () => ({ opacity: 0 })
 
-const getStyles = () => ({ opacity: spring(1, presets.gentle) })
+const getStyles = () => ({ opacity: spring(1) })
 
 const getDefaultStyles = () => ({ opacity: 0 })
 

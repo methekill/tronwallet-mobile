@@ -4,7 +4,7 @@ import * as shape from 'd3-shape'
 import { AreaChart, Grid } from 'react-native-svg-charts'
 import { Path, Circle, G } from 'react-native-svg'
 import { ActivityIndicator, TouchableOpacity, Image, AsyncStorage } from 'react-native'
-import { Motion, spring, presets } from 'react-motion'
+import { Motion, spring } from 'react-motion'
 import { Answers } from 'react-native-fabric'
 import Config from 'react-native-config'
 
@@ -161,7 +161,7 @@ class MarketScene extends Component {
               <Utils.HorizontalSpacer />
               <Motion
                 defaultStyle={{ data: 0 }}
-                style={{ data: spring(price, presets.gentle) }}
+                style={{ data: spring(price) }}
               >
                 {value => (
                   <Utils.Text size='medium'>
@@ -204,7 +204,7 @@ class MarketScene extends Component {
     <Fragment>
       <Motion
         defaultStyle={{ data: 0 }}
-        style={{ data: spring(value, presets.gentle) }}
+        style={{ data: spring(value) }}
       >
         {value => (
           <Utils.Text align='right' lineHeight={20}>

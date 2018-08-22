@@ -83,13 +83,10 @@ class BalanceScene extends Component {
   }
 
   _onSnapToItem = activeAccount => {
-    const { setPublicKey, accounts, loadUserData } = this.props.context
+    const { setPublicKey, accounts } = this.props.context
     const { address } = accounts[activeAccount]
     setPublicKey(address)
     this.setState({ activeAccount })
-    if (accounts[activeAccount].balance === undefined) {
-      loadUserData()
-    }
   }
 
   render () {
@@ -126,7 +123,6 @@ class BalanceScene extends Component {
           >
             <AccountsCarousel
               onSnapToItem={this._onSnapToItem}
-              accounts={accounts}
             />
             <Utils.VerticalSpacer size='medium' />
             <Utils.Content paddingTop={0}>

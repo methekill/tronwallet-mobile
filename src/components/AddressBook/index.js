@@ -6,10 +6,12 @@ import ActionModal from '../ActionModal'
 import AddressCard from './AddressCard'
 
 import getContactStore from '../../store/contacts'
+import getSecretsStore from '../../store/secrets'
+import { withContext } from '../../store/context'
 import tl from '../../utils/i18n'
 import { EmptyWrapper, EmptyText } from './elements'
 
-export default class Contacts extends Component {
+class AddressBook extends Component {
   state = {
     modalVisible: false,
     currentItem: null,
@@ -59,7 +61,7 @@ export default class Contacts extends Component {
 
   _onDeletePress = () => {
     const { currentItem } = this.state
-    const { reloadData } = this.props
+    const { reloadData, context, isUserAccount } = this.props
 
     Alert.alert(
       tl.t('addressBook.contacts.delete.title'),
@@ -78,20 +80,23 @@ export default class Contacts extends Component {
         {
           text: tl.t('addressBook.contacts.delete.okButton'),
           onPress: async () => {
-            const store = await getContactStore()
-            try {
-              store.write(() => {
-                let contact = store.objectForPrimaryKey('Contact', currentItem.address)
-                store.delete(contact)
-                reloadData()
-                this.setState({
-                  modalVisible: false,
-                  currentItem: null
-                })
-              })
-            } catch (e) {
-              console.log('There was a problem deleting this contact.')
-            }
+            console.log('context', context)
+            const store = isUserAccount ? await getSecretsStore(context.pin) : await getContactStore()
+            store.write(() => {
+              let item
+              if (isUserAccount) {
+                item = store.objectForPrimaryKey('Account', currentItem.address)
+              } else {
+                item = store.objectForPrimaryKey('Contact', currentItem.address)
+              }
+              console.log('isUserAccount', isUserAccount)
+              store.delete(item)
+            })
+            reloadData()
+            this.setState({
+              modalVisible: false,
+              currentItem: null
+            })
           }
         }
       ]
@@ -149,3 +154,5 @@ export default class Contacts extends Component {
     )
   }
 }
+
+export default withContext(AddressBook)

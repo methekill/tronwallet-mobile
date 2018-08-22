@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
-import { Motion, spring, presets } from 'react-motion'
+import { Motion, spring } from 'react-motion'
 
 class GrowIn extends Component {
-  getStyles = () => ({ height: spring(this.props.height, presets.gentle) })
+  getStyles = () => ({ height: spring(this.props.height) })
 
   getDefaultStyles = () => ({ height: 0 })
 
