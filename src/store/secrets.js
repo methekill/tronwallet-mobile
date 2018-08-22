@@ -33,7 +33,23 @@ const getStore = async pin => {
   return Realm.open({
     path: `realm.Accounts`,
     schema: [AccountSchema],
-    encryptionKey: keyBytes
+    encryptionKey: keyBytes,
+    migration: (oldRealm, newRealm) => {
+      if (oldRealm.schemaVersion < 1) {
+        const oldObjects = oldRealm.objects('Secret')
+
+        newRealm.create('Account', {
+          confirmed: oldObjects[0].confirmed,
+          address: oldObjects[0].address,
+          password: oldObjects[0].password,
+          mnemonic: oldObjects[0].mnemonic,
+          privateKey: oldObjects[0].privateKey,
+          publicKey: oldObjects[0].publicKey,
+          name: 'Main Account',
+          alias: '@main_account'
+        })
+      }
+    }
   })
 }
 
