@@ -104,20 +104,24 @@ class TransactionsScene extends Component {
     })
   )
 
+  _getTransactionByAddress = () => this.state.transactions
+    .filter(item => item.ownerAddress === this.props.context.publicKey)
+
   _navigateToDetails = (item) => {
     this.props.navigation.navigate('TransactionDetails', { item })
   }
 
   render () {
-    const { transactions, refreshing } = this.state
+    const { refreshing } = this.state
     const { publicKey } = this.props.context
+    const transactions = this._getTransactionByAddress()
 
     return (
       !transactions.length ? <Empty loading={refreshing} />
         : (
           <Background>
             <FlatList
-              data={transactions.filter(item => item.ownerAddress === publicKey)}
+              data={transactions}
               keyExtractor={item => item.id}
               renderItem={({ item }) => <Transaction item={item} onPress={() => this._navigateToDetails(item)} publicKey={publicKey} />}
             />

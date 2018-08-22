@@ -251,7 +251,7 @@ class App extends Component {
     OneSignal.addEventListener('received', this._onReceived)
 
     this._setNodes()
-    
+
     const preferedCurrency = await AsyncStorage.getItem(USER_PREFERRED_CURRENCY)
     this._getPrice(preferedCurrency)
     this.setState({ currency: preferedCurrency })
@@ -279,8 +279,14 @@ class App extends Component {
     console.log('openResult: ', openResult)
   }
 
+  _resetAccounts = () => this.setState({accounts: [], publicKey: null})
+
   _loadUserData = async () => {
     let accounts = await getUserSecrets(this.state.pin)
+
+    // First Time
+    if (!accounts || !accounts.length) return
+
     if (this.state.accounts) {
       // merge store with state
       accounts = accounts.map(account => {
@@ -322,8 +328,7 @@ class App extends Component {
   }
 
   _updateBalances = async accounts => {
-    await this._updateBalance(accounts[0].address)
-    for (let i = 1; i < accounts.length; i++) {
+    for (let i = 0; i < accounts.length; i++) {
       this._updateBalance(accounts[i].address)
     }
   }
@@ -346,7 +351,6 @@ class App extends Component {
   }
 
   _updateAllFreeze = async accounts => {
-    await this._updatePower(accounts[0].address)
     for (let i = 1; i < accounts.length; i++) {
       this._updatePower(accounts[i].address)
     }
@@ -427,7 +431,8 @@ class App extends Component {
       closeShare: this._closeShare,
       toggleShare: this._toggleShare,
       updateBalances: this._updateBalances,
-      setCurrency: this._setCurrency
+      setCurrency: this._setCurrency,
+      resetAccount: this._resetAccounts
     }
 
     return (
