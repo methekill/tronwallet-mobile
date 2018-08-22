@@ -85,6 +85,7 @@ class BalanceScene extends Component {
   _onSnapToItem = activeAccount => {
     const { setPublicKey, accounts } = this.props.context
     const { address } = accounts[activeAccount]
+
     setPublicKey(address)
     this.setState({ activeAccount })
   }
@@ -93,8 +94,7 @@ class BalanceScene extends Component {
     const {
       seed,
       creatingNewAccount,
-      refreshing,
-      activeAccount
+      refreshing
     } = this.state
     const {
       accounts,
@@ -125,7 +125,7 @@ class BalanceScene extends Component {
             <Utils.VerticalSpacer size='medium' />
             <Utils.Content paddingTop={0}>
               <BalanceNavigation navigation={this.props.navigation} />
-              {accounts[activeAccount] && !accounts[activeAccount].confirmed && (
+              {accounts[0] && !accounts[0].confirmed && (
                 <BalanceWarning seed={seed} navigation={this.props.navigation}>
                   {tl.t('balance.confirmSeed')}
                 </BalanceWarning>

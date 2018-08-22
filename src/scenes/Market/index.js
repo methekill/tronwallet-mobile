@@ -15,6 +15,7 @@ import { Colors } from '../../components/DesignSystem'
 import FadeIn from '../../components/Animations/FadeIn'
 import { formatNumber } from '../../utils/numberUtils'
 import { USER_PREFERRED_CURRENCY } from '../../utils/constants'
+import withContext from '../../utils/hocs/withContext'
 
 const Line = ({ line }) => (
   <Path
@@ -58,7 +59,8 @@ class MarketScene extends Component {
     },
     high: null,
     low: null,
-    selectedIndex: -1
+    selectedIndex: -1,
+    currency: null
   }
 
   componentDidMount () {
@@ -78,8 +80,9 @@ class MarketScene extends Component {
   }
 
   _loadData = async () => {
-    const currency = await AsyncStorage.getItem(USER_PREFERRED_CURRENCY)
+    const currency = await AsyncStorage.getItem(USER_PREFERRED_CURRENCY) || 'USD'
     this.props.context.getPrice(currency)
+    this.setState({ currency })
   }
 
   _loadGraphData = async () => {
@@ -136,7 +139,8 @@ class MarketScene extends Component {
   }
 
   _renderHeader = () => {
-    const { price } = this.props.context.price
+    const { currency } = this.state
+    const { price } = this.props.context
 
     return (
       <Utils.ContentWithBackground
@@ -161,7 +165,7 @@ class MarketScene extends Component {
               <Utils.HorizontalSpacer />
               <Motion
                 defaultStyle={{ data: 0 }}
-                style={{ data: spring(price) }}
+                style={{ data: spring(price && currency ? price[currency].price : 0) }}
               >
                 {value => (
                   <Utils.Text size='medium'>
@@ -178,7 +182,9 @@ class MarketScene extends Component {
   }
 
   _renderValues = () => {
-    const { selectedIndex, high, low, marketcap, volume, supply } = this.state
+    const { selectedIndex, high, low, currency } = this.state
+    const { price, circulatingSupply } = this.props.context
+
     const decimalFormatter = (value) => `$ ${value.toFixed(4)}`
     const integerFormatter = (value) => `$ ${this._formatNumber(value)}`
     const supplyFormatter = (value) => this._formatNumber(value)
@@ -192,9 +198,9 @@ class MarketScene extends Component {
               {this._renderValue(low, decimalFormatter)}
             </Fragment>
           )}
-          {this._renderValue(volume, integerFormatter)}
-          {this._renderValue(marketcap, integerFormatter)}
-          {this._renderValue(supply, supplyFormatter, true)}
+          {this._renderValue(price[currency].volume_24h, integerFormatter)}
+          {this._renderValue(price[currency].market_cap, integerFormatter)}
+          {this._renderValue(circulatingSupply, supplyFormatter, true)}
         </Utils.View>
       </FadeIn>
     )
@@ -279,7 +285,7 @@ class MarketScene extends Component {
   }
 
   render () {
-    const { graph } = this.state
+    const { graph, currency } = this.state
     const { price, circulatingSupply } = this.props.context
 
     return (
@@ -288,16 +294,16 @@ class MarketScene extends Component {
         <Utils.Content background={Colors.background}>
           <Utils.Row justify='space-between' align='center'>
             {this._renderLabels()}
-            {(!price.market_cap || !price.volume_24h || !circulatingSupply) && (
+            {(!price || !circulatingSupply || !currency) && (
               <FadeIn name='market-info-loading'>
                 <Utils.Content>
                   <ActivityIndicator size='small' color={Colors.primaryText} />
                 </Utils.Content>
               </FadeIn>
             )}
-            {price.market_cap &&
-              price.volume_24h &&
-              circulatingSupply && (
+            {price &&
+              circulatingSupply &&
+              currency && (
                 this._renderValues()
               )}
           </Utils.Row>
@@ -317,4 +323,4 @@ class MarketScene extends Component {
   }
 }
 
-export default MarketScene
+export default withContext(MarketScene)

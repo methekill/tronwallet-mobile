@@ -88,19 +88,17 @@ class Create extends React.Component {
           )}
         </Utils.Content>
         <Utils.View height={1} backgroundColor={Colors.secondaryText} />
-        <Utils.Content paddingBottom={firstTime ? 12 : 2}>
-          <Utils.Row justify='center' align='flex-start' height={firstTime ? 90 : 60}>
+        <Utils.Content paddingBottom={2}>
+          <Utils.Row justify='center' align='flex-start' height={60}>
             {firstTime && (
               <React.Fragment>
                 <Utils.View style={{flex: 1}}>
                   <ButtonGradient
                     onPress={this._getNewMnemonic}
                     text={tl.t('seed.create.button.newSeed')}
+                    secondary
                     full
                   />
-                  <Utils.Text light size='xsmall' secondary>
-                    {tl.t('seed.create.generateNew')}
-                  </Utils.Text>
                 </Utils.View>
                 <Utils.HorizontalSpacer size='large' />
               </React.Fragment>
