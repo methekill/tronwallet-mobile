@@ -75,7 +75,7 @@ class BalanceScene extends Component {
       const preferedCurrency = await AsyncStorage.getItem(USER_PREFERRED_CURRENCY)
       const currency = preferedCurrency || 'USD'
       accounts.map(account => getFreeze(account.address))
-      this.setState({ currency })
+      this.props.context.setCurrency(currency)
     } catch (e) {
       this.setState({ error: e.message })
       throw e
@@ -83,13 +83,10 @@ class BalanceScene extends Component {
   }
 
   _onSnapToItem = activeAccount => {
-    const { setPublicKey, accounts, loadUserData } = this.props.context
+    const { setPublicKey, accounts } = this.props.context
     const { address } = accounts[activeAccount]
     setPublicKey(address)
     this.setState({ activeAccount })
-    if (accounts[activeAccount].balance === undefined) {
-      loadUserData()
-    }
   }
 
   render () {
@@ -124,10 +121,7 @@ class BalanceScene extends Component {
               />
             }
           >
-            <AccountsCarousel
-              onSnapToItem={this._onSnapToItem}
-              accounts={accounts}
-            />
+            <AccountsCarousel onSnapToItem={this._onSnapToItem} />
             <Utils.VerticalSpacer size='medium' />
             <Utils.Content paddingTop={0}>
               <BalanceNavigation navigation={this.props.navigation} />
@@ -136,9 +130,7 @@ class BalanceScene extends Component {
                   {tl.t('balance.confirmSeed')}
                 </BalanceWarning>
               )}
-              <WalletBalances
-                balances={balances[publicKey]}
-              />
+              <WalletBalances balances={balances[publicKey]} />
             </Utils.Content>
           </ScrollView>
         </Utils.Container>

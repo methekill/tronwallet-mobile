@@ -439,7 +439,7 @@
 			remoteGlobalIDString = EB2648DF1C7BE17A00B8F155;
 			remoteInfo = ReactNativeConfig;
 		};
-		A0D2FE84212C51770074B457 /* PBXContainerItemProxy */ = {
+		A0D2FEAE212C94C40074B457 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56D2C81C6C2E4358BEA23FB1 /* RCTRestart.xcodeproj */;
 			proxyType = 2;
@@ -990,10 +990,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A0D2FE81212C51760074B457 /* Products */ = {
+		A0D2FE9C212C8A050074B457 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0D2FE85212C51770074B457 /* libRCTRestart.a */,
+				A0D2FEAF212C94C40074B457 /* libRCTRestart.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1208,7 +1208,7 @@
 					ProjectRef = A06CD7F120F92CB200679CBC /* RCTOneSignal.xcodeproj */;
 				},
 				{
-					ProductGroup = A0D2FE81212C51760074B457 /* Products */;
+					ProductGroup = A0D2FE9C212C8A050074B457 /* Products */;
 					ProjectRef = 56D2C81C6C2E4358BEA23FB1 /* RCTRestart.xcodeproj */;
 				},
 				{
@@ -1608,11 +1608,11 @@
 			remoteRef = A07792CE20E17BE000EC4C2D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A0D2FE85212C51770074B457 /* libRCTRestart.a */ = {
+		A0D2FEAF212C94C40074B457 /* libRCTRestart.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRCTRestart.a;
-			remoteRef = A0D2FE84212C51770074B457 /* PBXContainerItemProxy */;
+			remoteRef = A0D2FEAE212C94C40074B457 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */ = {

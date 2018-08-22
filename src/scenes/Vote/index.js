@@ -1,7 +1,7 @@
 // Dependencies
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import { forIn, reduce, union, clamp, debounce } from 'lodash'
-import { Linking, FlatList, Alert } from 'react-native'
+import { Linking, FlatList, Alert, Platform } from 'react-native'
 import { Answers } from 'react-native-fabric'
 
 // Utils
@@ -61,7 +61,7 @@ const INITIAL_STATE = {
   listError: ''
 }
 
-class VoteScene extends PureComponent {
+class VoteScene extends Component {
   constructor () {
     super()
     this.state = INITIAL_STATE
@@ -511,7 +511,7 @@ class VoteScene extends PureComponent {
             onEndReachedThreshold={0.5}
             onEndReached={this._loadMoreCandidates}
             refreshing={refreshing || loadingList}
-            removeClippedSubviews
+            removeClippedSubviews={Platform.OS === 'android'}
           />
         </FadeIn>
         {(totalUserVotes > 0 && startedVoting) && <ConfirmVotes onPress={this._openConfirmModal} voteCount={currentFullVotes.length} />}

@@ -46,7 +46,7 @@
     "react-native-progress": "^3.5.0",
     "react-native-qrcode": "^0.2.6",
     "react-native-qrcode-scanner": "^1.0.1",
-    "react-native-restart": "0.0.6",
+    "react-native-restart": "^0.0.6",
     "react-native-sectioned-multi-select": "^0.4.7",
     "react-native-sentry": "^0.38.1",
     "react-native-snap-carousel": "^3.7.2",

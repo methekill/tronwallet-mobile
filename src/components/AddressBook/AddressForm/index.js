@@ -57,6 +57,7 @@ class ContactsForm extends Component {
   }
 
   _onSubmit = async data => {
+    const reloadData = this.props.navigation.getParam('reloadData')
     if (this.props.navigation.getParam('isUserAccount', false)) {
       const accounts = await getUserSecrets(this.props.context.pin)
       const store = await getSecretsStore(this.props.context.pin)
@@ -82,6 +83,7 @@ class ContactsForm extends Component {
         })
       }
     }
+    reloadData()
   }
 
   _changeName = (name) => {
