@@ -7,7 +7,7 @@ export const isAddressUnique = async (address) => {
   return !addresses.includes(address)
 }
 
-export const isAliasUnique = async (alias) => {
-  const aliasList = await getAliasFromStore()
+export const isAliasUnique = async (alias, pin) => {
+  const aliasList = await getAliasFromStore(pin)
   return !aliasList.includes(alias)
 }
