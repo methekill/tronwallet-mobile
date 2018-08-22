@@ -50,7 +50,14 @@ class AddressBook extends Component {
   _onEditPress = () => {
     const { currentItem } = this.state
 
-    this._navigate('EditAddressBookItem', { item: currentItem, isUserAccount: this.props.isUserAccount })
+    this._navigate(
+      'EditAddressBookItem',
+      {
+        item: currentItem,
+        isUserAccount: this.props.isUserAccount,
+        reloadData: this.props.reloadData
+      }
+    )
   }
 
   _onSendPress = () => {
@@ -80,7 +87,6 @@ class AddressBook extends Component {
         {
           text: tl.t('addressBook.contacts.delete.okButton'),
           onPress: async () => {
-            console.log('context', context)
             const store = isUserAccount ? await getSecretsStore(context.pin) : await getContactStore()
             store.write(() => {
               let item
@@ -89,7 +95,6 @@ class AddressBook extends Component {
               } else {
                 item = store.objectForPrimaryKey('Contact', currentItem.address)
               }
-              console.log('isUserAccount', isUserAccount)
               store.delete(item)
             })
             reloadData()
