@@ -21,13 +21,15 @@ class TransactionsScene extends Component {
     const { params } = navigation.state
 
     return {
-      header: (<NavigationHeader
-        title={tl.t('transactions.title')}
-        leftButton={<SyncButton
-          loading={params && params.refreshing}
-          onPress={() => params.updateData()}
-        />}
-      />)
+      header: (
+        <NavigationHeader
+          title={tl.t('transactions.title')}
+          leftButton={<SyncButton
+            loading={params && params.refreshing}
+            onPress={() => params.updateData()}
+          />}
+        />
+      )
     }
   }
 
@@ -38,13 +40,12 @@ class TransactionsScene extends Component {
 
   async componentDidMount () {
     Answers.logContentView('Tab', 'Transactions')
+
     this.props.navigation.setParams({
       refreshing: true,
       updateData: this._onRefresh
     })
 
-    await this._updateData()
-    this._onRefresh()
     this._didFocusSubscription = this.props.navigation.addListener('didFocus', this._onRefresh)
   }
 
@@ -55,13 +56,12 @@ class TransactionsScene extends Component {
   _getSortedTransactionList = store =>
     store
       .objects('Transaction')
-      .filtered(`ownerAddress = "${this.props.context.publicKey}"`)
+      // .filtered(`ownerAddress = "${this.props.context.publicKey}"`)
       .sorted([['timestamp', true]])
       .map(item => Object.assign({}, item))
 
   _onRefresh = async () => {
     this._setRefreshState(true)
-    await updateTransactions(this.props.context.pin)
     await this._updateData()
     this._setRefreshState(false)
   }
@@ -110,14 +110,14 @@ class TransactionsScene extends Component {
 
   render () {
     const { transactions, refreshing } = this.state
-    const publicKey = this.props.context.publicKey
+    const { publicKey } = this.props.context
 
     return (
       !transactions.length ? <Empty loading={refreshing} />
         : (
           <Background>
             <FlatList
-              data={transactions}
+              data={transactions.filter(item => item.ownerAddress === publicKey)}
               keyExtractor={item => item.id}
               renderItem={({ item }) => <Transaction item={item} onPress={() => this._navigateToDetails(item)} publicKey={publicKey} />}
             />
