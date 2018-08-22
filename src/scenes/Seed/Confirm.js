@@ -94,6 +94,8 @@ class Confirm extends React.Component {
       Alert.alert(tl.t('success'), tl.t('seed.confirm.success'))
       this.setState({ loading: false })
       navigation.dispatch(resetAction)
+    } finally {
+      context.loadUserData()
     }
   }
 
