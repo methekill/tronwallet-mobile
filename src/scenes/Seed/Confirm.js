@@ -176,7 +176,7 @@ class Confirm extends React.Component {
               <ButtonGradient
                 testID='ConfirmButton'
                 text={tl.t('seed.confirm.button.confirm')}
-                disabled={loading}
+                disabled={loading || this.state.selected.length < 12}
                 onPress={this._handleSubmit}
               />
             </Utils.View>
