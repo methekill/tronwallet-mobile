@@ -91,7 +91,7 @@ class AddressBook extends Component {
             store.write(() => {
               let item
               if (isUserAccount) {
-                item = store.objectForPrimaryKey('Account', currentItem.address)
+                item = store.objectForPrimaryKey('UserSecret', currentItem.address)
               } else {
                 item = store.objectForPrimaryKey('Contact', currentItem.address)
               }

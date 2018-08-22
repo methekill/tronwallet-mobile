@@ -67,7 +67,7 @@ class ContactsForm extends Component {
         account.name = data.name
         account.alias = data.alias
         try {
-          await store.write(() => { store.create('Account', account, true) })
+          await store.write(() => { store.create('UserSecret', account, true) })
           this.props.navigation.goBack()
         } catch (e) {
           this.setState({
