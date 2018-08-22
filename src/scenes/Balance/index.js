@@ -121,9 +121,7 @@ class BalanceScene extends Component {
               />
             }
           >
-            <AccountsCarousel
-              onSnapToItem={this._onSnapToItem}
-            />
+            <AccountsCarousel onSnapToItem={this._onSnapToItem} />
             <Utils.VerticalSpacer size='medium' />
             <Utils.Content paddingTop={0}>
               <BalanceNavigation navigation={this.props.navigation} />
@@ -132,9 +130,7 @@ class BalanceScene extends Component {
                   {tl.t('balance.confirmSeed')}
                 </BalanceWarning>
               )}
-              <WalletBalances
-                balances={balances[publicKey]}
-              />
+              <WalletBalances balances={balances[publicKey]} />
             </Utils.Content>
           </ScrollView>
         </Utils.Container>

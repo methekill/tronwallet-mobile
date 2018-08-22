@@ -250,10 +250,10 @@ class App extends Component {
     OneSignal.addEventListener('opened', this._onOpened)
     OneSignal.addEventListener('received', this._onReceived)
 
-    this._getPrice()
     this._setNodes()
-
+    
     const preferedCurrency = await AsyncStorage.getItem(USER_PREFERRED_CURRENCY)
+    this._getPrice(preferedCurrency)
     this.setState({ currency: preferedCurrency })
   }
 
@@ -352,10 +352,9 @@ class App extends Component {
     }
   }
 
-  _setCurrency = async currency => {
-    await AsyncStorage.setItem(USER_PREFERRED_CURRENCY, currency)
-    const { data: { data } } = await axios.get(`${Config.TRX_PRICE_API}/?convert=${currency}`)
-    this.setState({ currency, price: data.quotes[currency], circulatingSupply: data.circulating_supply })
+  _setCurrency = currency => {
+    this.setState({ currency }, () => AsyncStorage.setItem(USER_PREFERRED_CURRENCY, currency))
+    if (!this.state.price[currency]) this._getPrice(currency)
   }
 
   _getFreeze = async (address) => {
@@ -368,8 +367,17 @@ class App extends Component {
   }
 
   _getPrice = async (currency = 'USD') => {
-    const { data: { data } } = await axios.get(`${Config.TRX_PRICE_API}/?convert=${currency}`)
-    this.setState({ price: data.quotes[currency], circulatingSupply: data.circulating_supply })
+    try {
+      const { data: { data } } = await axios.get(`${Config.TRX_PRICE_API}/?convert=${currency}`)
+      const { price } = this.state
+      price[currency] = data.quotes[currency]
+      if (currency !== 'USD') {
+        price.USD = data.quotes.USD
+      }
+      this.setState({ price, circulatingSupply: data.circulating_supply })
+    } catch (e) {
+      // TODO handle request error
+    }
   }
 
   _setNodes = async () => {

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Motion, spring } from 'react-motion'
 import { withContext } from '../../store/context'
@@ -8,7 +8,7 @@ import Badge from '../../components/Badge'
 import * as Utils from '../../components/Utils'
 import { formatNumber } from '../../utils/numberUtils'
 
-class TrxValue extends PureComponent {
+class TrxValue extends Component {
   _formatBalance = (value, currency) => {
     const crypto = ['BTC', 'ETH']
 
@@ -27,27 +27,29 @@ class TrxValue extends PureComponent {
       <React.Fragment>
         <Utils.Row justify='center' align='center'>
           <React.Fragment>
-            <FadeIn name='usd-value'>
-              <Motion
-                defaultStyle={{ price: 0 }}
-                style={{ price: spring(trxBalance * price.price) }}
-              >
-                {value => (
-                  <Utils.Text size='large' marginX={8}>
-                    {this._formatBalance(value.price, currency)}
-                  </Utils.Text>
-                )}
-              </Motion>
-            </FadeIn>
+            {!!price[currency] && (
+              <FadeIn name='usd-value'>
+                <Motion
+                  defaultStyle={{ price: 0 }}
+                  style={{ price: spring(trxBalance * price[currency].price) }}
+                >
+                  {value => (
+                    <Utils.Text size='large' marginX={8}>
+                      {this._formatBalance(value.price, currency)}
+                    </Utils.Text>
+                  )}
+                </Motion>
+              </FadeIn>
+            )}
             <Badge bg='#191a2b'>{currency}</Badge>
           </React.Fragment>
         </Utils.Row>
         <Utils.VerticalSpacer />
-        {currency !== 'USD' && (
+        {(currency !== 'USD' && price.USD) && (
           <FadeIn name='usd-value'>
             <Motion
               defaultStyle={{ price: 0 }}
-              style={{ price: spring(trxBalance * price.value) }}
+              style={{ price: spring(trxBalance * price.USD.price) }}
             >
               {value => (
                 <Utils.Text align='center'>
