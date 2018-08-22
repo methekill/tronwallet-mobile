@@ -3,7 +3,6 @@ import DeviceInfo from 'react-native-device-info'
 import { AsyncStorage } from 'react-native'
 
 import getSecretsStore from '../store/secrets'
-import { resetWalletData } from './userAccountUtils'
 import Client from '../services/client'
 import { USER_STATUS } from '../utils/constants'
 
@@ -47,7 +46,6 @@ const generateKeypair = async (pin, oneSignalId, mnemonic, vaultNumber, randomly
   const secretsStore = await getSecretsStore(pin)
   await secretsStore.write(() => secretsStore.create('Account', generatedKeypair, true))
   Client.registerDeviceForNotifications(oneSignalId, generatedKeypair.address)
-  await resetWalletData()
 }
 
 export const confirmSecret = async pin => {

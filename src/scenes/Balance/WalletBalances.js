@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import tl from '../../utils/i18n'
@@ -11,7 +11,7 @@ import { orderAssets } from '../../utils/assetsUtils'
 import { AsyncStorage } from '../../../node_modules/aws-amplify/lib/Common'
 import { USER_FILTERED_TOKENS } from '../../utils/constants'
 
-class WalletBalances extends PureComponent {
+class WalletBalances extends Component {
   state = {
     currentUserTokens: null,
     balancesToDisplay: []

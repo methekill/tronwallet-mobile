@@ -94,7 +94,8 @@ class Settings extends Component {
 
   _onLoadData = async () => {
     const data = await getUserSecrets(this.props.context.pin)
-    const seed = data[0].mnemonic
+    // When hard reseting wallet data will be empty
+    const seed = data.length ? data[0].mnemonic : this.state.seed
     this.setState({ seed, loading: false })
   }
 
@@ -130,6 +131,7 @@ class Settings extends Component {
             testInput: pin => pin === this.props.context.pin,
             onSuccess: async () => {
               await hardResetWalletData(this.props.context.pin)
+              this.props.context.resetAccount()
               this.props.navigation.dispatch(resetAction)
             }
           })}
