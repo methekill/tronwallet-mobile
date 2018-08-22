@@ -33,7 +33,7 @@ export const createNewAccount = async (pin, oneSignalId) => {
   generatedKeypair.alias = `@account${accounts.length}`
   generatedKeypair.confirmed = true
   const secretsStore = await getSecretsStore(pin)
-  await secretsStore.write(() => secretsStore.create('Account', generatedKeypair, true))
+  await secretsStore.write(() => secretsStore.create('UserSecret', generatedKeypair, true))
   Client.registerDeviceForNotifications(oneSignalId, generatedKeypair.address)
 }
 
@@ -44,7 +44,7 @@ const generateKeypair = async (pin, oneSignalId, mnemonic, vaultNumber, randomly
   generatedKeypair.name = 'Main Account'
   generatedKeypair.alias = '@main_account'
   const secretsStore = await getSecretsStore(pin)
-  await secretsStore.write(() => secretsStore.create('Account', generatedKeypair, true))
+  await secretsStore.write(() => secretsStore.create('UserSecret', generatedKeypair, true))
   Client.registerDeviceForNotifications(oneSignalId, generatedKeypair.address)
 }
 
@@ -53,9 +53,9 @@ export const confirmSecret = async pin => {
     const secretsStore = await getSecretsStore(pin)
     const deviceId = await DeviceInfo.getUniqueID()
     secretsStore.write(() => {
-      const secret = secretsStore.objects('Account')
+      const secret = secretsStore.objects('UserSecret')
       secret.confirmed = true
-      secretsStore.create('Account', { id: deviceId, confirmed: true }, true)
+      secretsStore.create('UserSecret', { id: deviceId, confirmed: true }, true)
     })
   } catch (error) {
     throw error
@@ -65,13 +65,13 @@ export const confirmSecret = async pin => {
 export const getUserSecrets = async pin => {
   const secretsStore = await getSecretsStore(pin)
   const secrets = secretsStore
-    .objects('Account')
+    .objects('UserSecret')
     .map(item => Object.assign({}, item))
   return secrets
 }
 
 export const resetSecretData = async pin => {
   const secretsStore = await getSecretsStore(pin)
-  const secretList = secretsStore.objects('Account')
+  const secretList = secretsStore.objects('UserSecret')
   await secretsStore.write(() => secretsStore.delete(secretList))
 }
