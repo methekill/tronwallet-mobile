@@ -73,28 +73,26 @@ class AccountsCarousel extends React.Component {
             borderRadius: 6
           }}
         >
-          {this.props.context.publicKey === item.address && (
-            <React.Fragment>
-              <TronLogo>
-                <Icon source={require('../../../assets/tron-logo-small.png')} />
-              </TronLogo>
-              <Utils.Text color='#9b9cb9'>{item.name}</Utils.Text>
-              <Utils.VerticalSpacer size='medium' />
-              {(item.balance !== undefined && currency) && (
-                <TouchableOpacity onPress={() => this.ActionSheet.show()}>
-                  <TrxValue trxBalance={item.balance} currency={currency} />
-                </TouchableOpacity>
-              )}
-              <Utils.VerticalSpacer size='medium' />
-              {(!!freeze[publicKey]) && (
-                <Utils.Row>
-                  <CardInfo label={tl.t('tronPower')} value={item.tronPower} />
-                  <Utils.HorizontalSpacer size='medium' />
-                  <CardInfo label={tl.t('balance.bandwidth')} value={item.bandwidth} />
-                </Utils.Row>
-              )}
-            </React.Fragment>
-          )}
+          <React.Fragment>
+            <TronLogo>
+              <Icon source={require('../../../assets/tron-logo-small.png')} />
+            </TronLogo>
+            <Utils.Text color='#9b9cb9'>{item.name}</Utils.Text>
+            <Utils.VerticalSpacer size='medium' />
+            {(item.balance !== undefined && currency) && (
+              <TouchableOpacity onPress={() => this.ActionSheet.show()}>
+                <TrxValue trxBalance={item.balance} currency={currency} />
+              </TouchableOpacity>
+            )}
+            <Utils.VerticalSpacer size='medium' />
+            {(!!freeze[publicKey]) && (
+              <Utils.Row>
+                <CardInfo label={tl.t('tronPower')} value={item.tronPower} />
+                <Utils.HorizontalSpacer size='medium' />
+                <CardInfo label={tl.t('balance.bandwidth')} value={item.bandwidth} />
+              </Utils.Row>
+            )}
+          </React.Fragment>
         </LinearGradient>
       </CarouselCard>
     )
