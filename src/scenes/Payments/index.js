@@ -18,7 +18,7 @@ const initialLayout = {
 
 const SCREENSIZE = Dimensions.get('window')
 const TAB_WIDTH = SCREENSIZE.width / 2
-const INDICATOR_WIDTH = 10
+const INDICATOR_WIDTH = 13
 
 export default class TransferScene extends Component {
   static navigationOptions = {
