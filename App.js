@@ -351,7 +351,7 @@ class App extends Component {
   }
 
   _updateAllFreeze = async accounts => {
-    for (let i = 1; i < accounts.length; i++) {
+    for (let i = 0; i < accounts.length; i++) {
       this._updatePower(accounts[i].address)
     }
   }
