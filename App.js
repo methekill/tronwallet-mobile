@@ -233,7 +233,7 @@ class App extends Component {
     price: {},
     freeze: {},
     balances: {},
-    accounts: null,
+    accounts: [],
     publicKey: null,
     pin: null,
     oneSignalId: null,
@@ -285,7 +285,7 @@ class App extends Component {
     let accounts = await getUserSecrets(this.state.pin)
 
     // First Time
-    if (!accounts || !accounts.length) return
+    if (!accounts.length) return
 
     if (this.state.accounts) {
       // merge store with state

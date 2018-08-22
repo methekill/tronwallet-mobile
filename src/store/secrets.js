@@ -6,8 +6,8 @@ import base64 from 'base-64'
 import base64js from 'base64-js'
 import DeviceInfo from 'react-native-device-info'
 
-const AccountSchema = {
-  name: 'Account',
+const UserSecretSchema = {
+  name: 'UserSecret',
   primaryKey: 'address',
   properties: {
     confirmed: 'bool',
@@ -18,8 +18,7 @@ const AccountSchema = {
     publicKey: 'string',
     name: 'string',
     alias: 'string'
-  },
-  schemaVersion: 2
+  }
 }
 
 const getStore = async pin => {
@@ -31,23 +30,15 @@ const getStore = async pin => {
   const keyBytes = base64js.toByteArray(keyEnc64)
 
   return Realm.open({
-    path: `realm.Accounts`,
-    schema: [AccountSchema],
+    path: `realm.userSecrets`,
+    schema: [UserSecretSchema],
     encryptionKey: keyBytes,
+    schemaVersion: 1,
     migration: (oldRealm, newRealm) => {
       if (oldRealm.schemaVersion < 1) {
-        const oldObjects = oldRealm.objects('Secret')
-
-        newRealm.create('Account', {
-          confirmed: oldObjects[0].confirmed,
-          address: oldObjects[0].address,
-          password: oldObjects[0].password,
-          mnemonic: oldObjects[0].mnemonic,
-          privateKey: oldObjects[0].privateKey,
-          publicKey: oldObjects[0].publicKey,
-          name: 'Main Account',
-          alias: '@main_account'
-        })
+        const newObjects = newRealm.objects('UserSecret')
+        newObjects[0].name = 'Main Account'
+        newObjects[0].alias = '@main_account'
       }
     }
   })
