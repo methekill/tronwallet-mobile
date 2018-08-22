@@ -31,7 +31,6 @@ class BalanceScene extends Component {
     refreshing: false,
     creatingNewAccount: false,
     error: null,
-    accounts: null,
     balances: [],
     currency: null
   }
