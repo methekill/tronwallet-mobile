@@ -34,6 +34,9 @@ class WalletBalances extends Component {
       const filteredBalances = balances.filter(asset => parsedTokens.findIndex(name => name === asset.name) === -1)
       return orderAssets(filteredBalances)
     }
+    if (balances.length) {
+      return orderAssets(balances)
+    }
     return []
   }
 

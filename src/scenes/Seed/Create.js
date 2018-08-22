@@ -8,6 +8,7 @@ import { Colors } from '../../components/DesignSystem'
 import ButtonGradient from '../../components/ButtonGradient'
 import NavigationHeader from '../../components/Navigation/Header'
 
+import { resetWalletData } from '../../utils/userAccountUtils'
 import { getUserSecrets, createUserKeyPair, resetSecretData } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
 
@@ -47,9 +48,9 @@ class Create extends React.Component {
   _getNewMnemonic = async () => {
     const { pin, oneSignalId } = this.props.context
     try {
-      await resetSecretData(pin)
+      await Promise.all([resetWalletData(), resetSecretData(pin)])
       await createUserKeyPair(pin, oneSignalId)
-      await this._getMnemonic()
+      this._getMnemonic()
     } catch (e) {
       this.setState({
         error: 'Oops, we have a problem. Please restart the application.'

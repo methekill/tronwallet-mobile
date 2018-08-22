@@ -103,6 +103,7 @@ class Settings extends Component {
     try {
       const store = await getBalanceStore()
       const tokens = store.objects('Balance')
+        .filtered('TRUEPREDICATE DISTINCT(name)')
         .filter(({ name }) => FIXED_TOKENS.findIndex(token => token === name) === -1)
         .map(({ name }) => ({ id: name, name }))
 
