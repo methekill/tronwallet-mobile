@@ -57,33 +57,36 @@ class ContactsForm extends Component {
   }
 
   _onSubmit = async data => {
-    const reloadData = this.props.navigation.getParam('reloadData')
-    if (this.props.navigation.getParam('isUserAccount', false)) {
-      const accounts = await getUserSecrets(this.props.context.pin)
-      const store = await getSecretsStore(this.props.context.pin)
-      const account = accounts.find(item => item.address === data.address)
-      account.name = data.name
-      account.alias = data.alias
-      try {
-        await store.write(() => { store.create('Account', account, true) })
-        this.props.navigation.goBack()
-      } catch (e) {
-        this.setState({
-          generalError: tl.t('addressBook.form.generalError')
-        })
+    const isUnique = await isAliasUnique(data.alias, this.props.context.pin)
+    if (isUnique) {
+      const reloadData = this.props.navigation.getParam('reloadData')
+      if (this.props.navigation.getParam('isUserAccount', false)) {
+        const accounts = await getUserSecrets(this.props.context.pin)
+        const store = await getSecretsStore(this.props.context.pin)
+        const account = accounts.find(item => item.address === data.address)
+        account.name = data.name
+        account.alias = data.alias
+        try {
+          await store.write(() => { store.create('Account', account, true) })
+          this.props.navigation.goBack()
+        } catch (e) {
+          this.setState({
+            generalError: tl.t('addressBook.form.generalError')
+          })
+        }
+      } else {
+        const store = await getContactStore()
+        try {
+          await store.write(() => { store.create('Contact', data, true) })
+          this.props.navigation.goBack()
+        } catch (e) {
+          this.setState({
+            generalError: tl.t('addressBook.form.generalError')
+          })
+        }
       }
-    } else {
-      const store = await getContactStore()
-      try {
-        await store.write(() => { store.create('Contact', data, true) })
-        this.props.navigation.goBack()
-      } catch (e) {
-        this.setState({
-          generalError: tl.t('addressBook.form.generalError')
-        })
-      }
+      reloadData()
     }
-    reloadData()
   }
 
   _changeName = (name) => {
@@ -128,8 +131,8 @@ class ContactsForm extends Component {
       }
     }
 
-    if (this.props.type === ADD && type === 'name') {
-      const aliasIsUnique = await isAliasUnique(this._formatAlias(item))
+    if (type === 'name') {
+      const aliasIsUnique = await isAliasUnique(this._formatAlias(item), this.props.context.pin)
 
       if (!aliasIsUnique) {
         return {
