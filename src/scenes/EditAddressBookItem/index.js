@@ -45,7 +45,7 @@ class EditContact extends Component {
                       store.write(() => {
                         let item
                         if (isUserAccount) {
-                          item = store.objectForPrimaryKey('Account', address)
+                          item = store.objectForPrimaryKey('UserSecret', address)
                         } else {
                           item = store.objectForPrimaryKey('Contact', address)
                         }

@@ -469,6 +469,17 @@ const requestPayment = {
   title: 'REQUEST PAYMENT'
 }
 
+const newAccount = {
+  success: {
+    title: 'New account successfully created',
+    message: 'You can edit the name on your address book'
+  },
+  failure: {
+    title: 'You shall not pass!',
+    message: 'You should have at least one transaction on your last account so that your account is known on blockchain'
+  }
+}
+
 export default {
   balance,
   components,
@@ -493,5 +504,6 @@ export default {
   makePayment,
   buildPayment,
   requestPayment,
+  newAccount,
   ...general
 }

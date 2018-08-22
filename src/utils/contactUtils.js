@@ -14,7 +14,7 @@ export const getAccountsFromStore = async (pin) => {
   const store = await getAccountsStore(pin)
 
   return store
-    .objects('Account')
+    .objects('UserSecret')
     .map(item => Object.assign({}, item))
 }
 
