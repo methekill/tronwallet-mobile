@@ -17,12 +17,19 @@ const ButtonGradient = ({
   full,
   rightRadius,
   leftRadius,
-  multiColumnButton
+  multiColumnButton,
+  secondary
 }) => {
   const flexProps = {}
   if (full) {
     flexProps.flexGrow = 1
     flexProps.flexBasis = 0
+  }
+
+  const _selectGradientColor = () => {
+    if (multiColumnButton) return [Colors.buttonGradient[multiColumnButton.x], Colors.buttonGradient[multiColumnButton.y]]
+    else if (secondary) return [Colors.secondaryGradient[0], Colors.secondaryGradient[1]]
+    else return [Colors.buttonGradient[0], Colors.buttonGradient[1]]
   }
 
   return (
@@ -37,9 +44,7 @@ const ButtonGradient = ({
       <LinearGradient
         start={{ x: 0, y: 1 }}
         end={{ x: 1, y: 0 }}
-        colors={multiColumnButton
-          ? [Colors.buttonGradient[multiColumnButton.x], Colors.buttonGradient[multiColumnButton.y]]
-          : [Colors.buttonGradient[0], Colors.buttonGradient[1]]}
+        colors={_selectGradientColor()}
 
         style={[
           styles.btnGradient,

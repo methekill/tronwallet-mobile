@@ -1,4 +1,5 @@
 import { Dimensions } from 'react-native'
+import { tint } from 'polished'
 
 export const Spacing = {
   none: 0,
@@ -35,6 +36,7 @@ export const Colors = {
   transactionCardGradient: ['#444663', '#2d2e46'],
   transactionsRewardsGradient: ['#FF4465', '#f7b229'],
   transactionSuccessGradient: ['#3de278', '#1c5631'],
+  secondaryGradient: ['#7476a2', tint(0.85, '#7476a2')],
   confirmed: '#3FE77B',
   unconfirmed: '#FF4465',
   yellow: '#F5FF30',
