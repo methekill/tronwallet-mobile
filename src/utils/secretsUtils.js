@@ -1,10 +1,12 @@
 import RNTron from 'react-native-tron'
 import DeviceInfo from 'react-native-device-info'
-import { AsyncStorage } from 'react-native'
+import { AsyncStorage, Alert } from 'react-native'
 
 import getSecretsStore from '../store/secrets'
+import getTransactionStore from '../store/transactions'
 import Client from '../services/client'
 import { USER_STATUS } from '../utils/constants'
+import tl from '../utils/i18n'
 
 export const createUserKeyPair = async (pin, oneSignalId) => {
   const mnemonic = await RNTron.generateMnemonic()
@@ -24,17 +26,36 @@ export const recoverUserKeypair = async (
   AsyncStorage.setItem(USER_STATUS, 'active')
 }
 
+const isOnBlockchain = async address => {
+  const transactionsStore = await getTransactionStore()
+  const transactions = transactionsStore
+    .objects('Transaction')
+    .filtered(`ownerAddress = "${address}"`)
+  return transactions.length > 0
+}
+
 export const createNewAccount = async (pin, oneSignalId) => {
   const accounts = await getUserSecrets(pin)
-  const { mnemonic } = accounts[0]
-  const generatedKeypair = await RNTron.generateKeypair(mnemonic, accounts.length, false)
-  generatedKeypair.mnemonic = mnemonic
-  generatedKeypair.name = `Account ${accounts.length}`
-  generatedKeypair.alias = `@account${accounts.length}`
-  generatedKeypair.confirmed = true
-  const secretsStore = await getSecretsStore(pin)
-  await secretsStore.write(() => secretsStore.create('UserSecret', generatedKeypair, true))
-  Client.registerDeviceForNotifications(oneSignalId, generatedKeypair.address)
+  if (await isOnBlockchain(accounts[accounts.length - 1].address)) {
+    const { mnemonic } = accounts[0]
+    const generatedKeypair = await RNTron.generateKeypair(mnemonic, accounts.length, false)
+    generatedKeypair.mnemonic = mnemonic
+    generatedKeypair.name = `Account ${accounts.length}`
+    generatedKeypair.alias = `@account${accounts.length}`
+    generatedKeypair.confirmed = true
+    const secretsStore = await getSecretsStore(pin)
+    await secretsStore.write(() => secretsStore.create('UserSecret', generatedKeypair, true))
+    Alert.alert(
+      tl.t('newAccount.success.title'),
+      tl.t('newAccount.success.message')
+    )
+    Client.registerDeviceForNotifications(oneSignalId, generatedKeypair.address)
+  } else {
+    Alert.alert(
+      tl.t('newAccount.failure.title'),
+      tl.t('newAccount.failure.message')
+    )
+  }
 }
 
 const generateKeypair = async (pin, oneSignalId, mnemonic, vaultNumber, randomlyGenerated) => {
