@@ -1,5 +1,4 @@
 import RNTron from 'react-native-tron'
-import DeviceInfo from 'react-native-device-info'
 import { AsyncStorage } from 'react-native'
 
 import getSecretsStore from '../store/secrets'
@@ -49,17 +48,10 @@ const generateKeypair = async (pin, oneSignalId, mnemonic, vaultNumber, randomly
 }
 
 export const confirmSecret = async pin => {
-  try {
-    const secretsStore = await getSecretsStore(pin)
-    const deviceId = await DeviceInfo.getUniqueID()
-    secretsStore.write(() => {
-      const secret = secretsStore.objects('Account')
-      secret.confirmed = true
-      secretsStore.create('Account', { id: deviceId, confirmed: true }, true)
-    })
-  } catch (error) {
-    throw error
-  }
+  const secretsStore = await getSecretsStore(pin)
+  const allSecrets = secretsStore.objects('Account')
+  const mainSecret = allSecrets.length ? allSecrets[0] : allSecrets
+  secretsStore.write(() => { mainSecret.confirmed = true })
 }
 
 export const getUserSecrets = async pin => {

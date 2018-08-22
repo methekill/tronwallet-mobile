@@ -8,8 +8,7 @@ import { Colors } from '../../components/DesignSystem'
 import ButtonGradient from '../../components/ButtonGradient'
 import NavigationHeader from '../../components/Navigation/Header'
 
-import { getUserSecrets, createUserKeyPair } from '../../utils/secretsUtils'
-import { resetWalletData } from '../../utils/userAccountUtils'
+import { getUserSecrets, createUserKeyPair, resetSecretData } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
 
 const resetAction = StackActions.reset({
@@ -48,7 +47,7 @@ class Create extends React.Component {
   _getNewMnemonic = async () => {
     const { pin, oneSignalId } = this.props.context
     try {
-      await resetWalletData()
+      await resetSecretData(pin)
       await createUserKeyPair(pin, oneSignalId)
       await this._getMnemonic()
     } catch (e) {

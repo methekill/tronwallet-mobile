@@ -13,33 +13,32 @@ import { USER_FILTERED_TOKENS } from '../../utils/constants'
 
 class WalletBalances extends Component {
   state = {
-    currentUserTokens: null,
-    balancesToDisplay: []
+    currentUserTokens: null
   }
 
   async componentDidUpdate (prevProps) {
     try {
       const { currentUserTokens } = this.state
-      const { balances: currentBalances } = this.props
-      const { balances: prevBalances } = prevProps
-
       const filteredTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
-
-      if (currentUserTokens !== filteredTokens || currentBalances.length !== prevBalances.length) {
-        const parsedTokens = JSON.parse(filteredTokens)
-        const filteredBalances = currentBalances.filter(asset => parsedTokens.findIndex(name => name === asset.name) === -1)
-        const orderedBalances = orderAssets(filteredBalances)
-
-        this.setState({ balancesToDisplay: orderedBalances, currentUserTokens: filteredTokens })
-      }
+      if (currentUserTokens !== filteredTokens) this.setState({ currentUserTokens: filteredTokens })
     } catch (error) {
       console.log(error)
     }
   }
 
-  render () {
-    const { balancesToDisplay } = this.state
+  _getOrderedBalances = () => {
+    const { currentUserTokens } = this.state
+    const { balances } = this.props
+    if (currentUserTokens) {
+      const parsedTokens = JSON.parse(currentUserTokens)
+      const filteredBalances = balances.filter(asset => parsedTokens.findIndex(name => name === asset.name) === -1)
+      return orderAssets(filteredBalances)
+    }
+    return []
+  }
 
+  render () {
+    const balancesToDisplay = this._getOrderedBalances()
     if (balancesToDisplay.length) {
       return (
         <React.Fragment>
@@ -71,6 +70,10 @@ class WalletBalances extends Component {
 
 WalletBalances.propTypes = {
   balances: PropTypes.array
+}
+
+WalletBalances.defaultProps = {
+  balances: []
 }
 
 export default WalletBalances

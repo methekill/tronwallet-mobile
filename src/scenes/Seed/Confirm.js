@@ -94,6 +94,8 @@ class Confirm extends React.Component {
       Alert.alert(tl.t('success'), tl.t('seed.confirm.success'))
       this.setState({ loading: false })
       navigation.dispatch(resetAction)
+    } finally {
+      context.loadUserData()
     }
   }
 
@@ -174,7 +176,7 @@ class Confirm extends React.Component {
               <ButtonGradient
                 testID='ConfirmButton'
                 text={tl.t('seed.confirm.button.confirm')}
-                disabled={loading || this.state.selected.length < 12}
+                disabled={loading}
                 onPress={this._handleSubmit}
               />
             </Utils.View>
