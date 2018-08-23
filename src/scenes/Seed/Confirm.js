@@ -12,7 +12,7 @@ import ButtonGradient from '../../components/ButtonGradient'
 import FadeIn from '../../components/Animations/FadeIn'
 
 import WalletClient from '../../services/client'
-import { confirmSecret } from '../../utils/secretsUtils'
+import { confirmSecret, getUserSecrets } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
 
 const WordWrapper = styled.TouchableOpacity`
@@ -75,7 +75,9 @@ class Confirm extends React.Component {
   _handleSuccess = async () => {
     const { navigation, context } = this.props
     try {
-      const result = await WalletClient.giftUser(context.publicKey, context.oneSignalId)
+      const allSecrets = await getUserSecrets(context.pin)
+      const { address } = allSecrets.length ? allSecrets[0] : allSecrets
+      const result = await WalletClient.giftUser(address, context.oneSignalId)
       if (result) {
         Answers.logCustom('Wallet Operation', { type: 'Gift' })
 

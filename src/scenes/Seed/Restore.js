@@ -19,8 +19,9 @@ class Restore extends React.Component {
   }
 
   _softResetData = async () => {
-    const { pin } = this.props.context
+    const { pin, resetAccount } = this.props.context
     await Promise.all([resetWalletData(), resetSecretData(pin), resetListsData()])
+    resetAccount()
   }
   _navigateToSettings = () => {
     const resetAction = StackActions.reset({
