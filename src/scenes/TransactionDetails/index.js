@@ -453,15 +453,14 @@ class TransactionDetails extends React.Component {
     const { votes } = this.state.item.contractData
 
     const votesToRender = votes.map((vote, index) => (
-      <React.Fragment
-        key={`${vote.voteAddress}-${index}`}
-      >
+      <React.Fragment key={`${vote.voteAddress}-${index}`}>
         {this._renderAddressModal()}
-        <TouchableOpacity onPress={() => { this._onAddressPress(vote.voteAddress) }}>
-          <View style={{ height: 14 }}>
+        <Elements.AddressRow>
+          <TouchableOpacity onPress={() => { this._onAddressPress(vote.voteAddress) }}>
             <Elements.CopiableText>{vote.voteAddress}</Elements.CopiableText>
-          </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
+          <Elements.VoteText>{vote.voteCount}</Elements.VoteText>
+        </Elements.AddressRow>
         <Utils.VerticalSpacer size='medium' />
       </React.Fragment>
     ))
@@ -556,13 +555,6 @@ class TransactionDetails extends React.Component {
               <View style={{
                 paddingHorizontal: 32
               }}>
-                <Toast
-                  ref='addressToast'
-                  position='top'
-                  fadeInDuration={750}
-                  fadeOutDuration={1000}
-                  opacity={0.8}
-                />
                 <View style={{ height: 24 }} />
                 {this._renderDetails()}
               </View>
@@ -570,6 +562,13 @@ class TransactionDetails extends React.Component {
             </React.Fragment>
           }
         </ScrollView>
+        <Toast
+          ref='addressToast'
+          positionValue={260}
+          fadeInDuration={750}
+          fadeOutDuration={1000}
+          opacity={0.8}
+        />
       </Utils.Container>
     )
   }

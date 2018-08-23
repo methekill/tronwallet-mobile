@@ -38,6 +38,12 @@ export const AddressText = styled.Text`
   letter-spacing: 0.6;
   color: rgb(116, 118, 162);
 `
+export const VoteText = styled.Text`
+  font-family: Rubik-Regular;
+  font-size: 11;
+  line-height: 20;
+  color: white;
+`
 
 export const BadgeText = Text.extend`
   font-family: Rubik-Medium;
