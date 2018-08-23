@@ -4,6 +4,7 @@ import { AsyncStorage, Alert } from 'react-native'
 import getSecretsStore from '../store/secrets'
 import getTransactionStore from '../store/transactions'
 import Client from '../services/client'
+import { updateTransactions } from '../utils/transactionUtils'
 import { USER_STATUS } from '../utils/constants'
 import tl from '../utils/i18n'
 
@@ -25,11 +26,21 @@ export const recoverUserKeypair = async (
   AsyncStorage.setItem(USER_STATUS, 'active')
 }
 
-const isOnBlockchain = async address => {
+const getTransactionsFromStore = async (address) => {
   const transactionsStore = await getTransactionStore()
-  const transactions = transactionsStore
+  return transactionsStore
     .objects('Transaction')
     .filtered(`ownerAddress = "${address}"`)
+}
+
+const isOnBlockchain = async address => {
+  let transactions = await getTransactionsFromStore(address)
+
+  if (transactions.length === 0) {
+    await updateTransactions(address)
+    transactions = await getTransactionsFromStore(address)
+  }
+
   return transactions.length > 0
 }
 
