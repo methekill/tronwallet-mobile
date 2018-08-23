@@ -7,11 +7,11 @@ import withContext from '../../utils/hocs/withContext'
 import { Row } from '../../components/Utils'
 
 const ShareButton = ({context, WrapperButton = TouchableOpacity, children}) => {
-  const { publicKey: { value } } = context
+  const { publicKey } = context
 
   const share = () => {
     Share.share({
-      message: tl.t('components.share.message', { address: value }),
+      message: tl.t('components.share.message', { address: publicKey }),
       title: tl.t('components.share.title'),
       url: 'https://www.getty.io'
     }, {
@@ -20,7 +20,7 @@ const ShareButton = ({context, WrapperButton = TouchableOpacity, children}) => {
   }
 
   return (
-    <WrapperButton onPress={() => { share(value) }}>
+    <WrapperButton onPress={() => { share() }}>
       <Row>
         <Feather name='share-2' color='white' size={18} />
         {children && children}
