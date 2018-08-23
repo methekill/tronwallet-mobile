@@ -12,7 +12,6 @@ import { string, number, bool, shape, array } from 'prop-types'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Toast from 'react-native-easy-toast'
 import LinearGradient from 'react-native-linear-gradient'
-import styled from 'styled-components'
 
 import tl from '../../utils/i18n'
 import {
@@ -28,7 +27,6 @@ import NavigationHeader from '../../components/Navigation/Header'
 import { Colors } from '../../components/DesignSystem'
 import { ONE_TRX } from '../../services/client'
 import { rgb } from '../../../node_modules/polished'
-import Copiable from './CopiableAddress'
 import ActionModal from '../../components/ActionModal'
 
 import { formatFloat } from '../../utils/numberUtils'
@@ -351,21 +349,27 @@ class TransactionDetails extends React.Component {
     })
   }
 
+  _renderAddressModal = () => {
+    const { modalVisible } = this.state
+    return (
+      <ActionModal
+        visible={modalVisible}
+        closeModal={this._closeModal}
+        animationType='fade'
+        actions={[
+          {onPress: this._onAddContactPress, text: tl.t('addressBook.contacts.addToContacts')},
+          {onPress: this._onCopyAddressPress, text: tl.t('copyAddress')}
+        ]}
+      />
+    )
+  }
+
   _renderToFrom = () => {
     const { type, confirmed, contractData: { transferFromAddress, transferToAddress } } = this.state.item
-    const { modalVisible } = this.state
 
     return (
       <View>
-        <ActionModal
-          visible={modalVisible}
-          closeModal={this._closeModal}
-          animationType='fade'
-          actions={[
-            {onPress: this._onAddContactPress, text: tl.t('addressBook.contacts.addToContacts')},
-            {onPress: this._onCopyAddressPress, text: tl.t('copyAddress')}
-          ]}
-        />
+        {this._renderAddressModal()}
         {type.toLowerCase() === 'transfer' &&
           <TouchableOpacity onPress={() => { this._onAddressPress(transferToAddress) }}>
             <Elements.AddressRow>
@@ -447,32 +451,16 @@ class TransactionDetails extends React.Component {
 
   _renderVotes = () => {
     const { votes } = this.state.item.contractData
-    const TempText = styled.Text`
-      font-family: Rubik-Regular;
-      font-size: 11px;
-      line-height: 20;
-      color: white;
-    `
 
     const votesToRender = votes.map((vote, index) => (
-      <React.Fragment
-        key={`${vote.voteAddress}-${index}`}
-      >
-        <Utils.Row justify='space-between' align='center'>
-          <Copiable
-            TextComponent={TempText}
-            showToast={this._showToast}>
-            {vote.voteAddress}
-          </Copiable>
-          <View style={{ height: 14 }}>
-            <Text style={{
-              fontFamily: 'Rubik-Regular',
-              fontSize: 11,
-              lineHeight: 20,
-              color: 'white'
-            }}>{vote.voteCount}</Text>
-          </View>
-        </Utils.Row>
+      <React.Fragment key={`${vote.voteAddress}-${index}`}>
+        {this._renderAddressModal()}
+        <Elements.AddressRow>
+          <TouchableOpacity onPress={() => { this._onAddressPress(vote.voteAddress) }}>
+            <Elements.CopiableText>{vote.voteAddress}</Elements.CopiableText>
+          </TouchableOpacity>
+          <Elements.VoteText>{vote.voteCount}</Elements.VoteText>
+        </Elements.AddressRow>
         <Utils.VerticalSpacer size='medium' />
       </React.Fragment>
     ))
@@ -567,13 +555,6 @@ class TransactionDetails extends React.Component {
               <View style={{
                 paddingHorizontal: 32
               }}>
-                <Toast
-                  ref='addressToast'
-                  position='top'
-                  fadeInDuration={750}
-                  fadeOutDuration={1000}
-                  opacity={0.8}
-                />
                 <View style={{ height: 24 }} />
                 {this._renderDetails()}
               </View>
@@ -581,6 +562,13 @@ class TransactionDetails extends React.Component {
             </React.Fragment>
           }
         </ScrollView>
+        <Toast
+          ref='addressToast'
+          positionValue={260}
+          fadeInDuration={750}
+          fadeOutDuration={1000}
+          opacity={0.8}
+        />
       </Utils.Container>
     )
   }
