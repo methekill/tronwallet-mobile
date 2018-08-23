@@ -52,7 +52,6 @@ class BalanceScene extends Component {
 
   componentWillUnmount () {
     this._navListener.remove()
-    clearInterval(this._dataListener)
   }
 
   _addNewAccount = async () => {
