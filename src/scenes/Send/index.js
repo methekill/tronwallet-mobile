@@ -101,9 +101,8 @@ class SendScene extends Component {
 
   _loadData = async () => {
     this.setState({ loading: true })
-    // try {
+
     const balances = await this._getBalancesFromStore()
-    console.log('balances', balances)
     const publicKey = this.props.context.publicKey
     let orderedBalances = []
     let balance = 0
@@ -123,13 +122,6 @@ class SendScene extends Component {
       formattedToken: this._formatBalance('TRX', balance),
       warning: balance === 0 ? tl.t('send.error.insufficientBalance') : null
     })
-    // } catch (error) {
-    //   Alert.alert(tl.t('send.error.gettingBalance'))
-    //   // TODO - Error handler
-    //   this.setState({
-    //     loadingData: false
-    //   })
-    // }
   }
 
   _changeInput = (text, field) => {
@@ -183,7 +175,8 @@ class SendScene extends Component {
     this.setState({
       to: '',
       token: 'TRX',
-      amount: ''
+      amount: '',
+      description: ''
     })
   }
 

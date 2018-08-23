@@ -7,7 +7,7 @@ export const withContext = Component => {
     render () {
       return (
         <Context.Consumer>
-          {context => <Component context={context} {...this.props} />}
+          {context => <Component ref={input => { this.innerComponent = input }} context={context} {...this.props} />}
         </Context.Consumer>
       )
     }
