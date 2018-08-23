@@ -47,7 +47,7 @@ class LoadingScene extends Component {
   _handleSuccess = key => {
     setTimeout(() => {
       this.props.context.setPin(key, () => this.props.navigation.navigate('App'))
-    }, 4000)
+    }, 2000)
   }
 
   _askPin = async () => {
@@ -64,7 +64,7 @@ class LoadingScene extends Component {
           testInput: this._tryToOpenStore,
           onSuccess: this._handleSuccess
         })
-      }, 3000)
+      }, 2000)
     }
   }
 
