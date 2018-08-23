@@ -107,7 +107,7 @@ class BalanceScene extends Component {
           title={tl.t('balance.title')}
           rightButton={(
             <TouchableOpacity onPress={this._addNewAccount} disabled={creatingNewAccount}>
-              <Feather name='plus' color='white' size={28} />
+              <Feather name='plus' color={creatingNewAccount ? 'grey' : 'white'} size={28} />
             </TouchableOpacity>
           )}
         />
