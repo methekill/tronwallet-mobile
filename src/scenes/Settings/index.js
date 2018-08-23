@@ -268,11 +268,6 @@ class Settings extends Component {
             title: tl.t('settings.reset.title'),
             icon: 'delete,-trash,-dust-bin,-remove,-recycle-bin',
             onPress: this._resetWallet
-          },
-          {
-            title: tl.t('settings.pin.title'),
-            icon: 'refresh,-recycle,-triangle,-trash,-reuse',
-            onPress: this._changePin
           }
         ]
       },
