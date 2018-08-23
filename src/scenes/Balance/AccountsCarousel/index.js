@@ -34,6 +34,17 @@ class AccountsCarousel extends React.Component {
     return false
   }
 
+  componentDidUpdate (prevProps) {
+    const { accounts: prev } = prevProps.context
+    const { accounts: current } = this.props.context
+
+    if (prev.length !== current.length) {
+      const createdItemPosition = current.length - 1
+      this.carousel.snapToItem(createdItemPosition)
+      this.props.onSnapToItem(createdItemPosition)
+    }
+  }
+
   // expose current index to parent
   currentIndex = () => this.carousel.currentIndex
 
@@ -87,9 +98,9 @@ class AccountsCarousel extends React.Component {
             <Utils.VerticalSpacer size='medium' />
             {(!!freeze[publicKey]) && (
               <Utils.Row>
-                <CardInfo label={tl.t('tronPower')} value={item.tronPower} />
+                <CardInfo label={tl.t('tronPower')} value={item.tronPower || 0} />
                 <Utils.HorizontalSpacer size='medium' />
-                <CardInfo label={tl.t('balance.bandwidth')} value={item.bandwidth} />
+                <CardInfo label={tl.t('balance.bandwidth')} value={item.bandwidth || 0} />
               </Utils.Row>
             )}
           </React.Fragment>
