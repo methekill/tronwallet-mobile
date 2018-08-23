@@ -1,12 +1,22 @@
 import React from 'react'
-import { Image, ActivityIndicator } from 'react-native'
+import { Image } from 'react-native'
 
 import tl from '../../utils/i18n'
 import * as Elements from './elements'
+import LottieView from 'lottie-react-native'
+
+const WorldLoding = () => (
+  <LottieView
+    source={require('./../../assets/animations/world_locations.json')}
+    autoPlay
+    loop
+    style={{ width: 200, height: 200 }}
+  />
+)
 
 const Empty = ({loading}) => (
   <Elements.EmptyScreenContainer>
-    {loading ? <ActivityIndicator size='small' color='white' /> : (
+    {loading ? <WorldLoding /> : (
       <React.Fragment>
         <Image
           source={require('../../assets/empty.png')}

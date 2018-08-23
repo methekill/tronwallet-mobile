@@ -83,7 +83,7 @@ export const PinDigit = ({ digit, currentState }) => {
   if (digit < currentState.length) {
     return (
       <Wrapper>
-        <Circle color='#F6CA1D' />
+        <Circle color='#9b9cb7' />
       </Wrapper>
     )
   }
