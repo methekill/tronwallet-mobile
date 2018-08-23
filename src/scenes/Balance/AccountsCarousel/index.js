@@ -20,20 +20,6 @@ import CardInfo from './CardInfo'
 const CURRENCIES = [tl.t('cancel'), 'USD', 'EUR', 'BTC', 'ETH']
 
 class AccountsCarousel extends React.Component {
-  shouldComponentUpdate (nextProps) {
-    const { accounts } = nextProps.context
-    const { accounts: oldAccounts } = this.props.context
-    for (let i = 0; i < accounts.length; i++) {
-      if (!oldAccounts[i]) return true
-      if (accounts[i].address !== oldAccounts[i].address) return true
-      if (accounts[i].name !== oldAccounts[i].name) return true
-      if (accounts[i].tronPower !== oldAccounts[i].tronPower) return true
-      if (accounts[i].bandwidth !== oldAccounts[i].bandwidth) return true
-      if (accounts[i].balance !== oldAccounts[i].balance) return true
-    }
-    return false
-  }
-
   componentDidUpdate (prevProps) {
     const { accounts: prev } = prevProps.context
     const { accounts: current } = this.props.context
@@ -57,7 +43,6 @@ class AccountsCarousel extends React.Component {
 
   _renderItem = ({ item }) => {
     const { freeze, publicKey, currency } = this.props.context
-
     return (
       <CarouselCard>
         <LinearGradient
