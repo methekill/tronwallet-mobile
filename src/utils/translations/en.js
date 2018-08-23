@@ -32,7 +32,7 @@ const general = {
 }
 
 const balance = {
-  title: 'BALANCE',
+  title: 'ACCOUNTS',
   error: {
     loadingData: 'An error occured while loading the data.',
     savingCurrency: 'Error saving preferred currency'
