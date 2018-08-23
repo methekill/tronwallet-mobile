@@ -85,7 +85,7 @@ class ContactsForm extends Component {
           })
         }
       }
-      reloadData()
+      if (reloadData) reloadData()
     }
   }
 
