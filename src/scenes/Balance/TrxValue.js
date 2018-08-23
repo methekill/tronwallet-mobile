@@ -25,7 +25,7 @@ class TrxValue extends Component {
 
     return (
       <React.Fragment>
-        <Utils.Row justify='center' align='center'>
+        <Utils.Row justify='flex-start' align='center'>
           <React.Fragment>
             {!!price[currency] && (
               <FadeIn name='usd-value'>
@@ -34,13 +34,14 @@ class TrxValue extends Component {
                   style={{ price: spring(trxBalance * price[currency].price) }}
                 >
                   {value => (
-                    <Utils.Text size='large' marginX={8}>
+                    <Utils.Text size='large'>
                       {this._formatBalance(value.price, currency)}
                     </Utils.Text>
                   )}
                 </Motion>
               </FadeIn>
             )}
+            <Utils.HorizontalSpacer />
             <Badge bg='#191a2b'>{currency}</Badge>
           </React.Fragment>
         </Utils.Row>
@@ -52,7 +53,7 @@ class TrxValue extends Component {
               style={{ price: spring(trxBalance * price.USD.price) }}
             >
               {value => (
-                <Utils.Text align='center'>
+                <Utils.Text size='xsmall' align='left'>
                   {`${value.price.toFixed(2)} USD`}
                 </Utils.Text>
               )}
