@@ -60,19 +60,17 @@ class AccountsCarousel extends React.Component {
 
     return (
       <CarouselCard>
-        {this.props.context.publicKey === item.address && (
-          <LinearGradient
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            colors={[Colors.buttonGradient[0], Colors.buttonGradient[1]]}
-            style={{
-              height: 3,
-              borderRadius: 6,
-              borderTopLeftRadius: 20,
-              borderTopRightRadius: 20
-            }}
-          />
-        )}
+        <LinearGradient
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+          colors={[Colors.buttonGradient[0], Colors.buttonGradient[1]]}
+          style={{
+            height: 3,
+            borderRadius: 6,
+            borderTopLeftRadius: 20,
+            borderTopRightRadius: 20
+          }}
+        />
         <LinearGradient
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
