@@ -239,7 +239,7 @@ class Settings extends Component {
           {
             title: tl.t('settings.accepts.title'),
             icon: 'question-mark,-circle,-sign,-more,-info',
-            onPress: () => { this._openLink('https://www.tronwallet.me/who-accepts-tronwalletme') }
+            onPress: () => { this._openLink('https://www.tronwallet.me/partners') }
           }
         ]
       },
