@@ -15,7 +15,7 @@ export default class Contacts extends Component {
   async componentDidMount () {
     await this._loadContacts()
 
-    this.didFocusSubscription = this.props.navigation.addListener(
+    this._didFocusSubscription = this.props.navigation.addListener(
       'didFocus',
       async () => {
         await this._loadContacts()
@@ -24,7 +24,7 @@ export default class Contacts extends Component {
   }
 
   componentWillUnmount () {
-    this.didFocusSubscription.remove()
+    this._didFocusSubscription.remove()
   }
 
   _loadContacts = async () => {

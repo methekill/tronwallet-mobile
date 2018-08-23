@@ -50,7 +50,7 @@ class TransactionsScene extends Component {
   }
 
   componentWillUnmount () {
-    this.didFocusSubscription.remove()
+    this._didFocusSubscription.remove()
   }
 
   _getSortedTransactionList = store =>
