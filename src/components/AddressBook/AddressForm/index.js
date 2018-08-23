@@ -178,8 +178,6 @@ class ContactsForm extends Component {
     }
   }
 
-  _formatAlias = name => `@${name.trim().toLowerCase().replace(' ', '_')}`
-
   _rightContentTo = () => this.props.type === ADD ? <IconButton onPress={this._onPaste} icon='md-clipboard' /> : null
 
   render () {
