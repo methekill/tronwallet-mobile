@@ -26,7 +26,7 @@ class EditContact extends Component {
 
     return (
       <React.Fragment>
-        <NavigationHeader title={tl.t('addressBook.shared.edit')} onBack={() => navigation.goBack()} rightButton={(
+        <NavigationHeader title={tl.t('addressBook.shared.edit')} onBack={() => navigation.goBack()} rightButton={isUserAccount ? null : (
           <ClearButton onPress={() => {
             Alert.alert(
               tl.t('addressBook.contacts.delete.title'),
