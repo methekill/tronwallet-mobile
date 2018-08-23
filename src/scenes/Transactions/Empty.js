@@ -5,7 +5,7 @@ import tl from '../../utils/i18n'
 import * as Elements from './elements'
 import LottieView from 'lottie-react-native'
 
-const WorldLoding = () => (
+const WorldLoading = () => (
   <LottieView
     source={require('./../../assets/animations/world_locations.json')}
     autoPlay
@@ -16,7 +16,7 @@ const WorldLoding = () => (
 
 const Empty = ({loading}) => (
   <Elements.EmptyScreenContainer>
-    {loading ? <WorldLoding /> : (
+    {loading ? <WorldLoading /> : (
       <React.Fragment>
         <Image
           source={require('../../assets/empty.png')}
