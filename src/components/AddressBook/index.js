@@ -6,7 +6,6 @@ import ActionModal from '../ActionModal'
 import AddressCard from './AddressCard'
 
 import getContactStore from '../../store/contacts'
-import getSecretsStore from '../../store/secrets'
 import { withContext } from '../../store/context'
 import tl from '../../utils/i18n'
 import { EmptyWrapper, EmptyText } from './elements'
@@ -68,44 +67,41 @@ class AddressBook extends Component {
 
   _onDeletePress = () => {
     const { currentItem } = this.state
-    const { reloadData, context, isUserAccount } = this.props
+    const { reloadData, isUserAccount } = this.props
 
-    Alert.alert(
-      tl.t('addressBook.contacts.delete.title'),
-      tl.t('addressBook.contacts.delete.message'),
-      [
-        {
-          text: tl.t('addressBook.contacts.delete.cancelButton'),
-          onPress: () => {
-            this.setState({
-              modalVisible: false,
-              currentItem: null
-            })
+    if (!isUserAccount) {
+      Alert.alert(
+        tl.t('addressBook.contacts.delete.title'),
+        tl.t('addressBook.contacts.delete.message'),
+        [
+          {
+            text: tl.t('addressBook.contacts.delete.cancelButton'),
+            onPress: () => {
+              this.setState({
+                modalVisible: false,
+                currentItem: null
+              })
+            },
+            style: 'cancel'
           },
-          style: 'cancel'
-        },
-        {
-          text: tl.t('addressBook.contacts.delete.okButton'),
-          onPress: async () => {
-            const store = isUserAccount ? await getSecretsStore(context.pin) : await getContactStore()
-            store.write(() => {
-              let item
-              if (isUserAccount) {
-                item = store.objectForPrimaryKey('UserSecret', currentItem.address)
-              } else {
-                item = store.objectForPrimaryKey('Contact', currentItem.address)
-              }
-              store.delete(item)
-            })
-            reloadData()
-            this.setState({
-              modalVisible: false,
-              currentItem: null
-            })
+          {
+            text: tl.t('addressBook.contacts.delete.okButton'),
+            onPress: async () => {
+              const store = await getContactStore()
+              store.write(() => {
+                let item = store.objectForPrimaryKey('Contact', currentItem.address)
+                store.delete(item)
+              })
+              reloadData()
+              this.setState({
+                modalVisible: false,
+                currentItem: null
+              })
+            }
           }
-        }
-      ]
-    )
+        ]
+      )
+    }
   }
 
   _renderCard = ({ item }) => (
@@ -132,7 +128,7 @@ class AddressBook extends Component {
 
   render () {
     const { modalVisible, refreshing } = this.state
-    const { items, children } = this.props
+    const { items, children, isUserAccount } = this.props
 
     return (
       <Container style={{position: 'relative'}}>
@@ -142,7 +138,7 @@ class AddressBook extends Component {
           animationType='fade'
           actions={[
             {onPress: this._onEditPress, text: tl.t('addressBook.shared.edit')},
-            {onPress: this._onDeletePress, text: tl.t('addressBook.shared.delete')},
+            isUserAccount ? null : {onPress: this._onDeletePress, text: tl.t('addressBook.shared.delete')},
             {onPress: this._onSendPress, text: tl.t('addressBook.shared.send')}
           ]}
         />
