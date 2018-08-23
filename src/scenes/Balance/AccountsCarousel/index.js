@@ -87,9 +87,9 @@ class AccountsCarousel extends React.Component {
             <Utils.VerticalSpacer size='medium' />
             {(!!freeze[publicKey]) && (
               <Utils.Row>
-                <CardInfo label={tl.t('tronPower')} value={item.tronPower} />
+                <CardInfo label={tl.t('tronPower')} value={item.tronPower || 0} />
                 <Utils.HorizontalSpacer size='medium' />
-                <CardInfo label={tl.t('balance.bandwidth')} value={item.bandwidth} />
+                <CardInfo label={tl.t('balance.bandwidth')} value={item.bandwidth || 0} />
               </Utils.Row>
             )}
           </React.Fragment>
