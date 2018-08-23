@@ -29,7 +29,7 @@ const AddressBookModal = ({
     <ContactsModalWrapper onPress={closeModal}>
       <ContactsModalCard>
         <Title>{tl.t('actionModalTitle')}</Title>
-        {actions && actions.map(action => (
+        {actions && actions.map(action => action && (
           <View key={action.text}>
             <Action onPress={action.onPress}>
               <ActionText>{action.text}</ActionText>
