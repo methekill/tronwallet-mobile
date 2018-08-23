@@ -131,12 +131,13 @@ class VoteScene extends Component {
   }
 
   _getLastUserVotesFromStore = async () => {
+    const { context } = this.props
     const transactionStore = await getTransactionStore()
 
     const queryVoteUnfreeze = transactionStore
       .objects('Transaction')
       .sorted([['timestamp', true]])
-      .filtered('type == "Vote" OR type == "Unfreeze"')
+      .filtered('ownerAddress = $0 AND (type == "Vote" OR type == "Unfreeze")', context.publicKey)
 
     // If there was an Unfreeze transaction after voting, delete previously votes
     const lastVoteTransaction = queryVoteUnfreeze.length && queryVoteUnfreeze[0].type === 'Vote'

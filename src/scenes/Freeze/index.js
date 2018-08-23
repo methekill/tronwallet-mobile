@@ -48,6 +48,7 @@ class FreezeScene extends Component {
   }
 
   _checkUnfreeze = async () => {
+    const { context } = this.props
     let unfreezeStatus = {
       msg: tl.t('freeze.unfreeze.inThreeDays'),
       disabled: false
@@ -57,9 +58,9 @@ class FreezeScene extends Component {
 
       const queryFreeze = transactionStore
         .objects('Transaction')
-        .filtered(`ownerAddress = "${this.props.context.publicKey}"`)
         .sorted([['timestamp', true]])
-        .filtered('type == "Unfreeze" or type == "Freeze"')
+        .filtered('ownerAddress = $0 AND (type == "Unfreeze" OR type == "Freeze")', context.publicKey)
+
       const lastFreeze = queryFreeze.length && queryFreeze[0].type === 'Freeze'
         ? queryFreeze[0] : null
 
