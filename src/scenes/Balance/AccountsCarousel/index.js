@@ -20,19 +20,23 @@ import CardInfo from './CardInfo'
 const CURRENCIES = [tl.t('cancel'), 'USD', 'EUR', 'BTC', 'ETH']
 
 class AccountsCarousel extends React.Component {
-  shouldComponentUpdate (nextProps) {
-    const { accounts } = nextProps.context
-    const { accounts: oldAccounts } = this.props.context
-    for (let i = 0; i < accounts.length; i++) {
-      if (!oldAccounts[i]) return true
-      if (accounts[i].address !== oldAccounts[i].address) return true
-      if (accounts[i].name !== oldAccounts[i].name) return true
-      if (accounts[i].tronPower !== oldAccounts[i].tronPower) return true
-      if (accounts[i].bandwidth !== oldAccounts[i].bandwidth) return true
-      if (accounts[i].balance !== oldAccounts[i].balance) return true
-    }
-    return false
-  }
+  // TODO
+  // This needs to be rewrited or another lifecycle component needs to be used
+  // Reason: Sometimes nextProps is equal to context.accounts and render new info is not happening
+
+  // shouldComponentUpdate (nextProps) {
+  //   const { accounts } = nextProps.context
+  //   const { accounts: oldAccounts } = this.props.context
+  //   for (let i = 0; i < accounts.length; i++) {
+  //     if (!oldAccounts[i]) return true
+  //     if (accounts[i].address !== oldAccounts[i].address) return true
+  //     if (accounts[i].name !== oldAccounts[i].name) return true
+  //     if (accounts[i].tronPower !== oldAccounts[i].tronPower) return true
+  //     if (accounts[i].bandwidth !== oldAccounts[i].bandwidth) return true
+  //     if (accounts[i].balance !== oldAccounts[i].balance) return true
+  //   }
+  //   return false
+  // }
 
   // expose current index to parent
   currentIndex = () => this.carousel.currentIndex
@@ -46,7 +50,6 @@ class AccountsCarousel extends React.Component {
 
   _renderItem = ({ item }) => {
     const { freeze, publicKey, currency } = this.props.context
-
     return (
       <CarouselCard>
         {this.props.context.publicKey === item.address && (
