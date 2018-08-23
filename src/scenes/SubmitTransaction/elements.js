@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import tl from '../../utils/i18n'
 import { Colors } from '../../components/DesignSystem'
 import * as Utils from '../../components/Utils'
 
@@ -28,7 +29,7 @@ export const DetailRow = ({ title, text, address }) => (
 
 export const DataRow = ({ data }) => (
   <RowView>
-    <Utils.Text secondary size='smaller'>DATA</Utils.Text>
+    <Utils.Text secondary size='smaller'>{tl.t('submitTransaction.data')}</Utils.Text>
     <Utils.VerticalSpacer size='small' />
     <Utils.Text align='right' style={{maxWidth: '70%'}} size='xsmall'>{data}</Utils.Text>
   </RowView>

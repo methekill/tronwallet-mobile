@@ -357,6 +357,8 @@ const submitTransaction = {
   title: 'TRANSACTION DETAILS',
   notification: 'You have received a transaction from {{address}}',
   notificationPayment: 'You have received a payment from {{address}}',
+  data: 'DATA',
+  time: 'TIME',
   button: {
     tryAgain: 'Try again',
     submit: 'SUBMIT TRANSACTION'
