@@ -8,6 +8,7 @@ import {
 import { Answers } from 'react-native-fabric'
 import Feather from 'react-native-vector-icons/Feather'
 
+import SyncButton from '../../components/SyncButton'
 import NavigationHeader from '../../components/Navigation/Header'
 import * as Utils from '../../components/Utils'
 import WalletBalances from './WalletBalances'
@@ -109,7 +110,13 @@ class BalanceScene extends Component {
           title={tl.t('balance.title')}
           rightButton={(
             <TouchableOpacity onPress={this._addNewAccount} disabled={creatingNewAccount}>
-              <Feather name='plus' color={creatingNewAccount ? 'grey' : 'white'} size={28} />
+              {creatingNewAccount
+                ? <SyncButton
+                  loading
+                  onPress={() => { }}
+                />
+                : <Feather name='plus' color={'white'} size={28} />
+              }
             </TouchableOpacity>
           )}
         />
