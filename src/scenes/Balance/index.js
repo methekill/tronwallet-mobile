@@ -64,6 +64,7 @@ class BalanceScene extends Component {
 
   _onRefresh = async () => {
     this.setState({ refreshing: true })
+    await this.props.context.loadUserData()
     await this._loadData()
     this.setState({ refreshing: false })
   }
