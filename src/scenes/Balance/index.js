@@ -83,10 +83,11 @@ class BalanceScene extends Component {
 
   _onSnapToItem = activeAccount => {
     const { setPublicKey, accounts } = this.props.context
-    const { address } = accounts[activeAccount]
-
-    setPublicKey(address)
-    this.setState({ activeAccount })
+    if (accounts.length) {
+      const { address } = accounts[activeAccount]
+      setPublicKey(address)
+      this.setState({ activeAccount })
+    }
   }
 
   render () {
