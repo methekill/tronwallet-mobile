@@ -111,7 +111,6 @@ class AccountsCarousel extends React.Component {
           renderItem={this._renderItem}
           sliderWidth={Dimensions.get('window').width}
           itemWidth={300}
-          loop
           slideStyle={{paddingHorizontal: 6}}
         />
       </React.Fragment>
