@@ -27,7 +27,7 @@ class AccountsCarousel extends React.Component {
   _onSnapToItem = activeAccount => {
     const { setPublicKey, accounts } = this.props.context
     if (accounts.length) {
-      const { address } = accounts[this.carousel.currentIndex]
+      const { address } = accounts[activeAccount]
       setPublicKey(address)
     }
   }
