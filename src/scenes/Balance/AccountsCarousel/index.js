@@ -34,6 +34,17 @@ class AccountsCarousel extends React.Component {
     return false
   }
 
+  componentDidUpdate (prevProps) {
+    const { accounts: prev } = prevProps.context
+    const { accounts: current } = this.props.context
+
+    if (prev.length !== current.length) {
+      const createdItemPosition = current.length - 1
+      this.carousel.snapToItem(createdItemPosition)
+      this.props.onSnapToItem(createdItemPosition)
+    }
+  }
+
   // expose current index to parent
   currentIndex = () => this.carousel.currentIndex
 
