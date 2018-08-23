@@ -96,6 +96,7 @@ const AddressBookTabs = createMaterialTopTabNavigator(
     Accounts: AccountsScene
   },
   {
+    navigationOptions: { header: null },
     tabBarOptions: {
       activeTintColor: Colors.primaryText,
       inactiveTintColor: '#66688f',

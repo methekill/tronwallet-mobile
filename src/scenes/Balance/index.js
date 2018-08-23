@@ -59,6 +59,7 @@ class BalanceScene extends Component {
     this.setState({ creatingNewAccount: true })
     await createNewAccount(this.props.context.pin, this.props.context.oneSignalId)
     await this.props.context.loadUserData()
+    this.carousel.innerComponent._snapToNewAccount()
     this.setState({ creatingNewAccount: false })
   }
 
@@ -82,14 +83,6 @@ class BalanceScene extends Component {
     }
   }
 
-  _onSnapToItem = activeAccount => {
-    const { setPublicKey, accounts } = this.props.context
-    if (accounts.length) {
-      const { address } = accounts[activeAccount]
-      setPublicKey(address)
-    }
-  }
-
   render () {
     const {
       seed,
@@ -101,7 +94,6 @@ class BalanceScene extends Component {
       balances,
       publicKey
     } = this.props.context
-
     return (
       <React.Fragment>
         <NavigationHeader
@@ -127,7 +119,7 @@ class BalanceScene extends Component {
               />
             }
           >
-            <AccountsCarousel onSnapToItem={this._onSnapToItem} />
+            <AccountsCarousel ref={input => (this.carousel = input)} onSnapToItem={this._onSnapToItem} />
             <Utils.VerticalSpacer size='medium' />
             <Utils.Content paddingTop={0}>
               <BalanceNavigation navigation={this.props.navigation} />

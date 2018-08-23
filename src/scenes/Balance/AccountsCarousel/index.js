@@ -20,14 +20,15 @@ import CardInfo from './CardInfo'
 const CURRENCIES = [tl.t('cancel'), 'USD', 'EUR', 'BTC', 'ETH']
 
 class AccountsCarousel extends React.Component {
-  componentDidUpdate (prevProps) {
-    const { accounts: prev } = prevProps.context
-    const { accounts: current } = this.props.context
-
-    if (prev.length !== current.length) {
-      const createdItemPosition = current.length - 1
-      this.carousel.snapToItem(createdItemPosition)
-      this.props.onSnapToItem(createdItemPosition)
+  _snapToNewAccount = () => {
+    const createdItemPosition = this.props.context.accounts.length - 1
+    this.carousel.snapToItem(createdItemPosition)
+  }
+  _onSnapToItem = activeAccount => {
+    const { setPublicKey, accounts } = this.props.context
+    if (accounts.length) {
+      const { address } = accounts[this.carousel.currentIndex]
+      setPublicKey(address)
     }
   }
 
@@ -106,7 +107,7 @@ class AccountsCarousel extends React.Component {
         <Carousel
           ref={ref => { this.carousel = ref }}
           layout='default'
-          onSnapToItem={this.props.onSnapToItem}
+          onSnapToItem={this._onSnapToItem}
           data={accounts}
           renderItem={this._renderItem}
           sliderWidth={Dimensions.get('window').width}
