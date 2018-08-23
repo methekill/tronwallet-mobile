@@ -27,7 +27,6 @@ class BalanceScene extends Component {
   }
 
   state = {
-    activeAccount: 0,
     refreshing: false,
     creatingNewAccount: false,
     error: null,
@@ -86,7 +85,6 @@ class BalanceScene extends Component {
     if (accounts.length) {
       const { address } = accounts[activeAccount]
       setPublicKey(address)
-      this.setState({ activeAccount })
     }
   }
 
