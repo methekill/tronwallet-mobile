@@ -81,10 +81,12 @@ class BuyScene extends Component {
 
   _getBalancesFromStore = async () => {
     const store = await getBalanceStore()
+    const { publicKey } = this.props.context
+
     return store
       .objects('Balance')
       .filtered(
-        `name = 'TRX'`
+        `name = 'TRX' AND account = '${publicKey}'`
       )
       .map(item => Object.assign({}, item))
   }

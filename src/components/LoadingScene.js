@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ActivityIndicator } from 'react-native'
+import LottieView from 'lottie-react-native'
 import { Colors } from './DesignSystem'
 import * as Utils from './Utils'
 
@@ -12,7 +12,12 @@ export default () => {
       justify='center'
       align='center'
     >
-      <ActivityIndicator size='large' color={Colors.primaryText} />
+      <LottieView
+        source={require('./../assets/animations/world_locations.json')}
+        autoPlay
+        loop
+        style={{ width: 200, height: 200 }}
+      />
     </Utils.View>
   )
 }

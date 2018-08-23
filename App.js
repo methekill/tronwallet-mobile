@@ -154,11 +154,11 @@ const ParticipateStack = createStackNavigator(
 
 const AppTabs = createBottomTabNavigator({
   Market: MarketScene,
-  AddressBook: AddressBookStack,
   Vote: {
     screen: VoteScene,
     path: 'vote'
   },
+  AddressBook: AddressBookStack,
   Balance: BalanceStack,
   Transactions: TransactionList,
   Participate: ParticipateStack,
