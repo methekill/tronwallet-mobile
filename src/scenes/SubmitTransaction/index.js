@@ -179,7 +179,7 @@ class TransactionDetail extends Component {
     contractsElements.push(
       <DetailRow
         key='TIME'
-        title='TIME'
+        title={tl.t('submitTransaction.time')}
         text={nowDate}
       />
     )
