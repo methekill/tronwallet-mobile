@@ -74,9 +74,9 @@ class AccountsCarousel extends React.Component {
             </TronLogo>
             <Utils.Text color='#9b9cb9'>{item.name}</Utils.Text>
             <Utils.VerticalSpacer size='medium' />
-            {(item.balance !== undefined && currency) && (
+            {(
               <TouchableOpacity onPress={() => this.ActionSheet.show()}>
-                <TrxValue trxBalance={item.balance} currency={currency} />
+                <TrxValue trxBalance={item.balance || 0} currency={currency} />
               </TouchableOpacity>
             )}
             <Utils.VerticalSpacer size='medium' />

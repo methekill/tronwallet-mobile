@@ -64,7 +64,7 @@ class LoadingScene extends Component {
           testInput: this._tryToOpenStore,
           onSuccess: this._handleSuccess
         })
-      }, 2000)
+      }, 3000)
     }
   }
 
