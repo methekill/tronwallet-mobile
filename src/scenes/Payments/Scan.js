@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Alert, ActivityIndicator } from 'react-native'
 import QRCodeScanner from 'react-native-qrcode-scanner'
-
+import { withNavigationFocus } from 'react-navigation'
 // Design
 import * as Utils from '../../components/Utils'
 import NavigationHeader from '../../components/Navigation/Header'
@@ -31,14 +31,6 @@ class ScanPayment extends Component {
     scanned: false
   }
 
-  componentDidMount () {
-    this._navListener = this.props.navigation.addListener('didFocus', () => this.scanner.reactivate())
-  }
-
-  componentWillUnmount () {
-    this._navListener.remove()
-    clearTimeout(this.scannerTimeout)
-  }
   _checkAmount = (amount, token) => amount && (amount >= 1 / ONE_TRX)
 
   _checkDescription = description => description.length <= 500
@@ -75,6 +67,7 @@ class ScanPayment extends Component {
           rightButton={loading ? <ActivityIndicator size='small' color={Colors.primaryText} /> : null}
           noBorder
         />
+        {navigation.isFocused() && 
         <QRCodeScanner
           showMarker
           fadeIn
@@ -104,10 +97,10 @@ class ScanPayment extends Component {
           }}
           permissionDialogMessage={tl.t('components.QRScanner.permissionMessage')}
           onRead={this._onRead}
-        />
+        />}
       </Utils.Container>
     )
   }
 }
 
-export default withContext(ScanPayment)
+export default withContext(withNavigationFocus(ScanPayment)
