@@ -106,9 +106,10 @@ class FreezeScene extends Component {
   }
 
   _submitUnfreeze = async () => {
+    const { publicKey } = this.props.context
     this.setState({loading: true})
     try {
-      const data = await Client.getUnfreezeTransaction(this.props.context.pin)
+      const data = await Client.getUnfreezeTransaction(publicKey, this.props.context.pin)
       this._openTransactionDetails(data)
     } catch (error) {
       Alert.alert(tl.t('error.buildingTransaction'))
@@ -117,6 +118,7 @@ class FreezeScene extends Component {
       this.setState({loading: false})
     }
   }
+
   _submit = async () => {
     const { accounts, publicKey } = this.props.context
     const { balance } = accounts.find(account => account.address === publicKey)
@@ -182,12 +184,19 @@ class FreezeScene extends Component {
     </Utils.View>
   )
 
+  _getBalance = () => {
+    const { accounts, publicKey } = this.props.context
+    const currentBalance = accounts.find(account => account.address === publicKey)
+    if (currentBalance) return currentBalance.balance
+    else return 0
+  }
+
   render () {
     const { amount, loading, unfreezeStatus } = this.state
-    const { freeze, accounts, publicKey } = this.props.context
-    const userTotalPower = freeze.value ? Number(freeze.value.total) : 0
+    const { freeze, publicKey } = this.props.context
+    const userTotalPower = freeze[publicKey] ? Number(freeze[publicKey].total) : 0
     const newTotalPower = userTotalPower + Number(amount.replace(/,/g, ''))
-    const trxBalance = accounts.find(account => account.address === publicKey).balance
+    const trxBalance = this._getBalance()
 
     return (
       <KeyboardScreen>

@@ -30,9 +30,8 @@ class TransactionDetail extends Component {
     loadingSubmit: false,
     transactionData: null,
     signedTransaction: null,
-    disableSubmit: false,
-    submitError: null,
     submitted: false,
+    submitError: null,
     isConnected: null,
     tokenAmount: null,
     nowDate: moment().format('MM/DD/YYYY HH:MM:SS')
@@ -140,14 +139,15 @@ class TransactionDetail extends Component {
         }
         await this.props.context.loadUserData()
       }
-      this.setState({ submitError: null, loadingSubmit: false, disableSubmit: true }, this._navigateNext)
+      this.setState({ submitError: null, loadingSubmit: false, submitted: true }, this._navigateNext)
     } catch (error) {
       // This needs to be adapted better from serverless api
       const errorMessage = error.response && error.response.data ? error.response.data.error
         : error.message
       this.setState({
         submitError: translateError(errorMessage),
-        loadingSubmit: false
+        loadingSubmit: false,
+        submitted: true
       })
       store.write(() => {
         const lastTransaction = store.objectForPrimaryKey('Transaction', hash)
@@ -195,21 +195,21 @@ class TransactionDetail extends Component {
   }
 
   _renderSubmitButton = () => {
-    const { loadingSubmit, disableSubmit } = this.state
+    const { loadingSubmit, submitted } = this.state
 
     return (
       <Utils.View marginTop={5} paddingX={'medium'}>
         {loadingSubmit ? (
           <ActivityIndicator size='small' color={Colors.primaryText} />
         ) : (
-          <ButtonGradient
+          !submitted && <ButtonGradient
             text={tl.t('submitTransaction.button.submit')}
             onPress={() => this.props.navigation.navigate('Pin', {
               shouldGoBack: true,
               testInput: pin => pin === this.props.context.pin,
               onSuccess: this._submitTransaction
             })}
-            disabled={disableSubmit}
+            disabled={submitted}
             font='bold'
           />
         )}
