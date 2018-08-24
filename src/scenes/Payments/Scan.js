@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Alert, ActivityIndicator } from 'react-native'
 import QRCodeScanner from 'react-native-qrcode-scanner'
 import { withNavigationFocus } from 'react-navigation'
-
 // Design
 import * as Utils from '../../components/Utils'
 import NavigationHeader from '../../components/Navigation/Header'
@@ -54,12 +53,12 @@ class ScanPayment extends Component {
       if (error.name === 'DataError') Alert.alert(tl.t('warning'), error.message)
       else Alert.alert(tl.t('warning'), tl.t('scanPayment.error.code'))
       this.setState({loading: false})
+      this.scannerTimeout = setTimeout(() => this.scanner.reactivate(), 2000)
     }
   }
 
   render () {
     const { navigation, loading } = this.props
-    console.warn('......', navigation.isFocused())
     return (
       <Utils.Container>
         <NavigationHeader
@@ -68,11 +67,9 @@ class ScanPayment extends Component {
           rightButton={loading ? <ActivityIndicator size='small' color={Colors.primaryText} /> : null}
           noBorder
         />
-        {navigation.isFocused() &&
-        <QRCodeScanner
+        {navigation.isFocused() && <QRCodeScanner
           showMarker
           fadeIn
-          reactivateTimeout={1500}
           ref={node => { this.scanner = node }}
           customMarker={
             <Utils.View
@@ -105,4 +102,4 @@ class ScanPayment extends Component {
   }
 }
 
-export default withContext(withNavigationFocus(ScanPayment))
+export default withContext(withNavigationFocus(ScanPayment)
