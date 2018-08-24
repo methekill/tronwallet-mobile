@@ -12,10 +12,10 @@ import { USER_STATUS, USER_FILTERED_TOKENS } from '../../utils/constants'
 import LottieView from 'lottie-react-native'
 
 class LoadingScene extends Component {
-  async componentDidMount () {
+  componentDidMount () {
     SplashScreen.hide()
-    await updateAssets(0, 1, 'twx')
-    await this._setFilteredTokens()
+    updateAssets(0, 1, 'twx')
+    this._setFilteredTokens()
     this._askPin()
   }
 
