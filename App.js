@@ -244,12 +244,14 @@ class App extends Component {
   }
 
   async componentDidMount () {
-    OneSignal.init('ce0b0f27-0ae7-4a8c-8fff-2a110da3a163')
-    OneSignal.configure()
-    OneSignal.inFocusDisplaying(2)
-    OneSignal.addEventListener('ids', this._onIds)
-    OneSignal.addEventListener('opened', this._onOpened)
-    OneSignal.addEventListener('received', this._onReceived)
+    setTimeout(() => {
+      OneSignal.init('ce0b0f27-0ae7-4a8c-8fff-2a110da3a163')
+      OneSignal.configure()
+      OneSignal.inFocusDisplaying(2)
+      OneSignal.addEventListener('ids', this._onIds)
+      OneSignal.addEventListener('opened', this._onOpened)
+      OneSignal.addEventListener('received', this._onReceived)
+    }, 1000)
 
     this._setNodes()
 
