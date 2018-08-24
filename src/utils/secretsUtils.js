@@ -22,6 +22,7 @@ export const recoverUserKeypair = async (
   randomlyGenerated = false
 ) => {
   await RNTron.validateMnemonic(mnemonic)
+  await resetSecretData(pin)
   await generateKeypair(pin, oneSignalId, mnemonic, vaultNumber, randomlyGenerated)
   AsyncStorage.setItem(USER_STATUS, 'active')
 }
@@ -59,7 +60,7 @@ export const createNewAccount = async (pin, oneSignalId) => {
       tl.t('newAccount.success.title'),
       tl.t('newAccount.success.message')
     )
-    Client.registerDeviceForNotifications(oneSignalId, generatedKeypair.address)
+    Client.registerDeviceForNotifications(`${oneSignalId}@${accounts.length}`, generatedKeypair.address)
   } else {
     Alert.alert(
       tl.t('newAccount.failure.title'),

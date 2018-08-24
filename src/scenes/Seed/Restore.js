@@ -9,7 +9,7 @@ import ButtonGradient from '../../components/ButtonGradient'
 import NavigationHeader from '../../components/Navigation/Header'
 
 import { resetWalletData, resetListsData } from '../../utils/userAccountUtils'
-import { recoverUserKeypair, resetSecretData } from '../../utils/secretsUtils'
+import { recoverUserKeypair } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
 
 class Restore extends React.Component {
@@ -19,8 +19,8 @@ class Restore extends React.Component {
   }
 
   _softResetData = async () => {
-    const { pin, resetAccount } = this.props.context
-    await Promise.all([resetWalletData(), resetSecretData(pin), resetListsData()])
+    const { resetAccount } = this.props.context
+    await Promise.all([resetWalletData(), resetListsData()])
     resetAccount()
   }
   _navigateToSettings = () => {
@@ -51,8 +51,8 @@ class Restore extends React.Component {
     Keyboard.dismiss()
     this.setState({ loading: true })
     try {
-      await this._softResetData()
       await recoverUserKeypair(pin, oneSignalId, seed)
+      await this._softResetData()
       await loadUserData()
       Alert.alert(tl.t('seed.restore.success'))
       this.setState({ loading: false }, this._navigateToSettings)
