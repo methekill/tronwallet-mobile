@@ -67,7 +67,8 @@ class ScanPayment extends Component {
           rightButton={loading ? <ActivityIndicator size='small' color={Colors.primaryText} /> : null}
           noBorder
         />
-        {navigation.isFocused() && <QRCodeScanner
+        {navigation.isFocused() && 
+        <QRCodeScanner
           showMarker
           fadeIn
           ref={node => { this.scanner = node }}
