@@ -61,8 +61,10 @@ class Create extends React.Component {
   _getMnemonic = async () => {
     try {
       const accounts = await getUserSecrets(this.props.context.pin)
-      const { mnemonic } = accounts[0]
+      const { mnemonic, address } = accounts[0]
       this.setState({ seed: mnemonic })
+      this.props.context.setPublicKey(address)
+      this.props.context.loadUserData()
     } catch (e) {
       this.setState({
         error: 'Oops, we have a problem. Please restart the application.'
@@ -104,12 +106,11 @@ class Create extends React.Component {
               </React.Fragment>
             )}
             <ButtonGradient
-              onPress={() =>
+              onPress={() => (
                 navigation.navigate(
                   'SeedConfirm',
                   { seed: seed.split(' ') }
-                )
-              }
+                ))}
               text={tl.t('seed.create.button.written')}
               full
             />
