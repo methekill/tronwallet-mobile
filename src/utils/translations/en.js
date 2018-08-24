@@ -478,7 +478,7 @@ const newAccount = {
   },
   failure: {
     title: 'You shall not pass!',
-    message: 'You should have at least one transaction on your last account so that your account is known on blockchain'
+    message: 'To add a new account you should have at least one transaction on your last account.'
   }
 }
 
