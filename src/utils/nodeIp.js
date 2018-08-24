@@ -65,10 +65,10 @@ class NodeIp {
     try {
       const nodes = await this.getStorageNodes()
       if (nodes) return nodes
-      else throw new Error('No node found!')
+      else throw new Error('No node found! Returning default...')
     } catch (error) {
       console.warn(error)
-      throw error
+      return { nodeIp: this.nodeIp, nodeSolidityIp: this.nodeSolidityIp, isTestnet: false }
     }
   }
 
