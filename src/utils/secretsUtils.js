@@ -61,11 +61,13 @@ export const createNewAccount = async (pin, oneSignalId) => {
       tl.t('newAccount.success.message')
     )
     Client.registerDeviceForNotifications(`${oneSignalId}@${accounts.length}`, generatedKeypair.address)
+    return true
   } else {
     Alert.alert(
       tl.t('newAccount.failure.title'),
       tl.t('newAccount.failure.message')
     )
+    return false
   }
 }
 

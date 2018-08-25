@@ -477,7 +477,7 @@ const newAccount = {
     message: 'You can edit the name on your address book'
   },
   failure: {
-    title: 'You shall not pass!',
+    title: 'New account warning',
     message: 'To add a new account you should have at least one transaction on your last account.'
   }
 }
