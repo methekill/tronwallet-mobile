@@ -21,8 +21,12 @@ const CURRENCIES = [tl.t('cancel'), 'USD', 'EUR', 'BTC', 'ETH']
 
 class AccountsCarousel extends React.Component {
   _snapToNewAccount = () => {
-    const createdItemPosition = this.props.context.accounts.length - 1
-    this.carousel.snapToItem(createdItemPosition)
+    const { accounts } = this.props.context
+    const createdItemPosition = accounts.length - 1
+    // We set the state to load before the item is focused
+    this._onSnapToItem(createdItemPosition)
+    // Timeout needed for android
+    setTimeout(() => this.carousel.snapToItem(createdItemPosition), 250)
   }
   _onSnapToItem = activeAccount => {
     const { setPublicKey, accounts } = this.props.context

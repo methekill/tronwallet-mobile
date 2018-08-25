@@ -56,9 +56,11 @@ class BalanceScene extends Component {
 
   _addNewAccount = async () => {
     this.setState({ creatingNewAccount: true })
-    await createNewAccount(this.props.context.pin, this.props.context.oneSignalId)
-    await this.props.context.loadUserData()
-    this.carousel.innerComponent._snapToNewAccount()
+    const createdNewAccount = await createNewAccount(this.props.context.pin, this.props.context.oneSignalId)
+    if (createdNewAccount) {
+      await this.props.context.loadUserData()
+      this.carousel.innerComponent._snapToNewAccount()
+    }
     this.setState({ creatingNewAccount: false })
   }
 
@@ -118,7 +120,7 @@ class BalanceScene extends Component {
               />
             }
           >
-            <AccountsCarousel ref={input => (this.carousel = input)} onSnapToItem={this._onSnapToItem} />
+            <AccountsCarousel ref={input => (this.carousel = input)} />
             <Utils.VerticalSpacer size='medium' />
             <Utils.Content paddingTop={0}>
               <BalanceNavigation navigation={this.props.navigation} />
