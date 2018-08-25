@@ -4,7 +4,7 @@ import LottieView from 'lottie-react-native'
 import tl from '../../utils/i18n'
 import { SuccessSpecialMessage } from '../../components/SpecialMessage'
 import { SuccessText, Wrapper } from './elements'
-import { View } from '../../../node_modules/react-native-animatable';
+import { View } from '../../../node_modules/react-native-animatable'
 
 class TransactionsSuccess extends PureComponent {
   _navigateNext = () => {
