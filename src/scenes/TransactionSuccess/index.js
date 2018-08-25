@@ -38,7 +38,7 @@ class TransactionsSuccess extends PureComponent {
   )
 
   _renderBottomContent = () => {
-    setTimeout(this._navigateNext, 2500)
+    setTimeout(this._navigateNext, 2000)
     return (<SuccessText>{tl.t('transactionSuccess.submitted')}</SuccessText>)
   }
 
