@@ -58,7 +58,6 @@ class Restore extends React.Component {
       this.setState({ loading: false }, this._navigateToSettings)
       Answers.logCustom('Wallet Operation', { type: 'Restore' })
     } catch (err) {
-      console.warn(err)
       Alert.alert(tl.t('warning'), tl.t('seed.restore.error'))
       this.setState({ loading: false })
     }

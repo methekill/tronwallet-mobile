@@ -237,11 +237,11 @@ const seed = {
   },
   restore: {
     title: 'RESTORE WALLET',
-    explanation: `To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.`,
+    explanation: 'To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.',
     placeholder: 'Please, type your 12 seed words here',
     success: 'Wallet restored with success!',
     warning: 'Restore seed will erase all data on this device and pull information from the network for the restored account.',
-    error: `Oops. Looks like the words you typed aren't a valid mnemonic seed. Check for a typo and try again.`,
+    error: 'Oops. Looks like the words you typed aren\'t a valid mnemonic seed. Check for a typo and try again.',
     button: 'RESTORE'
   }
 }
