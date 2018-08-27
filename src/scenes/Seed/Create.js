@@ -61,6 +61,15 @@ class Create extends React.Component {
     }
   }
 
+  _renderSkip = () => {
+    if (this.state.loading) return null
+    else {
+      return <TouchableOpacity onPress={() => this._confirmSeed('app')}>
+        <Utils.Text size='button'>{tl.t('skip').toUpperCase()}</Utils.Text>
+      </TouchableOpacity>
+    }
+  }
+
   render () {
     const { seed, loading } = this.state
     return (
@@ -68,20 +77,15 @@ class Create extends React.Component {
         <NavigationHeader
           title={tl.t('seed.create.title')}
           onBack={() => this.props.navigation.goBack()}
-          rightButton={
-            loading
-              ? null
-              : <TouchableOpacity onPress={() => this._confirmSeed('app')}>
-                <Utils.Text size='button'>{tl.t('skip').toUpperCase()}</Utils.Text>
-              </TouchableOpacity>}
+          rightButton={this._renderSkip()}
         />
         <Utils.View flex={0.5} />
         <Utils.View height={1} backgroundColor={Colors.secondaryText} />
         <Utils.Content backgroundColor={Colors.darkerBackground}>
-          {seed ? (
-            <Utils.Text lineHeight={24} align='center'>
+          {seed
+            ? <Utils.Text lineHeight={24} align='center'>
               {seed}
-            </Utils.Text>)
+            </Utils.Text>
             : <ActivityIndicator size='small' />}
         </Utils.Content>
         <Utils.View height={1} backgroundColor={Colors.secondaryText} />

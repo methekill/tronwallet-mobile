@@ -48,12 +48,11 @@ class Save extends React.Component {
         <Utils.View flex={1} />
         <Utils.View height={1} backgroundColor={Colors.secondaryText} />
         <Utils.Content backgroundColor={Colors.darkerBackground}>
-          {!seed && <ActivityIndicator />}
-          {seed && (
-            <Utils.Text lineHeight={24} align='center'>
+          {seed
+            ? (<Utils.Text lineHeight={24} align='center'>
               {seed}
-            </Utils.Text>
-          )}
+            </Utils.Text>)
+            : <ActivityIndicator color={Colors.primaryText} />}
         </Utils.Content>
         <Utils.View height={1} backgroundColor={Colors.secondaryText} />
         <Utils.Content paddingBottom={2}>
