@@ -10,6 +10,7 @@ import axios from 'axios'
 import Config from 'react-native-config'
 import OneSignal from 'react-native-onesignal'
 import { Sentry } from 'react-native-sentry'
+import { logSentry } from './src/utils/sentryUtils'
 
 import { Colors, ScreenSize } from './src/components/DesignSystem'
 
@@ -366,8 +367,9 @@ class App extends Component {
     try {
       const value = await Client.getFreeze(address)
       this.setState({ freeze: Object.assign({}, this.state.freeze, { [address]: value }) })
-    } catch (err) {
-      this.setState({ freeze: Object.assign({}, this.state.freeze, { err }) })
+    } catch (e) {
+      this.setState({ freeze: Object.assign({}, this.state.freeze, { e }) })
+      logSentry(e)
     }
   }
 
@@ -381,15 +383,15 @@ class App extends Component {
       }
       this.setState({ price, circulatingSupply: data.circulating_supply })
     } catch (e) {
-      // TODO handle request error
+      logSentry(e)
     }
   }
 
   _setNodes = async () => {
     try {
       await NodesIp.initNodes()
-    } catch (error) {
-      console.warn(error)
+    } catch (e) {
+      logSentry(e)
     }
   }
 

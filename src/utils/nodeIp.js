@@ -1,4 +1,5 @@
 import { AsyncStorage } from 'react-native'
+import { logSentry } from '../utils/sentryUtils'
 
 class NodeIp {
   constructor () {
@@ -18,7 +19,7 @@ class NodeIp {
       if (nodeIp && nodeSolidityIp) return { nodeIp, nodeSolidityIp, isTestnet: nodeType === 'test' }
       else return null
     } catch (error) {
-      console.warn(error)
+      logSentry(error)
       return { nodeIp: this.nodeIp, nodeSolidityIp: this.nodeSolidityIp, isTestnet: false }
     }
   }
@@ -33,8 +34,7 @@ class NodeIp {
         AsyncStorage.setItem('NODE_SOLIDITY_IP', this.nodeSolidityIp)
       await Promise.all([setNode(), setSolidityNode(), setSwitchTestnet()])
     } catch (error) {
-      console.warn(error)
-      throw error
+      logSentry(error)
     }
   }
 
@@ -45,8 +45,7 @@ class NodeIp {
       const item = type === 'solidity' ? 'NODE_SOLIDITY_IP' : 'NODE_IP'
       await AsyncStorage.setItem(item, nodeip)
     } catch (error) {
-      console.warn(error)
-      throw error
+      logSentry(error)
     }
   }
   async setAllNodesIp (mainnode, soliditynode) {
@@ -56,8 +55,7 @@ class NodeIp {
         AsyncStorage.setItem('NODE_SOLIDITY_IP', soliditynode)
       await Promise.all([setNode(), setSolidityNode()])
     } catch (error) {
-      console.warn(error)
-      throw error
+      logSentry(error)
     }
   }
 
@@ -67,7 +65,7 @@ class NodeIp {
       if (nodes) return nodes
       else throw new Error('No node found! Returning default...')
     } catch (error) {
-      console.warn(error)
+      logSentry(error)
       return { nodeIp: this.nodeIp, nodeSolidityIp: this.nodeSolidityIp, isTestnet: false }
     }
   }
@@ -79,8 +77,7 @@ class NodeIp {
         AsyncStorage.setItem('NODE_SOLIDITY_IP', this.nodeSolidityIpTestnet)
       await Promise.all([setNode(), setSolidityNode()])
     } catch (error) {
-      console.warn(error)
-      throw error
+      logSentry(error)
     }
   }
 
@@ -92,8 +89,7 @@ class NodeIp {
       const newIp = type === 'solidity' ? this.nodeSolidityIp : this.nodeIp
       await AsyncStorage.setItem(item, newIp)
     } catch (error) {
-      console.warn(error)
-      throw error
+      logSentry(error)
     }
   }
 
@@ -109,8 +105,7 @@ class NodeIp {
       const type = switchValue ? 'test' : 'main'
       await AsyncStorage.setItem('NODE_TYPE', type)
     } catch (error) {
-      console.warn(error)
-      throw error
+      logSentry(error)
     }
   }
 }

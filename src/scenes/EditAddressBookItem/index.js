@@ -10,6 +10,7 @@ import getSecretsStore from '../../store/secrets'
 import { EDIT } from '../../utils/constants'
 import { withContext } from '../../store/context'
 import tl from '../../utils/i18n'
+import { logSentry } from '../../utils/sentryUtils'
 
 class EditContact extends Component {
   state = {
@@ -54,7 +55,7 @@ class EditContact extends Component {
                       })
                       navigation.goBack()
                     } catch (e) {
-                      console.log('There was a problem deleting this contact.')
+                      logSentry(e)
                     }
                   }
                 }

@@ -11,6 +11,7 @@ import NavigationHeader from '../../components/Navigation/Header'
 import { resetWalletData } from '../../utils/userAccountUtils'
 import { getUserSecrets, createUserKeyPair, resetSecretData } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
+import { logSentry } from '../../utils/sentryUtils'
 
 const resetAction = StackActions.reset({
   index: 0,
@@ -42,6 +43,7 @@ class Create extends React.Component {
       await this._getMnemonic()
     } catch (err) {
       Alert.alert(tl.t('seed.create.error'))
+      logSentry(err)
     }
   }
 
@@ -55,6 +57,7 @@ class Create extends React.Component {
       this.setState({
         error: 'Oops, we have a problem. Please restart the application.'
       })
+      logSentry(e)
     }
   }
 
@@ -67,6 +70,7 @@ class Create extends React.Component {
       this.setState({
         error: 'Oops, we have a problem. Please restart the application.'
       })
+      logSentry(e)
     }
   }
 

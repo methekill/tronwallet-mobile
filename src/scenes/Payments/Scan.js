@@ -14,6 +14,7 @@ import { isAddressValid } from '../../services/address'
 import withContext from '../../utils/hocs/withContext'
 import { Colors } from '../../components/DesignSystem'
 import tl from '../../utils/i18n'
+import { logSentry } from '../../utils/sentryUtils'
 
 class DataError extends Error {
   constructor (message) {
@@ -60,6 +61,7 @@ class ScanPayment extends Component {
         if (error.name === 'DataError') Alert.alert(tl.t('warning'), error.message)
         else Alert.alert(tl.t('warning'), tl.t('scanPayment.error.code'))
         this.setState({loading: false})
+        logSentry(error)
         this.scanner.reactivate()
       }
     }

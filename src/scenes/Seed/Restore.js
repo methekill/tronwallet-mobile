@@ -11,6 +11,7 @@ import NavigationHeader from '../../components/Navigation/Header'
 import { resetWalletData, resetListsData } from '../../utils/userAccountUtils'
 import { recoverUserKeypair, resetSecretData } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
+import { logSentry } from '../../utils/sentryUtils'
 
 class Restore extends React.Component {
   state = {
@@ -61,6 +62,7 @@ class Restore extends React.Component {
       console.warn(err)
       Alert.alert(tl.t('warning'), tl.t('seed.restore.error'))
       this.setState({ loading: false })
+      logSentry(err)
     }
   }
 
