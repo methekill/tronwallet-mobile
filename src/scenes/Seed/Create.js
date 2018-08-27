@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActivityIndicator, Alert } from 'react-native'
+import { ActivityIndicator, Alert, TouchableOpacity } from 'react-native'
 import { StackActions, NavigationActions } from 'react-navigation'
 import RNTron from 'react-native-tron'
 
@@ -9,7 +9,7 @@ import { Colors } from '../../components/DesignSystem'
 import ButtonGradient from '../../components/ButtonGradient'
 import NavigationHeader from '../../components/Navigation/Header'
 
-import { recoverUserKeypair } from '../../utils/secretsUtils'
+import { createUserKeyPair } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
 
 const resetAction = StackActions.reset({
@@ -19,14 +19,7 @@ const resetAction = StackActions.reset({
 })
 
 class Create extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
-    header: (
-      <NavigationHeader
-        title='CREATE SEED'
-        onBack={() => navigation.goBack()}
-      />
-    )
-  })
+  static navigationOptions = () => ({ header: null })
 
   state = {
     seed: null,
@@ -45,7 +38,7 @@ class Create extends React.Component {
 
     this.setState({loading: true})
     try {
-      await recoverUserKeypair(pin, oneSignalId, seed)
+      await createUserKeyPair(pin, oneSignalId, seed)
       await context.loadUserData()
       if (route === 'app') navigation.dispatch(resetAction)
       else navigation.navigate('SeedConfirm', { seed: seed.split(' '), shouldReset: true })
@@ -69,6 +62,18 @@ class Create extends React.Component {
     const { seed, loading } = this.state
     return (
       <Utils.Container>
+        <NavigationHeader
+          title='CREATE SEED'
+          onBack={() => this.props.navigation.goBack()}
+          rightButton={
+            loading
+              ? null
+              : <TouchableOpacity
+                disabled={loading}
+                onPress={() => this._confirmSeed('app')}>
+                <Utils.Text marginY={10} size='button'>SKIP</Utils.Text>
+              </TouchableOpacity>}
+        />
         <Utils.View flex={0.5} />
         <Utils.View height={1} backgroundColor={Colors.secondaryText} />
         <Utils.Content backgroundColor={Colors.darkerBackground}>
@@ -99,17 +104,8 @@ class Create extends React.Component {
             />
           </Utils.Row>
         </Utils.Content>
-        <Utils.VerticalSpacer size='big' />
-        <Utils.View align='center' paddingX='medium'>
-          <Utils.Text marginY={10} font='regular' size='smaller' secondary>You can always check your words inside the app using the Backup option</Utils.Text>
-          <Utils.Text
-            text='SKIP'
-            onPress={() => this._confirmSeed('app')}
-            marginY={10}
-            size='average'
-          >SKIP</Utils.Text>
-
-        </Utils.View>
+        <Utils.VerticalSpacer size='medium' />
+        <Utils.View align='center' paddingX='medium' />
       </Utils.Container>
     )
   }

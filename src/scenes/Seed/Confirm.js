@@ -56,8 +56,9 @@ class Confirm extends React.Component {
     const { context } = this.props
     this.setState({ loading: true })
     try {
+      const originalWords = this.state.seed.join(' ')
       const selectedWords = this.state.selected.join(' ')
-      if (this.state.seed !== selectedWords) throw new Error('Words dont match!')
+      if (originalWords !== selectedWords) throw new Error('Words dont match!')
       await confirmSecret(context.pin)
       Answers.logCustom('Wallet Operation', { type: 'Create' })
       await this._handleSuccess()
