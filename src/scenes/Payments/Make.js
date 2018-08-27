@@ -106,7 +106,8 @@ class MakePayment extends PureComponent {
         // Get Transaction Signed Data
         const transactionData = await WalletClient.getTransactionDetails(transactionSigned)
         // Proceed to broadcast
-        this._submitTransaction(transactionData, transactionSigned)
+        if (transactionData) this._submitTransaction(transactionData, transactionSigned)
+        else throw new Error('Empty Transaction Data')
       } catch (error) {
         Alert.alert(tl.t('warning'), tl.t('error.default'))
         this.setState({ loading: false })

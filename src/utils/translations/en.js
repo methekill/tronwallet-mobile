@@ -28,7 +28,8 @@ const general = {
   close: 'Close',
   ends: 'Ends',
   clear: 'Clear',
-  allIn: 'All In'
+  allIn: 'All In',
+  skip: 'Skip'
 }
 
 const balance = {
@@ -226,7 +227,8 @@ const seed = {
     }
   },
   create: {
-    title: 'CONFIRM WALLET SEED',
+    title: 'CREATE SEED',
+    titleConfirm: 'CONFIRM WALLET SEED',
     error: 'Oops, we have a problem. Please restart the application.',
     generateNew: 'This will generate a completely new wallet.',
     button: {
