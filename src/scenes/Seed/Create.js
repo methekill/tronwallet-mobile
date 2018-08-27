@@ -11,6 +11,7 @@ import NavigationHeader from '../../components/Navigation/Header'
 
 import { createUserKeyPair } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
+import { logSentry } from '../../utils/sentryUtils'
 
 const resetAction = StackActions.reset({
   index: 0,
@@ -42,8 +43,9 @@ class Create extends React.Component {
       await context.loadUserData()
       if (route === 'app') navigation.dispatch(resetAction)
       else navigation.navigate('SeedConfirm', { seed: seed.split(' '), shouldReset: true })
-    } catch (error) {
+    } catch (e) {
       Alert.alert(tl.t('seed.create.error'))
+      logSentry(e)
     } finally {
       this.setState({loading: false})
     }
@@ -55,6 +57,7 @@ class Create extends React.Component {
       this.setState({ seed: mnemonic })
     } catch (e) {
       Alert.alert(tl.t('seed.create.error'))
+      logSentry(e)
     }
   }
 

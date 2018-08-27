@@ -7,6 +7,7 @@ import Logo from '../../components/Logo'
 import ButtonGradient from '../../components/ButtonGradient'
 
 import { withContext } from '../../store/context'
+import ConfigJson from '../../../package.json'
 
 class FirstTime extends React.Component {
   componentDidMount () {
@@ -58,6 +59,7 @@ class FirstTime extends React.Component {
               })
             }}
           />
+          <Utils.VersionText>{`v${ConfigJson.version}`}</Utils.VersionText>
         </Utils.Content>
         <Utils.View flex={1} />
       </Utils.Container>

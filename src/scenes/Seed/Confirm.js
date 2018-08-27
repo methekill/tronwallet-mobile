@@ -14,6 +14,7 @@ import FadeIn from '../../components/Animations/FadeIn'
 import WalletClient from '../../services/client'
 import { confirmSecret, getUserSecrets } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
+import { logSentry } from '../../utils/sentryUtils'
 
 const WordWrapper = styled.TouchableOpacity`
   padding-vertical: ${Spacing.small};
@@ -66,6 +67,7 @@ class Confirm extends React.Component {
       // console.warn(error)
       Alert.alert(tl.t('seed.confirm.error.title'), tl.t('seed.confirm.error.message'))
       this.setState({ loading: false })
+      logSentry(error)
     }
   }
 
@@ -92,6 +94,7 @@ class Confirm extends React.Component {
       Answers.logCustom('Wallet Operation', { type: 'Gift', message: error.message })
       Alert.alert(tl.t('success'), tl.t('seed.confirm.success'))
       this.setState({ loading: false })
+      logSentry(error)
       navigation.dispatch(resetAction)
     } finally {
       context.loadUserData()
