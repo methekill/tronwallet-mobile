@@ -252,7 +252,7 @@ class Settings extends Component {
             onPress: () => this.props.navigation.navigate('Pin', {
               shouldGoBack: true,
               testInput: pin => pin === this.props.context.pin,
-              onSuccess: () => this.props.navigation.navigate('SeedCreate', { seed })
+              onSuccess: () => this.props.navigation.navigate('SeedSave', { seed })
             })
           },
           {

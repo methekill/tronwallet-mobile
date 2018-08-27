@@ -31,28 +31,24 @@ class Confirm extends React.Component {
     header: (
       <NavigationHeader
         title={tl.t('seed.confirm.title')}
-        onBack={() => navigation.goBack()}
+        onBack={() =>
+          navigation.getParam('shouldReset', false)
+            ? navigation.dispatch(resetAction)
+            : navigation.goBack()}
       />
     )
   })
 
-  state = {
-    seed: null,
-    remainingWords: null,
-    selected: [],
-    loading: false
-  }
-
-  static getDerivedStateFromProps (nextProps) {
-    const initialWords = nextProps.navigation
-      .getParam('seed', [])
-      .slice()
-      .sort(() => 0.5 - Math.random())
-
-    return {
-      seed: nextProps.navigation.getParam('seed', []).join(' '),
-      initialWords,
-      remainingWords: [...initialWords]
+  constructor (props) {
+    super()
+    const seed = props.navigation.getParam('seed', [])
+    const initialRandom = seed.slice().sort(() => 0.5 - Math.random())
+    this.state = {
+      seed,
+      selected: [],
+      loading: false,
+      initialWords: initialRandom,
+      remainingWords: initialRandom
     }
   }
 

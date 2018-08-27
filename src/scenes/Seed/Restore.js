@@ -17,13 +17,7 @@ class Restore extends React.Component {
     seed: '',
     loading: false
   }
-
-  _softResetData = async () => {
-    const { resetAccount } = this.props.context
-    await Promise.all([resetWalletData(), resetListsData()])
-    resetAccount()
-  }
-  _navigateToSettings = () => {
+  _navigateToFirstTime = () => {
     const resetAction = StackActions.reset({
       index: 0,
       actions: [NavigationActions.navigate({ routeName: 'App' })],
@@ -51,16 +45,22 @@ class Restore extends React.Component {
     Keyboard.dismiss()
     this.setState({ loading: true })
     try {
-      await recoverUserKeypair(pin, oneSignalId, seed)
       await this._softResetData()
+      await recoverUserKeypair(pin, oneSignalId, seed)
       await loadUserData()
       Alert.alert(tl.t('seed.restore.success'))
-      this.setState({ loading: false }, this._navigateToSettings)
+      this.setState({ loading: false }, this._navigateToFirstTime)
       Answers.logCustom('Wallet Operation', { type: 'Restore' })
     } catch (err) {
       Alert.alert(tl.t('warning'), tl.t('seed.restore.error'))
       this.setState({ loading: false })
     }
+  }
+
+  _softResetData = async () => {
+    const { resetAccount } = this.props.context
+    await Promise.all([resetWalletData(), resetListsData()])
+    resetAccount()
   }
 
   _onKeyPress = (event) => {
