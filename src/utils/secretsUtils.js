@@ -59,12 +59,14 @@ export const createNewAccount = async (pin, oneSignalId) => {
       tl.t('newAccount.success.title'),
       tl.t('newAccount.success.message')
     )
-    Client.registerDeviceForNotifications(oneSignalId, generatedKeypair.address)
+    Client.registerDeviceForNotifications(`${oneSignalId}@${accounts.length}`, generatedKeypair.address)
+    return true
   } else {
     Alert.alert(
       tl.t('newAccount.failure.title'),
       tl.t('newAccount.failure.message')
     )
+    return false
   }
 }
 
@@ -74,6 +76,7 @@ const generateKeypair = async (pin, oneSignalId, mnemonic, vaultNumber, randomly
   generatedKeypair.confirmed = !randomlyGenerated
   generatedKeypair.name = 'Main Account'
   generatedKeypair.alias = '@main_account'
+  await resetSecretData(pin)
   const secretsStore = await getSecretsStore(pin)
   await secretsStore.write(() => secretsStore.create('UserSecret', generatedKeypair, true))
   Client.registerDeviceForNotifications(oneSignalId, generatedKeypair.address)

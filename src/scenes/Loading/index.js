@@ -13,10 +13,10 @@ import LottieView from 'lottie-react-native'
 import { logSentry } from '../../utils/sentryUtils'
 
 class LoadingScene extends Component {
-  async componentDidMount () {
-    await updateAssets(0, 1, 'twx')
-    await this._setFilteredTokens()
+  componentDidMount () {
     SplashScreen.hide()
+    updateAssets(0, 1, 'twx')
+    this._setFilteredTokens()
     this._askPin()
   }
 
@@ -66,7 +66,7 @@ class LoadingScene extends Component {
           testInput: this._tryToOpenStore,
           onSuccess: this._handleSuccess
         })
-      }, 2000)
+      }, 3000)
     }
   }
 

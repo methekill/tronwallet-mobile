@@ -9,7 +9,7 @@ import ButtonGradient from '../../components/ButtonGradient'
 import NavigationHeader from '../../components/Navigation/Header'
 
 import { resetWalletData } from '../../utils/userAccountUtils'
-import { getUserSecrets, createUserKeyPair, resetSecretData } from '../../utils/secretsUtils'
+import { getUserSecrets, createUserKeyPair } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
 import { logSentry } from '../../utils/sentryUtils'
 
@@ -47,10 +47,13 @@ class Create extends React.Component {
     }
   }
 
+  componentWillUnmount () {
+    clearTimeout(this.mnemonicTimeout)
+  }
   _getNewMnemonic = async () => {
     const { pin, oneSignalId } = this.props.context
     try {
-      await Promise.all([resetWalletData(), resetSecretData(pin)])
+      await resetWalletData()
       await createUserKeyPair(pin, oneSignalId)
       this._getMnemonic()
     } catch (e) {
@@ -64,8 +67,13 @@ class Create extends React.Component {
   _getMnemonic = async () => {
     try {
       const accounts = await getUserSecrets(this.props.context.pin)
-      const { mnemonic } = accounts[0]
+      const { mnemonic, address } = accounts[0]
       this.setState({ seed: mnemonic })
+      clearTimeout(this.mnemonicTimeout)
+      this.mnemonicTimeout = setTimeout(() => {
+        this.props.context.setPublicKey(address)
+        this.props.context.loadUserData()
+      }, 500)
     } catch (e) {
       this.setState({
         error: 'Oops, we have a problem. Please restart the application.'
@@ -108,12 +116,11 @@ class Create extends React.Component {
               </React.Fragment>
             )}
             <ButtonGradient
-              onPress={() =>
+              onPress={() => (
                 navigation.navigate(
                   'SeedConfirm',
                   { seed: seed.split(' ') }
-                )
-              }
+                ))}
               text={tl.t('seed.create.button.written')}
               full
             />

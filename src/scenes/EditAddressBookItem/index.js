@@ -13,6 +13,9 @@ import tl from '../../utils/i18n'
 import { logSentry } from '../../utils/sentryUtils'
 
 class EditContact extends Component {
+  static navigationOptions = {
+    header: null
+  }
   state = {
     contact: this.props.navigation.getParam('item', {})
   }

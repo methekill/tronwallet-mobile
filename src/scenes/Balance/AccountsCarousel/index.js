@@ -21,8 +21,12 @@ const CURRENCIES = [tl.t('cancel'), 'USD', 'EUR', 'BTC', 'ETH']
 
 class AccountsCarousel extends React.Component {
   _snapToNewAccount = () => {
-    const createdItemPosition = this.props.context.accounts.length - 1
-    this.carousel.snapToItem(createdItemPosition)
+    const { accounts } = this.props.context
+    const createdItemPosition = accounts.length - 1
+    // We set the state to load before the item is focused
+    this._onSnapToItem(createdItemPosition)
+    // Timeout needed for android
+    setTimeout(() => this.carousel.snapToItem(createdItemPosition), 250)
   }
   _onSnapToItem = activeAccount => {
     const { setPublicKey, accounts } = this.props.context
@@ -74,9 +78,9 @@ class AccountsCarousel extends React.Component {
             </TronLogo>
             <Utils.Text color='#9b9cb9'>{item.name}</Utils.Text>
             <Utils.VerticalSpacer size='medium' />
-            {(item.balance !== undefined && currency) && (
+            {(
               <TouchableOpacity onPress={() => this.ActionSheet.show()}>
-                <TrxValue trxBalance={item.balance} currency={currency} />
+                <TrxValue trxBalance={item.balance || 0} currency={currency} />
               </TouchableOpacity>
             )}
             <Utils.VerticalSpacer size='medium' />

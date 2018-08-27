@@ -20,7 +20,6 @@ import { signTransaction } from '../../utils/transactionUtils'
 import withContext from '../../utils/hocs/withContext'
 import { formatNumber } from '../../utils/numberUtils'
 import getTransactionStore from '../../store/transactions'
-import getBalanceStore from '../../store/balance'
 import tl from '../../utils/i18n'
 import { logSentry } from '../../utils/sentryUtils'
 
@@ -39,17 +38,7 @@ class MakePayment extends PureComponent {
 
     state = {
       loading: false,
-      balances: []
-    }
-
-    componentDidMount () {
-      this._loadData()
-    }
-
-    _loadData = async () => {
-      const store = await getBalanceStore()
-      const balances = store.objects('Balance').map(item => Object.assign({}, item))
-      this.setState({ balances })
+      balances: this.props.context.balances[this.props.context.publicKey]
     }
 
     _getTransactionObject = (transactionData) => {
@@ -82,7 +71,8 @@ class MakePayment extends PureComponent {
 
     _checkPayment = () => {
       const { context, navigation } = this.props
-      const from = context.publicKey
+      const { publicKey } = context
+      const from = publicKey
       this.setState({loading: true})
       try {
         const { address, amount, token, description } = navigation.getParam('payment')

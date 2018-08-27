@@ -102,7 +102,7 @@ const addressBook = {
   },
   form: {
     generalError: 'There was a problem submitting this form. Please contact an administrator.',
-    nameError: 'The name field must start with a letter and it will accept only letters, numbers and white spaces.',
+    nameError: 'The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.',
     addressError: 'Something isn\'t right with the address. Please double check for typos.',
     uniqueAddressError: 'The key must be unique. Please choose a different address.',
     uniqueAliasError: 'Names in your address book must be unique. Please choose a different one.',
@@ -237,11 +237,11 @@ const seed = {
   },
   restore: {
     title: 'RESTORE WALLET',
-    explanation: `To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.`,
+    explanation: 'To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.',
     placeholder: 'Please, type your 12 seed words here',
     success: 'Wallet restored with success!',
     warning: 'Restore seed will erase all data on this device and pull information from the network for the restored account.',
-    error: `Oops. Looks like the words you typed aren't a valid mnemonic seed. Check for a typo and try again.`,
+    error: 'Oops. Looks like the words you typed aren\'t a valid mnemonic seed. Check for a typo and try again.',
     button: 'RESTORE'
   }
 }
@@ -477,8 +477,8 @@ const newAccount = {
     message: 'You can edit the name on your address book'
   },
   failure: {
-    title: 'You shall not pass!',
-    message: 'You should have at least one transaction on your last account so that your account is known on blockchain'
+    title: 'New account warning',
+    message: 'To add a new account you should have at least one transaction on your last account.'
   }
 }
 

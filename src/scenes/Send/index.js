@@ -96,7 +96,7 @@ class SendScene extends Component {
 
   _getBalancesFromStore = async () => {
     const store = await getBalanceStore()
-    console.log('filter', `account = "${this.props.context.publicKey}"`)
+    // console.log('filter', `account = "${this.props.context.publicKey}"`)
     return store.objects('Balance').filtered(`account = "${this.props.context.publicKey}"`).map(item => Object.assign({}, item))
   }
 
