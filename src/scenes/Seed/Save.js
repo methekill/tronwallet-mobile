@@ -9,6 +9,7 @@ import NavigationHeader from '../../components/Navigation/Header'
 
 import { getUserSecrets } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
+import { logSentry } from '../../utils/sentryUtils'
 
 class Save extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -21,16 +22,11 @@ class Save extends React.Component {
   })
 
   state = {
-    seed: null,
-    error: null
+    seed: null
   }
 
-  async componentDidMount () {
-    try {
-      await this._getMnemonic()
-    } catch (err) {
-      Alert.alert(tl.t('seed.create.error'))
-    }
+  componentDidMount () {
+    this._getMnemonic()
   }
 
   _getMnemonic = async () => {
@@ -39,9 +35,8 @@ class Save extends React.Component {
       const { mnemonic } = accounts[0]
       this.setState({ seed: mnemonic })
     } catch (e) {
-      this.setState({
-        error: 'Oops, we have a problem. Please restart the application.'
-      })
+      Alert.alert(tl.t('seed.create.error'))
+      logSentry(e)
     }
   }
 
