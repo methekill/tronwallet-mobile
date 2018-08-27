@@ -9,7 +9,7 @@ import ButtonGradient from '../../components/ButtonGradient'
 import NavigationHeader from '../../components/Navigation/Header'
 
 import { resetWalletData } from '../../utils/userAccountUtils'
-import { getUserSecrets, createUserKeyPair, resetSecretData } from '../../utils/secretsUtils'
+import { getUserSecrets, createUserKeyPair } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
 
 const resetAction = StackActions.reset({
