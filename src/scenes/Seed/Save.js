@@ -14,7 +14,7 @@ class Save extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     header: (
       <NavigationHeader
-        title={tl.t('seed.create.title')}
+        title={tl.t('seed.create.titleConfirm')}
         onBack={() => navigation.goBack()}
       />
     )

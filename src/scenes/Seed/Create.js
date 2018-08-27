@@ -66,15 +66,13 @@ class Create extends React.Component {
     return (
       <Utils.Container>
         <NavigationHeader
-          title='CREATE SEED'
+          title={tl.t('seed.create.title')}
           onBack={() => this.props.navigation.goBack()}
           rightButton={
             loading
               ? null
-              : <TouchableOpacity
-                disabled={loading}
-                onPress={() => this._confirmSeed('app')}>
-                <Utils.Text marginY={10} size='button'>SKIP</Utils.Text>
+              : <TouchableOpacity onPress={() => this._confirmSeed('app')}>
+                <Utils.Text size='button'>{tl.t('skip').toUpperCase()}</Utils.Text>
               </TouchableOpacity>}
         />
         <Utils.View flex={0.5} />
