@@ -389,7 +389,8 @@ const submitTransaction = {
     contractValidateTapos: 'Transaction data not valid (TAPOS). Please try again later.',
     tooBig: 'Transaction too big to be submitted.',
     expiration: 'Transaction expired. Please try again.',
-    serverBusy: 'Server busy.'
+    serverBusy: 'Server busy.',
+    resource: 'Insufficient bandwidth or balance. You might need some frozen TRX.'
   },
   totalVotes: 'Total Votes'
 }
