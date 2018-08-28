@@ -127,7 +127,9 @@ class MakePayment extends PureComponent {
                 'en': tl.t('submitTransaction.notificationPayment', { address: transaction.contractData.transferFromAddress })
               }
               response.data.users.map(device => {
-                OneSignal.postNotification(content, transaction, device.deviceid)
+                // We use @ to identify the multiple accounts
+                const deviceId = device.deviceid.split('@')[0] || device.deviceid
+                OneSignal.postNotification(content, transaction, deviceId)
               })
             }
           }
