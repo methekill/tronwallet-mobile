@@ -271,7 +271,7 @@ class App extends Component {
   }
 
   _onIds = device => {
-    console.warn('Device info: ', device)
+    // console.log('Device info: ', device)
     this.setState({ oneSignalId: device.userId })
   }
 
