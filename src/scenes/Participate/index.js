@@ -16,7 +16,6 @@ import moment from 'moment'
 import { debounce, union } from 'lodash'
 
 import tl from '../../utils/i18n'
-import SyncButton from '../../components/SyncButton'
 import getAssetsStore from '../../store/assets'
 import { Colors } from '../../components/DesignSystem'
 import { orderAssets, updateAssets } from '../../utils/assetsUtils'
@@ -57,10 +56,6 @@ class ParticipateHome extends React.Component {
       header: (
         <NavigationHeader
           title={tl.t('participate.title')}
-          leftButton={<SyncButton
-            loading={params && params.loading}
-            onPress={() => { }}
-          />}
           onSearch={name => params._onSearch(name)}
           onSearchPressed={() => params._onSearchPressed()}
         />
@@ -73,7 +68,7 @@ class ParticipateHome extends React.Component {
     currentList: [],
     featuredTokens: [],
     start: 0,
-    searching: false,
+    loading: false,
     searchMode: false
   }
 
@@ -81,7 +76,6 @@ class ParticipateHome extends React.Component {
     Answers.logContentView('Tab', 'Participate')
     this._onSearch = debounce(this._onSearch, 350)
     this.props.navigation.setParams({
-      loading: false,
       _onSearch: this._onSearch,
       _onSearchPressed: this._onSearchPressed
     })
@@ -102,7 +96,7 @@ class ParticipateHome extends React.Component {
   }
 
   _loadData = async () => {
-    this.props.navigation.setParams({ loading: true })
+    this.setState({ loading: true })
 
     try {
       const assets = await this._updateAssets(0)
@@ -111,7 +105,7 @@ class ParticipateHome extends React.Component {
       this.setState({ error: e.message })
       logSentry(e)
     } finally {
-      this.props.navigation.setParams({ loading: false })
+      this.setState({ loading: false })
     }
   }
 
@@ -120,7 +114,7 @@ class ParticipateHome extends React.Component {
 
     if (searchMode) return
 
-    this.props.navigation.setParams({ loading: true })
+    this.setState({ loading: true })
     const newStart = start + AMOUNT_TO_FETCH
 
     try {
@@ -132,15 +126,16 @@ class ParticipateHome extends React.Component {
       this.setState({ error: error.message })
       logSentry(error)
     } finally {
-      this.props.navigation.setParams({ loading: false })
+      this.setState({ loading: false })
     }
   }
 
   _updateAssets = async (start) => {
     const assets = await updateAssets(start, AMOUNT_TO_FETCH)
-    return assets.filter(({ issuedPercentage, name, startTime, endTime }) =>
-      issuedPercentage < 100 && name !== 'TRX' && name !== 'TWX' && startTime < Date.now() && endTime > Date.now()
-    )
+    return assets
+      .filter(({ issuedPercentage, name, startTime, endTime }) =>
+        issuedPercentage < 100 && name !== 'TRX' && name !== 'TWX' && startTime < Date.now() && endTime > Date.now())
+      .sort((a, b) => b.issuedPercentage - a.issuedPercentage)
   }
 
   _renderFeaturedTokens = () => {
@@ -262,9 +257,9 @@ class ParticipateHome extends React.Component {
   }
 
   _renderLoading = () => {
-    const { searching } = this.state
+    const { loading } = this.state
 
-    if (searching) {
+    if (loading) {
       return (
         <React.Fragment>
           <ActivityIndicator size='small' color={Colors.primaryText} />
@@ -277,14 +272,14 @@ class ParticipateHome extends React.Component {
   }
 
   render () {
-    const { currentList, searching } = this.state
+    const { currentList } = this.state
     const orderedBalances = orderAssets(currentList)
 
     return (
       <Container>
-        {this._renderLoading()}
         <FlatList
           ListHeaderComponent={this._renderFeaturedTokens()}
+          ListFooterComponent={this._renderLoading()}
           data={orderedBalances}
           renderItem={({ item }) => this._renderCard(item)}
           keyExtractor={asset => asset.name}
@@ -292,7 +287,6 @@ class ParticipateHome extends React.Component {
           removeClippedSubviews={Platform.OS === 'android'}
           onEndReached={this._loadMore}
           onEndReachedThreshold={0.75}
-          refreshing={searching}
         />
       </Container>
     )
