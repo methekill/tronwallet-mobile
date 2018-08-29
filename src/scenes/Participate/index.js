@@ -103,7 +103,7 @@ class ParticipateHome extends React.Component {
       this.setState({ assetList: assets, currentList: assets })
     } catch (e) {
       this.setState({ error: e.message })
-      logSentry(e)
+      logSentry(e, 'Participate - Load Data')
     } finally {
       this.setState({ loading: false })
     }
@@ -124,7 +124,7 @@ class ParticipateHome extends React.Component {
       this.setState({ start: newStart, assetList: updatedAssets, currentList: updatedAssets })
     } catch (error) {
       this.setState({ error: error.message })
-      logSentry(error)
+      logSentry(error, 'Participate - Load more candidates')
     } finally {
       this.setState({ loading: false })
     }
@@ -179,7 +179,7 @@ class ParticipateHome extends React.Component {
       }
     } catch (error) {
       this.setState({ error: error.message })
-      logSentry(error)
+      logSentry(error, 'Participate - on search')
     }
   }
 
