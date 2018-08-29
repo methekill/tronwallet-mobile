@@ -372,7 +372,7 @@ class App extends Component {
       this.setState({ freeze: Object.assign({}, this.state.freeze, { [address]: value }) })
     } catch (e) {
       this.setState({ freeze: Object.assign({}, this.state.freeze, { e }) })
-      logSentry(e)
+      logSentry(e, 'App - GetFreeze')
     }
   }
 
@@ -386,7 +386,7 @@ class App extends Component {
       }
       this.setState({ price, circulatingSupply: data.circulating_supply })
     } catch (e) {
-      logSentry(e)
+      logSentry(e, 'App - GetPrice')
     }
   }
 
@@ -394,7 +394,7 @@ class App extends Component {
     try {
       await NodesIp.initNodes()
     } catch (e) {
-      logSentry(e)
+      logSentry(e, 'App - SetNodes')
     }
   }
 

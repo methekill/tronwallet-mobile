@@ -41,7 +41,8 @@ class LoadingScene extends Component {
       await SecretStore(pin)
       return true
     } catch (e) {
-      logSentry(e)
+      console.warn('...', pin)
+      logSentry(e, 'Loading - Open SecretStore')
       return false
     }
   }
