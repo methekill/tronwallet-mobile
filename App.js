@@ -55,6 +55,7 @@ import NodesIp from './src/utils/nodeIp'
 import { getUserSecrets } from './src/utils/secretsUtils'
 import getBalanceStore from './src/store/balance'
 import { USER_PREFERRED_CURRENCY } from './src/utils/constants'
+import { ONE_SIGNAL_KEY } from './config'
 
 import fontelloConfig from './src/assets/icons/config.json'
 
@@ -248,7 +249,7 @@ class App extends Component {
 
   async componentDidMount () {
     setTimeout(() => {
-      OneSignal.init('ce0b0f27-0ae7-4a8c-8fff-2a110da3a163')
+      OneSignal.init(ONE_SIGNAL_KEY)
       OneSignal.inFocusDisplaying(2)
       OneSignal.addEventListener('ids', this._onIds)
       OneSignal.addEventListener('opened', this._onOpened)
@@ -270,7 +271,7 @@ class App extends Component {
   }
 
   _onIds = device => {
-    // console.log('Device info: ', device)
+    console.warn('Device info: ', device)
     this.setState({ oneSignalId: device.userId })
   }
 
