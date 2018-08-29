@@ -132,9 +132,10 @@ class ParticipateHome extends React.Component {
 
   _updateAssets = async (start) => {
     const assets = await updateAssets(start, AMOUNT_TO_FETCH)
-    return assets.filter(({ issuedPercentage, name, startTime, endTime }) =>
-      issuedPercentage < 100 && name !== 'TRX' && name !== 'TWX' && startTime < Date.now() && endTime > Date.now()
-    )
+    return assets
+      .filter(({ issuedPercentage, name, startTime, endTime }) =>
+        issuedPercentage < 100 && name !== 'TRX' && name !== 'TWX' && startTime < Date.now() && endTime > Date.now())
+      .sort((a, b) => b.issuedPercentage - a.issuedPercentage)
   }
 
   _renderFeaturedTokens = () => {
