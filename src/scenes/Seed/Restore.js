@@ -55,7 +55,9 @@ class Restore extends React.Component {
     } catch (err) {
       Alert.alert(tl.t('warning'), tl.t('seed.restore.error'))
       this.setState({ loading: false })
-      logSentry(err, 'Restore Seed')
+      if (err.code !== 'WordNotFoundExpection') {
+        logSentry(err, 'Restore Seed')
+      }
     }
   }
 
