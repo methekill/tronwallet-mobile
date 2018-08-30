@@ -109,7 +109,7 @@
       },
       "empty": "Votre carnet d'adresses est vide, ajoutez un nouveau contact en utilisant le bouton ci-dessous.",
       "loadError": "Un problème est survenu lors du chargement des contacts. Veuillez réessayer.",
-      "addContact": "AJOUTER UN CONTACT"
+      "addContact": "AJOUTER UN CONTACT",
       "addToContacts": "AJOUTER AUX CONTACTS"
     },
     "form": {
@@ -389,8 +389,8 @@
       "contractValidateTapos": "Données de transaction non valides (TAPOS). Veuillez réessayer ultérieurement.",
       "tooBig": "Transaction trop grande pour être envoyée.",
       "expiration": "La transaction a expiré. Veuillez réessayer ultérieurement.",
-      "serverBusy": "Serveur occupé."
-     "resource": "Bande passante ou solde insuffisant. Veuillez geler des TRX."
+      "serverBusy": "Serveur occupé.",
+      "resource": "Bande passante ou solde insuffisant. Veuillez geler des TRX."
     },
     "totalVotes": "Total des Votes"
   },
