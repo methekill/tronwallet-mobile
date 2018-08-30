@@ -5,7 +5,7 @@ const nl = require('./nl.json')
 const es = require('./es.json')
 const ch = require('./ch.json')
 
-export default {
+const translations = {
   en,
   pt,
   fr,
@@ -13,3 +13,8 @@ export default {
   es,
   ch
 }
+
+export const getRelativeTime = (locale) =>
+  translations[locale] ? translations[locale].relativeTime : translations.en.relativeTime
+
+export default translations
