@@ -34,7 +34,7 @@ import { withContext } from '../../store/context'
 import { USER_FILTERED_TOKENS } from '../../utils/constants'
 import { logSentry } from '../../utils/sentryUtils'
 import { ButtonWrapper } from './elements'
-import { replaceRoute } from '../../utils/navigationUtils'
+// import { replaceRoute } from '../../utils/navigationUtils'
 
 class SendScene extends Component {
   static navigationOptions = () => {
@@ -212,9 +212,9 @@ class SendScene extends Component {
         transactionUnsigned
       )
       this.setState({ loadingSign: false, error: null }, () => {
-        // this.props.navigation.navigate('SubmitTransaction', {
-        //   tx: transactionSigned
-        // })
+        this.props.navigation.navigate('SubmitTransaction', {
+          tx: transactionSigned
+        })
         // replaceRoute(this.props.navigation, 'SubmitTransaction', {
         //   tx: transactionSigned
         // })
