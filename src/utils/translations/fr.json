@@ -19,6 +19,7 @@
   "warning": "Alerte",
   "cancel": "Annuler",
   "ok": "OK",
+  "actionModalTitle": "Voudriez-vous",
   "error": {
     "default": "Une erreur est survenue, veuillez réessayez plus tard. Si l'erreur persiste, essayez de mettre à jour les paramètres réseau.",
     "buildingTransaction": "Erreur lors de la construction de la transaction, réessayez plus tard.",
@@ -29,6 +30,7 @@
   "trxPrice": "PRIX TRX",
   "confirmed": "Confirmé",
   "unconfirmed": "Non confirmé",
+  "copyAddress": "COPIER ADRESSE",
   "transactionType": {
     "transfer": "Transfert",
     "transferAsset": "Transfert d'actif",
@@ -39,9 +41,11 @@
     "create": "Créer",
     "undefined": "Type non défini"
   },
+  "close": "Fermer",  
   "ends": "Fin",
   "clear": "Tout retirer",
   "allIn": "Tout utiliser",
+  "skip": "Passer",
   "balance": {
     "title": "SOLDE",
     "error": {
@@ -62,6 +66,7 @@
     },
     "QRScanner": {
       "title": "Scanner d'adresse",
+      "scan": "Scanner",
       "explanation": "Scannez le QRCode pour identifier l'utilisateur cible",
       "permissionMessage": "Pour scanner la clé publique, l'application a besoin de votre autorisation pour accéder à la caméra."
     },
@@ -104,18 +109,17 @@
       },
       "empty": "Votre carnet d'adresses est vide, ajoutez un nouveau contact en utilisant le bouton ci-dessous.",
       "loadError": "Un problème est survenu lors du chargement des contacts. Veuillez réessayer.",
-      "addContact": "AJOUTER LE CONTACT"
+      "addContact": "AJOUTER UN CONTACT"
+      "addToContacts": "AJOUTER AUX CONTACTS"
     },
     "form": {
       "generalError": "Un problème est survenu lors de la soumission de ce formulaire. Veuillez contacter un administrateur.",
       "nameError": "Le champ de nom doit commencer par une lettre et n'acceptera que des lettres, des chiffres et des espaces.",
       "addressError": "Quelque chose ne va pas avec l'adresse. Veuillez vérifier les fautes de frappe.",
       "uniqueAddressError": "La clé doit être unique. Veuillez choisir une adresse différente.",
+      "uniqueAliasError": "Les noms dans votre carnet d'adresses doivent être uniques. Veuillez choisir un autre.",
       "name": "PRÉNOM",
       "address": "ADRESSE"
-    },
-    "modal": {
-      "title": "Voudriez-vous"
     }
   },
   "freeze": {
@@ -192,6 +196,7 @@
   "pin": {
     "title": "VÉRIFICATION DE SÉCURITÉ",
     "enter": "Saisir le code PIN",
+	"new": "Saisir le nouveau PIN",
     "reenter": "Saisir à nouveau le code PIN"
   },
   "receive": {
@@ -200,6 +205,10 @@
     "button": {
       "copy": "Copier",
       "share": "partager"
+    },
+    "tabs": {
+      "share": "PARTAGER",
+      "request": "REQUETE"
     }
   },
   "rewards": {
@@ -208,7 +217,7 @@
   },
   "seed": {
     "confirm": {
-      "title": "CONFIRMER LES MOTS",
+      "title": "CONFIRMER LA SEED",
       "error": {
         "title": "Combinaison fausse.",
         "message": "Les mots sélectionnés ne correspondent pas. Veuillez vous assurer de les avoir saisit dans le bon ordre."
@@ -217,16 +226,17 @@
       "explanation": "Sélectionnez les mots ci-dessous dans le bon ordre pour confirmer votre phrase secrète.",
       "button": {
         "reset": "REINITIALISER LES MOTS",
-        "confirm": "CONFIRMER LES MOTS"
+        "confirm": "CONFIRMER LA SEED"
       }
     },
     "create": {
-      "title": "CONFIRMER LES MOTS DU PORTEFEUILLE",
+      "title": "CREER LA SEED",
+	  "titleConfirm": "CONFIRMER LA SEED DU PORTEFEUILLE",
       "error": "Une erreur est survenue. Veuillez redémarrer l'application.",
       "generateNew": "Ceci générera un nouveau portefeuille.",
       "button": {
         "written": "JE L'AI ECRIT EN BAS",
-        "newSeed": "GENERER DE NOUVEAUX MOTS",
+        "newSeed": "GENERER UNE NOUVELLE SEED",
         "later": "Confirmer plus tard"
       }
     },
@@ -254,8 +264,7 @@
       "token": "JETON",
       "to": "À",
       "amount": "MONTANT",
-      "description": "DESCRIPTION (FACULTATIF)",
-      "placeholder": "Décrivez le transfert"
+      "description": "DESCRIPTION (FACULTATIF)"
     },
     "available": "disponible",
     "chooseToken": "Veuillez choisir l'un des jetons ci-dessous",
@@ -269,12 +278,10 @@
       "notification": "NOTIFICATIONS ET LANGUE"
     },
     "notifications": {
-      "title": "Abonnement aux notifications",
-      "description": "Activer ou désactiver les notifications push"
+      "title": "Notifications",
     },
     "network": {
       "title": "Réseau",
-      "description": "Choisissez un nœud de votre choix",
       "modal": {
         "title": "RÉSEAU",
         "explanation": "Avec cette option, vous pouvez sélectionner le nœud qui conviendra le mieux à vos besoins et préférences. Soyez prudent lors de la mise à jour du nœud IP alors qu'une mauvaise adresse IP peut entraîner des dysfonctionnements dans votre portefeuille. Exemple: 35.231.121.122:50051",
@@ -305,35 +312,41 @@
       }
     },
     "backup": {
-      "title": "Sauvegarder le portefeuille",
-      "description": "Sauvegarder vos mots secrets"
+      "title": "Sauvegarder le portefeuille"
     },
     "restore": {
-      "title": "Restaurer le portefeuille",
-      "description": "Restaurer les 12 mots secrets précédemment utilisés"
+      "title": "Restaurer le portefeuille"
     },
     "reset": {
       "title": "Réinitialiser le portefeuille",
-      "description": "Réinitialiser toutes les données du portefeuille actuel",
       "warning": "Attention: cette action effacera toutes les données enregistrées, y compris vos 12 mots secrets. Si vous n'avez pas enregistré ces mots, veuillez le faire avant de continuer.",
       "button": "OK, j'ai compris"
     },
+    "pin": {
+      "title": "Changer le code Pin",
+      "success": "Code Pin changé avec succès!"
+    },
     "language": {
-      "title": "Changer la langue",
-      "description": "Changer la langue de l'application",
+      "title": "Langue",
       "choose": "Veuillez choisir une langue ci-dessous:",
-      "sucess": "Langue changé en {{language}}. Veuillez redémarrer l'application",
-      "error": "Erreur lors de la sauvegarde la langue préférée."
+      "success": {
+        "title": "Langue changée en {{language}}",
+        "description": "Cependant, vous devez toujours redémarrer l'application pour que les modifications puissent prendre effet. Voulez-vous le faire maintenant?"
+      },
+      "button": {
+        "confirm": "Oui, redémarrer maintenant!",
+        "cancel": "Non, je le ferai après"
+      },
+      "error": "Erreur lors de la sauvegarde de la langue préférée"
     },
     "token": {
       "title": "Filtre de Jetons",
-      "description": "Choisissez les jetons à afficher",
       "search": "Jetons de recherche",
       "confirm": "Sauvegarder",
       "noResult": "Aucun résultat..."
     },
     "about": {
-      "title": "Sur",
+      "title": "A propos",
       "description": "TronWallet est un portefeuille de chiffrement P2P entièrement décentralisé open source pour le réseau TRON construit avec React Native. Avec cela, vous pouvez envoyer et recevoir des jetons, voter pour un Super représentant, participer à une vente par jeton, suivre vos soldes et vos transactions et bien plus encore. Appuyez sur le lien ci-dessous pour un tutoriel détaillé sur son utilisation.",
       "tutorial": "TUTORIAL"
     },
@@ -345,13 +358,15 @@
   "submitTransaction": {
     "title": "DETAILS DE LA TRANSACTION",
     "notification": "Vous avez reçu une transaction de {{address}}",
+    "notificationPayment": "Vous avez reçu un paiement de {{address}}",
+    "data": "DONNEES",
+    "time": "HEURE",
     "button": {
       "tryAgain": "Réessayer à nouveau",
       "submit": "ENVOYER LA TRANSACTION"
     },
     "disconnectedMessage": "Il semble que vous soyez déconnecté. Veuillez vous reconnecter à Internet avant de procéder à la transaction.",
     "dic": {
-      "fronzeBalance": "Solde gelé",
       "contractType": "Type de la Transaction",
       "ownerAddress": "DE",
       "toAddress": "À",
@@ -375,6 +390,7 @@
       "tooBig": "Transaction trop grande pour être envoyée.",
       "expiration": "La transaction a expiré. Veuillez réessayer ultérieurement.",
       "serverBusy": "Serveur occupé."
+     "resource": "Bande passante ou solde insuffisant. Veuillez geler des TRX."
     },
     "totalVotes": "Total des Votes"
   },
@@ -448,5 +464,15 @@
   },
   "requestPayment": {
     "title": "DEMANDE DE PAIEMENT"
+  },
+  "newAccount": {
+    "success": {
+      "title": "Nouveau compte créé avec succès",
+      "message": "Vous pouvez modifier le nom dans votre carnet d'adresses"
+    },
+    "failure": {
+      "title": "Alerte nouveau compte",
+      "message": "Pour ajouter un nouveau compte, vous devez avoir au moins une transaction sur votre dernier compte."
+    }
   }
 }
