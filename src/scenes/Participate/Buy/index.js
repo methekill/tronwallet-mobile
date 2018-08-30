@@ -35,6 +35,7 @@ import getBalanceStore from '../../../store/balance'
 import { formatNumber } from '../../../utils/numberUtils'
 import Client, { ONE_TRX } from '../../../services/client'
 import { signTransaction } from '../../../utils/transactionUtils'
+import { logSentry, DataError } from '../../../utils/sentryUtils'
 
 const buyOptions = {
   1: 1,
@@ -81,10 +82,12 @@ class BuyScene extends Component {
 
   _getBalancesFromStore = async () => {
     const store = await getBalanceStore()
+    const { publicKey } = this.props.context
+
     return store
       .objects('Balance')
       .filtered(
-        `name = 'TRX'`
+        `name = 'TRX' AND account = '${publicKey}'`
       )
       .map(item => Object.assign({}, item))
   }
@@ -172,12 +175,8 @@ class BuyScene extends Component {
 
     try {
       this.setState({ loading: true })
-      if (trxBalance < amountToPay) {
-        throw new Error('INSUFFICIENT_BALANCE')
-      }
-      if (amountToPay < 1) {
-        throw new Error('INSUFFICIENT_TRX')
-      }
+      if (trxBalance < amountToPay) throw new DataError('INSUFFICIENT_BALANCE')
+      if (amountToPay < 1) throw new DataError('INSUFFICIENT_TRX')
 
       const participatePayload = {
         participateAddress: item.ownerAddress,
@@ -185,17 +184,19 @@ class BuyScene extends Component {
         participateAmount: this._fixNumber(amountToPay)
       }
 
-      const data = await Client.getParticipateTransaction(this.props.context.pin, participatePayload)
+      const data = await Client.getParticipateTransaction(this.props.context.publicKey, participatePayload)
       await this._openTransactionDetails(data)
     } catch (err) {
-      if (err.message === 'INSUFFICIENT_BALANCE') {
-        Alert.alert(tl.t('participate.error.insufficientBalance'))
-      } else if (err.message === 'INSUFFICIENT_TRX') {
-        Alert.alert(
-          tl.t('participate.error.insufficientTrx.title', { token: item.name }),
-          tl.t('participate.error.insufficientTrx.message', { amount: this._fixNumber(amountToPay) })
-        )
+      if (err.name === 'DataError') {
+        if (err.message === 'INSUFFICIENT_BALANCE') Alert.alert(tl.t('participate.error.insufficientBalance'))
+        if (err.message === 'INSUFFICIENT_TRX') {
+          Alert.alert(
+            tl.t('participate.error.insufficientTrx.title', { token: item.name }),
+            tl.t('participate.error.insufficientTrx.message', { amount: this._fixNumber(amountToPay) })
+          )
+        }
       } else {
+        logSentry(err, 'Participate - Submit')
         Alert.alert(tl.t('warning'), tl.t('error.default'))
       }
     } finally {
@@ -205,14 +206,19 @@ class BuyScene extends Component {
 
   _openTransactionDetails = async transactionUnsigned => {
     try {
-      const transactionSigned = await signTransaction(this.props.context.pin, transactionUnsigned)
+      const { accounts, publicKey } = this.props.context
+      const transactionSigned = await signTransaction(
+        accounts.find(item => item.address === publicKey).privateKey,
+        transactionUnsigned
+      )
       this.setState({ loading: false }, () => {
         this.props.navigation.navigate('SubmitTransaction', {
           tx: transactionSigned,
           tokenAmount: this.state.amountToBuy
         })
       })
-    } catch (error) {
+    } catch (e) {
+      logSentry(e, 'Participate - Open Tx')
       Alert.alert(tl.t('error.gettingTransaction'))
     }
   }
@@ -232,7 +238,7 @@ class BuyScene extends Component {
             <AmountText>
               {formatNumber(amountToBuy)}
             </AmountText>
-            <TrxValueText>({formatNumber(amountToPay)} TRX)</TrxValueText>
+            <TrxValueText>({formatNumber(amountToPay, true)} TRX)</TrxValueText>
             {notEnoughTrxBalance && (
               <React.Fragment>
                 <VerticalSpacer size={4} />

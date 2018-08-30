@@ -24,6 +24,26 @@ export const CardText = styled.Text`
   color: #FFFFFF;
   font-weight: 700;
 `
+export const CopiableText = styled.Text`
+  font-family: 'Rubik-Regular';
+  font-size: 13;
+  line-height: 20;
+  color: white;
+  flex: 1;
+`
+export const AddressText = styled.Text`
+  font-family: Rubik-Medium;
+  font-size: 11;
+  line-height: 11;
+  letter-spacing: 0.6;
+  color: rgb(116, 118, 162);
+`
+export const VoteText = styled.Text`
+  font-family: Rubik-Regular;
+  font-size: 11;
+  line-height: 20;
+  color: white;
+`
 
 export const BadgeText = Text.extend`
   font-family: Rubik-Medium;
@@ -63,4 +83,14 @@ export const DetailText = styled.Text`
   line-height: 20px;
   font-family: Helvetica;
   color: white; 
+`
+export const AddressRow = styled.View`
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+`
+export const Divider = styled.View`
+  height: 1px;
+  margin-vertical: 15px;
+  background-color: #51526B;
 `

@@ -2,26 +2,25 @@ import RNTron from 'react-native-tron'
 import { Linking } from 'react-native'
 
 import tl from '../utils/i18n'
-import { getUserSecrets } from './secretsUtils'
 import { TronVaultURL } from './deeplinkUtils'
 import getTransactionStore from '../store/transactions'
-import Client from '../services/client'
+import Client, { ONE_TRX } from '../services/client'
+import { logSentry } from '../utils/sentryUtils'
 
-export const signTransaction = async (pin, transactionUnsigned) => {
+export const signTransaction = async (privateKey, transactionUnsigned) => {
   try {
-    const { privateKey } = await getUserSecrets(pin)
     const transactionSigned = await RNTron.signTransaction(
       privateKey,
       transactionUnsigned
     )
     return transactionSigned
   } catch (error) {
-    throw new Error(error)
+    logSentry(error, 'Signing Transaction')
   }
 }
 
-export const updateTransactions = async (pin) => {
-  const transactions = await Client.getTransactionList(pin)
+export const updateTransactions = async (address) => {
+  const transactions = await Client.getTransactionList(address)
   const store = await getTransactionStore()
   store.write(() =>
     transactions.map(item => {
@@ -102,4 +101,19 @@ export const getTranslatedType = (type) => {
 export const openDeepLink = async dataToSend => {
   const url = `${TronVaultURL}auth/${dataToSend}`
   return Linking.openURL(url)
+}
+
+export const getTokenPriceFromStore = (tokenName, assetStore) => {
+  const filtered = assetStore
+    .objects('Asset')
+    .filtered(
+      `name == '${tokenName}'`
+    )
+    .map(item => Object.assign({}, item))
+
+  if (filtered.length) {
+    return filtered[0].price
+  }
+
+  return ONE_TRX
 }

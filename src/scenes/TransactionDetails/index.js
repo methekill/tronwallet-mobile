@@ -1,14 +1,24 @@
 import React from 'react'
 import moment from 'moment'
-import { ScrollView, Clipboard, View, Text, RefreshControl } from 'react-native'
+import {
+  ScrollView,
+  Clipboard,
+  View,
+  Text,
+  RefreshControl,
+  TouchableOpacity
+} from 'react-native'
 import { string, number, bool, shape, array } from 'prop-types'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Toast from 'react-native-easy-toast'
 import LinearGradient from 'react-native-linear-gradient'
-import styled from 'styled-components'
 
 import tl from '../../utils/i18n'
-import { updateTransactionByHash, getTranslatedType } from '../../utils/transactionUtils'
+import {
+  updateTransactionByHash,
+  getTranslatedType,
+  getTokenPriceFromStore
+} from '../../utils/transactionUtils'
 import getTransactionStore from '../../store/transactions'
 import IconButton from '../../components/IconButton'
 import * as Utils from '../../components/Utils'
@@ -17,9 +27,11 @@ import NavigationHeader from '../../components/Navigation/Header'
 import { Colors } from '../../components/DesignSystem'
 import { ONE_TRX } from '../../services/client'
 import { rgb } from '../../../node_modules/polished'
-import Copiable from './CopiableAddress'
+import ActionModal from '../../components/ActionModal'
 
 import { formatFloat } from '../../utils/numberUtils'
+import getAssetsStore from '../../store/assets'
+import { logSentry } from '../../utils/sentryUtils'
 
 class TransactionDetails extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -64,12 +76,21 @@ class TransactionDetails extends React.Component {
 
   state = {
     refreshing: false,
-    item: null
+    item: null,
+    currentAddress: null,
+    modalVisible: false
   }
 
   async componentDidMount () {
     const { item } = this.props.navigation.state.params
     this.setState({ item })
+  }
+
+  _closeModal = () => {
+    this.setState({
+      modalVisible: false,
+      currentAddress: null
+    })
   }
 
   _copy = async () => {
@@ -79,6 +100,7 @@ class TransactionDetails extends React.Component {
       this.refs.hashToast.show(tl.t('transactionDetails.clipboard.tronscanUrl'))
     } catch (error) {
       this.refs.hashToast.show(tl.t('error.clipboardCopied'))
+      logSentry(error, 'Transaction Detail - onCopy')
     }
   }
 
@@ -302,56 +324,72 @@ class TransactionDetails extends React.Component {
 
   _truncateAddress = address => `${address.substring(0, 8)}...${address.substring(address.length - 8, address.length)}`
 
+  _onAddContactPress = () => {
+    const { currentAddress } = this.state
+    const { navigation } = this.props
+
+    this._closeModal()
+    navigation.navigate('AddContact', { address: currentAddress })
+  }
+
+  _onCopyAddressPress = async () => {
+    const { currentAddress } = this.state
+    try {
+      await Clipboard.setString(currentAddress)
+      this._showToast(tl.t('transactionDetails.clipboard.publicKey'))
+    } catch (error) {
+      this._showToast(tl.t('error.clipboardCopied'))
+      logSentry(error, 'Transaction Detail - on Copy Press')
+    } finally {
+      this._closeModal()
+    }
+  }
+
+  _onAddressPress = (address) => {
+    this.setState({
+      modalVisible: true,
+      currentAddress: address
+    })
+  }
+
+  _renderAddressModal = () => {
+    const { modalVisible } = this.state
+    return (
+      <ActionModal
+        visible={modalVisible}
+        closeModal={this._closeModal}
+        animationType='fade'
+        actions={[
+          {onPress: this._onAddContactPress, text: tl.t('addressBook.contacts.addToContacts')},
+          {onPress: this._onCopyAddressPress, text: tl.t('copyAddress')}
+        ]}
+      />
+    )
+  }
+
   _renderToFrom = () => {
     const { type, confirmed, contractData: { transferFromAddress, transferToAddress } } = this.state.item
-    const TempText = styled.Text`
-      font-family: 'Rubik-Regular';
-      font-size: 13;
-      line-height: 20;
-      color: white;
-      flex: 1;
-    `
+
     return (
       <View>
+        {this._renderAddressModal()}
         {type.toLowerCase() === 'transfer' &&
-          <React.Fragment>
-            <View style={{ justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row' }}>
-              <Text style={{
-                fontFamily: 'Rubik-Medium',
-                fontSize: 11,
-                lineHeight: 11,
-                letterSpacing: 0.6,
-                color: rgb(116, 118, 162)
-              }}>{tl.t('transactionDetails.to')}</Text>
+          <TouchableOpacity onPress={() => { this._onAddressPress(transferToAddress) }}>
+            <Elements.AddressRow>
+              <Elements.AddressText>{tl.t('transactionDetails.to')}</Elements.AddressText>
               {this._getIcon('ios-arrow-round-up', 30, confirmed ? rgb(63, 231, 123) : rgb(102, 104, 143))}
-            </View>
-            <View style={{ flexDirection: 'row', width: '100%' }}>
-              <Copiable
-                TextComponent={TempText}
-                showToast={this._showToast}>
-                {transferToAddress}
-              </Copiable>
-            </View>
-            <View style={{ height: 15 }} />
-            <Utils.View height={1} background='#51526B' />
-            <View style={{ height: 15 }} />
-          </React.Fragment>
+            </Elements.AddressRow>
+            <Elements.CopiableText>{transferToAddress}</Elements.CopiableText>
+            <Elements.Divider />
+          </TouchableOpacity>
         }
-        <View style={{ justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row' }}>
-          <Text style={{
-            fontFamily: 'Rubik-Medium',
-            fontSize: 11,
-            lineHeight: 11,
-            letterSpacing: 0.6,
-            color: rgb(116, 118, 162)
-          }}>{tl.t('transactionDetails.from')}</Text>
-          {this._getIcon('ios-arrow-round-down', 30, confirmed ? rgb(255, 68, 101) : rgb(102, 104, 143))}
-        </View>
-        <Copiable
-          TextComponent={TempText}
-          showToast={this._showToast}>
-          {transferFromAddress}
-        </Copiable>
+        <TouchableOpacity onPress={() => { this._onAddressPress(transferFromAddress) }}>
+          <Elements.AddressRow>
+            <Elements.AddressText>{tl.t('transactionDetails.from')}</Elements.AddressText>
+            {this._getIcon('ios-arrow-round-down', 30, confirmed ? rgb(255, 68, 101) : rgb(102, 104, 143))}
+          </Elements.AddressRow>
+          <Elements.CopiableText>{transferFromAddress}</Elements.CopiableText>
+        </TouchableOpacity>
       </View>
     )
   }
@@ -416,32 +454,16 @@ class TransactionDetails extends React.Component {
 
   _renderVotes = () => {
     const { votes } = this.state.item.contractData
-    const TempText = styled.Text`
-      font-family: Rubik-Regular;
-      font-size: 11px;
-      line-height: 20;
-      color: white;
-    `
 
     const votesToRender = votes.map((vote, index) => (
-      <React.Fragment
-        key={`${vote.voteAddress}-${index}`}
-      >
-        <Utils.Row justify='space-between' align='center'>
-          <Copiable
-            TextComponent={TempText}
-            showToast={this._showToast}>
-            {vote.voteAddress}
-          </Copiable>
-          <View style={{ height: 14 }}>
-            <Text style={{
-              fontFamily: 'Rubik-Regular',
-              fontSize: 11,
-              lineHeight: 20,
-              color: 'white'
-            }}>{vote.voteCount}</Text>
-          </View>
-        </Utils.Row>
+      <React.Fragment key={`${vote.voteAddress}-${index}`}>
+        {this._renderAddressModal()}
+        <Elements.AddressRow>
+          <TouchableOpacity onPress={() => { this._onAddressPress(vote.voteAddress) }}>
+            <Elements.CopiableText>{vote.voteAddress}</Elements.CopiableText>
+          </TouchableOpacity>
+          <Elements.VoteText>{vote.voteCount}</Elements.VoteText>
+        </Elements.AddressRow>
         <Utils.VerticalSpacer size='medium' />
       </React.Fragment>
     ))
@@ -490,11 +512,18 @@ class TransactionDetails extends React.Component {
   _onRefresh = async () => {
     const { item } = this.state
     this.setState({ refreshing: true })
-
-    await updateTransactionByHash(item.id)
-    const transaction = await this._getTransactionByHash(item.id)
-
-    this.setState({ item: transaction, refreshing: false })
+    try {
+      await updateTransactionByHash(item.id)
+      const transaction = await this._getTransactionByHash(item.id)
+      if (transaction.type === 'Participate') {
+        const tokenPrice = getTokenPriceFromStore(transaction.contractData.tokenName, getAssetsStore())
+        transaction.tokenPrice = tokenPrice
+      }
+      this.setState({ item: transaction, refreshing: false })
+    } catch (e) {
+      this.setState({refreshing: false})
+      logSentry(e, 'Transaction Detail - on refresh')
+    }
   }
 
   _getTransactionByHash = async (hash) => {
@@ -506,13 +535,14 @@ class TransactionDetails extends React.Component {
   }
 
   render () {
-    const { item } = this.state
+    const { item, refreshing } = this.state
+
     return (
       <Utils.Container>
         <ScrollView
           refreshControl={
             <RefreshControl
-              refreshing={this.state.refreshing}
+              refreshing={refreshing}
               onRefresh={this._onRefresh}
             />
           }
@@ -528,13 +558,6 @@ class TransactionDetails extends React.Component {
               <View style={{
                 paddingHorizontal: 32
               }}>
-                <Toast
-                  ref='addressToast'
-                  position='top'
-                  fadeInDuration={750}
-                  fadeOutDuration={1000}
-                  opacity={0.8}
-                />
                 <View style={{ height: 24 }} />
                 {this._renderDetails()}
               </View>
@@ -542,6 +565,13 @@ class TransactionDetails extends React.Component {
             </React.Fragment>
           }
         </ScrollView>
+        <Toast
+          ref='addressToast'
+          positionValue={260}
+          fadeInDuration={750}
+          fadeOutDuration={1000}
+          opacity={0.8}
+        />
       </Utils.Container>
     )
   }

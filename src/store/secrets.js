@@ -8,15 +8,16 @@ import DeviceInfo from 'react-native-device-info'
 
 const UserSecretSchema = {
   name: 'UserSecret',
-  primaryKey: 'id',
+  primaryKey: 'address',
   properties: {
-    id: 'string',
     confirmed: 'bool',
     address: 'string',
     password: 'string',
     mnemonic: 'string',
     privateKey: 'string',
-    publicKey: 'string'
+    publicKey: 'string',
+    name: 'string',
+    alias: 'string'
   }
 }
 
@@ -31,7 +32,15 @@ const getStore = async pin => {
   return Realm.open({
     path: `realm.userSecrets`,
     schema: [UserSecretSchema],
-    encryptionKey: keyBytes
+    encryptionKey: keyBytes,
+    schemaVersion: 1,
+    migration: (oldRealm, newRealm) => {
+      if (oldRealm.schemaVersion < 1) {
+        const newObjects = newRealm.objects('UserSecret')
+        newObjects[0].name = 'Main Account'
+        newObjects[0].alias = '@main_account'
+      }
+    }
   })
 }
 

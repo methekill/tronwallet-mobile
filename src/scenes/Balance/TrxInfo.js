@@ -1,18 +1,21 @@
 import React, { PureComponent } from 'react'
-import { Motion, spring, presets } from 'react-motion'
+import { Motion, spring } from 'react-motion'
 import { Context } from '../../store/context'
 
 import tl from '../../utils/i18n'
 import FadeIn from '../../components/Animations/FadeIn'
 import * as Utils from '../../components/Utils'
+import { formatNumber } from '../../utils/numberUtils'
 
 class TrxInfo extends PureComponent {
   render () {
-    return (
+    const { currency } = this.props
+
+    return !!currency && (
       <Context.Consumer>
-        {({ price, freeze }) =>
-          price.value &&
-          freeze.value && (
+        {({ freeze, price, publicKey }) =>
+          price.price &&
+          freeze[publicKey] && (
             <FadeIn name='tronprice'>
               <Utils.VerticalSpacer size='medium' />
               <Utils.Row justify='space-between'>
@@ -21,7 +24,7 @@ class TrxInfo extends PureComponent {
                   <Motion
                     defaultStyle={{ power: 0 }}
                     style={{
-                      power: spring(freeze.value.total, presets.gentle)
+                      power: spring(freeze[publicKey].total)
                     }}
                   >
                     {value => (
@@ -33,11 +36,11 @@ class TrxInfo extends PureComponent {
                   <Utils.Text size='xsmall' secondary>{tl.t('trxPrice')}</Utils.Text>
                   <Motion
                     defaultStyle={{ price: 0 }}
-                    style={{ price: spring(price.value, presets.gentle) }}
+                    style={{ price: spring(price.price) }}
                   >
                     {value => (
                       <Utils.Text padding={4}>
-                        {`${value.price.toFixed(this.props.pricePrecision)} USD`}
+                        {`${formatNumber(value.price)} ${currency}`}
                       </Utils.Text>
                     )}
                   </Motion>
@@ -47,10 +50,7 @@ class TrxInfo extends PureComponent {
                   <Motion
                     defaultStyle={{ bandwidth: 0 }}
                     style={{
-                      bandwidth: spring(
-                        freeze.value.bandwidth.netRemaining,
-                        presets.gentle
-                      )
+                      bandwidth: spring(freeze[publicKey].bandwidth.netRemaining)
                     }}
                   >
                     {value => (
@@ -70,12 +70,4 @@ class TrxInfo extends PureComponent {
   }
 }
 
-TrxInfo.defaultProps = {
-  pricePrecision: 4
-}
-
-export default props => (
-  <Context.Consumer>
-    {context => <TrxInfo context={context} {...props} />}
-  </Context.Consumer>
-)
+export default TrxInfo

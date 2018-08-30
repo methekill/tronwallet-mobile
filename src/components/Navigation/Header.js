@@ -32,7 +32,7 @@ class NavigationHeader extends React.Component {
     let element = null
 
     if (onBack && !leftButton) {
-      element = <TouchableOpacity onPress={onBack}>
+      element = <TouchableOpacity onPress={onBack} testID='HeaderBack'>
         <Ionicons
           name='ios-arrow-round-back'
           size={38}
@@ -50,7 +50,7 @@ class NavigationHeader extends React.Component {
   _renderRightElement = (onClose, onSearch, onSearchPressed, rightButton) => {
     let element = null
     if (onClose && !rightButton) {
-      element = <TouchableOpacity onPress={onClose}>
+      element = <TouchableOpacity onPress={onClose} testID='HeaderClose'>
         <Feather name='x' color='white' size={28} />
       </TouchableOpacity>
     } else if (onSearch && !rightButton) {
@@ -75,7 +75,7 @@ class NavigationHeader extends React.Component {
     return (
       <React.Fragment>
         {this._renderLeftElement(onBack, leftButton)}
-        <Utils.View justify='center' align='center' >
+        <Utils.View justify='center' align='center'>
           <Utils.Text lineHeight={36} size='average' font='medium'>{title.toUpperCase()}</Utils.Text>
         </Utils.View >
         {this._renderRightElement(onClose, onSearch, onSearchPressed, rightButton)}

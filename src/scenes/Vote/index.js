@@ -1,7 +1,7 @@
 // Dependencies
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import { forIn, reduce, union, clamp, debounce } from 'lodash'
-import { Linking, FlatList, Alert } from 'react-native'
+import { Linking, FlatList, Alert, Platform } from 'react-native'
 import { Answers } from 'react-native-fabric'
 
 // Utils
@@ -29,6 +29,7 @@ import { signTransaction } from '../../utils/transactionUtils'
 import getCandidateStore from '../../store/candidates'
 import { withContext } from '../../store/context'
 import getTransactionStore from '../../store/transactions'
+import { logSentry } from '../../utils/sentryUtils'
 
 const LIST_STEP_SIZE = 20
 
@@ -61,7 +62,7 @@ const INITIAL_STATE = {
   listError: ''
 }
 
-class VoteScene extends PureComponent {
+class VoteScene extends Component {
   constructor () {
     super()
     this.state = INITIAL_STATE
@@ -131,12 +132,13 @@ class VoteScene extends PureComponent {
   }
 
   _getLastUserVotesFromStore = async () => {
+    const { context } = this.props
     const transactionStore = await getTransactionStore()
 
     const queryVoteUnfreeze = transactionStore
       .objects('Transaction')
       .sorted([['timestamp', true]])
-      .filtered('type == "Vote" OR type == "Unfreeze"')
+      .filtered('ownerAddress = $0 AND (type == "Vote" OR type == "Unfreeze")', context.publicKey)
 
     // If there was an Unfreeze transaction after voting, delete previously votes
     const lastVoteTransaction = queryVoteUnfreeze.length && queryVoteUnfreeze[0].type === 'Vote'
@@ -194,15 +196,9 @@ class VoteScene extends PureComponent {
   }
 
   _loadUserData = async () => {
-    const { context } = this.props
+    const { freeze, publicKey } = this.props.context
     try {
-      let totalFrozen = 0
-      if (context.freeze && context.freeze.value) {
-        totalFrozen = context.freeze.value.total
-      } else {
-        const apiFrozen = await WalletClient.getFreeze(this.props.context.pin)
-        totalFrozen = apiFrozen.total
-      }
+      let totalFrozen = freeze[publicKey].total
 
       let userVotes = await this._getLastUserVotesFromStore()
       if (userVotes) {
@@ -246,11 +242,12 @@ class VoteScene extends PureComponent {
         currentVotes[key] = Number(value)
       })
       try {
-        const data = await WalletClient.getVoteWitnessTransaction(this.props.context.pin, currentVotes)
+        const data = await WalletClient.getVoteWitnessTransaction(this.props.context.publicKey, currentVotes)
         this._openTransactionDetails(data)
       } catch (error) {
         Alert.alert(tl.t('error.buildingTransaction'))
         this.setState({ loadingList: false })
+        logSentry(error, 'Vote - submit')
         navigation.setParams({ disabled: false })
       }
     }
@@ -258,7 +255,11 @@ class VoteScene extends PureComponent {
 
   _openTransactionDetails = async transactionUnsigned => {
     try {
-      const transactionSigned = await signTransaction(this.props.context.pin, transactionUnsigned)
+      const { accounts, publicKey } = this.props.context
+      const transactionSigned = await signTransaction(
+        accounts.find(item => item.address === publicKey).privateKey,
+        transactionUnsigned
+      )
       this.setState({ ...this.resetAddModal, loadingList: false, refreshing: false }, () => {
         this.props.navigation.navigate('SubmitTransaction', {
           tx: transactionSigned
@@ -266,6 +267,7 @@ class VoteScene extends PureComponent {
       })
     } catch (error) {
       this.setState({ error: tl.t('error.gettingTransaction'), loadingList: false })
+      logSentry(error, 'Vote - open tx')
     }
   }
 
@@ -280,12 +282,14 @@ class VoteScene extends PureComponent {
       this.setState({ loading: false }, () => {
         this.props.navigation.navigate('GetVault')
       })
+      logSentry(error, 'Vote - open deeplink')
     }
   }
 
   _onChangeVotes = async (value) => {
     const { currentVotes, currentVoteItem } = this.state
-    const totalFrozen = this.props.context.freeze.value.total
+    const { context } = this.props
+    const totalFrozen = context.freeze[context.publicKey].total
     const newVotes = { ...currentVotes, [currentVoteItem.address]: value }
 
     const totalUserVotes = this._getVoteCountFromList(newVotes)
@@ -325,8 +329,7 @@ class VoteScene extends PureComponent {
   _setupVoteModal = item => {
     this.setState({
       modalVisible: true,
-      currentVoteItem: item,
-      startedVoting: true
+      currentVoteItem: item
     })
   }
 
@@ -359,6 +362,7 @@ class VoteScene extends PureComponent {
   }
 
   _acceptCurrentVote = (amountToVote) => {
+    this.setState({startedVoting: true})
     amountToVote <= 0
       ? this._removeVoteFromList()
       : this._onChangeVotes(amountToVote)
@@ -366,7 +370,8 @@ class VoteScene extends PureComponent {
 
   _removeVoteFromList = async (address = null) => {
     const { currentVotes, currentVoteItem } = this.state
-    const totalFrozen = this.props.context.freeze.value.total
+    const { context } = this.props
+    const totalFrozen = context.freeze[context.publicKey].total
 
     const voteToRemove = address || currentVoteItem.address
     delete currentVotes[voteToRemove]
@@ -457,7 +462,6 @@ class VoteScene extends PureComponent {
 
   _throwError = (e, type) => {
     const errorType = type || 'listError'
-    console.log(`${e.name}. ${e.message}`)
     this.setState(
       {
         [errorType]: tl.t('votes.error'),
@@ -471,6 +475,7 @@ class VoteScene extends PureComponent {
         })
       }
     )
+    logSentry(e, 'Vote - Throw error')
   }
 
   render () {
@@ -511,7 +516,7 @@ class VoteScene extends PureComponent {
             onEndReachedThreshold={0.5}
             onEndReached={this._loadMoreCandidates}
             refreshing={refreshing || loadingList}
-            removeClippedSubviews
+            removeClippedSubviews={Platform.OS === 'android'}
           />
         </FadeIn>
         {(totalUserVotes > 0 && startedVoting) && <ConfirmVotes onPress={this._openConfirmModal} voteCount={currentFullVotes.length} />}

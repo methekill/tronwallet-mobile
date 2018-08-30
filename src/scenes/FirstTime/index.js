@@ -6,9 +6,8 @@ import tl from '../../utils/i18n'
 import Logo from '../../components/Logo'
 import ButtonGradient from '../../components/ButtonGradient'
 
-import { createUserKeyPair } from '../../utils/secretsUtils'
-
 import { withContext } from '../../store/context'
+import ConfigJson from '../../../package.json'
 
 class FirstTime extends React.Component {
   componentDidMount () {
@@ -41,10 +40,9 @@ class FirstTime extends React.Component {
                 shouldDoubleCheck,
                 testInput,
                 onSuccess: async pin => {
-                  await createUserKeyPair(pin, this.props.context.oneSignalId)
                   this.props.context.setPin(
                     pin,
-                    () => this.props.navigation.navigate('SeedCreate', { shouldReset: true, firstTime: true })
+                    () => this.props.navigation.navigate('CreateSeed')
                   )
                 }
               })
@@ -61,6 +59,7 @@ class FirstTime extends React.Component {
               })
             }}
           />
+          <Utils.VersionText>{`v${ConfigJson.version}`}</Utils.VersionText>
         </Utils.Content>
         <Utils.View flex={1} />
       </Utils.Container>

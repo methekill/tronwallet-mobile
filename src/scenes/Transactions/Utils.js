@@ -14,7 +14,7 @@ const transferAmount = ({ tokenName, amount }) => {
   return `${amount} ${tokenName}`
 }
 const freezeAmount = ({frozenBalance}) => `${frozenBalance / ONE_TRX} TRX`
-const participateAmount = ({amount, tokenName}, tokenPrice) => `${(amount / ONE_TRX) / (tokenPrice / ONE_TRX)} ${tokenName}`
+const participateAmount = ({amount, tokenName}, tokenPrice) => `${(amount) / (tokenPrice)} ${tokenName}`
 
 /* Configures the object used to hidrate the render components with the proper
 texts and icons. */

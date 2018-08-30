@@ -1,6 +1,7 @@
 import React from 'react'
 
 import * as Elements from './elements'
+import { Colors } from '../../components/DesignSystem'
 
 const thousandSeparator = /(\d)(?=(\d{3})+(\s|$))/g
 
@@ -22,14 +23,15 @@ const formatText = (text, numbersOnly, onChangeText, type) => {
 
 const formatValue = (value, numbersOnly, type) => {
   if (numbersOnly) {
+    const valueString = value.toString()
     if (type === 'int') {
-      return value.replace(thousandSeparator, '$1,')
+      return valueString.replace(thousandSeparator, '$1,')
     } else {
-      const decimal = value.split('.')
+      const decimal = valueString.split('.')
       if (decimal.length >= 2) {
         return `${decimal[0].replace(thousandSeparator, '$1,')}.${decimal[1].substr(0, 6)}`
       } else {
-        return value.replace(thousandSeparator, '$1,')
+        return valueString.replace(thousandSeparator, '$1,')
       }
     }
   } else {
@@ -46,6 +48,8 @@ const Input = ({
   value,
   numbersOnly,
   type,
+  editable,
+  placeholder,
   ...props
 }) => (
   <Elements.Wrapper>
@@ -65,8 +69,10 @@ const Input = ({
         autoCorrect={false}
         autoCapitalize='none'
         underlineColorAndroid='transparent'
-        placeholderTextColor='#66688F'
         onChangeText={text => formatText(text, numbersOnly, onChangeText, type)}
+        placeholderTextColor={placeholder ? props.placeholderTextColor : Colors.background}
+        placeholder={placeholder || 'hidden'}
+        editable={editable}
       />
       {rightContent && rightContent()}
     </Elements.InputWrapper>
@@ -74,8 +80,11 @@ const Input = ({
 )
 
 Input.defaultProps = {
+  placeholderTextColor: '#66688F',
   returnKeyType: 'send',
-  numbersOnly: false
+  numbersOnly: false,
+  editable: true,
+  showPlaceholder: true
 }
 
 export default Input

@@ -3,8 +3,8 @@ import axios from 'axios'
 import * as shape from 'd3-shape'
 import { AreaChart, Grid } from 'react-native-svg-charts'
 import { Path, Circle, G } from 'react-native-svg'
-import { ActivityIndicator, TouchableOpacity, Image } from 'react-native'
-import { Motion, spring, presets } from 'react-motion'
+import { ActivityIndicator, TouchableOpacity, Image, AsyncStorage } from 'react-native'
+import { Motion, spring } from 'react-motion'
 import { Answers } from 'react-native-fabric'
 import Config from 'react-native-config'
 
@@ -13,8 +13,9 @@ import tl from '../../utils/i18n'
 import * as Utils from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
 import FadeIn from '../../components/Animations/FadeIn'
-
-const PRICE_PRECISION = 4
+import { formatNumber } from '../../utils/numberUtils'
+import { USER_PREFERRED_CURRENCY } from '../../utils/constants'
+import withContext from '../../utils/hocs/withContext'
 
 const Line = ({ line }) => (
   <Path
@@ -54,15 +55,12 @@ class MarketScene extends Component {
     graph: {
       loading: true,
       data: null,
-      timeSpan: tl.t('market.time.hour')
+      timeSpan: '1H'
     },
     high: null,
     low: null,
-    marketcap: null,
-    volume: null,
-    supply: null,
-    price: 0,
-    selectedIndex: -1
+    selectedIndex: -1,
+    currency: null
   }
 
   componentDidMount () {
@@ -78,17 +76,19 @@ class MarketScene extends Component {
   }
 
   get timeSpans () {
-    return [tl.t('market.time.hour'), tl.t('market.time.day'), tl.t('market.time.week'), tl.t('market.time.month'), tl.t('market.time.all')]
+    return [
+      { value: tl.t('market.time.hour'), key: '1H' },
+      { value: tl.t('market.time.day'), key: '1D' },
+      { value: tl.t('market.time.week'), key: '1W' },
+      { value: tl.t('market.time.month'), key: '1M' },
+      { value: tl.t('market.time.all'), key: 'ALL' }
+    ]
   }
 
   _loadData = async () => {
-    const { data: { data } } = await axios.get(Config.TRX_PRICE_API)
-    this.setState({
-      marketcap: data.quotes.USD.market_cap,
-      volume: data.quotes.USD.volume_24h,
-      supply: data.circulating_supply,
-      price: data.quotes.USD.price
-    })
+    const currency = await AsyncStorage.getItem(USER_PREFERRED_CURRENCY) || 'USD'
+    this.props.context.getPrice(currency)
+    this.setState({ currency })
   }
 
   _loadGraphData = async () => {
@@ -115,9 +115,8 @@ class MarketScene extends Component {
       case '1Y':
         url = `${Config.TRX_HISTORY_API}/histoday?fsym=TRX&tsym=USD&limit=364`
         break
-      case 'ALL':
+      default:
         url = `${Config.TRX_HISTORY_API}/histoday?fsym=TRX&tsym=USD&allData=true`
-        break
     }
     const response = await axios.get(url, { credentials: false })
     this.setState({
@@ -145,7 +144,10 @@ class MarketScene extends Component {
   }
 
   _renderHeader = () => {
-    const { price } = this.state
+    const { currency } = this.state
+    const { price } = this.props.context
+
+    const priceToDisplay = !!price && !!currency ? price[currency].price : 0
 
     return (
       <Utils.ContentWithBackground
@@ -170,11 +172,11 @@ class MarketScene extends Component {
               <Utils.HorizontalSpacer />
               <Motion
                 defaultStyle={{ data: 0 }}
-                style={{ data: spring(price, presets.gentle) }}
+                style={{ data: spring(priceToDisplay) }}
               >
                 {value => (
                   <Utils.Text size='medium'>
-                    $ {value.data.toFixed(PRICE_PRECISION)}
+                    $ {formatNumber(value.data)}
                   </Utils.Text>
                 )}
               </Motion>
@@ -187,7 +189,9 @@ class MarketScene extends Component {
   }
 
   _renderValues = () => {
-    const { selectedIndex, high, low, marketcap, volume, supply } = this.state
+    const { selectedIndex, high, low, currency } = this.state
+    const { price, circulatingSupply } = this.props.context
+
     const decimalFormatter = (value) => `$ ${value.toFixed(4)}`
     const integerFormatter = (value) => `$ ${this._formatNumber(value)}`
     const supplyFormatter = (value) => this._formatNumber(value)
@@ -201,9 +205,9 @@ class MarketScene extends Component {
               {this._renderValue(low, decimalFormatter)}
             </Fragment>
           )}
-          {this._renderValue(marketcap, integerFormatter)}
-          {this._renderValue(volume, integerFormatter)}
-          {this._renderValue(supply, supplyFormatter, true)}
+          {this._renderValue(price[currency].volume_24h, integerFormatter)}
+          {this._renderValue(price[currency].market_cap, integerFormatter)}
+          {this._renderValue(circulatingSupply, supplyFormatter, true)}
         </Utils.View>
       </FadeIn>
     )
@@ -213,7 +217,7 @@ class MarketScene extends Component {
     <Fragment>
       <Motion
         defaultStyle={{ data: 0 }}
-        style={{ data: spring(value, presets.gentle) }}
+        style={{ data: spring(value) }}
       >
         {value => (
           <Utils.Text align='right' lineHeight={20}>
@@ -257,11 +261,11 @@ class MarketScene extends Component {
           <Utils.Row justify='space-evenly'>
             {this.timeSpans.map(timeSpan => (
               <TouchableOpacity
-                key={timeSpan}
-                onPress={() => this._changeGraphTimeSpan(timeSpan)}
+                key={timeSpan.key}
+                onPress={() => this._changeGraphTimeSpan(timeSpan.key)}
               >
-                <Utils.Text secondary={graph.timeSpan !== timeSpan}>
-                  {timeSpan}
+                <Utils.Text secondary={graph.timeSpan !== timeSpan.key}>
+                  {timeSpan.value}
                 </Utils.Text>
               </TouchableOpacity>
             ))}
@@ -288,7 +292,8 @@ class MarketScene extends Component {
   }
 
   render () {
-    const { marketcap, volume, supply, graph } = this.state
+    const { graph, currency } = this.state
+    const { price, circulatingSupply } = this.props.context
 
     return (
       <Utils.Container>
@@ -296,16 +301,16 @@ class MarketScene extends Component {
         <Utils.Content background={Colors.background}>
           <Utils.Row justify='space-between' align='center'>
             {this._renderLabels()}
-            {(!marketcap || !volume || !supply) && (
+            {(!price || !circulatingSupply || !currency) && (
               <FadeIn name='market-info-loading'>
                 <Utils.Content>
                   <ActivityIndicator size='small' color={Colors.primaryText} />
                 </Utils.Content>
               </FadeIn>
             )}
-            {marketcap &&
-              volume &&
-              supply && (
+            {price &&
+              circulatingSupply &&
+              currency && (
                 this._renderValues()
               )}
           </Utils.Row>
@@ -325,4 +330,4 @@ class MarketScene extends Component {
   }
 }
 
-export default MarketScene
+export default withContext(MarketScene)

@@ -19,24 +19,14 @@ import { signTransaction } from '../../utils/transactionUtils'
 import getTransactionStore from '../../store/transactions'
 import { withContext } from '../../store/context'
 import { formatNumber } from '../../utils/numberUtils'
+import { logSentry, DataError } from '../../utils/sentryUtils'
 
 class FreezeScene extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      header: (
-        <NavigationHeader
-          title={tl.t('freeze.title')}
-          onBack={() => { navigation.goBack() }}
-          noBorder
-        />
-      )
-    }
+  static navigationOptions = {
+    header: null
   }
+
   state = {
-    from: '',
-    balances: [],
-    trxBalance: 0,
-    bandwidth: 0,
     total: 0,
     amount: '',
     loading: true,
@@ -59,6 +49,7 @@ class FreezeScene extends Component {
   }
 
   _checkUnfreeze = async () => {
+    const { context } = this.props
     let unfreezeStatus = {
       msg: tl.t('freeze.unfreeze.inThreeDays'),
       disabled: false
@@ -69,7 +60,8 @@ class FreezeScene extends Component {
       const queryFreeze = transactionStore
         .objects('Transaction')
         .sorted([['timestamp', true]])
-        .filtered('type == "Unfreeze" or type == "Freeze"')
+        .filtered('ownerAddress = $0 AND (type == "Unfreeze" OR type == "Freeze")', context.publicKey)
+
       const lastFreeze = queryFreeze.length && queryFreeze[0].type === 'Freeze'
         ? queryFreeze[0] : null
 
@@ -93,57 +85,63 @@ class FreezeScene extends Component {
       } else {
         return unfreezeStatus
       }
-    } catch (error) {
+    } catch (e) {
+      logSentry(e, 'Unfreeze - Load Status')
       return unfreezeStatus
     }
   }
 
   _loadData = async () => {
     try {
-      const { freeze, publicKey } = this.props.context
-      const { balance } = freeze.value.balances.find(b => b.name === 'TRX')
-      const total = freeze.value.total || 0
+      const { accounts, publicKey } = this.props.context
+      const { tronPower } = accounts.find(account => account.address === publicKey)
       const unfreezeStatus = await this._checkUnfreeze()
       this.setState({
-        from: publicKey.value,
-        balances: freeze,
-        trxBalance: balance,
-        bandwidth: freeze.value.bandwidth.netReimaining,
         loading: false,
         unfreezeStatus,
-        total
+        total: tronPower
       })
-    } catch (error) {
-      console.log(error)
+    } catch (e) {
+      logSentry(e, 'Freeze - Load Data')
       this.setState({ loading: false })
     }
   }
 
   _submitUnfreeze = async () => {
+    const { publicKey } = this.props.context
     this.setState({loading: true})
     try {
-      const data = await Client.getUnfreezeTransaction(this.props.context.pin)
+      const data = await Client.getUnfreezeTransaction(publicKey, this.props.context.pin)
       this._openTransactionDetails(data)
-    } catch (error) {
+    } catch (e) {
       Alert.alert(tl.t('error.buildingTransaction'))
       this.setState({ loadingSign: false })
+      logSentry(e, 'Unfreeze - Submit')
     } finally {
       this.setState({loading: false})
     }
   }
+
   _submit = async () => {
-    const { amount, trxBalance } = this.state
+    const { accounts, publicKey } = this.props.context
+    const { balance } = accounts.find(account => account.address === publicKey)
+    const { amount } = this.state
     const convertedAmount = Number(amount)
 
     this.setState({ loading: true })
     try {
-      if (convertedAmount <= 0) { throw new Error(tl.t('freeze.error.minimiumAmount')) }
-      if (trxBalance < convertedAmount) { throw new Error(tl.t('freeze.error.insufficientAmount')) }
-      if (!Number.isInteger(convertedAmount)) { throw new Error(tl.t('freeze.error.roundNumbers')) }
-      await this._freezeToken()
+      if (convertedAmount <= 0) { throw new DataError(tl.t('freeze.error.minimiumAmount')) }
+      if (balance < convertedAmount) { throw new DataError(tl.t('freeze.error.insufficientAmount')) }
+      if (!Number.isInteger(convertedAmount)) { throw new DataError(tl.t('freeze.error.roundNumbers')) }
+      this._freezeToken()
     } catch (error) {
+      if (error.name === 'DataError') {
+        Alert.alert(tl.t('warning'), error.message)
+      } else {
+        Alert.alert(tl.t('warning'), tl.t('error.default'))
+        logSentry(error, 'Freeze - Submit')
+      }
       this.setState({ loading: false })
-      Alert.alert(tl.t('warning'), error.message)
     }
   }
 
@@ -152,10 +150,11 @@ class FreezeScene extends Component {
     const convertedAmount = Number(amount)
 
     try {
-      const data = await Client.getFreezeTransaction(this.props.context.pin, convertedAmount)
+      const data = await Client.getFreezeTransaction(this.props.context.publicKey, convertedAmount)
       this._openTransactionDetails(data)
-    } catch (error) {
+    } catch (e) {
       Alert.alert(Alert.alert(tl.t('error.buildingTransaction')))
+      logSentry(e, 'Freeze - Create Tx')
     } finally {
       this.setState({ loading: false })
     }
@@ -163,15 +162,20 @@ class FreezeScene extends Component {
 
   _openTransactionDetails = async (transactionUnsigned) => {
     try {
-      const transactionSigned = await signTransaction(this.props.context.pin, transactionUnsigned)
+      const { accounts, publicKey } = this.props.context
+      const transactionSigned = await signTransaction(
+        accounts.find(item => item.address === publicKey).privateKey,
+        transactionUnsigned
+      )
       this.setState({ loadingSign: false }, () => {
         this.props.navigation.navigate('SubmitTransaction', {
           tx: transactionSigned
         })
       })
-    } catch (error) {
+    } catch (e) {
       Alert.alert(tl.t('error.gettingTransaction'))
       this.setState({ loadingSign: false })
+      logSentry(e, 'Freeze - Open Tx')
     }
   }
 
@@ -190,14 +194,27 @@ class FreezeScene extends Component {
     </Utils.View>
   )
 
+  _getBalance = () => {
+    const { accounts, publicKey } = this.props.context
+    const currentBalance = accounts.find(account => account.address === publicKey)
+    if (currentBalance) return currentBalance.balance
+    else return 0
+  }
+
   render () {
-    const { trxBalance, amount, loading, unfreezeStatus } = this.state
-    const { freeze } = this.props.context
-    const userTotalPower = freeze.value ? Number(freeze.value.total) : 0
+    const { amount, loading, unfreezeStatus } = this.state
+    const { freeze, publicKey } = this.props.context
+    const userTotalPower = freeze[publicKey] ? Number(freeze[publicKey].total) : 0
     const newTotalPower = userTotalPower + Number(amount.replace(/,/g, ''))
+    const trxBalance = this._getBalance()
 
     return (
       <KeyboardScreen>
+        <NavigationHeader
+          title={tl.t('freeze.title')}
+          onBack={() => { this.props.navigation.goBack() }}
+          noBorder
+        />
         <Utils.Container>
           <Header>
             <Utils.View align='center'>

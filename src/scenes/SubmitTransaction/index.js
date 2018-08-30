@@ -8,17 +8,19 @@ import OneSignal from 'react-native-onesignal'
 import * as Utils from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
 import ButtonGradient from '../../components/ButtonGradient'
-import DetailRow from './detailRow'
 import LoadingScene from '../../components/LoadingScene'
 import NavigationHeader from '../../components/Navigation/Header'
+import { DetailRow, DataRow } from './elements'
 
 // Service
-import tl from '../../utils/i18n'
 import Client from '../../services/client'
-import getTransactionStore from '../../store/transactions'
-import getBalanceStore from '../../store/balance'
-import { withContext } from '../../store/context'
+
+// Utils
+import tl from '../../utils/i18n'
 import buildTransactionDetails, { translateError } from './detailMap'
+import getTransactionStore from '../../store/transactions'
+import { withContext } from '../../store/context'
+import { logSentry } from '../../utils/sentryUtils'
 
 const ANSWERS_TRANSACTIONS = ['Transfer', 'Vote', 'Participate', 'Freeze']
 const NOTIFICATION_TRANSACTIONS = ['Transfer', 'Transfer Asset']
@@ -29,9 +31,8 @@ class TransactionDetail extends Component {
     loadingSubmit: false,
     transactionData: null,
     signedTransaction: null,
-    disableSubmit: false,
-    submitError: null,
     submitted: false,
+    submitError: null,
     isConnected: null,
     tokenAmount: null,
     nowDate: moment().format('MM/DD/YYYY HH:MM:SS')
@@ -65,6 +66,7 @@ class TransactionDetail extends Component {
       this.setState({ transactionData, signedTransaction, tokenAmount })
     } catch (error) {
       this.setState({ submitError: error.message })
+      logSentry(error, 'Submit Tx - Load')
     } finally {
       this.setState({ loadingData: false })
     }
@@ -74,10 +76,7 @@ class TransactionDetail extends Component {
     const { navigation } = this.props
     const transaction = this._getTransactionObject()
     const stackToReset = this._getStackToReset(transaction.type)
-    navigation.navigate('TransactionSuccess', {
-      stackToReset,
-      navigation
-    })
+    navigation.navigate('TransactionSuccess', { stackToReset })
   }
 
   _getTransactionObject = () => {
@@ -136,21 +135,25 @@ class TransactionDetail extends Component {
               'en': tl.t('submitTransaction.notification', { address: transaction.contractData.transferFromAddress })
             }
             response.data.users.map(device => {
-              OneSignal.postNotification(content, transaction, device.deviceid)
+              // We use @ to identify the multiple accounts
+              const deviceId = device.deviceid.split('@')[0] || device.deviceid
+              OneSignal.postNotification(content, transaction, deviceId)
             })
           }
         }
-        await this._updateBalancesStore()
+        await this.props.context.loadUserData()
       }
-      this.setState({ submitError: null, loadingSubmit: false, disableSubmit: true }, this._navigateNext)
+      this.setState({ submitError: null, loadingSubmit: false, submitted: true }, this._navigateNext)
     } catch (error) {
       // This needs to be adapted better from serverless api
       const errorMessage = error.response && error.response.data ? error.response.data.error
         : error.message
       this.setState({
         submitError: translateError(errorMessage),
-        loadingSubmit: false
+        loadingSubmit: false,
+        submitted: true
       })
+      logSentry(error, 'Submit Tx - Submit')
       store.write(() => {
         const lastTransaction = store.objectForPrimaryKey('Transaction', hash)
         store.delete(lastTransaction)
@@ -166,52 +169,52 @@ class TransactionDetail extends Component {
     if (transactionType === 'Participate') {
       return 'ParticipateHome'
     }
-
-    return null
-  }
-
-  _updateBalancesStore = async balances => {
-    try {
-      const balances = await Client.getBalances(this.props.context.pin)
-      const store = await getBalanceStore()
-      store.write(() => balances.map(item => store.create('Balance', item, true)))
-    } catch (error) {
-      console.log('Error while updating User balance')
+    if (transactionType === 'Vote') {
+      return 'Vote'
     }
+    return null
   }
 
   _renderContracts = () => {
     const { transactionData, nowDate, tokenAmount } = this.state
     if (!transactionData) return null
-    const { contracts } = transactionData
+    const { contracts, data } = transactionData
 
     const contractsElements = buildTransactionDetails(contracts, tokenAmount)
     contractsElements.push(
       <DetailRow
-        key={'TIME'}
-        title={'TIME'}
+        key='TIME'
+        title={tl.t('submitTransaction.time')}
         text={nowDate}
       />
     )
+    if (data) {
+      contractsElements.push(
+        <DataRow
+          key='DATA'
+          data={data}
+        />
+      )
+    }
     return <Utils.View paddingX={'medium'} paddingY={'small'}>{contractsElements}</Utils.View>
   }
 
   _renderSubmitButton = () => {
-    const { loadingSubmit, disableSubmit } = this.state
+    const { loadingSubmit, submitted } = this.state
 
     return (
       <Utils.View marginTop={5} paddingX={'medium'}>
         {loadingSubmit ? (
           <ActivityIndicator size='small' color={Colors.primaryText} />
         ) : (
-          <ButtonGradient
+          !submitted && <ButtonGradient
             text={tl.t('submitTransaction.button.submit')}
             onPress={() => this.props.navigation.navigate('Pin', {
               shouldGoBack: true,
               testInput: pin => pin === this.props.context.pin,
               onSuccess: this._submitTransaction
             })}
-            disabled={disableSubmit}
+            disabled={submitted}
             font='bold'
           />
         )}

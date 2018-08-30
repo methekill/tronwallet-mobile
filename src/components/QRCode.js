@@ -7,6 +7,7 @@ import { Colors } from './DesignSystem'
 import GrowIn from './Animations/GrowIn'
 import FadeIn from './Animations/FadeIn'
 
+const BORDER_RADIUS = 5
 class QRCode extends Component {
   state = {
     loading: true
@@ -30,8 +31,7 @@ class QRCode extends Component {
           <View
             style={{
               padding: 10,
-              backgroundColor: bgColor,
-              borderRadius: 10
+              borderRadius: BORDER_RADIUS
             }}
           >
 
@@ -39,20 +39,20 @@ class QRCode extends Component {
               start={{ x: 0, y: 1 }}
               end={{ x: 1, y: 0 }}
               colors={[Colors.primaryGradient[0], Colors.primaryGradient[1]]}
-              style={{ padding: 1, borderRadius: 10 }}
+              style={{ padding: 1, borderRadius: BORDER_RADIUS }}
             >
               <View
                 style={{
-                  padding: 15,
+                  padding: 12,
                   backgroundColor: bgColor,
-                  borderRadius: 10
+                  borderRadius: BORDER_RADIUS
                 }}
               >
                 <View
                   style={{
                     padding: 5,
                     backgroundColor: fgColor,
-                    borderRadius: 10
+                    borderRadius: BORDER_RADIUS
                   }}
                 >
                   {loading || (
@@ -81,7 +81,7 @@ QRCode.propTypes = {
 }
 
 QRCode.defaultProps = {
-  bgColor: Colors.darkerBackground,
+  bgColor: Colors.background,
   fgColor: '#ededed'
 }
 

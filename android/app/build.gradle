@@ -78,8 +78,8 @@ android {
         applicationId "com.tronwallet2"
         minSdkVersion 16
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode 7
-        versionName "1.0.5"
+        versionCode 115
+        versionName "1.1.5"
         multiDexEnabled true
         ndk {
             abiFilters "armeabi-v7a", "x86"
@@ -117,12 +117,15 @@ android {
         }
     }
     packagingOptions {
+        exclude 'META-INF/LICENSE'
         exclude 'META-INF/INDEX.LIST'
         exclude 'META-INF/io.netty.versions.properties'
     }
 }
 
 dependencies {
+    compile project(':lottie-react-native')
+    compile project(':react-native-restart')
     compile project(':react-native-i18n')
     compile project(':react-native-sentry')
     compile project(':react-native-background-fetch')
@@ -131,7 +134,7 @@ dependencies {
     compile project(':react-native-device-info')
     compile project(':react-native-tron')
     compile project(':react-native-config')
-    compile(project(':react-native-camera')) {
+    compile (project(':react-native-camera')) {
         exclude group: "com.android.support"
     }
     compile project(':react-native-splash-screen')
@@ -145,7 +148,6 @@ dependencies {
     compile('com.crashlytics.sdk.android:crashlytics:2.9.4@aar') {
         transitive = true;
     }
-    // From node_modules
 }
 
 // Run this once to be able to run the application with BUCK

@@ -7,22 +7,22 @@ import {
   FlatList,
   ActivityIndicator,
   View,
-  Dimensions
+  Platform
 } from 'react-native'
 
-import I18n from 'react-native-i18n'
 import LinearGradient from 'react-native-linear-gradient'
 import ProgressBar from 'react-native-progress/Bar'
 import moment from 'moment'
 import { debounce, union } from 'lodash'
 
 import tl from '../../utils/i18n'
-import SyncButton from '../../components/SyncButton'
+import getAssetsStore from '../../store/assets'
 import { Colors } from '../../components/DesignSystem'
 import { orderAssets, updateAssets } from '../../utils/assetsUtils'
 import { ONE_TRX } from '../../services/client'
 import guarantee from '../../assets/guarantee.png'
 import NavigationHeader from '../../components/Navigation/Header'
+import { logSentry } from '../../utils/sentryUtils'
 
 import {
   Container,
@@ -47,11 +47,7 @@ import {
 } from './Elements'
 import { rgb } from '../../../node_modules/polished'
 
-const AMOUNT_TO_FETCH = 40
-const BANNER = {
-  en: require('../../assets/images/banner-en.png'),
-  pt: require('../../assets/images/banner-pt.png')
-}
+const AMOUNT_TO_FETCH = 20
 
 class ParticipateHome extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -60,10 +56,6 @@ class ParticipateHome extends React.Component {
       header: (
         <NavigationHeader
           title={tl.t('participate.title')}
-          leftButton={<SyncButton
-            loading={params && params.loading}
-            onPress={() => { }}
-          />}
           onSearch={name => params._onSearch(name)}
           onSearchPressed={() => params._onSearchPressed()}
         />
@@ -74,8 +66,9 @@ class ParticipateHome extends React.Component {
   state = {
     assetList: [],
     currentList: [],
+    featuredTokens: [],
     start: 0,
-    searching: false,
+    loading: false,
     searchMode: false
   }
 
@@ -83,59 +76,70 @@ class ParticipateHome extends React.Component {
     Answers.logContentView('Tab', 'Participate')
     this._onSearch = debounce(this._onSearch, 350)
     this.props.navigation.setParams({
-      loading: false,
       _onSearch: this._onSearch,
       _onSearchPressed: this._onSearchPressed
     })
 
+    await this._getTwxFromStore()
     this._loadData()
   }
 
+  _getTwxFromStore = async () => {
+    const store = await getAssetsStore()
+    const filtered = store.objects('Asset')
+      .filtered(`name == 'TWX'`)
+      .map(item => Object.assign({}, item))
+
+    if (filtered.length) {
+      this.setState({ featuredTokens: orderAssets(filtered) })
+    }
+  }
+
   _loadData = async () => {
-    this.props.navigation.setParams({ loading: true })
+    this.setState({ loading: true })
 
     try {
-      const assets = await updateAssets(0, AMOUNT_TO_FETCH)
-      const filtered = assets.filter(({ issuedPercentage, name, startTime, endTime }) =>
-        issuedPercentage < 100 && name !== 'TRX' && startTime < Date.now() && endTime > Date.now()
-      )
-      this.setState({ assetList: filtered, currentList: filtered })
-    } catch (error) {
-      this.setState({ error: error.message })
+      const assets = await this._updateAssets(0)
+      this.setState({ assetList: assets, currentList: assets })
+    } catch (e) {
+      this.setState({ error: e.message })
+      logSentry(e, 'Participate - Load Data')
     } finally {
-      this.props.navigation.setParams({ loading: false })
+      this.setState({ loading: false })
     }
   }
 
   _loadMore = async () => {
     const { start, assetList, searchMode } = this.state
+
     if (searchMode) return
 
-    this.props.navigation.setParams({ loading: true })
+    this.setState({ loading: true })
     const newStart = start + AMOUNT_TO_FETCH
 
     try {
-      const assets = await updateAssets(newStart, AMOUNT_TO_FETCH)
-      const filtered = assets.filter(({ issuedPercentage, name, startTime, endTime }) =>
-        issuedPercentage < 100 && name !== 'TRX' && startTime < Date.now() && endTime > Date.now()
-      )
-      const updatedAssets = union(assetList, filtered)
+      const assets = await this._updateAssets(newStart)
+      const updatedAssets = union(assetList, assets)
 
       this.setState({ start: newStart, assetList: updatedAssets, currentList: updatedAssets })
     } catch (error) {
       this.setState({ error: error.message })
+      logSentry(error, 'Participate - Load more candidates')
     } finally {
-      this.props.navigation.setParams({ loading: false })
+      this.setState({ loading: false })
     }
   }
 
-  _getBanner = () => {
-    const locale = I18n.currentLocale().substr(0, 2)
-    return BANNER[locale] ? BANNER[locale] : BANNER.en
+  _updateAssets = async (start) => {
+    const assets = await updateAssets(start, AMOUNT_TO_FETCH)
+    return assets
+      .filter(({ issuedPercentage, name, startTime, endTime }) =>
+        issuedPercentage < 100 && name !== 'TRX' && name !== 'TWX' && startTime < Date.now() && endTime > Date.now())
+      .sort((a, b) => b.issuedPercentage - a.issuedPercentage)
   }
 
-  _renderSlide = () => {
-    const { searchMode } = this.state
+  _renderFeaturedTokens = () => {
+    const { searchMode, featuredTokens } = this.state
 
     if (searchMode) {
       return null
@@ -143,12 +147,11 @@ class ParticipateHome extends React.Component {
 
     return (
       <View>
-        <Image source={this._getBanner()} style={{ height: 232, width: Dimensions.get('window').width }} resizeMode='cover' />
-        <VerticalSpacer size={30} />
         <TokensTitle>
           {tl.t('participate.tokens')}
         </TokensTitle>
         <VerticalSpacer size={20} />
+        {featuredTokens.map(token => <React.Fragment key={token.name}>{this._renderCard(token)}</React.Fragment>)}
       </View>
     )
   }
@@ -176,6 +179,7 @@ class ParticipateHome extends React.Component {
       }
     } catch (error) {
       this.setState({ error: error.message })
+      logSentry(error, 'Participate - on search')
     }
   }
 
@@ -190,7 +194,6 @@ class ParticipateHome extends React.Component {
         <Row justify='space-between' align='center'>
           {verified ? (
             <Row align='center'>
-              <Image source={require('../../assets/tron-logo-small.png')} style={{ height: 36, width: 36 }} />
               <HorizontalSpacer size={8} />
 
               <FeaturedTokenName>{name}</FeaturedTokenName>
@@ -254,9 +257,9 @@ class ParticipateHome extends React.Component {
   }
 
   _renderLoading = () => {
-    const { searching } = this.state
+    const { loading } = this.state
 
-    if (searching) {
+    if (loading) {
       return (
         <React.Fragment>
           <ActivityIndicator size='small' color={Colors.primaryText} />
@@ -269,22 +272,21 @@ class ParticipateHome extends React.Component {
   }
 
   render () {
-    const { currentList, searching } = this.state
+    const { currentList } = this.state
     const orderedBalances = orderAssets(currentList)
 
     return (
       <Container>
-        {this._renderLoading()}
         <FlatList
-          ListHeaderComponent={this._renderSlide()}
+          ListHeaderComponent={this._renderFeaturedTokens()}
+          ListFooterComponent={this._renderLoading()}
           data={orderedBalances}
           renderItem={({ item }) => this._renderCard(item)}
           keyExtractor={asset => asset.name}
           scrollEnabled
-          removeClippedSubviews
+          removeClippedSubviews={Platform.OS === 'android'}
           onEndReached={this._loadMore}
           onEndReachedThreshold={0.75}
-          refreshing={searching}
         />
       </Container>
     )
