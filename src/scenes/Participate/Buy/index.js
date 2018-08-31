@@ -36,6 +36,7 @@ import { formatNumber } from '../../../utils/numberUtils'
 import Client, { ONE_TRX } from '../../../services/client'
 import { signTransaction } from '../../../utils/transactionUtils'
 import { logSentry, DataError } from '../../../utils/sentryUtils'
+import { replaceRoute } from '../../../utils/navigationUtils'
 
 const buyOptions = {
   1: 1,
@@ -212,7 +213,7 @@ class BuyScene extends Component {
         transactionUnsigned
       )
       this.setState({ loading: false }, () => {
-        this.props.navigation.navigate('SubmitTransaction', {
+        replaceRoute(this.props.navigation, 'SubmitTransaction', {
           tx: transactionSigned,
           tokenAmount: this.state.amountToBuy
         })
