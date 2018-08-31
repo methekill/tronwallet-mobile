@@ -194,10 +194,6 @@ const AppTabs = createBottomTabNavigator({
       }
 
       return <Icon name={iconName} size={26} color={tintColor} />
-    },
-    tabBarOnPress: ({navigation, defaultHandler}) => {
-      // Navigate back when tab is not focused !
-      defaultHandler()
     }
   }),
   tabBarOptions: {

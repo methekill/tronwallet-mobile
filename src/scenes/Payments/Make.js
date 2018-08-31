@@ -22,6 +22,7 @@ import { formatNumber } from '../../utils/numberUtils'
 import getTransactionStore from '../../store/transactions'
 import tl from '../../utils/i18n'
 import { logSentry, DataError } from '../../utils/sentryUtils'
+import { replaceRoute } from '../../utils/navigationUtils'
 
 const NOTIFICATION_TRANSACTIONS = ['Transfer', 'Transfer Asset']
 
@@ -53,8 +54,7 @@ class MakePayment extends PureComponent {
     }
 
     _navigateNext = () => {
-      const { navigation } = this.props
-      navigation.navigate('TransactionSuccess', {stackToReset: 'BalanceScene'})
+      replaceRoute(this.props.navigation, 'TransactionSuccess', {stackToReset: 'BalanceScene'})
     }
 
     _checkToken = token => !!this.state.balances.find(b => b.name === token)
