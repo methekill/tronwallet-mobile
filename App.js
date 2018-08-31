@@ -395,8 +395,9 @@ class App extends Component {
 
   _loadAskPin = async () => {
     try {
-      const alwaysAskPin = await AsyncStorage.getItem(ALWAYS_ASK_PIN)
-      this.setState({ alwaysAskPin: alwaysAskPin === 'true' })
+      const askPin = await AsyncStorage.getItem(ALWAYS_ASK_PIN)
+      const alwaysAskPin = askPin === null ? true : askPin === 'true'
+      this.setState({ alwaysAskPin })
     } catch (error) {
       this.setState({ alwaysAskPin: true })
     }
