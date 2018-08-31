@@ -28,8 +28,8 @@ export default class TransferScene extends Component {
   state = {
     index: 0,
     routes: [
-      { key: 'request', title: tl.t('receive.tabs.request') },
-      { key: 'share', title: tl.t('receive.tabs.share') }
+      { key: 'share', title: tl.t('receive.tabs.share') },
+      { key: 'request', title: tl.t('receive.tabs.request') }
     ]
   }
 
@@ -61,8 +61,8 @@ export default class TransferScene extends Component {
   )
 
   _renderScene = SceneMap({
-    request: () => <PaymentBuilderScene {...this.props} />,
-    share: () => <ReceiveScene {...this.props} />
+    share: () => <ReceiveScene {...this.props} />,
+    request: () => <PaymentBuilderScene {...this.props} />
   })
 
   render () {
