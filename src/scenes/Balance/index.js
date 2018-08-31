@@ -3,7 +3,8 @@ import {
   RefreshControl,
   ScrollView,
   AsyncStorage,
-  TouchableOpacity
+  TouchableOpacity,
+  AppState
 } from 'react-native'
 import { Answers } from 'react-native-fabric'
 import Feather from 'react-native-vector-icons/Feather'
@@ -35,7 +36,8 @@ class BalanceScene extends Component {
     creatingNewAccount: false,
     error: null,
     balances: [],
-    currency: null
+    currency: null,
+    appState: AppState.currentState
   }
 
   componentDidMount () {
@@ -51,6 +53,8 @@ class BalanceScene extends Component {
 
     this.refreshInterval = setInterval(this._onInterval, REFRESH_TIME)
 
+    AppState.addEventListener('change', this._handleAppStateChange)
+
     // Update assets when you enter the wallet
     updateAssets()
   }
@@ -58,6 +62,7 @@ class BalanceScene extends Component {
   componentWillUnmount () {
     this._navListener.remove()
     clearInterval(this.refreshInterval)
+    AppState.removeEventListener('change', this._handleAppStateChange)
   }
 
   _addNewAccount = async () => {
@@ -82,6 +87,18 @@ class BalanceScene extends Component {
     await this.props.context.loadUserData()
     await this._loadData()
     this.setState({ refreshing: false })
+  }
+
+  _handleAppStateChange = nextAppState => {
+    const { appState } = this.state
+    const { alwaysAskPin } = this.props.context
+    if (nextAppState.match(/inactive|background/) && appState === 'active' && alwaysAskPin) {
+      this.props.navigation.navigate('Pin', {
+        testInput: pin => pin === this.props.context.pin,
+        onSuccess: () => {}
+      })
+    }
+    this.setState({ appState: nextAppState })
   }
 
   _loadData = async () => {

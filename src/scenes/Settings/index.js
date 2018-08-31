@@ -32,7 +32,7 @@ import { SectionTitle } from './elements'
 // Utils
 import getBalanceStore from '../../store/balance'
 import { orderAssets } from '../../utils/assetsUtils'
-import { USER_PREFERRED_LANGUAGE, USER_FILTERED_TOKENS, FIXED_TOKENS } from '../../utils/constants'
+import { USER_PREFERRED_LANGUAGE, USER_FILTERED_TOKENS, FIXED_TOKENS, ALWAYS_ASK_PIN } from '../../utils/constants'
 import tl from '../../utils/i18n'
 import fontelloConfig from '../../assets/icons/config.json'
 import { withContext } from '../../store/context'
@@ -121,6 +121,12 @@ class Settings extends Component {
     }
   }
 
+  _setAskPin = async () => {
+    const { alwaysAskPin } = this.props.context
+    await AsyncStorage.setItem(ALWAYS_ASK_PIN, `${!alwaysAskPin}`)
+    this.props.context.setAskPin(!alwaysAskPin)
+  }
+
   _resetWallet = async () => {
     Alert.alert(
       tl.t('warning'),
@@ -165,7 +171,6 @@ class Settings extends Component {
           status => console.log('subscriptions status', status)
         )
         if (this.state.subscriptionStatus) {
-          console.warn('Test 4', this.props.context.oneSignalId, this.props.context.publicKey)
           Client.registerDeviceForNotifications(
             this.props.context.oneSignalId,
             this.props.context.publicKey
@@ -271,6 +276,30 @@ class Settings extends Component {
             title: tl.t('settings.reset.title'),
             icon: 'delete,-trash,-dust-bin,-remove,-recycle-bin',
             onPress: this._resetWallet
+          },
+          {
+            title: tl.t('settings.askPin'),
+            icon: 'lock,-secure,-safety,-safe,-protect',
+            right: () => {
+              return (
+                <Switch
+                  circleStyle={{ backgroundColor: Colors.orange }}
+                  backgroundActive={Colors.yellow}
+                  backgroundInactive={Colors.secondaryText}
+                  value={this.props.context.alwaysAskPin}
+                  onAsyncPress={(callback) => {
+                    this.props.navigation.navigate('Pin', {
+                      shouldGoBack: true,
+                      testInput: pin => pin === this.props.context.pin,
+                      onSuccess: () => this._setAskPin()
+                    })
+                    /* eslint-disable */
+                    callback(false)
+                    /* eslint-disable */
+                  }}
+                />
+              )
+            }
           }
         ]
       },

@@ -54,7 +54,7 @@ import { Context } from './src/store/context'
 import NodesIp from './src/utils/nodeIp'
 import { getUserSecrets } from './src/utils/secretsUtils'
 import getBalanceStore from './src/store/balance'
-import { USER_PREFERRED_CURRENCY } from './src/utils/constants'
+import { USER_PREFERRED_CURRENCY, ALWAYS_ASK_PIN } from './src/utils/constants'
 import { ONE_SIGNAL_KEY } from './config'
 import ConfigJson from './package.json'
 
@@ -245,6 +245,7 @@ class App extends Component {
     oneSignalId: null,
     shareModal: false,
     queue: null,
+    alwaysAskPin: true,
     currency: null
   }
 
@@ -259,7 +260,7 @@ class App extends Component {
     }, 1000)
 
     this._setNodes()
-
+    this._loadAskPin()
     const preferedCurrency = await AsyncStorage.getItem(USER_PREFERRED_CURRENCY)
     this._getPrice(preferedCurrency)
     this.setState({ currency: preferedCurrency })
@@ -392,6 +393,16 @@ class App extends Component {
     }
   }
 
+  _loadAskPin = async () => {
+    try {
+      const askPin = await AsyncStorage.getItem(ALWAYS_ASK_PIN)
+      const alwaysAskPin = askPin === null ? true : askPin === 'true'
+      this.setState({ alwaysAskPin })
+    } catch (error) {
+      this.setState({ alwaysAskPin: true })
+    }
+  }
+
   _setNodes = async () => {
     try {
       await NodesIp.initNodes()
@@ -401,6 +412,8 @@ class App extends Component {
   }
 
   _setPublicKey = publicKey => this.setState({ publicKey })
+
+  _setAskPin = (alwaysAskPin) => this.setState({ alwaysAskPin })
 
   _setPin = (pin, callback) => {
     this.setState({ pin }, () => {
@@ -440,7 +453,8 @@ class App extends Component {
       toggleShare: this._toggleShare,
       updateBalances: this._updateBalances,
       setCurrency: this._setCurrency,
-      resetAccount: this._resetAccounts
+      resetAccount: this._resetAccounts,
+      setAskPin: this._setAskPin
     }
 
     return (
