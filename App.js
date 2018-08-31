@@ -197,9 +197,6 @@ const AppTabs = createBottomTabNavigator({
     },
     tabBarOnPress: ({navigation, defaultHandler}) => {
       // Navigate back when tab is not focused !
-      if (!navigation.isFocused() && navigation.state.key === 'Balance') {
-        navigation.goBack(null)
-      }
       defaultHandler()
     }
   }),
