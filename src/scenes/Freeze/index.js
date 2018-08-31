@@ -20,6 +20,7 @@ import getTransactionStore from '../../store/transactions'
 import { withContext } from '../../store/context'
 import { formatNumber } from '../../utils/numberUtils'
 import { logSentry, DataError } from '../../utils/sentryUtils'
+import { replaceRoute } from '../../utils/navigationUtils'
 
 class FreezeScene extends Component {
   static navigationOptions = {
@@ -168,7 +169,7 @@ class FreezeScene extends Component {
         transactionUnsigned
       )
       this.setState({ loadingSign: false }, () => {
-        this.props.navigation.navigate('SubmitTransaction', {
+        replaceRoute(this.props.navigation, 'SubmitTransaction', {
           tx: transactionSigned
         })
       })
