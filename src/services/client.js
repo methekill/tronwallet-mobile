@@ -95,23 +95,21 @@ class ClientWallet {
     const apiUrl = await this.getTronscanUrl()
 
     const txResponse = await axios.get(`${apiUrl}/transaction/${hash}`)
-    const type = this.getContractType(txResponse.data.contractType)
 
-    let transaction = {
-      ...txResponse.data,
-      type
-    }
-
-    if (type === 'Transfer Asset') {
+    if (txResponse.data.contractType <= 2) {
       const tfResponse = await axios.get(`${apiUrl}/transfer/${hash}`)
-      transaction = {
-        ...transaction,
+      return {
         ...tfResponse.data,
+        contractType: 1,
+        ownerAddress: txResponse.data.ownerAddress,
         type: 'Transfer'
       }
     }
 
-    return transaction
+    return {
+      ...txResponse.data,
+      type: this.getContractType(txResponse.data.contractType)
+    }
   }
 
   //* ============TronWalletServerless Api============*//
