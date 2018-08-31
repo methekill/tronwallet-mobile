@@ -10,7 +10,8 @@ import {
   AsyncStorage,
   Modal,
   WebView,
-  SafeAreaView
+  SafeAreaView,
+  AppState
 } from 'react-native'
 
 import RNRestart from 'react-native-restart'
@@ -32,7 +33,7 @@ import { SectionTitle } from './elements'
 // Utils
 import getBalanceStore from '../../store/balance'
 import { orderAssets } from '../../utils/assetsUtils'
-import { USER_PREFERRED_LANGUAGE, USER_FILTERED_TOKENS, FIXED_TOKENS } from '../../utils/constants'
+import { USER_PREFERRED_LANGUAGE, USER_FILTERED_TOKENS, FIXED_TOKENS, ALWAYS_ASK_PIN } from '../../utils/constants'
 import tl from '../../utils/i18n'
 import fontelloConfig from '../../assets/icons/config.json'
 import { withContext } from '../../store/context'
@@ -76,21 +77,26 @@ class Settings extends Component {
     changingSubscription: false,
     userTokens: [],
     userSelectedTokens: [],
-    currentSelectedTokens: []
+    currentSelectedTokens: [],
+    alwaysAskPin: true,
+    appState: AppState.currentState
   }
 
   componentDidMount () {
     Answers.logContentView('Tab', 'Settings')
     this._onLoadData()
     this._getSelectedTokens()
+    this._loadAskPin()
     OneSignal.getPermissionSubscriptionState(
       status => this.setState({ subscriptionStatus: status.userSubscriptionEnabled === 'true' })
     )
     this._didFocus = this.props.navigation.addListener('didFocus', this._getSelectedTokens)
+    AppState.addEventListener('change', this._handleAppStateChange)
   }
 
   componentWillUnmount () {
     this._didFocus.remove()
+    AppState.removeEventListener('change', this._handleAppStateChange)
   }
 
   _onLoadData = async () => {
@@ -119,6 +125,21 @@ class Settings extends Component {
     } catch (error) {
       logSentry(error, 'Settings - Selected tokens')
     }
+  }
+
+  _loadAskPin = async () => {
+    try {
+      const alwaysAskPin = await AsyncStorage.getItem(ALWAYS_ASK_PIN)
+      this.setState({ alwaysAskPin: alwaysAskPin === 'true' })
+    } catch (error) {
+      this.setState({ alwaysAskPin: true })
+    }
+  }
+
+  _setAskPin = async () => {
+    const { alwaysAskPin } = this.state
+    await AsyncStorage.setItem(ALWAYS_ASK_PIN, `${!alwaysAskPin}`)
+    this.setState({ alwaysAskPin: !alwaysAskPin })
   }
 
   _resetWallet = async () => {
@@ -165,7 +186,6 @@ class Settings extends Component {
           status => console.log('subscriptions status', status)
         )
         if (this.state.subscriptionStatus) {
-          console.warn('Test 4', this.props.context.oneSignalId, this.props.context.publicKey)
           Client.registerDeviceForNotifications(
             this.props.context.oneSignalId,
             this.props.context.publicKey
@@ -198,6 +218,15 @@ class Settings extends Component {
         logSentry(e, 'Settings - Language Change')
       }
     }
+  }
+
+  _handleAppStateChange = nextAppState => {
+    if (nextAppState.match(/inactive|background/) && this.state.appState === 'active') {
+      if (this.state.alwaysAskPin) {
+        this.props.navigation.navigate('Pin', { testInput: pin => pin === this.props.context.pin, onSuccess: () => {} })
+      }
+    }
+    this.setState({ appState: nextAppState })
   }
 
   _saveSelectedTokens = async () => {
@@ -271,6 +300,30 @@ class Settings extends Component {
             title: tl.t('settings.reset.title'),
             icon: 'delete,-trash,-dust-bin,-remove,-recycle-bin',
             onPress: this._resetWallet
+          },
+          {
+            title: 'Ask PIN on resume',
+            icon: 'user,-person,-avtar,-profile-picture,-dp',
+            right: () => {
+              return (
+                <Switch
+                  circleStyle={{ backgroundColor: Colors.orange }}
+                  backgroundActive={Colors.yellow}
+                  backgroundInactive={Colors.secondaryText}
+                  value={this.state.alwaysAskPin}
+                  onAsyncPress={(callback) => {
+                    this.props.navigation.navigate('Pin', {
+                      shouldGoBack: true,
+                      testInput: pin => pin === this.props.context.pin,
+                      onSuccess: () => this._setAskPin()
+                    })
+                    /* eslint-disable */
+                    callback(false)
+                    /* eslint-disable */
+                  }}
+                />
+              )
+            }
           }
         ]
       },

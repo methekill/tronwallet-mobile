@@ -204,6 +204,7 @@ const AppTabs = createBottomTabNavigator({
     },
     showLabel: false
   },
+  lazy: false,
   initialRouteName: 'Balance'
 })
 
