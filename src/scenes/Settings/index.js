@@ -407,6 +407,20 @@ class Settings extends Component {
           searchPlaceholderText={tl.t('settings.token.search')}
           confirmText={tl.t('settings.token.confirm')}
           noResultsComponent={this._renderNoResults()}
+          colors={{
+            text: Colors.primaryText,
+            searchPlaceholderTextColor: Colors.primaryText,
+            searchSelectionColor: Colors.primaryText,
+            chipColor: Colors.primaryText,
+            success: Colors.secondaryGradient[0],
+            cancel: Colors.secondaryGradient[0],
+            primary: Colors.secondaryGradient[0]
+          }}
+          styles={{
+            container: styles.container,
+            separator: styles.separator,
+            searchBar: styles.searchBar
+          }}
         />
         <ScrollView>
           {this._renderList()}
@@ -430,7 +444,17 @@ const styles = StyleSheet.create({
   },
   rank: {
     paddingRight: 10
+  },
+  container: {
+    backgroundColor: Colors.lightBackground
+  },
+  separator: {
+    backgroundColor: Colors.lightestBackground
+  },
+  searchBar: {
+    backgroundColor: Colors.lightBackground
   }
+
 })
 
 export default withContext(Settings)
