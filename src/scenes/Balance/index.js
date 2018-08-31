@@ -23,6 +23,8 @@ import { updateAssets } from '../../utils/assetsUtils'
 import withContext from '../../utils/hocs/withContext'
 import { logSentry } from '../../utils/sentryUtils'
 
+const REFRESH_TIME = 45 * 1000
+
 class BalanceScene extends Component {
   static navigationOptions = {
     header: null
@@ -45,8 +47,9 @@ class BalanceScene extends Component {
       logSentry(e, 'Balance - LoadData')
     }
 
-    this._navListener =
-      this.props.navigation.addListener('didFocus', this._loadData)
+    this._navListener = this.props.navigation.addListener('didFocus', this._loadData)
+
+    this.refreshInterval = setInterval(this._onInterval, REFRESH_TIME)
 
     // Update assets when you enter the wallet
     updateAssets()
@@ -54,6 +57,7 @@ class BalanceScene extends Component {
 
   componentWillUnmount () {
     this._navListener.remove()
+    clearInterval(this.refreshInterval)
   }
 
   _addNewAccount = async () => {
@@ -64,6 +68,13 @@ class BalanceScene extends Component {
       this.carousel.innerComponent._snapToNewAccount()
     }
     this.setState({ creatingNewAccount: false })
+  }
+
+  _onInterval = async () => {
+    if (!this.state.refreshing) {
+      await this.props.context.loadUserData()
+      this._loadData()
+    }
   }
 
   _onRefresh = async () => {
