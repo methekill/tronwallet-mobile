@@ -76,8 +76,7 @@ class Settings extends Component {
     changingSubscription: false,
     userTokens: [],
     userSelectedTokens: [],
-    currentSelectedTokens: [],
-    alwaysAskPin: true
+    currentSelectedTokens: []
   }
 
   componentDidMount () {
@@ -204,15 +203,6 @@ class Settings extends Component {
         logSentry(e, 'Settings - Language Change')
       }
     }
-  }
-
-  _handleAppStateChange = nextAppState => {
-    if (nextAppState.match(/inactive|background/) && this.state.appState === 'active') {
-      if (this.state.alwaysAskPin) {
-        this.props.navigation.navigate('Pin', { testInput: pin => pin === this.props.context.pin, onSuccess: () => {} })
-      }
-    }
-    this.setState({ appState: nextAppState })
   }
 
   _saveSelectedTokens = async () => {
