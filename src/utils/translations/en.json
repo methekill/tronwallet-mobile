@@ -353,7 +353,9 @@
     "accepts": {
       "title": "Who accepts TRX?"
     },
-    "partners": "PARTNERS"
+    "partners": "PARTNERS",
+    "askPin" :"Always ask PIN"
+    
   },
   "submitTransaction": {
     "title": "TRANSACTION DETAILS",

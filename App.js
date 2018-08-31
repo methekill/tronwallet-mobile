@@ -204,7 +204,6 @@ const AppTabs = createBottomTabNavigator({
     },
     showLabel: false
   },
-  lazy: false,
   initialRouteName: 'Balance'
 })
 
@@ -246,6 +245,7 @@ class App extends Component {
     oneSignalId: null,
     shareModal: false,
     queue: null,
+    askPin: true,
     currency: null
   }
 
@@ -403,6 +403,8 @@ class App extends Component {
 
   _setPublicKey = publicKey => this.setState({ publicKey })
 
+  _setAskPin = (askPin) => this.setState({askPin})
+
   _setPin = (pin, callback) => {
     this.setState({ pin }, () => {
       this._loadUserData()
@@ -441,7 +443,8 @@ class App extends Component {
       toggleShare: this._toggleShare,
       updateBalances: this._updateBalances,
       setCurrency: this._setCurrency,
-      resetAccount: this._resetAccounts
+      resetAccount: this._resetAccounts,
+      setAskPin: this._setAskPin
     }
 
     return (

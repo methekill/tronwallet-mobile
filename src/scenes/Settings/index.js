@@ -302,8 +302,8 @@ class Settings extends Component {
             onPress: this._resetWallet
           },
           {
-            title: 'Ask PIN on resume',
-            icon: 'user,-person,-avtar,-profile-picture,-dp',
+            title: tl.t('settings.askPin'),
+            icon: 'lock,-secure,-safety,-safe,-protect',
             right: () => {
               return (
                 <Switch
