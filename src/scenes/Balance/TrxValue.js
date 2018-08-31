@@ -22,6 +22,9 @@ class TrxValue extends Component {
   render () {
     const { trxBalance } = this.props
     const { currency, price } = this.props.context
+    const priceToDisplay = !!trxBalance && !!currency && !!price
+      ? trxBalance * price[currency].price
+      : 0
 
     return (
       <React.Fragment>
@@ -31,7 +34,7 @@ class TrxValue extends Component {
               <FadeIn name='usd-value'>
                 <Motion
                   defaultStyle={{ price: 0 }}
-                  style={{ price: spring(trxBalance * price[currency].price) }}
+                  style={{ price: spring(priceToDisplay) }}
                 >
                   {value => (
                     <Utils.Text size='large'>
