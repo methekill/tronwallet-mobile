@@ -10,8 +10,7 @@ import {
   AsyncStorage,
   Modal,
   WebView,
-  SafeAreaView,
-  AppState
+  SafeAreaView
 } from 'react-native'
 
 import RNRestart from 'react-native-restart'
@@ -78,25 +77,21 @@ class Settings extends Component {
     userTokens: [],
     userSelectedTokens: [],
     currentSelectedTokens: [],
-    alwaysAskPin: true,
-    appState: AppState.currentState
+    alwaysAskPin: true
   }
 
   componentDidMount () {
     Answers.logContentView('Tab', 'Settings')
     this._onLoadData()
     this._getSelectedTokens()
-    this._loadAskPin()
     OneSignal.getPermissionSubscriptionState(
       status => this.setState({ subscriptionStatus: status.userSubscriptionEnabled === 'true' })
     )
     this._didFocus = this.props.navigation.addListener('didFocus', this._getSelectedTokens)
-    AppState.addEventListener('change', this._handleAppStateChange)
   }
 
   componentWillUnmount () {
     this._didFocus.remove()
-    AppState.removeEventListener('change', this._handleAppStateChange)
   }
 
   _onLoadData = async () => {
@@ -127,19 +122,10 @@ class Settings extends Component {
     }
   }
 
-  _loadAskPin = async () => {
-    try {
-      const alwaysAskPin = await AsyncStorage.getItem(ALWAYS_ASK_PIN)
-      this.setState({ alwaysAskPin: alwaysAskPin === 'true' })
-    } catch (error) {
-      this.setState({ alwaysAskPin: true })
-    }
-  }
-
   _setAskPin = async () => {
-    const { alwaysAskPin } = this.state
+    const { alwaysAskPin } = this.props.context
     await AsyncStorage.setItem(ALWAYS_ASK_PIN, `${!alwaysAskPin}`)
-    this.setState({ alwaysAskPin: !alwaysAskPin })
+    this.props.context.setAskPin(!alwaysAskPin)
   }
 
   _resetWallet = async () => {
@@ -310,7 +296,7 @@ class Settings extends Component {
                   circleStyle={{ backgroundColor: Colors.orange }}
                   backgroundActive={Colors.yellow}
                   backgroundInactive={Colors.secondaryText}
-                  value={this.state.alwaysAskPin}
+                  value={this.props.context.alwaysAskPin}
                   onAsyncPress={(callback) => {
                     this.props.navigation.navigate('Pin', {
                       shouldGoBack: true,
