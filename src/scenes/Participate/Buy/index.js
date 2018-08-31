@@ -74,10 +74,23 @@ class BuyScene extends Component {
   }
 
   async componentDidMount () {
+    this._updateBalance()
+  }
+
+  componentDidUpdate (prevProps) {
+    const { publicKey } = this.props.context
+    const { publicKey: prevPublicKey } = prevProps.context
+
+    if (publicKey !== prevPublicKey) {
+      this._updateBalance()
+    }
+  }
+
+  _updateBalance = async () => {
     const balances = await this._getBalancesFromStore()
     if (balances.length) {
       const currentBalance = this._fixNumber(balances[0].balance)
-      this.setState({ trxBalance: currentBalance, totalRemaining: currentBalance })
+      this.setState({ trxBalance: currentBalance, totalRemaining: currentBalance, amountToBuy: 0 })
     }
   }
 
