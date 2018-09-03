@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Alert, Keyboard, ActivityIndicator, Clipboard, Modal } from 'react-native'
 import { StackActions, NavigationActions } from 'react-navigation'
 import { Answers } from 'react-native-fabric'
+import RNTron from 'react-native-tron'
 
 // Design
 import tl from '../../utils/i18n'
@@ -14,10 +15,13 @@ import QRScanner from '../../components/QRScanner'
 import IconButton from '../../components/IconButton'
 
 // Utils
-import { importFromPrivateKey } from '../../utils/secretsUtils'
+import { restoreFromPrivateKey } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
-// import { logSentry } from '../../utils/sentryUtils'
 import { isAddressValid } from '../../services/address'
+import { logSentry } from '../../utils/sentryUtils'
+
+// Service
+import WalletClient from '../../services/client'
 
 const resetAction = StackActions.reset({
   index: 0,
@@ -50,18 +54,39 @@ class Restore extends Component {
   }
 
   _submit = async () => {
-    const { pin, oneSignalId, setImportedPk, loadUserData } = this.props.context
+    const { pin, oneSignalId, setSecretMode, loadUserData } = this.props.context
     const { address, privateKey } = this.state
     Keyboard.dismiss()
+    this.setState({loading: true})
     try {
-      // test address x privatekey
-      await importFromPrivateKey(pin, oneSignalId, address, privateKey)
-      setImportedPk(true)
+      await this._checkAccount()
+      await restoreFromPrivateKey(pin, oneSignalId, address, privateKey)
+      setSecretMode('privatekey')
       await loadUserData()
       this.props.navigation.dispatch(resetAction)
       Answers.logCustom('Wallet Operation', { type: 'Import from PrivateKey' })
     } catch (error) {
       Alert.alert(tl.t('warning'), 'Address or private key not valid')
+    } finally {
+      this.setState({loading: false})
+    }
+  }
+
+  _checkAccount = async () => {
+    const { address, privateKey } = this.state
+    try {
+      const transactionUnsigned = await WalletClient
+        .getTransferTransaction({from: address, to: 'TJo2xFo14Rnx9vvMSm1kRTQhVHPW4KPQ76', amount: 0, token: 'TRX'})
+      const transactionSigned = await RNTron.signTransaction(privateKey, transactionUnsigned)
+      await WalletClient.broadcastTransaction(transactionSigned)
+    } catch (error) {
+      const { response } = error
+      // Working on broadcastTransaction v2 to prevent this kind of code
+      if (response && response.data) {
+        if (response.data.error === 'contract validate error') return
+        if (response.data.error !== 'validate signature error') logSentry(error, 'Check Account response')
+      }
+      throw error
     }
   }
 
@@ -101,41 +126,40 @@ class Restore extends Component {
     return (
       <Utils.Container>
         <NavigationHeader
-          title='IMPORT FROM PRIVATE KEY'
+          title={tl.t('importWallet.title')}
           onBack={() => this.props.navigation.goBack()}
           noBorder
         />
         <Utils.Content>
           <Input
             innerRef={(input) => { this.address = input }}
-            label='ADDRESS'
+            label={tl.t('address')}
             rightContent={this._rightContentAddress}
             value={address}
             onChangeText={to => this._changeAddress(to)}
             onSubmitEditing={() => this.privatekey.focus()}
           />
           {addressError && (
-            <Utils.Text paddingVertical={10} size='xsmall' color='#ff5454'>
+            <Utils.Text marginY={8} size='xsmall' color='#ff5454'>
               {addressError}
             </Utils.Text>
           )}
           <Input
             innerRef={(input) => { this.privatekey = input }}
-            label='PRIVATE KEY'
+            label={tl.t('privateKey').toUpperCase()}
             rightContent={this._rightContentPk}
             value={privateKey}
+            multiline
             onChangeText={pk => this._changePrivateKey(pk)}
           />
-          <Utils.Text>
-          You can use a private key and a address to use our wallet though we
-          extremly recomend users to create an account using our Wallet since
-          you will not be able to use all the functionalities from this wallet.
+          <Utils.Text marginY={20} size='tiny' font='regular'>
+            {tl.t('importWallet.message')}
           </Utils.Text>
           {loading
             ? <ActivityIndicator size='small' color={Colors.primaryText} />
             : <ButtonGradient
               font='bold'
-              text={tl.t('send.title')}
+              text={tl.t('importWallet.button')}
               onPress={this._submit}
             />
           }

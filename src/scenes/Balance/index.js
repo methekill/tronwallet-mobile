@@ -115,9 +115,11 @@ class BalanceScene extends Component {
   }
 
   _rightButtonHeader = () => {
-    const { importedPk } = this.props.context
+    const { secretMode } = this.props.context
     const { creatingNewAccount } = this.state
-    if (importedPk) {
+    if (secretMode === 'privatekey') {
+      return null
+    } else {
       return <TouchableOpacity onPress={this._addNewAccount} disabled={creatingNewAccount}>
         {creatingNewAccount
           ? <SyncButton
@@ -127,8 +129,6 @@ class BalanceScene extends Component {
           : <Feather name='plus' color={'white'} size={28} />
         }
       </TouchableOpacity>
-    } else {
-      return null
     }
   }
 

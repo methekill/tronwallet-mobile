@@ -1,5 +1,5 @@
 import React from 'react'
-import { BackHandler } from 'react-native'
+import { BackHandler, TouchableOpacity } from 'react-native'
 
 import * as Utils from '../../components/Utils'
 import tl from '../../utils/i18n'
@@ -59,20 +59,21 @@ class FirstTime extends React.Component {
               })
             }}
           />
-          <Utils.VerticalSpacer />
-          <ButtonGradient
-            text='IMPORT FROM PRIVATE KEY'
+          <Utils.VerticalSpacer size='large' />
+          <TouchableOpacity
             onPress={() => {
               this.props.navigation.navigate('Pin', {
                 shouldDoubleCheck,
                 testInput,
-                onSuccess: pin => this.props.context.setPin(pin, () => this.props.navigation.navigate('PrivatekeyRestore'))
+                onSuccess: pin => this.props.context.setPin(pin, () => this.props.navigation.navigate('ImportWallet'))
               })
-            }}
-          />
+            }}>
+            <Utils.Text align='center' size='tiny'>
+            RESTORE FROM PRIVATE KEY
+            </Utils.Text>
+          </TouchableOpacity>
           <Utils.VersionText>{`v${ConfigJson.version}`}</Utils.VersionText>
         </Utils.Content>
-        <Utils.View flex={1} />
       </Utils.Container>
     )
   }

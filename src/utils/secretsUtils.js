@@ -82,7 +82,7 @@ const generateKeypair = async (pin, oneSignalId, mnemonic, vaultNumber, randomly
   Client.registerDeviceForNotifications(oneSignalId, generatedKeypair.address)
 }
 
-export const importFromPrivateKey = async (pin, oneSignalId, address, privateKey) => {
+export const restoreFromPrivateKey = async (pin, oneSignalId, address, privateKey) => {
   await resetSecretData(pin)
   const userSecrets = {
     privateKey,

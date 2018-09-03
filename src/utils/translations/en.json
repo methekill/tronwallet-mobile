@@ -18,6 +18,7 @@
   "success": "Success",
   "warning": "Warning",
   "cancel": "Cancel",
+  "address": "Address",
   "ok": "OK",
   "actionModalTitle": "Would you like to",
   "error": {
@@ -46,6 +47,7 @@
   "clear": "Clear",
   "allIn": "All In",
   "skip": "Skip",
+  "privateKey": "Private Key",
   "balance": {
     "title": "ACCOUNTS",
     "error": {
@@ -121,6 +123,11 @@
       "name": "NAME",
       "address": "ADDRESS"
     }
+  },
+  "importWallet":{
+    "title": "IMPORT PRIVATE KEY",
+    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
+    "button": "IMPORT WALLET"
   },
   "freeze": {
     "title": "FREEZE",
