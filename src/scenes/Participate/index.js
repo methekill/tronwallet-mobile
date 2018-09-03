@@ -130,8 +130,8 @@ class ParticipateHome extends React.Component {
     }
   }
 
-  _updateAssets = async (start) => {
-    const assets = await updateAssets(start, AMOUNT_TO_FETCH)
+  _updateAssets = async (start, end = AMOUNT_TO_FETCH, name) => {
+    const assets = await updateAssets(start, end, name)
     return assets
       .filter(({ issuedPercentage, name, startTime, endTime }) =>
         issuedPercentage < 100 && name !== 'TRX' && name !== 'TWX' && startTime < Date.now() && endTime > Date.now())
@@ -169,11 +169,8 @@ class ParticipateHome extends React.Component {
     try {
       if (name) {
         this.setState({ loading: true, searchMode: true })
-        const assets = await updateAssets(0, 10, name)
-        const filtered = assets.filter(({ issuedPercentage, name, startTime, endTime }) =>
-          issuedPercentage < 100 && name !== 'TRX' && startTime < Date.now() && endTime > Date.now()
-        )
-        this.setState({ currentList: filtered, loading: false })
+        const assets = await this._updateAssets(0, 10, name)
+        this.setState({ currentList: assets, loading: false })
       } else {
         this.setState({ currentList: assetList, loading: false, searchMode: false })
       }
