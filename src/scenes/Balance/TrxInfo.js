@@ -24,7 +24,7 @@ class TrxInfo extends PureComponent {
                   <Motion
                     defaultStyle={{ power: 0 }}
                     style={{
-                      power: spring(freeze[publicKey].total)
+                      power: spring(freeze[publicKey] ? freeze[publicKey].total : 0)
                     }}
                   >
                     {value => (

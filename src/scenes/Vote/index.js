@@ -198,7 +198,7 @@ class VoteScene extends Component {
   _loadUserData = async () => {
     const { freeze, publicKey } = this.props.context
     try {
-      let totalFrozen = freeze[publicKey].total
+      let totalFrozen = freeze[publicKey] ? freeze[publicKey].total : 0
 
       let userVotes = await this._getLastUserVotesFromStore()
       if (userVotes) {
@@ -288,12 +288,14 @@ class VoteScene extends Component {
 
   _onChangeVotes = async (value) => {
     const { currentVotes, currentVoteItem } = this.state
-    const { context } = this.props
-    const totalFrozen = context.freeze[context.publicKey].total
+    const { freeze, publicKey } = this.props.context
+    const totalFrozen = freeze[publicKey] ? freeze[publicKey].total : 0
     const newVotes = { ...currentVotes, [currentVoteItem.address]: value }
 
     const totalUserVotes = this._getVoteCountFromList(newVotes)
-    const totalVotesRemaining = totalFrozen - totalUserVotes
+    const totalVotesRemaining = totalFrozen - totalUserVotes > 0
+      ? totalFrozen - totalUserVotes
+      : 0
 
     const currentFullVotes = await this._getUserFullVotedList(newVotes)
 
@@ -370,8 +372,8 @@ class VoteScene extends Component {
 
   _removeVoteFromList = async (address = null) => {
     const { currentVotes, currentVoteItem } = this.state
-    const { context } = this.props
-    const totalFrozen = context.freeze[context.publicKey].total
+    const { freeze, publicKey } = this.props.context
+    const totalFrozen = freeze[publicKey] ? freeze[publicKey].total : 0
 
     const voteToRemove = address || currentVoteItem.address
     delete currentVotes[voteToRemove]
@@ -379,7 +381,9 @@ class VoteScene extends Component {
     const newTotalVoteCount = this._getVoteCountFromList(currentVotes)
     const newCurrentFullVotes = await this._getUserFullVotedList(currentVotes)
 
-    const newRemaining = totalFrozen - newTotalVoteCount
+    const newRemaining = totalFrozen - newTotalVoteCount > 0
+      ? totalFrozen - newTotalVoteCount
+      : 0
 
     this.setState({
       currentVotes,
