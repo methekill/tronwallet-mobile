@@ -82,6 +82,24 @@ const generateKeypair = async (pin, oneSignalId, mnemonic, vaultNumber, randomly
   Client.registerDeviceForNotifications(oneSignalId, generatedKeypair.address)
 }
 
+export const importFromPrivateKey = async (pin, oneSignalId, address, privateKey) => {
+  await resetSecretData(pin)
+  const userSecrets = {
+    privateKey,
+    address,
+    publicKey: '',
+    confirmed: true,
+    mnemonic: '',
+    password: '',
+    name: 'Main Account',
+    alias: '@main_account'
+  }
+  const secretsStore = await getSecretsStore(pin)
+  await secretsStore.write(() => secretsStore.create('UserSecret', userSecrets, true))
+  Client.registerDeviceForNotifications(oneSignalId, address)
+  AsyncStorage.setItem(USER_STATUS, 'active')
+}
+
 export const confirmSecret = async pin => {
   const secretsStore = await getSecretsStore(pin)
   const allSecrets = secretsStore.objects('UserSecret')

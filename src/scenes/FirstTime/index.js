@@ -59,6 +59,17 @@ class FirstTime extends React.Component {
               })
             }}
           />
+          <Utils.VerticalSpacer />
+          <ButtonGradient
+            text='IMPORT FROM PRIVATE KEY'
+            onPress={() => {
+              this.props.navigation.navigate('Pin', {
+                shouldDoubleCheck,
+                testInput,
+                onSuccess: pin => this.props.context.setPin(pin, () => this.props.navigation.navigate('PrivatekeyRestore'))
+              })
+            }}
+          />
           <Utils.VersionText>{`v${ConfigJson.version}`}</Utils.VersionText>
         </Utils.Content>
         <Utils.View flex={1} />

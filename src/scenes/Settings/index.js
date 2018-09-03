@@ -229,6 +229,7 @@ class Settings extends Component {
 
   _renderList = () => {
     const { seed, userTokens } = this.state
+    const { importedPk } = this.props.context
     const list = [
       {
         title: tl.t('settings.sectionTitles.wallet'),
@@ -257,6 +258,7 @@ class Settings extends Component {
           {
             title: tl.t('settings.backup.title'),
             icon: 'key,-password,-lock,-privacy,-login',
+            hide: importedPk,
             onPress: () => this.props.navigation.navigate('Pin', {
               shouldGoBack: true,
               testInput: pin => pin === this.props.context.pin,

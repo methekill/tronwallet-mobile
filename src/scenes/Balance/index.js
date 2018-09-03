@@ -114,10 +114,27 @@ class BalanceScene extends Component {
     }
   }
 
+  _rightButtonHeader = () => {
+    const { importedPk } = this.props.context
+    const { creatingNewAccount } = this.state
+    if (importedPk) {
+      return <TouchableOpacity onPress={this._addNewAccount} disabled={creatingNewAccount}>
+        {creatingNewAccount
+          ? <SyncButton
+            loading
+            onPress={() => { }}
+          />
+          : <Feather name='plus' color={'white'} size={28} />
+        }
+      </TouchableOpacity>
+    } else {
+      return null
+    }
+  }
+
   render () {
     const {
       seed,
-      creatingNewAccount,
       refreshing
     } = this.state
     const {
@@ -129,17 +146,7 @@ class BalanceScene extends Component {
       <React.Fragment>
         <NavigationHeader
           title={tl.t('balance.title')}
-          rightButton={(
-            <TouchableOpacity onPress={this._addNewAccount} disabled={creatingNewAccount}>
-              {creatingNewAccount
-                ? <SyncButton
-                  loading
-                  onPress={() => { }}
-                />
-                : <Feather name='plus' color={'white'} size={28} />
-              }
-            </TouchableOpacity>
-          )}
+          rightButton={this._rightButtonHeader()}
         />
         <Utils.Container justify='flex-start' align='stretch'>
           <ScrollView
