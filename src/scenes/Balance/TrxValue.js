@@ -22,7 +22,7 @@ class TrxValue extends Component {
   render () {
     const { trxBalance } = this.props
     const { currency, price } = this.props.context
-    const priceToDisplay = !!trxBalance && !!currency && !!price
+    const priceToDisplay = !!trxBalance && !!currency && !!price && !!price[currency]
       ? trxBalance * price[currency].price
       : 0
 
