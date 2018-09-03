@@ -146,8 +146,9 @@ class MarketScene extends Component {
   _renderHeader = () => {
     const { currency } = this.state
     const { price } = this.props.context
-
-    const priceToDisplay = !!price && !!currency ? price[currency].price : 0
+    const priceToDisplay = !!price && !!currency && !!price[currency]
+      ? price[currency].price
+      : 0
 
     return (
       <Utils.ContentWithBackground
