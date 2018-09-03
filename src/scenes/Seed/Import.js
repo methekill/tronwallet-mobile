@@ -104,7 +104,7 @@ class Restore extends Component {
 
   _readPublicKey = e => this.setState({ address: e.data }, () => {
     this._closeModal()
-    this.privateKey.focus()
+    this.privatekey.focus()
   })
 
   _rightContentAddress = () => (
