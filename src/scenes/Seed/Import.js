@@ -17,7 +17,7 @@ import IconButton from '../../components/IconButton'
 // Utils
 import { restoreFromPrivateKey } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
-import { isAddressValid } from '../../services/address'
+import { isAddressValid, isPrivateKeyValid } from '../../services/address'
 import { logSentry } from '../../utils/sentryUtils'
 
 // Service
@@ -39,10 +39,11 @@ class Restore extends Component {
     loading: false
   }
 
-  _changePrivateKey = text => {
+  _changePrivateKey = privateKey => {
+    const pkError = isPrivateKeyValid(privateKey.toUpperCase()) ? null : tl.t('importWallet.error.privateKey')
     this.setState({
-      privateKey: text,
-      pkError: null
+      privateKey: privateKey.toUpperCase(),
+      pkError
     })
   }
   _changeAddress = (address) => {
@@ -121,8 +122,23 @@ class Restore extends Component {
     </React.Fragment>
   )
 
+  _disableImport = () => {
+    const {loading,
+      address,
+      addressError,
+      pkError,
+      privateKey } = this.state
+    return loading || !address || !privateKey || !!pkError || !!addressError
+  }
+
   render () {
-    const { loading, qrModalVisible, address, addressError, privateKey } = this.state
+    const {
+      loading,
+      qrModalVisible,
+      address,
+      addressError,
+      pkError,
+      privateKey } = this.state
     return (
       <Utils.Container>
         <NavigationHeader
@@ -133,7 +149,7 @@ class Restore extends Component {
         <Utils.Content>
           <Input
             innerRef={(input) => { this.address = input }}
-            label={tl.t('address')}
+            label={tl.t('address').toUpperCase()}
             rightContent={this._rightContentAddress}
             value={address}
             onChangeText={to => this._changeAddress(to)}
@@ -152,6 +168,11 @@ class Restore extends Component {
             multiline
             onChangeText={pk => this._changePrivateKey(pk)}
           />
+          {pkError && (
+            <Utils.Text marginY={8} size='xsmall' color='#ff5454'>
+              {pkError}
+            </Utils.Text>
+          )}
           <Utils.Text marginY={20} size='tiny' font='regular'>
             {tl.t('importWallet.message')}
           </Utils.Text>
@@ -161,6 +182,7 @@ class Restore extends Component {
               font='bold'
               text={tl.t('importWallet.button')}
               onPress={this._submit}
+              disabled={this._disableImport()}
             />
           }
         </Utils.Content>

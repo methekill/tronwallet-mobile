@@ -125,9 +125,12 @@
     }
   },
   "importWallet":{
-    "title": "IMPORT PRIVATE KEY",
+    "title": "IMPORT WALLET",
     "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
-    "button": "IMPORT WALLET"
+    "button": "IMPORT",
+    "error": {
+      "privateKey": "Private key invalid or incomplete"
+    }
   },
   "freeze": {
     "title": "FREEZE",
