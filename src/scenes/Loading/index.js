@@ -6,6 +6,7 @@ import * as Utils from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
 
 import { updateAssets } from '../../utils/assetsUtils'
+import { getUserSecrets } from '../../utils/secretsUtils'
 import SecretStore from '../../store/secrets'
 import { withContext } from '../../store/context'
 import { USER_STATUS, USER_FILTERED_TOKENS } from '../../utils/constants'
@@ -28,6 +29,15 @@ class LoadingScene extends Component {
     }
   }
 
+  _getRestoreMode = async pin => {
+    const { setSecretMode } = this.props.context
+    const accounts = await getUserSecrets(pin)
+    if (accounts.length) {
+      const mode = accounts[0].mnemonic ? 'mnemonic' : 'privatekey'
+      setSecretMode(mode)
+    }
+  }
+
   _setFilteredTokens = async () => {
     const filteredTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
     if (filteredTokens === null) {
@@ -38,6 +48,7 @@ class LoadingScene extends Component {
   _tryToOpenStore = async pin => {
     try {
       await SecretStore(pin)
+      this._getRestoreMode(pin)
       return true
     } catch (e) {
       return false

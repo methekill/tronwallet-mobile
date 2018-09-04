@@ -4,11 +4,12 @@ import PropTypes from 'prop-types'
 
 import { FormGroup, CancelWrapper, ErrorText } from './elements'
 import IconButton from '../../../components/IconButton'
-import { VerticalSpacer, HorizontalSpacer, Container, Content } from '../../../components/Utils'
+import { VerticalSpacer, HorizontalSpacer, Content } from '../../../components/Utils'
 import Input from '../../../components/Input'
 import ButtonGradient from '../../../components/ButtonGradient'
 import CancelButton from '../../../components/CancelButton'
 import QRScanner from '../../../components/QRScanner'
+import KeyboardScreen from '../../KeyboardScreen'
 
 import { isAddressValid } from '../../../services/address'
 import { ADD, EDIT } from '../../../utils/constants'
@@ -43,6 +44,9 @@ class ContactsForm extends Component {
     qrModalVisible: false
   }
 
+  componentDidUpdate (prevProps, prevState) {
+    if (prevProps.address !== this.props.address) this._changeAddress(this.props.address)
+  }
   _nextInput = input => {
     if (input === 'address') {
       this.address.focus()
@@ -206,7 +210,7 @@ class ContactsForm extends Component {
     const { type } = this.props
 
     return (
-      <Container>
+      <KeyboardScreen>
         <Content>
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <FormGroup>
@@ -276,7 +280,7 @@ class ContactsForm extends Component {
             checkAndroid6Permissions
           />
         </Modal>
-      </Container>
+      </KeyboardScreen>
     )
   }
 }

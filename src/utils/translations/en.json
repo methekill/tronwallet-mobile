@@ -18,6 +18,7 @@
   "success": "Success",
   "warning": "Warning",
   "cancel": "Cancel",
+  "address": "Address",
   "ok": "OK",
   "actionModalTitle": "Would you like to",
   "error": {
@@ -46,6 +47,7 @@
   "clear": "Clear",
   "allIn": "All In",
   "skip": "Skip",
+  "privateKey": "Private Key",
   "balance": {
     "title": "ACCOUNTS",
     "error": {
@@ -54,7 +56,7 @@
     },
     "chooseCurrency": "Please, choose your preferred currency.",
     "confirmSeed": "Please tap to confirm your 12 seed words",
-    "bandwidth": "BANDWITH",
+    "bandwidth": "BANDWIDTH",
     "tokens": "TOKENS",
     "holdings": "HOLDINGS"
   },
@@ -120,6 +122,14 @@
       "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
       "name": "NAME",
       "address": "ADDRESS"
+    }
+  },
+  "importWallet":{
+    "title": "IMPORT WALLET",
+    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
+    "button": "IMPORT",
+    "error": {
+      "privateKey": "Private key invalid or incomplete"
     }
   },
   "freeze": {

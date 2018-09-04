@@ -63,9 +63,10 @@ class Restore extends React.Component {
 
   _
   _softResetData = async () => {
-    const { resetAccount } = this.props.context
+    const { resetAccount, setSecretMode } = this.props.context
     await Promise.all([resetWalletData(), resetListsData()])
     resetAccount()
+    setSecretMode('mnemonic')
   }
 
   _onKeyPress = (event) => {
