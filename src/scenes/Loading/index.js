@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { AsyncStorage } from 'react-native'
 import SplashScreen from 'react-native-splash-screen'
+import { StackActions, NavigationActions } from 'react-navigation'
 
 import * as Utils from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
@@ -56,8 +57,13 @@ class LoadingScene extends Component {
   }
 
   _handleSuccess = key => {
+    const resetAction = StackActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'App' })],
+      key: null
+    })
     setTimeout(() => {
-      this.props.context.setPin(key, () => this.props.navigation.navigate('App'))
+      this.props.context.setPin(key, () => this.props.navigation.dispatch(resetAction))
     }, 2000)
   }
 
