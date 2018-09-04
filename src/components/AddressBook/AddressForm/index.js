@@ -13,6 +13,7 @@ import QRScanner from '../../../components/QRScanner'
 import { isAddressValid } from '../../../services/address'
 import { ADD, EDIT } from '../../../utils/constants'
 import { isNameValid, isAddressUnique, isAliasUnique } from '../../../utils/validations'
+import { formatAlias } from '../../../utils/contactUtils'
 import getContactStore from '../../../store/contacts'
 import { getUserSecrets } from '../../../utils/secretsUtils'
 import { withContext } from '../../../store/context'
@@ -137,7 +138,7 @@ class ContactsForm extends Component {
     }
 
     if (type === 'name') {
-      const aliasIsUnique = await isAliasUnique(this._formatAlias(item), this.props.context.pin)
+      const aliasIsUnique = await isAliasUnique(formatAlias(item), this.props.context.pin)
 
       if (!aliasIsUnique) {
         return {
@@ -156,8 +157,6 @@ class ContactsForm extends Component {
 
     return stateObj
   }
-
-  _formatAlias = (name) => `@${name.trim().toLowerCase().replace(/ /g, '_')}`
 
   _submitDisabled = () => {
     const { name, address, generalError, nameError, addressError } = this.state
@@ -254,7 +253,7 @@ class ContactsForm extends Component {
                 text={tl.t(`addressBook.shared.${type.toLowerCase()}`)}
                 onPress={() => this._onSubmit({
                   name: name.trim(),
-                  alias: this._formatAlias(name),
+                  alias: formatAlias(name),
                   address
                 })}
                 disabled={this._submitDisabled()}
