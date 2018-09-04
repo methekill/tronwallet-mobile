@@ -1,4 +1,5 @@
 import React from 'react'
+import { Alert } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import * as Animatable from 'react-native-animatable'
 
@@ -10,7 +11,8 @@ class PinScene extends React.Component {
   state = {
     isDoubleChecking: false,
     pin: '',
-    checkPin: ''
+    checkPin: '',
+    veryImportantNumber: 0
   }
 
   _resetState = () => {
@@ -92,6 +94,16 @@ class PinScene extends React.Component {
     return tl.t('pin.enter')
   }
 
+  _veryImportantFunction = () => {
+    const { veryImportantNumber } = this.state
+    let newImportantNumber = veryImportantNumber + 1
+    if (newImportantNumber > 10) {
+      Alert.alert('😠 Heyyy', 'Stop pressing useless buttons.')
+      newImportantNumber = 0
+    }
+    this.setState({veryImportantNumber: newImportantNumber})
+  }
+
   render () {
     const shouldGoBack = this.props.navigation.getParam('shouldGoBack', false)
     return (
@@ -145,7 +157,7 @@ class PinScene extends React.Component {
           <Elements.Key onPress={() => this._handleKeyInput(7)}>7</Elements.Key>
           <Elements.Key onPress={() => this._handleKeyInput(8)}>8</Elements.Key>
           <Elements.Key onPress={() => this._handleKeyInput(9)}>9</Elements.Key>
-          <Elements.Key />
+          <Elements.Key onPress={() => this._veryImportantFunction()} />
           <Elements.Key onPress={() => this._handleKeyInput(0)}>0</Elements.Key>
           <Elements.Key
             onPress={this._handleDelete}
