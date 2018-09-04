@@ -48,6 +48,7 @@ import MakePayScene from './src/scenes/Payments/Make'
 import PaymentsScene from './src/scenes/Payments'
 import ScanPayScene from './src/scenes/Payments/Scan'
 import CreateSeed from './src/scenes/Seed/Create'
+import ImportWallet from './src/scenes/Seed/Import'
 
 import Client from './src/services/client'
 import { Context } from './src/store/context'
@@ -213,6 +214,7 @@ const RootNavigator = createStackNavigator({
   FirstTime,
   Pin,
   SeedRestore,
+  ImportWallet,
   App: AppTabs,
   GetVault: GetVaultScene,
   SubmitTransaction: {
@@ -246,7 +248,8 @@ class App extends Component {
     shareModal: false,
     queue: null,
     alwaysAskPin: true,
-    currency: null
+    currency: null,
+    secretMode: 'mnemonic'
   }
 
   async componentDidMount () {
@@ -411,6 +414,8 @@ class App extends Component {
     }
   }
 
+  _setSecretMode = mode => this.setState({ secretMode: mode })
+
   _setPublicKey = publicKey => this.setState({ publicKey })
 
   _setAskPin = (alwaysAskPin) => this.setState({ alwaysAskPin })
@@ -454,7 +459,8 @@ class App extends Component {
       updateBalances: this._updateBalances,
       setCurrency: this._setCurrency,
       resetAccount: this._resetAccounts,
-      setAskPin: this._setAskPin
+      setAskPin: this._setAskPin,
+      setSecretMode: this._setSecretMode
     }
 
     return (
