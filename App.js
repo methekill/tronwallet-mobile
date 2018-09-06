@@ -242,6 +242,7 @@ class App extends Component {
     freeze: {},
     balances: {},
     accounts: [],
+    userSecrets: [],
     publicKey: null,
     pin: null,
     oneSignalId: null,
@@ -290,22 +291,25 @@ class App extends Component {
     // console.log('isActive: ', openResult.notification.isAppInFocus)
     // console.log('openResult: ', openResult)
   }
-
-  _resetAccounts = () => this.setState({accounts: [], publicKey: null})
-
   _loadUserData = async () => {
+    // accounts = filtered accounts by hidden status
+    // userSecrets =  ref to all userSecrets
+
     let accounts = await getUserSecrets(this.state.pin)
+    const userSecrets = accounts
     // First Time
     if (!accounts.length) return
 
     if (this.state.accounts) {
       // merge store with state
-      accounts = accounts.map(account => {
-        const stateAccount = this.state.accounts.find(item => item.address === account.address)
-        return Object.assign({}, stateAccount, account)
-      })
+      accounts = accounts
+        .filter(account => !account.hide)
+        .map(account => {
+          const stateAccount = this.state.accounts.find(item => item.address === account.address)
+          return Object.assign({}, stateAccount, account)
+        })
     }
-    this.setState({ accounts }, async () => {
+    this.setState({ accounts, userSecrets }, async () => {
       await this._updateBalances(accounts)
       await this._updateAllFreeze(accounts)
       if (!this.state.publicKey) {
@@ -427,6 +431,13 @@ class App extends Component {
     })
   }
 
+  _resetAccounts = () => this.setState({accounts: [], publicKey: null})
+
+  _hideAccount = address => {
+    const newAccounts = this.state.accounts.filter(acc => acc.address !== address)
+    this.setState({accounts: newAccounts})
+  }
+
   _openShare = () => {
     this.setState({
       shareModal: true
@@ -459,6 +470,7 @@ class App extends Component {
       updateBalances: this._updateBalances,
       setCurrency: this._setCurrency,
       resetAccount: this._resetAccounts,
+      hideAccount: this._hideAccount,
       setAskPin: this._setAskPin,
       setSecretMode: this._setSecretMode
     }

@@ -44,8 +44,7 @@ class BalanceScene extends Component {
     balances: [],
     currency: null,
     accountModalVisible: false,
-    newAccountName: '',
-    accountNameError: null
+    newAccountName: ''
   }
 
   componentDidMount () {
@@ -76,8 +75,8 @@ class BalanceScene extends Component {
   }
 
   _createAccountPressed = () => {
-    const { accounts } = this.props.context
-    const newAccountName = `Account ${accounts.length}`
+    const { userSecrets } = this.props.context
+    const newAccountName = `Account ${userSecrets.length}`
 
     this.setState({ accountModalVisible: true, newAccountName, accountNameError: null })
   }

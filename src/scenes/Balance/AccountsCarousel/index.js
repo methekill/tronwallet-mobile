@@ -1,7 +1,7 @@
 import React from 'react'
 import Carousel from 'react-native-snap-carousel'
 import LinearGradient from 'react-native-linear-gradient'
-import { TouchableOpacity, Dimensions } from 'react-native'
+import { TouchableOpacity, Dimensions, Alert } from 'react-native'
 import ActionSheet from 'react-native-actionsheet'
 
 import { withContext } from '../../../store/context'
@@ -15,7 +15,10 @@ import {
 } from './elements'
 import tl from '../../../utils/i18n'
 import { Colors } from '../../../components/DesignSystem'
+import ClearButton from '../../../components/ClearButton'
 import CardInfo from './CardInfo'
+import { hideSecret } from '../../../utils/secretsUtils'
+import { logSentry } from '../../../utils/sentryUtils'
 
 const CURRENCIES = [tl.t('cancel'), 'TRX', 'USD', 'EUR', 'AUD', 'GBP', 'BTC', 'ETH']
 
@@ -39,6 +42,28 @@ class AccountsCarousel extends React.Component {
   // expose current index to parent
   currentIndex = () => this.carousel.currentIndex
 
+  _alertHideAccount = (address) => {
+    Alert.alert(
+      tl.t('warning'),
+      tl.t('hideAccount'),
+      [
+        {text: tl.t('cancel'), style: 'cancel'},
+        {text: 'Remove', onPress: () => this._handleHideAccount(address)}
+      ]
+    )
+  }
+  _handleHideAccount = async (address) => {
+    try {
+      const { pin, hideAccount } = this.props.context
+      const nextAccountIndex = this.currentIndex() - 1
+      await hideSecret(pin, address)
+      this.carousel.snapToItem(nextAccountIndex)
+      hideAccount(address)
+    } catch (error) {
+      logSentry(error, 'Hide Account Handler')
+      Alert.alert(tl.t('warning'), tl.t('error.hideAccount'))
+    }
+  }
   _handleCurrencyChange = async (index) => {
     if (index) {
       const currency = CURRENCIES[index]
@@ -51,7 +76,7 @@ class AccountsCarousel extends React.Component {
     .concat('...')
     .concat(address.substring(25, address.length))
 
-  _renderItem = ({ item }) => {
+  _renderItem = ({ item, index }) => {
     const { freeze, publicKey, currency } = this.props.context
     return (
       <CarouselCard>
@@ -99,6 +124,13 @@ class AccountsCarousel extends React.Component {
               </Utils.Row>
             )}
           </React.Fragment>
+          {
+            index !== 0 &&
+            <ClearButton
+              style={{position: 'absolute', right: 20, bottom: 20}}
+              onPress={() => this._alertHideAccount(item.address)}
+            />
+          }
         </LinearGradient>
       </CarouselCard>
     )

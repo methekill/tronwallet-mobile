@@ -27,8 +27,8 @@ import Switch from 'react-native-switch-pro'
 import * as Utils from '../../components/Utils'
 import { Colors, Spacing } from '../../components/DesignSystem'
 import NavigationHeader from '../../components/Navigation/Header'
-import { SectionTitle } from './elements'
-
+import { SectionTitle, MultiSelectColors, MultiSelectStyles } from './elements'
+import AccountRecover from './RecoverAccount'
 // Utils
 import getBalanceStore from '../../store/balance'
 import { orderAssets } from '../../utils/assetsUtils'
@@ -37,7 +37,7 @@ import tl from '../../utils/i18n'
 import fontelloConfig from '../../assets/icons/config.json'
 import { withContext } from '../../store/context'
 import { hardResetWalletData } from '../../utils/userAccountUtils'
-import { getUserSecrets } from '../../utils/secretsUtils'
+import { getUserSecrets, unhideSecret } from '../../utils/secretsUtils'
 import Client from '../../services/client'
 import Loading from '../../components/LoadingScene'
 import { logSentry } from '../../utils/sentryUtils'
@@ -76,7 +76,8 @@ class Settings extends Component {
     changingSubscription: false,
     userTokens: [],
     userSelectedTokens: [],
-    currentSelectedTokens: []
+    currentSelectedTokens: [],
+    hiddenAccounts: []
   }
 
   componentDidMount () {
@@ -86,7 +87,7 @@ class Settings extends Component {
     OneSignal.getPermissionSubscriptionState(
       status => this.setState({ subscriptionStatus: status.userSubscriptionEnabled === 'true' })
     )
-    this._didFocus = this.props.navigation.addListener('didFocus', this._getSelectedTokens)
+    this._didFocus = this.props.navigation.addListener('didFocus', () => this._onLoadData(), this._getSelectedTokens)
   }
 
   componentWillUnmount () {
@@ -94,10 +95,11 @@ class Settings extends Component {
   }
 
   _onLoadData = async () => {
-    const data = await getUserSecrets(this.props.context.pin)
+    const accounts = await getUserSecrets(this.props.context.pin)
+    const hiddenAccounts = accounts.filter(account => account.hide)
     // When hard reseting wallet data will be empty
-    const seed = data.length ? data[0].mnemonic : this.state.seed
-    this.setState({ seed, loading: false })
+    const seed = accounts.length ? accounts[0].mnemonic : this.state.seed
+    this.setState({ seed, loading: false, hiddenAccounts })
   }
 
   _getSelectedTokens = async () => {
@@ -146,6 +148,18 @@ class Settings extends Component {
       ],
       { cancelable: false }
     )
+  }
+
+  _onUnhideAccounts = async (accountsSelected = []) => {
+    const { loadUserData, pin } = this.props.context
+    if (!accountsSelected.length) return
+    try {
+      unhideSecret(pin, accountsSelected)
+      this._onLoadData()
+      loadUserData()
+    } catch (error) {
+      logSentry(error, 'Hide Accounts Error')
+    }
   }
 
   _changePin = () => {
@@ -337,6 +351,17 @@ class Settings extends Component {
             onPress: () => this.props.navigation.navigate('NetworkConnection')
           }
         ]
+      },{
+        title: tl.t('settings.sectionTitles.accounts'),
+        sectionLinks: [
+          {
+            title:  tl.t('settings.accounts.restoreAccounts'),
+            icon: 'files,-agreement,-notes,-docs,-pages',
+            onPress: () => this.state.hiddenAccounts.length
+             ? this.AccountRecover.innerComponent._toggleSelector()
+             : Alert.alert(tl.t('account'), tl.t('settings.accounts.noAccounts'))
+          },
+        ]
       }
     ]
 
@@ -388,7 +413,7 @@ class Settings extends Component {
   }
 
   render () {
-    const { userTokens, currentSelectedTokens, uri, modalVisible } = this.state
+    const { userTokens, currentSelectedTokens, uri, modalVisible, hiddenAccounts } = this.state
     const languageOptions = LANGUAGES.map(language => language.value)
 
     return (
@@ -438,20 +463,14 @@ class Settings extends Component {
           searchPlaceholderText={tl.t('settings.token.search')}
           confirmText={tl.t('settings.token.confirm')}
           noResultsComponent={this._renderNoResults()}
-          colors={{
-            text: Colors.primaryText,
-            searchPlaceholderTextColor: Colors.primaryText,
-            searchSelectionColor: Colors.primaryText,
-            chipColor: Colors.primaryText,
-            success: Colors.secondaryGradient[0],
-            cancel: Colors.secondaryGradient[0],
-            primary: Colors.secondaryGradient[0]
-          }}
-          styles={{
-            container: styles.container,
-            separator: styles.separator,
-            searchBar: styles.searchBar
-          }}
+          colors={MultiSelectColors}
+          styles={MultiSelectStyles}
+        />
+        <AccountRecover
+          ref={ref => {this.AccountRecover = ref}}
+          hiddenAccounts={hiddenAccounts}
+          onUnhide={this._onUnhideAccounts}
+          renderNoResults={this._renderNoResults}
         />
         <ScrollView>
           {this._renderList()}
@@ -460,6 +479,7 @@ class Settings extends Component {
     )
   }
 }
+
 
 const styles = StyleSheet.create({
   card: {
@@ -475,17 +495,7 @@ const styles = StyleSheet.create({
   },
   rank: {
     paddingRight: 10
-  },
-  container: {
-    backgroundColor: Colors.lightBackground
-  },
-  separator: {
-    backgroundColor: Colors.lightestBackground
-  },
-  searchBar: {
-    backgroundColor: Colors.lightBackground
   }
-
 })
 
 export default withContext(Settings)
