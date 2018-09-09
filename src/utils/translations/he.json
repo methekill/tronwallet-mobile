@@ -149,7 +149,7 @@
     "error": {
       "minimumAmount": "The minimum amount for any freeze transaction is 1.",
       "insufficientBalance": "Insufficient TRX balance",
-      "roundNumbers": "Can only freeze round numbers"
+      "roundNumbers": "Share TronWallet address"
     },
     "amount": "FREEZE AMOUNT",
     "balance": "Balance"
@@ -304,7 +304,7 @@
           "storage": "Error getting node ip from local storage",
           "invalidIp": "Please put a valid IP",
           "update": "Something went wrong while updating nodes ip",
-          "reset": "Something wrong while reseting node ip"
+          "reset": "Share"
         },
         "success": {
           "updated": "Updated",
