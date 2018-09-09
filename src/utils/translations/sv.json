@@ -1,78 +1,78 @@
 {
   "relativeTime": {
-    "future": "in %s",
-    "past": "%s ago",
-    "s": "a few seconds",
-    "ss": "%d seconds",
-    "m": "a minute",
-    "mm": "%d minutes",
-    "h": "an hour",
-    "hh": "%d hours",
-    "d": "a day",
-    "dd": "%d days",
-    "M": "a month",
-    "MM": "%d months",
-    "y": "a year",
-    "yy": "%d years"
+    "future": "i %s",
+    "past": "%s sedan",
+    "s": "en få sekunder",
+    "ss": "%d sekunder",
+    "m": "en minut",
+    "mm": "%d minuter",
+    "h": "ek timma",
+    "hh": "%d timmar",
+    "d": "en dag",
+    "dd": "%d dagar",
+    "M": "en månad",
+    "MM": "%d månader",
+    "y": "ett år",
+    "yy": "%d flera år"
   },
-  "success": "Success",
-  "warning": "Warning",
-  "cancel": "Cancel",
+  "success": "Framgång",
+  "warning": "Varning",
+  "cancel": "Avbryt",
   "address": "Address",
-  "ok": "OK",
-  "actionModalTitle": "Would you like to",
+  "ok": "Ok",
+  "actionModalTitle": "Skulle du vilja",
   "account": "Account",
   "restore": "Restore",
   "error": {
-    "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
-    "buildingTransaction": "Error while building transaction, try again.",
-    "gettingTransaction": "Error while getting transaction.",
-    "clipboardCopied": "Something wrong while copying",
+    "default": "Oj någonting gick fel. försök igen senare, om felet återkommer försök att uppdatera nätverks insträllningarna.",
+    "buildingTransaction": "Fel med att samla överföring, försök igen.",
+    "gettingTransaction": "Fel med att ta imot överföring.",
+    "clipboardCopied": "Något fel med kopiering",
     "hideAccount": "Something went wrong deleting account, try again'"
   },
-  "tronPower": "TRON POWER",
-  "trxPrice": "TRX PRICE",
-  "confirmed": "Confirmed",
-  "unconfirmed": "Unconfirmed",
-  "copyAddress": "COPY ADDRESS",
+  "tronPower": "TRON KRAFT",
+  "trxPrice": "TRX PRIS",
+  "confirmed": "Avklarat",
+  "unconfirmed": "Oavklarad",
+  "copyAddress": "KOPIERA ADRESS",
   "transactionType": {
-    "transfer": "Transfer",
-    "transferAsset": "Transfer Asset",
-    "freeze": "Freeze",
-    "unfreeze": "Unfreeze",
-    "vote": "Vote",
-    "participate": "Participate",
-    "create": "Create",
-    "undefined": "Undefined Type"
+    "transfer": "Överföring",
+    "transferAsset": "Överför Valuta",
+    "freeze": "Frys",
+    "unfreeze": "Ofryst",
+    "vote": "Rösta",
+    "participate": "Delta",
+    "create": "Skapa",
+    "undefined": "Odentifierad Typ"
   },
-  "close": "Close",
-  "ends": "Ends",
-  "clear": "Clear",
-  "allIn": "All In",
-  "skip": "Skip",
+  "close": "Stängt",
+  "ends": "Slutar",
+  "clear": "Färdig",
+  "allIn": "Alt In",
+  "skip": "Hoppa Över",
   "privateKey": "Private Key",
   "balance": {
-    "title": "ACCOUNTS",
+    "title": "Konton",
     "error": {
-      "loadingData": "An error occured while loading the data.",
-      "savingCurrency": "Error saving preferred currency"
+      "loadingData": "Ett fel uppstod under data laddning.",
+      "savingCurrency": "Fel med att spara vald valuta"
     },
-    "chooseCurrency": "Please, choose your preferred currency.",
-    "confirmSeed": "Please tap to confirm your 12 seed words",
+    "chooseCurrency": "Varvänlig, välj din önskade valuta.",
+    "confirmSeed": "Var vänligen tryck för aceptera dina 12 kod ord",
     "bandwidth": "BANDWIDTH",
-    "tokens": "TOKENS",
-    "holdings": "HOLDINGS"
+    "tokens": "Valuta",
+    "holdings": "Besparingar"
   },
   "hideAccount": "You are about to remove this account. You can restore it later in the settings",
   "components": {
     "share": {
-      "title": "Share TronWallet address",
-      "message": "This is my TronWallet address:\n\n {{address}}\n\nTip: Once you have copied it you can paste it in your TronWallet app using the special button on Send screen.",
-      "dialogTitle": "Share using:"
+      "title": "Dela TronWallet address",
+      "message": "Detta är min TronWallet adress:\n\n{{address}}\n\nTips: när du har kopierat det kan du klistra in det i din tronwallet app med hjälpa av den speciella knappen på skicka sidan.",
+      "dialogTitle": "Dela användning:"
     },
     "QRScanner": {
-      "title": "Address Scanner",
-      "scan": "Scan",
+      "title": "Adress skannare",
+      "scan": "Skanna",
       "explanation": "Scan the QRCode to identify the target user",
       "permissionMessage": "To scan the public key the app needs your permission to access the camera."
     },
@@ -108,24 +108,24 @@
     },
     "contacts": {
       "delete": {
-        "title": "Delete Contact",
-        "message": "Do you really want to delete this contact?",
-        "cancelButton": "Cancel",
-        "okButton": "OK"
+        "title": "Ta bort kontakt",
+        "message": "Är du verkligen säker på att du vill ta bort den här kontakten?",
+        "cancelButton": "Avbryt",
+        "okButton": "Ok"
       },
-      "empty": "Your address book is empty, add a new contact using the button below.",
-      "loadError": "There was a problem loading the contacts. Please try again.",
-      "addContact": "ADD CONTACT",
-      "addToContacts": "ADD TO CONTACTS"
+      "empty": "Din adressbok är tom, lägg till en ny kontakt genom att klicka på knappen under till.",
+      "loadError": "Det uppstod ett problem med hämta kontakterna. var god och försök igen.",
+      "addContact": "LÄGG TILL KONTAKT",
+      "addToContacts": "LÄGG TILL SOM KONTAKT"
     },
     "form": {
-      "generalError": "There was a problem submitting this form. Please contact an administrator.",
-      "nameError": "The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.",
-      "addressError": "Something isn't right with the address. Please double check for typos.",
-      "uniqueAddressError": "The key must be unique. Please choose a different address.",
-      "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
-      "name": "NAME",
-      "address": "ADDRESS"
+      "generalError": "Det uppstod ett problem med att skicka detta formulär. var snäll och kontakta administratör.",
+      "nameError": "Namnfältet måste börja med en bokstav, innehålla högst 32 tecken, och det kommer att acceptera endast bokstäver, siffror och blanksteg.",
+      "addressError": "Någonting är fel med denna adress. var god och titta efter stavfel.",
+      "uniqueAddressError": "Nyckeln måste vara unikt. Vänligen välj en annan adress.",
+      "uniqueAliasError": "Namn i din adressbok måste vara unika. Vänligen välj en annan.",
+      "name": "Namn",
+      "address": "ADRESS"
     }
   },
   "importWallet": {
@@ -137,26 +137,26 @@
     }
   },
   "freeze": {
-    "title": "FREEZE",
+    "title": "FRYSA",
     "unfreeze": {
-      "title": "UNFREEZE",
-      "inThreeDays": "After a three day period you can unfreeze your TRX",
-      "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
-      "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
-      "inXDays": "You can unfreeze your TRX in {{days}} days.",
-      "now": "You can unfreeze your TRX now."
+      "title": "LÅS UPP",
+      "inThreeDays": "Efter en tre dagars period kan du låsa upp din TRX",
+      "inXMinutes": "Du kan frigöra din TRX på {{minutes}} minuter.",
+      "inXHours": "Du kan frigöra din TRX i {{hours}} timmar.",
+      "inXDays": "Du kan frigöra din TRX i {{days}} dagar.",
+      "now": "Du kan låsa upp din TRX nu."
     },
     "error": {
-      "minimumAmount": "The minimum amount for any freeze transaction is 1.",
-      "insufficientBalance": "Insufficient TRX balance",
-      "roundNumbers": "Can only freeze round numbers"
+      "minimumAmount": "Minsta belopp för att frysa en transaktion är 1.",
+      "insufficientBalance": "Otillräcklig TRX balans",
+      "roundNumbers": "Kan bara att frysa runda tal"
     },
-    "amount": "FREEZE AMOUNT",
-    "balance": "Balance"
+    "amount": "FRYSA BELOPP",
+    "balance": "Kapital"
   },
   "getVault": {
-    "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
-    "downloadHere": "You can download it here"
+    "notInstalled": "Det verkar som du inte har Tron Vault installerad i telefonen för att gå vidare med din transaktion.",
+    "downloadHere": "Du kan hämta det här"
   },
   "market": {
     "time": {
@@ -164,32 +164,32 @@
       "day": "1D",
       "week": "1W",
       "month": "1M",
-      "all": "ALL"
+      "all": "ALLA"
     },
-    "highest": "HIGHEST",
-    "lowest": "LOWEST",
-    "volume": "VOLUME 24H",
-    "cap": "MARKET CAP",
-    "supply": "CIRCULATING SUPPLY"
+    "highest": "HÖGSTA",
+    "lowest": "LÄGSTA",
+    "volume": "VOLYM 24H",
+    "cap": "BÖRSVÄRDE",
+    "supply": "CIRKULERANDE ANTAL"
   },
   "participate": {
-    "title": "PARTICIPATE",
-    "featured": "FEATURED",
+    "title": "DELTA",
+    "featured": "PRESENTERADE",
     "button": {
-      "confirm": "CONFIRM",
-      "moreInfo": "MORE INFO",
-      "buyNow": "BUY NOW"
+      "confirm": "BEKRÄFTA",
+      "moreInfo": "MER INFORMATION",
+      "buyNow": "KÖP NU"
     },
     "error": {
-      "insufficientBalance": "Not enough funds (TRX) to participate.",
+      "insufficientBalance": "Inte tillräckligt med pengar (TRX) att delta.",
       "insufficientTrx": {
-        "title": "You need to buy at least one TRX worth of {{token}}.",
-        "message": "Currently you are buying only {{amount}}."
+        "title": "Du måste köpa minst en TRX värt {{token}}.",
+        "message": "För närvarande köper du endast {{amount}}."
       }
     },
-    "warning": "You don't have enough TRX to buy that many {{token}}",
-    "amountToBuy": "AMOUNT TO BUY",
-    "pricePerToken": "PRICE PER TOKEN",
+    "warning": "Du har inte tillräckligt TRX att köpa att många {{token}}",
+    "amountToBuy": "MÄNGD ATT KÖPA",
+    "pricePerToken": "PRIS PER TOKEN",
     "tokenDescription": "TOKEN DESCRIPTION",
     "tokenInfo": "TOKEN INFO",
     "token": "TOKEN",
@@ -267,28 +267,28 @@
   "send": {
     "title": "SEND",
     "error": {
-      "insufficientBalance": "Not enough balance.",
-      "gettingBalance": "Error while getting balance data",
-      "incompleteAddress": "Address is either incomplete or invalid.",
-      "invalidReceiver": "Invalid receiver address",
-      "selectBalance": "Select a balance first",
-      "invalidAmount": "Invalid amount"
+      "insufficientBalance": "Inte tillräckligt saldo.",
+      "gettingBalance": "Ett fel uppstod med hämtning av saldo data",
+      "incompleteAddress": "Adress är ofullständig eller ogiltig.",
+      "invalidReceiver": "Ogiltig mottagare adress",
+      "selectBalance": "Välj balans först",
+      "invalidAmount": "Ogiltigt belopp"
     },
     "input": {
       "token": "TOKEN",
-      "to": "TO",
-      "amount": "AMOUNT",
-      "description": "DESCRIPTION (OPTIONAL)"
+      "to": "TILL",
+      "amount": "BELOPP",
+      "description": "BESKRIVNING (VALFRITT)"
     },
-    "available": "available",
-    "chooseToken": "Please, choose a token below.",
-    "minimumAmount": "The minimum amount for any send transaction is 0.000001."
+    "available": "tillgängliga",
+    "chooseToken": "Vänligen, Välj en token nedan.",
+    "minimumAmount": "Minsta belopp för någon skicka transaktion är marginal på 0,000001."
   },
   "settings": {
-    "title": "SETTINGS",
+    "title": "INSTÄLLNINGAR",
     "sectionTitles": {
-      "wallet": "WALLET",
-      "security": "SECURITY",
+      "wallet": "PLÅNBOK",
+      "security": "SÄKERHET",
       "notification": "NOTIFICATIONS AND IDIOM",
       "accounts": "ACCOUNTS MANAGEMENT"
     },
