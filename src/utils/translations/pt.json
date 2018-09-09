@@ -18,17 +18,23 @@
   "success": "Sucesso",
   "warning": "Atenção",
   "cancel": "Cancelar",
+  "address": "Address",
   "ok": "OK",
+  "actionModalTitle": "Would you like to",
+  "account": "Account",
+  "restore": "Restore",
   "error": {
     "default": "Oops, Algo deu errado. Tente novamente mais tarde, se o erro persistir tente atualizar as configurações de rede.",
     "buildingTransaction": "Erro ao montar a transação, tente novamente.",
     "gettingTransaction": "Erro ao buscar a transação.",
-    "clipboardCopied": "Algo deu errado ao copiar."
+    "clipboardCopied": "Algo deu errado ao copiar.",
+    "hideAccount": "Something went wrong deleting account, try again'"
   },
   "tronPower": "FORÇA TRON",
   "trxPrice": "PREÇO TRX",
   "confirmed": "Confirmado",
   "unconfirmed": "Não Confirmado",
+  "copyAddress": "COPY ADDRESS",
   "transactionType": {
     "transfer": "Transferência",
     "transferAsset": "Transferência de Ativo",
@@ -39,9 +45,12 @@
     "create": "Criação",
     "undefined": "Tipo Indefinido"
   },
+  "close": "Close",
   "ends": "Termina",
   "clear": "Limpar",
   "allIn": "Apostar Tudo",
+  "skip": "Skip",
+  "privateKey": "Private Key",
   "balance": {
     "title": "SALDO",
     "error": {
@@ -54,6 +63,7 @@
     "tokens": "MOEDAS",
     "holdings": "QTD"
   },
+  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
   "components": {
     "share": {
       "title": "Compartilhar endereço TronWallet",
@@ -62,6 +72,7 @@
     },
     "QRScanner": {
       "title": "Scanner de Endereço",
+      "scan": "Scan",
       "explanation": "Escaneie o QRCode para identificar o usuário alvo",
       "permissionMessage": "Para escanear a chave pública o app precisa da sua permissão para acessar a camera"
     },
@@ -104,7 +115,8 @@
       },
       "empty": "Seu caderno de contatos está vazio, adicione um novo contato utilizando o botão abaixo.",
       "loadError": "Houve um problema carregando os contatos. Por favor tente novamente.",
-      "addContact": "ADICIONAR CONTATO"
+      "addContact": "ADICIONAR CONTATO",
+      "addToContacts": "ADD TO CONTACTS"
     },
     "form": {
       "generalError": "Houve um problema enviando este formulário. Por favor, contate um administrador.",
@@ -114,9 +126,14 @@
       "uniqueAliasError": "Não deve haver nomes duplicados. Por favor, use um nome diferente.",
       "name": "NOME",
       "address": "ENDEREÇO"
-    },
-    "modal": {
-      "title": "Você gostaria de"
+    }
+  },
+  "importWallet": {
+    "title": "IMPORT WALLET",
+    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
+    "button": "IMPORT",
+    "error": {
+      "privateKey": "Private key invalid or incomplete"
     }
   },
   "freeze": {
@@ -193,6 +210,7 @@
   "pin": {
     "title": "VERIFICAÇÃO DE SEGURANÇA",
     "enter": "Digite o PIN",
+    "new": "Enter New PIN",
     "reenter": "Redigite o PIN"
   },
   "receive": {
@@ -201,6 +219,10 @@
     "button": {
       "copy": "Copiar",
       "share": "Compartilhar"
+    },
+    "tabs": {
+      "share": "SHARE",
+      "request": "REQUEST"
     }
   },
   "rewards": {
@@ -223,6 +245,7 @@
     },
     "create": {
       "title": "CONFIRMAR SEED DA CARTEIRA",
+      "titleConfirm": "CONFIRM WALLET SEED",
       "error": "Oops, nós temos um problema. Por favor reinicie a aplicação.",
       "generateNew": "Isso irá gerar uma carteira completamente nova.",
       "button": {
@@ -255,8 +278,7 @@
       "token": "MOEDA",
       "to": "PARA",
       "amount": "QUANTIA",
-      "description": "DESCRIÇÃO (OPCIONAL)",
-      "placeholder": "Descreva esta transferência"
+      "description": "DESCRIÇÃO (OPCIONAL)"
     },
     "available": "disponível",
     "chooseToken": "Por favor, escolha um moeda abaixo.",
@@ -267,15 +289,14 @@
     "sectionTitles": {
       "wallet": "CARTEIRA",
       "security": "SEGURANÇA",
-      "notification": "NOTIFICAÇÕES E IDIOMAS"
+      "notification": "NOTIFICAÇÕES E IDIOMAS",
+      "accounts": "ACCOUNTS MANAGEMENT"
     },
     "notifications": {
-      "title": "Notificações",
-      "description": "Habilita ou desabilita recebimento de notificações"
+      "title": "Notificações"
     },
     "network": {
       "title": "Rede",
-      "description": "Escolha um nó de sua preferência",
       "modal": {
         "title": "REDE",
         "explanation": "Com essa opção você pode selecionar o nó que melhor atender duas expectativas e necessidades. Por favor, seja cuidadoso ao atualizar o IP do nó, uma vez que o IP errado pode trazer malfuncionamentos para sua carteira. Exemplo: 35.231.121.122:50051",
@@ -306,46 +327,62 @@
       }
     },
     "backup": {
-      "title": "Backup de Carteira",
-      "description": "Faça uma cópia de segurança para suas palavras secretas"
+      "title": "Backup de Carteira"
     },
     "restore": {
-      "title": "Restaurar Carteira",
-      "description": "Restaurar as 12 palavras secretas usadas anteriormente"
+      "title": "Restaurar Carteira"
     },
     "reset": {
       "title": "Resetar Carteira",
-      "description": "Reinicia todos os dado da carteira atual",
       "warning": "Atenção: Essa ação irá apagar todos os dados salvos, incluindo suas 12 palavras secretas. Se você não anotou seu segredo, por favor faça antes de continuar.",
       "button": "OK, eu entendo"
     },
+    "pin": {
+      "title": "Change Pin",
+      "success": "Pin successfully changed!"
+    },
     "language": {
       "title": "Alterar Idioma",
-      "description": "Muda o idioma do aplicativo",
       "choose": "Por favor, escolha um Idioma abaixo:",
-      "success": "Idioma alterado para {{language}}, por favor reinicie o app",
+      "success": {
+        "title": "Language changed to {{language}}",
+        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
+      },
+      "button": {
+        "confirm": "Yes, restart now!",
+        "cancel": "No, I'll do it later"
+      },
       "error": "Erro ao salvar Idioma"
     },
     "token": {
       "title": "Filtrar Moedas",
-      "description": "Escolha quais moedas exibir",
       "search": "Buscar moedas",
       "confirm": "Salvar",
       "noResult": "Nenhum resultado..."
     },
     "about": {
       "title": "Sobre",
-      "description": "TronWallet é uma P2P Crypto Wallet de código aberto para a rede TRON construído com React Native. Com ela você pode enviar/receber Tokens, votar em um Super Representante, participar em uma venda de token, acompanhar suas transações e muito mais. Toque no link abaixo para um tutorial detalhado de como usar o app.",
+      "description": "TronWallet é uma P2P Crypto Wallet de código aberto para a rede TRON construído com React Native. Com ela você pode enviar\/receber Tokens, votar em um Super Representante, participar em uma venda de token, acompanhar suas transações e muito mais. Toque no link abaixo para um tutorial detalhado de como usar o app.",
       "tutorial": "TUTORIAL"
     },
     "accepts": {
       "title": "Quem aceita TRX?"
     },
-    "partners": "PARCEIROS"
+    "accounts": {
+      "title": "Accounts",
+      "search": "Search accounts",
+      "restoreAccounts": "Restore Accounts",
+      "noAccounts": "No accounts to restore"
+    },
+    "partners": "PARCEIROS",
+    "askPin": "Always ask PIN"
   },
   "submitTransaction": {
     "title": "DETALHES DA TRANSAÇÃO",
     "notification": "Você recebeu uma transação de {{address}}",
+    "notificationPayment": "You have received a payment from {{address}}",
+    "data": "DATA",
+    "time": "TIME",
     "button": {
       "tryAgain": "Tentar novamente",
       "submit": "ENVIAR TRANSAÇÃO"
@@ -374,7 +411,8 @@
       "contractValidateTapos": "Dados da transação inválidos (TAPOS). Favor tentar novamente mais tarde.",
       "tooBig": "Transação grande demais para ser enviada.",
       "expiration": "Transação expirada. Favor tentar novamente.",
-      "serverBusy": "Servidor ocupado."
+      "serverBusy": "Servidor ocupado.",
+      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
     },
     "totalVotes": "Total de Votos"
   },
@@ -419,6 +457,16 @@
     "search": "Buscar",
     "error": "Oops, algo não carregou corretamente. Tente recarregar."
   },
+  "scanPayment": {
+    "scan": "SCAN",
+    "error": {
+      "receiver": "Receiver address invalid",
+      "token": "Token not valid",
+      "amount": "Amount not valid",
+      "description": "Description too long",
+      "code": "Payment code invalid. Please, scan a valid one"
+    }
+  },
   "makePayment": {
     "pay": "PAGAMENTO",
     "confirm": "CONFIRMAR PAGAMENTO",
@@ -438,5 +486,17 @@
   },
   "requestPayment": {
     "title": "REQUERIR PAGAMENTO"
+  },
+  "newAccount": {
+    "title": "Account Creation",
+    "placeholder": "My precious account",
+    "success": {
+      "title": "New account successfully created",
+      "message": "You can edit the name on your address book"
+    },
+    "failure": {
+      "title": "New account warning",
+      "message": "To add a new account you should have at least one transaction on your last account."
+    }
   }
 }
