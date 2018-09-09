@@ -18,17 +18,17 @@
   "success": "Success",
   "warning": "Warning",
   "cancel": "Cancel",
-  "address": "Address",
+  "address": "地址",
   "ok": "OK",
   "actionModalTitle": "Would you like to",
-  "account": "Account",
-  "restore": "Restore",
+  "account": "帐户",
+  "restore": "恢复",
   "error": {
     "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
     "buildingTransaction": "Error while building transaction, try again.",
     "gettingTransaction": "Error while getting transaction.",
     "clipboardCopied": "Something wrong while copying",
-    "hideAccount": "Something went wrong deleting account, try again'"
+    "hideAccount": "删除帐户有问题，请重试'"
   },
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRICE",
@@ -50,7 +50,7 @@
   "clear": "Clear",
   "allIn": "All In",
   "skip": "Skip",
-  "privateKey": "Private Key",
+  "privateKey": "私钥",
   "balance": {
     "title": "ACCOUNTS",
     "error": {
@@ -59,11 +59,11 @@
     },
     "chooseCurrency": "Please, choose your preferred currency.",
     "confirmSeed": "Please tap to confirm your 12 seed words",
-    "bandwidth": "BANDWIDTH",
+    "bandwidth": "带宽",
     "tokens": "TOKENS",
     "holdings": "HOLDINGS"
   },
-  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
+  "hideAccount": "您即将删除此帐户。您可以稍后在设置中恢复它",
   "components": {
     "share": {
       "title": "Share TronWallet address",
@@ -129,11 +129,11 @@
     }
   },
   "importWallet": {
-    "title": "IMPORT WALLET",
-    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
-    "button": "IMPORT",
+    "title": "进口钱包",
+    "message": "如果您拥有钱包的私钥和地址，可以在此处恢复，但请记住，TronWallet主要使用助记符。此恢复方法将禁用App中的某些功能。",
+    "button": "进口",
     "error": {
-      "privateKey": "Private key invalid or incomplete"
+      "privateKey": "私钥无效或不完整"
     }
   },
   "freeze": {
@@ -178,80 +178,80 @@
     "button": {
       "confirm": "CONFIRM",
       "moreInfo": "MORE INFO",
-      "buyNow": "BUY NOW"
+      "buyNow": "立即购买"
     },
     "error": {
-      "insufficientBalance": "Not enough funds (TRX) to participate.",
+      "insufficientBalance": "没有足够的资金（TRX）参与。",
       "insufficientTrx": {
-        "title": "You need to buy at least one TRX worth of {{token}}.",
-        "message": "Currently you are buying only {{amount}}."
+        "title": "您需要购买至少一个价值 {{token}}TRX。",
+        "message": "目前您只购买 {{amount}}。"
       }
     },
-    "warning": "You don't have enough TRX to buy that many {{token}}",
-    "amountToBuy": "AMOUNT TO BUY",
-    "pricePerToken": "PRICE PER TOKEN",
-    "tokenDescription": "TOKEN DESCRIPTION",
-    "tokenInfo": "TOKEN INFO",
+    "warning": "你没有足够的TRX买那么多 {{token}}",
+    "amountToBuy": "购买金额",
+    "pricePerToken": "每个人的价格",
+    "tokenDescription": "令牌描述",
+    "tokenInfo": "获取信息",
     "token": "TOKEN",
     "tokens": "TOKENS",
-    "frozen": "FROZEN",
-    "percentage": "PERCENTAGE",
-    "issued": "ISSUED",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "transaction": "TRANSACTION",
-    "ownerAddress": "OWNER ADDRESS",
+    "frozen": "冷冻",
+    "percentage": "百分比",
+    "issued": "发行",
+    "totalSupply": "总供应量",
+    "startTime": "开始时间",
+    "endTime": "时间结束",
+    "description": "描述",
+    "transaction": "交易",
+    "ownerAddress": "所有者地址",
     "trxNum": "TRX NUM",
     "num": "NUM",
-    "block": "BLOCK"
+    "block": "块"
   },
   "pin": {
-    "title": "SECURITY CHECK",
-    "enter": "Enter PIN",
-    "new": "Enter New PIN",
-    "reenter": "Re-Enter PIN"
+    "title": "安全检查",
+    "enter": "输入PIN码",
+    "new": "输入新PIN码",
+    "reenter": "重新输入PIN码"
   },
   "receive": {
-    "title": "RECEIVE",
-    "clipboardCopied": "Copied to clipboard",
+    "title": "接收",
+    "clipboardCopied": "复制到剪贴板",
     "button": {
-      "copy": "Copy",
-      "share": "Share"
+      "copy": "复制",
+      "share": "分享"
     },
     "tabs": {
-      "share": "SHARE",
-      "request": "REQUEST"
+      "share": "分享",
+      "request": "请求"
     }
   },
   "rewards": {
-    "title": "REWARDS",
-    "earned": "You have earned"
+    "title": "奖励",
+    "earned": "你赚了"
   },
   "seed": {
     "confirm": {
-      "title": "CONFIRM SEED",
+      "title": "确认种子",
       "error": {
-        "title": "Wrong Combination",
-        "message": "Selected words don't match. Make sure you wrote the words in the correct order."
+        "title": "错误的组合",
+        "message": "选定的单词不匹配。确保以正确的顺序写下单词。"
       },
-      "success": "Wallet successfully confirmed",
-      "explanation": "Select the words below in the right order to confirm your secret phrase.",
+      "success": "钱包成功确认",
+      "explanation": "按照正确的顺序选择下面的单词以确认您的秘密短语。",
       "button": {
-        "reset": "RESET WORDS",
-        "confirm": "CONFIRM SEED"
+        "reset": "重置词",
+        "confirm": "确认种子"
       }
     },
     "create": {
-      "title": "CREATE SEED",
-      "titleConfirm": "CONFIRM WALLET SEED",
-      "error": "Oops, we have a problem. Please restart the application.",
-      "generateNew": "This will generate a completely new wallet.",
+      "title": "创造种子",
+      "titleConfirm": "确认钱包种子",
+      "error": "糟糕，我们遇到了问题。请重启应用程序。",
+      "generateNew": "这将生成一个全新的钱包。",
       "button": {
-        "written": "I'VE WRITTEN IT DOWN",
-        "newSeed": "GET NEW SEED",
-        "later": "Confirm later"
+        "written": "我写下来了",
+        "newSeed": "得到新的种子",
+        "later": "稍后确认"
       }
     },
     "restore": {
@@ -281,222 +281,222 @@
       "description": "DESCRIPTION (OPTIONAL)"
     },
     "available": "available",
-    "chooseToken": "Please, choose a token below.",
-    "minimumAmount": "The minimum amount for any send transaction is 0.000001."
+    "chooseToken": "请在下面选择一个令牌。",
+    "minimumAmount": "任何发送交易的最低金额为0.000001。"
   },
   "settings": {
-    "title": "SETTINGS",
+    "title": "设置",
     "sectionTitles": {
-      "wallet": "WALLET",
-      "security": "SECURITY",
-      "notification": "NOTIFICATIONS AND IDIOM",
-      "accounts": "ACCOUNTS MANAGEMENT"
+      "wallet": "钱包",
+      "security": "安全",
+      "notification": "通知和身份",
+      "accounts": "账户管理"
     },
     "notifications": {
-      "title": "Notifications"
+      "title": "通知"
     },
     "network": {
-      "title": "Network",
+      "title": "网络",
       "modal": {
-        "title": "NETWORK",
-        "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
+        "title": "网络",
+        "explanation": "使用此选项，您可以选择更适合您的需求和偏好的节点。更新节点IP时请小心，错误的IP可能导致钱包内的故障。示例：35.231.121.122：50051",
         "error": {
-          "storage": "Error getting node ip from local storage",
-          "invalidIp": "Please put a valid IP",
-          "update": "Something went wrong while updating nodes ip",
-          "reset": "Something wrong while reseting node ip"
+          "storage": "从本地存储获取节点ip时出错",
+          "invalidIp": "请输入有效的IP",
+          "update": "更新节点ip时出错了",
+          "reset": "重置节点ip时出错了"
         },
         "success": {
-          "updated": "Updated",
-          "updatedIp": "Nodes IP updated!",
-          "switchTest": "Switched nodes IP to Testnet",
-          "switchMain": "Switched nodes IP to default main",
-          "reset": "Node IP reseted!"
+          "updated": "更新",
+          "updatedIp": "节点IP已更新！",
+          "switchTest": "将节点IP切换到Testnet",
+          "switchMain": "将节点IP切换为默认主节点",
+          "reset": "节点IP重置！"
         },
         "placeholder": {
-          "loadingIp": "Loading IP",
-          "loadingPort": "Loading Port"
+          "loadingIp": "加载IP",
+          "loadingPort": "装货港"
         },
         "button": {
-          "update": "Update and Connect",
-          "reset": "Reset"
+          "update": "更新和连接",
+          "reset": "重启"
         },
-        "mainNode": "Main Node",
+        "mainNode": "主节点",
         "solidityNode": "Solidity Node",
         "testNet": "TestNet"
       }
     },
     "backup": {
-      "title": "Backup Wallet"
+      "title": "备用钱包"
     },
     "restore": {
-      "title": "Restore Wallet"
+      "title": "恢复钱包"
     },
     "reset": {
-      "title": "Reset Wallet",
-      "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
-      "button": "OK, I understand it"
+      "title": "重置钱包",
+      "warning": "警告：此操作将清除所有已保存的数据，包括12个密码。如果你没有保存你的秘密，请在继续之前这样做。",
+      "button": "好的，我明白了"
     },
     "pin": {
-      "title": "Change Pin",
-      "success": "Pin successfully changed!"
+      "title": "改变Pin",
+      "success": "针成功更改！"
     },
     "language": {
-      "title": "Language",
-      "choose": "Please, choose a Language below:",
+      "title": "语言",
+      "choose": "请选择以下语言：",
       "success": {
-        "title": "Language changed to {{language}}",
-        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
+        "title": "语言更改为 {{language}}",
+        "description": "但是，您仍需要重新启动应用程序，以使更改生效。你想现在就做吗？"
       },
       "button": {
-        "confirm": "Yes, restart now!",
-        "cancel": "No, I'll do it later"
+        "confirm": "是的，立即重启！",
+        "cancel": "不，我稍后再做"
       },
-      "error": "Error saving preferred language"
+      "error": "保存首选语言时出错"
     },
     "token": {
-      "title": "Token Filter",
-      "search": "Search tokens",
-      "confirm": "Save",
-      "noResult": "No results..."
+      "title": "令牌过滤器",
+      "search": "搜索令牌",
+      "confirm": "保存",
+      "noResult": "没有结果..."
     },
     "about": {
-      "title": "About",
-      "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
-      "tutorial": "TUTORIAL"
+      "title": "关于",
+      "description": "TronWallet是一个开源的完全分散的P2P Crypto钱包，用于使用React Native构建的TRON网络。有了它，您可以发送和接收令牌，对超级代表进行投票，参与代币销售，跟踪您的余额和交易等等。点击下面的链接，获取有关如何使用它的详细教程。",
+      "tutorial": "教程"
     },
     "accepts": {
-      "title": "Who accepts TRX?"
+      "title": "谁接受TRX？"
     },
     "accounts": {
-      "title": "Accounts",
-      "search": "Search accounts",
-      "restoreAccounts": "Restore Accounts",
-      "noAccounts": "No accounts to restore"
+      "title": "帐号",
+      "search": "搜索帐户",
+      "restoreAccounts": "还原帐户",
+      "noAccounts": "没有帐户可以恢复"
     },
-    "partners": "PARTNERS",
-    "askPin": "Always ask PIN"
+    "partners": "伙伴",
+    "askPin": "总是问PIN"
   },
   "submitTransaction": {
-    "title": "TRANSACTION DETAILS",
-    "notification": "You have received a transaction from {{address}}",
-    "notificationPayment": "You have received a payment from {{address}}",
-    "data": "DATA",
-    "time": "TIME",
+    "title": "交易明细",
+    "notification": "您已收到 {{address}}的交易",
+    "notificationPayment": "您已收到 {{address}}的付款",
+    "data": "数据",
+    "time": "时间",
     "button": {
-      "tryAgain": "Try again",
-      "submit": "SUBMIT TRANSACTION"
+      "tryAgain": "再试一次",
+      "submit": "提交交易"
     },
-    "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
+    "disconnectedMessage": "好像你已断开连接了。在继续交易之前重新连接到互联网。",
     "dic": {
-      "contractType": "Transaction Type",
-      "ownerAddress": "From",
-      "toAddress": "To",
-      "participateAssetIssueContract": "Participate",
-      "transferAssetContract": "Transfer",
-      "transferContract": "Transfer",
-      "unfreezeBalanceContract": "Unfreeze",
-      "freezeBalanceContract": "Freeze",
-      "assetIssueContract": "Create",
-      "voteWitnessContract": "Vote",
-      "frozenDuration": "Duration",
-      "frozenBalance": "Total to Freeze"
+      "contractType": "交易类型",
+      "ownerAddress": "从",
+      "toAddress": "至",
+      "participateAssetIssueContract": "参加",
+      "transferAssetContract": "转让",
+      "transferContract": "转让",
+      "unfreezeBalanceContract": "解冻",
+      "freezeBalanceContract": "冻结",
+      "assetIssueContract": "创建",
+      "voteWitnessContract": "投票",
+      "frozenDuration": "持续时间",
+      "frozenBalance": "总冻结"
     },
     "errorDic": {
-      "contractValidate": "Transaction data not valid. Please try again later.",
-      "signature": "Transaction signature not valid.",
-      "duplicate": "Transaction already broadcasted.",
-      "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
-      "bandwith": "Not enought bandwidth. Please try again later.",
-      "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
-      "tooBig": "Transaction too big to be submitted.",
-      "expiration": "Transaction expired. Please try again.",
-      "serverBusy": "Server busy.",
-      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
+      "contractValidate": "交易数据无效。请稍后再试。",
+      "signature": "交易签名无效。",
+      "duplicate": "交易已经播出。",
+      "contractValidateCee": "交易数据无效（CEE）。请稍后再试。",
+      "bandwith": "没有带宽。请稍后再试。",
+      "contractValidateTapos": "交易数据无效（TAPOS）。请稍后再试。",
+      "tooBig": "交易太大，无法提交。",
+      "expiration": "交易已过期。请再试一次。",
+      "serverBusy": "服务器繁忙。",
+      "resource": "带宽或平衡不足。您可能需要一些冷冻TRX。"
     },
-    "totalVotes": "Total Votes"
+    "totalVotes": "总票数"
   },
   "transactions": {
-    "title": "MY TRANSACTIONS",
-    "from": "From",
-    "to": "To",
-    "notFound": "No transactions found."
+    "title": "我的交易",
+    "from": "从",
+    "to": "至",
+    "notFound": "没有发现交易。"
   },
   "transactionDetails": {
-    "title": "TRANSACTION",
+    "title": "交易",
     "clipboard": {
-      "tronscanUrl": "Tronscan url for this transaction copied to the clipboard",
-      "publicKey": "Public Key copied to the clipboard"
+      "tronscanUrl": "此事务的Tronscan url已复制到剪贴板",
+      "publicKey": "公钥复制到剪贴板"
     },
     "hash": "HASH",
-    "status": "STATUS",
-    "time": "TIME",
-    "block": "BLOCK",
-    "frozenBalance": "FROZEN BALANCE",
+    "status": "状态",
+    "time": "时间",
+    "block": "块",
+    "frozenBalance": "冷冻平衡",
     "unfrozenBalance": "UNFROZEN BALANCE",
-    "totalVotes": "TOTAL VOTES",
-    "amount": "AMOUNT",
-    "to": "TO",
-    "from": "FROM",
-    "tokenName": "TOKEN NAME",
-    "unityValue": "UNITY VALUE",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "votedAddress": "VOTED ADDRESS"
+    "totalVotes": "总票数",
+    "amount": "量",
+    "to": "至",
+    "from": "从",
+    "tokenName": "取消姓名",
+    "unityValue": "统一价值",
+    "totalSupply": "总供应量",
+    "startTime": "开始时间",
+    "endTime": "时间结束",
+    "description": "描述",
+    "votedAddress": "投票地址"
   },
   "transactionSuccess": {
-    "submitted": "TRANSACTION SUBMITTED TO NETWORK!",
-    "success": "SUCCESS!"
+    "submitted": "提交给网络的交易！",
+    "success": "成功！"
   },
   "votes": {
-    "title": "VOTES",
-    "totalVotes": "TOTAL VOTES",
-    "votesAvailable": "VOTES AVAILABLE",
-    "search": "Search",
-    "error": "Oops, something didn't load correctly. Try to reload"
+    "title": "票数",
+    "totalVotes": "总票数",
+    "votesAvailable": "投票可用",
+    "search": "搜索",
+    "error": "哎呀，有些东西没有正确加载。尝试重新加载"
   },
   "scanPayment": {
     "scan": "SCAN",
     "error": {
-      "receiver": "Receiver address invalid",
-      "token": "Token not valid",
-      "amount": "Amount not valid",
-      "description": "Description too long",
-      "code": "Payment code invalid. Please, scan a valid one"
+      "receiver": "收件人地址无效",
+      "token": "令牌无效",
+      "amount": "金额无效",
+      "description": "描述太久了",
+      "code": "付款代码无效。请扫描一个有效的"
     }
   },
   "makePayment": {
-    "pay": "PAY",
-    "confirm": "CONFIRM PAYMENT",
+    "pay": "工资",
+    "confirm": "确认付款",
     "error": {
-      "receiver": "Receiver is equal to requester",
-      "token": "This account doesn't have the token for this transaction",
-      "amount": "This account doesn't have enough balance.",
-      "description": "No description available"
+      "receiver": "接收者等于请求者",
+      "token": "此帐户没有此交易的令牌",
+      "amount": "此帐户余额不足。",
+      "description": "没有可用的描述"
     }
   },
   "buildPayment": {
-    "generate": "GENERATE REQUEST",
-    "selectCurrency": "Select the reference currency",
+    "generate": "生成请求",
+    "selectCurrency": "选择参考货币",
     "error": {
-      "currency": "We weren't able to load other currency prices. Please use TRX as reference"
+      "currency": "我们无法加载其他货币价格。请使用TRX作为参考"
     }
   },
   "requestPayment": {
-    "title": "REQUEST PAYMENT"
+    "title": "请求付款"
   },
   "newAccount": {
-    "title": "Account Creation",
-    "placeholder": "My precious account",
+    "title": "帐户创建",
+    "placeholder": "我珍贵的帐户",
     "success": {
-      "title": "New account successfully created",
-      "message": "You can edit the name on your address book"
+      "title": "新帐户已成功创建",
+      "message": "您可以在地址簿上编辑名称"
     },
     "failure": {
-      "title": "New account warning",
-      "message": "To add a new account you should have at least one transaction on your last account."
+      "title": "新帐户警告",
+      "message": "要添加新帐户，您的上一个帐户应至少有一笔交易。"
     }
   }
 }
