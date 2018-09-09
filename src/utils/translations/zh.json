@@ -68,12 +68,12 @@
     "share": {
       "title": "Share TronWallet address",
       "message": "This is my TronWallet address:\n\n {{address}}\n\nTip: Once you have copied it you can paste it in your TronWallet app using the special button on Send screen.",
-      "dialogTitle": "Share using:"
+      "dialogTitle": "共享使用:"
     },
     "QRScanner": {
-      "title": "Address Scanner",
-      "scan": "Scan",
-      "explanation": "Scan the QRCode to identify the target user",
+      "title": "地址扫描程序",
+      "scan": "扫描",
+      "explanation": "扫描 QRCode 以识别目标用户",
       "permissionMessage": "To scan the public key the app needs your permission to access the camera."
     },
     "vote": {
@@ -96,7 +96,7 @@
   "firstTime": {
     "button": {
       "create": "CREATE WALLET",
-      "restore": "RESTORE WALLET"
+      "restore": "还原钱包"
     }
   },
   "addressBook": {
