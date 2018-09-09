@@ -18,17 +18,17 @@
   "success": "Réussite",
   "warning": "Attention",
   "cancel": "Annuler",
-  "address": "Address",
+  "address": "Adresse",
   "ok": "OK",
   "actionModalTitle": "Souhaitez-vous",
-  "account": "Account",
-  "restore": "Restore",
+  "account": "Compte",
+  "restore": "Restaurer",
   "error": {
     "default": "Oups, quelque chose c'est mal passé. Réessayez plus tard, si l’erreur persiste, essayez de mettre à jour vos paramètres réseau.",
     "buildingTransaction": "Erreur pendant la création de la transaction, essayez à nouveau.",
     "gettingTransaction": "Erreur lors de la récupération de la transaction.",
     "clipboardCopied": "Quelque chose a du mal tourné lors de la copie",
-    "hideAccount": "Something went wrong deleting account, try again'"
+    "hideAccount": "Quelque chose s'est mal passé en supprimant le compte, réessayez '"
   },
   "tronPower": "PUISSANCE DE TRON",
   "trxPrice": "PRIX D'UN TRX",
@@ -50,7 +50,7 @@
   "clear": "Effacer",
   "allIn": "Tout compris",
   "skip": "Passer",
-  "privateKey": "Private Key",
+  "privateKey": "Clé privée",
   "balance": {
     "title": "COMPTES",
     "error": {
@@ -59,11 +59,11 @@
     },
     "chooseCurrency": "Veuillez choisir votre devise préférée.",
     "confirmSeed": "S’il vous plaît appuyez pour confirmer votre seed de 12 mots",
-    "bandwidth": "BANDWIDTH",
+    "bandwidth": "BANDE PASSANTE",
     "tokens": "JETONS",
     "holdings": "ACTIFS"
   },
-  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
+  "hideAccount": "Vous êtes sur le point de supprimer ce compte. Vous pouvez le restaurer plus tard dans les paramètres",
   "components": {
     "share": {
       "title": "Partager l'adresse du portefeuille Tron",
@@ -129,11 +129,11 @@
     }
   },
   "importWallet": {
-    "title": "IMPORT WALLET",
-    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
-    "button": "IMPORT",
+    "title": "PORTEFEUILLE D'IMPORTATION",
+    "message": "Si vous avez la clé privée et l'adresse de votre portefeuille, vous pouvez le récupérer ici, mais n'oubliez pas que TronWallet fonctionne principalement avec des mnémoniques. Cette méthode de récupération désactive certaines fonctionnalités de l'application.",
+    "button": "IMPORTER",
     "error": {
-      "privateKey": "Private key invalid or incomplete"
+      "privateKey": "Clé privée invalide ou incomplète"
     }
   },
   "freeze": {
@@ -290,7 +290,7 @@
       "wallet": "PORTEFEUILLE",
       "security": "SÉCURITÉ",
       "notification": "NOTIFICATIONS ET IDIOME",
-      "accounts": "ACCOUNTS MANAGEMENT"
+      "accounts": "GESTION DES COMPTES"
     },
     "notifications": {
       "title": "Notifications"
@@ -369,13 +369,13 @@
       "title": "Qui accepte les TRX ?"
     },
     "accounts": {
-      "title": "Accounts",
-      "search": "Search accounts",
-      "restoreAccounts": "Restore Accounts",
-      "noAccounts": "No accounts to restore"
+      "title": "Comptes",
+      "search": "Rechercher des comptes",
+      "restoreAccounts": "Restaurer les comptes",
+      "noAccounts": "Aucun compte à restaurer"
     },
     "partners": "PARTENAIRES",
-    "askPin": "Always ask PIN"
+    "askPin": "Toujours demander un code PIN"
   },
   "submitTransaction": {
     "title": "DÉTAILS DE LA TRANSACTION",
@@ -488,8 +488,8 @@
     "title": "DEMANDER LE PAIEMENT"
   },
   "newAccount": {
-    "title": "Account Creation",
-    "placeholder": "My precious account",
+    "title": "Création de compte",
+    "placeholder": "Mon précieux compte",
     "success": {
       "title": "Nouveau compte créé avec succès",
       "message": "Vous pouvez modifier le nom sur votre carnet d'adresses"
