@@ -1,131 +1,131 @@
 {
   "relativeTime": {
-    "future": "in %s",
-    "past": "%s ago",
-    "s": "a few seconds",
-    "ss": "%d seconds",
-    "m": "a minute",
-    "mm": "%d minutes",
-    "h": "an hour",
-    "hh": "%d hours",
-    "d": "a day",
-    "dd": "%d days",
-    "M": "a month",
-    "MM": "%d months",
-    "y": "a year",
-    "yy": "%d years"
+    "future": "в %s",
+    "past": "%s назад",
+    "s": "через несколько секунд",
+    "ss": "%d секунд",
+    "m": "минута",
+    "mm": "%d минут",
+    "h": "час",
+    "hh": "%d часов",
+    "d": "день",
+    "dd": "%d дней",
+    "M": "месяц",
+    "MM": "%d месяцев",
+    "y": "год",
+    "yy": "%d лет"
   },
-  "success": "Success",
-  "warning": "Warning",
-  "cancel": "Cancel",
+  "success": "Успешно",
+  "warning": "Внимание",
+  "cancel": "Отмена",
   "address": "Address",
-  "ok": "OK",
-  "actionModalTitle": "Would you like to",
+  "ok": "Ок",
+  "actionModalTitle": "Не хотите ли вы",
   "account": "Account",
   "restore": "Restore",
   "error": {
-    "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
-    "buildingTransaction": "Error while building transaction, try again.",
-    "gettingTransaction": "Error while getting transaction.",
-    "clipboardCopied": "Something wrong while copying",
+    "default": "Ой, что-то пошло не так. Повторите попытку позже, если ошибка сохраняется, попробуйте обновить настройки сети.",
+    "buildingTransaction": "Ошибка при создании транзакции, попробуйте еще раз.",
+    "gettingTransaction": "Ошибка при получении транзакций.",
+    "clipboardCopied": "Ошибка копирования",
     "hideAccount": "Something went wrong deleting account, try again'"
   },
-  "tronPower": "TRON POWER",
-  "trxPrice": "TRX PRICE",
-  "confirmed": "Confirmed",
-  "unconfirmed": "Unconfirmed",
-  "copyAddress": "COPY ADDRESS",
+  "tronPower": "TRON POWER\n",
+  "trxPrice": "СТОИМОСТЬ TRX",
+  "confirmed": "Подтверждено",
+  "unconfirmed": "Неподтвержденные",
+  "copyAddress": "КОПИРОВАТЬ АДРЕС",
   "transactionType": {
-    "transfer": "Transfer",
-    "transferAsset": "Transfer Asset",
-    "freeze": "Freeze",
-    "unfreeze": "Unfreeze",
-    "vote": "Vote",
-    "participate": "Participate",
-    "create": "Create",
-    "undefined": "Undefined Type"
+    "transfer": "Передача",
+    "transferAsset": "Передача активов",
+    "freeze": "Замораживание",
+    "unfreeze": "Разморозить",
+    "vote": "Голосование",
+    "participate": "Участвовать",
+    "create": "Создать",
+    "undefined": "Неопределенный тип"
   },
-  "close": "Close",
-  "ends": "Ends",
-  "clear": "Clear",
-  "allIn": "All In",
-  "skip": "Skip",
+  "close": "Закрыть",
+  "ends": "Концы",
+  "clear": "Очистить",
+  "allIn": "Все в",
+  "skip": "Пропустить",
   "privateKey": "Private Key",
   "balance": {
-    "title": "ACCOUNTS",
+    "title": "УЧЕТНЫЕ ЗАПИСИ",
     "error": {
-      "loadingData": "An error occured while loading the data.",
-      "savingCurrency": "Error saving preferred currency"
+      "loadingData": "При загрузке данных произошла ошибка.",
+      "savingCurrency": "Ошибка сохранения предпочитаемой валюты"
     },
-    "chooseCurrency": "Please, choose your preferred currency.",
-    "confirmSeed": "Please tap to confirm your 12 seed words",
+    "chooseCurrency": "Пожалуйста выберите валюту, которую вы предпочитаете.",
+    "confirmSeed": "Пожалуйста, нажмите, для подтверждения seed фразы из 12 слов",
     "bandwidth": "BANDWIDTH",
-    "tokens": "TOKENS",
-    "holdings": "HOLDINGS"
+    "tokens": "ТОКЕНЫ",
+    "holdings": "СБЕРЕЖЕНИЯ"
   },
   "hideAccount": "You are about to remove this account. You can restore it later in the settings",
   "components": {
     "share": {
-      "title": "Share TronWallet address",
-      "message": "This is my TronWallet address:\n\n {{address}}\n\nTip: Once you have copied it you can paste it in your TronWallet app using the special button on Send screen.",
-      "dialogTitle": "Share using:"
+      "title": "Поделится адресом TronWallet",
+      "message": "Это мой TronWallet адрес:\n\n {{address}}\n\nПодсказка: после того как вы скопировали его вы можете вставить его в приложение TronWallet, с помощью специальной кнопки на экране отправки.",
+      "dialogTitle": "Поделиться используя:"
     },
     "QRScanner": {
-      "title": "Address Scanner",
-      "scan": "Scan",
-      "explanation": "Scan the QRCode to identify the target user",
-      "permissionMessage": "To scan the public key the app needs your permission to access the camera."
+      "title": "Сканер Адресов",
+      "scan": "Сканировать",
+      "explanation": "Просканируйте QRCode для определения целевого пользователя",
+      "permissionMessage": "Для сканирования открытого ключа, приложению требуется разрешение на доступ к камере."
     },
     "vote": {
-      "enterVote": "ENTER THE VOTE VALUE",
-      "votesRemaining": "VOTES REMAINING",
-      "setVote": "SET VOTE",
-      "moreVotes": "If you need more votes you can Freeze more TRX.",
-      "confirmVotes": "CONFIRM VOTES",
-      "yourVotes": "Your Votes",
-      "myVotes": "MY VOTES",
-      "confirm": "CONFIRM",
-      "freeze": "Freeze",
-      "totalVotes": "Total votes available:",
-      "delete": "DELETE",
-      "set": "SET",
-      "freezeOrLower": "You do not have enough frozen TRX. Freeze more TRX or lower the vote amount",
-      "freezeToContinue": "You do not have enough frozen TRX. Freeze more TRX to continue"
+      "enterVote": "ВВЕДИТЕ КОЛИЧЕСТВО ГОЛОСОВ",
+      "votesRemaining": "ГОЛОСОВ ОСТАЛОСЬ",
+      "setVote": "УСТАНОВИТЬ ГОЛОСА",
+      "moreVotes": "Если вам нужно больше голосов, вы можете заморозить больше TRX.",
+      "confirmVotes": "ПОДТВЕРДИТЬ ГОЛОСА",
+      "yourVotes": "Ваши голоса",
+      "myVotes": "МОИ ГОЛОСА",
+      "confirm": "ПОДТВЕРДИТЬ",
+      "freeze": "Заморозить",
+      "totalVotes": "Всего доступно голосов:",
+      "delete": "УДАЛИТЬ",
+      "set": "УСТАНОВИТЬ",
+      "freezeOrLower": "Вы не имеете достаточное количество замороженных TRX. Заморозьте больше TRX или установите меньшее количество голосов",
+      "freezeToContinue": "Вы не имеете достаточное количество замороженных TRX. Заморозьте больше TRX для продолжения"
     }
   },
   "firstTime": {
     "button": {
-      "create": "CREATE WALLET",
-      "restore": "RESTORE WALLET"
+      "create": "СОЗДАТЬ КОШЕЛЕК",
+      "restore": "ВОССТАНОВИТЬ КОШЕЛЕК"
     }
   },
   "addressBook": {
     "shared": {
-      "add": "ADD",
-      "edit": "EDIT",
-      "delete": "DELETE",
-      "send": "SEND"
+      "add": "ДОБАВИТЬ",
+      "edit": "РЕДАКТИРОВАТЬ",
+      "delete": "УДАЛИТЬ",
+      "send": "ОТПРАВИТЬ"
     },
     "contacts": {
       "delete": {
-        "title": "Delete Contact",
-        "message": "Do you really want to delete this contact?",
-        "cancelButton": "Cancel",
-        "okButton": "OK"
+        "title": "Удалить контакт",
+        "message": "Вы действительно хотите удалить этот контакт?",
+        "cancelButton": "Отмена",
+        "okButton": "Ок"
       },
-      "empty": "Your address book is empty, add a new contact using the button below.",
-      "loadError": "There was a problem loading the contacts. Please try again.",
-      "addContact": "ADD CONTACT",
-      "addToContacts": "ADD TO CONTACTS"
+      "empty": "Ваша адресная книга пуста, добавьте новый контакт, используя кнопку ниже.",
+      "loadError": "Существует проблема с загрузкой контакта. Пожалуйста, попробуйте еще раз.",
+      "addContact": "ДОБАВИТЬ КОНТАКТ",
+      "addToContacts": "ДОБАВИТЬ В КОНТАКТЫ"
     },
     "form": {
-      "generalError": "There was a problem submitting this form. Please contact an administrator.",
-      "nameError": "The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.",
-      "addressError": "Something isn't right with the address. Please double check for typos.",
-      "uniqueAddressError": "The key must be unique. Please choose a different address.",
-      "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
-      "name": "NAME",
-      "address": "ADDRESS"
+      "generalError": "Существует проблема, подтвеждения этой формы. Пожалуйста, обратитесь к администратору.",
+      "nameError": "Поле Имя должно начинаться с буквы, содержат не более 32 символов, поддерживаются только буквы, цифры и пробелы.",
+      "addressError": "Что-то не так с адресом. Пожалуйста, проверьте дважды введенный адрес.",
+      "uniqueAddressError": "Ключ должен быть уникальным. Пожалуйста, выберите другой адрес.",
+      "uniqueAliasError": "Имена в адресной книге должны быть уникальными. Пожалуйста, выберите другое имя.",
+      "name": "ИМЯ",
+      "address": "АДРЕСА"
     }
   },
   "importWallet": {
@@ -137,236 +137,236 @@
     }
   },
   "freeze": {
-    "title": "FREEZE",
+    "title": "ЗАМОРОЗИТЬ",
     "unfreeze": {
-      "title": "UNFREEZE",
-      "inThreeDays": "After a three day period you can unfreeze your TRX",
-      "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
-      "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
-      "inXDays": "You can unfreeze your TRX in {{days}} days.",
-      "now": "You can unfreeze your TRX now."
+      "title": "РАЗМОРОЗИТЬ",
+      "inThreeDays": "После трех дней Вы сможете разморозить ваши TRX",
+      "inXMinutes": "Вы сможете разморозить ваши TRX через {{minutes}} минут.",
+      "inXHours": "Вы сможете разморозить ваши TRX через {{hours}} часов.",
+      "inXDays": "Вы сможете разморозить ваши TRX через {{days}} дней.",
+      "now": "Вы можете разморозить ваши TRX."
     },
     "error": {
-      "minimumAmount": "The minimum amount for any freeze transaction is 1.",
-      "insufficientBalance": "Insufficient TRX balance",
-      "roundNumbers": "Can only freeze round numbers"
+      "minimumAmount": "Минимальной суммой для любой операции замораживания есть 1.",
+      "insufficientBalance": "Недостаточный баланс TRX",
+      "roundNumbers": "Можно замораживать только целые числа"
     },
-    "amount": "FREEZE AMOUNT",
-    "balance": "Balance"
+    "amount": "КОЛИЧЕСТВО ЗАМОРАЖИВАНИЯ",
+    "balance": "Баланс"
   },
   "getVault": {
-    "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
-    "downloadHere": "You can download it here"
+    "notInstalled": "Похоже, что Tron Vault не установлен в вашем телефоне для продолжения вашей транзакции.",
+    "downloadHere": "Вы можете скачать его здесь"
   },
   "market": {
     "time": {
-      "hour": "1H",
-      "day": "1D",
-      "week": "1W",
+      "hour": "1Ч",
+      "day": "1Д",
+      "week": "1Н",
       "month": "1M",
-      "all": "ALL"
+      "all": "ВСЕ"
     },
-    "highest": "HIGHEST",
-    "lowest": "LOWEST",
-    "volume": "VOLUME 24H",
-    "cap": "MARKET CAP",
-    "supply": "CIRCULATING SUPPLY"
+    "highest": "НАИВЫСШИЙ",
+    "lowest": "НАЙНИЗШИЙ",
+    "volume": "ОБЪЕМ 24Ч",
+    "cap": "РЫНОЧНАЯ КАПИТАЛИЗАЦИЯ",
+    "supply": "ЦИРКУЛИРУЮЩИЙ ЗАПАС"
   },
   "participate": {
-    "title": "PARTICIPATE",
-    "featured": "FEATURED",
+    "title": "УЧАСТИЕ",
+    "featured": "РЕКОМЕНДУЕМЫЙ",
     "button": {
-      "confirm": "CONFIRM",
-      "moreInfo": "MORE INFO",
-      "buyNow": "BUY NOW"
+      "confirm": "ПОДТВЕРДИТЬ",
+      "moreInfo": "БОЛЕЕ ПОДРОБНАЯ ИНФОРМАЦИЯ",
+      "buyNow": "КУПИТЬ СЕЙЧАС"
     },
     "error": {
-      "insufficientBalance": "Not enough funds (TRX) to participate.",
+      "insufficientBalance": "Не хватает средств (TRX) для участия.",
       "insufficientTrx": {
-        "title": "You need to buy at least one TRX worth of {{token}}.",
-        "message": "Currently you are buying only {{amount}}."
+        "title": "Вам нужно купить по крайней мере один TRX стоящий {{token}}.",
+        "message": "В данный момент вы покупаете только {{amount}}."
       }
     },
-    "warning": "You don't have enough TRX to buy that many {{token}}",
-    "amountToBuy": "AMOUNT TO BUY",
-    "pricePerToken": "PRICE PER TOKEN",
-    "tokenDescription": "TOKEN DESCRIPTION",
-    "tokenInfo": "TOKEN INFO",
-    "token": "TOKEN",
-    "tokens": "TOKENS",
-    "frozen": "FROZEN",
-    "percentage": "PERCENTAGE",
-    "issued": "ISSUED",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "transaction": "TRANSACTION",
-    "ownerAddress": "OWNER ADDRESS",
+    "warning": "Вы не имеете достаточно TRX чтобы купить эти {{token}}",
+    "amountToBuy": "СУММА К ПОКУПКЕ",
+    "pricePerToken": "ЦЕНА ЗА ТОКЕН",
+    "tokenDescription": "ОПИСАНИЕ ТОКЕНОВ",
+    "tokenInfo": "ИНФОРМАЦИЯ О ТОКЕНЕ",
+    "token": "ТОКЕН",
+    "tokens": "ТОКЕНЫ",
+    "frozen": "ЗАМОРОЖЕННЫЕ",
+    "percentage": "ПРОЦЕНТ",
+    "issued": "ВЫПУЩЕННЫЙ",
+    "totalSupply": "ОБЩИЙ ЗАПАС",
+    "startTime": "ВРЕМЯ НАЧАЛА",
+    "endTime": "ВРЕМЯ ОКОНЧАНИЯ",
+    "description": "ОПИСАНИЕ",
+    "transaction": "ТРАНЗАКЦИЯ",
+    "ownerAddress": "АДРЕС ВЛАДЕЛЬЦА",
     "trxNum": "TRX NUM",
-    "num": "NUM",
-    "block": "BLOCK"
+    "num": "КОЛИЧЕСТВО",
+    "block": "БЛОК"
   },
   "pin": {
-    "title": "SECURITY CHECK",
-    "enter": "Enter PIN",
-    "new": "Enter New PIN",
-    "reenter": "Re-Enter PIN"
+    "title": "ПРОВЕРКА БЕЗОПАСНОСТИ",
+    "enter": "Введите PIN-код",
+    "new": "Введите новый PIN-код",
+    "reenter": "Введите PIN-код еще раз"
   },
   "receive": {
-    "title": "RECEIVE",
-    "clipboardCopied": "Copied to clipboard",
+    "title": "ПОЛУЧИТЬ",
+    "clipboardCopied": "Скопирован в буфер обмена",
     "button": {
-      "copy": "Copy",
-      "share": "Share"
+      "copy": "Копировать",
+      "share": "Поделится"
     },
     "tabs": {
-      "share": "SHARE",
-      "request": "REQUEST"
+      "share": "ПОДЕЛИТСЯ",
+      "request": "ЗАПРОС"
     }
   },
   "rewards": {
-    "title": "REWARDS",
-    "earned": "You have earned"
+    "title": "НАГРАДЫ",
+    "earned": "Вы заработали"
   },
   "seed": {
     "confirm": {
-      "title": "CONFIRM SEED",
+      "title": "ПОДТВЕРДИТЬ SEED",
       "error": {
-        "title": "Wrong Combination",
-        "message": "Selected words don't match. Make sure you wrote the words in the correct order."
+        "title": "Неправильная комбинация",
+        "message": "Выбранного слова не совпадают. Убедитесь, что вы написали слова в правильном порядке."
       },
-      "success": "Wallet successfully confirmed",
-      "explanation": "Select the words below in the right order to confirm your secret phrase.",
+      "success": "Кошелёк успешно подтвержден",
+      "explanation": "Выберите ниже слова в правильном порядке, чтобы подтвердить свою секретную фразу.",
       "button": {
-        "reset": "RESET WORDS",
-        "confirm": "CONFIRM SEED"
+        "reset": "СБРОСИТЬ СЛОВА",
+        "confirm": "ПОДТВЕРДИТЬ SEED"
       }
     },
     "create": {
-      "title": "CREATE SEED",
-      "titleConfirm": "CONFIRM WALLET SEED",
-      "error": "Oops, we have a problem. Please restart the application.",
-      "generateNew": "This will generate a completely new wallet.",
+      "title": "СОЗДАТЬ SEED",
+      "titleConfirm": "ПОДТВЕРДИТЬ SEED КОШЕЛЬКА",
+      "error": "К сожалению у нас есть проблема. Пожалуйста, перезапустите приложение.",
+      "generateNew": "Это сгенерирует полностью новый кошелек.",
       "button": {
-        "written": "I'VE WRITTEN IT DOWN",
-        "newSeed": "GET NEW SEED",
-        "later": "Confirm later"
+        "written": "Я ЗАПИСАЛ ЕГО",
+        "newSeed": "ПОЛУЧИТЬ НОВЫЙ SEED",
+        "later": "Подтвердить позже"
       }
     },
     "restore": {
-      "title": "RESTORE WALLET",
-      "explanation": "To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
-      "placeholder": "Please, type your 12 seed words here",
-      "success": "Wallet restored with success!",
-      "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
-      "error": "Oops. Looks like the words you typed aren't a valid mnemonic seed. Check for a typo and try again.",
-      "button": "RESTORE"
+      "title": "ВОССТАНОВИТЬ КОШЕЛЕК",
+      "explanation": "Чтобы восстановить ваш кошелек, пожалуйста предоставьте те 12 слов секретной фразы, которые вы написали на бумаге, когда вы создали ваш кошелек в первый раз. Если ввести другую последовательность слов, будет создан новый пустой бумажник.",
+      "placeholder": "Пожалуйста введите ваши 12 секретных слов здесь",
+      "success": "Бумажник, восстановлен успешно!",
+      "warning": "Восстановление секретной фразы удалит все данные на этом устройстве и получит информацию из сети для восстановленной учетной записи.",
+      "error": "Упс. Похоже, введенные слова не не являются словами секретной фразы. Проверьте корректность ввода и повторите попытку.",
+      "button": "ВОССТАНОВЛЕНИЕ"
     }
   },
   "send": {
-    "title": "SEND",
+    "title": "ОТПРАВИТЬ",
     "error": {
-      "insufficientBalance": "Not enough balance.",
-      "gettingBalance": "Error while getting balance data",
-      "incompleteAddress": "Address is either incomplete or invalid.",
-      "invalidReceiver": "Invalid receiver address",
-      "selectBalance": "Select a balance first",
-      "invalidAmount": "Invalid amount"
+      "insufficientBalance": "Не достаточно баланса.",
+      "gettingBalance": "Ошибка при получении данных баланса",
+      "incompleteAddress": "Адрес является неполным или недействительным.",
+      "invalidReceiver": "Неверный адрес получателя",
+      "selectBalance": "Сначала выберите баланс",
+      "invalidAmount": "Недопустимое количество"
     },
     "input": {
-      "token": "TOKEN",
-      "to": "TO",
-      "amount": "AMOUNT",
-      "description": "DESCRIPTION (OPTIONAL)"
+      "token": "ТОКЕН",
+      "to": "Кому",
+      "amount": "СУММА",
+      "description": "ОПИСАНИЕ (НЕОБЯЗАТЕЛЬНО)"
     },
-    "available": "available",
-    "chooseToken": "Please, choose a token below.",
-    "minimumAmount": "The minimum amount for any send transaction is 0.000001."
+    "available": "доступно",
+    "chooseToken": "Пожалуйста выберите токены ниже.",
+    "minimumAmount": "Минимальная сумма для любой операции отправки — 0,000001."
   },
   "settings": {
-    "title": "SETTINGS",
+    "title": "ПАРАМЕТРЫ",
     "sectionTitles": {
-      "wallet": "WALLET",
-      "security": "SECURITY",
-      "notification": "NOTIFICATIONS AND IDIOM",
+      "wallet": "КОШЕЛЁК",
+      "security": "БЕЗОПАСНОСТЬ",
+      "notification": "УВЕДОМЛЕНИЯ И ИДИОМЫ",
       "accounts": "ACCOUNTS MANAGEMENT"
     },
     "notifications": {
-      "title": "Notifications"
+      "title": "Уведомления"
     },
     "network": {
-      "title": "Network",
+      "title": "Сеть",
       "modal": {
-        "title": "NETWORK",
-        "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
+        "title": "СЕТЬ",
+        "explanation": "С помощью этого параметра можно выбрать узел, который будет лучше соответствовать вашим потребностям и предпочтениям. Будьте внимательны при обновлении IP адреса узла, так как некорректный IP адрес может привести к неработоспособности Вашего кошелька. Пример: 35.231.121.122:50051",
         "error": {
-          "storage": "Error getting node ip from local storage",
-          "invalidIp": "Please put a valid IP",
-          "update": "Something went wrong while updating nodes ip",
-          "reset": "Something wrong while reseting node ip"
+          "storage": "Ошибка при получении i адреса узла, из локального хранилища",
+          "invalidIp": "Пожалуйста, введите корректный IP адрес",
+          "update": "Что-то пошло не так во время обновления ip адресов узлов",
+          "reset": "Что-то пошло не так во время сброса ip адресов узлов"
         },
         "success": {
-          "updated": "Updated",
-          "updatedIp": "Nodes IP updated!",
-          "switchTest": "Switched nodes IP to Testnet",
-          "switchMain": "Switched nodes IP to default main",
-          "reset": "Node IP reseted!"
+          "updated": "Обновлено",
+          "updatedIp": "IP адреса узлов обновлены!",
+          "switchTest": "IP узлов изменены на Testnet",
+          "switchMain": "IP узлов изменены на главную сеть по умолчанию",
+          "reset": "IP адреса узлов сброшены!"
         },
         "placeholder": {
-          "loadingIp": "Loading IP",
-          "loadingPort": "Loading Port"
+          "loadingIp": "Загрузка IP",
+          "loadingPort": "Загрузка порта"
         },
         "button": {
-          "update": "Update and Connect",
-          "reset": "Reset"
+          "update": "Обновить и подключить",
+          "reset": "Сброс"
         },
-        "mainNode": "Main Node",
-        "solidityNode": "Solidity Node",
-        "testNet": "TestNet"
+        "mainNode": "Главный узел",
+        "solidityNode": "Узел Прочности",
+        "testNet": "Тестовая сеть"
       }
     },
     "backup": {
-      "title": "Backup Wallet"
+      "title": "Резервное копирование кошелька"
     },
     "restore": {
-      "title": "Restore Wallet"
+      "title": "Восстановить кошелек"
     },
     "reset": {
-      "title": "Reset Wallet",
-      "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
-      "button": "OK, I understand it"
+      "title": "Переустановить кошелек",
+      "warning": "Предупреждение: Это действие удалит все сохраненные данные, включая вашу секретную фразу из 12 слов. Если вы не сохранили вашу секретную фразу, пожалуйста, сделайте это перед продолжением.",
+      "button": "Хорошо, я понимаю это"
     },
     "pin": {
-      "title": "Change Pin",
-      "success": "Pin successfully changed!"
+      "title": "Изменить Пин",
+      "success": "Pin-код успешно изменен!"
     },
     "language": {
-      "title": "Language",
-      "choose": "Please, choose a Language below:",
+      "title": "Язык",
+      "choose": "Пожалуйста выберите язык:",
       "success": {
-        "title": "Language changed to {{language}}",
-        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
+        "title": "Язык, изменён на {{language}}",
+        "description": "Однако вам все еще нужно перезапустить приложение, чтобы изменения вступили в силу. Вы хотели бы сделать это сейчас?"
       },
       "button": {
-        "confirm": "Yes, restart now!",
-        "cancel": "No, I'll do it later"
+        "confirm": "Да, перезагрузите сейчас!",
+        "cancel": "Нет, я сделаю это позже"
       },
-      "error": "Error saving preferred language"
+      "error": "Ошибка при сохранении предпочтительного языка"
     },
     "token": {
-      "title": "Token Filter",
-      "search": "Search tokens",
-      "confirm": "Save",
-      "noResult": "No results..."
+      "title": "Фильтр токенов",
+      "search": "Поиск токенов",
+      "confirm": "Сохранить",
+      "noResult": "Нет результата..."
     },
     "about": {
-      "title": "About",
-      "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
-      "tutorial": "TUTORIAL"
+      "title": "О программе",
+      "description": "TronWallet является приложением с открытым исходным кодом, полностью децентрализованный P2P крипто кошелёк для сети TRON, созданный с помощью React Native. С его помощью можно отправлять и получать токены, голосовать за супер представителей, участвовать в продаже токенов, сохранять данные движения ваших балансов и транзакций, и многое другое. Нажмите на ссылку ниже для ознакомления с подробной инструкцией, о том, как его использовать.",
+      "tutorial": "УЧЕБНИК"
     },
     "accepts": {
-      "title": "Who accepts TRX?"
+      "title": "Кто принимает TRX?"
     },
     "accounts": {
       "title": "Accounts",
@@ -374,129 +374,129 @@
       "restoreAccounts": "Restore Accounts",
       "noAccounts": "No accounts to restore"
     },
-    "partners": "PARTNERS",
+    "partners": "ПАРТНЕРЫ",
     "askPin": "Always ask PIN"
   },
   "submitTransaction": {
-    "title": "TRANSACTION DETAILS",
-    "notification": "You have received a transaction from {{address}}",
-    "notificationPayment": "You have received a payment from {{address}}",
-    "data": "DATA",
-    "time": "TIME",
+    "title": "ДЕТАЛИ ТРАНЗАКЦИИ",
+    "notification": "Вы получили транзакцию от {{address}}",
+    "notificationPayment": "Вы получили платеж от {{address}}",
+    "data": "ДАННЫЕ",
+    "time": "ВРЕМЯ",
     "button": {
-      "tryAgain": "Try again",
-      "submit": "SUBMIT TRANSACTION"
+      "tryAgain": "Повторить",
+      "submit": "ОТПРАВИТЬ ТРАНЗАКЦИЮ"
     },
-    "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
+    "disconnectedMessage": "Кажется, что вы отключены. Переподключитесь к Интернету перед выполнением транзакции.",
     "dic": {
-      "contractType": "Transaction Type",
-      "ownerAddress": "From",
-      "toAddress": "To",
-      "participateAssetIssueContract": "Participate",
-      "transferAssetContract": "Transfer",
-      "transferContract": "Transfer",
-      "unfreezeBalanceContract": "Unfreeze",
-      "freezeBalanceContract": "Freeze",
-      "assetIssueContract": "Create",
-      "voteWitnessContract": "Vote",
-      "frozenDuration": "Duration",
-      "frozenBalance": "Total to Freeze"
+      "contractType": "Тип транзакции",
+      "ownerAddress": "От",
+      "toAddress": "Кому",
+      "participateAssetIssueContract": "Участвовать",
+      "transferAssetContract": "Передача",
+      "transferContract": "Передача",
+      "unfreezeBalanceContract": "Разморозить",
+      "freezeBalanceContract": "Заморозить",
+      "assetIssueContract": "Создание",
+      "voteWitnessContract": "Голосование",
+      "frozenDuration": "Продолжительность",
+      "frozenBalance": "Всего для замораживания"
     },
     "errorDic": {
-      "contractValidate": "Transaction data not valid. Please try again later.",
-      "signature": "Transaction signature not valid.",
-      "duplicate": "Transaction already broadcasted.",
-      "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
-      "bandwith": "Not enought bandwidth. Please try again later.",
-      "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
-      "tooBig": "Transaction too big to be submitted.",
-      "expiration": "Transaction expired. Please try again.",
-      "serverBusy": "Server busy.",
-      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
+      "contractValidate": "Данные транзакции не является допустимыми. Пожалуйста, повторите попытку позже.",
+      "signature": "Подпись транзакции не является допустимой.",
+      "duplicate": "Транзакция уже передана.",
+      "contractValidateCee": "Данные транзакции не является допустимыми (CEE). Пожалуйста, повторите попытку позже.",
+      "bandwith": "Не достаточно пропускной способности. Пожалуйста, повторите попытку позже.",
+      "contractValidateTapos": "Данные транзакции не является допустимыми (TAPOS). Пожалуйста, повторите попытку позже.",
+      "tooBig": "Транзакция, слишком велика, чтобы быть подтвержденной.",
+      "expiration": "Истек срок действия транзакции. Пожалуйста, попробуйте еще раз.",
+      "serverBusy": "Сервер занят.",
+      "resource": "Недостаточно пропускной способности или баланса. Могут потребоваться замороженные TRX."
     },
-    "totalVotes": "Total Votes"
+    "totalVotes": "Всего голосов"
   },
   "transactions": {
-    "title": "MY TRANSACTIONS",
-    "from": "From",
-    "to": "To",
-    "notFound": "No transactions found."
+    "title": "МОИ ТРАНЗАКЦИИ",
+    "from": "От",
+    "to": "Кому",
+    "notFound": "Транзакции не найдены."
   },
   "transactionDetails": {
-    "title": "TRANSACTION",
+    "title": "ТРАНЗАКЦИЯ",
     "clipboard": {
-      "tronscanUrl": "Tronscan url for this transaction copied to the clipboard",
-      "publicKey": "Public Key copied to the clipboard"
+      "tronscanUrl": "Tronscan Url-адрес для этой транзакции скопирован в буфер обмена",
+      "publicKey": "Открытый ключ скопирован в буфер обмена"
     },
-    "hash": "HASH",
-    "status": "STATUS",
-    "time": "TIME",
-    "block": "BLOCK",
-    "frozenBalance": "FROZEN BALANCE",
-    "unfrozenBalance": "UNFROZEN BALANCE",
-    "totalVotes": "TOTAL VOTES",
-    "amount": "AMOUNT",
-    "to": "TO",
-    "from": "FROM",
-    "tokenName": "TOKEN NAME",
-    "unityValue": "UNITY VALUE",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "votedAddress": "VOTED ADDRESS"
+    "hash": "ХЭШ",
+    "status": "СТАТУС",
+    "time": "ВРЕМЯ",
+    "block": "БЛОК",
+    "frozenBalance": "ЗАМОРОЖЕННЫЙ БАЛАНС",
+    "unfrozenBalance": "НЕЗАМОРОЖЕННЫЙ БАЛАНС",
+    "totalVotes": "ВСЕГО ГОЛОСОВ",
+    "amount": "СУММА",
+    "to": "Кому",
+    "from": "От",
+    "tokenName": "ИМЯ ТОКЕНА",
+    "unityValue": "ЗНАЧЕНИЕ ЕДИНИЦЫ",
+    "totalSupply": "ОБЩИЙ ЗАПАС",
+    "startTime": "ВРЕМЯ НАЧАЛА",
+    "endTime": "ВРЕМЯ ОКОНЧАНИЯ",
+    "description": "ОПИСАНИЕ",
+    "votedAddress": "АДРЕСА ЗА КОТОРЫЕ ПРОГОЛОСОВАЛИ"
   },
   "transactionSuccess": {
-    "submitted": "TRANSACTION SUBMITTED TO NETWORK!",
-    "success": "SUCCESS!"
+    "submitted": "ТРАНЗАКЦИИ, ПОДТВЕРЖДЕННЫЕ В СЕТИ!",
+    "success": "УСПЕХ!"
   },
   "votes": {
-    "title": "VOTES",
-    "totalVotes": "TOTAL VOTES",
-    "votesAvailable": "VOTES AVAILABLE",
-    "search": "Search",
-    "error": "Oops, something didn't load correctly. Try to reload"
+    "title": "ГОЛОСА",
+    "totalVotes": "ВСЕГО ГОЛОСОВ",
+    "votesAvailable": "ДОСТУПНЫХ ГОЛОСОВ",
+    "search": "Поиск",
+    "error": "Ой что-то не правильно загрузитьлось. Попробуйте перезагрузить"
   },
   "scanPayment": {
-    "scan": "SCAN",
+    "scan": "СКАНИРОВАТЬ",
     "error": {
-      "receiver": "Receiver address invalid",
-      "token": "Token not valid",
-      "amount": "Amount not valid",
-      "description": "Description too long",
-      "code": "Payment code invalid. Please, scan a valid one"
+      "receiver": "Неверный адрес получателя",
+      "token": "Токен не корректный",
+      "amount": "Сумма не корректна",
+      "description": "Слишком длинное описание",
+      "code": "Недопустимый код платежа. Пожалуйста просканируйте правильный код платежа"
     }
   },
   "makePayment": {
-    "pay": "PAY",
-    "confirm": "CONFIRM PAYMENT",
+    "pay": "ОПЛАТИТЬ",
+    "confirm": "ПОДТВЕРДИТЬ ОПЛАТУ",
     "error": {
-      "receiver": "Receiver is equal to requester",
-      "token": "This account doesn't have the token for this transaction",
-      "amount": "This account doesn't have enough balance.",
-      "description": "No description available"
+      "receiver": "Получатель подобен запрашивающей стороне",
+      "token": "Эта учетная запись не имеет токена для этой транзакции",
+      "amount": "Эта учетная запись не имеет достаточного баланса.",
+      "description": "Нет описания"
     }
   },
   "buildPayment": {
-    "generate": "GENERATE REQUEST",
-    "selectCurrency": "Select the reference currency",
+    "generate": "СОЗДАТЬ ЗАПРОС",
+    "selectCurrency": "Выберите валюту",
     "error": {
-      "currency": "We weren't able to load other currency prices. Please use TRX as reference"
+      "currency": "Мы не смогли загрузить цены на другие валюты. Пожалуйста, используйте TRX как базовые"
     }
   },
   "requestPayment": {
-    "title": "REQUEST PAYMENT"
+    "title": "ЗАПРОС ОПЛАТЫ"
   },
   "newAccount": {
     "title": "Account Creation",
     "placeholder": "My precious account",
     "success": {
-      "title": "New account successfully created",
-      "message": "You can edit the name on your address book"
+      "title": "Новая учетная запись успешно создана",
+      "message": "Вы можете редактировать имя в адресной книге"
     },
     "failure": {
-      "title": "New account warning",
-      "message": "To add a new account you should have at least one transaction on your last account."
+      "title": "Новое оповещение учетной записи",
+      "message": "Чтобы добавить новую учетную запись, вы должны иметь по крайней мере одну транзакция в старой учетной записи."
     }
   }
 }
