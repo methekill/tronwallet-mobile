@@ -18,17 +18,17 @@
   "success": "Succes",
   "warning": "Waarschuwing",
   "cancel": "Annuleren",
-  "address": "Address",
+  "address": "Adres",
   "ok": "OK",
   "actionModalTitle": "Wilt u graag",
   "account": "Account",
-  "restore": "Restore",
+  "restore": "Herstellen",
   "error": {
     "default": "Oeps, er is iets misgegaan. Probeer het later opnieuw. Als de fout aanhoudt, probeert u de netwerkinstellingen bij te werken.",
     "buildingTransaction": "Fout bij het opbouwen van de transactie, probeer het opnieuw.",
     "gettingTransaction": "Fout bij het ophalen van de transactie.",
     "clipboardCopied": "Er klopt iets niet tijdens het kopiëren",
-    "hideAccount": "Something went wrong deleting account, try again'"
+    "hideAccount": "Er is iets misgegaan bij het verwijderen van een account, probeer het opnieuw '"
   },
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRIJS",
@@ -50,7 +50,7 @@
   "clear": "Wissen",
   "allIn": "Volledig",
   "skip": "Overslaan",
-  "privateKey": "Private Key",
+  "privateKey": "Prive sleutel",
   "balance": {
     "title": "REKENINGEN",
     "error": {
@@ -63,7 +63,7 @@
     "tokens": "TOKENS",
     "holdings": "BEZITTINGEN"
   },
-  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
+  "hideAccount": "U staat op het punt dit account te verwijderen. U kunt het later in de instellingen herstellen",
   "components": {
     "share": {
       "title": "Deel TronWallet adres",
@@ -130,10 +130,10 @@
   },
   "importWallet": {
     "title": "IMPORT WALLET",
-    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
-    "button": "IMPORT",
+    "message": "Als u de privésleutel en het adres van uw portemonnee hebt, kunt u deze hier herstellen, maar houd er rekening mee dat TronWallet voornamelijk werkt met mnemonics. Met deze herstelmethode worden sommige functies in de app uitgeschakeld.",
+    "button": "IMPORTEREN",
     "error": {
-      "privateKey": "Private key invalid or incomplete"
+      "privateKey": "Privésleutel ongeldig of onvolledig"
     }
   },
   "freeze": {
@@ -369,13 +369,13 @@
       "title": "Wie accepteert TRX?"
     },
     "accounts": {
-      "title": "Accounts",
-      "search": "Search accounts",
-      "restoreAccounts": "Restore Accounts",
-      "noAccounts": "No accounts to restore"
+      "title": "accounts",
+      "search": "Zoek accounts",
+      "restoreAccounts": "Accounts herstellen",
+      "noAccounts": "Geen accounts om te herstellen"
     },
     "partners": "PARTNERS",
-    "askPin": "Always ask PIN"
+    "askPin": "Vraag altijd PIN"
   },
   "submitTransaction": {
     "title": "TRANSACTIE DETAILS",
@@ -488,8 +488,8 @@
     "title": "BETALINGSVERZOEK"
   },
   "newAccount": {
-    "title": "Account Creation",
-    "placeholder": "My precious account",
+    "title": "Account aanmaken",
+    "placeholder": "Mijn dierbare account",
     "success": {
       "title": "Nieuw account succesvol aangemaakt",
       "message": "U kunt de naam in uw adresboek bewerken"
