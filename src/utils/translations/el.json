@@ -339,14 +339,14 @@
     },
     "pin": {
       "title": "Change Pin",
-      "success": "Pin successfully changed!"
+      "success": "RESTORE WALLET"
     },
     "language": {
       "title": "Language",
       "choose": "Please, choose a Language below:",
       "success": {
         "title": "Language changed to {{language}}",
-        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
+        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now;"
       },
       "button": {
         "confirm": "Yes, restart now!",
@@ -366,7 +366,7 @@
       "tutorial": "TUTORIAL"
     },
     "accepts": {
-      "title": "Who accepts TRX?"
+      "title": "Who accepts TRX;"
     },
     "accounts": {
       "title": "Accounts",
