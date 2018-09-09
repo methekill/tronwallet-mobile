@@ -133,7 +133,7 @@
     "message": "Se você tem a chave privada e o endereço da sua carteira, você pode recupear aqui, mas tenha em mente que o TronWallet não poderá recupera-la caso perca o seu smartphone. Este método de recuperação irá desativar algumas funcionalidades dentro do aplicativo.",
     "button": "IMPORTAR",
     "error": {
-      "privateKey": "Private key invalid or incomplete"
+      "privateKey": "Chave privada inválida ou incompleta."
     }
   },
   "freeze": {
@@ -290,7 +290,7 @@
       "wallet": "CARTEIRA",
       "security": "SEGURANÇA",
       "notification": "NOTIFICAÇÕES E IDIOMA",
-      "accounts": "ACCOUNTS MANAGEMENT"
+      "accounts": "GERENCIAMENTO DE CONTAS"
     },
     "notifications": {
       "title": "Notificações"
@@ -369,13 +369,13 @@
       "title": "Quem aceita TRX?"
     },
     "accounts": {
-      "title": "Accounts",
-      "search": "Search accounts",
-      "restoreAccounts": "Restore Accounts",
-      "noAccounts": "No accounts to restore"
+      "title": "Contas",
+      "search": "Pesquisar contas",
+      "restoreAccounts": "Restaurar as contas",
+      "noAccounts": "Sem contas para restaurar"
     },
     "partners": "PARCEIROS",
-    "askPin": "Always ask PIN"
+    "askPin": "Sempre pedir o PIN"
   },
   "submitTransaction": {
     "title": "TRANSAÇÃO DETALHADA",
@@ -488,8 +488,8 @@
     "title": "SOLICITAR PAGAMENTO"
   },
   "newAccount": {
-    "title": "Account Creation",
-    "placeholder": "My precious account",
+    "title": "Criação de conta",
+    "placeholder": "Minha conta",
     "success": {
       "title": "Nova conta criada com sucesso",
       "message": "Você pode editar o nome no seu address book"
