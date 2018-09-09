@@ -18,17 +18,17 @@
   "success": "Success",
   "warning": "Warning",
   "cancel": "Cancel",
-  "address": "Address",
+  "address": "Adresse",
   "ok": "OK",
   "actionModalTitle": "Would you like to",
-  "account": "Account",
-  "restore": "Restore",
+  "account": "Konto",
+  "restore": "Restaurere",
   "error": {
     "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
     "buildingTransaction": "Error while building transaction, try again.",
     "gettingTransaction": "Error while getting transaction.",
     "clipboardCopied": "Something wrong while copying",
-    "hideAccount": "Something went wrong deleting account, try again'"
+    "hideAccount": "Noe gikk galt ved å slette konto, prøv igjen '"
   },
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRICE",
@@ -50,7 +50,7 @@
   "clear": "Clear",
   "allIn": "All In",
   "skip": "Skip",
-  "privateKey": "Private Key",
+  "privateKey": "Privat nøkkel",
   "balance": {
     "title": "ACCOUNTS",
     "error": {
@@ -59,104 +59,104 @@
     },
     "chooseCurrency": "Please, choose your preferred currency.",
     "confirmSeed": "Please tap to confirm your 12 seed words",
-    "bandwidth": "BANDWIDTH",
+    "bandwidth": "båndbredde",
     "tokens": "TOKENS",
     "holdings": "HOLDINGS"
   },
-  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
+  "hideAccount": "Du er i ferd med å fjerne denne kontoen. Du kan gjenopprette det senere i innstillingene",
   "components": {
     "share": {
       "title": "Share TronWallet address",
-      "message": "This is my TronWallet address:\n\n {{address}}\n\nTip: Once you have copied it you can paste it in your TronWallet app using the special button on Send screen.",
-      "dialogTitle": "Share using:"
+      "message": "Dette er min TronWallet-adresse:\n\n {{address}}\n\nTips: Når du har kopiert det, kan du lime det inn i TronWallet-appen din med den spesielle knappen på Send-skjermbildet.",
+      "dialogTitle": "Del med:"
     },
     "QRScanner": {
-      "title": "Address Scanner",
+      "title": "Adresseskanner",
       "scan": "Scan",
-      "explanation": "Scan the QRCode to identify the target user",
-      "permissionMessage": "To scan the public key the app needs your permission to access the camera."
+      "explanation": "Skann QRCode for å identifisere målbrukeren",
+      "permissionMessage": "For å skanne offentlig nøkkel trenger appen din tillatelse for å få tilgang til kameraet."
     },
     "vote": {
-      "enterVote": "ENTER THE VOTE VALUE",
-      "votesRemaining": "VOTES REMAINING",
+      "enterVote": "Skriv inn VOTE VALUE",
+      "votesRemaining": "STEMMER RESTERENDE",
       "setVote": "SET VOTE",
-      "moreVotes": "If you need more votes you can Freeze more TRX.",
-      "confirmVotes": "CONFIRM VOTES",
-      "yourVotes": "Your Votes",
-      "myVotes": "MY VOTES",
-      "confirm": "CONFIRM",
-      "freeze": "Freeze",
-      "totalVotes": "Total votes available:",
-      "delete": "DELETE",
-      "set": "SET",
-      "freezeOrLower": "You do not have enough frozen TRX. Freeze more TRX or lower the vote amount",
-      "freezeToContinue": "You do not have enough frozen TRX. Freeze more TRX to continue"
+      "moreVotes": "Hvis du trenger flere stemmer, kan du fryse mer TRX.",
+      "confirmVotes": "Bekreft stemmer",
+      "yourVotes": "Dine stemmer",
+      "myVotes": "Mine stemmer",
+      "confirm": "BEKREFTE",
+      "freeze": "Fryse",
+      "totalVotes": "Totalt antall stemmer tilgjengelig:",
+      "delete": "SLETT",
+      "set": "SETT",
+      "freezeOrLower": "Du har ikke nok frossen TRX. Frys mer TRX eller senk stemmebeløpet",
+      "freezeToContinue": "Du har ikke nok frossen TRX. Frys mer TRX for å fortsette"
     }
   },
   "firstTime": {
     "button": {
-      "create": "CREATE WALLET",
+      "create": "SKAP WALLET",
       "restore": "RESTORE WALLET"
     }
   },
   "addressBook": {
     "shared": {
-      "add": "ADD",
-      "edit": "EDIT",
-      "delete": "DELETE",
-      "send": "SEND"
+      "add": "LEGG TIL",
+      "edit": "REDIGERE",
+      "delete": "SLETT",
+      "send": "SENDE"
     },
     "contacts": {
       "delete": {
-        "title": "Delete Contact",
-        "message": "Do you really want to delete this contact?",
-        "cancelButton": "Cancel",
+        "title": "Slett kontakt",
+        "message": "Vil du virkelig slette denne kontakten?",
+        "cancelButton": "Avbryt",
         "okButton": "OK"
       },
-      "empty": "Your address book is empty, add a new contact using the button below.",
-      "loadError": "There was a problem loading the contacts. Please try again.",
-      "addContact": "ADD CONTACT",
-      "addToContacts": "ADD TO CONTACTS"
+      "empty": "Din adressebok er tom, legg til en ny kontakt ved hjelp av knappen nedenfor.",
+      "loadError": "Det oppsto et problem med å laste inn kontaktene. Vær så snill, prøv på nytt.",
+      "addContact": "LEGG TIL KONTAKT",
+      "addToContacts": "LEGG TIL I KONTAKTER"
     },
     "form": {
-      "generalError": "There was a problem submitting this form. Please contact an administrator.",
-      "nameError": "The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.",
-      "addressError": "Something isn't right with the address. Please double check for typos.",
-      "uniqueAddressError": "The key must be unique. Please choose a different address.",
-      "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
-      "name": "NAME",
-      "address": "ADDRESS"
+      "generalError": "Det oppsto et problem med å sende inn dette skjemaet. Ta kontakt med en administrator.",
+      "nameError": "Navnefeltet må starte med et brev, inneholde maksimalt 32 tegn, og det vil bare akseptere bokstaver, tall og hvite mellomrom.",
+      "addressError": "Noe er ikke riktig med adressen. Vennligst dobbeltklikk for typoer.",
+      "uniqueAddressError": "Nøkkelen må være unik. Vennligst velg en annen adresse.",
+      "uniqueAliasError": "Navn i adresseboken må være unikt. Vennligst velg en annen.",
+      "name": "NAVN",
+      "address": "ADRESSE"
     }
   },
   "importWallet": {
-    "title": "IMPORT WALLET",
-    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
+    "title": "IMPORTVALLET",
+    "message": "Hvis du har den private nøkkelen og adressen til lommeboken, kan du gjenopprette den her, men husk at TronWallet opererer med mnemonics først og fremst. Denne gjenopprettingsmetoden deaktiverer noen funksjoner i App.",
     "button": "IMPORT",
     "error": {
-      "privateKey": "Private key invalid or incomplete"
+      "privateKey": "Privat nøkkel er ugyldig eller ufullstendig"
     }
   },
   "freeze": {
-    "title": "FREEZE",
+    "title": "FRYSE",
     "unfreeze": {
-      "title": "UNFREEZE",
-      "inThreeDays": "After a three day period you can unfreeze your TRX",
-      "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
-      "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
-      "inXDays": "You can unfreeze your TRX in {{days}} days.",
-      "now": "You can unfreeze your TRX now."
+      "title": "frigi",
+      "inThreeDays": "Etter en tre dagers periode kan du fryse din TRX",
+      "inXMinutes": "Du kan frigjøre TRX på {{minutes}} minutter.",
+      "inXHours": "Du kan frigjøre TRX om {{hours}} timer.",
+      "inXDays": "Du kan frigjøre TRX på {{days}} dager.",
+      "now": "Du kan frigjøre din TRX nå."
     },
     "error": {
-      "minimumAmount": "The minimum amount for any freeze transaction is 1.",
-      "insufficientBalance": "Insufficient TRX balance",
+      "minimumAmount": "Minimumsbeløpet for enhver fryse-transaksjon er 1.",
+      "insufficientBalance": "Mangelfull TRX-balanse",
       "roundNumbers": "Can only freeze round numbers"
     },
     "amount": "FREEZE AMOUNT",
-    "balance": "Balance"
+    "balance": "Balansere"
   },
   "getVault": {
-    "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
-    "downloadHere": "You can download it here"
+    "notInstalled": "Det ser ut til at du ikke har Tron Vault installert på telefonen din for å fortsette med transaksjonen din.",
+    "downloadHere": "Du kan laste den ned her"
   },
   "market": {
     "time": {
@@ -164,165 +164,165 @@
       "day": "1D",
       "week": "1W",
       "month": "1M",
-      "all": "ALL"
+      "all": "ALLE"
     },
-    "highest": "HIGHEST",
-    "lowest": "LOWEST",
+    "highest": "HØYESTE",
+    "lowest": "LAVEST",
     "volume": "VOLUME 24H",
-    "cap": "MARKET CAP",
-    "supply": "CIRCULATING SUPPLY"
+    "cap": "MARKED CAP",
+    "supply": "KIRKULERINGSFORSIKRING"
   },
   "participate": {
-    "title": "PARTICIPATE",
-    "featured": "FEATURED",
+    "title": "DELTA",
+    "featured": "ANBEFALTE",
     "button": {
-      "confirm": "CONFIRM",
-      "moreInfo": "MORE INFO",
-      "buyNow": "BUY NOW"
+      "confirm": "BEKREFTE",
+      "moreInfo": "MER INFORMASJON",
+      "buyNow": "KJØP NÅ"
     },
     "error": {
-      "insufficientBalance": "Not enough funds (TRX) to participate.",
+      "insufficientBalance": "Ikke nok midler (TRX) til å delta.",
       "insufficientTrx": {
-        "title": "You need to buy at least one TRX worth of {{token}}.",
-        "message": "Currently you are buying only {{amount}}."
+        "title": "Du må kjøpe minst en TRX verdi på {{token}}.",
+        "message": "For tiden kjøper du bare {{amount}}."
       }
     },
-    "warning": "You don't have enough TRX to buy that many {{token}}",
-    "amountToBuy": "AMOUNT TO BUY",
-    "pricePerToken": "PRICE PER TOKEN",
-    "tokenDescription": "TOKEN DESCRIPTION",
+    "warning": "Du har ikke nok TRX til å kjøpe så mange {{token}}",
+    "amountToBuy": "BELØP Å KJØPE",
+    "pricePerToken": "PRIS PER TOKEN",
+    "tokenDescription": "TOKEN BESKRIVELSE",
     "tokenInfo": "TOKEN INFO",
     "token": "TOKEN",
     "tokens": "TOKENS",
-    "frozen": "FROZEN",
-    "percentage": "PERCENTAGE",
-    "issued": "ISSUED",
+    "frozen": "FROSSEN",
+    "percentage": "PROSENTDEL",
+    "issued": "UTSTEDT",
     "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "transaction": "TRANSACTION",
-    "ownerAddress": "OWNER ADDRESS",
+    "startTime": "STARTTID",
+    "endTime": "SLUTTID",
+    "description": "BESKRIVELSE",
+    "transaction": "TRANSAKSJON",
+    "ownerAddress": "EIERENS ADRESSE",
     "trxNum": "TRX NUM",
     "num": "NUM",
-    "block": "BLOCK"
+    "block": "BLOKKERE"
   },
   "pin": {
-    "title": "SECURITY CHECK",
-    "enter": "Enter PIN",
-    "new": "Enter New PIN",
-    "reenter": "Re-Enter PIN"
+    "title": "SIKKERHETSKONTROLL",
+    "enter": "Skriv inn PIN-kode",
+    "new": "Skriv inn ny PIN-kode",
+    "reenter": "Skriv inn PIN-kode på nytt"
   },
   "receive": {
-    "title": "RECEIVE",
-    "clipboardCopied": "Copied to clipboard",
+    "title": "MOTTA",
+    "clipboardCopied": "Kopiert til utklippstavlen",
     "button": {
-      "copy": "Copy",
-      "share": "Share"
+      "copy": "Kopiere",
+      "share": "Dele"
     },
     "tabs": {
-      "share": "SHARE",
-      "request": "REQUEST"
+      "share": "DELE",
+      "request": "BE OM"
     }
   },
   "rewards": {
-    "title": "REWARDS",
-    "earned": "You have earned"
+    "title": "BELØNNINGER",
+    "earned": "Du har tjent"
   },
   "seed": {
     "confirm": {
-      "title": "CONFIRM SEED",
+      "title": "Bekreft frø",
       "error": {
-        "title": "Wrong Combination",
-        "message": "Selected words don't match. Make sure you wrote the words in the correct order."
+        "title": "Feil kombinasjon",
+        "message": "Utvalgte ord stemmer ikke overens. Pass på at du skrev ordene i riktig rekkefølge."
       },
-      "success": "Wallet successfully confirmed",
-      "explanation": "Select the words below in the right order to confirm your secret phrase.",
+      "success": "Wallet er vellykket bekreftet",
+      "explanation": "Velg ordene under i riktig rekkefølge for å bekrefte din hemmelige setning.",
       "button": {
-        "reset": "RESET WORDS",
-        "confirm": "CONFIRM SEED"
+        "reset": "Gjenopprett ord",
+        "confirm": "Bekreft frø"
       }
     },
     "create": {
-      "title": "CREATE SEED",
-      "titleConfirm": "CONFIRM WALLET SEED",
-      "error": "Oops, we have a problem. Please restart the application.",
-      "generateNew": "This will generate a completely new wallet.",
+      "title": "SKAP SØD",
+      "titleConfirm": "Bekreft WALLET SEED",
+      "error": "Ups, vi har et problem. Vennligst start programmet på nytt.",
+      "generateNew": "Dette vil generere en helt ny lommebok.",
       "button": {
-        "written": "I'VE WRITTEN IT DOWN",
-        "newSeed": "GET NEW SEED",
-        "later": "Confirm later"
+        "written": "Jeg har skrevet det ned",
+        "newSeed": "Få nytt frø",
+        "later": "Bekreft senere"
       }
     },
     "restore": {
       "title": "RESTORE WALLET",
-      "explanation": "To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
-      "placeholder": "Please, type your 12 seed words here",
-      "success": "Wallet restored with success!",
-      "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
-      "error": "Oops. Looks like the words you typed aren't a valid mnemonic seed. Check for a typo and try again.",
-      "button": "RESTORE"
+      "explanation": "For å gjenopprette lommeboken, vennligst oppgi de samme 12 ordene du skrev på papir når du opprettet lommeboken din for første gang. Hvis du skriver inn en annen ordsekvens, vil en ny tom lommebok bli opprettet.",
+      "placeholder": "Vennligst skriv inn 12 frøordene dine her",
+      "success": "Wallet restaurert med suksess!",
+      "warning": "Gjenopprett frø vil slette alle dataene på denne enheten og trekke informasjon fra nettverket for den gjenopprettede kontoen.",
+      "error": "Oops. Ser ut som at ordene du skrev, ikke er et gyldig mnemonisk frø. Sjekk etter en skrivefeil og prøv igjen.",
+      "button": "RESTAURERE"
     }
   },
   "send": {
-    "title": "SEND",
+    "title": "SENDE",
     "error": {
-      "insufficientBalance": "Not enough balance.",
-      "gettingBalance": "Error while getting balance data",
-      "incompleteAddress": "Address is either incomplete or invalid.",
-      "invalidReceiver": "Invalid receiver address",
-      "selectBalance": "Select a balance first",
-      "invalidAmount": "Invalid amount"
+      "insufficientBalance": "Ikke nok balanse.",
+      "gettingBalance": "Feil mens du mottok balanse data",
+      "incompleteAddress": "Adressen er enten ufullstendig eller ugyldig.",
+      "invalidReceiver": "Ugyldig mottakeradresse",
+      "selectBalance": "Velg en balanse først",
+      "invalidAmount": "Ugyldig beløp"
     },
     "input": {
       "token": "TOKEN",
-      "to": "TO",
-      "amount": "AMOUNT",
-      "description": "DESCRIPTION (OPTIONAL)"
+      "to": "TIL",
+      "amount": "BELØP",
+      "description": "BESKRIVELSE (VALGFRITT)"
     },
-    "available": "available",
-    "chooseToken": "Please, choose a token below.",
-    "minimumAmount": "The minimum amount for any send transaction is 0.000001."
+    "available": "tilgjengelig",
+    "chooseToken": "Vennligst velg et token nedenfor.",
+    "minimumAmount": "Minimumsbeløpet for enhver send transaksjon er 0.000001."
   },
   "settings": {
-    "title": "SETTINGS",
+    "title": "INNSTILLINGER",
     "sectionTitles": {
-      "wallet": "WALLET",
-      "security": "SECURITY",
-      "notification": "NOTIFICATIONS AND IDIOM",
-      "accounts": "ACCOUNTS MANAGEMENT"
+      "wallet": "LOMMEBOK",
+      "security": "SIKKERHET",
+      "notification": "MELDINGER OG IDIOM",
+      "accounts": "REGNSKAPSSTYRING"
     },
     "notifications": {
-      "title": "Notifications"
+      "title": "Varsler"
     },
     "network": {
       "title": "Network",
       "modal": {
-        "title": "NETWORK",
-        "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
+        "title": "NETTVERK",
+        "explanation": "Med dette alternativet kan du velge noden som bedre passer dine behov og preferanser. Vær forsiktig når du oppdaterer noden IP mens feil IP kan føre til funksjonsfeil i lommeboken din. Eksempel: 35.231.121.122:50051",
         "error": {
-          "storage": "Error getting node ip from local storage",
-          "invalidIp": "Please put a valid IP",
-          "update": "Something went wrong while updating nodes ip",
-          "reset": "Something wrong while reseting node ip"
+          "storage": "Feil ved å få node ip fra lokal lagring",
+          "invalidIp": "Vennligst skriv en gyldig IP",
+          "update": "Noe gikk galt under oppdatering av noder ip",
+          "reset": "Noe galt mens du resetter node ip"
         },
         "success": {
-          "updated": "Updated",
-          "updatedIp": "Nodes IP updated!",
-          "switchTest": "Switched nodes IP to Testnet",
-          "switchMain": "Switched nodes IP to default main",
-          "reset": "Node IP reseted!"
+          "updated": "oppdatert",
+          "updatedIp": "Nodes IP oppdatert!",
+          "switchTest": "Bytte nodene IP til Testnet",
+          "switchMain": "Byttede noder IP til standard hoved",
+          "reset": "Node IP reset!"
         },
         "placeholder": {
-          "loadingIp": "Loading IP",
-          "loadingPort": "Loading Port"
+          "loadingIp": "Laster inn IP",
+          "loadingPort": "Laster inn port"
         },
         "button": {
-          "update": "Update and Connect",
-          "reset": "Reset"
+          "update": "Oppdater og Koble",
+          "reset": "tilbakestille"
         },
-        "mainNode": "Main Node",
-        "solidityNode": "Solidity Node",
+        "mainNode": "Hovednode",
+        "solidityNode": "Soliditetsknude",
         "testNet": "TestNet"
       }
     },
@@ -330,173 +330,173 @@
       "title": "Backup Wallet"
     },
     "restore": {
-      "title": "Restore Wallet"
+      "title": "Gjenopprett lommeboken"
     },
     "reset": {
-      "title": "Reset Wallet",
-      "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
-      "button": "OK, I understand it"
+      "title": "Tilbakestill lommeboken",
+      "warning": "Advarsel: Denne handlingen vil slette alle lagrede data, inkludert de 12 hemmelige ordene dine. Hvis du ikke lagret hemmeligheten din, vennligst gjør det før du fortsetter.",
+      "button": "OK, jeg forstår det"
     },
     "pin": {
-      "title": "Change Pin",
-      "success": "Pin successfully changed!"
+      "title": "Endre pin",
+      "success": "Pin vellykket endret!"
     },
     "language": {
-      "title": "Language",
-      "choose": "Please, choose a Language below:",
+      "title": "Språk",
+      "choose": "Vennligst velg et språk under:",
       "success": {
-        "title": "Language changed to {{language}}",
-        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
+        "title": "Språk endret til {{language}}",
+        "description": "Du må imidlertid fortsatt starte appen slik at endringene kan tre i kraft. Vil du gjerne gjøre det nå?"
       },
       "button": {
-        "confirm": "Yes, restart now!",
-        "cancel": "No, I'll do it later"
+        "confirm": "Ja, start nå!",
+        "cancel": "Nei, det skal jeg gjøre senere"
       },
-      "error": "Error saving preferred language"
+      "error": "Feil ved lagring av foretrukket språk"
     },
     "token": {
       "title": "Token Filter",
-      "search": "Search tokens",
-      "confirm": "Save",
-      "noResult": "No results..."
+      "search": "Søk tokens",
+      "confirm": "Lagre",
+      "noResult": "Ingen resultater..."
     },
     "about": {
-      "title": "About",
-      "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
-      "tutorial": "TUTORIAL"
+      "title": "Handle om",
+      "description": "TronWallet er en åpen kildekode fullstendig decentralisert P2P Crypto Wallet for TRON Network bygget med React Native. Med det kan du sende og motta tokens, stemme på en Super Representative, delta i et token-salg, holde oversikt over dine saldoer og transaksjoner og mye mer. Trykk på lenken nedenfor for en detaljert veiledning om hvordan du bruker den.",
+      "tutorial": "OPPLÆRINGEN"
     },
     "accepts": {
-      "title": "Who accepts TRX?"
+      "title": "Hvem aksepterer TRX?"
     },
     "accounts": {
-      "title": "Accounts",
-      "search": "Search accounts",
-      "restoreAccounts": "Restore Accounts",
-      "noAccounts": "No accounts to restore"
+      "title": "kontoer",
+      "search": "Søk etter kontoer",
+      "restoreAccounts": "Gjenopprett kontoene",
+      "noAccounts": "Ingen kontoer for å gjenopprette"
     },
     "partners": "PARTNERS",
-    "askPin": "Always ask PIN"
+    "askPin": "Spør alltid PIN-kode"
   },
   "submitTransaction": {
-    "title": "TRANSACTION DETAILS",
-    "notification": "You have received a transaction from {{address}}",
-    "notificationPayment": "You have received a payment from {{address}}",
+    "title": "TRANSAKSJON DETALJER",
+    "notification": "Du har mottatt en transaksjon fra {{address}}",
+    "notificationPayment": "Du har mottatt en betaling fra {{address}}",
     "data": "DATA",
-    "time": "TIME",
+    "time": "TID",
     "button": {
-      "tryAgain": "Try again",
-      "submit": "SUBMIT TRANSACTION"
+      "tryAgain": "Prøv igjen",
+      "submit": "SEND TRANSAKSJON"
     },
-    "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
+    "disconnectedMessage": "Det ser ut til at du er koblet fra. Koble til Internett igjen før du fortsetter med transaksjonen.",
     "dic": {
-      "contractType": "Transaction Type",
-      "ownerAddress": "From",
-      "toAddress": "To",
-      "participateAssetIssueContract": "Participate",
-      "transferAssetContract": "Transfer",
-      "transferContract": "Transfer",
-      "unfreezeBalanceContract": "Unfreeze",
-      "freezeBalanceContract": "Freeze",
-      "assetIssueContract": "Create",
-      "voteWitnessContract": "Vote",
-      "frozenDuration": "Duration",
-      "frozenBalance": "Total to Freeze"
+      "contractType": "Transaksjonstype",
+      "ownerAddress": "Fra",
+      "toAddress": "Til",
+      "participateAssetIssueContract": "Delta",
+      "transferAssetContract": "Overføre",
+      "transferContract": "Overføre",
+      "unfreezeBalanceContract": "frigi",
+      "freezeBalanceContract": "Fryse",
+      "assetIssueContract": "Skape",
+      "voteWitnessContract": "Stemme",
+      "frozenDuration": "Varighet",
+      "frozenBalance": "Totalt å fryse"
     },
     "errorDic": {
-      "contractValidate": "Transaction data not valid. Please try again later.",
-      "signature": "Transaction signature not valid.",
-      "duplicate": "Transaction already broadcasted.",
-      "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
-      "bandwith": "Not enought bandwidth. Please try again later.",
-      "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
-      "tooBig": "Transaction too big to be submitted.",
-      "expiration": "Transaction expired. Please try again.",
-      "serverBusy": "Server busy.",
-      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
+      "contractValidate": "Transaksjonsdata er ikke gyldig. Prøv igjen senere.",
+      "signature": "Transaksjons signatur er ikke gyldig.",
+      "duplicate": "Transaksjonen allerede sendt.",
+      "contractValidateCee": "Transaksjonsdata ikke gyldig (CEE). Prøv igjen senere.",
+      "bandwith": "Ikke nok båndbredde. Prøv igjen senere.",
+      "contractValidateTapos": "Transaksjonsdata ikke gyldig (TAPOS). Prøv igjen senere.",
+      "tooBig": "Transaksjonen er for stor til å bli sendt inn.",
+      "expiration": "Transaksjonen utløpt. Vær så snill, prøv på nytt.",
+      "serverBusy": "Server opptatt.",
+      "resource": "Utilstrekkelig båndbredde eller balanse. Det kan hende du trenger litt frosset TRX."
     },
-    "totalVotes": "Total Votes"
+    "totalVotes": "Totalt antall stemmer"
   },
   "transactions": {
-    "title": "MY TRANSACTIONS",
-    "from": "From",
-    "to": "To",
-    "notFound": "No transactions found."
+    "title": "Mine transaksjoner",
+    "from": "Fra",
+    "to": "Til",
+    "notFound": "Ingen transaksjoner funnet."
   },
   "transactionDetails": {
-    "title": "TRANSACTION",
+    "title": "TRANSAKSJON",
     "clipboard": {
-      "tronscanUrl": "Tronscan url for this transaction copied to the clipboard",
-      "publicKey": "Public Key copied to the clipboard"
+      "tronscanUrl": "Tronscan URL for denne transaksjonen kopierte til utklippstavlen",
+      "publicKey": "Offentlig nøkkel kopiert til utklippstavlen"
     },
     "hash": "HASH",
     "status": "STATUS",
-    "time": "TIME",
-    "block": "BLOCK",
-    "frozenBalance": "FROZEN BALANCE",
-    "unfrozenBalance": "UNFROZEN BALANCE",
-    "totalVotes": "TOTAL VOTES",
-    "amount": "AMOUNT",
-    "to": "TO",
-    "from": "FROM",
+    "time": "TID",
+    "block": "BLOKKERE",
+    "frozenBalance": "FROZEN BALANS",
+    "unfrozenBalance": "UFROSEN BALANS",
+    "totalVotes": "TOTAL STILLINGER",
+    "amount": "BELØP",
+    "to": "TIL",
+    "from": "FRA",
     "tokenName": "TOKEN NAME",
     "unityValue": "UNITY VALUE",
     "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "votedAddress": "VOTED ADDRESS"
+    "startTime": "STARTTID",
+    "endTime": "SLUTTID",
+    "description": "BESKRIVELSE",
+    "votedAddress": "Stemmeadresse"
   },
   "transactionSuccess": {
-    "submitted": "TRANSACTION SUBMITTED TO NETWORK!",
-    "success": "SUCCESS!"
+    "submitted": "TRANSAKSJON SENDT TIL NETTVERK!",
+    "success": "SUKSESS!"
   },
   "votes": {
-    "title": "VOTES",
-    "totalVotes": "TOTAL VOTES",
-    "votesAvailable": "VOTES AVAILABLE",
-    "search": "Search",
-    "error": "Oops, something didn't load correctly. Try to reload"
+    "title": "STEMMER",
+    "totalVotes": "TOTAL STILLINGER",
+    "votesAvailable": "Stemmer tilgjengelig",
+    "search": "Søke",
+    "error": "Ups, noe lastet ikke riktig. Prøv å laste på nytt"
   },
   "scanPayment": {
     "scan": "SCAN",
     "error": {
-      "receiver": "Receiver address invalid",
-      "token": "Token not valid",
-      "amount": "Amount not valid",
-      "description": "Description too long",
-      "code": "Payment code invalid. Please, scan a valid one"
+      "receiver": "Mottakeradressen er ugyldig",
+      "token": "Token er ikke gyldig",
+      "amount": "Beløpet er ikke gyldig",
+      "description": "Beskrivelse for lang",
+      "code": "Betalingskode ugyldig. Vennligst skan en gyldig en"
     }
   },
   "makePayment": {
-    "pay": "PAY",
-    "confirm": "CONFIRM PAYMENT",
+    "pay": "BETALE",
+    "confirm": "BEKREFT BETALING",
     "error": {
-      "receiver": "Receiver is equal to requester",
-      "token": "This account doesn't have the token for this transaction",
-      "amount": "This account doesn't have enough balance.",
-      "description": "No description available"
+      "receiver": "Mottaker er lik requester",
+      "token": "Denne kontoen har ikke token for denne transaksjonen",
+      "amount": "Denne kontoen har ikke nok balanse.",
+      "description": "Ingen beskrivelse tilgjengelig"
     }
   },
   "buildPayment": {
-    "generate": "GENERATE REQUEST",
-    "selectCurrency": "Select the reference currency",
+    "generate": "GENERER ANMODNING",
+    "selectCurrency": "Velg referansevaluta",
     "error": {
-      "currency": "We weren't able to load other currency prices. Please use TRX as reference"
+      "currency": "Vi kunne ikke laste andre valutapriser. Vennligst bruk TRX som referanse"
     }
   },
   "requestPayment": {
-    "title": "REQUEST PAYMENT"
+    "title": "BEVAR BETALING"
   },
   "newAccount": {
-    "title": "Account Creation",
-    "placeholder": "My precious account",
+    "title": "Kontooppretting",
+    "placeholder": "Min dyrebare konto",
     "success": {
-      "title": "New account successfully created",
-      "message": "You can edit the name on your address book"
+      "title": "Ny konto ble opprettet",
+      "message": "Du kan redigere navnet på adresseboken"
     },
     "failure": {
-      "title": "New account warning",
-      "message": "To add a new account you should have at least one transaction on your last account."
+      "title": "Ny konto advarsel",
+      "message": "For å legge til en ny konto bør du ha minst én transaksjon på den siste kontoen din."
     }
   }
 }
