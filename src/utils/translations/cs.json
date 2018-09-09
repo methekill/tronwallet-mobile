@@ -18,17 +18,17 @@
   "success": "Úspěch",
   "warning": "Varování",
   "cancel": "Zrušit",
-  "address": "Address",
+  "address": "Adresa",
   "ok": "OK",
   "actionModalTitle": "Chtěl bys",
-  "account": "Account",
-  "restore": "Restore",
+  "account": "Účet",
+  "restore": "Obnovit",
   "error": {
     "default": "Ups, něco se pokazilo. Opakujte akci později. Pokud chyba přetrvává, zkuste změnit nastavení sítě.",
     "buildingTransaction": "Chyba při vytváření transakce, zkuste to znovu.",
     "gettingTransaction": "Chyba při získávání transakce.",
     "clipboardCopied": "Něco se pokazilo během kopírování",
-    "hideAccount": "Something went wrong deleting account, try again'"
+    "hideAccount": "Něco se nezdařilo smazání účtu, zkuste znovu '"
   },
   "tronPower": "TRON POWER",
   "trxPrice": "CENA TRX",
@@ -50,7 +50,7 @@
   "clear": "Vymazat",
   "allIn": "Vybrat vše",
   "skip": "Přeskočit",
-  "privateKey": "Private Key",
+  "privateKey": "Soukromý klíč",
   "balance": {
     "title": "ÚČTY",
     "error": {
@@ -63,7 +63,7 @@
     "tokens": "TOKENY",
     "holdings": "MNOŽSTVÍ"
   },
-  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
+  "hideAccount": "Chystáte se tento účet odstranit. Později jej můžete obnovit v nastaveních",
   "components": {
     "share": {
       "title": "Sdílet TronWallet adresu",
@@ -129,11 +129,11 @@
     }
   },
   "importWallet": {
-    "title": "IMPORT WALLET",
-    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
+    "title": "DOPRAVNÍ PALIVO",
+    "message": "Máte-li soukromý klíč a adresu peněženky, můžete ji zde obnovit, ale pamatujte na to, že TronWallet pracuje především s mnemonikou. Tato metoda obnovení zakáže některé funkce v aplikaci App.",
     "button": "IMPORT",
     "error": {
-      "privateKey": "Private key invalid or incomplete"
+      "privateKey": "Neplatný nebo neúplný soukromý klíč"
     }
   },
   "freeze": {
@@ -290,7 +290,7 @@
       "wallet": "PENĚŽENKA",
       "security": "BEZPEČNOST",
       "notification": "NOTIFIKACE A JAZYKY",
-      "accounts": "ACCOUNTS MANAGEMENT"
+      "accounts": "ŘÍZENÍ ÚČTŮ"
     },
     "notifications": {
       "title": "Notifikace"
@@ -369,13 +369,13 @@
       "title": "Kdo přijímá TRX?"
     },
     "accounts": {
-      "title": "Accounts",
-      "search": "Search accounts",
-      "restoreAccounts": "Restore Accounts",
-      "noAccounts": "No accounts to restore"
+      "title": "Účty",
+      "search": "Vyhledávací účty",
+      "restoreAccounts": "Obnovit účty",
+      "noAccounts": "Žádné obnovené účty"
     },
     "partners": "PARTNEŘI",
-    "askPin": "Always ask PIN"
+    "askPin": "Vždy se zeptat na kód PIN"
   },
   "submitTransaction": {
     "title": "DETAILY TRANSAKCE",
@@ -488,8 +488,8 @@
     "title": "ŽÁDOST O PLATBU"
   },
   "newAccount": {
-    "title": "Account Creation",
-    "placeholder": "My precious account",
+    "title": "Vytvoření účtu",
+    "placeholder": "Můj drahocenný účet",
     "success": {
       "title": "Nový účet byl úspěšně vytvořen",
       "message": "Můžete upravit název ve svém adresáři"
