@@ -18,17 +18,17 @@
   "success": "Èxit",
   "warning": "Avís",
   "cancel": "Cancel·la",
-  "address": "Address",
+  "address": "adreça",
   "ok": "D'acord",
   "actionModalTitle": "Would you like to",
-  "account": "Account",
-  "restore": "Restore",
+  "account": "Compte",
+  "restore": "Restaurar",
   "error": {
     "default": "Woops alguna cosa sortia malament. Provar una altra vegada més tard, si persisteix l'error intentar actualitzar la configuració de xarxa.",
     "buildingTransaction": "Error mentre que la construcció de transacció, torneu.",
     "gettingTransaction": "Error en obtenir la transacció.",
     "clipboardCopied": "Alguna cosa malament mentre copia",
-    "hideAccount": "Something went wrong deleting account, try again'"
+    "hideAccount": "S'ha produït un error en suprimir el compte, torneu-ho a provar \""
   },
   "tronPower": "TRON POWER",
   "trxPrice": "PREU TRX",
@@ -50,7 +50,7 @@
   "clear": "Clar",
   "allIn": "Tot en",
   "skip": "Omet",
-  "privateKey": "Private Key",
+  "privateKey": "Clau privada",
   "balance": {
     "title": "COMPTES",
     "error": {
@@ -59,11 +59,11 @@
     },
     "chooseCurrency": "Si us plau, Trii la seva moneda preferit.",
     "confirmSeed": "Si us plau premeu per confirmar les seves paraules de 12 llavor",
-    "bandwidth": "BANDWIDTH",
+    "bandwidth": "AMPLE DE BANDA",
     "tokens": "TOKENS",
     "holdings": "HOLDINGS"
   },
-  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
+  "hideAccount": "Esteu a punt d'eliminar aquest compte. Podeu restaurar-lo més tard a la configuració",
   "components": {
     "share": {
       "title": "Compartir l'adreça TronWallet",
@@ -116,7 +116,7 @@
       "empty": "El seu llibre d'adreces és buit, afegiu un contacte nou utilitzant el botó de sota.",
       "loadError": "There was a problem loading the contacts. Please try again.",
       "addContact": "ADD CONTACT",
-      "addToContacts": "ADD TO CONTACTS"
+      "addToContacts": "AFEGIR A CONTACTES"
     },
     "form": {
       "generalError": "Hi havia un problema enviar el formulari. Contacte amb un administrador.",
@@ -125,38 +125,38 @@
       "uniqueAddressError": "La clau ha de ser únic. Trieu una adreça diferent.",
       "uniqueAliasError": "Noms en el seu llibre d'adreces ha de ser únics. Trieu un de diferent.",
       "name": "NOM",
-      "address": "ADDRESS"
+      "address": "ADREÇA"
     }
   },
   "importWallet": {
-    "title": "IMPORT WALLET",
-    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
-    "button": "IMPORT",
+    "title": "CARREIRA D'IMPORTACIÓ",
+    "message": "Si teniu la clau privada i l'adreça de la vostra cartera, podeu recuperar-la aquí, però tingueu en compte que TronWallet funciona principalment amb mnemònics. Aquest mètode de recuperació desactivarà algunes funcionalitats dins de l'aplicació.",
+    "button": "IMPORTACIÓ",
     "error": {
-      "privateKey": "Private key invalid or incomplete"
+      "privateKey": "La clau privada no és vàlida o incompleta"
     }
   },
   "freeze": {
-    "title": "FREEZE",
+    "title": "CONGELAR",
     "unfreeze": {
       "title": "UNFREEZE",
-      "inThreeDays": "After a three day period you can unfreeze your TRX",
-      "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
-      "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
-      "inXDays": "You can unfreeze your TRX in {{days}} days.",
-      "now": "You can unfreeze your TRX now."
+      "inThreeDays": "Després d'un període de tres dies es pot descongelar el TRX",
+      "inXMinutes": "Podeu descongelar el TRX en {{minutes}} minuts.",
+      "inXHours": "Podeu descongelar el TRX en {{hours}} hores.",
+      "inXDays": "Podeu descongelar el TRX en {{days}} dies.",
+      "now": "Podeu descongelar el vostre TRX ara."
     },
     "error": {
-      "minimumAmount": "The minimum amount for any freeze transaction is 1.",
-      "insufficientBalance": "Insufficient TRX balance",
-      "roundNumbers": "Can only freeze round numbers"
+      "minimumAmount": "L'import mínim per a qualsevol transacció de congelació és 1.",
+      "insufficientBalance": "Saldo insuficient de TRX",
+      "roundNumbers": "Només es poden congelar els números rodons"
     },
-    "amount": "FREEZE AMOUNT",
-    "balance": "Balance"
+    "amount": "IMPORT DE LLIURAMENT",
+    "balance": "Equilibri"
   },
   "getVault": {
-    "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
-    "downloadHere": "You can download it here"
+    "notInstalled": "Sembla que no teniu instal·lat el dispositiu Tron Vault al vostre telèfon per continuar amb la transacció.",
+    "downloadHere": "Podeu descarregar-lo aquí"
   },
   "market": {
     "time": {
@@ -166,337 +166,337 @@
       "month": "1M",
       "all": "TOTS ELS"
     },
-    "highest": "HIGHEST",
-    "lowest": "LOWEST",
-    "volume": "VOLUME 24H",
-    "cap": "MARKET CAP",
-    "supply": "CIRCULATING SUPPLY"
+    "highest": "ALTRE",
+    "lowest": "MÍXIM",
+    "volume": "VOLUM 24H",
+    "cap": "CAP DE MERCAT",
+    "supply": "SUBMINISTRAMENT DE CIRCULACIÓ"
   },
   "participate": {
-    "title": "PARTICIPATE",
-    "featured": "FEATURED",
+    "title": "PARTICIPAR",
+    "featured": "DESTACAT",
     "button": {
-      "confirm": "CONFIRM",
+      "confirm": "CONFIRMAR",
       "moreInfo": "MÉS INFORMACIÓ",
       "buyNow": "COMPRAR ARA"
     },
     "error": {
       "insufficientBalance": "No hi ha prou fons (TRX) per participar.",
       "insufficientTrx": {
-        "title": "You need to buy at least one TRX worth of {{token}}.",
-        "message": "Currently you are buying only {{amount}}."
+        "title": "Heu de comprar com a mínim un TRX de {{token}}.",
+        "message": "Actualment està comprant només {{amount}}."
       }
     },
-    "warning": "You don't have enough TRX to buy that many {{token}}",
-    "amountToBuy": "AMOUNT TO BUY",
-    "pricePerToken": "PRICE PER TOKEN",
-    "tokenDescription": "TOKEN DESCRIPTION",
+    "warning": "No teniu prou TRX per comprar molts {{token}}",
+    "amountToBuy": "IMPORT PER COMPRAR",
+    "pricePerToken": "PREU PER TOKEN",
+    "tokenDescription": "DESCRIPCIÓ DE TOKEN",
     "tokenInfo": "TOKEN INFO",
     "token": "TOKEN",
     "tokens": "TOKENS",
-    "frozen": "FROZEN",
+    "frozen": "CONGELAT",
     "percentage": "PERCENTAGE",
-    "issued": "ISSUED",
-    "totalSupply": "TOTAL SUPPLY",
+    "issued": "EMÈS",
+    "totalSupply": "SUBMINISTRAMENT TOTAL",
     "startTime": "HORA D'INICI",
     "endTime": "HORA DE FINALITZACIÓ",
-    "description": "DESCRIPTION",
-    "transaction": "TRANSACTION",
-    "ownerAddress": "OWNER ADDRESS",
+    "description": "DESCRIPCIÓ",
+    "transaction": "TRANSACCIÓ",
+    "ownerAddress": "ADREÇA DEL PROPIETARI",
     "trxNum": "TRX NUM",
     "num": "NUM",
-    "block": "BLOCK"
+    "block": "BLOC"
   },
   "pin": {
-    "title": "SECURITY CHECK",
+    "title": "REVISIÓ DE SEGURETAT",
     "enter": "Introduïu el PIN",
-    "new": "Enter New PIN",
-    "reenter": "Re-Enter PIN"
+    "new": "Introduïu un PIN nou",
+    "reenter": "Torneu a introduir el PIN"
   },
   "receive": {
-    "title": "RECEIVE",
-    "clipboardCopied": "Copied to clipboard",
+    "title": "RECIBIR",
+    "clipboardCopied": "S'ha copiat al porta-retalls",
     "button": {
-      "copy": "Copy",
-      "share": "Share"
+      "copy": "Copia",
+      "share": "Compartir"
     },
     "tabs": {
       "share": "COMPARTIR",
-      "request": "REQUEST"
+      "request": "PETICIÓ"
     }
   },
   "rewards": {
     "title": "RECOMPENSES",
-    "earned": "You have earned"
+    "earned": "Has guanyat"
   },
   "seed": {
     "confirm": {
-      "title": "CONFIRM SEED",
+      "title": "CONFIRMA SEED",
       "error": {
         "title": "Combinació incorrecta",
-        "message": "Selected words don't match. Make sure you wrote the words in the correct order."
+        "message": "Les paraules seleccionades no coincideixen. Assegureu-vos que heu escrit les paraules en l'ordre correcte."
       },
-      "success": "Wallet successfully confirmed",
+      "success": "S'ha confirmat amb èxit la cartera",
       "explanation": "Seleccioneu les paraules per sota en l'ordre correcte per confirmar la seva frase secreta.",
       "button": {
-        "reset": "RESET WORDS",
-        "confirm": "CONFIRM SEED"
+        "reset": "PARAULES DE RESET",
+        "confirm": "CONFIRMA SEED"
       }
     },
     "create": {
-      "title": "CREATE SEED",
-      "titleConfirm": "CONFIRM WALLET SEED",
+      "title": "CREE SEED",
+      "titleConfirm": "CONFIRMAR SEED DE CARTELL",
       "error": "Oops, tenim un problema. Si us plau reinicieu l'aplicació.",
-      "generateNew": "This will generate a completely new wallet.",
+      "generateNew": "Això generarà una cartera completament nova.",
       "button": {
-        "written": "I'VE WRITTEN IT DOWN",
+        "written": "L'he escric",
         "newSeed": "GET NEW SEED",
         "later": "Confirmar més tard"
       }
     },
     "restore": {
       "title": "RESTORE WALLET",
-      "explanation": "To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
-      "placeholder": "Please, type your 12 seed words here",
-      "success": "Wallet restored with success!",
-      "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
+      "explanation": "Per restaurar la cartera, proporcioneu les mateixes 12 paraules que vau escriure al paper quan vau crear la seva billetera per primera vegada. Si introduïu una seqüència de paraules diferent, es crearà una nova cartera buida.",
+      "placeholder": "Introduïu aquí les paraules de 12 paraules",
+      "success": "La cartera s'ha restaurat amb èxit.",
+      "warning": "La restauració de llavors eliminarà totes les dades d'aquest dispositiu i extreure informació de la xarxa del compte restaurat.",
       "error": "Oops. Sembla que les paraules que heu escrit no és una llavor Shing vàlid. Comproveu si un error tipogràfic i provar una altra vegada.",
       "button": "RESTORE"
     }
   },
   "send": {
-    "title": "SEND",
+    "title": "ENVIAR",
     "error": {
-      "insufficientBalance": "Not enough balance.",
-      "gettingBalance": "Error while getting balance data",
-      "incompleteAddress": "Address is either incomplete or invalid.",
-      "invalidReceiver": "Invalid receiver address",
-      "selectBalance": "Select a balance first",
+      "insufficientBalance": "No hi ha suficient equilibri.",
+      "gettingBalance": "S'ha produït un error en obtenir dades de saldo",
+      "incompleteAddress": "L'adreça és incompleta o no és vàlida.",
+      "invalidReceiver": "Adreça del destinatari no vàlida",
+      "selectBalance": "Seleccioneu primer un saldo",
       "invalidAmount": "Quantitat no vàlida"
     },
     "input": {
       "token": "TOKEN",
       "to": "TO",
       "amount": "AMOUNT",
-      "description": "DESCRIPTION (OPTIONAL)"
+      "description": "DESCRIPCIÓ (OPCIONAL)"
     },
-    "available": "available",
-    "chooseToken": "Please, choose a token below.",
-    "minimumAmount": "The minimum amount for any send transaction is 0.000001."
+    "available": "disponible",
+    "chooseToken": "Seleccioneu un testimoni a sota.",
+    "minimumAmount": "L'import mínim per a qualsevol transacció d'enviament és 0.000001."
   },
   "settings": {
-    "title": "SETTINGS",
+    "title": "CONFIGURACIÓ",
     "sectionTitles": {
-      "wallet": "WALLET",
-      "security": "SECURITY",
-      "notification": "NOTIFICATIONS AND IDIOM",
-      "accounts": "ACCOUNTS MANAGEMENT"
+      "wallet": "CARREIRA",
+      "security": "SEGURETAT",
+      "notification": "NOTIFICACIONS I IDIOM",
+      "accounts": "GESTIÓ DE COMPTES"
     },
     "notifications": {
-      "title": "Notifications"
+      "title": "Notificacions"
     },
     "network": {
-      "title": "Network",
+      "title": "Xarxa",
       "modal": {
-        "title": "NETWORK",
+        "title": "XARXA",
         "explanation": "Amb aquesta opció podeu seleccionar el node que millor s'ajusti les seves necessitats i preferències. Si us plau vagi amb compte en actualitzar el node IP mentre IP equivocat pot conduir a mal funcionament dins la seva cartera. Exemple: 35.231.121.122:50051",
         "error": {
-          "storage": "Error getting node ip from local storage",
-          "invalidIp": "Please put a valid IP",
+          "storage": "S'ha produït un error en obtenir node ip des de l'emmagatzematge local",
+          "invalidIp": "Introduïu una IP vàlida",
           "update": "Quelcom ha fallat en actualitzar nodes ip",
           "reset": "Alguna cosa va malament mentre reseting node ip"
         },
         "success": {
           "updated": "Actualitzat",
-          "updatedIp": "Nodes IP updated!",
-          "switchTest": "Switched nodes IP to Testnet",
-          "switchMain": "Switched nodes IP to default main",
-          "reset": "Node IP reseted!"
+          "updatedIp": "Nodes IP actualitzat!",
+          "switchTest": "Nodes IP commutats per Testnet",
+          "switchMain": "Nodes IP commutats per defecte principal",
+          "reset": "S'ha restablecido el node IP"
         },
         "placeholder": {
-          "loadingIp": "Loading IP",
-          "loadingPort": "Loading Port"
+          "loadingIp": "S'està carregant l'IP",
+          "loadingPort": "S'està carregant el port"
         },
         "button": {
-          "update": "Update and Connect",
-          "reset": "Reset"
+          "update": "Actualització i connexió",
+          "reset": "Restablir"
         },
-        "mainNode": "Main Node",
-        "solidityNode": "Solidity Node",
+        "mainNode": "Node principal",
+        "solidityNode": "Node de solidesa",
         "testNet": "TestNet"
       }
     },
     "backup": {
-      "title": "Backup Wallet"
+      "title": "Moneder de còpia de seguretat"
     },
     "restore": {
-      "title": "Restore Wallet"
+      "title": "Restaurar la cartera"
     },
     "reset": {
-      "title": "Reset Wallet",
-      "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
-      "button": "OK, I understand it"
+      "title": "Reinicia el moneder",
+      "warning": "Advertència: aquesta acció esborrarà totes les dades guardades, incloses les vostres 12 paraules secretes. Si no guardaves el secret, fes-ho abans de continuar.",
+      "button": "Bé, ho entenc"
     },
     "pin": {
       "title": "Canvi de Pin",
-      "success": "Pin successfully changed!"
+      "success": "S'ha canviat correctament el botó"
     },
     "language": {
-      "title": "Language",
-      "choose": "Please, choose a Language below:",
+      "title": "Llenguatge",
+      "choose": "Seleccioneu un idioma a continuació:",
       "success": {
-        "title": "Language changed to {{language}}",
-        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
+        "title": "L'idioma s'ha canviat a {{language}}",
+        "description": "Tanmateix, encara heu de reiniciar l'aplicació perquè els canvis tinguin efecte. Voleu fer-ho ara?"
       },
       "button": {
-        "confirm": "Yes, restart now!",
-        "cancel": "No, I'll do it later"
+        "confirm": "Sí, reinicia ara!",
+        "cancel": "No, ho faré més tard"
       },
-      "error": "Error saving preferred language"
+      "error": "Error en desar l'idioma preferit"
     },
     "token": {
-      "title": "Token Filter",
-      "search": "Search tokens",
-      "confirm": "Save",
-      "noResult": "No results..."
+      "title": "Filtre de token",
+      "search": "Cerques de cerca",
+      "confirm": "Desa",
+      "noResult": "Sense resultats..."
     },
     "about": {
-      "title": "About",
-      "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
+      "title": "Quant a",
+      "description": "TronWallet és una cartera Crypto P2P totalment descentralitzada per a xarxes TRON construïda amb React Native. Amb ell podeu enviar i rebre fitxes, votar a un representant súper, participar en una venda simbòlica, fer un seguiment dels vostres saldos i transaccions i molt més. Toqueu l'enllaç següent per obtenir un tutorial detallat sobre com utilitzar-lo.",
       "tutorial": "TUTORIAL"
     },
     "accepts": {
-      "title": "Who accepts TRX?"
+      "title": "Qui accepta TRX?"
     },
     "accounts": {
-      "title": "Accounts",
-      "search": "Search accounts",
-      "restoreAccounts": "Restore Accounts",
-      "noAccounts": "No accounts to restore"
+      "title": "Comptes",
+      "search": "Compte de cerca",
+      "restoreAccounts": "Comptes de restauració",
+      "noAccounts": "No hi ha comptes per restaurar"
     },
-    "partners": "PARTNERS",
-    "askPin": "Always ask PIN"
+    "partners": "SOCIS",
+    "askPin": "Sempre pregunteu al PIN"
   },
   "submitTransaction": {
-    "title": "TRANSACTION DETAILS",
-    "notification": "You have received a transaction from {{address}}",
+    "title": "DADES DE LA TRANSACCION",
+    "notification": "Heu rebut una transacció des de {{address}}",
     "notificationPayment": "Ha rebut un pagament de {{address}}",
-    "data": "DATA",
-    "time": "TIME",
+    "data": "DADES",
+    "time": "TEMPS",
     "button": {
-      "tryAgain": "Try again",
-      "submit": "SUBMIT TRANSACTION"
+      "tryAgain": "Torna-ho a provar",
+      "submit": "SUBMIT TRANSACCIÓ"
     },
-    "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
+    "disconnectedMessage": "Sembla que estàs desconnectat. Torneu a connectar a Internet abans de continuar amb la transacció.",
     "dic": {
-      "contractType": "Transaction Type",
-      "ownerAddress": "From",
-      "toAddress": "To",
-      "participateAssetIssueContract": "Participate",
-      "transferAssetContract": "Transfer",
-      "transferContract": "Transfer",
-      "unfreezeBalanceContract": "Unfreeze",
-      "freezeBalanceContract": "Freeze",
-      "assetIssueContract": "Create",
-      "voteWitnessContract": "Vote",
-      "frozenDuration": "Duration",
-      "frozenBalance": "Total to Freeze"
+      "contractType": "Tipus de transacció",
+      "ownerAddress": "Des de",
+      "toAddress": "A",
+      "participateAssetIssueContract": "Participa",
+      "transferAssetContract": "Transferència",
+      "transferContract": "Transferència",
+      "unfreezeBalanceContract": "Descongelar-se",
+      "freezeBalanceContract": "Congelar",
+      "assetIssueContract": "Crear",
+      "voteWitnessContract": "Votació",
+      "frozenDuration": "Durada",
+      "frozenBalance": "Total a congelar"
     },
     "errorDic": {
-      "contractValidate": "Transaction data not valid. Please try again later.",
-      "signature": "Transaction signature not valid.",
-      "duplicate": "Transaction already broadcasted.",
-      "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
-      "bandwith": "Not enought bandwidth. Please try again later.",
-      "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
-      "tooBig": "Transaction too big to be submitted.",
-      "expiration": "Transaction expired. Please try again.",
-      "serverBusy": "Server busy.",
-      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
+      "contractValidate": "Les dades de la transacció no són vàlides. Siusplau, intenta-ho més tard.",
+      "signature": "La signatura de la transacció no és vàlida.",
+      "duplicate": "Ja s'ha emès la transacció.",
+      "contractValidateCee": "Les dades de la transacció no són vàlides (CEE). Siusplau, intenta-ho més tard.",
+      "bandwith": "Ample de banda no enought. Siusplau, intenta-ho més tard.",
+      "contractValidateTapos": "Les dades de la transacció no són vàlides (TAPOS). Siusplau, intenta-ho més tard.",
+      "tooBig": "La transacció és massa gran per enviar.",
+      "expiration": "La transacció ha caducat. Siusplau torna-ho a provar.",
+      "serverBusy": "Servidor ocupat.",
+      "resource": "Ample de banda insuficient o saldo. És possible que necessiteu alguns TRX congelats."
     },
-    "totalVotes": "Total Votes"
+    "totalVotes": "Vots totals"
   },
   "transactions": {
-    "title": "MY TRANSACTIONS",
-    "from": "From",
-    "to": "To",
-    "notFound": "No transactions found."
+    "title": "LES MEVES TRANSACCIONS",
+    "from": "Des de",
+    "to": "A",
+    "notFound": "No s'ha trobat cap transacció."
   },
   "transactionDetails": {
-    "title": "TRANSACTION",
+    "title": "TRANSACCIÓ",
     "clipboard": {
-      "tronscanUrl": "Tronscan url for this transaction copied to the clipboard",
-      "publicKey": "Public Key copied to the clipboard"
+      "tronscanUrl": "L'URL de Tronscan d'aquesta transacció s'ha copiat al porta-retalls",
+      "publicKey": "S'ha copiat la clau pública al porta-retalls"
     },
     "hash": "HASH",
-    "status": "STATUS",
-    "time": "TIME",
-    "block": "BLOCK",
-    "frozenBalance": "FROZEN BALANCE",
-    "unfrozenBalance": "UNFROZEN BALANCE",
-    "totalVotes": "TOTAL VOTES",
+    "status": "ESTAT",
+    "time": "TEMPS",
+    "block": "BLOC",
+    "frozenBalance": "BALANÇ CONGELAT",
+    "unfrozenBalance": "BALANÇ DESCOMPTAT",
+    "totalVotes": "VOTOS TOTALS",
     "amount": "AMOUNT",
     "to": "TO",
     "from": "FROM",
     "tokenName": "TOKEN NAME",
-    "unityValue": "UNITY VALUE",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "votedAddress": "VOTED ADDRESS"
+    "unityValue": "VALOR UNITAT",
+    "totalSupply": "SUBMINISTRAMENT TOTAL",
+    "startTime": "L'HORA D'INICI",
+    "endTime": "FI DEL TEMPS",
+    "description": "DESCRIPCIÓ",
+    "votedAddress": "ADREÇA VOTADA"
   },
   "transactionSuccess": {
-    "submitted": "TRANSACTION SUBMITTED TO NETWORK!",
-    "success": "SUCCESS!"
+    "submitted": "TRANSACCION PRESENTADA A LA XARXA!",
+    "success": "ÈXIT"
   },
   "votes": {
     "title": "VOTES",
-    "totalVotes": "TOTAL VOTES",
-    "votesAvailable": "VOTES AVAILABLE",
-    "search": "Search",
-    "error": "Oops, something didn't load correctly. Try to reload"
+    "totalVotes": "VOTOS TOTALS",
+    "votesAvailable": "VOTS DISPONIBLES",
+    "search": "Cerca",
+    "error": "Vaja, una cosa no es va carregar correctament. Intenta tornar a carregar"
   },
   "scanPayment": {
     "scan": "SCAN",
     "error": {
-      "receiver": "Receiver address invalid",
-      "token": "Token not valid",
-      "amount": "Amount not valid",
-      "description": "Description too long",
-      "code": "Payment code invalid. Please, scan a valid one"
+      "receiver": "L'adreça del destinatari no és vàlida",
+      "token": "El token no és vàlid",
+      "amount": "Import no vàlid",
+      "description": "Descripció massa llarga",
+      "code": "El codi de pagament no és vàlid. Escaneja una vàlida"
     }
   },
   "makePayment": {
-    "pay": "PAY",
-    "confirm": "CONFIRM PAYMENT",
+    "pay": "PAGAR",
+    "confirm": "CONFIRMA PAGAMENT",
     "error": {
-      "receiver": "Receiver is equal to requester",
-      "token": "This account doesn't have the token for this transaction",
-      "amount": "This account doesn't have enough balance.",
-      "description": "No description available"
+      "receiver": "El receptor és igual al sol·licitant",
+      "token": "Aquest compte no té el testimoni d'aquesta transacció",
+      "amount": "Aquest compte no té prou saldo.",
+      "description": "No hi ha cap descripció disponible"
     }
   },
   "buildPayment": {
-    "generate": "GENERATE REQUEST",
-    "selectCurrency": "Select the reference currency",
+    "generate": "GENERAR SOL·LICITUD",
+    "selectCurrency": "Seleccioneu la moneda de referència",
     "error": {
-      "currency": "We weren't able to load other currency prices. Please use TRX as reference"
+      "currency": "No hem pogut carregar altres preus de divises. Utilitzeu TRX com a referència"
     }
   },
   "requestPayment": {
-    "title": "REQUEST PAYMENT"
+    "title": "SOL·LICITI PAGAMENT"
   },
   "newAccount": {
-    "title": "Account Creation",
-    "placeholder": "My precious account",
+    "title": "Creació de comptes",
+    "placeholder": "El meu compte preciós",
     "success": {
-      "title": "New account successfully created",
-      "message": "You can edit the name on your address book"
+      "title": "S'ha creat un nou compte correctament",
+      "message": "Podeu editar el nom a la vostra llibreta d'adreces"
     },
     "failure": {
-      "title": "New account warning",
-      "message": "To add a new account you should have at least one transaction on your last account."
+      "title": "Advertiment nou compte",
+      "message": "Per afegir un compte nou, hauria d'haver almenys una transacció al vostre últim compte."
     }
   }
 }
