@@ -2,7 +2,7 @@
   "relativeTime": {
     "future": "in %s",
     "past": "%s geleden",
-    "s": "een seconde",
+    "s": "een paar seconden",
     "ss": "%d seconden",
     "m": "een minuut",
     "mm": "%d minuten",
@@ -15,51 +15,51 @@
     "y": "een jaar",
     "yy": "%d jaar"
   },
-  "success": "Gelukt",
+  "success": "Succes",
   "warning": "Waarschuwing",
-  "cancel": "Annuleer",
+  "cancel": "Annuleren",
   "address": "Address",
   "ok": "OK",
-  "actionModalTitle": "Would you like to",
+  "actionModalTitle": "Wilt u graag",
   "account": "Account",
   "restore": "Restore",
   "error": {
-    "default": "Oeps er is iets fout gegaan. Probeer opnieuw. Als de foutmelding niet verdwijnt, probeer dan je netwerkinstellingen aan te passen.",
-    "buildingTransaction": "Fout tijdens bouwen van de transactie, probeer opnieuw.",
-    "gettingTransaction": "Fout tijdens ophalen van de transactie.",
-    "clipboardCopied": "Fout tijdens kopiëren naar klembord.",
+    "default": "Oeps, er is iets misgegaan. Probeer het later opnieuw. Als de fout aanhoudt, probeert u de netwerkinstellingen bij te werken.",
+    "buildingTransaction": "Fout bij het opbouwen van de transactie, probeer het opnieuw.",
+    "gettingTransaction": "Fout bij het ophalen van de transactie.",
+    "clipboardCopied": "Er klopt iets niet tijdens het kopiëren",
     "hideAccount": "Something went wrong deleting account, try again'"
   },
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRIJS",
   "confirmed": "Bevestigd",
   "unconfirmed": "Onbevestigd",
-  "copyAddress": "COPY ADDRESS",
+  "copyAddress": "ADRES KOPIËREN",
   "transactionType": {
-    "transfer": "Transfer",
-    "transferAsset": "Transfer Asset",
-    "freeze": "Zet vast",
-    "unfreeze": "Neem op",
-    "vote": "Stem",
-    "participate": "Neem deel",
-    "create": "Maak",
-    "undefined": "Onbekend Type"
+    "transfer": "Versturen",
+    "transferAsset": "Verstuur token",
+    "freeze": "Vastzetten",
+    "unfreeze": "Ontgrendelen",
+    "vote": "Stemmen",
+    "participate": "Deelnemen",
+    "create": "Maken",
+    "undefined": "Niet gedefinieerd type"
   },
-  "close": "Close",
+  "close": "Sluiten",
   "ends": "Eindigt",
   "clear": "Wissen",
-  "allIn": "Alles",
-  "skip": "Skip",
+  "allIn": "Volledig",
+  "skip": "Overslaan",
   "privateKey": "Private Key",
   "balance": {
-    "title": "BALANS",
+    "title": "REKENINGEN",
     "error": {
-      "loadingData": "Fout tijdens laden van gegevens.",
-      "savingCurrency": "Fout tijdens opslaan voorkeur voor munteenheid."
+      "loadingData": "Er is een fout opgetreden tijdens het laden van de gegevens.",
+      "savingCurrency": "Fout bij het opslaan van de voorkeursvaluta"
     },
-    "chooseCurrency": "Kies je voorkeurs munteenheid.",
-    "confirmSeed": "Druk om je 12 seed woorden te bevestigen",
-    "bandwidth": "BANDBREEDTE",
+    "chooseCurrency": "Kies alstublieft uw voorkeurs valuta.",
+    "confirmSeed": "Tik om uw 12 woorden te bevestigen",
+    "bandwidth": "BANDWIDTH",
     "tokens": "TOKENS",
     "holdings": "BEZITTINGEN"
   },
@@ -67,30 +67,30 @@
   "components": {
     "share": {
       "title": "Deel TronWallet adres",
-      "message": "Dit is mijn TronWallet adres:\n\n {{address}}\n\nTip: Als je dit adres kopieert kun je het in TronWallet plakken door in het Verstuur scherm de speciale knop te gebruiken.",
-      "dialogTitle": "Deel via:"
+      "message": "Dit is mijn TronWallet adres:\n\n {{address}}\n\nTip: nadat u deze hebt gekopieerd, kunt u deze in uw TronWallet-app plakken met de speciale knop op het scherm Verzenden.",
+      "dialogTitle": "Delen via:"
     },
     "QRScanner": {
       "title": "Adres Scanner",
       "scan": "Scan",
-      "explanation": "Scan de QRCode om de doelgebruiker te identificeren",
-      "permissionMessage": "Om de publieke sleutel te scannen heeft de app toestemming nodig om je camera te mogen gebruiken."
+      "explanation": "Scan de QR-code om de doelgebruiker te identificeren",
+      "permissionMessage": "Voor het scannen van de publieke sleutel heeft de app uw toestemming nodig om de camera te gebruiken."
     },
     "vote": {
       "enterVote": "VOER STEM AANTAL IN",
       "votesRemaining": "STEMMEN OVER",
       "setVote": "STEM",
-      "moreVotes": "Als je meer stemmen nodig hebt kun je meer TRX vastzetten.",
+      "moreVotes": "Als u meer stemmen wilt, dient u meer TRX vast te zetten.",
       "confirmVotes": "BEVESTIG STEMMEN",
-      "yourVotes": "Jouw Stemmen",
+      "yourVotes": "Jouw stemmen",
       "myVotes": "MIJN STEMMEN",
       "confirm": "BEVESTIG",
-      "freeze": "ZET VAST",
-      "totalVotes": "Totaal beschikbare stemmen:",
-      "delete": "VERWIJDER",
-      "set": "STEM",
-      "freezeOrLower": "Je hebt niet voldoende TRX vastgezet. Zet meer TRX vast of verlaag het aantal stemmen",
-      "freezeToContinue": "Je hebt niet voldoende TRX vastgezet. Zet meer TRX vast om door te kunnen gaan"
+      "freeze": "Vastzetten",
+      "totalVotes": "Totaal aantal stemmen beschikbaar:",
+      "delete": "VERWIJDEREN",
+      "set": "INSTELLEN",
+      "freezeOrLower": "U heeft niet genoeg TRX vastgezet. Zet meer TRX vast of verlaag het aantal stemmen",
+      "freezeToContinue": "U heeft niet genoeg TRX vastgezet. Zet meer TRX vast om verder te gaan"
     }
   },
   "firstTime": {
@@ -102,28 +102,28 @@
   "addressBook": {
     "shared": {
       "add": "TOEVOEGEN",
-      "edit": "BEWERK",
-      "delete": "DELETE",
-      "send": "STUREN"
+      "edit": "BEWERKEN",
+      "delete": "VERWIJDEREN",
+      "send": "VERZENDEN"
     },
     "contacts": {
       "delete": {
-        "title": "Verwijder contact",
-        "message": "Wilt u deze contactpersoon echt verwijderen?",
-        "cancelButton": "Annuleer",
+        "title": "Verwijder Contact",
+        "message": "Wilt u deze contact echt verwijderen?",
+        "cancelButton": "Annuleren",
         "okButton": "OK"
       },
       "empty": "Uw adresboek is leeg, voeg een nieuw contact toe met behulp van de onderstaande knop.",
       "loadError": "Er is een probleem opgetreden bij het laden van de contacten. Probeer het opnieuw.",
       "addContact": "VOEG CONTACT TOE",
-      "addToContacts": "ADD TO CONTACTS"
+      "addToContacts": "TOEVOEGEN AAN CONTACTEN"
     },
     "form": {
       "generalError": "Er is een probleem opgetreden bij het indienen van dit formulier. Neem contact op met een beheerder.",
-      "nameError": "Het naamveld moet beginnen met een letter en alleen letters, cijfers en witte spaties accepteren.",
-      "addressError": "Er klopt iets niet met het adres. Controleer alsjeblieft op typefouten.",
+      "nameError": "Het veld naam moet beginnen met een letter, maximaal 32 tekens bevatten en accepteert alleen letters, cijfers en spaties.",
+      "addressError": "Er klopt iets niet met het adres. Controleer alstublieft op typefouten.",
       "uniqueAddressError": "De sleutel moet uniek zijn. Kies een ander adres.",
-      "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
+      "uniqueAliasError": "Namen in uw adresboek moeten uniek zijn. Kies een andere.",
       "name": "NAAM",
       "address": "ADRES"
     }
@@ -137,26 +137,26 @@
     }
   },
   "freeze": {
-    "title": "ZET VAST",
+    "title": "VASTZETTEN",
     "unfreeze": {
-      "title": "VRIJGEVEN",
-      "inThreeDays": "Na drie dagen kun je je TRX weer opnemen.",
-      "inXMinutes": "Je kunt je TRX over {{minutes}} minuten opnemen.",
-      "inXHours": "Je kunt je TRX over {{hours}} uur opnemen.",
-      "inXDays": "Je kunt je TRX over {{days}} dag(en) opnemen.",
-      "now": "Je kunt je TRX nu opnemen."
+      "title": "ONTGRENDELEN",
+      "inThreeDays": "Na een periode van drie dagen kunt u uw TRX weer ontgrendelen",
+      "inXMinutes": "U kunt uw TRX ontgrendelen over {{minutes}} minuten.",
+      "inXHours": "U kunt uw TRX ontgrendelen over {{hours}} uren.",
+      "inXDays": "U kunt uw TRX ontgrendelen over {{days}} dagen.",
+      "now": "U kunt nu uw TRX ontgrendelen."
     },
     "error": {
-      "minimumAmount": "De minimale hoeveelheid om vast te zetten is 1",
-      "insufficientBalance": "TRX balans ontoereikend",
-      "roundNumbers": "Je kunt alleen hele bedragen vastzetten"
+      "minimumAmount": "Het minimum aantal om vast te zetten is 1.",
+      "insufficientBalance": "Onvoldoende TRX balans",
+      "roundNumbers": "Kan alleen hele getallen vastzetten"
     },
-    "amount": "HOEVEEL VASTZETTEN",
+    "amount": "AANTAL VASTGEZET",
     "balance": "Balans"
   },
   "getVault": {
-    "notInstalled": "Het lijkt erop dat je Tron Vault niet hebt geïnstalleerd op je telefoon. Om door te gaan met je transactie",
-    "downloadHere": "kun je deze hier downloaden"
+    "notInstalled": "Het lijkt erop dat Tron Vault niet op uw telefoon is geïnstalleerd om door te kunnen gaan met uw transactie.",
+    "downloadHere": "U kunt het hier downloaden"
   },
   "market": {
     "time": {
@@ -164,16 +164,16 @@
       "day": "1D",
       "week": "1W",
       "month": "1M",
-      "all": "ALLES"
+      "all": "ALLE"
     },
     "highest": "HOOGSTE",
     "lowest": "LAAGSTE",
     "volume": "VOLUME 24U",
     "cap": "MARKTKAPITALISATIE",
-    "supply": "TOTAAL IN OMLOOP"
+    "supply": "AANTAL CIRCULERENT"
   },
   "participate": {
-    "title": "NEEM DEEL",
+    "title": "DEELNEMEN",
     "featured": "UITGELICHT",
     "button": {
       "confirm": "BEVESTIG",
@@ -181,189 +181,189 @@
       "buyNow": "KOOP NU"
     },
     "error": {
-      "insufficientBalance": "Onvoldoende middelen (TRX) om deel te nemen.",
+      "insufficientBalance": "Niet genoeg voorraad (TRX) om deel te nemen.",
       "insufficientTrx": {
-        "title": "Je moet minstens één TRX aan {{token}} kopen.",
-        "message": "Momenteel koop je slechts {{amount}}."
+        "title": "U moet ten minste één TRX aan waarde van {{token}} kopen.",
+        "message": "Momenteel koopt u slechts {{amount}}."
       }
     },
-    "warning": "Je hebt onvoldoende TRX om zoveel {{token}} te kopen.",
-    "amountToBuy": "TE KOPEN HOEVEELHEID",
+    "warning": "Uw TRX saldo is niet toereikend om zoveel {{token}} te kopen",
+    "amountToBuy": "AANTAL TE KOPEN",
     "pricePerToken": "PRIJS PER TOKEN",
-    "tokenDescription": "TOKEN OMSCHRIJVING",
-    "tokenInfo": "TOKEN INFO",
+    "tokenDescription": "TOKEN BESCHRIJVING",
+    "tokenInfo": "TOKEN INFORMATIE",
     "token": "TOKEN",
     "tokens": "TOKENS",
-    "frozen": "VAST GEZET",
+    "frozen": "VASTGEZET",
     "percentage": "PERCENTAGE",
     "issued": "UITGEGEVEN",
-    "totalSupply": "TOTALE HOEVEELHEID",
-    "startTime": "START TIJD",
-    "endTime": "EIND TIME",
-    "description": "OMSCHRIJVING",
+    "totalSupply": "TOTALE AANBOD",
+    "startTime": "STARTTIJD",
+    "endTime": "EINDTIJD",
+    "description": "BESCHRIJVING",
     "transaction": "TRANSACTIE",
-    "ownerAddress": "ADRES EIGENAAR",
-    "trxNum": "TRX HOEVEELHEID",
-    "num": "NUM",
+    "ownerAddress": "ADRES VAN DE EIGENAAR",
+    "trxNum": "AANTAL TRX",
+    "num": "AANTAL",
     "block": "BLOCK"
   },
   "pin": {
-    "title": "VEILIGHEIDSCHECK",
-    "enter": "Voer PIN in",
-    "new": "Enter New PIN",
-    "reenter": "Herhaal PIN"
+    "title": "SECURITY CHECK",
+    "enter": "PIN invoeren",
+    "new": "Voer nieuwe PIN in",
+    "reenter": "Voer de pincode opnieuw in"
   },
   "receive": {
     "title": "ONTVANG",
-    "clipboardCopied": "Naar klembord gekopieerd",
+    "clipboardCopied": "Gekopieerd naar het Klembord",
     "button": {
       "copy": "Kopieer",
       "share": "Deel"
     },
     "tabs": {
-      "share": "SHARE",
-      "request": "REQUEST"
+      "share": "DEEL",
+      "request": "VERZOEK"
     }
   },
   "rewards": {
-    "title": "Beloningen",
-    "earned": "Je bent beloont met"
+    "title": "BELONINGEN",
+    "earned": "U heeft verdiend"
   },
   "seed": {
     "confirm": {
-      "title": "BEVESTIG SEED",
+      "title": "BEVESTIG HERSTEL CODE",
       "error": {
-        "title": "Verkeerde Combinatie",
-        "message": "Geselecteerde woorden komen niet overeen. Zorg ervoor dat je de woorden in de juiste volgorde hebt geschreven."
+        "title": "Verkeerde combinatie",
+        "message": "Geselecteerde woorden komen niet overeen. Zorg ervoor dat u de woorden in de juiste volgorde zet."
       },
-      "success": "Portemonnee succesvol bevestigd",
-      "explanation": "Select the words below in the right order to confirm your secret phrase.",
+      "success": "Portemonnee met succes bevestigd",
+      "explanation": "Selecteer de onderstaande woorden in de juiste volgorde om uw geheime zin te bevestigen.",
       "button": {
-        "reset": "WOORDEN WISSEN",
-        "confirm": "BEVESTIG SEED"
+        "reset": "RESET WOORDEN",
+        "confirm": "BEVESTIG HERSTEL CODE"
       }
     },
     "create": {
-      "title": "BEVESTIG PORTEMONNEE SEED",
-      "titleConfirm": "CONFIRM WALLET SEED",
-      "error": "Oeps, we hebben een probleempje. Start de app alsjeblieft opnieuw.",
-      "generateNew": "Dit zal een volledig nieuwe portemonnee aanmaken.",
+      "title": "MAAK HERSTEL CODE",
+      "titleConfirm": "BEVESTIG PORTEMONNEE HERSTEL CODE",
+      "error": "Oeps, we hebben een probleem. Herstart de applicatie.",
+      "generateNew": "Dit genereert een volledig nieuwe portemonnee.",
       "button": {
         "written": "IK HEB HET OPGESCHREVEN",
-        "newSeed": "NIEUWE SEED",
+        "newSeed": "KRIJG NIEUWE HERSTEL CODE",
         "later": "Bevestig later"
       }
     },
     "restore": {
       "title": "HERSTEL PORTEMONNEE",
-      "explanation": "Om je portemonnee te herstellen, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
-      "placeholder": "Please, type your 12 seed words here",
-      "success": "Portemonnee met succes herstelt!",
-      "warning": "Het herstellen van de seed zal alle gegevens op dit toestel wissen en nieuwe informatie uit het netwerk ophalen om je account te herstellen.",
-      "error": "Oeps. Het lijkt erop dat de woorden die je hebt ingevoerd geen geldige mnemonic seed vormen. Controleer op fouten en probeer het opnieuw.",
-      "button": "HERSTEL"
+      "explanation": "Als u uw portemonnee wilt herstellen, geeft u dezelfde 12 woorden op die u op papier hebt geschreven toen u uw portemonnee voor het eerst maakte. Als u een andere reeks woorden invoert, wordt een nieuwe lege portefeuille gemaakt.",
+      "placeholder": "Typ hier alstublieft uw 12 woorden",
+      "success": "Portemonnee met succes hersteld!",
+      "warning": "Als u de code herstelt, worden alle gegevens op dit apparaat verwijderd en wordt informatie van het netwerk voor het herstelde account opgehaald.",
+      "error": "Oeps. Het lijkt erop dat de woorden die je hebt getypt geen geldige mnemonic herstel code zijn. Controleer op een typefout en probeer het opnieuw.",
+      "button": "HERSTELLEN"
     }
   },
   "send": {
-    "title": "VERSTUUR",
+    "title": "VERZENDEN",
     "error": {
-      "insufficientBalance": "Balans ontoereikend.",
-      "gettingBalance": "Fout tijdens ophalen balans gegevens.",
-      "incompleteAddress": "Adres is ongeldig of onvolledig.",
-      "invalidReceiver": "Adres ontvanger is ongeldig",
-      "selectBalance": "Selecteer eerst een balans.",
-      "invalidAmount": "Ongeldige hoeveelheid"
+      "insufficientBalance": "Niet genoeg saldo.",
+      "gettingBalance": "Fout bij het ophalen van balansgegevens",
+      "incompleteAddress": "Adres is onvolledig of ongeldig.",
+      "invalidReceiver": "Ongeldig ontvanger adres",
+      "selectBalance": "Selecteer eerst een saldo",
+      "invalidAmount": "Ongeldig aantal"
     },
     "input": {
       "token": "TOKEN",
       "to": "NAAR",
-      "amount": "HOEVEELHEID",
+      "amount": "AANTAL",
       "description": "BESCHRIJVING (OPTIONEEL)"
     },
     "available": "beschikbaar",
-    "chooseToken": "Selecteer een token, alsjeblieft.",
-    "minimumAmount": "De minimale hoeveelheid voor elke verzend transactie is 0.000001."
+    "chooseToken": "Kies hieronder een token.",
+    "minimumAmount": "Het minimum aantal voor elke verzendtransactie is 0.000001."
   },
   "settings": {
     "title": "INSTELLINGEN",
     "sectionTitles": {
       "wallet": "PORTEMONNEE",
-      "security": "VEILIGHEID",
-      "notification": "MELDINGEN EN TALEN",
+      "security": "BEVEILIGING",
+      "notification": "MELDINGEN EN IDIOM",
       "accounts": "ACCOUNTS MANAGEMENT"
     },
     "notifications": {
-      "title": "Notificatie instellingen"
+      "title": "Notificaties"
     },
     "network": {
       "title": "Netwerk",
       "modal": {
         "title": "NETWERK",
-        "explanation": "Met deze instelling kun je een node kiezen die beter bij jouw wensen en behoeftes past. Bijvoorbeeld: 35.231.121.122:50051. Pas wel op met het aanpassen van de node ip omdat een verkeerde node voor een slecht werkende app kan zorgen en\/of verlies van je munten!",
+        "explanation": "Met deze optie kunt u de node selecteren dat beter past bij uw behoeften en voorkeuren. Wees voorzichtig tijdens het bijwerken van de node-IP, terwijl een verkeerd IP-adres kan leiden tot storingen in uw portemonnee. Voorbeeld: 35.231.121.122:50051",
         "error": {
-          "storage": "Fout tijdens ophalen van node adressen uit lokale opslag",
-          "invalidIp": "Voer een geldig IP adres in",
-          "update": "Er is iets fout gegaan tijdens het updaten van de node adressen",
-          "reset": "Er is iets fout gegaan tijdens het reseten van de node adressen"
+          "storage": "Fout bij het ophalen van de node IP van lokale opslag",
+          "invalidIp": "Voer een geldig IP-adres in",
+          "update": "Er is iets misgegaan tijdens het bijwerken van de nodes IP",
+          "reset": "Er is iets mis tijdens het resetten van de node IP"
         },
         "success": {
-          "updated": "Aangepast",
-          "updatedIp": "Adressen van nodes aangepast!",
-          "switchTest": "Adressen van nodes gewisseld naar Testnet",
-          "switchMain": "Adressen van nodes gewisseld naar standaard Main",
-          "reset": "Adressen van nodes gereset!"
+          "updated": "Bijgewerkt",
+          "updatedIp": "Nodes IP bijgewerkt!",
+          "switchTest": "Wissel nodes IP naar Testnet",
+          "switchMain": "Wissel nodes IP naar standaard",
+          "reset": "Node IP gereset!"
         },
         "placeholder": {
           "loadingIp": "IP laden",
           "loadingPort": "Poort laden"
         },
         "button": {
-          "update": "Aanpassen en Verbinden",
-          "reset": "Herstellen"
+          "update": "Bijwerken en Verbinden",
+          "reset": "Reset"
         },
-        "mainNode": "Main Node",
+        "mainNode": "Hoofd node",
         "solidityNode": "Solidity Node",
         "testNet": "TestNet"
       }
     },
     "backup": {
-      "title": "Portemonnee back-uppen"
+      "title": "Backup portemonnee"
     },
     "restore": {
-      "title": "Portemonnee Herstellen"
+      "title": "Herstel portemonnee"
     },
     "reset": {
-      "title": "Portemonnee wissen",
-      "warning": "Waarschuwing: Dit zal alle opgeslagen gegevens wissen, inclusief je 12 woorden seed. Als je je seed niet hebt opgeslagen, doe dat dan alsjeblieft voordat je verder gaat.",
-      "button": "OK, ik heb het begrepen"
+      "title": "Reset portemonnee",
+      "warning": "Waarschuwing: Deze active wist alle opgeslagen data inclusief je 12 geheime woorden. Als je je geheim niet hebt opgeslagen, doe dit nu voordat je doorgaat.",
+      "button": "OK, begrijp ik het"
     },
     "pin": {
-      "title": "Change Pin",
-      "success": "Pin successfully changed!"
+      "title": "Wijzig pin",
+      "success": "Pin is gewijzigd!"
     },
     "language": {
-      "title": "Pas taal aan",
-      "choose": "Kies een taal:",
+      "title": "Taal",
+      "choose": "Kies een taal hieronder:",
       "success": {
-        "title": "Language changed to {{language}}",
-        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
+        "title": "Taal gewijzigd in {{language}}",
+        "description": "U moet de app echter nog steeds opnieuw starten zodat de wijzigingen van kracht kunnen worden. Zou u het nu willen doen?"
       },
       "button": {
-        "confirm": "Yes, restart now!",
-        "cancel": "No, I'll do it later"
+        "confirm": "Ja, nu opnieuw opstarten!",
+        "cancel": "Nee, ik doe het later"
       },
-      "error": "Fout tijdens opslaan van voorkeurs taal"
+      "error": "Fout bij het opslaan van de gewenste taal"
     },
     "token": {
-      "title": "Token-Filter",
+      "title": "Token Filter",
       "search": "Zoek tokens",
       "confirm": "Opslaan",
       "noResult": "Geen resultaten..."
     },
     "about": {
       "title": "Over",
-      "description": "TronWallet is een open source volledig gedecentraliseerde P2P Crypto Wallet voor TRON Network gebouwd met React Native. Hiermee kun je tokens verzenden en ontvangen, stemmen op een supervertegenwoordiger, deelnemen aan een token-uitverkoop, je saldo's en transacties bijhouden en nog veel meer. Tik op de onderstaande link voor een gedetailleerde zelfstudie over het gebruik ervan.",
-      "tutorial": "TUTORIAL"
+      "description": "TronWallet is een open source volledig gedecentraliseerde P2P Crypto Wallet voor TRON Netwerk gebouwd met React Native. Hiermee kunt u tokens verzenden en ontvangen, stemmen op een supervertegenwoordiger, deelnemen aan een token verkoop, je saldo's en transacties bijhouden en nog veel meer. Tik op de onderstaande link voor een gedetailleerde zelfstudie over het gebruik ervan.",
+      "tutorial": "INSTRUCTIE"
     },
     "accepts": {
       "title": "Wie accepteert TRX?"
@@ -379,42 +379,42 @@
   },
   "submitTransaction": {
     "title": "TRANSACTIE DETAILS",
-    "notification": "Je hebt een transactie van {{address}} ontvangen",
-    "notificationPayment": "You have received a payment from {{address}}",
-    "data": "DATA",
-    "time": "TIME",
+    "notification": "U heeft een transactie ontvangen van {{address}}",
+    "notificationPayment": "U heeft een betaling ontvangen van {{address}}",
+    "data": "GEGEVENS",
+    "time": "TIJD",
     "button": {
-      "tryAgain": "Probeer opnieuw",
+      "tryAgain": "Probeer het nog eens",
       "submit": "VERSTUUR TRANSACTIE"
     },
-    "disconnectedMessage": "Het lijkt erop dat je geen internetverbinding hebt. Maak verbinding met het internet voordat je verder gaat met deze transactie.",
+    "disconnectedMessage": "Het lijkt erop dat u bent losgekoppeld. Maak opnieuw verbinding met internet voordat u doorgaat met de transactie.",
     "dic": {
-      "contractType": "Transaction Type",
-      "ownerAddress": "From",
-      "toAddress": "To",
-      "participateAssetIssueContract": "Participate",
-      "transferAssetContract": "Transfer",
-      "transferContract": "Transfer",
-      "unfreezeBalanceContract": "Unfreeze",
-      "freezeBalanceContract": "Freeze",
-      "assetIssueContract": "Create",
-      "voteWitnessContract": "Vote",
-      "frozenDuration": "Duration",
-      "frozenBalance": "Total to Freeze"
+      "contractType": "Transactie Type",
+      "ownerAddress": "Van",
+      "toAddress": "Naar",
+      "participateAssetIssueContract": "Deelnemen",
+      "transferAssetContract": "Overschrijven",
+      "transferContract": "Overschrijven",
+      "unfreezeBalanceContract": "Ontgrendelen",
+      "freezeBalanceContract": "Vastzetten",
+      "assetIssueContract": "Maken",
+      "voteWitnessContract": "Stemmen",
+      "frozenDuration": "Looptijd",
+      "frozenBalance": "Totaal vast te zetten"
     },
     "errorDic": {
-      "contractValidate": "Transaction data not valid. Please try again later.",
-      "signature": "Transaction signature not valid.",
-      "duplicate": "Transaction already broadcasted.",
-      "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
-      "bandwith": "Not enought bandwidth. Please try again later.",
-      "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
-      "tooBig": "Transaction too big to be submitted.",
-      "expiration": "Transaction expired. Please try again.",
-      "serverBusy": "Server busy.",
-      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
+      "contractValidate": "Transactiegegevens niet geldig. Probeer het later opnieuw.",
+      "signature": "Transactie handtekening niet geldig.",
+      "duplicate": "Transactie al uitgezonden.",
+      "contractValidateCee": "Transactiegegevens niet geldig (CEE). Probeer het later opnieuw.",
+      "bandwith": "Niet genoeg bandbreedte. Probeer het later opnieuw.",
+      "contractValidateTapos": "Transactiegegevens niet geldig (TAPOS). Probeer het later opnieuw.",
+      "tooBig": "Transactie te groot om te worden ingediend.",
+      "expiration": "Transactie verlopen. Probeer het opnieuw.",
+      "serverBusy": "Server bezet.",
+      "resource": "Onvoldoende bandbreedte of balans. Misschien heeft u vastgezet TRX nodig."
     },
-    "totalVotes": "Total Votes"
+    "totalVotes": "Totaal aantal stemmen"
   },
   "transactions": {
     "title": "MIJN TRANSACTIES",
@@ -425,78 +425,78 @@
   "transactionDetails": {
     "title": "TRANSACTIE",
     "clipboard": {
-      "tronscanUrl": "Tronscan url voor deze transactie is naar het klembord gekopieerd",
-      "publicKey": "Publieke sleutel is naar het klembord gekopieerd"
+      "tronscanUrl": "Tronscan URL voor deze transactie gekopieerd naar het klembord",
+      "publicKey": "Publieke sleutel gekopieerd naar het klembord"
     },
     "hash": "HASH",
     "status": "STATUS",
     "time": "TIJD",
     "block": "BLOK",
-    "frozenBalance": "VASTGEZETTE BALANS",
-    "unfrozenBalance": "VRIJE BALANS",
-    "totalVotes": "STEMMEN TOTAAL",
-    "amount": "HOEVEELHEID",
+    "frozenBalance": "VASTGEZET SALDO",
+    "unfrozenBalance": "ONTGRENDELD SALDO",
+    "totalVotes": "TOTAAL AANTAL STEMMEN",
+    "amount": "AANTAL",
     "to": "NAAR",
     "from": "VAN",
     "tokenName": "TOKEN NAAM",
-    "unityValue": "STUKPRIJS",
-    "totalSupply": "TOTAL SUPPLY",
+    "unityValue": "EENHEIDSWAARDE",
+    "totalSupply": "TOTALE AANBOD",
     "startTime": "STARTTIJD",
     "endTime": "EINDTIJD",
-    "description": "OMSCHRIJVING",
-    "votedAddress": "STEM ADDRESS"
+    "description": "BESCHRIJVING",
+    "votedAddress": "GESTEMD ADRES"
   },
   "transactionSuccess": {
-    "submitted": "TRANSACTIE NAAR HET NETWORK VERZONDEN!",
-    "success": "GELUKT!"
+    "submitted": "TRANSACTIE INGEDIEND NAAR NETWERK!",
+    "success": "SUCCES!"
   },
   "votes": {
     "title": "STEMMEN",
-    "totalVotes": "STEMMEN TOTAAL",
-    "votesAvailable": "BESCHIKBARE STEMMEN",
+    "totalVotes": "TOTAAL AANTAL STEMMEN",
+    "votesAvailable": "STEMMEN BESCHIKBAAR",
     "search": "Zoeken",
-    "error": "Oeps, er was een fout tijdens het laden. Probeer opnieuw te laden"
+    "error": "Oeps, iets is niet correct geladen. Probeer opnieuw te laden"
   },
   "scanPayment": {
-    "scan": "Scannen",
+    "scan": "SCAN",
     "error": {
-      "receiver": "Ontvanger-adres ongeldig",
-      "token": "Token niet geldig",
-      "amount": "Bedrag niet geldig",
+      "receiver": "Adres ontvanger ongeldig",
+      "token": "Token ongeldig",
+      "amount": "Aantal niet geldig",
       "description": "Beschrijving te lang",
-      "code": "Betalingscode ongeldig. Scan alstublieft een geldige "
+      "code": "Betalingscode ongeldig. Scan alstublieft een geldige code"
     }
   },
   "makePayment": {
-    "pay": "Betaal",
-    "confirm": "BEVESTIG BETALING",
+    "pay": "BETALEN",
+    "confirm": "BETALING BEVESTIGEN",
     "error": {
-      "receiver": "ontvanger is gelijk aan aanvrager",
-      "token": "Dit account heeft niet het token voor deze transactie",
-      "amount": "Dit account heeft niet genoeg saldo.",
+      "receiver": "Ontvanger is gelijk aan de aanvrager",
+      "token": "Dit account heeft niet de token voor deze transactie",
+      "amount": "Dit account heeft onvoldoende saldo.",
       "description": "Geen beschrijving beschikbaar"
     }
   },
   "buildPayment": {
-    "generate": "GENERATE REQUEST",
+    "generate": "AANVRAAG GENEREREN",
     "selectCurrency": "Selecteer de referentievaluta",
     "error": {
-      "currency": "We konden geen andere valutaprijzen laden. Gebruik TRX als referentie "
+      "currency": "We konden geen andere valutaprijzen laden. Gebruik TRX als referentie"
     }
   },
   "requestPayment": {
-    "title": "AANVRAAG BETALING"
+    "title": "BETALINGSVERZOEK"
   },
   "newAccount": {
     "title": "Account Creation",
     "placeholder": "My precious account",
     "success": {
-      "title": "New account successfully created",
-      "message": "You can edit the name on your address book"
+      "title": "Nieuw account succesvol aangemaakt",
+      "message": "U kunt de naam in uw adresboek bewerken"
     },
     "failure": {
-      "title": "New account warning",
-      "message": "To add a new account you should have at least one transaction on your last account."
+      "title": "Nieuwe account waarschuwing",
+      "message": "Als u een nieuw account wilt toevoegen, moet u ten minste één transactie in uw laatste account hebben."
     }
   }
 }
