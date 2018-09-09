@@ -18,17 +18,17 @@
   "success": "成功",
   "warning": "警告",
   "cancel": "キャンセル",
-  "address": "Address",
+  "address": "住所",
   "ok": "Ok",
   "actionModalTitle": "いかかですか",
-  "account": "Account",
-  "restore": "Restore",
+  "account": "アカウント",
+  "restore": "リストア",
   "error": {
     "default": "問題が起こりました。その後もう一度お試しください。エラーが発生した場合、ネットワーク設定を確認してください。",
     "buildingTransaction": "トランザクションの作成中にエラーが発生しました。再度実行してください。",
     "gettingTransaction": "トランザクション取得中のエラーです。",
     "clipboardCopied": "コピー実行に問題が発生しました。",
-    "hideAccount": "Something went wrong deleting account, try again'"
+    "hideAccount": "アカウントの削除が間違っていました。もう一度お試しください。"
   },
   "tronPower": "TRON パワー",
   "trxPrice": "TRX 価格",
@@ -50,7 +50,7 @@
   "clear": "クリア",
   "allIn": "オールイン",
   "skip": "スキップ",
-  "privateKey": "Private Key",
+  "privateKey": "秘密鍵",
   "balance": {
     "title": "アカウント",
     "error": {
@@ -59,11 +59,11 @@
     },
     "chooseCurrency": "ご希望の通貨を選択してください。",
     "confirmSeed": "12 種の言葉を確認する後、タップしてください。",
-    "bandwidth": "BANDWIDTH",
+    "bandwidth": "バンド幅",
     "tokens": "トークン",
     "holdings": "・ ホールディングス"
   },
-  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
+  "hideAccount": "このアカウントを削除しようとしています。後で設定で復元することができます",
   "components": {
     "share": {
       "title": "TronWallet アドレスをシェア",
@@ -129,11 +129,11 @@
     }
   },
   "importWallet": {
-    "title": "IMPORT WALLET",
-    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
-    "button": "IMPORT",
+    "title": "インポートウォレット",
+    "message": "あなたの秘密鍵とあなたの財布のアドレスがあればここでそれを回復することができますが、TronWalletはニーモニックで主に動作することを覚えておいてください。この回復方法は、アプリケーション内の一部の機能を無効にします。",
+    "button": "インポート",
     "error": {
-      "privateKey": "Private key invalid or incomplete"
+      "privateKey": "秘密鍵が無効または不完全"
     }
   },
   "freeze": {
@@ -181,322 +181,322 @@
       "buyNow": "今すぐ購入"
     },
     "error": {
-      "insufficientBalance": "Not enough funds (TRX) to participate.",
+      "insufficientBalance": "参加するのに十分な資金（TRX）がありません。",
       "insufficientTrx": {
-        "title": "You need to buy at least one TRX worth of {{token}}.",
-        "message": "Currently you are buying only {{amount}}."
+        "title": "少なくとも1つのTRX価値 {{token}}を購入する必要があり{{token}} 。",
+        "message": "現在は {{amount}}しか買っていません。"
       }
     },
-    "warning": "You don't have enough TRX to buy that many {{token}}",
-    "amountToBuy": "AMOUNT TO BUY",
-    "pricePerToken": "PRICE PER TOKEN",
+    "warning": "あなたは多くの {{token}}を買うのに十分なTRXを持っていません",
+    "amountToBuy": "購入する金額",
+    "pricePerToken": "TOKEN当たりの価格",
     "tokenDescription": "TOKEN DESCRIPTION",
     "tokenInfo": "TOKEN INFO",
-    "token": "TOKEN",
+    "token": "トークン",
     "tokens": "TOKENS",
-    "frozen": "FROZEN",
+    "frozen": "フローズン",
     "percentage": "PERCENTAGE",
-    "issued": "ISSUED",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
+    "issued": "発行済み",
+    "totalSupply": "総供給量",
+    "startTime": "始まる時間",
+    "endTime": "終了時間",
     "description": "DESCRIPTION",
-    "transaction": "TRANSACTION",
+    "transaction": "トランザクション",
     "ownerAddress": "OWNER ADDRESS",
     "trxNum": "TRX NUM",
     "num": "NUM",
-    "block": "BLOCK"
+    "block": "ブロック"
   },
   "pin": {
-    "title": "SECURITY CHECK",
-    "enter": "Enter PIN",
-    "new": "Enter New PIN",
-    "reenter": "Re-Enter PIN"
+    "title": "セキュリティーチェック",
+    "enter": "PINを入力",
+    "new": "新しいPINを入力してください",
+    "reenter": "PINの再入力"
   },
   "receive": {
-    "title": "RECEIVE",
-    "clipboardCopied": "Copied to clipboard",
+    "title": "受信",
+    "clipboardCopied": "クリップボードにコピーされました",
     "button": {
-      "copy": "Copy",
-      "share": "Share"
+      "copy": "コピー",
+      "share": "シェア"
     },
     "tabs": {
-      "share": "SHARE",
-      "request": "REQUEST"
+      "share": "シェア",
+      "request": "要求"
     }
   },
   "rewards": {
-    "title": "REWARDS",
-    "earned": "You have earned"
+    "title": "報酬",
+    "earned": "あなたが獲得した"
   },
   "seed": {
     "confirm": {
-      "title": "CONFIRM SEED",
+      "title": "確認シード",
       "error": {
-        "title": "Wrong Combination",
-        "message": "Selected words don't match. Make sure you wrote the words in the correct order."
+        "title": "間違った組み合わせ",
+        "message": "選択した単語が一致しません。正しい順序で単語を書き留めてください。"
       },
-      "success": "Wallet successfully confirmed",
-      "explanation": "Select the words below in the right order to confirm your secret phrase.",
+      "success": "ウォレットは正常に確認されました",
+      "explanation": "正しい順序で以下の単語を選択して、あなたの秘密のフレーズを確認してください。",
       "button": {
-        "reset": "RESET WORDS",
-        "confirm": "CONFIRM SEED"
+        "reset": "リセットワード",
+        "confirm": "確認シード"
       }
     },
     "create": {
       "title": "CREATE SEED",
-      "titleConfirm": "CONFIRM WALLET SEED",
-      "error": "Oops, we have a problem. Please restart the application.",
-      "generateNew": "This will generate a completely new wallet.",
+      "titleConfirm": "ウォレットシードを確認する",
+      "error": "おっと、問題があります。アプリケーションを再起動してください。",
+      "generateNew": "これにより、完全に新しいウォレットが生成されます。",
       "button": {
-        "written": "I'VE WRITTEN IT DOWN",
-        "newSeed": "GET NEW SEED",
-        "later": "Confirm later"
+        "written": "私はそれを書きました",
+        "newSeed": "新しい種を得る",
+        "later": "後で確認する"
       }
     },
     "restore": {
       "title": "RESTORE WALLET",
-      "explanation": "To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
-      "placeholder": "Please, type your 12 seed words here",
-      "success": "Wallet restored with success!",
-      "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
-      "error": "Oops. Looks like the words you typed aren't a valid mnemonic seed. Check for a typo and try again.",
-      "button": "RESTORE"
+      "explanation": "ウォレットを復元するには、ウォレットを初めて作成したときに書いたのと同じ12語を入力してください。別の一連の単語を入力すると、新しい空のウォレットが作成されます。",
+      "placeholder": "ここに12種の言葉を入力してください",
+      "success": "成功したウォレット！",
+      "warning": "シードを復元すると、このデバイスのすべてのデータが消去され、復元されたアカウントの情報がネットワークから取り出されます。",
+      "error": "おっとっと。あなたが入力した単語が有効なニーモニックの種ではないように見えます。入力ミスを確認して、もう一度やり直してください。",
+      "button": "リストア"
     }
   },
   "send": {
     "title": "SEND",
     "error": {
-      "insufficientBalance": "Not enough balance.",
-      "gettingBalance": "Error while getting balance data",
-      "incompleteAddress": "Address is either incomplete or invalid.",
-      "invalidReceiver": "Invalid receiver address",
-      "selectBalance": "Select a balance first",
-      "invalidAmount": "Invalid amount"
+      "insufficientBalance": "バランスが不十分です。",
+      "gettingBalance": "バランスデータを取得中にエラーが発生しました",
+      "incompleteAddress": "アドレスは不完全または無効です。",
+      "invalidReceiver": "無効な受信者アドレス",
+      "selectBalance": "最初に天びんを選択してください",
+      "invalidAmount": "無効な金額"
     },
     "input": {
-      "token": "TOKEN",
-      "to": "TO",
-      "amount": "AMOUNT",
-      "description": "DESCRIPTION (OPTIONAL)"
+      "token": "トークン",
+      "to": "に",
+      "amount": "量",
+      "description": "説明（オプション）"
     },
-    "available": "available",
-    "chooseToken": "Please, choose a token below.",
-    "minimumAmount": "The minimum amount for any send transaction is 0.000001."
+    "available": "利用可能な",
+    "chooseToken": "下のトークンを選択してください。",
+    "minimumAmount": "送信トランザクションの最小金額は0.000001です。"
   },
   "settings": {
-    "title": "SETTINGS",
+    "title": "設定",
     "sectionTitles": {
-      "wallet": "WALLET",
-      "security": "SECURITY",
-      "notification": "NOTIFICATIONS AND IDIOM",
-      "accounts": "ACCOUNTS MANAGEMENT"
+      "wallet": "財布",
+      "security": "セキュリティ",
+      "notification": "通知とIDIOM",
+      "accounts": "会計管理"
     },
     "notifications": {
-      "title": "Notifications"
+      "title": "通知"
     },
     "network": {
-      "title": "Network",
+      "title": "ネットワーク",
       "modal": {
-        "title": "NETWORK",
-        "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
+        "title": "ネットワーク",
+        "explanation": "このオプションを使用すると、ニーズや好みに適したノードを選択できます。間違ったIPがあなたのウォレット内の誤動作につながる可能性がある間、ノードIPを更新する際には注意が必要です。例：35.231.121.122:50051",
         "error": {
-          "storage": "Error getting node ip from local storage",
-          "invalidIp": "Please put a valid IP",
-          "update": "Something went wrong while updating nodes ip",
-          "reset": "Something wrong while reseting node ip"
+          "storage": "ローカルストレージからノードIPを取得中にエラーが発生しました",
+          "invalidIp": "有効なIPを入力してください",
+          "update": "ノードを更新中に何か問題が発生しましたip",
+          "reset": "ノードIPをリセットしている間に何か間違っています"
         },
         "success": {
-          "updated": "Updated",
-          "updatedIp": "Nodes IP updated!",
-          "switchTest": "Switched nodes IP to Testnet",
-          "switchMain": "Switched nodes IP to default main",
-          "reset": "Node IP reseted!"
+          "updated": "更新しました",
+          "updatedIp": "ノードIPが更新されました！",
+          "switchTest": "ノードIPをTestnetに切り替える",
+          "switchMain": "ノードをデフォルトのメインに切り替える",
+          "reset": "ノードIPがリセットされました！"
         },
         "placeholder": {
-          "loadingIp": "Loading IP",
-          "loadingPort": "Loading Port"
+          "loadingIp": "IPを読み込む",
+          "loadingPort": "ロードポート"
         },
         "button": {
-          "update": "Update and Connect",
-          "reset": "Reset"
+          "update": "更新と接続",
+          "reset": "リセット"
         },
-        "mainNode": "Main Node",
+        "mainNode": "メインノード",
         "solidityNode": "Solidity Node",
         "testNet": "TestNet"
       }
     },
     "backup": {
-      "title": "Backup Wallet"
+      "title": "バックアップウォレット"
     },
     "restore": {
-      "title": "Restore Wallet"
+      "title": "ウォレットを復元する"
     },
     "reset": {
-      "title": "Reset Wallet",
-      "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
-      "button": "OK, I understand it"
+      "title": "ウォレットをリセット",
+      "warning": "警告：この操作は、あなたの12の秘密の単語を含むすべての保存されたデータを消去します。秘密を保存していない場合は、続行する前にそれを行ってください。",
+      "button": "はい、私はそれを理解しています"
     },
     "pin": {
-      "title": "Change Pin",
-      "success": "Pin successfully changed!"
+      "title": "ピンを変える",
+      "success": "ピンは正常に変更されました！"
     },
     "language": {
-      "title": "Language",
-      "choose": "Please, choose a Language below:",
+      "title": "言語",
+      "choose": "下の言語を選択してください：",
       "success": {
-        "title": "Language changed to {{language}}",
-        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
+        "title": "言語が {{language}}変更されました",
+        "description": "ただし、変更を有効にするにはアプリを再起動する必要があります。今すぐやりたいですか？"
       },
       "button": {
-        "confirm": "Yes, restart now!",
-        "cancel": "No, I'll do it later"
+        "confirm": "はい、今すぐ再起動してください！",
+        "cancel": "いいえ、後でやります"
       },
-      "error": "Error saving preferred language"
+      "error": "優先言語の保存中にエラー"
     },
     "token": {
-      "title": "Token Filter",
-      "search": "Search tokens",
-      "confirm": "Save",
-      "noResult": "No results..."
+      "title": "トークンフィルター",
+      "search": "検索トークン",
+      "confirm": "セーブ",
+      "noResult": "結果がありません..."
     },
     "about": {
-      "title": "About",
-      "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
-      "tutorial": "TUTORIAL"
+      "title": "約",
+      "description": "TronWalletは、React Nativeで構築されたTRONネットワーク用の完全に分散されたオープンソースのP2P Crypto Walletです。それを使用すると、トークンを送受信したり、スーパー代表に投票したり、トークンセールに参加したり、残高や取引などを追跡することができます。下のリンクをタップして、使い方の詳細なチュートリアルをご覧ください。",
+      "tutorial": "チュートリアル"
     },
     "accepts": {
-      "title": "Who accepts TRX?"
+      "title": "誰がTRXを受け入れますか？"
     },
     "accounts": {
-      "title": "Accounts",
-      "search": "Search accounts",
-      "restoreAccounts": "Restore Accounts",
-      "noAccounts": "No accounts to restore"
+      "title": "アカウント",
+      "search": "アカウントの検索",
+      "restoreAccounts": "アカウントの復元",
+      "noAccounts": "復元するアカウントがありません"
     },
-    "partners": "PARTNERS",
-    "askPin": "Always ask PIN"
+    "partners": "パートナー",
+    "askPin": "常にPINを尋ねる"
   },
   "submitTransaction": {
-    "title": "TRANSACTION DETAILS",
-    "notification": "You have received a transaction from {{address}}",
-    "notificationPayment": "You have received a payment from {{address}}",
-    "data": "DATA",
-    "time": "TIME",
+    "title": "取引の詳細",
+    "notification": "あなたは {{address}}からの取引を受け取りました",
+    "notificationPayment": "あなたは {{address}}からの支払いを受け取りました",
+    "data": "データ",
+    "time": "時間",
     "button": {
-      "tryAgain": "Try again",
-      "submit": "SUBMIT TRANSACTION"
+      "tryAgain": "再試行する",
+      "submit": "送信依頼"
     },
-    "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
+    "disconnectedMessage": "あなたは切断されているようです。取引を進める前に、インターネットに再接続してください。",
     "dic": {
-      "contractType": "Transaction Type",
-      "ownerAddress": "From",
-      "toAddress": "To",
-      "participateAssetIssueContract": "Participate",
-      "transferAssetContract": "Transfer",
-      "transferContract": "Transfer",
-      "unfreezeBalanceContract": "Unfreeze",
-      "freezeBalanceContract": "Freeze",
-      "assetIssueContract": "Create",
-      "voteWitnessContract": "Vote",
-      "frozenDuration": "Duration",
-      "frozenBalance": "Total to Freeze"
+      "contractType": "取引タイプ",
+      "ownerAddress": "から",
+      "toAddress": "に",
+      "participateAssetIssueContract": "参加する",
+      "transferAssetContract": "転送",
+      "transferContract": "転送",
+      "unfreezeBalanceContract": "不凍液",
+      "freezeBalanceContract": "フリーズ",
+      "assetIssueContract": "作成する",
+      "voteWitnessContract": "投票",
+      "frozenDuration": "期間",
+      "frozenBalance": "合計するフリーズ"
     },
     "errorDic": {
-      "contractValidate": "Transaction data not valid. Please try again later.",
-      "signature": "Transaction signature not valid.",
-      "duplicate": "Transaction already broadcasted.",
-      "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
-      "bandwith": "Not enought bandwidth. Please try again later.",
-      "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
-      "tooBig": "Transaction too big to be submitted.",
-      "expiration": "Transaction expired. Please try again.",
-      "serverBusy": "Server busy.",
-      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
+      "contractValidate": "取引データが無効です。後でもう一度お試しください。",
+      "signature": "トランザクション署名が無効です。",
+      "duplicate": "すでに放送されている取引。",
+      "contractValidateCee": "取引データが無効です（CEE）。後でもう一度お試しください。",
+      "bandwith": "帯域幅が足りません。後でもう一度お試しください。",
+      "contractValidateTapos": "トランザクションデータが無効です（TAPOS）。後でもう一度お試しください。",
+      "tooBig": "取引を提出するには大きすぎます。",
+      "expiration": "トランザクションは期限切れです。もう一度お試しください。",
+      "serverBusy": "サーバービジー状態。",
+      "resource": "帯域幅またはバランスが不十分です。凍ったTRXが必要かもしれません。"
     },
-    "totalVotes": "Total Votes"
+    "totalVotes": "総投票数"
   },
   "transactions": {
-    "title": "MY TRANSACTIONS",
-    "from": "From",
-    "to": "To",
-    "notFound": "No transactions found."
+    "title": "私の取引",
+    "from": "から",
+    "to": "に",
+    "notFound": "トランザクションは見つかりませんでした。"
   },
   "transactionDetails": {
-    "title": "TRANSACTION",
+    "title": "トランザクション",
     "clipboard": {
-      "tronscanUrl": "Tronscan url for this transaction copied to the clipboard",
-      "publicKey": "Public Key copied to the clipboard"
+      "tronscanUrl": "クリップボードにコピーされたこのトランザクションのTronscanのURL",
+      "publicKey": "クリップボードにコピーされた公開鍵"
     },
-    "hash": "HASH",
-    "status": "STATUS",
-    "time": "TIME",
-    "block": "BLOCK",
-    "frozenBalance": "FROZEN BALANCE",
-    "unfrozenBalance": "UNFROZEN BALANCE",
-    "totalVotes": "TOTAL VOTES",
-    "amount": "AMOUNT",
-    "to": "TO",
-    "from": "FROM",
-    "tokenName": "TOKEN NAME",
-    "unityValue": "UNITY VALUE",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
+    "hash": "ハッシュ",
+    "status": "状態",
+    "time": "時間",
+    "block": "ブロック",
+    "frozenBalance": "冷蔵バランス",
+    "unfrozenBalance": "未凍結残高",
+    "totalVotes": "総投票数",
+    "amount": "量",
+    "to": "に",
+    "from": "から",
+    "tokenName": "東京名",
+    "unityValue": "ユニティバリュー",
+    "totalSupply": "総供給量",
+    "startTime": "始まる時間",
+    "endTime": "終了時間",
     "description": "DESCRIPTION",
-    "votedAddress": "VOTED ADDRESS"
+    "votedAddress": "投票した住所"
   },
   "transactionSuccess": {
-    "submitted": "TRANSACTION SUBMITTED TO NETWORK!",
-    "success": "SUCCESS!"
+    "submitted": "TRANSACTIONがネットワークに送信されました！",
+    "success": "成功！"
   },
   "votes": {
-    "title": "VOTES",
-    "totalVotes": "TOTAL VOTES",
-    "votesAvailable": "VOTES AVAILABLE",
-    "search": "Search",
-    "error": "Oops, something didn't load correctly. Try to reload"
+    "title": "投票",
+    "totalVotes": "総投票数",
+    "votesAvailable": "投票可能",
+    "search": "サーチ",
+    "error": "おっと、何かが正しく読み込まれませんでした。再読み込みを試みる"
   },
   "scanPayment": {
-    "scan": "SCAN",
+    "scan": "スキャン",
     "error": {
-      "receiver": "Receiver address invalid",
-      "token": "Token not valid",
-      "amount": "Amount not valid",
-      "description": "Description too long",
-      "code": "Payment code invalid. Please, scan a valid one"
+      "receiver": "受信者のアドレスが無効です",
+      "token": "トークンは無効です",
+      "amount": "金額が無効です",
+      "description": "説明が長すぎます",
+      "code": "支払いコードが無効です。有効なものをスキャンしてください"
     }
   },
   "makePayment": {
-    "pay": "PAY",
-    "confirm": "CONFIRM PAYMENT",
+    "pay": "支払う",
+    "confirm": "お支払いを確認する",
     "error": {
-      "receiver": "Receiver is equal to requester",
-      "token": "This account doesn't have the token for this transaction",
-      "amount": "This account doesn't have enough balance.",
-      "description": "No description available"
+      "receiver": "受信者はリクエスタと等しい",
+      "token": "このアカウントにはこの取引のトークンがありません",
+      "amount": "このアカウントには十分な残高がありません。",
+      "description": "説明はありません"
     }
   },
   "buildPayment": {
-    "generate": "GENERATE REQUEST",
-    "selectCurrency": "Select the reference currency",
+    "generate": "生成要求",
+    "selectCurrency": "参照通貨を選択する",
     "error": {
-      "currency": "We weren't able to load other currency prices. Please use TRX as reference"
+      "currency": "我々は他の通貨の価格をロードすることができませんでした。 TRXを参考にしてください"
     }
   },
   "requestPayment": {
-    "title": "REQUEST PAYMENT"
+    "title": "支払いの請求"
   },
   "newAccount": {
-    "title": "Account Creation",
-    "placeholder": "My precious account",
+    "title": "アカウント作成",
+    "placeholder": "私の貴重な記述",
     "success": {
-      "title": "New account successfully created",
-      "message": "You can edit the name on your address book"
+      "title": "新しいアカウントが正常に作成されました",
+      "message": "あなたのアドレス帳の名前を編集することができます"
     },
     "failure": {
-      "title": "New account warning",
-      "message": "To add a new account you should have at least one transaction on your last account."
+      "title": "新しいアカウントの警告",
+      "message": "新しいアカウントを追加するには、最後のアカウントに少なくとも1つの取引が必要です。"
     }
   }
 }
