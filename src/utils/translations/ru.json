@@ -18,17 +18,17 @@
   "success": "Успешно",
   "warning": "Внимание",
   "cancel": "Отмена",
-  "address": "Address",
+  "address": "Адрес",
   "ok": "Ок",
   "actionModalTitle": "Не хотите ли вы",
-  "account": "Account",
-  "restore": "Restore",
+  "account": "Счет",
+  "restore": "Восстановить",
   "error": {
     "default": "Ой, что-то пошло не так. Повторите попытку позже, если ошибка сохраняется, попробуйте обновить настройки сети.",
     "buildingTransaction": "Ошибка при создании транзакции, попробуйте еще раз.",
     "gettingTransaction": "Ошибка при получении транзакций.",
     "clipboardCopied": "Ошибка копирования",
-    "hideAccount": "Something went wrong deleting account, try again'"
+    "hideAccount": "Что-то пошло не так, удалив аккаунт, повторите попытку,"
   },
   "tronPower": "TRON POWER\n",
   "trxPrice": "СТОИМОСТЬ TRX",
@@ -50,7 +50,7 @@
   "clear": "Очистить",
   "allIn": "Все в",
   "skip": "Пропустить",
-  "privateKey": "Private Key",
+  "privateKey": "Закрытый ключ",
   "balance": {
     "title": "УЧЕТНЫЕ ЗАПИСИ",
     "error": {
@@ -59,11 +59,11 @@
     },
     "chooseCurrency": "Пожалуйста выберите валюту, которую вы предпочитаете.",
     "confirmSeed": "Пожалуйста, нажмите, для подтверждения seed фразы из 12 слов",
-    "bandwidth": "BANDWIDTH",
+    "bandwidth": "ПРОПУСКНАЯ СПОСОБНОСТЬ",
     "tokens": "ТОКЕНЫ",
     "holdings": "СБЕРЕЖЕНИЯ"
   },
-  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
+  "hideAccount": "Вы собираетесь удалить эту учетную запись. Вы можете восстановить его позже в настройках",
   "components": {
     "share": {
       "title": "Поделится адресом TronWallet",
@@ -129,11 +129,11 @@
     }
   },
   "importWallet": {
-    "title": "IMPORT WALLET",
-    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
-    "button": "IMPORT",
+    "title": "ИМПОРТНЫЙ КОШЕЛЬ",
+    "message": "Если у вас есть секретный ключ и адрес вашего кошелька, вы можете восстановить его здесь, но имейте в виду, что в первую очередь TronWallet работает с мнемоникой. Этот метод восстановления отключит некоторые функции в приложении.",
+    "button": "ИМПОРТИРОВАТЬ",
     "error": {
-      "privateKey": "Private key invalid or incomplete"
+      "privateKey": "Закрытый ключ недействителен или неполный"
     }
   },
   "freeze": {
@@ -290,7 +290,7 @@
       "wallet": "КОШЕЛЁК",
       "security": "БЕЗОПАСНОСТЬ",
       "notification": "УВЕДОМЛЕНИЯ И ИДИОМЫ",
-      "accounts": "ACCOUNTS MANAGEMENT"
+      "accounts": "УПРАВЛЕНИЕ СЧЕТОМ"
     },
     "notifications": {
       "title": "Уведомления"
@@ -369,13 +369,13 @@
       "title": "Кто принимает TRX?"
     },
     "accounts": {
-      "title": "Accounts",
-      "search": "Search accounts",
-      "restoreAccounts": "Restore Accounts",
-      "noAccounts": "No accounts to restore"
+      "title": "Счета",
+      "search": "Поиск аккаунтов",
+      "restoreAccounts": "Восстановить учетные записи",
+      "noAccounts": "Нет учетных записей для восстановления"
     },
     "partners": "ПАРТНЕРЫ",
-    "askPin": "Always ask PIN"
+    "askPin": "Всегда спрашивайте PIN-код"
   },
   "submitTransaction": {
     "title": "ДЕТАЛИ ТРАНЗАКЦИИ",
@@ -488,8 +488,8 @@
     "title": "ЗАПРОС ОПЛАТЫ"
   },
   "newAccount": {
-    "title": "Account Creation",
-    "placeholder": "My precious account",
+    "title": "Создание аккаунта",
+    "placeholder": "Мой драгоценный счет",
     "success": {
       "title": "Новая учетная запись успешно создана",
       "message": "Вы можете редактировать имя в адресной книге"
