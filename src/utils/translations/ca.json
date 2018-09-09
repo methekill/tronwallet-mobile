@@ -2,63 +2,63 @@
   "relativeTime": {
     "future": "in %s",
     "past": "%s ago",
-    "s": "a few seconds",
-    "ss": "%d seconds",
-    "m": "a minute",
+    "s": "uns pocs segons",
+    "ss": "segons",
+    "m": "un minut",
     "mm": "%d minutes",
     "h": "an hour",
     "hh": "%d hours",
     "d": "a day",
     "dd": "%d days",
-    "M": "a month",
-    "MM": "%d months",
-    "y": "a year",
-    "yy": "%d years"
+    "M": "un mes",
+    "MM": "mesos",
+    "y": "un any",
+    "yy": "anys"
   },
-  "success": "Success",
-  "warning": "Warning",
-  "cancel": "Cancel",
+  "success": "Èxit",
+  "warning": "Avís",
+  "cancel": "Cancel·la",
   "address": "Address",
-  "ok": "OK",
+  "ok": "D'acord",
   "actionModalTitle": "Would you like to",
   "account": "Account",
   "restore": "Restore",
   "error": {
-    "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
-    "buildingTransaction": "Error while building transaction, try again.",
-    "gettingTransaction": "Error while getting transaction.",
-    "clipboardCopied": "Something wrong while copying",
+    "default": "Woops alguna cosa sortia malament. Provar una altra vegada més tard, si persisteix l'error intentar actualitzar la configuració de xarxa.",
+    "buildingTransaction": "Error mentre que la construcció de transacció, torneu.",
+    "gettingTransaction": "Error en obtenir la transacció.",
+    "clipboardCopied": "Alguna cosa malament mentre copia",
     "hideAccount": "Something went wrong deleting account, try again'"
   },
   "tronPower": "TRON POWER",
-  "trxPrice": "TRX PRICE",
-  "confirmed": "Confirmed",
-  "unconfirmed": "Unconfirmed",
-  "copyAddress": "COPY ADDRESS",
+  "trxPrice": "PREU TRX",
+  "confirmed": "Confirmat",
+  "unconfirmed": "No confirmat",
+  "copyAddress": "COPIAR L'ADREÇA",
   "transactionType": {
     "transfer": "Transfer",
     "transferAsset": "Transfer Asset",
-    "freeze": "Freeze",
+    "freeze": "Congelació",
     "unfreeze": "Unfreeze",
     "vote": "Vote",
     "participate": "Participate",
     "create": "Create",
-    "undefined": "Undefined Type"
+    "undefined": "Tipus indefinit"
   },
-  "close": "Close",
+  "close": "Tancar",
   "ends": "Ends",
-  "clear": "Clear",
-  "allIn": "All In",
-  "skip": "Skip",
+  "clear": "Clar",
+  "allIn": "Tot en",
+  "skip": "Omet",
   "privateKey": "Private Key",
   "balance": {
-    "title": "ACCOUNTS",
+    "title": "COMPTES",
     "error": {
-      "loadingData": "An error occured while loading the data.",
-      "savingCurrency": "Error saving preferred currency"
+      "loadingData": "S'ha produït un error en carregar les dades.",
+      "savingCurrency": "Error moneda preferida d'estalvi"
     },
-    "chooseCurrency": "Please, choose your preferred currency.",
-    "confirmSeed": "Please tap to confirm your 12 seed words",
+    "chooseCurrency": "Si us plau, Trii la seva moneda preferit.",
+    "confirmSeed": "Si us plau premeu per confirmar les seves paraules de 12 llavor",
     "bandwidth": "BANDWIDTH",
     "tokens": "TOKENS",
     "holdings": "HOLDINGS"
@@ -66,13 +66,13 @@
   "hideAccount": "You are about to remove this account. You can restore it later in the settings",
   "components": {
     "share": {
-      "title": "Share TronWallet address",
+      "title": "Compartir l'adreça TronWallet",
       "message": "This is my TronWallet address:\n\n {{address}}\n\nTip: Once you have copied it you can paste it in your TronWallet app using the special button on Send screen.",
-      "dialogTitle": "Share using:"
+      "dialogTitle": "Comparteix utilitzant:"
     },
     "QRScanner": {
-      "title": "Address Scanner",
-      "scan": "Scan",
+      "title": "Escànner d'adreça",
+      "scan": "Exploració",
       "explanation": "Scan the QRCode to identify the target user",
       "permissionMessage": "To scan the public key the app needs your permission to access the camera."
     },
@@ -84,9 +84,9 @@
       "confirmVotes": "CONFIRM VOTES",
       "yourVotes": "Your Votes",
       "myVotes": "MY VOTES",
-      "confirm": "CONFIRM",
+      "confirm": "CONFIRMAR",
       "freeze": "Freeze",
-      "totalVotes": "Total votes available:",
+      "totalVotes": "Totals de vots disponibles:",
       "delete": "DELETE",
       "set": "SET",
       "freezeOrLower": "You do not have enough frozen TRX. Freeze more TRX or lower the vote amount",
@@ -109,22 +109,22 @@
     "contacts": {
       "delete": {
         "title": "Delete Contact",
-        "message": "Do you really want to delete this contact?",
+        "message": "Voleu suprimir aquest contacte realment?",
         "cancelButton": "Cancel",
-        "okButton": "OK"
+        "okButton": "D'acord"
       },
-      "empty": "Your address book is empty, add a new contact using the button below.",
+      "empty": "El seu llibre d'adreces és buit, afegiu un contacte nou utilitzant el botó de sota.",
       "loadError": "There was a problem loading the contacts. Please try again.",
       "addContact": "ADD CONTACT",
       "addToContacts": "ADD TO CONTACTS"
     },
     "form": {
-      "generalError": "There was a problem submitting this form. Please contact an administrator.",
-      "nameError": "The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.",
-      "addressError": "Something isn't right with the address. Please double check for typos.",
-      "uniqueAddressError": "The key must be unique. Please choose a different address.",
-      "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
-      "name": "NAME",
+      "generalError": "Hi havia un problema enviar el formulari. Contacte amb un administrador.",
+      "nameError": "El camp nom ha de començar amb una lletra, contenen un màxim de 32 caràcters, i acceptarà només lletres, números i espais en blanc.",
+      "addressError": "Alguna cosa no està bé amb l'adreça. Si us plau comprovació doble per errors tipogràfics.",
+      "uniqueAddressError": "La clau ha de ser únic. Trieu una adreça diferent.",
+      "uniqueAliasError": "Noms en el seu llibre d'adreces ha de ser únics. Trieu un de diferent.",
+      "name": "NOM",
       "address": "ADDRESS"
     }
   },
@@ -164,7 +164,7 @@
       "day": "1D",
       "week": "1W",
       "month": "1M",
-      "all": "ALL"
+      "all": "TOTS ELS"
     },
     "highest": "HIGHEST",
     "lowest": "LOWEST",
@@ -177,11 +177,11 @@
     "featured": "FEATURED",
     "button": {
       "confirm": "CONFIRM",
-      "moreInfo": "MORE INFO",
-      "buyNow": "BUY NOW"
+      "moreInfo": "MÉS INFORMACIÓ",
+      "buyNow": "COMPRAR ARA"
     },
     "error": {
-      "insufficientBalance": "Not enough funds (TRX) to participate.",
+      "insufficientBalance": "No hi ha prou fons (TRX) per participar.",
       "insufficientTrx": {
         "title": "You need to buy at least one TRX worth of {{token}}.",
         "message": "Currently you are buying only {{amount}}."
@@ -198,8 +198,8 @@
     "percentage": "PERCENTAGE",
     "issued": "ISSUED",
     "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
+    "startTime": "HORA D'INICI",
+    "endTime": "HORA DE FINALITZACIÓ",
     "description": "DESCRIPTION",
     "transaction": "TRANSACTION",
     "ownerAddress": "OWNER ADDRESS",
@@ -209,7 +209,7 @@
   },
   "pin": {
     "title": "SECURITY CHECK",
-    "enter": "Enter PIN",
+    "enter": "Introduïu el PIN",
     "new": "Enter New PIN",
     "reenter": "Re-Enter PIN"
   },
@@ -221,23 +221,23 @@
       "share": "Share"
     },
     "tabs": {
-      "share": "SHARE",
+      "share": "COMPARTIR",
       "request": "REQUEST"
     }
   },
   "rewards": {
-    "title": "REWARDS",
+    "title": "RECOMPENSES",
     "earned": "You have earned"
   },
   "seed": {
     "confirm": {
       "title": "CONFIRM SEED",
       "error": {
-        "title": "Wrong Combination",
+        "title": "Combinació incorrecta",
         "message": "Selected words don't match. Make sure you wrote the words in the correct order."
       },
       "success": "Wallet successfully confirmed",
-      "explanation": "Select the words below in the right order to confirm your secret phrase.",
+      "explanation": "Seleccioneu les paraules per sota en l'ordre correcte per confirmar la seva frase secreta.",
       "button": {
         "reset": "RESET WORDS",
         "confirm": "CONFIRM SEED"
@@ -246,12 +246,12 @@
     "create": {
       "title": "CREATE SEED",
       "titleConfirm": "CONFIRM WALLET SEED",
-      "error": "Oops, we have a problem. Please restart the application.",
+      "error": "Oops, tenim un problema. Si us plau reinicieu l'aplicació.",
       "generateNew": "This will generate a completely new wallet.",
       "button": {
         "written": "I'VE WRITTEN IT DOWN",
         "newSeed": "GET NEW SEED",
-        "later": "Confirm later"
+        "later": "Confirmar més tard"
       }
     },
     "restore": {
@@ -260,7 +260,7 @@
       "placeholder": "Please, type your 12 seed words here",
       "success": "Wallet restored with success!",
       "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
-      "error": "Oops. Looks like the words you typed aren't a valid mnemonic seed. Check for a typo and try again.",
+      "error": "Oops. Sembla que les paraules que heu escrit no és una llavor Shing vàlid. Comproveu si un error tipogràfic i provar una altra vegada.",
       "button": "RESTORE"
     }
   },
@@ -272,7 +272,7 @@
       "incompleteAddress": "Address is either incomplete or invalid.",
       "invalidReceiver": "Invalid receiver address",
       "selectBalance": "Select a balance first",
-      "invalidAmount": "Invalid amount"
+      "invalidAmount": "Quantitat no vàlida"
     },
     "input": {
       "token": "TOKEN",
@@ -299,15 +299,15 @@
       "title": "Network",
       "modal": {
         "title": "NETWORK",
-        "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
+        "explanation": "Amb aquesta opció podeu seleccionar el node que millor s'ajusti les seves necessitats i preferències. Si us plau vagi amb compte en actualitzar el node IP mentre IP equivocat pot conduir a mal funcionament dins la seva cartera. Exemple: 35.231.121.122:50051",
         "error": {
           "storage": "Error getting node ip from local storage",
           "invalidIp": "Please put a valid IP",
-          "update": "Something went wrong while updating nodes ip",
-          "reset": "Something wrong while reseting node ip"
+          "update": "Quelcom ha fallat en actualitzar nodes ip",
+          "reset": "Alguna cosa va malament mentre reseting node ip"
         },
         "success": {
-          "updated": "Updated",
+          "updated": "Actualitzat",
           "updatedIp": "Nodes IP updated!",
           "switchTest": "Switched nodes IP to Testnet",
           "switchMain": "Switched nodes IP to default main",
@@ -338,7 +338,7 @@
       "button": "OK, I understand it"
     },
     "pin": {
-      "title": "Change Pin",
+      "title": "Canvi de Pin",
       "success": "Pin successfully changed!"
     },
     "language": {
@@ -380,7 +380,7 @@
   "submitTransaction": {
     "title": "TRANSACTION DETAILS",
     "notification": "You have received a transaction from {{address}}",
-    "notificationPayment": "You have received a payment from {{address}}",
+    "notificationPayment": "Ha rebut un pagament de {{address}}",
     "data": "DATA",
     "time": "TIME",
     "button": {
