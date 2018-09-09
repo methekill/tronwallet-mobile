@@ -1,502 +1,502 @@
 {
   "relativeTime": {
-    "future": "in %s",
-    "past": "%s ago",
-    "s": "a few seconds",
-    "ss": "%d seconds",
-    "m": "a minute",
-    "mm": "%d minutes",
-    "h": "an hour",
-    "hh": "%d hours",
-    "d": "a day",
-    "dd": "%d days",
-    "M": "a month",
-    "MM": "%d months",
-    "y": "a year",
-    "yy": "%d years"
+    "future": "в %s",
+    "past": "%s назад",
+    "s": "кілька секунд",
+    "ss": "%d секунд",
+    "m": "хвилина",
+    "mm": "%d хвилин",
+    "h": "годину",
+    "hh": "%d годин",
+    "d": "день",
+    "dd": "%d днів",
+    "M": "місяць",
+    "MM": "%d місяців",
+    "y": "рік",
+    "yy": "%d років"
   },
-  "success": "Success",
-  "warning": "Warning",
-  "cancel": "Cancel",
-  "address": "Address",
-  "ok": "OK",
-  "actionModalTitle": "Would you like to",
-  "account": "Account",
-  "restore": "Restore",
+  "success": "Успіх",
+  "warning": "УВАГА",
+  "cancel": "Скасувати",
+  "address": "Адреса",
+  "ok": "добре",
+  "actionModalTitle": "Чи хотіли б Ви",
+  "account": "Рахунок",
+  "restore": "Відновлення",
   "error": {
-    "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
-    "buildingTransaction": "Error while building transaction, try again.",
-    "gettingTransaction": "Error while getting transaction.",
-    "clipboardCopied": "Something wrong while copying",
-    "hideAccount": "Something went wrong deleting account, try again'"
+    "default": "Woops щось пішло не так. Спробуйте пізніше, якщо помилка не зникає, спробуйте оновити налаштування мережі.",
+    "buildingTransaction": "Помилка під час створення транзакції, спробуйте ще раз.",
+    "gettingTransaction": "Помилка під час отримання транзакції.",
+    "clipboardCopied": "Щось не так під час копіювання",
+    "hideAccount": "Щось не вдалося видалити обліковий запис, повторіть спробу \""
   },
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRICE",
-  "confirmed": "Confirmed",
-  "unconfirmed": "Unconfirmed",
-  "copyAddress": "COPY ADDRESS",
+  "confirmed": "Підтверджено",
+  "unconfirmed": "Непідтверджений",
+  "copyAddress": "КОПІЮВА АДРЕСА",
   "transactionType": {
-    "transfer": "Transfer",
-    "transferAsset": "Transfer Asset",
-    "freeze": "Freeze",
-    "unfreeze": "Unfreeze",
-    "vote": "Vote",
-    "participate": "Participate",
-    "create": "Create",
-    "undefined": "Undefined Type"
+    "transfer": "Трансфер",
+    "transferAsset": "Передача активів",
+    "freeze": "Заморозити",
+    "unfreeze": "Розморозити",
+    "vote": "Голосувати",
+    "participate": "Брати участь",
+    "create": "Створити",
+    "undefined": "Невизначений тип"
   },
-  "close": "Close",
-  "ends": "Ends",
-  "clear": "Clear",
-  "allIn": "All In",
-  "skip": "Skip",
-  "privateKey": "Private Key",
+  "close": "Закрити",
+  "ends": "Закінчується",
+  "clear": "Ясно",
+  "allIn": "Все в",
+  "skip": "Пропустити",
+  "privateKey": "Приватний ключ",
   "balance": {
-    "title": "ACCOUNTS",
+    "title": "СКИДКИ",
     "error": {
-      "loadingData": "An error occured while loading the data.",
-      "savingCurrency": "Error saving preferred currency"
+      "loadingData": "Під час завантаження даних сталася помилка.",
+      "savingCurrency": "Помилка збереження бажаної валюти"
     },
-    "chooseCurrency": "Please, choose your preferred currency.",
-    "confirmSeed": "Please tap to confirm your 12 seed words",
-    "bandwidth": "BANDWIDTH",
+    "chooseCurrency": "Будь-ласка, оберіть бажану валюту.",
+    "confirmSeed": "Будь ласка торкніться, щоб підтвердити свої 12 слів",
+    "bandwidth": "БАНДІВСТВО",
     "tokens": "TOKENS",
-    "holdings": "HOLDINGS"
+    "holdings": "ХОЛДИНГИ"
   },
-  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
+  "hideAccount": "Ви збираєтеся видалити цей обліковий запис. Ви можете відновити його пізніше в налаштуваннях",
   "components": {
     "share": {
-      "title": "Share TronWallet address",
-      "message": "This is my TronWallet address:\n\n {{address}}\n\nTip: Once you have copied it you can paste it in your TronWallet app using the special button on Send screen.",
-      "dialogTitle": "Share using:"
+      "title": "Поділіться адресою TronWallet",
+      "message": "Це моя адреса TronWallet:\n\n {{address}}\n\nПорада. Після копіювання ви можете вставити його в додаток TronWallet за допомогою спеціальної кнопки на екрані Відправити.",
+      "dialogTitle": "Поділитися:"
     },
     "QRScanner": {
-      "title": "Address Scanner",
-      "scan": "Scan",
-      "explanation": "Scan the QRCode to identify the target user",
-      "permissionMessage": "To scan the public key the app needs your permission to access the camera."
+      "title": "Адреса сканера",
+      "scan": "Сканування",
+      "explanation": "Сканування QRCode для ідентифікації цільового користувача",
+      "permissionMessage": "Щоб сканувати публічний ключ, додаток потребує вашого дозволу на доступ до камери."
     },
     "vote": {
-      "enterVote": "ENTER THE VOTE VALUE",
-      "votesRemaining": "VOTES REMAINING",
-      "setVote": "SET VOTE",
-      "moreVotes": "If you need more votes you can Freeze more TRX.",
-      "confirmVotes": "CONFIRM VOTES",
-      "yourVotes": "Your Votes",
-      "myVotes": "MY VOTES",
-      "confirm": "CONFIRM",
-      "freeze": "Freeze",
-      "totalVotes": "Total votes available:",
-      "delete": "DELETE",
+      "enterVote": "ВХОДИТЬ ГОЛОСУВАННЯ",
+      "votesRemaining": "ГОЛОСУВАННЯ, ЩО МАЛЮТЬСЯ",
+      "setVote": "SET GOTE",
+      "moreVotes": "Якщо вам потрібні більше голосів, ви можете заморозити більше TRX.",
+      "confirmVotes": "Підтвердити голосування",
+      "yourVotes": "Ваші голоси",
+      "myVotes": "МОЇ ГОЛОСИ",
+      "confirm": "Підтвердити",
+      "freeze": "Заморозити",
+      "totalVotes": "Всього доступних голосів:",
+      "delete": "ВИДАЛИТИ",
       "set": "SET",
-      "freezeOrLower": "You do not have enough frozen TRX. Freeze more TRX or lower the vote amount",
-      "freezeToContinue": "You do not have enough frozen TRX. Freeze more TRX to continue"
+      "freezeOrLower": "У вас недостатньо заморожених TRX. Заморозити більше TRX або зменшити кількість голосів",
+      "freezeToContinue": "У вас недостатньо заморожених TRX. Заморожте більше TRX, щоб продовжити"
     }
   },
   "firstTime": {
     "button": {
       "create": "CREATE WALLET",
-      "restore": "RESTORE WALLET"
+      "restore": "ВІДПРАВИТИ ВАЛЕТ"
     }
   },
   "addressBook": {
     "shared": {
-      "add": "ADD",
-      "edit": "EDIT",
-      "delete": "DELETE",
-      "send": "SEND"
+      "add": "ДОДАТИ",
+      "edit": "РЕДАГУВАТИ",
+      "delete": "ВИДАЛИТИ",
+      "send": "НАДІСЛАТИ"
     },
     "contacts": {
       "delete": {
-        "title": "Delete Contact",
-        "message": "Do you really want to delete this contact?",
-        "cancelButton": "Cancel",
-        "okButton": "OK"
+        "title": "Видалити контакт",
+        "message": "Ви дійсно хочете видалити цей контакт?",
+        "cancelButton": "Скасувати",
+        "okButton": "добре"
       },
-      "empty": "Your address book is empty, add a new contact using the button below.",
-      "loadError": "There was a problem loading the contacts. Please try again.",
-      "addContact": "ADD CONTACT",
-      "addToContacts": "ADD TO CONTACTS"
+      "empty": "Ваша адресна книга порожня, додайте новий контакт за допомогою кнопки нижче.",
+      "loadError": "Під час завантаження контактів виникла проблема. Будь ласка спробуйте ще раз.",
+      "addContact": "ДОДАТИ КОНТАКТ",
+      "addToContacts": "ДОДАТИ ДО КОНТАКТІВ"
     },
     "form": {
-      "generalError": "There was a problem submitting this form. Please contact an administrator.",
-      "nameError": "The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.",
-      "addressError": "Something isn't right with the address. Please double check for typos.",
-      "uniqueAddressError": "The key must be unique. Please choose a different address.",
-      "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
+      "generalError": "Виникла проблема із поданням цієї форми. Будь ласка, зв'яжіться з адміністратором.",
+      "nameError": "Поле назви має починатися з літери, містити максимум 32 символи, і він прийматиме лише літери, цифри та пробіли.",
+      "addressError": "Щось не відповідає адресі. Будь ласка, подвійно перевірте помилки.",
+      "uniqueAddressError": "Ключ повинен бути унікальним. Будь ласка, виберіть іншу адресу.",
+      "uniqueAliasError": "Імена в адресній книзі повинні бути унікальними. Будь ласка, виберіть інший.",
       "name": "NAME",
-      "address": "ADDRESS"
+      "address": "АДРЕСА"
     }
   },
   "importWallet": {
     "title": "IMPORT WALLET",
-    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
-    "button": "IMPORT",
+    "message": "Якщо у вас є приватний ключ і адреса вашого кошелька, ви можете відновити його тут, але майте на увазі, що TronWallet в першу чергу працює з мнемонією. Цей метод відновлення вимкне деяку функціональність у додатку.",
+    "button": "ІМПОРТ",
     "error": {
-      "privateKey": "Private key invalid or incomplete"
+      "privateKey": "Приватний ключ недійсний або неповний"
     }
   },
   "freeze": {
-    "title": "FREEZE",
+    "title": "ЗАХИСТ",
     "unfreeze": {
-      "title": "UNFREEZE",
-      "inThreeDays": "After a three day period you can unfreeze your TRX",
-      "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
-      "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
-      "inXDays": "You can unfreeze your TRX in {{days}} days.",
-      "now": "You can unfreeze your TRX now."
+      "title": "НЕЗАЛЕЖНИЙ",
+      "inThreeDays": "Через три дні ви можете розморозити свій TRX",
+      "inXMinutes": "Ви можете розморозити свій TRX через {{minutes}} хвилин.",
+      "inXHours": "Ви можете розморозити ваш TRX через {{hours}} годин.",
+      "inXDays": "Ви можете розморозити ваш TRX через {{days}} днів.",
+      "now": "Ви можете розморозити свій TRX зараз."
     },
     "error": {
-      "minimumAmount": "The minimum amount for any freeze transaction is 1.",
-      "insufficientBalance": "Insufficient TRX balance",
-      "roundNumbers": "Can only freeze round numbers"
+      "minimumAmount": "Мінімальна сума для будь-якої транзакції замороження - 1.",
+      "insufficientBalance": "Недостатній баланс TRX",
+      "roundNumbers": "Може тільки заморозити круглі цифри"
     },
-    "amount": "FREEZE AMOUNT",
-    "balance": "Balance"
+    "amount": "ЗАМОВИТИ СУМУ",
+    "balance": "Баланс"
   },
   "getVault": {
-    "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
-    "downloadHere": "You can download it here"
+    "notInstalled": "Здається, що у вашому телефоні не встановлено Tron Vault, щоб продовжити транзакцію.",
+    "downloadHere": "Ви можете завантажити його тут"
   },
   "market": {
     "time": {
       "hour": "1H",
       "day": "1D",
       "week": "1W",
-      "month": "1M",
-      "all": "ALL"
+      "month": "1М",
+      "all": "ВСЕ"
     },
-    "highest": "HIGHEST",
-    "lowest": "LOWEST",
-    "volume": "VOLUME 24H",
-    "cap": "MARKET CAP",
-    "supply": "CIRCULATING SUPPLY"
+    "highest": "Найвищий",
+    "lowest": "НИЗЬКА",
+    "volume": "ДО 24 ГГ",
+    "cap": "РИНКОВА КАПІТАЛІЗАЦІЯ",
+    "supply": "ПОСЛУГИ КРУГЛОК"
   },
   "participate": {
-    "title": "PARTICIPATE",
-    "featured": "FEATURED",
+    "title": "УЧАСТЬ",
+    "featured": "ОСОБЛИВОСТІ",
     "button": {
-      "confirm": "CONFIRM",
-      "moreInfo": "MORE INFO",
-      "buyNow": "BUY NOW"
+      "confirm": "Підтвердити",
+      "moreInfo": "БІЛЬШЕ ІНФОРМАЦІЇ",
+      "buyNow": "КУПИТИ ЗАРАЗ"
     },
     "error": {
-      "insufficientBalance": "Not enough funds (TRX) to participate.",
+      "insufficientBalance": "Не вистачає коштів (TRX) для участі.",
       "insufficientTrx": {
-        "title": "You need to buy at least one TRX worth of {{token}}.",
-        "message": "Currently you are buying only {{amount}}."
+        "title": "Вам потрібно купити принаймні один TRX вартості {{token}}.",
+        "message": "Наразі ви купуєте лише {{amount}}."
       }
     },
-    "warning": "You don't have enough TRX to buy that many {{token}}",
-    "amountToBuy": "AMOUNT TO BUY",
-    "pricePerToken": "PRICE PER TOKEN",
+    "warning": "Вам не вистачає TRX, щоб придбати багато {{token}}",
+    "amountToBuy": "КУПИТИ КУПИТИ",
+    "pricePerToken": "ЦІНА НА ОДИН",
     "tokenDescription": "TOKEN DESCRIPTION",
     "tokenInfo": "TOKEN INFO",
-    "token": "TOKEN",
+    "token": "Токен",
     "tokens": "TOKENS",
-    "frozen": "FROZEN",
-    "percentage": "PERCENTAGE",
-    "issued": "ISSUED",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
+    "frozen": "Заморожений",
+    "percentage": "ВІДСОТОК",
+    "issued": "ВИДАНИЙ",
+    "totalSupply": "ВСЬОГО ПРОДУКТУ",
+    "startTime": "ЧАС ПОЧАТКУ",
     "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "transaction": "TRANSACTION",
-    "ownerAddress": "OWNER ADDRESS",
+    "description": "ОПИС",
+    "transaction": "ОПЕРАЦІЯ",
+    "ownerAddress": "ВЛАСНИЙ АДРЕС",
     "trxNum": "TRX NUM",
     "num": "NUM",
-    "block": "BLOCK"
+    "block": "БЛОК"
   },
   "pin": {
-    "title": "SECURITY CHECK",
-    "enter": "Enter PIN",
-    "new": "Enter New PIN",
-    "reenter": "Re-Enter PIN"
+    "title": "ПЕРЕВІРКА БЕЗПЕКИ",
+    "enter": "Введіть PIN-код",
+    "new": "Введіть новий PIN-код",
+    "reenter": "Повторно введіть PIN-код"
   },
   "receive": {
-    "title": "RECEIVE",
-    "clipboardCopied": "Copied to clipboard",
+    "title": "ОТРИМАЙТЕ",
+    "clipboardCopied": "Скопійовано в буфер обміну",
     "button": {
-      "copy": "Copy",
-      "share": "Share"
+      "copy": "Скопіювати",
+      "share": "Поділитися"
     },
     "tabs": {
-      "share": "SHARE",
-      "request": "REQUEST"
+      "share": "ДОПОВНЕНІ",
+      "request": "ЗАПИТАННЯ"
     }
   },
   "rewards": {
-    "title": "REWARDS",
-    "earned": "You have earned"
+    "title": "ОГОЛОШЕННЯ",
+    "earned": "Ти заробив"
   },
   "seed": {
     "confirm": {
-      "title": "CONFIRM SEED",
+      "title": "Підкріпити SEED",
       "error": {
-        "title": "Wrong Combination",
-        "message": "Selected words don't match. Make sure you wrote the words in the correct order."
+        "title": "Неправильне поєднання",
+        "message": "Вибрані слова не збігаються. Переконайтеся, що ви написали слова в правильному порядку."
       },
-      "success": "Wallet successfully confirmed",
-      "explanation": "Select the words below in the right order to confirm your secret phrase.",
+      "success": "Гаманець успішно підтверджено",
+      "explanation": "Виберіть слова нижче в правильному порядку, щоб підтвердити свою секретну фразу.",
       "button": {
-        "reset": "RESET WORDS",
-        "confirm": "CONFIRM SEED"
+        "reset": "СКАСУЙТЕ СЛОВА",
+        "confirm": "Підкріпити SEED"
       }
     },
     "create": {
-      "title": "CREATE SEED",
-      "titleConfirm": "CONFIRM WALLET SEED",
-      "error": "Oops, we have a problem. Please restart the application.",
-      "generateNew": "This will generate a completely new wallet.",
+      "title": "ЗРОБИТИ СЕМЕНА",
+      "titleConfirm": "Підтвердити WALLET SEED",
+      "error": "На жаль, у нас проблема. Будь ласка, перезапустіть програму.",
+      "generateNew": "Це створить абсолютно новий гаманець.",
       "button": {
-        "written": "I'VE WRITTEN IT DOWN",
-        "newSeed": "GET NEW SEED",
-        "later": "Confirm later"
+        "written": "Я НАЗВИЛИСЬ",
+        "newSeed": "ОЧИСТИТЬ НОВИЙ СЕМЕН",
+        "later": "Підтвердьте пізніше"
       }
     },
     "restore": {
-      "title": "RESTORE WALLET",
-      "explanation": "To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
-      "placeholder": "Please, type your 12 seed words here",
-      "success": "Wallet restored with success!",
-      "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
-      "error": "Oops. Looks like the words you typed aren't a valid mnemonic seed. Check for a typo and try again.",
-      "button": "RESTORE"
+      "title": "ВІДПРАВИТИ ВАЛЕТ",
+      "explanation": "Щоб відновити свій кошелек, будь-ласка, надайте ті ж 12 слів, які ви написали на папері, коли ви створили кошик вперше. Якщо ви введете іншу послідовність слів, буде створено новий порожній кошелек.",
+      "placeholder": "Будь ласка, введіть тут 12 слів насіння",
+      "success": "Гаманець відновлений з успіхом!",
+      "warning": "Відновлення насіння видаляє всі дані на цьому пристрої та витягує інформацію про мережу для відновленої облікового запису.",
+      "error": "Ой! Схоже, слова, які ви набрали, не є дійсним насіннєвим мнемонією. Перевірте помилку та повторіть спробу.",
+      "button": "ВІДНОВЛЕННЯ"
     }
   },
   "send": {
-    "title": "SEND",
+    "title": "НАДІСЛАТИ",
     "error": {
-      "insufficientBalance": "Not enough balance.",
-      "gettingBalance": "Error while getting balance data",
-      "incompleteAddress": "Address is either incomplete or invalid.",
-      "invalidReceiver": "Invalid receiver address",
-      "selectBalance": "Select a balance first",
-      "invalidAmount": "Invalid amount"
+      "insufficientBalance": "Не вистачає балансу.",
+      "gettingBalance": "Помилка під час отримання даних про баланс",
+      "incompleteAddress": "Адреса є неповною або недійсною.",
+      "invalidReceiver": "Недійсна адреса одержувача",
+      "selectBalance": "Спочатку виберіть баланс",
+      "invalidAmount": "Недійсна сума"
     },
     "input": {
-      "token": "TOKEN",
+      "token": "Токен",
       "to": "TO",
       "amount": "AMOUNT",
-      "description": "DESCRIPTION (OPTIONAL)"
+      "description": "ОПИС (НЕОБОВ'ЯЗКОВО)"
     },
-    "available": "available",
-    "chooseToken": "Please, choose a token below.",
-    "minimumAmount": "The minimum amount for any send transaction is 0.000001."
+    "available": "доступний",
+    "chooseToken": "Будь ласка, виберіть токен нижче.",
+    "minimumAmount": "Мінімальна сума для будь-якої транзакції відправлення становить 0.000001."
   },
   "settings": {
-    "title": "SETTINGS",
+    "title": "ВСТАНОВЛЕННЯ",
     "sectionTitles": {
       "wallet": "WALLET",
-      "security": "SECURITY",
-      "notification": "NOTIFICATIONS AND IDIOM",
-      "accounts": "ACCOUNTS MANAGEMENT"
+      "security": "БЕЗПЕКА",
+      "notification": "ПОВІДОМЛЕННЯ І ІДЕЯ",
+      "accounts": "УПРАВЛІННЯ АКЦІОНЕРАМИ"
     },
     "notifications": {
-      "title": "Notifications"
+      "title": "Сповіщення"
     },
     "network": {
-      "title": "Network",
+      "title": "Мережа",
       "modal": {
-        "title": "NETWORK",
-        "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
+        "title": "МЕРЕЖА",
+        "explanation": "За допомогою цього параметра ви можете вибрати вузол, який найкраще відповідатиме вашим потребам та налаштуванням. Будьте обережні під час оновлення вузла IP, тоді як неправильний IP може призвести до несправності у вашому кошельку. Приклад: 35.231.121.122:50051",
         "error": {
-          "storage": "Error getting node ip from local storage",
-          "invalidIp": "Please put a valid IP",
-          "update": "Something went wrong while updating nodes ip",
-          "reset": "Something wrong while reseting node ip"
+          "storage": "Помилка отримання вузла ip із локального сховища",
+          "invalidIp": "Будь ласка, поставте дійсний IP",
+          "update": "Помилка під час оновлення вузлів ip",
+          "reset": "Щось не так під час відновлення вузла ip"
         },
         "success": {
-          "updated": "Updated",
-          "updatedIp": "Nodes IP updated!",
-          "switchTest": "Switched nodes IP to Testnet",
-          "switchMain": "Switched nodes IP to default main",
-          "reset": "Node IP reseted!"
+          "updated": "Оновлено",
+          "updatedIp": "Вузоли IP оновлено!",
+          "switchTest": "Переключені вузли IP до Testnet",
+          "switchMain": "Перемикаються вузли IP до основного",
+          "reset": "Node IP відновлено!"
         },
         "placeholder": {
-          "loadingIp": "Loading IP",
-          "loadingPort": "Loading Port"
+          "loadingIp": "Завантаження IP-адреси",
+          "loadingPort": "Завантаження порту"
         },
         "button": {
-          "update": "Update and Connect",
-          "reset": "Reset"
+          "update": "Оновити та підключитися",
+          "reset": "Скинути"
         },
-        "mainNode": "Main Node",
-        "solidityNode": "Solidity Node",
+        "mainNode": "Головний вузол",
+        "solidityNode": "Вузол твердості",
         "testNet": "TestNet"
       }
     },
     "backup": {
-      "title": "Backup Wallet"
+      "title": "Кошик для резервного копіювання"
     },
     "restore": {
-      "title": "Restore Wallet"
+      "title": "Відновити Гаманець"
     },
     "reset": {
-      "title": "Reset Wallet",
-      "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
-      "button": "OK, I understand it"
+      "title": "Скинути гаманець",
+      "warning": "Попередження. Ця дія призведе до видалення усіх збережених даних, включаючи ваші 12 секретних слів. Якщо ви не зберегли свою таємницю, просимо зробити це, перш ніж продовжувати.",
+      "button": "Гаразд, я це розумію"
     },
     "pin": {
-      "title": "Change Pin",
-      "success": "Pin successfully changed!"
+      "title": "Змінити Pin",
+      "success": "PIN-код успішно змінено!"
     },
     "language": {
-      "title": "Language",
-      "choose": "Please, choose a Language below:",
+      "title": "Мова",
+      "choose": "Будь ласка, виберіть мову нижче:",
       "success": {
-        "title": "Language changed to {{language}}",
-        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
+        "title": "Мова змінено на {{language}}",
+        "description": "Проте вам все одно потрібно перезапустити додаток, щоб зміни могли набрати чинності. Ви хотіли б це зробити зараз?"
       },
       "button": {
-        "confirm": "Yes, restart now!",
-        "cancel": "No, I'll do it later"
+        "confirm": "Так, перезавантажте зараз!",
+        "cancel": "Ні, я зроблю це пізніше"
       },
-      "error": "Error saving preferred language"
+      "error": "Помилка збереження бажаної мови"
     },
     "token": {
-      "title": "Token Filter",
-      "search": "Search tokens",
-      "confirm": "Save",
-      "noResult": "No results..."
+      "title": "Токенний фільтр",
+      "search": "Пошукові маркери",
+      "confirm": "Зберегти",
+      "noResult": "Немає результатів..."
     },
     "about": {
-      "title": "About",
-      "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
-      "tutorial": "TUTORIAL"
+      "title": "Про",
+      "description": "TronWallet - це повністю децентралізований P2P Crypto Wallet для мережі TRON, побудований за допомогою React Native. За допомогою цього ви можете надсилати та отримувати токени, голосувати за Super Representative, брати участь у продажу токенів, стежити за вашими балансами, транзакціями та багато іншого. Натисніть на посилання нижче, щоб отримати детальний підручник про те, як його використовувати.",
+      "tutorial": "Підручник"
     },
     "accepts": {
-      "title": "Who accepts TRX?"
+      "title": "Хто приймає TRX?"
     },
     "accounts": {
-      "title": "Accounts",
-      "search": "Search accounts",
-      "restoreAccounts": "Restore Accounts",
-      "noAccounts": "No accounts to restore"
+      "title": "Рахунки",
+      "search": "Пошук рахунків",
+      "restoreAccounts": "Відновити рахунки",
+      "noAccounts": "Немає облікових записів для відновлення"
     },
-    "partners": "PARTNERS",
-    "askPin": "Always ask PIN"
+    "partners": "ПАРТНЕРИ",
+    "askPin": "Завжди запитуйте PIN-код"
   },
   "submitTransaction": {
-    "title": "TRANSACTION DETAILS",
-    "notification": "You have received a transaction from {{address}}",
-    "notificationPayment": "You have received a payment from {{address}}",
-    "data": "DATA",
+    "title": "ДОКУМЕНТИ РЕАЛІЗАЦІЇ",
+    "notification": "Ви отримали транзакцію з {{address}}",
+    "notificationPayment": "Ви отримали платіж від {{address}}",
+    "data": "ДАНІ",
     "time": "TIME",
     "button": {
-      "tryAgain": "Try again",
-      "submit": "SUBMIT TRANSACTION"
+      "tryAgain": "Спробуйте ще раз",
+      "submit": "ПІДПИСАТИ ОПЕРАЦІЮ"
     },
-    "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
+    "disconnectedMessage": "Здається, що ви відключені. Підключіться до Інтернету, перш ніж продовжувати транзакцію.",
     "dic": {
-      "contractType": "Transaction Type",
-      "ownerAddress": "From",
-      "toAddress": "To",
-      "participateAssetIssueContract": "Participate",
-      "transferAssetContract": "Transfer",
-      "transferContract": "Transfer",
-      "unfreezeBalanceContract": "Unfreeze",
-      "freezeBalanceContract": "Freeze",
-      "assetIssueContract": "Create",
-      "voteWitnessContract": "Vote",
-      "frozenDuration": "Duration",
-      "frozenBalance": "Total to Freeze"
+      "contractType": "Тип транзакції",
+      "ownerAddress": "Від",
+      "toAddress": "До",
+      "participateAssetIssueContract": "Брати участь",
+      "transferAssetContract": "Трансфер",
+      "transferContract": "Трансфер",
+      "unfreezeBalanceContract": "Розморозити",
+      "freezeBalanceContract": "Заморозити",
+      "assetIssueContract": "Створити",
+      "voteWitnessContract": "Голосувати",
+      "frozenDuration": "Тривалість",
+      "frozenBalance": "Всього заморозити"
     },
     "errorDic": {
-      "contractValidate": "Transaction data not valid. Please try again later.",
-      "signature": "Transaction signature not valid.",
-      "duplicate": "Transaction already broadcasted.",
-      "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
-      "bandwith": "Not enought bandwidth. Please try again later.",
-      "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
-      "tooBig": "Transaction too big to be submitted.",
-      "expiration": "Transaction expired. Please try again.",
-      "serverBusy": "Server busy.",
-      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
+      "contractValidate": "Дані транзакції недійсні. Будь-ласка спробуйте пізніше.",
+      "signature": "Підпис підпису недійсний.",
+      "duplicate": "Транзакція вже транслюється.",
+      "contractValidateCee": "Дані транзакції недійсні (CEE). Будь-ласка спробуйте пізніше.",
+      "bandwith": "Не допускається смуга пропускання. Будь-ласка спробуйте пізніше.",
+      "contractValidateTapos": "Дані транзакції недійсні (TAPOS). Будь-ласка спробуйте пізніше.",
+      "tooBig": "Транзакція занадто велика для подання.",
+      "expiration": "Термін дії транзакції минув. Будь ласка спробуйте ще раз.",
+      "serverBusy": "Сервер зайнятий.",
+      "resource": "Недостатня пропускна здатність або баланс. Вам може знадобитися заморожений TRX."
     },
-    "totalVotes": "Total Votes"
+    "totalVotes": "Всього голосів"
   },
   "transactions": {
-    "title": "MY TRANSACTIONS",
-    "from": "From",
-    "to": "To",
-    "notFound": "No transactions found."
+    "title": "МОЇ ОПЕРАЦІЇ",
+    "from": "Від",
+    "to": "До",
+    "notFound": "Операції не знайдені."
   },
   "transactionDetails": {
-    "title": "TRANSACTION",
+    "title": "ОПЕРАЦІЯ",
     "clipboard": {
-      "tronscanUrl": "Tronscan url for this transaction copied to the clipboard",
-      "publicKey": "Public Key copied to the clipboard"
+      "tronscanUrl": "Tronscan url для цієї транзакції скопійовано в буфер обміну",
+      "publicKey": "Публічний ключ скопійовано в буфер обміну"
     },
     "hash": "HASH",
-    "status": "STATUS",
+    "status": "СТАТУС",
     "time": "TIME",
-    "block": "BLOCK",
-    "frozenBalance": "FROZEN BALANCE",
-    "unfrozenBalance": "UNFROZEN BALANCE",
-    "totalVotes": "TOTAL VOTES",
+    "block": "БЛОК",
+    "frozenBalance": "Заморожений баланс",
+    "unfrozenBalance": "НЕБЕЗПЕЧНИЙ БАЛАНС",
+    "totalVotes": "ВСІ ГОЛОСИ",
     "amount": "AMOUNT",
     "to": "TO",
     "from": "FROM",
     "tokenName": "TOKEN NAME",
-    "unityValue": "UNITY VALUE",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
+    "unityValue": "ЄДИНОСТІ",
+    "totalSupply": "ВСЬОГО ПРОДУКТУ",
+    "startTime": "ЧАС ПОЧАТКУ",
     "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "votedAddress": "VOTED ADDRESS"
+    "description": "ОПИС",
+    "votedAddress": "ГОЛОСОВАНИЙ АДРЕС"
   },
   "transactionSuccess": {
-    "submitted": "TRANSACTION SUBMITTED TO NETWORK!",
-    "success": "SUCCESS!"
+    "submitted": "ОПЕРАЦІЯ, ПРЕДСТАВЛЕНА ДО МЕРЕЖІ!",
+    "success": "УСПІХ!"
   },
   "votes": {
-    "title": "VOTES",
-    "totalVotes": "TOTAL VOTES",
-    "votesAvailable": "VOTES AVAILABLE",
-    "search": "Search",
-    "error": "Oops, something didn't load correctly. Try to reload"
+    "title": "ГОЛОСУВАННЯ",
+    "totalVotes": "ВСІ ГОЛОСИ",
+    "votesAvailable": "Голосованість доступна",
+    "search": "Пошук",
+    "error": "На жаль, щось завантажено неправильно. Спробуйте перезавантажити"
   },
   "scanPayment": {
-    "scan": "SCAN",
+    "scan": "СКАН",
     "error": {
-      "receiver": "Receiver address invalid",
-      "token": "Token not valid",
-      "amount": "Amount not valid",
-      "description": "Description too long",
-      "code": "Payment code invalid. Please, scan a valid one"
+      "receiver": "Адреса адресата недійсна",
+      "token": "Токен недійсний",
+      "amount": "Сума недійсна",
+      "description": "Опис занадто довгий",
+      "code": "Код платежу недійсний. Будь ласка, перевірте правильний"
     }
   },
   "makePayment": {
-    "pay": "PAY",
-    "confirm": "CONFIRM PAYMENT",
+    "pay": "Оплата",
+    "confirm": "ПІДТВЕРДЖЕННЯ ОПЛАТИ",
     "error": {
-      "receiver": "Receiver is equal to requester",
-      "token": "This account doesn't have the token for this transaction",
-      "amount": "This account doesn't have enough balance.",
-      "description": "No description available"
+      "receiver": "Приймач рівний заявникові",
+      "token": "Цей обліковий запис не містить токен для цієї транзакції",
+      "amount": "На цьому обліковому записі недостатньо балансу.",
+      "description": "Немає опису"
     }
   },
   "buildPayment": {
-    "generate": "GENERATE REQUEST",
-    "selectCurrency": "Select the reference currency",
+    "generate": "ЗАГАЛЬНИЙ ЗАПИТ",
+    "selectCurrency": "Виберіть контрольний курс валют",
     "error": {
-      "currency": "We weren't able to load other currency prices. Please use TRX as reference"
+      "currency": "Ми не змогли завантажити інші валютні ціни. Будь ласка, використовуйте TRX як довідку"
     }
   },
   "requestPayment": {
-    "title": "REQUEST PAYMENT"
+    "title": "ПЛАТИ ЗАПРОШЕННЯ"
   },
   "newAccount": {
-    "title": "Account Creation",
-    "placeholder": "My precious account",
+    "title": "Створення облікового запису",
+    "placeholder": "Мій дорогоцінний рахунок",
     "success": {
-      "title": "New account successfully created",
-      "message": "You can edit the name on your address book"
+      "title": "Новий обліковий запис успішно створено",
+      "message": "Ви можете редагувати ім'я в адресній книзі"
     },
     "failure": {
-      "title": "New account warning",
-      "message": "To add a new account you should have at least one transaction on your last account."
+      "title": "Нове попередження облікового запису",
+      "message": "Щоб додати новий обліковий запис, потрібно мати принаймні одну транзакцію в своєму останньому обліковому записі."
     }
   }
 }
