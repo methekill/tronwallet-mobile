@@ -18,17 +18,17 @@
   "success": "Success",
   "warning": "Warning",
   "cancel": "Cancel",
-  "address": "Address",
+  "address": "כתובת",
   "ok": "OK",
   "actionModalTitle": "Would you like to",
-  "account": "Account",
-  "restore": "Restore",
+  "account": "חֶשְׁבּוֹן",
+  "restore": "לשחזר",
   "error": {
     "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
     "buildingTransaction": "Error while building transaction, try again.",
     "gettingTransaction": "Error while getting transaction.",
     "clipboardCopied": "Something wrong while copying",
-    "hideAccount": "Something went wrong deleting account, try again'"
+    "hideAccount": "משהו השתבש מחיקת החשבון, נסה שוב '"
   },
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRICE",
@@ -50,7 +50,7 @@
   "clear": "Clear",
   "allIn": "All In",
   "skip": "Skip",
-  "privateKey": "Private Key",
+  "privateKey": "מפתח פרטי",
   "balance": {
     "title": "ACCOUNTS",
     "error": {
@@ -59,11 +59,11 @@
     },
     "chooseCurrency": "Please, choose your preferred currency.",
     "confirmSeed": "Please tap to confirm your 12 seed words",
-    "bandwidth": "BANDWIDTH",
+    "bandwidth": "רוחב פס",
     "tokens": "TOKENS",
     "holdings": "HOLDINGS"
   },
-  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
+  "hideAccount": "אתה עומד להסיר את החשבון הזה. ניתן לשחזר אותו מאוחר יותר בהגדרות",
   "components": {
     "share": {
       "title": "Share TronWallet address",
@@ -129,11 +129,11 @@
     }
   },
   "importWallet": {
-    "title": "IMPORT WALLET",
-    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
-    "button": "IMPORT",
+    "title": "ייבוא ​​וואלט",
+    "message": "אם יש לך את המפתח הפרטי ואת הכתובת של הארנק שלך אתה יכול לשחזר אותו כאן אבל יש לזכור כי TronWallet פועלת עם mnemonics בעיקר. שיטה זו התאוששות יהיה להשבית כמה פונקציות בתוך App.",
+    "button": "יְבוּא",
     "error": {
-      "privateKey": "Private key invalid or incomplete"
+      "privateKey": "מפתח פרטי לא חוקי או לא שלם"
     }
   },
   "freeze": {
@@ -221,89 +221,89 @@
       "share": "Share"
     },
     "tabs": {
-      "share": "SHARE",
-      "request": "REQUEST"
+      "share": "לַחֲלוֹק",
+      "request": "בַּקָשָׁה"
     }
   },
   "rewards": {
-    "title": "REWARDS",
-    "earned": "You have earned"
+    "title": "תגמולים",
+    "earned": "הרווחת"
   },
   "seed": {
     "confirm": {
-      "title": "CONFIRM SEED",
+      "title": "קונפירם SEED",
       "error": {
-        "title": "Wrong Combination",
-        "message": "Selected words don't match. Make sure you wrote the words in the correct order."
+        "title": "שילוב שגוי",
+        "message": "המילים שנבחרו אינן תואמות. ודא שכתבת את המילים בסדר הנכון."
       },
-      "success": "Wallet successfully confirmed",
-      "explanation": "Select the words below in the right order to confirm your secret phrase.",
+      "success": "הארנק אושר בהצלחה",
+      "explanation": "בחר את המילים למטה בסדר הנכון כדי לאשר את הביטוי הסודי שלך.",
       "button": {
-        "reset": "RESET WORDS",
-        "confirm": "CONFIRM SEED"
+        "reset": "מילים לאיפוס",
+        "confirm": "קונפירם SEED"
       }
     },
     "create": {
-      "title": "CREATE SEED",
-      "titleConfirm": "CONFIRM WALLET SEED",
-      "error": "Oops, we have a problem. Please restart the application.",
-      "generateNew": "This will generate a completely new wallet.",
+      "title": "ליצור זרע",
+      "titleConfirm": "קונפירם וולט",
+      "error": "אופס, יש לנו בעיה. הפעל מחדש את היישום.",
+      "generateNew": "פעולה זו תיצור ארנק חדש לגמרי.",
       "button": {
-        "written": "I'VE WRITTEN IT DOWN",
-        "newSeed": "GET NEW SEED",
-        "later": "Confirm later"
+        "written": "אני כתבתי את זה למטה",
+        "newSeed": "קבל חדש SEED",
+        "later": "אשר מאוחר יותר"
       }
     },
     "restore": {
-      "title": "RESTORE WALLET",
-      "explanation": "To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
-      "placeholder": "Please, type your 12 seed words here",
-      "success": "Wallet restored with success!",
-      "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
-      "error": "Oops. Looks like the words you typed aren't a valid mnemonic seed. Check for a typo and try again.",
-      "button": "RESTORE"
+      "title": "שיחזור",
+      "explanation": "כדי לשחזר את הארנק שלך, ספק את אותן 12 מילים שכתבת על נייר כאשר יצרת את הארנק בפעם הראשונה. אם תזין רצף מילים שונה, ייווצר ארנק ריק חדש.",
+      "placeholder": "בבקשה, הקלד את 12 מילות הזרע שלך כאן",
+      "success": "ארנק שוחזר בהצלחה!",
+      "warning": "שחזור הזרע ימחק את כל הנתונים במכשיר זה ומשוך מידע מהרשת עבור החשבון המשוחזר.",
+      "error": "אופס. נראה שהמילים שהקלדת אינן זרע חוקי. בדוק שגיאת הקלדה ונסה שוב.",
+      "button": "לשחזר"
     }
   },
   "send": {
-    "title": "SEND",
+    "title": "לִשְׁלוֹחַ",
     "error": {
-      "insufficientBalance": "Not enough balance.",
-      "gettingBalance": "Error while getting balance data",
-      "incompleteAddress": "Address is either incomplete or invalid.",
-      "invalidReceiver": "Invalid receiver address",
-      "selectBalance": "Select a balance first",
-      "invalidAmount": "Invalid amount"
+      "insufficientBalance": "לא מספיק איזון.",
+      "gettingBalance": "שגיאה בעת קבלת נתוני איזון",
+      "incompleteAddress": "הכתובת היא חלקית או לא חוקית.",
+      "invalidReceiver": "כתובת מקלט לא חוקית",
+      "selectBalance": "בחר תחילה איזון",
+      "invalidAmount": "סכום לא חוקי"
     },
     "input": {
-      "token": "TOKEN",
-      "to": "TO",
-      "amount": "AMOUNT",
-      "description": "DESCRIPTION (OPTIONAL)"
+      "token": "אֲסִימוֹן",
+      "to": "ל",
+      "amount": "כמות",
+      "description": "תיאור (אופציונאלי)"
     },
-    "available": "available",
-    "chooseToken": "Please, choose a token below.",
-    "minimumAmount": "The minimum amount for any send transaction is 0.000001."
+    "available": "זמין",
+    "chooseToken": "אנא בחר אסימון בהמשך.",
+    "minimumAmount": "הסכום המינימלי לכל עסקה שנשלח הוא 0.000001."
   },
   "settings": {
-    "title": "SETTINGS",
+    "title": "הגדרות",
     "sectionTitles": {
-      "wallet": "WALLET",
-      "security": "SECURITY",
-      "notification": "NOTIFICATIONS AND IDIOM",
-      "accounts": "ACCOUNTS MANAGEMENT"
+      "wallet": "ארנק",
+      "security": "בִּטָחוֹן",
+      "notification": "הודעות והודאה",
+      "accounts": "ניהול חשבונות"
     },
     "notifications": {
-      "title": "Notifications"
+      "title": "התראות"
     },
     "network": {
-      "title": "Network",
+      "title": "רֶשֶׁת",
       "modal": {
-        "title": "NETWORK",
-        "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
+        "title": "רֶשֶׁת",
+        "explanation": "עם אפשרות זו אתה יכול לבחור את הצומת כי יהיה מתאים יותר לצרכים שלך ואת ההעדפות. אנא היזהר בעת עדכון IP הצומת בזמן IP טועה יכול להוביל תקלות בתוך הארנק שלך. דוגמה: 35.231.121.122:50051",
         "error": {
-          "storage": "Error getting node ip from local storage",
-          "invalidIp": "Please put a valid IP",
-          "update": "Something went wrong while updating nodes ip",
+          "storage": "שגיאה בקבלת IP הצומת מן האחסון המקומי",
+          "invalidIp": "אנא הכנס כתובת IP חוקית",
+          "update": "משהו השתבש בזמן עדכון צמתים ip",
           "reset": "Share"
         },
         "success": {
@@ -369,13 +369,13 @@
       "title": "Who accepts TRX?"
     },
     "accounts": {
-      "title": "Accounts",
-      "search": "Search accounts",
-      "restoreAccounts": "Restore Accounts",
-      "noAccounts": "No accounts to restore"
+      "title": "חשבונות",
+      "search": "חפש בחשבונות",
+      "restoreAccounts": "שחזר חשבונות",
+      "noAccounts": "אין צורך לשחזר חשבונות"
     },
     "partners": "PARTNERS",
-    "askPin": "Always ask PIN"
+    "askPin": "תמיד שאל את ה- PIN"
   },
   "submitTransaction": {
     "title": "TRANSACTION DETAILS",
@@ -426,77 +426,77 @@
     "title": "TRANSACTION",
     "clipboard": {
       "tronscanUrl": "Tronscan url for this transaction copied to the clipboard",
-      "publicKey": "Public Key copied to the clipboard"
+      "publicKey": "מפתח ציבורי הועתק ללוח"
     },
-    "hash": "HASH",
-    "status": "STATUS",
-    "time": "TIME",
-    "block": "BLOCK",
-    "frozenBalance": "FROZEN BALANCE",
-    "unfrozenBalance": "UNFROZEN BALANCE",
-    "totalVotes": "TOTAL VOTES",
-    "amount": "AMOUNT",
-    "to": "TO",
-    "from": "FROM",
+    "hash": "בְּלִיל",
+    "status": "סטָטוּס",
+    "time": "זְמַן",
+    "block": "לַחסוֹם",
+    "frozenBalance": "מאזן קפוא",
+    "unfrozenBalance": "מאזן בלתי מאוזן",
+    "totalVotes": "סך הכל הצבעות",
+    "amount": "כמות",
+    "to": "ל",
+    "from": "מ",
     "tokenName": "TOKEN NAME",
-    "unityValue": "UNITY VALUE",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "votedAddress": "VOTED ADDRESS"
+    "unityValue": "ערך UNITY",
+    "totalSupply": "סך הכל",
+    "startTime": "שעת התחלה",
+    "endTime": "סוף זמן",
+    "description": "תיאור",
+    "votedAddress": "כתובת VOTED"
   },
   "transactionSuccess": {
-    "submitted": "TRANSACTION SUBMITTED TO NETWORK!",
-    "success": "SUCCESS!"
+    "submitted": "תובלה שהוגשה לרשת!",
+    "success": "הַצלָחָה!"
   },
   "votes": {
     "title": "VOTES",
-    "totalVotes": "TOTAL VOTES",
-    "votesAvailable": "VOTES AVAILABLE",
-    "search": "Search",
-    "error": "Oops, something didn't load correctly. Try to reload"
+    "totalVotes": "סך הכל הצבעות",
+    "votesAvailable": "הקולות זמינים",
+    "search": "לחפש",
+    "error": "אופס, משהו לא נטען כהלכה. נסה לטעון מחדש"
   },
   "scanPayment": {
-    "scan": "SCAN",
+    "scan": "לִסְרוֹק",
     "error": {
-      "receiver": "Receiver address invalid",
-      "token": "Token not valid",
-      "amount": "Amount not valid",
-      "description": "Description too long",
-      "code": "Payment code invalid. Please, scan a valid one"
+      "receiver": "כתובת המקלט אינה חוקית",
+      "token": "האסימון אינו חוקי",
+      "amount": "הסכום אינו חוקי",
+      "description": "תיאור ארוך מדי",
+      "code": "קוד התשלום אינו חוקי. אנא, סרוק אחד חוקי"
     }
   },
   "makePayment": {
-    "pay": "PAY",
-    "confirm": "CONFIRM PAYMENT",
+    "pay": "לְשַׁלֵם",
+    "confirm": "אשר תשלום",
     "error": {
-      "receiver": "Receiver is equal to requester",
-      "token": "This account doesn't have the token for this transaction",
-      "amount": "This account doesn't have enough balance.",
-      "description": "No description available"
+      "receiver": "המקלט שווה למבקש",
+      "token": "לחשבון זה אין אסימון עבור עסקה זו",
+      "amount": "לחשבון זה אין מספיק איזון.",
+      "description": "אין תיאור זמין"
     }
   },
   "buildPayment": {
-    "generate": "GENERATE REQUEST",
-    "selectCurrency": "Select the reference currency",
+    "generate": "צור בקשה",
+    "selectCurrency": "בחר את מטבע ההתייחסות",
     "error": {
-      "currency": "We weren't able to load other currency prices. Please use TRX as reference"
+      "currency": "לא הצלחנו לטעון את מחירי המטבעות האחרים. השתמש ב- TRX כנקודת התייחסות"
     }
   },
   "requestPayment": {
-    "title": "REQUEST PAYMENT"
+    "title": "בקשת תשלום"
   },
   "newAccount": {
-    "title": "Account Creation",
-    "placeholder": "My precious account",
+    "title": "יצירת חשבון",
+    "placeholder": "החשבון היקר שלי",
     "success": {
-      "title": "New account successfully created",
-      "message": "You can edit the name on your address book"
+      "title": "החשבון החדש נוצר בהצלחה",
+      "message": "באפשרותך לערוך את השם בפנקס הכתובות שלך"
     },
     "failure": {
-      "title": "New account warning",
-      "message": "To add a new account you should have at least one transaction on your last account."
+      "title": "אזהרה על חשבון חדש",
+      "message": "כדי להוסיף חשבון חדש, צריכה להיות לך לפחות עסקה אחת בחשבון האחרון שלך."
     }
   }
 }
