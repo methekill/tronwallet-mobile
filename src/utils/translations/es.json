@@ -18,17 +18,23 @@
   "success": "Éxitoso",
   "warning": "Atención",
   "cancel": "Cancelar",
+  "address": "Address",
   "ok": "OK",
+  "actionModalTitle": "Would you like to",
+  "account": "Account",
+  "restore": "Restore",
   "error": {
     "default": "Oops algo no resultó. Por favor intenta más tarde, si el error persiste intenta actualizar los ajustes de red.",
     "buildingTransaction": "Error construyendo la transacción, intenta de nuevo.",
     "gettingTransaction": "Error obteniendo transacción.",
-    "clipboardCopied": "Error al copiar"
+    "clipboardCopied": "Error al copiar",
+    "hideAccount": "Something went wrong deleting account, try again'"
   },
   "tronPower": "TRON POWER",
   "trxPrice": "PRECIO TRX",
   "confirmed": "Confirmado",
   "unconfirmed": "No Confirmado",
+  "copyAddress": "COPY ADDRESS",
   "transactionType": {
     "transfer": "Transferir",
     "transferAsset": "Transferir Activo",
@@ -39,9 +45,12 @@
     "create": "Crear",
     "undefined": "Tipo indefinido"
   },
+  "close": "Close",
   "ends": "Fin",
   "clear": "Limpiar",
   "allIn": "Todo",
+  "skip": "Skip",
+  "privateKey": "Private Key",
   "balance": {
     "title": "SALDO",
     "error": {
@@ -54,6 +63,7 @@
     "tokens": "TOKENS",
     "holdings": "PROPIEDAD"
   },
+  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
   "components": {
     "share": {
       "title": "Compartir dirección TronWallet",
@@ -62,6 +72,7 @@
     },
     "QRScanner": {
       "title": "Escáner de Direcciónr",
+      "scan": "Scan",
       "explanation": "Escanea el código QR para identificar el usuario destino",
       "permissionMessage": "Para escanear la clave publica, esta app requiere permiso para acceder la cámara."
     },
@@ -104,18 +115,25 @@
       },
       "empty": "Su libreta de direcciones está vacía, agregue un nuevo contacto usando el botón a continuación.",
       "loadError": "Hubo un problema al cargar los contactos. Inténtalo de nuevo.",
-      "addContact": "AGREGAR CONTACTO"
+      "addContact": "AGREGAR CONTACTO",
+      "addToContacts": "ADD TO CONTACTS"
     },
     "form": {
       "generalError": "Hubo un problema al enviar este formulario. Por favor, póngase en contacto con un administrador.",
       "nameError": "El campo de nombre debe comenzar con una letra y solo aceptará letras, números y espacios en blanco.",
       "addressError": "Algo no está bien con la dirección. Por favor, comprueba si hay errores tipográficos.",
       "uniqueAddressError": "La clave debe ser única. Por favor, elija una dirección diferente.",
+      "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
       "name": "NOMBRE",
       "address": "DIRECCIÓN"
-    },
-    "modal": {
-      "title": "Te gustaria"
+    }
+  },
+  "importWallet": {
+    "title": "IMPORT WALLET",
+    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
+    "button": "IMPORT",
+    "error": {
+      "privateKey": "Private key invalid or incomplete"
     }
   },
   "freeze": {
@@ -192,6 +210,7 @@
   "pin": {
     "title": "VERIFICACIÓN DE SEGURIDAD",
     "enter": "Ingrese PIN",
+    "new": "Enter New PIN",
     "reenter": "Re-Ingrese PIN"
   },
   "receive": {
@@ -200,6 +219,10 @@
     "button": {
       "copy": "Copiar",
       "share": "Compartir"
+    },
+    "tabs": {
+      "share": "SHARE",
+      "request": "REQUEST"
     }
   },
   "rewards": {
@@ -222,6 +245,7 @@
     },
     "create": {
       "title": "CONFIRMAR SEMILLA DE BILLETERA",
+      "titleConfirm": "CONFIRM WALLET SEED",
       "error": "Oops, tenemos un problema. Por favor reinicia la aplicación.",
       "generateNew": "Esto creará una billetera completamente nueva.",
       "button": {
@@ -254,8 +278,7 @@
       "token": "TOKEN",
       "to": "PARA",
       "amount": "CANTIDAD",
-      "description": "DESCRIPCIÓN (OPCIONAL)",
-      "placeholder": "Describe la transferencia"
+      "description": "DESCRIPCIÓN (OPCIONAL)"
     },
     "available": "disponible",
     "chooseToken": "Por facvor, elige un token abajo.",
@@ -266,15 +289,14 @@
     "sectionTitles": {
       "wallet": "BILLETERA",
       "security": "SEGURIDAD",
-      "notification": "NOTIFICACIONES E LENGUAJE"
+      "notification": "NOTIFICACIONES E LENGUAJE",
+      "accounts": "ACCOUNTS MANAGEMENT"
     },
     "notifications": {
-      "title": "Suscripción a Notificaciones",
-      "description": "Activar o desactivar las notificaciones push"
+      "title": "Suscripción a Notificaciones"
     },
     "network": {
       "title": "Red",
-      "description": "Elije un nodo de tu preferencia",
       "modal": {
         "title": "RED",
         "explanation": "Con esta opción, puedes seleccionar el nodo que mejor se adapte a tus necesidades y preferencias. Ten cuidado al actualizar la dirección IP del nodo, una dirección IP incorrecta puede ocasionar mal funcionamiento dentro de tu billetera. Ej.: 35.231.121.122:50051",
@@ -305,25 +327,38 @@
       }
     },
     "backup": {
-      "title": "Respladar Billetera",
-      "description": "Respalda tus palabras secretas"
+      "title": "Respladar Billetera"
     },
     "restore": {
-      "title": "Restablecer Billetera",
-      "description": "Restablecer 12 palabras secretas usadas previamente"
+      "title": "Restablecer Billetera"
     },
     "reset": {
       "title": "Restablecer Billetera",
-      "description": "Reinicializar todos los datos desde billetera actual",
       "warning": "Atención: Esta accíon borrará todos los datos almacenados incluyendo tus 12 palabras secretas. Si no anotaste tus palabras secretas, por favor hazlo antes de continuar.",
       "button": "OK, Estoy de acuerdo!"
     },
+    "pin": {
+      "title": "Change Pin",
+      "success": "Pin successfully changed!"
+    },
     "language": {
       "title": "Cambiar Idioma",
-      "description": "Cambiar el idioma de la app",
       "choose": "Por favor, elige el idioma:",
-      "sucess": "Idioma cambiado a {{language}}, por favor reinicia la app",
+      "success": {
+        "title": "Language changed to {{language}}",
+        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
+      },
+      "button": {
+        "confirm": "Yes, restart now!",
+        "cancel": "No, I'll do it later"
+      },
       "error": "Error actualizando idioma"
+    },
+    "token": {
+      "title": "Token Filter",
+      "search": "Search tokens",
+      "confirm": "Save",
+      "noResult": "No results..."
     },
     "about": {
       "title": "Acerca De",
@@ -333,11 +368,21 @@
     "accepts": {
       "title": "¿Quien acepta TRX?"
     },
-    "partners": "ASOCIADOS"
+    "accounts": {
+      "title": "Accounts",
+      "search": "Search accounts",
+      "restoreAccounts": "Restore Accounts",
+      "noAccounts": "No accounts to restore"
+    },
+    "partners": "ASOCIADOS",
+    "askPin": "Always ask PIN"
   },
   "submitTransaction": {
     "title": "DETALLES DE TRANSACCIÓN",
     "notification": "Has recibido una transacción de {{address}}",
+    "notificationPayment": "You have received a payment from {{address}}",
+    "data": "DATA",
+    "time": "TIME",
     "button": {
       "tryAgain": "Internar nuevamente",
       "submit": "SOMETER TRANSACCIÓN"
@@ -366,7 +411,8 @@
       "contractValidateTapos": "Datos de transacción inválidos (TAPOS). Por favor intenta más tarde.",
       "tooBig": "Transacción excede tamaño para ser sometida.",
       "expiration": "Transacción expiró. Por favor intenta nuevamente.",
-      "serverBusy": "Servidor ocupado."
+      "serverBusy": "Servidor ocupado.",
+      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
     },
     "totalVotes": "Votos Totales"
   },
@@ -440,5 +486,17 @@
   },
   "requestPayment": {
     "title": "REQUEST PAYMENT"
+  },
+  "newAccount": {
+    "title": "Account Creation",
+    "placeholder": "My precious account",
+    "success": {
+      "title": "New account successfully created",
+      "message": "You can edit the name on your address book"
+    },
+    "failure": {
+      "title": "New account warning",
+      "message": "To add a new account you should have at least one transaction on your last account."
+    }
   }
 }
