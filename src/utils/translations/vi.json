@@ -149,7 +149,7 @@
     "error": {
       "minimumAmount": "The minimum amount for any freeze transaction is 1.",
       "insufficientBalance": "Insufficient TRX balance",
-      "roundNumbers": "Can only freeze round numbers"
+      "roundNumbers": "Share TronWallet address"
     },
     "amount": "FREEZE AMOUNT",
     "balance": "Balance"
