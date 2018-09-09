@@ -18,17 +18,17 @@
   "success": "Sucesso",
   "warning": "Aviso",
   "cancel": "Cancelar",
-  "address": "Address",
+  "address": "Endereço",
   "ok": "OK",
   "actionModalTitle": "Você gostaria de",
-  "account": "Account",
-  "restore": "Restore",
+  "account": "Conta",
+  "restore": "Recuperar",
   "error": {
     "default": "Ops, algo saiu errado. Tente novamente mais tarde, se o erro persistir, tente atualizar as configurações de rede.",
     "buildingTransaction": "Erro ao criar a transação, tente novamente.",
     "gettingTransaction": "Erro ao obter a transação.",
     "clipboardCopied": "Algo deu errado ao copiar",
-    "hideAccount": "Something went wrong deleting account, try again'"
+    "hideAccount": "Algo deu errado, por favor tente novamente"
   },
   "tronPower": "TRON POWER",
   "trxPrice": "PREÇO TRX",
@@ -50,7 +50,7 @@
   "clear": "Limpar",
   "allIn": "Tudo Incluído",
   "skip": "Pular",
-  "privateKey": "Private Key",
+  "privateKey": "Chave Privada",
   "balance": {
     "title": "CONTAS",
     "error": {
@@ -59,11 +59,11 @@
     },
     "chooseCurrency": "Por favor, escolha a moeda de sua preferência.",
     "confirmSeed": "Por favor, toque para confirme as suas 12 palavras seed",
-    "bandwidth": "BANDWIDTH",
+    "bandwidth": "BANDA",
     "tokens": "TOKENS",
     "holdings": "TÍTULOS"
   },
-  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
+  "hideAccount": "Esta ação irá remover esta conta, mas você pode recuperar depois no menu de configurações.",
   "components": {
     "share": {
       "title": "Compartilhar Endereço TronWallet",
@@ -129,9 +129,9 @@
     }
   },
   "importWallet": {
-    "title": "IMPORT WALLET",
-    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
-    "button": "IMPORT",
+    "title": "IMPORTAR WALLET",
+    "message": "Se você tem a chave privada e o endereço da sua carteira, você pode recupear aqui, mas tenha em mente que o TronWallet não poderá recupera-la caso perca o seu smartphone. Este método de recuperação irá desativar algumas funcionalidades dentro do aplicativo.",
+    "button": "IMPORTAR",
     "error": {
       "privateKey": "Private key invalid or incomplete"
     }
