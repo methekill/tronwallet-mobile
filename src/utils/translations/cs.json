@@ -1,131 +1,131 @@
 {
   "relativeTime": {
-    "future": "in %s",
-    "past": "%s ago",
-    "s": "a few seconds",
-    "ss": "%d seconds",
-    "m": "a minute",
-    "mm": "%d minutes",
-    "h": "an hour",
-    "hh": "%d hours",
-    "d": "a day",
-    "dd": "%d days",
-    "M": "a month",
-    "MM": "%d months",
-    "y": "a year",
-    "yy": "%d years"
+    "future": "za %s",
+    "past": "před %s",
+    "s": "pár vteřinami",
+    "ss": "%d vteřinami",
+    "m": "minutou",
+    "mm": "%d minutami",
+    "h": "hodinou",
+    "hh": "%d hodinami",
+    "d": "jedním dnem",
+    "dd": "%d dny",
+    "M": "měsícem",
+    "MM": "%d měsíci",
+    "y": "rokem",
+    "yy": "%d lety"
   },
-  "success": "Success",
-  "warning": "Warning",
-  "cancel": "Cancel",
+  "success": "Úspěch",
+  "warning": "Varování",
+  "cancel": "Zrušit",
   "address": "Address",
   "ok": "OK",
-  "actionModalTitle": "Would you like to",
+  "actionModalTitle": "Chtěl bys",
   "account": "Account",
   "restore": "Restore",
   "error": {
-    "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
-    "buildingTransaction": "Error while building transaction, try again.",
-    "gettingTransaction": "Error while getting transaction.",
-    "clipboardCopied": "Something wrong while copying",
+    "default": "Ups, něco se pokazilo. Opakujte akci později. Pokud chyba přetrvává, zkuste změnit nastavení sítě.",
+    "buildingTransaction": "Chyba při vytváření transakce, zkuste to znovu.",
+    "gettingTransaction": "Chyba při získávání transakce.",
+    "clipboardCopied": "Něco se pokazilo během kopírování",
     "hideAccount": "Something went wrong deleting account, try again'"
   },
   "tronPower": "TRON POWER",
-  "trxPrice": "TRX PRICE",
-  "confirmed": "Confirmed",
-  "unconfirmed": "Unconfirmed",
-  "copyAddress": "COPY ADDRESS",
+  "trxPrice": "CENA TRX",
+  "confirmed": "Potvrzeno",
+  "unconfirmed": "Nepotvrzeno",
+  "copyAddress": "KOPÍROVAT ADRESU",
   "transactionType": {
-    "transfer": "Transfer",
-    "transferAsset": "Transfer Asset",
-    "freeze": "Freeze",
-    "unfreeze": "Unfreeze",
-    "vote": "Vote",
-    "participate": "Participate",
-    "create": "Create",
-    "undefined": "Undefined Type"
+    "transfer": "Převod",
+    "transferAsset": "Převod aktiva",
+    "freeze": "Zmražení",
+    "unfreeze": "Rozmrazení",
+    "vote": "Hlasování",
+    "participate": "Účast",
+    "create": "Vytvoření",
+    "undefined": "Nedefinovaný typ"
   },
-  "close": "Close",
-  "ends": "Ends",
-  "clear": "Clear",
-  "allIn": "All In",
-  "skip": "Skip",
+  "close": "Zavřít",
+  "ends": "Končí",
+  "clear": "Vymazat",
+  "allIn": "Vybrat vše",
+  "skip": "Přeskočit",
   "privateKey": "Private Key",
   "balance": {
-    "title": "ACCOUNTS",
+    "title": "ÚČTY",
     "error": {
-      "loadingData": "An error occured while loading the data.",
-      "savingCurrency": "Error saving preferred currency"
+      "loadingData": "Při načítání dat došlo k chybě.",
+      "savingCurrency": "Chyba při ukládání preferované měny"
     },
-    "chooseCurrency": "Please, choose your preferred currency.",
-    "confirmSeed": "Please tap to confirm your 12 seed words",
+    "chooseCurrency": "Prosím, vyberte vaši preferovanou měnu.",
+    "confirmSeed": "Klepnutím potvrdíte vašich 12 seed slov",
     "bandwidth": "BANDWIDTH",
-    "tokens": "TOKENS",
-    "holdings": "HOLDINGS"
+    "tokens": "TOKENY",
+    "holdings": "MNOŽSTVÍ"
   },
   "hideAccount": "You are about to remove this account. You can restore it later in the settings",
   "components": {
     "share": {
-      "title": "Share TronWallet address",
-      "message": "This is my TronWallet address:\n\n {{address}}\n\nTip: Once you have copied it you can paste it in your TronWallet app using the special button on Send screen.",
-      "dialogTitle": "Share using:"
+      "title": "Sdílet TronWallet adresu",
+      "message": "Toto je moje TronWallet adresa:\n\n {{address}}\n\nTip: Po zkopírování ji můžete vložit do TronWallet aplikace pomocí speciálního tlačítka na obrazovce pro odeslání.",
+      "dialogTitle": "Sdílejte pomocí:"
     },
     "QRScanner": {
-      "title": "Address Scanner",
-      "scan": "Scan",
-      "explanation": "Scan the QRCode to identify the target user",
-      "permissionMessage": "To scan the public key the app needs your permission to access the camera."
+      "title": "Skener adresy",
+      "scan": "Skenovat",
+      "explanation": "Skenujte QR kód pro identifikaci příjemce",
+      "permissionMessage": "Pro naskenování veřejného klíče je potřeba aplikaci povolit oprávnění ke kameře."
     },
     "vote": {
-      "enterVote": "ENTER THE VOTE VALUE",
-      "votesRemaining": "VOTES REMAINING",
-      "setVote": "SET VOTE",
-      "moreVotes": "If you need more votes you can Freeze more TRX.",
-      "confirmVotes": "CONFIRM VOTES",
-      "yourVotes": "Your Votes",
-      "myVotes": "MY VOTES",
-      "confirm": "CONFIRM",
-      "freeze": "Freeze",
-      "totalVotes": "Total votes available:",
-      "delete": "DELETE",
-      "set": "SET",
-      "freezeOrLower": "You do not have enough frozen TRX. Freeze more TRX or lower the vote amount",
-      "freezeToContinue": "You do not have enough frozen TRX. Freeze more TRX to continue"
+      "enterVote": "ZADEJTE POČET HLASŮ",
+      "votesRemaining": "ZBÝVAJÍCÍ HLASY",
+      "setVote": "HLASOVAT",
+      "moreVotes": "Pokud potřebujete více hlasů, můžete zmrazit více TRX.",
+      "confirmVotes": "POTVRDIT HLASOVÁNÍ",
+      "yourVotes": "Vaše hlasy",
+      "myVotes": "MÉ HLASY",
+      "confirm": "POTVRDIT",
+      "freeze": "Zmrazit",
+      "totalVotes": "Počet hlasů k dispozici:",
+      "delete": "SMAZAT",
+      "set": "NASTAVIT",
+      "freezeOrLower": "Nemáte dostatek zmrazených TRX. Zmrazte více TRX nebo snižte počet hlasů",
+      "freezeToContinue": "Nemáte dost zmrazených TRX. Zmrazte více TRX pro pokračování"
     }
   },
   "firstTime": {
     "button": {
-      "create": "CREATE WALLET",
-      "restore": "RESTORE WALLET"
+      "create": "VYTVOŘIT PENĚŽENKU",
+      "restore": "OBNOVIT PENĚŽENKU"
     }
   },
   "addressBook": {
     "shared": {
-      "add": "ADD",
-      "edit": "EDIT",
-      "delete": "DELETE",
-      "send": "SEND"
+      "add": "PŘIDAT",
+      "edit": "EDITOVAT",
+      "delete": "SMAZAT",
+      "send": "POSLAT"
     },
     "contacts": {
       "delete": {
-        "title": "Delete Contact",
-        "message": "Do you really want to delete this contact?",
-        "cancelButton": "Cancel",
+        "title": "Smazat kontakt",
+        "message": "Chcete skutečně smazat tento kontakt?",
+        "cancelButton": "Zrušit",
         "okButton": "OK"
       },
-      "empty": "Your address book is empty, add a new contact using the button below.",
-      "loadError": "There was a problem loading the contacts. Please try again.",
-      "addContact": "ADD CONTACT",
-      "addToContacts": "ADD TO CONTACTS"
+      "empty": "Adresář je prázdný, přidejte nový kontakt pomocí tlačítka níže.",
+      "loadError": "Došlo k potížím při načítání kontaktů. Prosím opakujte akci.",
+      "addContact": "PŘIDAT KONTAKT",
+      "addToContacts": "PŘIDAT DO KONTAKTŮ"
     },
     "form": {
-      "generalError": "There was a problem submitting this form. Please contact an administrator.",
-      "nameError": "The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.",
-      "addressError": "Something isn't right with the address. Please double check for typos.",
-      "uniqueAddressError": "The key must be unique. Please choose a different address.",
-      "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
-      "name": "NAME",
-      "address": "ADDRESS"
+      "generalError": "Došlo k potížím při odesílání tohoto formuláře. Obraťte se na správce.",
+      "nameError": "Pole název musí začínat písmenem, obsahovat maximálně 32 znaků a skládat se pouze z písmen, číslic a mezery.",
+      "addressError": "Adresa není správná. Prosím zkontrolujte, zda nedošlo k překlepu.",
+      "uniqueAddressError": "Klíč musí být unikátní. Prosím zadejte jinou adresu.",
+      "uniqueAliasError": "Názvy ve vašem adresáři musí být unikátní. Prosím vyberte jiné.",
+      "name": "NÁZEV",
+      "address": "ADRESA"
     }
   },
   "importWallet": {
@@ -137,236 +137,236 @@
     }
   },
   "freeze": {
-    "title": "FREEZE",
+    "title": "ZMRAZIT",
     "unfreeze": {
-      "title": "UNFREEZE",
-      "inThreeDays": "After a three day period you can unfreeze your TRX",
-      "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
-      "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
-      "inXDays": "You can unfreeze your TRX in {{days}} days.",
-      "now": "You can unfreeze your TRX now."
+      "title": "ROZMRAZIT",
+      "inThreeDays": "TRX můžete rozmrazit po třech dnech",
+      "inXMinutes": "TRX můžete rozmrazit za {{minutes}} minut.",
+      "inXHours": "TRX můžete rozmrazit za {{hours}} hodin.",
+      "inXDays": "TRX můžete rozmrazit za {{days}} dní.",
+      "now": "Nyní můžete rozmrazit TRX."
     },
     "error": {
-      "minimumAmount": "The minimum amount for any freeze transaction is 1.",
-      "insufficientBalance": "Insufficient TRX balance",
-      "roundNumbers": "Can only freeze round numbers"
+      "minimumAmount": "Minimální množství pro zmrazení je 1.",
+      "insufficientBalance": "Nedostatečný zůstatek TRX",
+      "roundNumbers": "Zmrazit můžete pouze celá čísla"
     },
-    "amount": "FREEZE AMOUNT",
-    "balance": "Balance"
+    "amount": "ZMRAZIT MNOŽSTVÍ",
+    "balance": "Zůstatek"
   },
   "getVault": {
-    "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
-    "downloadHere": "You can download it here"
+    "notInstalled": "Aby bylo možné pokračovat, musíte mít na tomto zařízení nainstalovaný Tron Vault.",
+    "downloadHere": "Stáhnout si ho můžete zde"
   },
   "market": {
     "time": {
       "hour": "1H",
       "day": "1D",
-      "week": "1W",
+      "week": "1T",
       "month": "1M",
-      "all": "ALL"
+      "all": "VŠE"
     },
-    "highest": "HIGHEST",
-    "lowest": "LOWEST",
-    "volume": "VOLUME 24H",
-    "cap": "MARKET CAP",
-    "supply": "CIRCULATING SUPPLY"
+    "highest": "NEJVYŠŠÍ",
+    "lowest": "NEJNIŽŠÍ",
+    "volume": "OBJEM ZA 24H",
+    "cap": "TRŽNÍ KAPITALIZACE",
+    "supply": "MNOŽSTVÍ V OBĚHU"
   },
   "participate": {
-    "title": "PARTICIPATE",
-    "featured": "FEATURED",
+    "title": "ÚČAST",
+    "featured": "DOPORUČENÝ",
     "button": {
-      "confirm": "CONFIRM",
-      "moreInfo": "MORE INFO",
-      "buyNow": "BUY NOW"
+      "confirm": "POTVRDIT",
+      "moreInfo": "VÍCE INFORMACÍ",
+      "buyNow": "KOUPIT"
     },
     "error": {
-      "insufficientBalance": "Not enough funds (TRX) to participate.",
+      "insufficientBalance": "Není k dispozici dostatek finančních prostředků (TRX) k účasti.",
       "insufficientTrx": {
-        "title": "You need to buy at least one TRX worth of {{token}}.",
-        "message": "Currently you are buying only {{amount}}."
+        "title": "Musíte si koupit alespoň jeden TRX v hodnotě {{token}}.",
+        "message": "Momentálně kupujete pouze {{amount}}."
       }
     },
-    "warning": "You don't have enough TRX to buy that many {{token}}",
-    "amountToBuy": "AMOUNT TO BUY",
-    "pricePerToken": "PRICE PER TOKEN",
-    "tokenDescription": "TOKEN DESCRIPTION",
-    "tokenInfo": "TOKEN INFO",
+    "warning": "Nemáte dostatek TRX ke koupi tolika {{token}}",
+    "amountToBuy": "KOUPIT MNOŽSTVÍ",
+    "pricePerToken": "CENA ZA TOKEN",
+    "tokenDescription": "POPIS TOKENU",
+    "tokenInfo": "INFORMACE O TOKENU",
     "token": "TOKEN",
-    "tokens": "TOKENS",
-    "frozen": "FROZEN",
-    "percentage": "PERCENTAGE",
-    "issued": "ISSUED",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "transaction": "TRANSACTION",
-    "ownerAddress": "OWNER ADDRESS",
-    "trxNum": "TRX NUM",
-    "num": "NUM",
-    "block": "BLOCK"
+    "tokens": "TOKENY",
+    "frozen": "ZMRAZENO",
+    "percentage": "PROCENTNÍ PODÍL",
+    "issued": "VYDÁNO",
+    "totalSupply": "CELKOVĚ V OBĚHU",
+    "startTime": "ČAS ZAHÁJENÍ",
+    "endTime": "ČAS UKONČENÍ",
+    "description": "POPIS",
+    "transaction": "TRANSAKCE",
+    "ownerAddress": "ADRESA VLASTNÍKA",
+    "trxNum": "POČET TRX",
+    "num": "POČET",
+    "block": "BLOK"
   },
   "pin": {
-    "title": "SECURITY CHECK",
-    "enter": "Enter PIN",
-    "new": "Enter New PIN",
-    "reenter": "Re-Enter PIN"
+    "title": "BEZPEČNOSTNÍ KONTROLA",
+    "enter": "Zadejte PIN kód",
+    "new": "Zadejte nový PIN kód",
+    "reenter": "Zadejte znovu PIN kód"
   },
   "receive": {
-    "title": "RECEIVE",
-    "clipboardCopied": "Copied to clipboard",
+    "title": "PŘIJMOUT",
+    "clipboardCopied": "Zkopírováno do schránky",
     "button": {
-      "copy": "Copy",
-      "share": "Share"
+      "copy": "Kopírovat",
+      "share": "Sdílet"
     },
     "tabs": {
-      "share": "SHARE",
-      "request": "REQUEST"
+      "share": "SDÍLET",
+      "request": "POŽADAVEK"
     }
   },
   "rewards": {
-    "title": "REWARDS",
-    "earned": "You have earned"
+    "title": "ODMĚNY",
+    "earned": "Získali jste"
   },
   "seed": {
     "confirm": {
-      "title": "CONFIRM SEED",
+      "title": "POTVRDIT SEED",
       "error": {
-        "title": "Wrong Combination",
-        "message": "Selected words don't match. Make sure you wrote the words in the correct order."
+        "title": "Špatná kombinace",
+        "message": "Vybraná slova se neshodují. Ujistěte se, že jste napsal slova ve správném pořadí."
       },
-      "success": "Wallet successfully confirmed",
-      "explanation": "Select the words below in the right order to confirm your secret phrase.",
+      "success": "Peněženka úspěšně potvrzena",
+      "explanation": "Vyberte slova níže ve správném pořadí, potvrďte vaši tajnou frázi.",
       "button": {
-        "reset": "RESET WORDS",
-        "confirm": "CONFIRM SEED"
+        "reset": "RESETOVAT SLOVA",
+        "confirm": "POTVRDIT SEED"
       }
     },
     "create": {
-      "title": "CREATE SEED",
-      "titleConfirm": "CONFIRM WALLET SEED",
-      "error": "Oops, we have a problem. Please restart the application.",
-      "generateNew": "This will generate a completely new wallet.",
+      "title": "VYTVOŘIT SEED",
+      "titleConfirm": "POTVRDIT SEED PENĚŽENKY",
+      "error": "Ups, máme problém. Prosím restartujte aplikaci.",
+      "generateNew": "Tímto vygenerujete zcela novou peněženku.",
       "button": {
-        "written": "I'VE WRITTEN IT DOWN",
-        "newSeed": "GET NEW SEED",
-        "later": "Confirm later"
+        "written": "ZAPSAL(A) JSEM SI TO",
+        "newSeed": "ZÍSKAT NOVÝ SEED",
+        "later": "Potvrdit později"
       }
     },
     "restore": {
-      "title": "RESTORE WALLET",
-      "explanation": "To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
-      "placeholder": "Please, type your 12 seed words here",
-      "success": "Wallet restored with success!",
-      "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
-      "error": "Oops. Looks like the words you typed aren't a valid mnemonic seed. Check for a typo and try again.",
-      "button": "RESTORE"
+      "title": "OBNOVIT PENĚŽENKU",
+      "explanation": "Chcete-li obnovit vaši peněženku, uveďte stejných 12 slov, které jste si napsali na papír, když jste tuto peněženku vytvářeli poprvé. Pokud zadáte jinou posloupnost slov, vytvoří se nová prázdná peněženka.",
+      "placeholder": "Prosím napište zde vašich 12 tajných slov",
+      "success": "Peněženka úspěšně obnovena!",
+      "warning": "Zadáním seedu se vymažou všechna data z tohoto zařízení a stáhnou se data pro obnovovaný účet.",
+      "error": "Ups. Vypadá to, že vámi zadaná slova nejsou platný mnemotechnický seed. Zkontrolujte překlepy a zkuste znova.",
+      "button": "OBNOVIT"
     }
   },
   "send": {
-    "title": "SEND",
+    "title": "POSLAT",
     "error": {
-      "insufficientBalance": "Not enough balance.",
-      "gettingBalance": "Error while getting balance data",
-      "incompleteAddress": "Address is either incomplete or invalid.",
-      "invalidReceiver": "Invalid receiver address",
-      "selectBalance": "Select a balance first",
-      "invalidAmount": "Invalid amount"
+      "insufficientBalance": "Nedostatečný zůstatek.",
+      "gettingBalance": "Chyba během získávání zůstatku",
+      "incompleteAddress": "Adresa je neúplná nebo neplatná.",
+      "invalidReceiver": "Neplatná adresa příjemce",
+      "selectBalance": "Vyberte nejprve zůstatek",
+      "invalidAmount": "Neplatné množství"
     },
     "input": {
       "token": "TOKEN",
-      "to": "TO",
-      "amount": "AMOUNT",
-      "description": "DESCRIPTION (OPTIONAL)"
+      "to": "PŘÍJEMCE",
+      "amount": "MNOŽSTVÍ",
+      "description": "POPIS (NEPOVINNÝ)"
     },
-    "available": "available",
-    "chooseToken": "Please, choose a token below.",
-    "minimumAmount": "The minimum amount for any send transaction is 0.000001."
+    "available": "k dispozici",
+    "chooseToken": "Prosím, vyberte jeden z tokenů.",
+    "minimumAmount": "Minimální množství pro poslání transakce je 0.000001."
   },
   "settings": {
-    "title": "SETTINGS",
+    "title": "NASTAVENÍ",
     "sectionTitles": {
-      "wallet": "WALLET",
-      "security": "SECURITY",
-      "notification": "NOTIFICATIONS AND IDIOM",
+      "wallet": "PENĚŽENKA",
+      "security": "BEZPEČNOST",
+      "notification": "NOTIFIKACE A JAZYKY",
       "accounts": "ACCOUNTS MANAGEMENT"
     },
     "notifications": {
-      "title": "Notifications"
+      "title": "Notifikace"
     },
     "network": {
-      "title": "Network",
+      "title": "Síť",
       "modal": {
-        "title": "NETWORK",
-        "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
+        "title": "SÍŤ",
+        "explanation": "Díky tomuto nastavení můžete vybrat node, který bude lépe vyhovovat vašim potřebám a preferencím. Buďte prosím opatrní při změně IP adresy. Špatná IP adresa může vést k selhání vaší peněženky. Příklad: 35.231.121.122:50051",
         "error": {
-          "storage": "Error getting node ip from local storage",
-          "invalidIp": "Please put a valid IP",
-          "update": "Something went wrong while updating nodes ip",
-          "reset": "Something wrong while reseting node ip"
+          "storage": "Chyba při získávání IP nodu z místního úložiště",
+          "invalidIp": "Prosím, vložte platnou IP adresu",
+          "update": "Došlo k chybě při aktualizaci IP nodů",
+          "reset": "Došlo k chybě při resetování IP nodů"
         },
         "success": {
-          "updated": "Updated",
-          "updatedIp": "Nodes IP updated!",
-          "switchTest": "Switched nodes IP to Testnet",
-          "switchMain": "Switched nodes IP to default main",
-          "reset": "Node IP reseted!"
+          "updated": "Aktualizováno",
+          "updatedIp": "IP nodů aktualizovány!",
+          "switchTest": "IP nodů změněny na TestNet",
+          "switchMain": "IP nodů změněny na defaultní nastavení",
+          "reset": "IP nodu resetována!"
         },
         "placeholder": {
-          "loadingIp": "Loading IP",
-          "loadingPort": "Loading Port"
+          "loadingIp": "Načítání IP",
+          "loadingPort": "Načítání portu"
         },
         "button": {
-          "update": "Update and Connect",
-          "reset": "Reset"
+          "update": "Upravit a připojit",
+          "reset": "Obnovit"
         },
-        "mainNode": "Main Node",
-        "solidityNode": "Solidity Node",
+        "mainNode": "Hlavní node",
+        "solidityNode": "Spolehlivý node",
         "testNet": "TestNet"
       }
     },
     "backup": {
-      "title": "Backup Wallet"
+      "title": "Zálohovat peněženku"
     },
     "restore": {
-      "title": "Restore Wallet"
+      "title": "Obnovit peněženku"
     },
     "reset": {
-      "title": "Reset Wallet",
-      "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
-      "button": "OK, I understand it"
+      "title": "Vymazat peněženku",
+      "warning": "Upozornění: Tato akce smaže všechna uložená data včetně 12 tajných slov. Pokud jste si neuložili váš seed, učiňte tak prosím dříve než budete pokračovat.",
+      "button": "OK, rozumím tomu"
     },
     "pin": {
-      "title": "Change Pin",
-      "success": "Pin successfully changed!"
+      "title": "Změnit PIN kód",
+      "success": "PIN úspěšně změněn!"
     },
     "language": {
-      "title": "Language",
-      "choose": "Please, choose a Language below:",
+      "title": "Jazyk",
+      "choose": "Prosím, vyberte jeden z jazyků:",
       "success": {
-        "title": "Language changed to {{language}}",
-        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
+        "title": "Jazyk změněn na {{language}}",
+        "description": "Aby se projevily změny, musíte restartovat aplikaci. Chcete to udělat hned?"
       },
       "button": {
-        "confirm": "Yes, restart now!",
-        "cancel": "No, I'll do it later"
+        "confirm": "Ano, restartovat hned!",
+        "cancel": "Ne, udělám to později"
       },
-      "error": "Error saving preferred language"
+      "error": "Chyba při ukládání preferovaného jazyka"
     },
     "token": {
-      "title": "Token Filter",
-      "search": "Search tokens",
-      "confirm": "Save",
-      "noResult": "No results..."
+      "title": "Filtr tokenů",
+      "search": "Hledat tokeny",
+      "confirm": "Uložit",
+      "noResult": "Žádné výsledky..."
     },
     "about": {
-      "title": "About",
-      "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
+      "title": "O nás",
+      "description": "TronWallet je plně decentralizovaná open source P2P Crypto Wallet pro TRON Network postavená na React Native. Můžete s ní posílat a přijímat tokeny, hlasovat pro Super Representative, účastnit se prodeje tokenů, mít přehled o vašich zůstatcích, transakcích a mnoho dalšího. Klikněte na odkaz níže pro detailní návod, jak aplikaci používat.",
       "tutorial": "TUTORIAL"
     },
     "accepts": {
-      "title": "Who accepts TRX?"
+      "title": "Kdo přijímá TRX?"
     },
     "accounts": {
       "title": "Accounts",
@@ -374,129 +374,129 @@
       "restoreAccounts": "Restore Accounts",
       "noAccounts": "No accounts to restore"
     },
-    "partners": "PARTNERS",
+    "partners": "PARTNEŘI",
     "askPin": "Always ask PIN"
   },
   "submitTransaction": {
-    "title": "TRANSACTION DETAILS",
-    "notification": "You have received a transaction from {{address}}",
-    "notificationPayment": "You have received a payment from {{address}}",
+    "title": "DETAILY TRANSAKCE",
+    "notification": "Obdržel jste transakci od {{address}}",
+    "notificationPayment": "Obdržel jste platbu od {{address}}",
     "data": "DATA",
-    "time": "TIME",
+    "time": "ČAS",
     "button": {
-      "tryAgain": "Try again",
-      "submit": "SUBMIT TRANSACTION"
+      "tryAgain": "Zkuste to znovu",
+      "submit": "POTVRDIT TRANSAKCI"
     },
-    "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
+    "disconnectedMessage": "Zdá se, že jste odpojeni. Připojte se k internetu, pak bude možné v transakci pokračovat.",
     "dic": {
-      "contractType": "Transaction Type",
-      "ownerAddress": "From",
-      "toAddress": "To",
-      "participateAssetIssueContract": "Participate",
-      "transferAssetContract": "Transfer",
-      "transferContract": "Transfer",
-      "unfreezeBalanceContract": "Unfreeze",
-      "freezeBalanceContract": "Freeze",
-      "assetIssueContract": "Create",
-      "voteWitnessContract": "Vote",
-      "frozenDuration": "Duration",
-      "frozenBalance": "Total to Freeze"
+      "contractType": "Typ transakce",
+      "ownerAddress": "Odesílatel",
+      "toAddress": "Příjemce",
+      "participateAssetIssueContract": "Účast",
+      "transferAssetContract": "Převod",
+      "transferContract": "Převod",
+      "unfreezeBalanceContract": "Rozmrazit",
+      "freezeBalanceContract": "Zmrazit",
+      "assetIssueContract": "Vytvořit",
+      "voteWitnessContract": "Hlasy",
+      "frozenDuration": "Trvání",
+      "frozenBalance": "Celkem ke zmrazení"
     },
     "errorDic": {
-      "contractValidate": "Transaction data not valid. Please try again later.",
-      "signature": "Transaction signature not valid.",
-      "duplicate": "Transaction already broadcasted.",
-      "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
-      "bandwith": "Not enought bandwidth. Please try again later.",
-      "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
-      "tooBig": "Transaction too big to be submitted.",
-      "expiration": "Transaction expired. Please try again.",
-      "serverBusy": "Server busy.",
-      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
+      "contractValidate": "Data transakce jsou neplatná. Opakujte akci později.",
+      "signature": "Podpis transakce je neplatný.",
+      "duplicate": "Transakce již byla odeslána.",
+      "contractValidateCee": "Data transakce jsou neplatná (CEE). Opakujte akci později.",
+      "bandwith": "Nedostatek šířky pásma. Opakujte akci později.",
+      "contractValidateTapos": "Data transakce jsou neplatná (TAPOS). Opakujte akci později.",
+      "tooBig": "Transakce je příliš velká, aby šla odeslat.",
+      "expiration": "Platnost transakce vypršela. Opakujte akci.",
+      "serverBusy": "Server je zaneprázdněn.",
+      "resource": "Šířka pásma nebo zůstatek je nedostatečný. Budete potřebovat některé zmrazené TRX."
     },
-    "totalVotes": "Total Votes"
+    "totalVotes": "Počet hlasování"
   },
   "transactions": {
-    "title": "MY TRANSACTIONS",
-    "from": "From",
-    "to": "To",
-    "notFound": "No transactions found."
+    "title": "MÉ TRANSAKCE",
+    "from": "Odesílatel",
+    "to": "Příjemce",
+    "notFound": "Nebyly nalezeny žádné transakce."
   },
   "transactionDetails": {
-    "title": "TRANSACTION",
+    "title": "TRANSAKCE",
     "clipboard": {
-      "tronscanUrl": "Tronscan url for this transaction copied to the clipboard",
-      "publicKey": "Public Key copied to the clipboard"
+      "tronscanUrl": "Tronscan URL adresa transakce zkopírována do schránky",
+      "publicKey": "Veřejný klíč zkopírován do schránky"
     },
     "hash": "HASH",
-    "status": "STATUS",
-    "time": "TIME",
-    "block": "BLOCK",
-    "frozenBalance": "FROZEN BALANCE",
-    "unfrozenBalance": "UNFROZEN BALANCE",
-    "totalVotes": "TOTAL VOTES",
-    "amount": "AMOUNT",
-    "to": "TO",
-    "from": "FROM",
-    "tokenName": "TOKEN NAME",
-    "unityValue": "UNITY VALUE",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "votedAddress": "VOTED ADDRESS"
+    "status": "STAV",
+    "time": "ČAS",
+    "block": "BLOK",
+    "frozenBalance": "ZMRAZENÝ ZŮSTATEK",
+    "unfrozenBalance": "NEZMRAZENÝ ZŮSTATEK",
+    "totalVotes": "POČET HLASOVÁNÍ",
+    "amount": "MNOŽSTVÍ",
+    "to": "PŘÍJEMCE",
+    "from": "ODESÍLATEL",
+    "tokenName": "NÁZEV TOKENU",
+    "unityValue": "JEDNOTNÁ HODNOTA",
+    "totalSupply": "CELKOVĚ V OBĚHU",
+    "startTime": "ČAS ZAHÁJENÍ",
+    "endTime": "ČAS UKONČENÍ",
+    "description": "POPIS",
+    "votedAddress": "VOLENÁ ADRESA"
   },
   "transactionSuccess": {
-    "submitted": "TRANSACTION SUBMITTED TO NETWORK!",
-    "success": "SUCCESS!"
+    "submitted": "TRANSAKCE ODESLÁNA DO SÍTĚ!",
+    "success": "ÚSPĚCH!"
   },
   "votes": {
-    "title": "VOTES",
-    "totalVotes": "TOTAL VOTES",
-    "votesAvailable": "VOTES AVAILABLE",
-    "search": "Search",
-    "error": "Oops, something didn't load correctly. Try to reload"
+    "title": "HLASY",
+    "totalVotes": "POČET HLASŮ",
+    "votesAvailable": "VOLNÉ HLASY",
+    "search": "Hledat",
+    "error": "Ups, něco se nenačetlo správně. Zkuste znova načíst"
   },
   "scanPayment": {
-    "scan": "SCAN",
+    "scan": "SKENOVAT",
     "error": {
-      "receiver": "Receiver address invalid",
-      "token": "Token not valid",
-      "amount": "Amount not valid",
-      "description": "Description too long",
-      "code": "Payment code invalid. Please, scan a valid one"
+      "receiver": "Neplatná adresa příjemce",
+      "token": "Neplatný token",
+      "amount": "Neplatná částka",
+      "description": "Popis je příliš dlouhý",
+      "code": "Platební kód neplatný. Prosím naskenujte platný"
     }
   },
   "makePayment": {
-    "pay": "PAY",
-    "confirm": "CONFIRM PAYMENT",
+    "pay": "PLATIT",
+    "confirm": "POTVRDIT PLATBU",
     "error": {
-      "receiver": "Receiver is equal to requester",
-      "token": "This account doesn't have the token for this transaction",
-      "amount": "This account doesn't have enough balance.",
-      "description": "No description available"
+      "receiver": "Příjemce je stejný jako odesílatel",
+      "token": "Účet nemá token pro tuto transakci",
+      "amount": "Účet nemá dostatečný zůstatek.",
+      "description": "Popis není k dispozici"
     }
   },
   "buildPayment": {
-    "generate": "GENERATE REQUEST",
-    "selectCurrency": "Select the reference currency",
+    "generate": "GENEROVAT POŽADAVEK",
+    "selectCurrency": "Vyberte referenční měnu",
     "error": {
-      "currency": "We weren't able to load other currency prices. Please use TRX as reference"
+      "currency": "Není možné načíst ceny ostatních měn. Prosím použijte TRX jako referenční měnu"
     }
   },
   "requestPayment": {
-    "title": "REQUEST PAYMENT"
+    "title": "ŽÁDOST O PLATBU"
   },
   "newAccount": {
     "title": "Account Creation",
     "placeholder": "My precious account",
     "success": {
-      "title": "New account successfully created",
-      "message": "You can edit the name on your address book"
+      "title": "Nový účet byl úspěšně vytvořen",
+      "message": "Můžete upravit název ve svém adresáři"
     },
     "failure": {
-      "title": "New account warning",
-      "message": "To add a new account you should have at least one transaction on your last account."
+      "title": "Upozornění na nový účet",
+      "message": "Chcete-li přidat nový účet, měli byste mít alespoň jednu transakci na posledním účtu."
     }
   }
 }
