@@ -1,6 +1,6 @@
 {
   "relativeTime": {
-    "future": "在 %s 中",
+    "future": "in %s",
     "past": "%s ago",
     "s": "a few seconds",
     "ss": "%d seconds",
