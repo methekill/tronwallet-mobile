@@ -18,17 +18,17 @@
   "success": "نجح",
   "warning": "تحذير",
   "cancel": "إلغاء",
-  "address": "Address",
+  "address": "عنوان",
   "ok": "تم",
   "actionModalTitle": "هل ترغب في",
-  "account": "Account",
-  "restore": "Restore",
+  "account": "الحساب",
+  "restore": "استعادة",
   "error": {
     "default": "أوبس حدث خطأ. حاول ثانية في وقت لاحق، إذا استمر الخطأ حاول إعادة ضبط إعدادات شبكة الاتصال.",
     "buildingTransaction": "حدث خطأ أثناء إنشاء العملية، حاول مرة أخرى.",
     "gettingTransaction": "حدث خطأ أثناء الحصول على الصفقة.",
     "clipboardCopied": "حدث خطأ أثناء النسخ",
-    "hideAccount": "Something went wrong deleting account, try again'"
+    "hideAccount": "حدث خطأ ما في حذف الحساب ، حاول مرة أخرى \""
   },
   "tronPower": "قوة تأثير ترون",
   "trxPrice": "سعر ترون",
@@ -50,7 +50,7 @@
   "clear": "مسح",
   "allIn": "الجميع",
   "skip": "تخطي",
-  "privateKey": "Private Key",
+  "privateKey": "مفتاح سري",
   "balance": {
     "title": "حسابات",
     "error": {
@@ -59,11 +59,11 @@
     },
     "chooseCurrency": "الرجاء اختيار عملتك المفضلة.",
     "confirmSeed": "الرجاء الضغط لتأكيد كلمات الجذور الاثنا عشر الخاصة بك",
-    "bandwidth": "BANDWIDTH",
+    "bandwidth": "عرض النطاق",
     "tokens": "توكن",
     "holdings": "الممتلكات"
   },
-  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
+  "hideAccount": "أنت على وشك إزالة هذا الحساب. يمكنك استعادتها لاحقًا في الإعدادات",
   "components": {
     "share": {
       "title": "مشاركة عنوان محفظة ترون",
@@ -129,11 +129,11 @@
     }
   },
   "importWallet": {
-    "title": "IMPORT WALLET",
-    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
-    "button": "IMPORT",
+    "title": "محفظة الاستيراد",
+    "message": "إذا كان لديك المفتاح الخاص وعنوان محفظتك يمكنك استرداده هنا ولكن ضع في اعتبارك أن TronWallet يعمل مع فن الإستذكار في المقام الأول. ستعمل طريقة الاسترداد هذه على تعطيل بعض الوظائف داخل التطبيق.",
+    "button": "استيراد",
     "error": {
-      "privateKey": "Private key invalid or incomplete"
+      "privateKey": "المفتاح الخاص غير صالح أو غير كامل"
     }
   },
   "freeze": {
@@ -290,7 +290,7 @@
       "wallet": "محفظة",
       "security": "الأمان",
       "notification": "الإشعارات والاختصارات",
-      "accounts": "ACCOUNTS MANAGEMENT"
+      "accounts": "إدارة الحسابات"
     },
     "notifications": {
       "title": "الإشعارات"
@@ -369,13 +369,13 @@
       "title": "من يقبل عملة TRX؟"
     },
     "accounts": {
-      "title": "Accounts",
-      "search": "Search accounts",
-      "restoreAccounts": "Restore Accounts",
-      "noAccounts": "No accounts to restore"
+      "title": "حسابات",
+      "search": "حسابات البحث",
+      "restoreAccounts": "استعادة الحسابات",
+      "noAccounts": "لا حسابات لاستعادة"
     },
     "partners": "الشركاء",
-    "askPin": "Always ask PIN"
+    "askPin": "اسأل دائمًا رقم التعريف الشخصي"
   },
   "submitTransaction": {
     "title": "تفاصيل المعاملة",
@@ -488,8 +488,8 @@
     "title": "طلب دفع"
   },
   "newAccount": {
-    "title": "Account Creation",
-    "placeholder": "My precious account",
+    "title": "إنشاء حساب",
+    "placeholder": "حسابي الثمين",
     "success": {
       "title": "تم إنشاء الحساب الجديد بنجاح",
       "message": "يمكنك تعديل الاسم في دفتر العناوين الخاص بك"
