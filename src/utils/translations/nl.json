@@ -18,17 +18,23 @@
   "success": "Gelukt",
   "warning": "Waarschuwing",
   "cancel": "Annuleer",
+  "address": "Address",
   "ok": "OK",
+  "actionModalTitle": "Would you like to",
+  "account": "Account",
+  "restore": "Restore",
   "error": {
     "default": "Oeps er is iets fout gegaan. Probeer opnieuw. Als de foutmelding niet verdwijnt, probeer dan je netwerkinstellingen aan te passen.",
     "buildingTransaction": "Fout tijdens bouwen van de transactie, probeer opnieuw.",
     "gettingTransaction": "Fout tijdens ophalen van de transactie.",
-    "clipboardCopied": "Fout tijdens kopiëren naar klembord."
+    "clipboardCopied": "Fout tijdens kopiëren naar klembord.",
+    "hideAccount": "Something went wrong deleting account, try again'"
   },
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRIJS",
   "confirmed": "Bevestigd",
   "unconfirmed": "Onbevestigd",
+  "copyAddress": "COPY ADDRESS",
   "transactionType": {
     "transfer": "Transfer",
     "transferAsset": "Transfer Asset",
@@ -39,9 +45,12 @@
     "create": "Maak",
     "undefined": "Onbekend Type"
   },
+  "close": "Close",
   "ends": "Eindigt",
   "clear": "Wissen",
   "allIn": "Alles",
+  "skip": "Skip",
+  "privateKey": "Private Key",
   "balance": {
     "title": "BALANS",
     "error": {
@@ -54,6 +63,7 @@
     "tokens": "TOKENS",
     "holdings": "BEZITTINGEN"
   },
+  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
   "components": {
     "share": {
       "title": "Deel TronWallet adres",
@@ -62,6 +72,7 @@
     },
     "QRScanner": {
       "title": "Adres Scanner",
+      "scan": "Scan",
       "explanation": "Scan de QRCode om de doelgebruiker te identificeren",
       "permissionMessage": "Om de publieke sleutel te scannen heeft de app toestemming nodig om je camera te mogen gebruiken."
     },
@@ -104,18 +115,25 @@
       },
       "empty": "Uw adresboek is leeg, voeg een nieuw contact toe met behulp van de onderstaande knop.",
       "loadError": "Er is een probleem opgetreden bij het laden van de contacten. Probeer het opnieuw.",
-      "addContact": "VOEG CONTACT TOE"
+      "addContact": "VOEG CONTACT TOE",
+      "addToContacts": "ADD TO CONTACTS"
     },
     "form": {
       "generalError": "Er is een probleem opgetreden bij het indienen van dit formulier. Neem contact op met een beheerder.",
       "nameError": "Het naamveld moet beginnen met een letter en alleen letters, cijfers en witte spaties accepteren.",
       "addressError": "Er klopt iets niet met het adres. Controleer alsjeblieft op typefouten.",
       "uniqueAddressError": "De sleutel moet uniek zijn. Kies een ander adres.",
+      "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
       "name": "NAAM",
       "address": "ADRES"
-    },
-    "modal": {
-      "title": "Zou jij willen"
+    }
+  },
+  "importWallet": {
+    "title": "IMPORT WALLET",
+    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
+    "button": "IMPORT",
+    "error": {
+      "privateKey": "Private key invalid or incomplete"
     }
   },
   "freeze": {
@@ -192,6 +210,7 @@
   "pin": {
     "title": "VEILIGHEIDSCHECK",
     "enter": "Voer PIN in",
+    "new": "Enter New PIN",
     "reenter": "Herhaal PIN"
   },
   "receive": {
@@ -200,6 +219,10 @@
     "button": {
       "copy": "Kopieer",
       "share": "Deel"
+    },
+    "tabs": {
+      "share": "SHARE",
+      "request": "REQUEST"
     }
   },
   "rewards": {
@@ -222,6 +245,7 @@
     },
     "create": {
       "title": "BEVESTIG PORTEMONNEE SEED",
+      "titleConfirm": "CONFIRM WALLET SEED",
       "error": "Oeps, we hebben een probleempje. Start de app alsjeblieft opnieuw.",
       "generateNew": "Dit zal een volledig nieuwe portemonnee aanmaken.",
       "button": {
@@ -254,8 +278,7 @@
       "token": "TOKEN",
       "to": "NAAR",
       "amount": "HOEVEELHEID",
-      "description": "BESCHRIJVING (OPTIONEEL)",
-      "placeholder": "Beschrijf de overdracht"
+      "description": "BESCHRIJVING (OPTIONEEL)"
     },
     "available": "beschikbaar",
     "chooseToken": "Selecteer een token, alsjeblieft.",
@@ -266,18 +289,17 @@
     "sectionTitles": {
       "wallet": "PORTEMONNEE",
       "security": "VEILIGHEID",
-      "notification": "MELDINGEN EN TALEN"
+      "notification": "MELDINGEN EN TALEN",
+      "accounts": "ACCOUNTS MANAGEMENT"
     },
     "notifications": {
-      "title": "Notificatie instellingen",
-      "description": "Zet push notificaties aan of uit"
+      "title": "Notificatie instellingen"
     },
     "network": {
       "title": "Netwerk",
-      "description": "Kies een voorkeurs node",
       "modal": {
         "title": "NETWERK",
-        "explanation": "Met deze instelling kun je een node kiezen die beter bij jouw wensen en behoeftes past. Bijvoorbeeld: 35.231.121.122:50051. Pas wel op met het aanpassen van de node ip omdat een verkeerde node voor een slecht werkende app kan zorgen en/of verlies van je munten!",
+        "explanation": "Met deze instelling kun je een node kiezen die beter bij jouw wensen en behoeftes past. Bijvoorbeeld: 35.231.121.122:50051. Pas wel op met het aanpassen van de node ip omdat een verkeerde node voor een slecht werkende app kan zorgen en\/of verlies van je munten!",
         "error": {
           "storage": "Fout tijdens ophalen van node adressen uit lokale opslag",
           "invalidIp": "Voer een geldig IP adres in",
@@ -305,29 +327,35 @@
       }
     },
     "backup": {
-      "title": "Portemonnee back-uppen",
-      "description": "Maak een backup van je seed woorden"
+      "title": "Portemonnee back-uppen"
     },
     "restore": {
-      "title": "Portemonnee Herstellen",
-      "description": "Herstel portemonnee met behulp van je 12 woorden seed"
+      "title": "Portemonnee Herstellen"
     },
     "reset": {
       "title": "Portemonnee wissen",
-      "description": "Wis alle gegevens van de huidige portemonnee",
       "warning": "Waarschuwing: Dit zal alle opgeslagen gegevens wissen, inclusief je 12 woorden seed. Als je je seed niet hebt opgeslagen, doe dat dan alsjeblieft voordat je verder gaat.",
       "button": "OK, ik heb het begrepen"
     },
+    "pin": {
+      "title": "Change Pin",
+      "success": "Pin successfully changed!"
+    },
     "language": {
       "title": "Pas taal aan",
-      "description": "Pas de taal van de app aan",
       "choose": "Kies een taal:",
-      "sucess": "Taal aangepast naar {{language}}. Start de app opnieuw, alsjeblieft.",
+      "success": {
+        "title": "Language changed to {{language}}",
+        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
+      },
+      "button": {
+        "confirm": "Yes, restart now!",
+        "cancel": "No, I'll do it later"
+      },
       "error": "Fout tijdens opslaan van voorkeurs taal"
     },
     "token": {
       "title": "Token-Filter",
-      "description": "Kies welke tokens moeten worden weergegeven",
       "search": "Zoek tokens",
       "confirm": "Opslaan",
       "noResult": "Geen resultaten..."
@@ -340,18 +368,27 @@
     "accepts": {
       "title": "Wie accepteert TRX?"
     },
-    "partners": "PARTNERS"
+    "accounts": {
+      "title": "Accounts",
+      "search": "Search accounts",
+      "restoreAccounts": "Restore Accounts",
+      "noAccounts": "No accounts to restore"
+    },
+    "partners": "PARTNERS",
+    "askPin": "Always ask PIN"
   },
   "submitTransaction": {
     "title": "TRANSACTIE DETAILS",
     "notification": "Je hebt een transactie van {{address}} ontvangen",
+    "notificationPayment": "You have received a payment from {{address}}",
+    "data": "DATA",
+    "time": "TIME",
     "button": {
       "tryAgain": "Probeer opnieuw",
       "submit": "VERSTUUR TRANSACTIE"
     },
     "disconnectedMessage": "Het lijkt erop dat je geen internetverbinding hebt. Maak verbinding met het internet voordat je verder gaat met deze transactie.",
     "dic": {
-      "fronzeBalance": "Frozen Balance",
       "contractType": "Transaction Type",
       "ownerAddress": "From",
       "toAddress": "To",
@@ -374,7 +411,8 @@
       "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
       "tooBig": "Transaction too big to be submitted.",
       "expiration": "Transaction expired. Please try again.",
-      "serverBusy": "Server busy."
+      "serverBusy": "Server busy.",
+      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
     },
     "totalVotes": "Total Votes"
   },
@@ -448,5 +486,17 @@
   },
   "requestPayment": {
     "title": "AANVRAAG BETALING"
+  },
+  "newAccount": {
+    "title": "Account Creation",
+    "placeholder": "My precious account",
+    "success": {
+      "title": "New account successfully created",
+      "message": "You can edit the name on your address book"
+    },
+    "failure": {
+      "title": "New account warning",
+      "message": "To add a new account you should have at least one transaction on your last account."
+    }
   }
 }
