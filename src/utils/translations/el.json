@@ -18,17 +18,17 @@
   "success": "Success",
   "warning": "Warning",
   "cancel": "Cancel",
-  "address": "Address",
+  "address": "Διεύθυνση",
   "ok": "OK",
   "actionModalTitle": "Would you like to",
-  "account": "Account",
-  "restore": "Restore",
+  "account": "λογαριασμός",
+  "restore": "Επαναφέρω",
   "error": {
     "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
     "buildingTransaction": "Error while building transaction, try again.",
     "gettingTransaction": "Error while getting transaction.",
     "clipboardCopied": "Something wrong while copying",
-    "hideAccount": "Something went wrong deleting account, try again'"
+    "hideAccount": "Κάτι πήγε στραβά κατά τη διαγραφή λογαριασμού, προσπαθήστε ξανά '"
   },
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRICE",
@@ -50,7 +50,7 @@
   "clear": "Clear",
   "allIn": "All In",
   "skip": "Skip",
-  "privateKey": "Private Key",
+  "privateKey": "Ιδιωτικό κλειδί",
   "balance": {
     "title": "ACCOUNTS",
     "error": {
@@ -59,11 +59,11 @@
     },
     "chooseCurrency": "Please, choose your preferred currency.",
     "confirmSeed": "Please tap to confirm your 12 seed words",
-    "bandwidth": "BANDWIDTH",
+    "bandwidth": "ΕΥΡΟΣ ΖΩΝΗΣ",
     "tokens": "TOKENS",
     "holdings": "HOLDINGS"
   },
-  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
+  "hideAccount": "Πρόκειται να καταργήσετε αυτόν τον λογαριασμό. Μπορείτε να το επαναφέρετε αργότερα στις ρυθμίσεις",
   "components": {
     "share": {
       "title": "Share TronWallet address",
@@ -129,11 +129,11 @@
     }
   },
   "importWallet": {
-    "title": "IMPORT WALLET",
-    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
-    "button": "IMPORT",
+    "title": "ΠΟΡΤΟΦΟΛΙ ΕΙΣΑΓΩΓΗΣ",
+    "message": "Εάν έχετε το ιδιωτικό κλειδί και τη διεύθυνση του πορτοφολιού σας, μπορείτε να το ανακτήσετε εδώ, αλλά να έχετε κατά νου ότι το TronWallet λειτουργεί κυρίως με μνημονικά. Αυτή η μέθοδος αποκατάστασης θα απενεργοποιήσει ορισμένες λειτουργίες εντός της εφαρμογής.",
+    "button": "ΕΙΣΑΓΩΓΗ",
     "error": {
-      "privateKey": "Private key invalid or incomplete"
+      "privateKey": "Το ιδιωτικό κλειδί είναι άκυρο ή ελλιπές"
     }
   },
   "freeze": {
@@ -256,89 +256,89 @@
     },
     "restore": {
       "title": "RESTORE WALLET",
-      "explanation": "To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
-      "placeholder": "Please, type your 12 seed words here",
-      "success": "Wallet restored with success!",
-      "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
-      "error": "Oops. Looks like the words you typed aren't a valid mnemonic seed. Check for a typo and try again.",
-      "button": "RESTORE"
+      "explanation": "Για να επαναφέρετε το πορτοφόλι σας, δώστε τις ίδιες 12 λέξεις που γράψατε σε χαρτί όταν δημιουργήσατε το πορτοφόλι σας για πρώτη φορά. Αν εισάγετε μια διαφορετική ακολουθία λέξεων, θα δημιουργηθεί ένα νέο κενό πορτοφόλι.",
+      "placeholder": "Παρακαλώ πληκτρολογήστε εδώ τις 12 λέξεις σπόρων σας",
+      "success": "Το πορτοφόλι αποκαταστάθηκε με επιτυχία!",
+      "warning": "Η επαναφορά σπόρων θα διαγράψει όλα τα δεδομένα αυτής της συσκευής και θα τραβήξει πληροφορίες από το δίκτυο για τον αποκατεστημένο λογαριασμό.",
+      "error": "Ωχ. Φαίνεται ότι οι λέξεις που πληκτρολογήσατε δεν είναι έγκυροι μνημονικοί σπόροι. Ελέγξτε για τυπογραφικό λάθος και προσπαθήστε ξανά.",
+      "button": "ΕΠΑΝΑΦΕΡΩ"
     }
   },
   "send": {
-    "title": "SEND",
+    "title": "ΣΤΕΙΛΕΤΕ",
     "error": {
-      "insufficientBalance": "Not enough balance.",
-      "gettingBalance": "Error while getting balance data",
-      "incompleteAddress": "Address is either incomplete or invalid.",
-      "invalidReceiver": "Invalid receiver address",
-      "selectBalance": "Select a balance first",
-      "invalidAmount": "Invalid amount"
+      "insufficientBalance": "Δεν υπάρχει αρκετή ισορροπία.",
+      "gettingBalance": "Σφάλμα κατά τη λήψη δεδομένων ισοζυγίου",
+      "incompleteAddress": "Η διεύθυνση είναι είτε ατελής είτε άκυρη.",
+      "invalidReceiver": "Μη έγκυρη διεύθυνση παραλήπτη",
+      "selectBalance": "Επιλέξτε πρώτα ένα υπόλοιπο",
+      "invalidAmount": "Μη έγκυρο ποσό"
     },
     "input": {
-      "token": "TOKEN",
-      "to": "TO",
-      "amount": "AMOUNT",
-      "description": "DESCRIPTION (OPTIONAL)"
+      "token": "ΕΝΔΕΙΞΗ",
+      "to": "ΠΡΟΣ ΤΗΝ",
+      "amount": "ΠΟΣΟ",
+      "description": "ΠΕΡΙΓΡΑΦΗ (ΠΡΟΑΙΡΕΤΙΚΗ)"
     },
-    "available": "available",
-    "chooseToken": "Please, choose a token below.",
-    "minimumAmount": "The minimum amount for any send transaction is 0.000001."
+    "available": "διαθέσιμος",
+    "chooseToken": "Παρακαλώ επιλέξτε ένα κουπόνι παρακάτω.",
+    "minimumAmount": "Το ελάχιστο ποσό για οποιαδήποτε συναλλαγή αποστολής είναι 0.000001."
   },
   "settings": {
-    "title": "SETTINGS",
+    "title": "ΡΥΘΜΙΣΕΙΣ",
     "sectionTitles": {
-      "wallet": "WALLET",
-      "security": "SECURITY",
-      "notification": "NOTIFICATIONS AND IDIOM",
-      "accounts": "ACCOUNTS MANAGEMENT"
+      "wallet": "ΠΟΡΤΟΦΟΛΙ",
+      "security": "ΑΣΦΑΛΕΙΑ",
+      "notification": "ΚΟΙΝΟΠΟΙΗΣΕΙΣ ΚΑΙ ΙΔΙΟΜ",
+      "accounts": "ΔΙΑΧΕΙΡΙΣΗ ΛΟΓΑΡΙΑΣΜΩΝ"
     },
     "notifications": {
-      "title": "Notifications"
+      "title": "Ειδοποιήσεις"
     },
     "network": {
-      "title": "Network",
+      "title": "Δίκτυο",
       "modal": {
-        "title": "NETWORK",
-        "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
+        "title": "ΔΙΚΤΥΟ",
+        "explanation": "Με αυτή την επιλογή μπορείτε να επιλέξετε τον κόμβο που θα ταιριάζει καλύτερα στις ανάγκες και τις προτιμήσεις σας. Προσέξτε να είστε προσεκτικοί κατά την ενημέρωση του IP κόμβου ενώ το λάθος IP μπορεί να οδηγήσει σε δυσλειτουργίες στο πορτοφόλι σας. Παράδειγμα: 35.231.121.122:50051",
         "error": {
-          "storage": "Error getting node ip from local storage",
-          "invalidIp": "Please put a valid IP",
-          "update": "Something went wrong while updating nodes ip",
-          "reset": "Something wrong while reseting node ip"
+          "storage": "Σφάλμα κατά τη λήψη του κόμβου ip από το τοπικό αποθηκευτικό χώρο",
+          "invalidIp": "Καταχωρίστε μια έγκυρη διεύθυνση IP",
+          "update": "Κάτι πήγε στραβά κατά την ενημέρωση των κόμβων ip",
+          "reset": "Κάτι λάθος κατά την επανατοποθέτηση του κόμβου ip"
         },
         "success": {
-          "updated": "Updated",
-          "updatedIp": "Nodes IP updated!",
-          "switchTest": "Switched nodes IP to Testnet",
-          "switchMain": "Switched nodes IP to default main",
-          "reset": "Node IP reseted!"
+          "updated": "ΕΠΙΚΑΙΡΟΠΟΙΗΜΕΝΟ",
+          "updatedIp": "Οι κόμβοι IP ενημερώθηκαν!",
+          "switchTest": "Αντιστοίχιση κόμβων IP στο Testnet",
+          "switchMain": "Ο κόμβος IP μεταβιβάζεται στο προεπιλεγμένο κύριο",
+          "reset": "Ο κόμβος IP επανατοποθετήθηκε!"
         },
         "placeholder": {
-          "loadingIp": "Loading IP",
-          "loadingPort": "Loading Port"
+          "loadingIp": "Φόρτωση IP",
+          "loadingPort": "Λιμάνι φόρτωσης"
         },
         "button": {
-          "update": "Update and Connect",
-          "reset": "Reset"
+          "update": "Ενημέρωση και σύνδεση",
+          "reset": "Επαναφορά"
         },
-        "mainNode": "Main Node",
-        "solidityNode": "Solidity Node",
+        "mainNode": "Κύριος Κόμβος",
+        "solidityNode": "Κόμβος σταθερότητας",
         "testNet": "TestNet"
       }
     },
     "backup": {
-      "title": "Backup Wallet"
+      "title": "Πορτοφόλι δημιουργίας αντιγράφων ασφαλείας"
     },
     "restore": {
-      "title": "Restore Wallet"
+      "title": "Επαναφορά Πορτοφολιού"
     },
     "reset": {
-      "title": "Reset Wallet",
-      "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
-      "button": "OK, I understand it"
+      "title": "Επαναφορά Πορτοφολιού",
+      "warning": "Προειδοποίηση: Αυτή η ενέργεια θα διαγράψει όλα τα αποθηκευμένα δεδομένα, συμπεριλαμβανομένων των 12 μυστικών λέξεων. Εάν δεν αποθηκεύσατε το μυστικό σας, παρακαλούμε να το κάνετε πριν συνεχίσετε.",
+      "button": "Εντάξει, το καταλαβαίνω"
     },
     "pin": {
-      "title": "Change Pin",
+      "title": "Αλλαγή ακίδας",
       "success": "RESTORE WALLET"
     },
     "language": {
@@ -369,13 +369,13 @@
       "title": "Who accepts TRX;"
     },
     "accounts": {
-      "title": "Accounts",
-      "search": "Search accounts",
-      "restoreAccounts": "Restore Accounts",
-      "noAccounts": "No accounts to restore"
+      "title": "Λογαριασμοί",
+      "search": "Λογαριασμοί αναζήτησης",
+      "restoreAccounts": "Επαναφορά λογαριασμών",
+      "noAccounts": "Δεν υπάρχουν λογαριασμοί για επαναφορά"
     },
     "partners": "PARTNERS",
-    "askPin": "Always ask PIN"
+    "askPin": "Πάντα να ρωτάτε το PIN"
   },
   "submitTransaction": {
     "title": "TRANSACTION DETAILS",
@@ -407,96 +407,96 @@
       "signature": "Transaction signature not valid.",
       "duplicate": "Transaction already broadcasted.",
       "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
-      "bandwith": "Not enought bandwidth. Please try again later.",
-      "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
-      "tooBig": "Transaction too big to be submitted.",
-      "expiration": "Transaction expired. Please try again.",
-      "serverBusy": "Server busy.",
-      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
+      "bandwith": "Δεν έχει ικανοποιηθεί το εύρος ζώνης. Παρακαλώ δοκιμάστε ξανά αργότερα.",
+      "contractValidateTapos": "Τα δεδομένα συναλλαγών δεν είναι έγκυρα (TAPOS). Παρακαλώ δοκιμάστε ξανά αργότερα.",
+      "tooBig": "Συναλλαγή πολύ μεγάλη για υποβολή.",
+      "expiration": "Η συναλλαγή έληξε. ΠΑΡΑΚΑΛΩ προσπαθησε ξανα.",
+      "serverBusy": "Ο διακομιστής είναι απασχολημένος.",
+      "resource": "Ανεπαρκές εύρος ζώνης ή ισορροπία. Μπορεί να χρειαστείτε κάποιο κατεψυγμένο TRX."
     },
-    "totalVotes": "Total Votes"
+    "totalVotes": "Σύνολο ψήφων"
   },
   "transactions": {
-    "title": "MY TRANSACTIONS",
-    "from": "From",
-    "to": "To",
-    "notFound": "No transactions found."
+    "title": "ΣΥΝΑΛΛΑΓΕΣ ΜΟΥ",
+    "from": "Από",
+    "to": "Προς την",
+    "notFound": "Δεν βρέθηκαν συναλλαγές."
   },
   "transactionDetails": {
-    "title": "TRANSACTION",
+    "title": "ΣΥΝΑΛΛΑΓΗ",
     "clipboard": {
-      "tronscanUrl": "Tronscan url for this transaction copied to the clipboard",
-      "publicKey": "Public Key copied to the clipboard"
+      "tronscanUrl": "Διεύθυνση URL Tronscan για την αντιγραφή αυτής της συναλλαγής στο πρόχειρο",
+      "publicKey": "Το δημόσιο κλειδί αντιγράφηκε στο πρόχειρο"
     },
-    "hash": "HASH",
-    "status": "STATUS",
-    "time": "TIME",
-    "block": "BLOCK",
-    "frozenBalance": "FROZEN BALANCE",
-    "unfrozenBalance": "UNFROZEN BALANCE",
-    "totalVotes": "TOTAL VOTES",
-    "amount": "AMOUNT",
-    "to": "TO",
-    "from": "FROM",
+    "hash": "ΧΑΣΙΣΙ",
+    "status": "ΚΑΤΑΣΤΑΣΗ",
+    "time": "ΧΡΟΝΟΣ",
+    "block": "ΟΙΚΟΔΟΜΙΚΟ ΤΕΤΡΑΓΩΝΟ",
+    "frozenBalance": "ΚΑΤΕΨΥΓΜΕΝΑ ΥΠΟΛΟΙΠΑ",
+    "unfrozenBalance": "ΑΦΑΙΡΕΣΤΟ ΙΣΟΖΥΓΙΟ",
+    "totalVotes": "ΣΥΝΟΛΟ ΨΗΦ",
+    "amount": "ΠΟΣΟ",
+    "to": "ΠΡΟΣ ΤΗΝ",
+    "from": "ΑΠΟ",
     "tokenName": "TOKEN NAME",
-    "unityValue": "UNITY VALUE",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "votedAddress": "VOTED ADDRESS"
+    "unityValue": "ΑΞΙΑ ΕΝΟΤΗΤΑΣ",
+    "totalSupply": "ΣΥΝΟΛΟ ΕΦΟΔΙΑΣΜΟΥ",
+    "startTime": "ΩΡΑ ΕΝΑΡΞΗΣ",
+    "endTime": "ΤΕΛΟΣ ΧΡΟΝΟΥ",
+    "description": "ΠΕΡΙΓΡΑΦΗ",
+    "votedAddress": "ΨΗΦΙΑΚΗ ΔΙΕΥΘΥΝΣΗ"
   },
   "transactionSuccess": {
-    "submitted": "TRANSACTION SUBMITTED TO NETWORK!",
-    "success": "SUCCESS!"
+    "submitted": "ΣΥΝΑΛΛΑΓΕΣ ΠΟΥ ΥΠΟΒΑΛΛΟΝΤΑΙ ΣΤΟ ΔΙΚΤΥΟ!",
+    "success": "ΕΠΙΤΥΧΙΑ!"
   },
   "votes": {
-    "title": "VOTES",
-    "totalVotes": "TOTAL VOTES",
-    "votesAvailable": "VOTES AVAILABLE",
-    "search": "Search",
-    "error": "Oops, something didn't load correctly. Try to reload"
+    "title": "ΨΗΦ",
+    "totalVotes": "ΣΥΝΟΛΟ ΨΗΦ",
+    "votesAvailable": "ΔΙΑΘΕΣΙΜΕΣ ΨΗΦΙΕΣ",
+    "search": "Ψάξιμο",
+    "error": "Ωχ, κάτι δεν φορτώθηκε σωστά. Προσπαθήστε να φορτώσετε ξανά"
   },
   "scanPayment": {
-    "scan": "SCAN",
+    "scan": "ΣΑΡΩΣΗ",
     "error": {
-      "receiver": "Receiver address invalid",
-      "token": "Token not valid",
-      "amount": "Amount not valid",
-      "description": "Description too long",
-      "code": "Payment code invalid. Please, scan a valid one"
+      "receiver": "Η διεύθυνση του παραλήπτη είναι άκυρη",
+      "token": "Το Token δεν είναι έγκυρο",
+      "amount": "Το ποσό δεν είναι έγκυρο",
+      "description": "Η περιγραφή είναι πολύ μεγάλη",
+      "code": "Ο κωδικός πληρωμής είναι άκυρος. Παρακαλώ, σάρωση έγκυρου"
     }
   },
   "makePayment": {
-    "pay": "PAY",
-    "confirm": "CONFIRM PAYMENT",
+    "pay": "ΠΛΗΡΩΜΗ",
+    "confirm": "ΕΠΙΒΕΒΑΙΩΣΗ ΠΛΗΡΩΜΗΣ",
     "error": {
-      "receiver": "Receiver is equal to requester",
-      "token": "This account doesn't have the token for this transaction",
-      "amount": "This account doesn't have enough balance.",
-      "description": "No description available"
+      "receiver": "Ο δέκτης είναι ίσος με τον αιτούντα",
+      "token": "Αυτός ο λογαριασμός δεν διαθέτει το διακριτικό για αυτήν τη συναλλαγή",
+      "amount": "Αυτός ο λογαριασμός δεν έχει αρκετή ισορροπία.",
+      "description": "Δεν υπάρχει διαθέσιμη περιγραφή"
     }
   },
   "buildPayment": {
-    "generate": "GENERATE REQUEST",
-    "selectCurrency": "Select the reference currency",
+    "generate": "ΓΕΝΙΚΑ ΑΙΤΗΣΗ",
+    "selectCurrency": "Επιλέξτε το νόμισμα αναφοράς",
     "error": {
-      "currency": "We weren't able to load other currency prices. Please use TRX as reference"
+      "currency": "Δεν ήταν δυνατή η φόρτωση άλλων τιμών νομίσματος. Χρησιμοποιήστε το TRX ως αναφορά"
     }
   },
   "requestPayment": {
-    "title": "REQUEST PAYMENT"
+    "title": "ΑΙΤΗΣΗ ΠΛΗΡΩΜΗΣ"
   },
   "newAccount": {
-    "title": "Account Creation",
-    "placeholder": "My precious account",
+    "title": "Δημιουργία λογαριασμού",
+    "placeholder": "Ο πολύτιμος λογαριασμός μου",
     "success": {
-      "title": "New account successfully created",
-      "message": "You can edit the name on your address book"
+      "title": "Ο νέος λογαριασμός δημιουργήθηκε με επιτυχία",
+      "message": "Μπορείτε να επεξεργαστείτε το όνομα στο βιβλίο διευθύνσεών σας"
     },
     "failure": {
-      "title": "New account warning",
-      "message": "To add a new account you should have at least one transaction on your last account."
+      "title": "Προειδοποίηση νέου λογαριασμού",
+      "message": "Για να προσθέσετε νέο λογαριασμό, θα πρέπει να έχετε τουλάχιστον μία συναλλαγή στον τελευταίο σας λογαριασμό."
     }
   }
 }
