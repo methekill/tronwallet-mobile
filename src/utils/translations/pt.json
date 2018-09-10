@@ -468,7 +468,7 @@
     }
   },
   "makePayment": {
-    "pay": "PAGAMENTO",
+    "pay": "PAGAR",
     "confirm": "CONFIRME O PAGAMENTO",
     "error": {
       "receiver": "Receptor é igual ao solicitante",
