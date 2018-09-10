@@ -5,5 +5,6 @@ export const ALWAYS_ASK_PIN = '@TronWallet:alwaysAskPin'
 export const USER_FILTERED_TOKENS = '@TronWallet:userFilteredTokens'
 export const ADD = 'ADD'
 export const EDIT = 'EDIT'
-export const FIXED_TOKENS = ['TRX', 'TWX', 'LoveHearts']
+export const FIXED_TOKENS = ['TRX', 'TWX', 'LoveHearts', 'IGG']
 export const FEATURED_TOKENS = ['TWX', 'LoveHearts']
+export const VERIFIED_TOKENS = ['TWX', 'LoveHearts', 'IGG']

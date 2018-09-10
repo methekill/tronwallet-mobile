@@ -1,6 +1,6 @@
 import Client from '../services/client'
 import getAssetsStore from '../store/assets'
-import { FEATURED_TOKENS } from './constants'
+import { FEATURED_TOKENS, VERIFIED_TOKENS } from './constants'
 
 export const updateAssets = async (start = 0, limit = 100, name = '') => {
   const assets = await Client.getTokenList(start, limit, name)
@@ -23,21 +23,23 @@ export const getCustomName = (name) => {
 export const orderAssets = (assets) => {
   let orderedVerified = []
   let rest = []
-  const verifyAsset = (index, asset) => {
+  const verifyAsset = (asset, featured = false) => {
     asset.verified = true
-    orderedVerified[index] = asset
+    asset.featured = featured
+    orderedVerified.push(asset)
   }
   assets.forEach((asset) => {
     if (asset.name === 'TRX') {
-      verifyAsset(0, asset)
-    } else {
-      const featuredIndex = FEATURED_TOKENS.findIndex(token => token === asset.name)
-      featuredIndex !== -1
-        ? verifyAsset(featuredIndex + 1, asset)
-        : rest.push(asset)
+      asset.verified = true
+      asset.featured = false
+      return orderedVerified.unshift(asset)
     }
+    const featuredIndex = FEATURED_TOKENS.findIndex(token => token === asset.name)
+    const verifiedIndex = VERIFIED_TOKENS.findIndex(token => token === asset.name)
+    if (featuredIndex > -1) return verifyAsset(asset, true)
+    if (verifiedIndex > -1) return verifyAsset(asset)
+    rest.push(asset)
   })
-
   return [
     ...orderedVerified.filter((asset) => asset),
     ...rest

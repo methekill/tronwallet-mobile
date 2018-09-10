@@ -184,9 +184,9 @@ class ParticipateHome extends React.Component {
     }
   }
 
-  _renderCardContent = ({ name, price, issuedPercentage, endTime, verified }) => (
+  _renderCardContent = ({ name, price, issuedPercentage, endTime, featured, verified }) => (
     <React.Fragment>
-      {verified && (
+      {featured && (
         <Featured>
           <FeaturedText align='center'>{tl.t('participate.featured')}</FeaturedText>
         </Featured>
@@ -204,9 +204,9 @@ class ParticipateHome extends React.Component {
           ) : (
             <TokenName>{name}</TokenName>
           )}
-          {verified ? <FeaturedTokenPrice>{price / ONE_TRX} TRX</FeaturedTokenPrice> : <TokenPrice>{price / ONE_TRX} TRX</TokenPrice>}
+          {featured ? <FeaturedTokenPrice>{price / ONE_TRX} TRX</FeaturedTokenPrice> : <TokenPrice>{price / ONE_TRX} TRX</TokenPrice>}
         </Row>
-        <VerticalSpacer size={verified ? 12 : 20} />
+        <VerticalSpacer size={featured ? 12 : 20} />
         <Row>
           <View style={{flex: 1, justifyContent: 'center'}}>
             <ProgressBar
@@ -223,7 +223,7 @@ class ParticipateHome extends React.Component {
             </Row>
           </View>
           <HorizontalSpacer size={20} />
-          {verified && (
+          {featured && (
             <BuyButton elevation={8}>
               <ButtonText>{tl.t('participate.button.buyNow')}</ButtonText>
             </BuyButton>
@@ -238,7 +238,7 @@ class ParticipateHome extends React.Component {
       <React.Fragment>
         <TouchableOpacity onPress={() => { this.props.navigation.navigate('Buy', { item: asset }) }}>
           <Card>
-            {asset.verified ? (
+            {asset.featured ? (
               <LinearGradient
                 start={{ x: 0, y: 1 }}
                 end={{ x: 1, y: 0 }}
