@@ -1,0 +1,502 @@
+{
+  "relativeTime": {
+    "future": "in %s",
+    "past": "%s ago",
+    "s": "a few seconds",
+    "ss": "%d seconds",
+    "m": "a minute",
+    "mm": "%d minutes",
+    "h": "an hour",
+    "hh": "%d hours",
+    "d": "a day",
+    "dd": "%d days",
+    "M": "a month",
+    "MM": "%d months",
+    "y": "a year",
+    "yy": "%d years"
+  },
+  "success": "Success",
+  "warning": "Warning",
+  "cancel": "Cancel",
+  "address": "Địa chỉ nhà",
+  "ok": "OK",
+  "actionModalTitle": "Would you like to",
+  "account": "Tài khoản",
+  "restore": "Khôi phục",
+  "error": {
+    "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
+    "buildingTransaction": "Error while building transaction, try again.",
+    "gettingTransaction": "Error while getting transaction.",
+    "clipboardCopied": "Something wrong while copying",
+    "hideAccount": "Đã xảy ra lỗi khi xóa tài khoản, hãy thử lại '"
+  },
+  "tronPower": "TRON POWER",
+  "trxPrice": "TRX PRICE",
+  "confirmed": "Confirmed",
+  "unconfirmed": "Unconfirmed",
+  "copyAddress": "COPY ADDRESS",
+  "transactionType": {
+    "transfer": "Transfer",
+    "transferAsset": "Transfer Asset",
+    "freeze": "Freeze",
+    "unfreeze": "Unfreeze",
+    "vote": "Vote",
+    "participate": "Participate",
+    "create": "Create",
+    "undefined": "Undefined Type"
+  },
+  "close": "Close",
+  "ends": "Ends",
+  "clear": "Clear",
+  "allIn": "All In",
+  "skip": "Skip",
+  "privateKey": "Khóa cá nhân",
+  "balance": {
+    "title": "ACCOUNTS",
+    "error": {
+      "loadingData": "An error occured while loading the data.",
+      "savingCurrency": "Error saving preferred currency"
+    },
+    "chooseCurrency": "Please, choose your preferred currency.",
+    "confirmSeed": "Please tap to confirm your 12 seed words",
+    "bandwidth": "BANDWIDTH",
+    "tokens": "TOKENS",
+    "holdings": "HOLDINGS"
+  },
+  "hideAccount": "Bạn sắp xóa tài khoản này. Bạn có thể khôi phục sau trong cài đặt",
+  "components": {
+    "share": {
+      "title": "Share TronWallet address",
+      "message": "Đây là địa chỉ TronWallet của tôi:\n\n {{address}}\n\nMẹo: Một khi bạn đã sao chép nó, bạn có thể dán nó vào ứng dụng TronWallet của bạn bằng cách sử dụng nút đặc biệt trên màn hình Gửi.",
+      "dialogTitle": "Chia sẻ bằng:"
+    },
+    "QRScanner": {
+      "title": "Máy quét địa chỉ",
+      "scan": "Quét",
+      "explanation": "Quét mã QRCode để xác định người dùng đích",
+      "permissionMessage": "Để quét khóa công khai, ứng dụng cần sự cho phép của bạn để truy cập vào máy ảnh."
+    },
+    "vote": {
+      "enterVote": "NHẬP GIÁ TRỊ GIÁ TRỊ",
+      "votesRemaining": "VỐT LẠI",
+      "setVote": "SET BOTE",
+      "moreVotes": "Nếu bạn cần nhiều phiếu bầu hơn, bạn có thể đóng băng nhiều TRX hơn.",
+      "confirmVotes": "BÍ MẬT CONFIRM",
+      "yourVotes": "Phiếu bầu của bạn",
+      "myVotes": "V V CỦA TÔI",
+      "confirm": "XÁC NHẬN",
+      "freeze": "Đông cứng",
+      "totalVotes": "Tổng số phiếu bầu sẵn có:",
+      "delete": "XÓA BỎ",
+      "set": "BỘ",
+      "freezeOrLower": "Bạn không có đủ TRX đông lạnh. Cố định nhiều TRX hơn hoặc giảm số lượng phiếu bầu",
+      "freezeToContinue": "Bạn không có đủ TRX đông lạnh. Cố định thêm TRX để tiếp tục"
+    }
+  },
+  "firstTime": {
+    "button": {
+      "create": "TẠO WALLET",
+      "restore": "RESTORE WALLET"
+    }
+  },
+  "addressBook": {
+    "shared": {
+      "add": "THÊM VÀO",
+      "edit": "CHỈNH SỬA",
+      "delete": "XÓA BỎ",
+      "send": "GỬI"
+    },
+    "contacts": {
+      "delete": {
+        "title": "Xóa liên lạc",
+        "message": "Bạn có thực sự muốn xóa liên hệ này không?",
+        "cancelButton": "Hủy bỏ",
+        "okButton": "được"
+      },
+      "empty": "Sổ địa chỉ của bạn trống, thêm một liên hệ mới bằng cách sử dụng nút bên dưới.",
+      "loadError": "Đã xảy ra sự cố khi tải địa chỉ liên hệ. Vui lòng thử lại.",
+      "addContact": "THÊM LIÊN HỆ",
+      "addToContacts": "THÊM VÀO LIÊN LẠC"
+    },
+    "form": {
+      "generalError": "Đã xảy ra sự cố khi gửi biểu mẫu này. Vui lòng liên hệ với quản trị viên.",
+      "nameError": "Trường tên phải bắt đầu bằng một chữ cái, chứa tối đa 32 ký tự và nó sẽ chỉ chấp nhận các chữ cái, số và khoảng trắng.",
+      "addressError": "Đã xảy ra sự cố với địa chỉ. Vui lòng kiểm tra kỹ lỗi chính tả.",
+      "uniqueAddressError": "Chìa khóa phải là duy nhất. Vui lòng chọn một địa chỉ khác.",
+      "uniqueAliasError": "Tên trong sổ địa chỉ của bạn phải là duy nhất. Vui lòng chọn một tên khác.",
+      "name": "TÊN",
+      "address": "ĐỊA CHỈ NHÀ"
+    }
+  },
+  "importWallet": {
+    "title": "NHẬP KHẨU",
+    "message": "Nếu bạn có khóa riêng và địa chỉ của ví của bạn, bạn có thể khôi phục nó ở đây nhưng hãy nhớ rằng TronWallet hoạt động với bộ nhớ chủ yếu. Phương pháp khôi phục này sẽ vô hiệu hóa một số chức năng trong ứng dụng.",
+    "button": "NHẬP",
+    "error": {
+      "privateKey": "Khóa cá nhân không hợp lệ hoặc không đầy đủ"
+    }
+  },
+  "freeze": {
+    "title": "ĐÔNG CỨNG",
+    "unfreeze": {
+      "title": "UNFREEZE",
+      "inThreeDays": "Sau khoảng thời gian ba ngày, bạn có thể giải phóng TRX của mình",
+      "inXMinutes": "Bạn có thể giải phóng TRX của mình sau {{minutes}} phút.",
+      "inXHours": "Bạn có thể giải phóng TRX của mình sau {{hours}} giờ.",
+      "inXDays": "Bạn có thể giải phóng TRX của mình sau {{days}} ngày.",
+      "now": "Bạn có thể giải phóng TRX của mình ngay bây giờ."
+    },
+    "error": {
+      "minimumAmount": "Số tiền tối thiểu cho bất kỳ giao dịch đóng băng nào là 1.",
+      "insufficientBalance": "Không đủ số dư TRX",
+      "roundNumbers": "Share TronWallet address"
+    },
+    "amount": "FREEZE AMOUNT",
+    "balance": "Balance"
+  },
+  "getVault": {
+    "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
+    "downloadHere": "You can download it here"
+  },
+  "market": {
+    "time": {
+      "hour": "1H",
+      "day": "1D",
+      "week": "1W",
+      "month": "1M",
+      "all": "ALL"
+    },
+    "highest": "HIGHEST",
+    "lowest": "LOWEST",
+    "volume": "VOLUME 24H",
+    "cap": "MARKET CAP",
+    "supply": "CIRCULATING SUPPLY"
+  },
+  "participate": {
+    "title": "PARTICIPATE",
+    "featured": "FEATURED",
+    "button": {
+      "confirm": "CONFIRM",
+      "moreInfo": "MORE INFO",
+      "buyNow": "BUY NOW"
+    },
+    "error": {
+      "insufficientBalance": "Not enough funds (TRX) to participate.",
+      "insufficientTrx": {
+        "title": "You need to buy at least one TRX worth of {{token}}.",
+        "message": "Currently you are buying only {{amount}}."
+      }
+    },
+    "warning": "You don't have enough TRX to buy that many {{token}}",
+    "amountToBuy": "AMOUNT TO BUY",
+    "pricePerToken": "PRICE PER TOKEN",
+    "tokenDescription": "TOKEN DESCRIPTION",
+    "tokenInfo": "TOKEN INFO",
+    "token": "TOKEN",
+    "tokens": "TOKENS",
+    "frozen": "FROZEN",
+    "percentage": "PERCENTAGE",
+    "issued": "ISSUED",
+    "totalSupply": "TOTAL SUPPLY",
+    "startTime": "START TIME",
+    "endTime": "END TIME",
+    "description": "DESCRIPTION",
+    "transaction": "TRANSACTION",
+    "ownerAddress": "OWNER ADDRESS",
+    "trxNum": "TRX NUM",
+    "num": "NUM",
+    "block": "BLOCK"
+  },
+  "pin": {
+    "title": "SECURITY CHECK",
+    "enter": "Enter PIN",
+    "new": "Enter New PIN",
+    "reenter": "Re-Enter PIN"
+  },
+  "receive": {
+    "title": "RECEIVE",
+    "clipboardCopied": "Copied to clipboard",
+    "button": {
+      "copy": "Copy",
+      "share": "Share"
+    },
+    "tabs": {
+      "share": "CHIA SẺ",
+      "request": "YÊU CẦU"
+    }
+  },
+  "rewards": {
+    "title": "THƯỞNG",
+    "earned": "Bạn đã kiếm được"
+  },
+  "seed": {
+    "confirm": {
+      "title": "CONFIRM SEED",
+      "error": {
+        "title": "Kết hợp sai",
+        "message": "Các từ đã chọn không khớp. Đảm bảo bạn đã viết các từ theo đúng thứ tự."
+      },
+      "success": "Đã xác nhận thành công Wallet",
+      "explanation": "Chọn các từ bên dưới theo đúng thứ tự để xác nhận cụm từ bí mật của bạn.",
+      "button": {
+        "reset": "TỪ CHỐI",
+        "confirm": "CONFIRM SEED"
+      }
+    },
+    "create": {
+      "title": "TẠO SEED",
+      "titleConfirm": "XÂY DỰNG WALLET CONFIRM",
+      "error": "Rất tiếc, chúng tôi gặp sự cố. Vui lòng khởi động lại ứng dụng.",
+      "generateNew": "Điều này sẽ tạo ra một chiếc ví hoàn toàn mới.",
+      "button": {
+        "written": "TÔI ĐÃ NÓI TẢI XUỐNG",
+        "newSeed": "NHẬN ĐƯỢC HẠT GIỐNG MỚI",
+        "later": "Xác nhận sau"
+      }
+    },
+    "restore": {
+      "title": "RESTORE WALLET",
+      "explanation": "Để khôi phục ví của bạn, vui lòng cung cấp cùng 12 từ mà bạn đã viết trên giấy khi bạn tạo ví của mình lần đầu tiên. Nếu bạn nhập một chuỗi các từ khác nhau, một ví trống mới sẽ được tạo.",
+      "placeholder": "Vui lòng nhập 12 từ hạt giống của bạn tại đây",
+      "success": "Wallet khôi phục thành công!",
+      "warning": "Khôi phục hạt giống sẽ xóa tất cả dữ liệu trên thiết bị này và lấy thông tin từ mạng cho tài khoản được khôi phục.",
+      "error": "Rất tiếc. Có vẻ như những từ bạn đã nhập không phải là hạt giống ghi nhớ hợp lệ. Kiểm tra lỗi đánh máy và thử lại.",
+      "button": "RESTORE"
+    }
+  },
+  "send": {
+    "title": "GỬI",
+    "error": {
+      "insufficientBalance": "Không đủ số dư.",
+      "gettingBalance": "Lỗi khi nhận dữ liệu số dư",
+      "incompleteAddress": "Địa chỉ không đầy đủ hoặc không hợp lệ.",
+      "invalidReceiver": "Địa chỉ người nhận không hợp lệ",
+      "selectBalance": "Chọn số dư trước",
+      "invalidAmount": "Số tiền không hợp lệ"
+    },
+    "input": {
+      "token": "MÃ THÔNG BÁO",
+      "to": "ĐẾN",
+      "amount": "AMOUNT",
+      "description": "MÔ TẢ (KHÔNG BẮT BUỘC)"
+    },
+    "available": "có sẵn",
+    "chooseToken": "Vui lòng chọn một mã thông báo bên dưới.",
+    "minimumAmount": "Số tiền tối thiểu cho bất kỳ giao dịch gửi nào là 0.000001."
+  },
+  "settings": {
+    "title": "CÀI ĐẶT",
+    "sectionTitles": {
+      "wallet": "WALLET",
+      "security": "BẢO VỆ",
+      "notification": "THÔNG BÁO VÀ IDIOM",
+      "accounts": "QUẢN LÝ TÀI KHOẢN"
+    },
+    "notifications": {
+      "title": "Thông báo"
+    },
+    "network": {
+      "title": "Mạng lưới",
+      "modal": {
+        "title": "MẠNG",
+        "explanation": "Với tùy chọn này, bạn có thể chọn nút phù hợp hơn với nhu cầu và sở thích của bạn. Hãy cẩn thận trong khi cập nhật IP nút trong khi IP sai có thể dẫn đến trục trặc trong ví của bạn. Ví dụ: 35.231.121.122 WEBC0051",
+        "error": {
+          "storage": "Lỗi khi nhận ip nút từ bộ nhớ cục bộ",
+          "invalidIp": "Vui lòng đặt IP hợp lệ",
+          "update": "Đã xảy ra sự cố khi cập nhật nút ip",
+          "reset": "Something wrong while reseting node ip"
+        },
+        "success": {
+          "updated": "Đã cập nhật",
+          "updatedIp": "Đã cập nhật IP nút!",
+          "switchTest": "Đã chuyển các nút IP thành Testnet",
+          "switchMain": "Đã chuyển các nút IP thành chính mặc định",
+          "reset": "Đã đổi lại nút IP!"
+        },
+        "placeholder": {
+          "loadingIp": "Đang tải IP",
+          "loadingPort": "Cảng bốc hàng"
+        },
+        "button": {
+          "update": "Cập nhật và kết nối",
+          "reset": "Cài lại"
+        },
+        "mainNode": "Nút chính",
+        "solidityNode": "Nút liên kết",
+        "testNet": "TestNet"
+      }
+    },
+    "backup": {
+      "title": "Sao lưu Wallet"
+    },
+    "restore": {
+      "title": "Khôi phục Wallet"
+    },
+    "reset": {
+      "title": "Đặt lại Wallet",
+      "warning": "Cảnh báo: Hành động này sẽ xóa tất cả dữ liệu đã lưu bao gồm 12 từ bí mật của bạn. Nếu bạn không lưu bí mật của mình, hãy làm như vậy trước khi tiếp tục.",
+      "button": "OK, tôi hiểu rồi"
+    },
+    "pin": {
+      "title": "Thay đổi pin",
+      "success": "Đã thay đổi thành công mã pin!"
+    },
+    "language": {
+      "title": "Ngôn ngữ",
+      "choose": "Vui lòng chọn Ngôn ngữ bên dưới:",
+      "success": {
+        "title": "Đã thay đổi ngôn ngữ thành {{language}}",
+        "description": "Tuy nhiên, bạn vẫn cần phải khởi động lại ứng dụng để các thay đổi có thể có hiệu lực. Bạn có muốn làm ngay bây giờ không?"
+      },
+      "button": {
+        "confirm": "Có, hãy khởi động lại ngay bây giờ!",
+        "cancel": "Không, tôi sẽ làm sau"
+      },
+      "error": "Lỗi khi lưu ngôn ngữ ưa thích"
+    },
+    "token": {
+      "title": "Bộ lọc mã thông báo",
+      "search": "Tìm kiếm mã thông báo",
+      "confirm": "Tiết kiệm",
+      "noResult": "Ko có kết quả..."
+    },
+    "about": {
+      "title": "Trong khoảng",
+      "description": "TronWallet là một mã nguồn mở được phân cấp đầy đủ P2P Crypto Wallet cho TRON Network được xây dựng với React Native. Với nó, bạn có thể gửi và nhận mã thông báo, bỏ phiếu cho một đại diện của Super, tham gia vào việc bán mã thông báo, theo dõi số dư và giao dịch của bạn và hơn thế nữa. Nhấn vào liên kết bên dưới để biết hướng dẫn chi tiết về cách sử dụng nó.",
+      "tutorial": "TUTORIAL"
+    },
+    "accepts": {
+      "title": "Ai chấp nhận TRX?"
+    },
+    "accounts": {
+      "title": "Tài khoản",
+      "search": "Tìm kiếm tài khoản",
+      "restoreAccounts": "Khôi phục tài khoản",
+      "noAccounts": "Không có tài khoản nào để khôi phục"
+    },
+    "partners": "ĐỐI TÁC",
+    "askPin": "Luôn hỏi mã PIN"
+  },
+  "submitTransaction": {
+    "title": "CHI TIẾT GIAO DỊCH",
+    "notification": "Bạn đã nhận được một giao dịch từ {{address}}",
+    "notificationPayment": "Bạn đã nhận được thanh toán từ {{address}}",
+    "data": "DỮ LIỆU",
+    "time": "THỜI GIAN",
+    "button": {
+      "tryAgain": "Thử lại",
+      "submit": "GỬI GIAO DỊCH"
+    },
+    "disconnectedMessage": "Có vẻ như bạn bị ngắt kết nối. Kết nối lại với Internet trước khi tiếp tục giao dịch.",
+    "dic": {
+      "contractType": "Loại giao dịch",
+      "ownerAddress": "Từ",
+      "toAddress": "Đến",
+      "participateAssetIssueContract": "Tham dự",
+      "transferAssetContract": "chuyển khoản",
+      "transferContract": "chuyển khoản",
+      "unfreezeBalanceContract": "Hủy cố định",
+      "freezeBalanceContract": "Đông cứng",
+      "assetIssueContract": "Tạo nên",
+      "voteWitnessContract": "Bỏ phiếu",
+      "frozenDuration": "Thời lượng",
+      "frozenBalance": "Tổng số để đóng băng"
+    },
+    "errorDic": {
+      "contractValidate": "Dữ liệu giao dịch không hợp lệ. Vui lòng thử lại sau.",
+      "signature": "Chữ ký giao dịch không hợp lệ.",
+      "duplicate": "Giao dịch đã được phát.",
+      "contractValidateCee": "Dữ liệu giao dịch không hợp lệ (CEE). Vui lòng thử lại sau.",
+      "bandwith": "Không đủ băng thông. Vui lòng thử lại sau.",
+      "contractValidateTapos": "Dữ liệu giao dịch không hợp lệ (TAPOS). Vui lòng thử lại sau.",
+      "tooBig": "Giao dịch quá lớn để được gửi.",
+      "expiration": "Giao dịch đã hết hạn. Vui lòng thử lại.",
+      "serverBusy": "Máy chủ bận.",
+      "resource": "Không đủ băng thông hoặc số dư. Bạn có thể cần một số TRX đông lạnh."
+    },
+    "totalVotes": "Tổng số phiếu bầu"
+  },
+  "transactions": {
+    "title": "GIAO DỊCH CỦA TÔI",
+    "from": "Từ",
+    "to": "Đến",
+    "notFound": "Không tìm thấy giao dịch nào."
+  },
+  "transactionDetails": {
+    "title": "GIAO DỊCH",
+    "clipboard": {
+      "tronscanUrl": "Url tronscan cho giao dịch này được sao chép vào khay nhớ tạm",
+      "publicKey": "Đã sao chép Khóa công khai vào khay nhớ tạm"
+    },
+    "hash": "HASH",
+    "status": "TRẠNG THÁI",
+    "time": "THỜI GIAN",
+    "block": "KHỐI",
+    "frozenBalance": "CÂN B FNG ĐÔNG",
+    "unfrozenBalance": "KHÔNG GIAN CÂN",
+    "totalVotes": "TỔNG SỐ",
+    "amount": "AMOUNT",
+    "to": "ĐẾN",
+    "from": "TỪ",
+    "tokenName": "TÊN TÊN",
+    "unityValue": "UNITY VALUE",
+    "totalSupply": "TỔNG CUNG",
+    "startTime": "THỜI GIAN BẮT ĐẦU",
+    "endTime": "THỜI GIAN KẾT THÚC",
+    "description": "SỰ MIÊU TẢ",
+    "votedAddress": "ĐỊA CHỈ VOTED"
+  },
+  "transactionSuccess": {
+    "submitted": "GIAO DỊCH ĐƯỢC ĐĂNG KÝ MẠNG!",
+    "success": "SỰ THÀNH CÔNG!"
+  },
+  "votes": {
+    "title": "VOTES",
+    "totalVotes": "TỔNG SỐ",
+    "votesAvailable": "VOTES CÓ S AVN",
+    "search": "Tìm kiếm",
+    "error": "Rất tiếc, nội dung nào đó không tải chính xác. Thử tải lại"
+  },
+  "scanPayment": {
+    "scan": "QUÉT",
+    "error": {
+      "receiver": "Địa chỉ người nhận không hợp lệ",
+      "token": "Mã thông báo không hợp lệ",
+      "amount": "Số tiền không hợp lệ",
+      "description": "Mô tả quá dài",
+      "code": "Mã thanh toán không hợp lệ. Vui lòng quét một giá trị hợp lệ"
+    }
+  },
+  "makePayment": {
+    "pay": "TRẢ",
+    "confirm": "XÁC NHẬN THANH TOÁN",
+    "error": {
+      "receiver": "Người nhận bằng với người yêu cầu",
+      "token": "Tài khoản này không có mã thông báo cho giao dịch này",
+      "amount": "Tài khoản này không có đủ số dư.",
+      "description": "Không có mô tả nào"
+    }
+  },
+  "buildPayment": {
+    "generate": "TẠO YÊU CẦU",
+    "selectCurrency": "Chọn đơn vị tiền tệ tham chiếu",
+    "error": {
+      "currency": "Chúng tôi không thể tải giá tiền tệ khác. Vui lòng sử dụng TRX làm tham chiếu"
+    }
+  },
+  "requestPayment": {
+    "title": "THANH TOÁN YÊU CẦU"
+  },
+  "newAccount": {
+    "title": "Tạo tài khoản",
+    "placeholder": "Tài khoản quý báu của tôi",
+    "success": {
+      "title": "Đã tạo thành công tài khoản mới",
+      "message": "Bạn có thể chỉnh sửa tên trên sổ địa chỉ của mình"
+    },
+    "failure": {
+      "title": "Cảnh báo tài khoản mới",
+      "message": "Để thêm tài khoản mới, bạn phải có ít nhất một giao dịch trên tài khoản mới nhất của mình."
+    }
+  }
+}

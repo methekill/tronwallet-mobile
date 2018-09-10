@@ -1,0 +1,502 @@
+{
+  "relativeTime": {
+    "future": "in %s",
+    "past": "vor %s",
+    "s": "ein paar Sekunden",
+    "ss": "%d Sekunden",
+    "m": "eine minute",
+    "mm": "%d Minuten",
+    "h": "eine Stunde",
+    "hh": "%d Stunden",
+    "d": "ein Tag",
+    "dd": "%d Tage",
+    "M": "einen Monat",
+    "MM": "%d Monate",
+    "y": "ein Jahr",
+    "yy": "%d Jahre"
+  },
+  "success": "Erfolg",
+  "warning": "Warnung",
+  "cancel": "Abbrechen",
+  "address": "Adresse",
+  "ok": "OK",
+  "actionModalTitle": "Würden Sie gerne",
+  "account": "Konto",
+  "restore": "Wiederherstellen",
+  "error": {
+    "default": "Woops etwas ist schief gelaufen. Bitte versuchen Sie es erneut. Wenn der Fehler weiterhin besteht, versuchen Sie die Netzwerk-Einstellungen zu aktualisieren.",
+    "buildingTransaction": "Fehler beim Erstellen der Transaktion, bitte versuchen Sie es erneut.",
+    "gettingTransaction": "Fehler beim Abrufen der Transaktion.",
+    "clipboardCopied": "Ein Fehler unterlief beim kopieren",
+    "hideAccount": "Beim Löschen des Kontos ist ein Fehler aufgetreten. Versuche es erneut."
+  },
+  "tronPower": "TRON-POWER",
+  "trxPrice": "TRX-PREIS",
+  "confirmed": "Bestätigt",
+  "unconfirmed": "Unbestätigt",
+  "copyAddress": "ADRESSE KOPIEREN",
+  "transactionType": {
+    "transfer": "Transfer",
+    "transferAsset": "Transfer-Asset",
+    "freeze": "Einfrieren",
+    "unfreeze": "Freigeben",
+    "vote": "Abstimmen",
+    "participate": "Teilnehmen",
+    "create": "Erstellen",
+    "undefined": "Undefinierter Typ"
+  },
+  "close": "Schliessen",
+  "ends": "Endet",
+  "clear": "Löschen",
+  "allIn": "Alles",
+  "skip": "Überspringen",
+  "privateKey": "Privat Schlüssel",
+  "balance": {
+    "title": "KONTEN",
+    "error": {
+      "loadingData": "Fehler beim Laden der Daten.",
+      "savingCurrency": "Fehler beim Speichern der bevorzugten Währung"
+    },
+    "chooseCurrency": "Bitte wählen Sie Ihre bevorzugte Währung.",
+    "confirmSeed": "Bitte tippen Sie, um Ihre 12 geheimen Wörter zu bestätigen",
+    "bandwidth": "Bandbreite",
+    "tokens": "TOKEN",
+    "holdings": "BETEILIGUNGEN"
+  },
+  "hideAccount": "Sie sind dabei, dieses Konto zu entfernen. Sie können es später in den Einstellungen wiederherstellen",
+  "components": {
+    "share": {
+      "title": "TronWallet Adresse teilen",
+      "message": "Dies ist meine TronWallet Adresse:\n\n {{address}}\n\nTipp: Sobald Sie diese kopiert haben, können Sie sie in Ihrer TronWallet-app, über die spezielle Taste am Sendebildschirm einfügen.",
+      "dialogTitle": "Teilen Sie mit:"
+    },
+    "QRScanner": {
+      "title": "Adressen-Scanner",
+      "scan": "Scan",
+      "explanation": "Scannen Sie den QRCode um den Empfänger zu verifizieren",
+      "permissionMessage": "Um den öffentlichen Schlüssel zu scannen benötigt die App Ihre Berechtigung um auf die Kamera zugreifen zu können."
+    },
+    "vote": {
+      "enterVote": "Geben Sie die Abstimmungsbetrag ein",
+      "votesRemaining": "Verfügbare Abstimmungen",
+      "setVote": "Platziere Abstimmung",
+      "moreVotes": "Wenn Sie mehr Stimmen benötigen, können Sie mehr TRX einfrieren.",
+      "confirmVotes": "ABSTIMMUNG BESTÄTIGEN",
+      "yourVotes": "Ihre Abstimmung",
+      "myVotes": "Meine Abstimmung",
+      "confirm": "BESTÄTIGEN",
+      "freeze": "Einfrieren",
+      "totalVotes": "Gesamte Abstimmungen verfügbar:",
+      "delete": "Löschen",
+      "set": "Platzieren",
+      "freezeOrLower": "Sie haben nicht genug eingefrorene TRX. Frieren Sie mehr TRX ein, oder senken Sie den Stimmenbetrag",
+      "freezeToContinue": "Sie haben nicht genug eingefrorene TRX. Um fortzufahren, frieren Sie mehr TRX ein"
+    }
+  },
+  "firstTime": {
+    "button": {
+      "create": "Wallet erstellen",
+      "restore": "WALLET WIEDERHERSTELLEN"
+    }
+  },
+  "addressBook": {
+    "shared": {
+      "add": "Hinzufügen",
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "send": "Senden"
+    },
+    "contacts": {
+      "delete": {
+        "title": "Kontakt löschen",
+        "message": "Möchten Sie den Kontakt wirklich löschen?",
+        "cancelButton": "Abbrechen",
+        "okButton": "OK"
+      },
+      "empty": "Ihr Adressbuch ist leer, fügen Sie einen neuen Kontakt über den Button unten hinzu.",
+      "loadError": "Es gab ein Problem beim laden Ihrer Kontakte, Bitte versuchen Sie es erneut.",
+      "addContact": "KONTAKT HINZUFÜGEN",
+      "addToContacts": "ZU KONTAKTEN HINZUFÜGEN"
+    },
+    "form": {
+      "generalError": "Es gab ein Problem bei der Übermittlung des Formulars. Bitte kontaktieren Sie einen Administrator.",
+      "nameError": "Das Namensfeld muss mit einem Buchstaben beginnen, darf maximal 32 Zeichen enthalten und akzeptiert nur Buchstaben, Zahlen und Leerzeichen.",
+      "addressError": "Etwas stimmt nicht mit der Adresse. Bitte überprüfen Sie diese auf Tippfehler.",
+      "uniqueAddressError": "Der Schlüssel muss eindeutig sein. Bitte wählen Sie eine andere Adresse.",
+      "uniqueAliasError": "Namen in Ihrem Adressbuch müssen eindeutig sein. Bitte wählen Sie einen anderen aus.",
+      "name": "NAME",
+      "address": "ADRESSE"
+    }
+  },
+  "importWallet": {
+    "title": "IMPORT WALLET",
+    "message": "Wenn Sie den privaten Schlüssel und die Adresse Ihrer Brieftasche haben, können Sie sie hier wiederherstellen, bedenken Sie jedoch, dass TronWallet hauptsächlich mit Mnemotechniken arbeitet. Diese Wiederherstellungsmethode wird einige Funktionen in der App deaktivieren.",
+    "button": "EINFÜHREN",
+    "error": {
+      "privateKey": "Privater Schlüssel ungültig oder unvollständig"
+    }
+  },
+  "freeze": {
+    "title": "EINFRIEREN",
+    "unfreeze": {
+      "title": "FREIGEBEN",
+      "inThreeDays": "Nach einem Zeitraum von drei Tagen können Sie Ihre TRX freigeben",
+      "inXMinutes": "Sie können Ihre TRX in {{minutes}} Minuten freigeben.",
+      "inXHours": "Sie können Ihre TRX in {{hours}} Stunden freigeben.",
+      "inXDays": "Sie können Ihre TRX in {{days}} Tagen freigeben.",
+      "now": "Sie können jetzt Ihre TRX freigeben."
+    },
+    "error": {
+      "minimumAmount": "Der Mindestbetrag für die Transaktion Einfrieren beträgt 1.",
+      "insufficientBalance": "Unzureichendes TRX Guthaben",
+      "roundNumbers": "Sie können nur Runde Zahlen einfrieren"
+    },
+    "amount": "BETRAG EINFRIEREN",
+    "balance": "Kontostand"
+  },
+  "getVault": {
+    "notInstalled": "Es scheint, dass Sie die Tron Vault nicht auf Ihrem Telefon installiert haben, um mit Ihrer Buchung fortzufahren.",
+    "downloadHere": "Sie können es hier herunterladen"
+  },
+  "market": {
+    "time": {
+      "hour": "1H",
+      "day": "1T",
+      "week": "1W",
+      "month": "1M",
+      "all": "ALLE(S)"
+    },
+    "highest": "HÖCHSTEN",
+    "lowest": "NIEDRIGSTEN",
+    "volume": "VOLUMEN 24H",
+    "cap": "MARKTKAPITALISIERUNG",
+    "supply": "MENGE IM UMLAUF"
+  },
+  "participate": {
+    "title": "TEILNEHMEN",
+    "featured": "Gekennzeichnet",
+    "button": {
+      "confirm": "BESTÄTIGEN",
+      "moreInfo": "MEHR INFO",
+      "buyNow": "JETZT KAUFEN"
+    },
+    "error": {
+      "insufficientBalance": "Nicht genügend Mittel (TRX) verfügbar.",
+      "insufficientTrx": {
+        "title": "Sie müssen mindestens einen TRX Wert {{token}} kaufen.",
+        "message": "Derzeit kaufen Sie nur {{amount}}."
+      }
+    },
+    "warning": "Sie haben nicht genügend TRX, um diese Menge {{token}} zu kaufen",
+    "amountToBuy": "Menge kaufen",
+    "pricePerToken": "PREIS PRO TOKEN",
+    "tokenDescription": "TOKEN BESCHREIBUNG",
+    "tokenInfo": "TOKEN INFO",
+    "token": "TOKEN",
+    "tokens": "Die TOKEN",
+    "frozen": "EINGEFROREN",
+    "percentage": "PROZENT",
+    "issued": "AUSGESTELLT",
+    "totalSupply": "GESAMTMENGE",
+    "startTime": "STARTZEIT",
+    "endTime": "ENDZEIT",
+    "description": "BESCHREIBUNG",
+    "transaction": "TRANSAKTION",
+    "ownerAddress": "INHABER ADRESSE",
+    "trxNum": "TRX NUM",
+    "num": "NUM",
+    "block": "BLOCK"
+  },
+  "pin": {
+    "title": "SICHERHEITS-CHECK",
+    "enter": "PIN eingeben",
+    "new": "Neue PIN eingeben",
+    "reenter": "PIN erneut eingeben"
+  },
+  "receive": {
+    "title": "ERHALTEN",
+    "clipboardCopied": "In Zwischenablage kopiert",
+    "button": {
+      "copy": "Kopie",
+      "share": "Teilen"
+    },
+    "tabs": {
+      "share": "Teilen",
+      "request": "ANFRAGE"
+    }
+  },
+  "rewards": {
+    "title": "BELOHNUNGEN",
+    "earned": "Sie haben verdient"
+  },
+  "seed": {
+    "confirm": {
+      "title": "BESTÄTIGE GEHEIME WÖRTER",
+      "error": {
+        "title": "Falsche Kombination",
+        "message": "Ausgewählte Worte stimmen nicht überein. Stellen Sie sicher, dass Sie die Wörter in der richtigen Reihenfolge geschrieben haben."
+      },
+      "success": "Wallet erfolgreich bestätigt",
+      "explanation": "Markieren Sie die Wörter unten in der richtigen Reihenfolge, um Ihre geheime Phrase zu bestätigen.",
+      "button": {
+        "reset": "ZURÜCKSETZEN DER WORTE",
+        "confirm": "BESTÄTIGE GEHEIME WÖRTER"
+      }
+    },
+    "create": {
+      "title": "ERSTELLEN DER GEHEIMEN WÖRTER",
+      "titleConfirm": "GEHEIME WÖRTER DER WALLET BESTÄTIGEN",
+      "error": "Hoppla, haben wir ein Problem. Bitte starten Sie die Anwendung erneut.",
+      "generateNew": "Dies erzeugt eine völlig neue Wallet.",
+      "button": {
+        "written": "ICH HABE ES AUFGESCHRIEBEN",
+        "newSeed": "NEUE GEHEIME WÖRTER ERHALTEN",
+        "later": "Später bestätigen"
+      }
+    },
+    "restore": {
+      "title": "WALLET WIEDERHERSTELLEN",
+      "explanation": "Um Ihren Wallet zu wiederherzustellen, geben Sie bitte die gleichen 12 Wörter, die Sie auf Papier geschrieben haben ein, als Sie Ihre Wallet zum ersten Mal erstellt haben. Wenn Sie eine andere Reihenfolge der Wörter eingeben, wird eine neue leere Wallet erstellt.",
+      "placeholder": "Bitte schreiben Sie hier Ihre 12 geheimen Wörter",
+      "success": "Wallet erfolgreich wiederhergestellt!",
+      "warning": "Die geheimen Wörter werden alle Daten auf diesem Gerät löschen und synchronisiert mit die Daten aus dem Internet für das wiederhergestellte Konto.",
+      "error": "Oops. Scheint, als die Worte, die Sie eingegeben haben kein gültiges mnemonisches geheimes Wort . Überprüfen Sie, ob Sie einen Tippfehler haben und versuchen Sie es bitte erneut.",
+      "button": "WIEDERHERSTELLEN"
+    }
+  },
+  "send": {
+    "title": "Senden",
+    "error": {
+      "insufficientBalance": "Nicht genug Guthaben.",
+      "gettingBalance": "Fehler beim Abrufen des Kontostandes",
+      "incompleteAddress": "Adresse ist entweder ungültig oder unvollständig.",
+      "invalidReceiver": "Ungültige Empfängeradresse",
+      "selectBalance": "Wählen Sie zuerst das Guthaben",
+      "invalidAmount": "Ungültige Menge"
+    },
+    "input": {
+      "token": "TOKEN",
+      "to": "An",
+      "amount": "BETRAG",
+      "description": "BESCHREIBUNG (OPTIONAL)"
+    },
+    "available": "zur Verfügung",
+    "chooseToken": "Bitte wählen Sie unten einen Token.",
+    "minimumAmount": "Der Mindestbetrag für jede Transaktion zu senden ist 0,000001."
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "sectionTitles": {
+      "wallet": "Wallet",
+      "security": "SICHERHEIT",
+      "notification": "BENACHRICHTIGUNGEN UND IDIOM",
+      "accounts": "KONTENMANAGEMENT"
+    },
+    "notifications": {
+      "title": "Benachrichtigungen"
+    },
+    "network": {
+      "title": "Netzwerk",
+      "modal": {
+        "title": "NETZWERK",
+        "explanation": "Mit dieser Option können Sie einen speziellen Knoten auswählen, der Ihren Bedürfnissen und Vorlieben besser gerecht wird. Bitte seien Sie vorsichtig beim Aktualisieren der Knoten IP-Adresse. Falsche IP-Adressen können zu Fehlfunktionen innerhalb Ihrer Brieftasche führen. Beispiel: 35.231.121.122:50051",
+        "error": {
+          "storage": "Fehler beim Abrufen der Knoten IP-Adresse aus dem lokalen Speicher",
+          "invalidIp": "Bitte geben Sie eine gültige IP-Adresse an",
+          "update": "Etwas ging schief beim Aktualisieren der Knoten IP-Adresse",
+          "reset": "Etwas ging schief beim Zurücksetzen der Knoten IP"
+        },
+        "success": {
+          "updated": "Aktualisiert",
+          "updatedIp": "Knoten IP Aderesse aktualisiert!",
+          "switchTest": "Knoten IP Adresse auf Testnet umgeschalten",
+          "switchMain": "Knoten IP Adresse auf Mainnet umgeschalten",
+          "reset": "Knoten IP Adresse aktualisiert!"
+        },
+        "placeholder": {
+          "loadingIp": "IP Adresse laden",
+          "loadingPort": "Lade Portadresse"
+        },
+        "button": {
+          "update": "Aktualisiere und verbinde",
+          "reset": "Zurücksetzen"
+        },
+        "mainNode": "Hauptknoten",
+        "solidityNode": "Stabiler Knoten",
+        "testNet": "TestNet"
+      }
+    },
+    "backup": {
+      "title": "Gesicherte Wallet"
+    },
+    "restore": {
+      "title": "Wallet Wiederherstellen"
+    },
+    "reset": {
+      "title": "Wallet Zurücksetzen",
+      "warning": "Achtung: Diese Aktion löscht alle gespeicherte Daten, einschließlich Ihrer 12 geheimen Worte. Wenn Sie Ihre geheimen Worte nicht gespeichert haben, tun Sie dies bitte, bevor Sie fortfahren.",
+      "button": "Ok, Ich habe verstanden"
+    },
+    "pin": {
+      "title": "Pin ändern",
+      "success": "Pin erfolgreich geändert!"
+    },
+    "language": {
+      "title": "Sprache",
+      "choose": "Bitte wählen Sie Ihre Sprache unten aus:",
+      "success": {
+        "title": "Sprache auf {{language}} geändert",
+        "description": "Sie müssen Ihre App neu starten um die Änderungen zu aktualsieren. Wollen Sie dies nun tun?"
+      },
+      "button": {
+        "confirm": "Ja, starten Sie jetzt!",
+        "cancel": "Nein, Ich mache das später"
+      },
+      "error": "Fehler beim Speichern der bevorzugten Sprache"
+    },
+    "token": {
+      "title": "Token Filter",
+      "search": "Token-Suche",
+      "confirm": "Speichern",
+      "noResult": "Keine Ergebnisse..."
+    },
+    "about": {
+      "title": "Über",
+      "description": "TronWallet ist eine open-Source, vollständig dezentrale P2P Crypto Wallet für das TRON Netzwerk geschaffen mit React Native. Mit dieser können Sie Token senden und empfangen, einen Super Vertreter wählen, an einem Token Verkauf teilnehmen, behalten den Überblick über Ihr Guthaben und Transaktionen und vieles mehr. Um zu erfahren wien man diese benutzt, tippen Sie auf den unten stehenden Link für eine detaillierte Anleitung.",
+      "tutorial": "TUTORIAL"
+    },
+    "accepts": {
+      "title": "Wer akzeptiert TRX?"
+    },
+    "accounts": {
+      "title": "Konten",
+      "search": "Konten suchen",
+      "restoreAccounts": "Konten wiederherstellen",
+      "noAccounts": "Keine wiederherzustellenden Konten"
+    },
+    "partners": "PARTNER",
+    "askPin": "Fragen Sie immer PIN"
+  },
+  "submitTransaction": {
+    "title": "DETAILS DER TRANSAKTION",
+    "notification": "Sie haben eine Transaktion von {{address}} erhalten",
+    "notificationPayment": "Sie haben eine Zahlung von {{address}} erhalten",
+    "data": "DATEN",
+    "time": "ZEIT",
+    "button": {
+      "tryAgain": "Versuchen Sie es erneut",
+      "submit": "TRANSAKTION EINREICHEN"
+    },
+    "disconnectedMessage": "Es scheint, dass Sie keine Internetverbindung haben. Verbinden Sie sich mit dem Internet bevor Sie mit der Transaktion fortfahren.",
+    "dic": {
+      "contractType": "Buchungsart",
+      "ownerAddress": "Von",
+      "toAddress": "An",
+      "participateAssetIssueContract": "Teilnehmen",
+      "transferAssetContract": "Transfer",
+      "transferContract": "Transfer",
+      "unfreezeBalanceContract": "Freigeben",
+      "freezeBalanceContract": "Einfrieren",
+      "assetIssueContract": "Erstellen",
+      "voteWitnessContract": "Abstimmen",
+      "frozenDuration": "Dauer",
+      "frozenBalance": "Insgesamt einzufrieren"
+    },
+    "errorDic": {
+      "contractValidate": "Transaktionsdaten nicht gültig. Bitte versuchen Sie es später erneut.",
+      "signature": "Transaktionssignatur nicht gültig.",
+      "duplicate": "Transaktion bereits übertragen.",
+      "contractValidateCee": "Transaktionsdaten nicht gültig (CEE). Bitte versuchen Sie es später erneut.",
+      "bandwith": "Nicht genügend Bandbreite. Bitte versuchen Sie es später erneut.",
+      "contractValidateTapos": "Transaktionsdaten nicht gültig (TAPOS). Bitte versuchen Sie es später erneut.",
+      "tooBig": "Transaktion zu groß, um einzureichen.",
+      "expiration": "Transaktion ist abgelaufen. Bitte versuchen Sie es erneut.",
+      "serverBusy": "Der Server ist ausgelastet.",
+      "resource": "Unzureichende Bandbreite oder Guthaben. Möglicherweise benötigen Sie einige gefrorene TRX."
+    },
+    "totalVotes": "Stimmen Insgesamt"
+  },
+  "transactions": {
+    "title": "MEINE BUCHUNGEN",
+    "from": "Von",
+    "to": "An",
+    "notFound": "Keine Transaktionen gefunden."
+  },
+  "transactionDetails": {
+    "title": "TRANSAKTION",
+    "clipboard": {
+      "tronscanUrl": "Tronscan Url für diese Transaktion in die Zwischenablage kopiert",
+      "publicKey": "Öffentlicher Schlüssel in die Zwischenablage kopiert"
+    },
+    "hash": "HASH",
+    "status": "STATUS",
+    "time": "ZEIT",
+    "block": "BLOCK",
+    "frozenBalance": "EINGEFRORENES GUTHABEN",
+    "unfrozenBalance": "VERFÜGBARES GUTHABEN",
+    "totalVotes": "STIMMEN INSGESAMT",
+    "amount": "BETRAG",
+    "to": "An",
+    "from": "Von",
+    "tokenName": "TOKENNAME",
+    "unityValue": "EINHEIT WERT",
+    "totalSupply": "GESAMTMENGE",
+    "startTime": "STARTZEIT",
+    "endTime": "ENDZEIT",
+    "description": "BESCHREIBUNG",
+    "votedAddress": "GEWÄHLTE ADRESSE"
+  },
+  "transactionSuccess": {
+    "submitted": "TRANSAKTION AN NETZWERK ÜBERMITTELT!",
+    "success": "ERFOLG!"
+  },
+  "votes": {
+    "title": "STIMMEN",
+    "totalVotes": "STIMMEN INSGESAMT",
+    "votesAvailable": "STIMMEN ZUR VERFÜGUNG",
+    "search": "Suche",
+    "error": "Hoppla, etwas nicht korrekt geladen. Versuchen Sie, erneut zu laden"
+  },
+  "scanPayment": {
+    "scan": "SCAN",
+    "error": {
+      "receiver": "Empfängeradresse ungültig",
+      "token": "Token nicht gültig",
+      "amount": "Betrag nicht gültig",
+      "description": "Beschreibung zu lang",
+      "code": "Zahlungscode ungültig. Bitte Scannen Sie einen gültigen"
+    }
+  },
+  "makePayment": {
+    "pay": "BEZAHLEN",
+    "confirm": "ZAHLUNG BESTÄTIGEN",
+    "error": {
+      "receiver": "Empfänger ist gleich Antragsteller",
+      "token": "Dieses Konto besitzt nicht genügend Token für diese Transaktion",
+      "amount": "Dieses Konto hat nicht genügend Guthaben.",
+      "description": "Keine Beschreibung verfügbar"
+    }
+  },
+  "buildPayment": {
+    "generate": "ANFRAGE GENERIEREN",
+    "selectCurrency": "Wählen Sie die Referenzwährung",
+    "error": {
+      "currency": "Wir waren nicht in der Lage, andere Währungspreise laden. Bitte verwenden Sie TRX als Referenz"
+    }
+  },
+  "requestPayment": {
+    "title": "ZAHLUNG ANFORDERN"
+  },
+  "newAccount": {
+    "title": "Konto-Erstellung",
+    "placeholder": "Mein kostbares Konto",
+    "success": {
+      "title": "Neues Konto erfolgreich erstellt",
+      "message": "Sie können den Namen in Ihrem Adressbuch bearbeiten"
+    },
+    "failure": {
+      "title": "Neue Konto-Warnung",
+      "message": "Um ein neues Konto hinzuzufügen, sollten Sie mindestens eine Transaktion auf Ihrem letzten Konto haben."
+    }
+  }
+}
