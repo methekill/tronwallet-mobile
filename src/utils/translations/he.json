@@ -1,0 +1,502 @@
+{
+  "relativeTime": {
+    "future": "in %s",
+    "past": "%s ago",
+    "s": "a few seconds",
+    "ss": "%d seconds",
+    "m": "a minute",
+    "mm": "%d minutes",
+    "h": "an hour",
+    "hh": "%d hours",
+    "d": "a day",
+    "dd": "%d days",
+    "M": "a month",
+    "MM": "%d months",
+    "y": "a year",
+    "yy": "%d years"
+  },
+  "success": "Success",
+  "warning": "Warning",
+  "cancel": "Cancel",
+  "address": "כתובת",
+  "ok": "OK",
+  "actionModalTitle": "Would you like to",
+  "account": "חֶשְׁבּוֹן",
+  "restore": "לשחזר",
+  "error": {
+    "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
+    "buildingTransaction": "Error while building transaction, try again.",
+    "gettingTransaction": "Error while getting transaction.",
+    "clipboardCopied": "Something wrong while copying",
+    "hideAccount": "משהו השתבש מחיקת החשבון, נסה שוב '"
+  },
+  "tronPower": "TRON POWER",
+  "trxPrice": "TRX PRICE",
+  "confirmed": "Confirmed",
+  "unconfirmed": "Unconfirmed",
+  "copyAddress": "COPY ADDRESS",
+  "transactionType": {
+    "transfer": "Transfer",
+    "transferAsset": "Transfer Asset",
+    "freeze": "Freeze",
+    "unfreeze": "Unfreeze",
+    "vote": "Vote",
+    "participate": "Participate",
+    "create": "Create",
+    "undefined": "Undefined Type"
+  },
+  "close": "Close",
+  "ends": "Ends",
+  "clear": "Clear",
+  "allIn": "All In",
+  "skip": "Skip",
+  "privateKey": "מפתח פרטי",
+  "balance": {
+    "title": "ACCOUNTS",
+    "error": {
+      "loadingData": "An error occured while loading the data.",
+      "savingCurrency": "Error saving preferred currency"
+    },
+    "chooseCurrency": "Please, choose your preferred currency.",
+    "confirmSeed": "Please tap to confirm your 12 seed words",
+    "bandwidth": "רוחב פס",
+    "tokens": "TOKENS",
+    "holdings": "HOLDINGS"
+  },
+  "hideAccount": "אתה עומד להסיר את החשבון הזה. ניתן לשחזר אותו מאוחר יותר בהגדרות",
+  "components": {
+    "share": {
+      "title": "Share TronWallet address",
+      "message": "This is my TronWallet address:\n\n {{address}}\n\nTip: Once you have copied it you can paste it in your TronWallet app using the special button on Send screen.",
+      "dialogTitle": "Share using:"
+    },
+    "QRScanner": {
+      "title": "Address Scanner",
+      "scan": "Scan",
+      "explanation": "Scan the QRCode to identify the target user",
+      "permissionMessage": "To scan the public key the app needs your permission to access the camera."
+    },
+    "vote": {
+      "enterVote": "ENTER THE VOTE VALUE",
+      "votesRemaining": "VOTES REMAINING",
+      "setVote": "SET VOTE",
+      "moreVotes": "If you need more votes you can Freeze more TRX.",
+      "confirmVotes": "CONFIRM VOTES",
+      "yourVotes": "Your Votes",
+      "myVotes": "MY VOTES",
+      "confirm": "CONFIRM",
+      "freeze": "Freeze",
+      "totalVotes": "Total votes available:",
+      "delete": "DELETE",
+      "set": "SET",
+      "freezeOrLower": "You do not have enough frozen TRX. Freeze more TRX or lower the vote amount",
+      "freezeToContinue": "You do not have enough frozen TRX. Freeze more TRX to continue"
+    }
+  },
+  "firstTime": {
+    "button": {
+      "create": "CREATE WALLET",
+      "restore": "RESTORE WALLET"
+    }
+  },
+  "addressBook": {
+    "shared": {
+      "add": "ADD",
+      "edit": "EDIT",
+      "delete": "DELETE",
+      "send": "SEND"
+    },
+    "contacts": {
+      "delete": {
+        "title": "Delete Contact",
+        "message": "Do you really want to delete this contact?",
+        "cancelButton": "Cancel",
+        "okButton": "OK"
+      },
+      "empty": "Your address book is empty, add a new contact using the button below.",
+      "loadError": "There was a problem loading the contacts. Please try again.",
+      "addContact": "ADD CONTACT",
+      "addToContacts": "ADD TO CONTACTS"
+    },
+    "form": {
+      "generalError": "There was a problem submitting this form. Please contact an administrator.",
+      "nameError": "The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.",
+      "addressError": "Something isn't right with the address. Please double check for typos.",
+      "uniqueAddressError": "The key must be unique. Please choose a different address.",
+      "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
+      "name": "NAME",
+      "address": "ADDRESS"
+    }
+  },
+  "importWallet": {
+    "title": "ייבוא ​​וואלט",
+    "message": "אם יש לך את המפתח הפרטי ואת הכתובת של הארנק שלך אתה יכול לשחזר אותו כאן אבל יש לזכור כי TronWallet פועלת עם mnemonics בעיקר. שיטה זו התאוששות יהיה להשבית כמה פונקציות בתוך App.",
+    "button": "יְבוּא",
+    "error": {
+      "privateKey": "מפתח פרטי לא חוקי או לא שלם"
+    }
+  },
+  "freeze": {
+    "title": "FREEZE",
+    "unfreeze": {
+      "title": "UNFREEZE",
+      "inThreeDays": "After a three day period you can unfreeze your TRX",
+      "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
+      "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
+      "inXDays": "You can unfreeze your TRX in {{days}} days.",
+      "now": "You can unfreeze your TRX now."
+    },
+    "error": {
+      "minimumAmount": "The minimum amount for any freeze transaction is 1.",
+      "insufficientBalance": "Insufficient TRX balance",
+      "roundNumbers": "Share TronWallet address"
+    },
+    "amount": "FREEZE AMOUNT",
+    "balance": "Balance"
+  },
+  "getVault": {
+    "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
+    "downloadHere": "You can download it here"
+  },
+  "market": {
+    "time": {
+      "hour": "1H",
+      "day": "1D",
+      "week": "1W",
+      "month": "1M",
+      "all": "ALL"
+    },
+    "highest": "HIGHEST",
+    "lowest": "LOWEST",
+    "volume": "VOLUME 24H",
+    "cap": "MARKET CAP",
+    "supply": "CIRCULATING SUPPLY"
+  },
+  "participate": {
+    "title": "PARTICIPATE",
+    "featured": "FEATURED",
+    "button": {
+      "confirm": "CONFIRM",
+      "moreInfo": "MORE INFO",
+      "buyNow": "BUY NOW"
+    },
+    "error": {
+      "insufficientBalance": "Not enough funds (TRX) to participate.",
+      "insufficientTrx": {
+        "title": "You need to buy at least one TRX worth of {{token}}.",
+        "message": "Currently you are buying only {{amount}}."
+      }
+    },
+    "warning": "You don't have enough TRX to buy that many {{token}}",
+    "amountToBuy": "AMOUNT TO BUY",
+    "pricePerToken": "PRICE PER TOKEN",
+    "tokenDescription": "TOKEN DESCRIPTION",
+    "tokenInfo": "TOKEN INFO",
+    "token": "TOKEN",
+    "tokens": "TOKENS",
+    "frozen": "FROZEN",
+    "percentage": "PERCENTAGE",
+    "issued": "ISSUED",
+    "totalSupply": "TOTAL SUPPLY",
+    "startTime": "START TIME",
+    "endTime": "END TIME",
+    "description": "DESCRIPTION",
+    "transaction": "TRANSACTION",
+    "ownerAddress": "OWNER ADDRESS",
+    "trxNum": "TRX NUM",
+    "num": "NUM",
+    "block": "BLOCK"
+  },
+  "pin": {
+    "title": "SECURITY CHECK",
+    "enter": "Enter PIN",
+    "new": "Enter New PIN",
+    "reenter": "Re-Enter PIN"
+  },
+  "receive": {
+    "title": "RECEIVE",
+    "clipboardCopied": "Copied to clipboard",
+    "button": {
+      "copy": "Copy",
+      "share": "Share"
+    },
+    "tabs": {
+      "share": "לַחֲלוֹק",
+      "request": "בַּקָשָׁה"
+    }
+  },
+  "rewards": {
+    "title": "תגמולים",
+    "earned": "הרווחת"
+  },
+  "seed": {
+    "confirm": {
+      "title": "קונפירם SEED",
+      "error": {
+        "title": "שילוב שגוי",
+        "message": "המילים שנבחרו אינן תואמות. ודא שכתבת את המילים בסדר הנכון."
+      },
+      "success": "הארנק אושר בהצלחה",
+      "explanation": "בחר את המילים למטה בסדר הנכון כדי לאשר את הביטוי הסודי שלך.",
+      "button": {
+        "reset": "מילים לאיפוס",
+        "confirm": "קונפירם SEED"
+      }
+    },
+    "create": {
+      "title": "ליצור זרע",
+      "titleConfirm": "קונפירם וולט",
+      "error": "אופס, יש לנו בעיה. הפעל מחדש את היישום.",
+      "generateNew": "פעולה זו תיצור ארנק חדש לגמרי.",
+      "button": {
+        "written": "אני כתבתי את זה למטה",
+        "newSeed": "קבל חדש SEED",
+        "later": "אשר מאוחר יותר"
+      }
+    },
+    "restore": {
+      "title": "שיחזור",
+      "explanation": "כדי לשחזר את הארנק שלך, ספק את אותן 12 מילים שכתבת על נייר כאשר יצרת את הארנק בפעם הראשונה. אם תזין רצף מילים שונה, ייווצר ארנק ריק חדש.",
+      "placeholder": "בבקשה, הקלד את 12 מילות הזרע שלך כאן",
+      "success": "ארנק שוחזר בהצלחה!",
+      "warning": "שחזור הזרע ימחק את כל הנתונים במכשיר זה ומשוך מידע מהרשת עבור החשבון המשוחזר.",
+      "error": "אופס. נראה שהמילים שהקלדת אינן זרע חוקי. בדוק שגיאת הקלדה ונסה שוב.",
+      "button": "לשחזר"
+    }
+  },
+  "send": {
+    "title": "לִשְׁלוֹחַ",
+    "error": {
+      "insufficientBalance": "לא מספיק איזון.",
+      "gettingBalance": "שגיאה בעת קבלת נתוני איזון",
+      "incompleteAddress": "הכתובת היא חלקית או לא חוקית.",
+      "invalidReceiver": "כתובת מקלט לא חוקית",
+      "selectBalance": "בחר תחילה איזון",
+      "invalidAmount": "סכום לא חוקי"
+    },
+    "input": {
+      "token": "אֲסִימוֹן",
+      "to": "ל",
+      "amount": "כמות",
+      "description": "תיאור (אופציונאלי)"
+    },
+    "available": "זמין",
+    "chooseToken": "אנא בחר אסימון בהמשך.",
+    "minimumAmount": "הסכום המינימלי לכל עסקה שנשלח הוא 0.000001."
+  },
+  "settings": {
+    "title": "הגדרות",
+    "sectionTitles": {
+      "wallet": "ארנק",
+      "security": "בִּטָחוֹן",
+      "notification": "הודעות והודאה",
+      "accounts": "ניהול חשבונות"
+    },
+    "notifications": {
+      "title": "התראות"
+    },
+    "network": {
+      "title": "רֶשֶׁת",
+      "modal": {
+        "title": "רֶשֶׁת",
+        "explanation": "עם אפשרות זו אתה יכול לבחור את הצומת כי יהיה מתאים יותר לצרכים שלך ואת ההעדפות. אנא היזהר בעת עדכון IP הצומת בזמן IP טועה יכול להוביל תקלות בתוך הארנק שלך. דוגמה: 35.231.121.122:50051",
+        "error": {
+          "storage": "שגיאה בקבלת IP הצומת מן האחסון המקומי",
+          "invalidIp": "אנא הכנס כתובת IP חוקית",
+          "update": "משהו השתבש בזמן עדכון צמתים ip",
+          "reset": "Share"
+        },
+        "success": {
+          "updated": "Updated",
+          "updatedIp": "Nodes IP updated!",
+          "switchTest": "Switched nodes IP to Testnet",
+          "switchMain": "Switched nodes IP to default main",
+          "reset": "Node IP reseted!"
+        },
+        "placeholder": {
+          "loadingIp": "Loading IP",
+          "loadingPort": "Loading Port"
+        },
+        "button": {
+          "update": "Update and Connect",
+          "reset": "Reset"
+        },
+        "mainNode": "Main Node",
+        "solidityNode": "Solidity Node",
+        "testNet": "TestNet"
+      }
+    },
+    "backup": {
+      "title": "Backup Wallet"
+    },
+    "restore": {
+      "title": "Restore Wallet"
+    },
+    "reset": {
+      "title": "Reset Wallet",
+      "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
+      "button": "OK, I understand it"
+    },
+    "pin": {
+      "title": "Change Pin",
+      "success": "Pin successfully changed!"
+    },
+    "language": {
+      "title": "Language",
+      "choose": "Please, choose a Language below:",
+      "success": {
+        "title": "Language changed to {{language}}",
+        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
+      },
+      "button": {
+        "confirm": "Yes, restart now!",
+        "cancel": "No, I'll do it later"
+      },
+      "error": "Error saving preferred language"
+    },
+    "token": {
+      "title": "Token Filter",
+      "search": "Search tokens",
+      "confirm": "Save",
+      "noResult": "No results..."
+    },
+    "about": {
+      "title": "About",
+      "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
+      "tutorial": "TUTORIAL"
+    },
+    "accepts": {
+      "title": "Who accepts TRX?"
+    },
+    "accounts": {
+      "title": "חשבונות",
+      "search": "חפש בחשבונות",
+      "restoreAccounts": "שחזר חשבונות",
+      "noAccounts": "אין צורך לשחזר חשבונות"
+    },
+    "partners": "PARTNERS",
+    "askPin": "תמיד שאל את ה- PIN"
+  },
+  "submitTransaction": {
+    "title": "TRANSACTION DETAILS",
+    "notification": "You have received a transaction from {{address}}",
+    "notificationPayment": "You have received a payment from {{address}}",
+    "data": "DATA",
+    "time": "TIME",
+    "button": {
+      "tryAgain": "Try again",
+      "submit": "SUBMIT TRANSACTION"
+    },
+    "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
+    "dic": {
+      "contractType": "Transaction Type",
+      "ownerAddress": "From",
+      "toAddress": "To",
+      "participateAssetIssueContract": "Participate",
+      "transferAssetContract": "Transfer",
+      "transferContract": "Transfer",
+      "unfreezeBalanceContract": "Unfreeze",
+      "freezeBalanceContract": "Freeze",
+      "assetIssueContract": "Create",
+      "voteWitnessContract": "Vote",
+      "frozenDuration": "Duration",
+      "frozenBalance": "Total to Freeze"
+    },
+    "errorDic": {
+      "contractValidate": "Transaction data not valid. Please try again later.",
+      "signature": "Transaction signature not valid.",
+      "duplicate": "Transaction already broadcasted.",
+      "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
+      "bandwith": "Not enought bandwidth. Please try again later.",
+      "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
+      "tooBig": "Transaction too big to be submitted.",
+      "expiration": "Transaction expired. Please try again.",
+      "serverBusy": "Server busy.",
+      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
+    },
+    "totalVotes": "Total Votes"
+  },
+  "transactions": {
+    "title": "MY TRANSACTIONS",
+    "from": "From",
+    "to": "To",
+    "notFound": "No transactions found."
+  },
+  "transactionDetails": {
+    "title": "TRANSACTION",
+    "clipboard": {
+      "tronscanUrl": "Tronscan url for this transaction copied to the clipboard",
+      "publicKey": "מפתח ציבורי הועתק ללוח"
+    },
+    "hash": "בְּלִיל",
+    "status": "סטָטוּס",
+    "time": "זְמַן",
+    "block": "לַחסוֹם",
+    "frozenBalance": "מאזן קפוא",
+    "unfrozenBalance": "מאזן בלתי מאוזן",
+    "totalVotes": "סך הכל הצבעות",
+    "amount": "כמות",
+    "to": "ל",
+    "from": "מ",
+    "tokenName": "TOKEN NAME",
+    "unityValue": "ערך UNITY",
+    "totalSupply": "סך הכל",
+    "startTime": "שעת התחלה",
+    "endTime": "סוף זמן",
+    "description": "תיאור",
+    "votedAddress": "כתובת VOTED"
+  },
+  "transactionSuccess": {
+    "submitted": "תובלה שהוגשה לרשת!",
+    "success": "הַצלָחָה!"
+  },
+  "votes": {
+    "title": "VOTES",
+    "totalVotes": "סך הכל הצבעות",
+    "votesAvailable": "הקולות זמינים",
+    "search": "לחפש",
+    "error": "אופס, משהו לא נטען כהלכה. נסה לטעון מחדש"
+  },
+  "scanPayment": {
+    "scan": "לִסְרוֹק",
+    "error": {
+      "receiver": "כתובת המקלט אינה חוקית",
+      "token": "האסימון אינו חוקי",
+      "amount": "הסכום אינו חוקי",
+      "description": "תיאור ארוך מדי",
+      "code": "קוד התשלום אינו חוקי. אנא, סרוק אחד חוקי"
+    }
+  },
+  "makePayment": {
+    "pay": "לְשַׁלֵם",
+    "confirm": "אשר תשלום",
+    "error": {
+      "receiver": "המקלט שווה למבקש",
+      "token": "לחשבון זה אין אסימון עבור עסקה זו",
+      "amount": "לחשבון זה אין מספיק איזון.",
+      "description": "אין תיאור זמין"
+    }
+  },
+  "buildPayment": {
+    "generate": "צור בקשה",
+    "selectCurrency": "בחר את מטבע ההתייחסות",
+    "error": {
+      "currency": "לא הצלחנו לטעון את מחירי המטבעות האחרים. השתמש ב- TRX כנקודת התייחסות"
+    }
+  },
+  "requestPayment": {
+    "title": "בקשת תשלום"
+  },
+  "newAccount": {
+    "title": "יצירת חשבון",
+    "placeholder": "החשבון היקר שלי",
+    "success": {
+      "title": "החשבון החדש נוצר בהצלחה",
+      "message": "באפשרותך לערוך את השם בפנקס הכתובות שלך"
+    },
+    "failure": {
+      "title": "אזהרה על חשבון חדש",
+      "message": "כדי להוסיף חשבון חדש, צריכה להיות לך לפחות עסקה אחת בחשבון האחרון שלך."
+    }
+  }
+}

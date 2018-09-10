@@ -1,0 +1,502 @@
+{
+  "relativeTime": {
+    "future": "%s で",
+    "past": "%s 前",
+    "s": "数秒",
+    "ss": "%d 秒",
+    "m": "分",
+    "mm": "%d 分",
+    "h": "1 時間",
+    "hh": "%d 時間",
+    "d": "1 日",
+    "dd": "%d 日",
+    "M": "1 ヶ月",
+    "MM": "%d ヶ月",
+    "y": "1 年",
+    "yy": "%d 年"
+  },
+  "success": "成功",
+  "warning": "警告",
+  "cancel": "キャンセル",
+  "address": "住所",
+  "ok": "Ok",
+  "actionModalTitle": "いかかですか",
+  "account": "アカウント",
+  "restore": "リストア",
+  "error": {
+    "default": "問題が起こりました。その後もう一度お試しください。エラーが発生した場合、ネットワーク設定を確認してください。",
+    "buildingTransaction": "トランザクションの作成中にエラーが発生しました。再度実行してください。",
+    "gettingTransaction": "トランザクション取得中のエラーです。",
+    "clipboardCopied": "コピー実行に問題が発生しました。",
+    "hideAccount": "アカウントの削除が間違っていました。もう一度お試しください。"
+  },
+  "tronPower": "TRON パワー",
+  "trxPrice": "TRX 価格",
+  "confirmed": "確認しました。",
+  "unconfirmed": "未確認",
+  "copyAddress": "アドレスのコピー",
+  "transactionType": {
+    "transfer": "転送",
+    "transferAsset": "資産の転送",
+    "freeze": "凍結",
+    "unfreeze": "凍結解除します。",
+    "vote": "投票",
+    "participate": "参加",
+    "create": "作成",
+    "undefined": "未定義タイプ"
+  },
+  "close": "閉じる",
+  "ends": "終了",
+  "clear": "クリア",
+  "allIn": "オールイン",
+  "skip": "スキップ",
+  "privateKey": "秘密鍵",
+  "balance": {
+    "title": "アカウント",
+    "error": {
+      "loadingData": "データの読み込み中にエラーが発生しました。",
+      "savingCurrency": "希望の通貨保存中にエラー"
+    },
+    "chooseCurrency": "ご希望の通貨を選択してください。",
+    "confirmSeed": "12 種の言葉を確認する後、タップしてください。",
+    "bandwidth": "バンド幅",
+    "tokens": "トークン",
+    "holdings": "・ ホールディングス"
+  },
+  "hideAccount": "このアカウントを削除しようとしています。後で設定で復元することができます",
+  "components": {
+    "share": {
+      "title": "TronWallet アドレスをシェア",
+      "message": "これが私の TronWallet アドレス:\n\n {{address}}\n\n先端: コピーした後は送信画面に特殊なボタンが表示されます。アドレスを TronWallet アプリ内に貼り付けることができます。",
+      "dialogTitle": "共有 オプション:"
+    },
+    "QRScanner": {
+      "title": "アドレス スキャナー",
+      "scan": "スキャン",
+      "explanation": "ターゲット ユーザーを確認するために QRコードをスキャンして下さい。",
+      "permissionMessage": "公開キーをスキャンするには、アプリはカメラにアクセスするための許可が必要です。"
+    },
+    "vote": {
+      "enterVote": "投票値を入力して下さい",
+      "votesRemaining": "残りの投票",
+      "setVote": "投票を設定",
+      "moreVotes": "投票数を高める為にはより多くのTRXを固定、又はフリーズして下さい。",
+      "confirmVotes": "票の確認",
+      "yourVotes": "あなたの投票",
+      "myVotes": "自分の投票",
+      "confirm": "確認",
+      "freeze": "凍結",
+      "totalVotes": "利用可能な総投票数:",
+      "delete": "削除",
+      "set": "セット",
+      "freezeOrLower": "十分な凍結 TRX がありません。今以上の TRX を凍結するか投票額を下げて下さい",
+      "freezeToContinue": "十分な凍結 TRX がありません。今以上の TRX を凍結するか投票額を下げてください"
+    }
+  },
+  "firstTime": {
+    "button": {
+      "create": "財布 作成",
+      "restore": "財布 復元"
+    }
+  },
+  "addressBook": {
+    "shared": {
+      "add": "追加",
+      "edit": "編集",
+      "delete": "削除",
+      "send": "送信"
+    },
+    "contacts": {
+      "delete": {
+        "title": "連絡先を削除",
+        "message": "この連絡先の削除を確認して下さい。",
+        "cancelButton": "キャンセル",
+        "okButton": "OK"
+      },
+      "empty": "アドレス帳が空です。下のボタンを使用して新しい連絡先を作ってください。",
+      "loadError": "連絡先の読み込みに問題が発生しました。もう一度やり直してください。",
+      "addContact": "コンタクトを追加",
+      "addToContacts": "コンタクトへの追加"
+    },
+    "form": {
+      "generalError": "このフォームを送信するのに問題が発生しました。管理者に連絡してください。",
+      "nameError": "名フィールドは、最大32 文字を含めることが可能です。文字、数字、空白文字だけを受け付けます。",
+      "addressError": "アドレスに問題が発生しました。再度確認して下さい。",
+      "uniqueAddressError": "キーがユニークである事に確認して下さい。別のアドレスを選択してください。",
+      "uniqueAliasError": "アドレス帳内の名前はユニークである事に確認して下さい。別のを選択して下さい。",
+      "name": "名",
+      "address": "アドレス"
+    }
+  },
+  "importWallet": {
+    "title": "インポートウォレット",
+    "message": "あなたの秘密鍵とあなたの財布のアドレスがあればここでそれを回復することができますが、TronWalletはニーモニックで主に動作することを覚えておいてください。この回復方法は、アプリケーション内の一部の機能を無効にします。",
+    "button": "インポート",
+    "error": {
+      "privateKey": "秘密鍵が無効または不完全"
+    }
+  },
+  "freeze": {
+    "title": "凍結",
+    "unfreeze": {
+      "title": "凍結 解除",
+      "inThreeDays": "3 日後、TRX を解除することができます。",
+      "inXMinutes": "{{minutes}} 分で、TRX を解除することができます。",
+      "inXHours": "{{hours}} 時間で、TRX を解除することができます。",
+      "inXDays": "{{days}} 日で、TRX を解除することができます。",
+      "now": "TRX を解除することができます。"
+    },
+    "error": {
+      "minimumAmount": "解除トランザクションの最小量は 1 です。",
+      "insufficientBalance": "TRX 残高不足",
+      "roundNumbers": "実数だけ凍結することができます"
+    },
+    "amount": "数 凍結",
+    "balance": "バランス"
+  },
+  "getVault": {
+    "notInstalled": "Tron 保管庫は、トランザクションを続行する為に必要不可欠です。携帯電話にインストールして下さい。",
+    "downloadHere": "ここでダウンロードすることができます。"
+  },
+  "market": {
+    "time": {
+      "hour": "1 H",
+      "day": "1 D",
+      "week": "1 W",
+      "month": "1 M",
+      "all": "すべての"
+    },
+    "highest": "最高",
+    "lowest": "最低",
+    "volume": "24 H のボリューム",
+    "cap": "マーケット総額",
+    "supply": "循環供給"
+  },
+  "participate": {
+    "title": "参加",
+    "featured": "特集",
+    "button": {
+      "confirm": "確認",
+      "moreInfo": "情報 インフォ",
+      "buyNow": "今すぐ購入"
+    },
+    "error": {
+      "insufficientBalance": "参加するのに十分な資金（TRX）がありません。",
+      "insufficientTrx": {
+        "title": "少なくとも1つのTRX価値 {{token}}を購入する必要があり{{token}} 。",
+        "message": "現在は {{amount}}しか買っていません。"
+      }
+    },
+    "warning": "あなたは多くの {{token}}を買うのに十分なTRXを持っていません",
+    "amountToBuy": "購入する金額",
+    "pricePerToken": "TOKEN当たりの価格",
+    "tokenDescription": "TOKEN DESCRIPTION",
+    "tokenInfo": "TOKEN INFO",
+    "token": "トークン",
+    "tokens": "TOKENS",
+    "frozen": "フローズン",
+    "percentage": "PERCENTAGE",
+    "issued": "発行済み",
+    "totalSupply": "総供給量",
+    "startTime": "始まる時間",
+    "endTime": "終了時間",
+    "description": "DESCRIPTION",
+    "transaction": "トランザクション",
+    "ownerAddress": "OWNER ADDRESS",
+    "trxNum": "TRX NUM",
+    "num": "NUM",
+    "block": "ブロック"
+  },
+  "pin": {
+    "title": "セキュリティーチェック",
+    "enter": "PINを入力",
+    "new": "新しいPINを入力してください",
+    "reenter": "PINの再入力"
+  },
+  "receive": {
+    "title": "受信",
+    "clipboardCopied": "クリップボードにコピーされました",
+    "button": {
+      "copy": "コピー",
+      "share": "シェア"
+    },
+    "tabs": {
+      "share": "シェア",
+      "request": "要求"
+    }
+  },
+  "rewards": {
+    "title": "報酬",
+    "earned": "あなたが獲得した"
+  },
+  "seed": {
+    "confirm": {
+      "title": "確認シード",
+      "error": {
+        "title": "間違った組み合わせ",
+        "message": "選択した単語が一致しません。正しい順序で単語を書き留めてください。"
+      },
+      "success": "ウォレットは正常に確認されました",
+      "explanation": "正しい順序で以下の単語を選択して、あなたの秘密のフレーズを確認してください。",
+      "button": {
+        "reset": "リセットワード",
+        "confirm": "確認シード"
+      }
+    },
+    "create": {
+      "title": "CREATE SEED",
+      "titleConfirm": "ウォレットシードを確認する",
+      "error": "おっと、問題があります。アプリケーションを再起動してください。",
+      "generateNew": "これにより、完全に新しいウォレットが生成されます。",
+      "button": {
+        "written": "私はそれを書きました",
+        "newSeed": "新しい種を得る",
+        "later": "後で確認する"
+      }
+    },
+    "restore": {
+      "title": "RESTORE WALLET",
+      "explanation": "ウォレットを復元するには、ウォレットを初めて作成したときに書いたのと同じ12語を入力してください。別の一連の単語を入力すると、新しい空のウォレットが作成されます。",
+      "placeholder": "ここに12種の言葉を入力してください",
+      "success": "成功したウォレット！",
+      "warning": "シードを復元すると、このデバイスのすべてのデータが消去され、復元されたアカウントの情報がネットワークから取り出されます。",
+      "error": "おっとっと。あなたが入力した単語が有効なニーモニックの種ではないように見えます。入力ミスを確認して、もう一度やり直してください。",
+      "button": "リストア"
+    }
+  },
+  "send": {
+    "title": "SEND",
+    "error": {
+      "insufficientBalance": "バランスが不十分です。",
+      "gettingBalance": "バランスデータを取得中にエラーが発生しました",
+      "incompleteAddress": "アドレスは不完全または無効です。",
+      "invalidReceiver": "無効な受信者アドレス",
+      "selectBalance": "最初に天びんを選択してください",
+      "invalidAmount": "無効な金額"
+    },
+    "input": {
+      "token": "トークン",
+      "to": "に",
+      "amount": "量",
+      "description": "説明（オプション）"
+    },
+    "available": "利用可能な",
+    "chooseToken": "下のトークンを選択してください。",
+    "minimumAmount": "送信トランザクションの最小金額は0.000001です。"
+  },
+  "settings": {
+    "title": "設定",
+    "sectionTitles": {
+      "wallet": "財布",
+      "security": "セキュリティ",
+      "notification": "通知とIDIOM",
+      "accounts": "会計管理"
+    },
+    "notifications": {
+      "title": "通知"
+    },
+    "network": {
+      "title": "ネットワーク",
+      "modal": {
+        "title": "ネットワーク",
+        "explanation": "このオプションを使用すると、ニーズや好みに適したノードを選択できます。間違ったIPがあなたのウォレット内の誤動作につながる可能性がある間、ノードIPを更新する際には注意が必要です。例：35.231.121.122:50051",
+        "error": {
+          "storage": "ローカルストレージからノードIPを取得中にエラーが発生しました",
+          "invalidIp": "有効なIPを入力してください",
+          "update": "ノードを更新中に何か問題が発生しましたip",
+          "reset": "ノードIPをリセットしている間に何か間違っています"
+        },
+        "success": {
+          "updated": "更新しました",
+          "updatedIp": "ノードIPが更新されました！",
+          "switchTest": "ノードIPをTestnetに切り替える",
+          "switchMain": "ノードをデフォルトのメインに切り替える",
+          "reset": "ノードIPがリセットされました！"
+        },
+        "placeholder": {
+          "loadingIp": "IPを読み込む",
+          "loadingPort": "ロードポート"
+        },
+        "button": {
+          "update": "更新と接続",
+          "reset": "リセット"
+        },
+        "mainNode": "メインノード",
+        "solidityNode": "Solidity Node",
+        "testNet": "TestNet"
+      }
+    },
+    "backup": {
+      "title": "バックアップウォレット"
+    },
+    "restore": {
+      "title": "ウォレットを復元する"
+    },
+    "reset": {
+      "title": "ウォレットをリセット",
+      "warning": "警告：この操作は、あなたの12の秘密の単語を含むすべての保存されたデータを消去します。秘密を保存していない場合は、続行する前にそれを行ってください。",
+      "button": "はい、私はそれを理解しています"
+    },
+    "pin": {
+      "title": "ピンを変える",
+      "success": "ピンは正常に変更されました！"
+    },
+    "language": {
+      "title": "言語",
+      "choose": "下の言語を選択してください：",
+      "success": {
+        "title": "言語が {{language}}変更されました",
+        "description": "ただし、変更を有効にするにはアプリを再起動する必要があります。今すぐやりたいですか？"
+      },
+      "button": {
+        "confirm": "はい、今すぐ再起動してください！",
+        "cancel": "いいえ、後でやります"
+      },
+      "error": "優先言語の保存中にエラー"
+    },
+    "token": {
+      "title": "トークンフィルター",
+      "search": "検索トークン",
+      "confirm": "セーブ",
+      "noResult": "結果がありません..."
+    },
+    "about": {
+      "title": "約",
+      "description": "TronWalletは、React Nativeで構築されたTRONネットワーク用の完全に分散されたオープンソースのP2P Crypto Walletです。それを使用すると、トークンを送受信したり、スーパー代表に投票したり、トークンセールに参加したり、残高や取引などを追跡することができます。下のリンクをタップして、使い方の詳細なチュートリアルをご覧ください。",
+      "tutorial": "チュートリアル"
+    },
+    "accepts": {
+      "title": "誰がTRXを受け入れますか？"
+    },
+    "accounts": {
+      "title": "アカウント",
+      "search": "アカウントの検索",
+      "restoreAccounts": "アカウントの復元",
+      "noAccounts": "復元するアカウントがありません"
+    },
+    "partners": "パートナー",
+    "askPin": "常にPINを尋ねる"
+  },
+  "submitTransaction": {
+    "title": "取引の詳細",
+    "notification": "あなたは {{address}}からの取引を受け取りました",
+    "notificationPayment": "あなたは {{address}}からの支払いを受け取りました",
+    "data": "データ",
+    "time": "時間",
+    "button": {
+      "tryAgain": "再試行する",
+      "submit": "送信依頼"
+    },
+    "disconnectedMessage": "あなたは切断されているようです。取引を進める前に、インターネットに再接続してください。",
+    "dic": {
+      "contractType": "取引タイプ",
+      "ownerAddress": "から",
+      "toAddress": "に",
+      "participateAssetIssueContract": "参加する",
+      "transferAssetContract": "転送",
+      "transferContract": "転送",
+      "unfreezeBalanceContract": "不凍液",
+      "freezeBalanceContract": "フリーズ",
+      "assetIssueContract": "作成する",
+      "voteWitnessContract": "投票",
+      "frozenDuration": "期間",
+      "frozenBalance": "合計するフリーズ"
+    },
+    "errorDic": {
+      "contractValidate": "取引データが無効です。後でもう一度お試しください。",
+      "signature": "トランザクション署名が無効です。",
+      "duplicate": "すでに放送されている取引。",
+      "contractValidateCee": "取引データが無効です（CEE）。後でもう一度お試しください。",
+      "bandwith": "帯域幅が足りません。後でもう一度お試しください。",
+      "contractValidateTapos": "トランザクションデータが無効です（TAPOS）。後でもう一度お試しください。",
+      "tooBig": "取引を提出するには大きすぎます。",
+      "expiration": "トランザクションは期限切れです。もう一度お試しください。",
+      "serverBusy": "サーバービジー状態。",
+      "resource": "帯域幅またはバランスが不十分です。凍ったTRXが必要かもしれません。"
+    },
+    "totalVotes": "総投票数"
+  },
+  "transactions": {
+    "title": "私の取引",
+    "from": "から",
+    "to": "に",
+    "notFound": "トランザクションは見つかりませんでした。"
+  },
+  "transactionDetails": {
+    "title": "トランザクション",
+    "clipboard": {
+      "tronscanUrl": "クリップボードにコピーされたこのトランザクションのTronscanのURL",
+      "publicKey": "クリップボードにコピーされた公開鍵"
+    },
+    "hash": "ハッシュ",
+    "status": "状態",
+    "time": "時間",
+    "block": "ブロック",
+    "frozenBalance": "冷蔵バランス",
+    "unfrozenBalance": "未凍結残高",
+    "totalVotes": "総投票数",
+    "amount": "量",
+    "to": "に",
+    "from": "から",
+    "tokenName": "東京名",
+    "unityValue": "ユニティバリュー",
+    "totalSupply": "総供給量",
+    "startTime": "始まる時間",
+    "endTime": "終了時間",
+    "description": "DESCRIPTION",
+    "votedAddress": "投票した住所"
+  },
+  "transactionSuccess": {
+    "submitted": "TRANSACTIONがネットワークに送信されました！",
+    "success": "成功！"
+  },
+  "votes": {
+    "title": "投票",
+    "totalVotes": "総投票数",
+    "votesAvailable": "投票可能",
+    "search": "サーチ",
+    "error": "おっと、何かが正しく読み込まれませんでした。再読み込みを試みる"
+  },
+  "scanPayment": {
+    "scan": "スキャン",
+    "error": {
+      "receiver": "受信者のアドレスが無効です",
+      "token": "トークンは無効です",
+      "amount": "金額が無効です",
+      "description": "説明が長すぎます",
+      "code": "支払いコードが無効です。有効なものをスキャンしてください"
+    }
+  },
+  "makePayment": {
+    "pay": "支払う",
+    "confirm": "お支払いを確認する",
+    "error": {
+      "receiver": "受信者はリクエスタと等しい",
+      "token": "このアカウントにはこの取引のトークンがありません",
+      "amount": "このアカウントには十分な残高がありません。",
+      "description": "説明はありません"
+    }
+  },
+  "buildPayment": {
+    "generate": "生成要求",
+    "selectCurrency": "参照通貨を選択する",
+    "error": {
+      "currency": "我々は他の通貨の価格をロードすることができませんでした。 TRXを参考にしてください"
+    }
+  },
+  "requestPayment": {
+    "title": "支払いの請求"
+  },
+  "newAccount": {
+    "title": "アカウント作成",
+    "placeholder": "私の貴重な記述",
+    "success": {
+      "title": "新しいアカウントが正常に作成されました",
+      "message": "あなたのアドレス帳の名前を編集することができます"
+    },
+    "failure": {
+      "title": "新しいアカウントの警告",
+      "message": "新しいアカウントを追加するには、最後のアカウントに少なくとも1つの取引が必要です。"
+    }
+  }
+}

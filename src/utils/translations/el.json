@@ -1,0 +1,502 @@
+{
+  "relativeTime": {
+    "future": "in %s",
+    "past": "%s ago",
+    "s": "a few seconds",
+    "ss": "%d seconds",
+    "m": "a minute",
+    "mm": "%d minutes",
+    "h": "an hour",
+    "hh": "%d hours",
+    "d": "a day",
+    "dd": "%d days",
+    "M": "a month",
+    "MM": "%d months",
+    "y": "a year",
+    "yy": "%d years"
+  },
+  "success": "Success",
+  "warning": "Warning",
+  "cancel": "Cancel",
+  "address": "Διεύθυνση",
+  "ok": "OK",
+  "actionModalTitle": "Would you like to",
+  "account": "λογαριασμός",
+  "restore": "Επαναφέρω",
+  "error": {
+    "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
+    "buildingTransaction": "Error while building transaction, try again.",
+    "gettingTransaction": "Error while getting transaction.",
+    "clipboardCopied": "Something wrong while copying",
+    "hideAccount": "Κάτι πήγε στραβά κατά τη διαγραφή λογαριασμού, προσπαθήστε ξανά '"
+  },
+  "tronPower": "TRON POWER",
+  "trxPrice": "TRX PRICE",
+  "confirmed": "Confirmed",
+  "unconfirmed": "Unconfirmed",
+  "copyAddress": "COPY ADDRESS",
+  "transactionType": {
+    "transfer": "Transfer",
+    "transferAsset": "Transfer Asset",
+    "freeze": "Freeze",
+    "unfreeze": "Unfreeze",
+    "vote": "Vote",
+    "participate": "Participate",
+    "create": "Create",
+    "undefined": "Undefined Type"
+  },
+  "close": "Close",
+  "ends": "Ends",
+  "clear": "Clear",
+  "allIn": "All In",
+  "skip": "Skip",
+  "privateKey": "Ιδιωτικό κλειδί",
+  "balance": {
+    "title": "ACCOUNTS",
+    "error": {
+      "loadingData": "An error occured while loading the data.",
+      "savingCurrency": "Error saving preferred currency"
+    },
+    "chooseCurrency": "Please, choose your preferred currency.",
+    "confirmSeed": "Please tap to confirm your 12 seed words",
+    "bandwidth": "ΕΥΡΟΣ ΖΩΝΗΣ",
+    "tokens": "TOKENS",
+    "holdings": "HOLDINGS"
+  },
+  "hideAccount": "Πρόκειται να καταργήσετε αυτόν τον λογαριασμό. Μπορείτε να το επαναφέρετε αργότερα στις ρυθμίσεις",
+  "components": {
+    "share": {
+      "title": "Share TronWallet address",
+      "message": "This is my TronWallet address:\n\n {{address}}\n\nTip: Once you have copied it you can paste it in your TronWallet app using the special button on Send screen.",
+      "dialogTitle": "Share using:"
+    },
+    "QRScanner": {
+      "title": "Address Scanner",
+      "scan": "Scan",
+      "explanation": "Scan the QRCode to identify the target user",
+      "permissionMessage": "To scan the public key the app needs your permission to access the camera."
+    },
+    "vote": {
+      "enterVote": "ENTER THE VOTE VALUE",
+      "votesRemaining": "VOTES REMAINING",
+      "setVote": "SET VOTE",
+      "moreVotes": "If you need more votes you can Freeze more TRX.",
+      "confirmVotes": "CONFIRM VOTES",
+      "yourVotes": "Your Votes",
+      "myVotes": "MY VOTES",
+      "confirm": "CONFIRM",
+      "freeze": "Freeze",
+      "totalVotes": "Total votes available:",
+      "delete": "DELETE",
+      "set": "SET",
+      "freezeOrLower": "You do not have enough frozen TRX. Freeze more TRX or lower the vote amount",
+      "freezeToContinue": "You do not have enough frozen TRX. Freeze more TRX to continue"
+    }
+  },
+  "firstTime": {
+    "button": {
+      "create": "CREATE WALLET",
+      "restore": "RESTORE WALLET"
+    }
+  },
+  "addressBook": {
+    "shared": {
+      "add": "ADD",
+      "edit": "EDIT",
+      "delete": "DELETE",
+      "send": "SEND"
+    },
+    "contacts": {
+      "delete": {
+        "title": "Delete Contact",
+        "message": "Do you really want to delete this contact?",
+        "cancelButton": "Cancel",
+        "okButton": "OK"
+      },
+      "empty": "Your address book is empty, add a new contact using the button below.",
+      "loadError": "There was a problem loading the contacts. Please try again.",
+      "addContact": "ADD CONTACT",
+      "addToContacts": "ADD TO CONTACTS"
+    },
+    "form": {
+      "generalError": "There was a problem submitting this form. Please contact an administrator.",
+      "nameError": "The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.",
+      "addressError": "Something isn't right with the address. Please double check for typos.",
+      "uniqueAddressError": "The key must be unique. Please choose a different address.",
+      "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
+      "name": "NAME",
+      "address": "ADDRESS"
+    }
+  },
+  "importWallet": {
+    "title": "ΠΟΡΤΟΦΟΛΙ ΕΙΣΑΓΩΓΗΣ",
+    "message": "Εάν έχετε το ιδιωτικό κλειδί και τη διεύθυνση του πορτοφολιού σας, μπορείτε να το ανακτήσετε εδώ, αλλά να έχετε κατά νου ότι το TronWallet λειτουργεί κυρίως με μνημονικά. Αυτή η μέθοδος αποκατάστασης θα απενεργοποιήσει ορισμένες λειτουργίες εντός της εφαρμογής.",
+    "button": "ΕΙΣΑΓΩΓΗ",
+    "error": {
+      "privateKey": "Το ιδιωτικό κλειδί είναι άκυρο ή ελλιπές"
+    }
+  },
+  "freeze": {
+    "title": "FREEZE",
+    "unfreeze": {
+      "title": "UNFREEZE",
+      "inThreeDays": "After a three day period you can unfreeze your TRX",
+      "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
+      "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
+      "inXDays": "You can unfreeze your TRX in {{days}} days.",
+      "now": "You can unfreeze your TRX now."
+    },
+    "error": {
+      "minimumAmount": "The minimum amount for any freeze transaction is 1.",
+      "insufficientBalance": "Insufficient TRX balance",
+      "roundNumbers": "Can only freeze round numbers"
+    },
+    "amount": "FREEZE AMOUNT",
+    "balance": "Balance"
+  },
+  "getVault": {
+    "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
+    "downloadHere": "You can download it here"
+  },
+  "market": {
+    "time": {
+      "hour": "1H",
+      "day": "1D",
+      "week": "1W",
+      "month": "1M",
+      "all": "ALL"
+    },
+    "highest": "HIGHEST",
+    "lowest": "LOWEST",
+    "volume": "VOLUME 24H",
+    "cap": "MARKET CAP",
+    "supply": "CIRCULATING SUPPLY"
+  },
+  "participate": {
+    "title": "PARTICIPATE",
+    "featured": "FEATURED",
+    "button": {
+      "confirm": "CONFIRM",
+      "moreInfo": "MORE INFO",
+      "buyNow": "BUY NOW"
+    },
+    "error": {
+      "insufficientBalance": "Not enough funds (TRX) to participate.",
+      "insufficientTrx": {
+        "title": "You need to buy at least one TRX worth of {{token}}.",
+        "message": "Currently you are buying only {{amount}}."
+      }
+    },
+    "warning": "You don't have enough TRX to buy that many {{token}}",
+    "amountToBuy": "AMOUNT TO BUY",
+    "pricePerToken": "PRICE PER TOKEN",
+    "tokenDescription": "TOKEN DESCRIPTION",
+    "tokenInfo": "TOKEN INFO",
+    "token": "TOKEN",
+    "tokens": "TOKENS",
+    "frozen": "FROZEN",
+    "percentage": "PERCENTAGE",
+    "issued": "ISSUED",
+    "totalSupply": "TOTAL SUPPLY",
+    "startTime": "START TIME",
+    "endTime": "END TIME",
+    "description": "DESCRIPTION",
+    "transaction": "TRANSACTION",
+    "ownerAddress": "OWNER ADDRESS",
+    "trxNum": "TRX NUM",
+    "num": "NUM",
+    "block": "BLOCK"
+  },
+  "pin": {
+    "title": "SECURITY CHECK",
+    "enter": "Enter PIN",
+    "new": "Enter New PIN",
+    "reenter": "Re-Enter PIN"
+  },
+  "receive": {
+    "title": "RECEIVE",
+    "clipboardCopied": "Copied to clipboard",
+    "button": {
+      "copy": "Copy",
+      "share": "Share"
+    },
+    "tabs": {
+      "share": "SHARE",
+      "request": "REQUEST"
+    }
+  },
+  "rewards": {
+    "title": "REWARDS",
+    "earned": "You have earned"
+  },
+  "seed": {
+    "confirm": {
+      "title": "CONFIRM SEED",
+      "error": {
+        "title": "Wrong Combination",
+        "message": "Selected words don't match. Make sure you wrote the words in the correct order."
+      },
+      "success": "Wallet successfully confirmed",
+      "explanation": "Select the words below in the right order to confirm your secret phrase.",
+      "button": {
+        "reset": "RESET WORDS",
+        "confirm": "CONFIRM SEED"
+      }
+    },
+    "create": {
+      "title": "CREATE SEED",
+      "titleConfirm": "CONFIRM WALLET SEED",
+      "error": "Oops, we have a problem. Please restart the application.",
+      "generateNew": "This will generate a completely new wallet.",
+      "button": {
+        "written": "I'VE WRITTEN IT DOWN",
+        "newSeed": "GET NEW SEED",
+        "later": "Confirm later"
+      }
+    },
+    "restore": {
+      "title": "RESTORE WALLET",
+      "explanation": "Για να επαναφέρετε το πορτοφόλι σας, δώστε τις ίδιες 12 λέξεις που γράψατε σε χαρτί όταν δημιουργήσατε το πορτοφόλι σας για πρώτη φορά. Αν εισάγετε μια διαφορετική ακολουθία λέξεων, θα δημιουργηθεί ένα νέο κενό πορτοφόλι.",
+      "placeholder": "Παρακαλώ πληκτρολογήστε εδώ τις 12 λέξεις σπόρων σας",
+      "success": "Το πορτοφόλι αποκαταστάθηκε με επιτυχία!",
+      "warning": "Η επαναφορά σπόρων θα διαγράψει όλα τα δεδομένα αυτής της συσκευής και θα τραβήξει πληροφορίες από το δίκτυο για τον αποκατεστημένο λογαριασμό.",
+      "error": "Ωχ. Φαίνεται ότι οι λέξεις που πληκτρολογήσατε δεν είναι έγκυροι μνημονικοί σπόροι. Ελέγξτε για τυπογραφικό λάθος και προσπαθήστε ξανά.",
+      "button": "ΕΠΑΝΑΦΕΡΩ"
+    }
+  },
+  "send": {
+    "title": "ΣΤΕΙΛΕΤΕ",
+    "error": {
+      "insufficientBalance": "Δεν υπάρχει αρκετή ισορροπία.",
+      "gettingBalance": "Σφάλμα κατά τη λήψη δεδομένων ισοζυγίου",
+      "incompleteAddress": "Η διεύθυνση είναι είτε ατελής είτε άκυρη.",
+      "invalidReceiver": "Μη έγκυρη διεύθυνση παραλήπτη",
+      "selectBalance": "Επιλέξτε πρώτα ένα υπόλοιπο",
+      "invalidAmount": "Μη έγκυρο ποσό"
+    },
+    "input": {
+      "token": "ΕΝΔΕΙΞΗ",
+      "to": "ΠΡΟΣ ΤΗΝ",
+      "amount": "ΠΟΣΟ",
+      "description": "ΠΕΡΙΓΡΑΦΗ (ΠΡΟΑΙΡΕΤΙΚΗ)"
+    },
+    "available": "διαθέσιμος",
+    "chooseToken": "Παρακαλώ επιλέξτε ένα κουπόνι παρακάτω.",
+    "minimumAmount": "Το ελάχιστο ποσό για οποιαδήποτε συναλλαγή αποστολής είναι 0.000001."
+  },
+  "settings": {
+    "title": "ΡΥΘΜΙΣΕΙΣ",
+    "sectionTitles": {
+      "wallet": "ΠΟΡΤΟΦΟΛΙ",
+      "security": "ΑΣΦΑΛΕΙΑ",
+      "notification": "ΚΟΙΝΟΠΟΙΗΣΕΙΣ ΚΑΙ ΙΔΙΟΜ",
+      "accounts": "ΔΙΑΧΕΙΡΙΣΗ ΛΟΓΑΡΙΑΣΜΩΝ"
+    },
+    "notifications": {
+      "title": "Ειδοποιήσεις"
+    },
+    "network": {
+      "title": "Δίκτυο",
+      "modal": {
+        "title": "ΔΙΚΤΥΟ",
+        "explanation": "Με αυτή την επιλογή μπορείτε να επιλέξετε τον κόμβο που θα ταιριάζει καλύτερα στις ανάγκες και τις προτιμήσεις σας. Προσέξτε να είστε προσεκτικοί κατά την ενημέρωση του IP κόμβου ενώ το λάθος IP μπορεί να οδηγήσει σε δυσλειτουργίες στο πορτοφόλι σας. Παράδειγμα: 35.231.121.122:50051",
+        "error": {
+          "storage": "Σφάλμα κατά τη λήψη του κόμβου ip από το τοπικό αποθηκευτικό χώρο",
+          "invalidIp": "Καταχωρίστε μια έγκυρη διεύθυνση IP",
+          "update": "Κάτι πήγε στραβά κατά την ενημέρωση των κόμβων ip",
+          "reset": "Κάτι λάθος κατά την επανατοποθέτηση του κόμβου ip"
+        },
+        "success": {
+          "updated": "ΕΠΙΚΑΙΡΟΠΟΙΗΜΕΝΟ",
+          "updatedIp": "Οι κόμβοι IP ενημερώθηκαν!",
+          "switchTest": "Αντιστοίχιση κόμβων IP στο Testnet",
+          "switchMain": "Ο κόμβος IP μεταβιβάζεται στο προεπιλεγμένο κύριο",
+          "reset": "Ο κόμβος IP επανατοποθετήθηκε!"
+        },
+        "placeholder": {
+          "loadingIp": "Φόρτωση IP",
+          "loadingPort": "Λιμάνι φόρτωσης"
+        },
+        "button": {
+          "update": "Ενημέρωση και σύνδεση",
+          "reset": "Επαναφορά"
+        },
+        "mainNode": "Κύριος Κόμβος",
+        "solidityNode": "Κόμβος σταθερότητας",
+        "testNet": "TestNet"
+      }
+    },
+    "backup": {
+      "title": "Πορτοφόλι δημιουργίας αντιγράφων ασφαλείας"
+    },
+    "restore": {
+      "title": "Επαναφορά Πορτοφολιού"
+    },
+    "reset": {
+      "title": "Επαναφορά Πορτοφολιού",
+      "warning": "Προειδοποίηση: Αυτή η ενέργεια θα διαγράψει όλα τα αποθηκευμένα δεδομένα, συμπεριλαμβανομένων των 12 μυστικών λέξεων. Εάν δεν αποθηκεύσατε το μυστικό σας, παρακαλούμε να το κάνετε πριν συνεχίσετε.",
+      "button": "Εντάξει, το καταλαβαίνω"
+    },
+    "pin": {
+      "title": "Αλλαγή ακίδας",
+      "success": "RESTORE WALLET"
+    },
+    "language": {
+      "title": "Language",
+      "choose": "Please, choose a Language below:",
+      "success": {
+        "title": "Language changed to {{language}}",
+        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now;"
+      },
+      "button": {
+        "confirm": "Yes, restart now!",
+        "cancel": "No, I'll do it later"
+      },
+      "error": "Error saving preferred language"
+    },
+    "token": {
+      "title": "Token Filter",
+      "search": "Search tokens",
+      "confirm": "Save",
+      "noResult": "No results..."
+    },
+    "about": {
+      "title": "About",
+      "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
+      "tutorial": "TUTORIAL"
+    },
+    "accepts": {
+      "title": "Who accepts TRX;"
+    },
+    "accounts": {
+      "title": "Λογαριασμοί",
+      "search": "Λογαριασμοί αναζήτησης",
+      "restoreAccounts": "Επαναφορά λογαριασμών",
+      "noAccounts": "Δεν υπάρχουν λογαριασμοί για επαναφορά"
+    },
+    "partners": "PARTNERS",
+    "askPin": "Πάντα να ρωτάτε το PIN"
+  },
+  "submitTransaction": {
+    "title": "TRANSACTION DETAILS",
+    "notification": "You have received a transaction from {{address}}",
+    "notificationPayment": "You have received a payment from {{address}}",
+    "data": "DATA",
+    "time": "TIME",
+    "button": {
+      "tryAgain": "Try again",
+      "submit": "SUBMIT TRANSACTION"
+    },
+    "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
+    "dic": {
+      "contractType": "Transaction Type",
+      "ownerAddress": "From",
+      "toAddress": "To",
+      "participateAssetIssueContract": "Participate",
+      "transferAssetContract": "Transfer",
+      "transferContract": "Transfer",
+      "unfreezeBalanceContract": "Unfreeze",
+      "freezeBalanceContract": "Freeze",
+      "assetIssueContract": "Create",
+      "voteWitnessContract": "Vote",
+      "frozenDuration": "Duration",
+      "frozenBalance": "Total to Freeze"
+    },
+    "errorDic": {
+      "contractValidate": "Transaction data not valid. Please try again later.",
+      "signature": "Transaction signature not valid.",
+      "duplicate": "Transaction already broadcasted.",
+      "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
+      "bandwith": "Δεν έχει ικανοποιηθεί το εύρος ζώνης. Παρακαλώ δοκιμάστε ξανά αργότερα.",
+      "contractValidateTapos": "Τα δεδομένα συναλλαγών δεν είναι έγκυρα (TAPOS). Παρακαλώ δοκιμάστε ξανά αργότερα.",
+      "tooBig": "Συναλλαγή πολύ μεγάλη για υποβολή.",
+      "expiration": "Η συναλλαγή έληξε. ΠΑΡΑΚΑΛΩ προσπαθησε ξανα.",
+      "serverBusy": "Ο διακομιστής είναι απασχολημένος.",
+      "resource": "Ανεπαρκές εύρος ζώνης ή ισορροπία. Μπορεί να χρειαστείτε κάποιο κατεψυγμένο TRX."
+    },
+    "totalVotes": "Σύνολο ψήφων"
+  },
+  "transactions": {
+    "title": "ΣΥΝΑΛΛΑΓΕΣ ΜΟΥ",
+    "from": "Από",
+    "to": "Προς την",
+    "notFound": "Δεν βρέθηκαν συναλλαγές."
+  },
+  "transactionDetails": {
+    "title": "ΣΥΝΑΛΛΑΓΗ",
+    "clipboard": {
+      "tronscanUrl": "Διεύθυνση URL Tronscan για την αντιγραφή αυτής της συναλλαγής στο πρόχειρο",
+      "publicKey": "Το δημόσιο κλειδί αντιγράφηκε στο πρόχειρο"
+    },
+    "hash": "ΧΑΣΙΣΙ",
+    "status": "ΚΑΤΑΣΤΑΣΗ",
+    "time": "ΧΡΟΝΟΣ",
+    "block": "ΟΙΚΟΔΟΜΙΚΟ ΤΕΤΡΑΓΩΝΟ",
+    "frozenBalance": "ΚΑΤΕΨΥΓΜΕΝΑ ΥΠΟΛΟΙΠΑ",
+    "unfrozenBalance": "ΑΦΑΙΡΕΣΤΟ ΙΣΟΖΥΓΙΟ",
+    "totalVotes": "ΣΥΝΟΛΟ ΨΗΦ",
+    "amount": "ΠΟΣΟ",
+    "to": "ΠΡΟΣ ΤΗΝ",
+    "from": "ΑΠΟ",
+    "tokenName": "TOKEN NAME",
+    "unityValue": "ΑΞΙΑ ΕΝΟΤΗΤΑΣ",
+    "totalSupply": "ΣΥΝΟΛΟ ΕΦΟΔΙΑΣΜΟΥ",
+    "startTime": "ΩΡΑ ΕΝΑΡΞΗΣ",
+    "endTime": "ΤΕΛΟΣ ΧΡΟΝΟΥ",
+    "description": "ΠΕΡΙΓΡΑΦΗ",
+    "votedAddress": "ΨΗΦΙΑΚΗ ΔΙΕΥΘΥΝΣΗ"
+  },
+  "transactionSuccess": {
+    "submitted": "ΣΥΝΑΛΛΑΓΕΣ ΠΟΥ ΥΠΟΒΑΛΛΟΝΤΑΙ ΣΤΟ ΔΙΚΤΥΟ!",
+    "success": "ΕΠΙΤΥΧΙΑ!"
+  },
+  "votes": {
+    "title": "ΨΗΦ",
+    "totalVotes": "ΣΥΝΟΛΟ ΨΗΦ",
+    "votesAvailable": "ΔΙΑΘΕΣΙΜΕΣ ΨΗΦΙΕΣ",
+    "search": "Ψάξιμο",
+    "error": "Ωχ, κάτι δεν φορτώθηκε σωστά. Προσπαθήστε να φορτώσετε ξανά"
+  },
+  "scanPayment": {
+    "scan": "ΣΑΡΩΣΗ",
+    "error": {
+      "receiver": "Η διεύθυνση του παραλήπτη είναι άκυρη",
+      "token": "Το Token δεν είναι έγκυρο",
+      "amount": "Το ποσό δεν είναι έγκυρο",
+      "description": "Η περιγραφή είναι πολύ μεγάλη",
+      "code": "Ο κωδικός πληρωμής είναι άκυρος. Παρακαλώ, σάρωση έγκυρου"
+    }
+  },
+  "makePayment": {
+    "pay": "ΠΛΗΡΩΜΗ",
+    "confirm": "ΕΠΙΒΕΒΑΙΩΣΗ ΠΛΗΡΩΜΗΣ",
+    "error": {
+      "receiver": "Ο δέκτης είναι ίσος με τον αιτούντα",
+      "token": "Αυτός ο λογαριασμός δεν διαθέτει το διακριτικό για αυτήν τη συναλλαγή",
+      "amount": "Αυτός ο λογαριασμός δεν έχει αρκετή ισορροπία.",
+      "description": "Δεν υπάρχει διαθέσιμη περιγραφή"
+    }
+  },
+  "buildPayment": {
+    "generate": "ΓΕΝΙΚΑ ΑΙΤΗΣΗ",
+    "selectCurrency": "Επιλέξτε το νόμισμα αναφοράς",
+    "error": {
+      "currency": "Δεν ήταν δυνατή η φόρτωση άλλων τιμών νομίσματος. Χρησιμοποιήστε το TRX ως αναφορά"
+    }
+  },
+  "requestPayment": {
+    "title": "ΑΙΤΗΣΗ ΠΛΗΡΩΜΗΣ"
+  },
+  "newAccount": {
+    "title": "Δημιουργία λογαριασμού",
+    "placeholder": "Ο πολύτιμος λογαριασμός μου",
+    "success": {
+      "title": "Ο νέος λογαριασμός δημιουργήθηκε με επιτυχία",
+      "message": "Μπορείτε να επεξεργαστείτε το όνομα στο βιβλίο διευθύνσεών σας"
+    },
+    "failure": {
+      "title": "Προειδοποίηση νέου λογαριασμού",
+      "message": "Για να προσθέσετε νέο λογαριασμό, θα πρέπει να έχετε τουλάχιστον μία συναλλαγή στον τελευταίο σας λογαριασμό."
+    }
+  }
+}

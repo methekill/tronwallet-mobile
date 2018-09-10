@@ -1,0 +1,502 @@
+{
+  "relativeTime": {
+    "future": "in %s",
+    "past": "%s ago",
+    "s": "a few seconds",
+    "ss": "%d seconds",
+    "m": "a minute",
+    "mm": "%d minutes",
+    "h": "an hour",
+    "hh": "%d hours",
+    "d": "a day",
+    "dd": "%d days",
+    "M": "a month",
+    "MM": "%d months",
+    "y": "a year",
+    "yy": "%d years"
+  },
+  "success": "Success",
+  "warning": "Warning",
+  "cancel": "Cancel",
+  "address": "adres",
+  "ok": "OK",
+  "actionModalTitle": "Would you like to",
+  "account": "rekening",
+  "restore": "herstel",
+  "error": {
+    "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
+    "buildingTransaction": "Error while building transaction, try again.",
+    "gettingTransaction": "Error while getting transaction.",
+    "clipboardCopied": "Something wrong while copying",
+    "hideAccount": "Iets het verkeerd geloop, rekening verwyder, probeer weer '"
+  },
+  "tronPower": "TRON POWER",
+  "trxPrice": "TRX PRICE",
+  "confirmed": "Confirmed",
+  "unconfirmed": "Unconfirmed",
+  "copyAddress": "COPY ADDRESS",
+  "transactionType": {
+    "transfer": "Transfer",
+    "transferAsset": "Transfer Asset",
+    "freeze": "Freeze",
+    "unfreeze": "Unfreeze",
+    "vote": "Vote",
+    "participate": "Participate",
+    "create": "Create",
+    "undefined": "Undefined Type"
+  },
+  "close": "Close",
+  "ends": "Ends",
+  "clear": "Clear",
+  "allIn": "All In",
+  "skip": "Skip",
+  "privateKey": "Privaat Sleutel",
+  "balance": {
+    "title": "ACCOUNTS",
+    "error": {
+      "loadingData": "An error occured while loading the data.",
+      "savingCurrency": "Error saving preferred currency"
+    },
+    "chooseCurrency": "Please, choose your preferred currency.",
+    "confirmSeed": "Please tap to confirm your 12 seed words",
+    "bandwidth": "BANDWYDTE",
+    "tokens": "TOKENS",
+    "holdings": "HOLDINGS"
+  },
+  "hideAccount": "Jy is op die punt om hierdie rekening te verwyder. U kan dit later in die instellings herstel",
+  "components": {
+    "share": {
+      "title": "Share TronWallet address",
+      "message": "This is my TronWallet address:\n\n {{address}}\n\nTip: Once you have copied it you can paste it in your TronWallet app using the special button on Send screen.",
+      "dialogTitle": "Share using:"
+    },
+    "QRScanner": {
+      "title": "Address Scanner",
+      "scan": "Scan",
+      "explanation": "Scan the QRCode to identify the target user",
+      "permissionMessage": "To scan the public key the app needs your permission to access the camera."
+    },
+    "vote": {
+      "enterVote": "ENTER THE VOTE VALUE",
+      "votesRemaining": "VOTES REMAINING",
+      "setVote": "SET VOTE",
+      "moreVotes": "If you need more votes you can Freeze more TRX.",
+      "confirmVotes": "CONFIRM VOTES",
+      "yourVotes": "Your Votes",
+      "myVotes": "MY VOTES",
+      "confirm": "CONFIRM",
+      "freeze": "Freeze",
+      "totalVotes": "Total votes available:",
+      "delete": "DELETE",
+      "set": "SET",
+      "freezeOrLower": "You do not have enough frozen TRX. Freeze more TRX or lower the vote amount",
+      "freezeToContinue": "You do not have enough frozen TRX. Freeze more TRX to continue"
+    }
+  },
+  "firstTime": {
+    "button": {
+      "create": "CREATE WALLET",
+      "restore": "RESTORE WALLET"
+    }
+  },
+  "addressBook": {
+    "shared": {
+      "add": "ADD",
+      "edit": "EDIT",
+      "delete": "DELETE",
+      "send": "SEND"
+    },
+    "contacts": {
+      "delete": {
+        "title": "Delete Contact",
+        "message": "Do you really want to delete this contact?",
+        "cancelButton": "Cancel",
+        "okButton": "OK"
+      },
+      "empty": "Your address book is empty, add a new contact using the button below.",
+      "loadError": "There was a problem loading the contacts. Please try again.",
+      "addContact": "ADD CONTACT",
+      "addToContacts": "ADD TO CONTACTS"
+    },
+    "form": {
+      "generalError": "There was a problem submitting this form. Please contact an administrator.",
+      "nameError": "The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.",
+      "addressError": "Something isn't right with the address. Please double check for typos.",
+      "uniqueAddressError": "The key must be unique. Please choose a different address.",
+      "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
+      "name": "NAME",
+      "address": "ADDRESS"
+    }
+  },
+  "importWallet": {
+    "title": "INVOERWALLET",
+    "message": "As u die privaat sleutel en adres van u beursie het, kan u dit herwin, maar onthou dat TronWallet hoofsaaklik met mnemonics bedryf word. Hierdie herstel metode sal sommige funksies in die App deaktiveer.",
+    "button": "IMPORT",
+    "error": {
+      "privateKey": "Privaat sleutel ongeldig of onvolledig"
+    }
+  },
+  "freeze": {
+    "title": "FREEZE",
+    "unfreeze": {
+      "title": "UNFREEZE",
+      "inThreeDays": "After a three day period you can unfreeze your TRX",
+      "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
+      "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
+      "inXDays": "You can unfreeze your TRX in {{days}} days.",
+      "now": "You can unfreeze your TRX now."
+    },
+    "error": {
+      "minimumAmount": "The minimum amount for any freeze transaction is 1.",
+      "insufficientBalance": "Insufficient TRX balance",
+      "roundNumbers": "Can only freeze round numbers"
+    },
+    "amount": "FREEZE AMOUNT",
+    "balance": "Balance"
+  },
+  "getVault": {
+    "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
+    "downloadHere": "You can download it here"
+  },
+  "market": {
+    "time": {
+      "hour": "1H",
+      "day": "1D",
+      "week": "1W",
+      "month": "Votes Remaining",
+      "all": "ALMAL"
+    },
+    "highest": "HOOGSTE",
+    "lowest": "LAAGSTE",
+    "volume": "VOLUME 24H",
+    "cap": "MARKKAPITALISASIE",
+    "supply": "OMSKRYWINGSVOORSIENING"
+  },
+  "participate": {
+    "title": "NEEM",
+    "featured": "NUWE",
+    "button": {
+      "confirm": "BEVESTIG",
+      "moreInfo": "MEER INLIGTING",
+      "buyNow": "KOOP NOU"
+    },
+    "error": {
+      "insufficientBalance": "Nie genoeg fondse (TRX) om deel te neem nie.",
+      "insufficientTrx": {
+        "title": "Jy moet ten minste een TRX-waarde van {{token}}.",
+        "message": "Tans koop jy slegs {{amount}}."
+      }
+    },
+    "warning": "Jy het nie genoeg TRX om soveel {{token}}te koop nie",
+    "amountToBuy": "BEDRAG OM TE KOOP",
+    "pricePerToken": "PRYS PER TOKEN",
+    "tokenDescription": "TOKEN BESKRYWING",
+    "tokenInfo": "TOKEN INFO",
+    "token": "TOKEN",
+    "tokens": "BONNEN",
+    "frozen": "BEVRORE",
+    "percentage": "PERSENTASIE",
+    "issued": "UITGEREIK",
+    "totalSupply": "TOTALE VOORSIENING",
+    "startTime": "BEGIN TYD",
+    "endTime": "EIND TYD",
+    "description": "BESKRYWING",
+    "transaction": "TRANSAKSIE",
+    "ownerAddress": "EIENAAR ADRES",
+    "trxNum": "TRX NUM",
+    "num": "NUM",
+    "block": "BLOCK"
+  },
+  "pin": {
+    "title": "SEKURITEIT CHECK",
+    "enter": "Voer PIN in",
+    "new": "Voer nuwe PIN in",
+    "reenter": "Voer PIN in"
+  },
+  "receive": {
+    "title": "ONTVANG",
+    "clipboardCopied": "Kopieer na knipbord",
+    "button": {
+      "copy": "kopie",
+      "share": "Deel"
+    },
+    "tabs": {
+      "share": "SHARE",
+      "request": "VERSOEK"
+    }
+  },
+  "rewards": {
+    "title": "REWARDS",
+    "earned": "Jy het verdien"
+  },
+  "seed": {
+    "confirm": {
+      "title": "BEVESTIG SEED",
+      "error": {
+        "title": "Verkeerde kombinasie",
+        "message": "Geselekteerde woorde stem nie ooreen nie. Maak seker dat jy die woorde in die korrekte volgorde geskryf het."
+      },
+      "success": "Wallet suksesvol bevestig",
+      "explanation": "Kies die onderstaande woorde in die regte volgorde om jou geheime frase te bevestig.",
+      "button": {
+        "reset": "RESET WORDS",
+        "confirm": "CONFIRM SEED"
+      }
+    },
+    "create": {
+      "title": "CREATE SEED",
+      "titleConfirm": "CONFIRM WALLET SEED",
+      "error": "Oops, we have a problem. Please restart the application.",
+      "generateNew": "This will generate a completely new wallet.",
+      "button": {
+        "written": "I'VE WRITTEN IT DOWN",
+        "newSeed": "GET NEW SEED",
+        "later": "Confirm later"
+      }
+    },
+    "restore": {
+      "title": "RESTORE WALLET",
+      "explanation": "To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
+      "placeholder": "Please, type your 12 seed words here",
+      "success": "Wallet restored with success!",
+      "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
+      "error": "Oops. Looks like the words you typed aren't a valid mnemonic seed. Check for a typo and try again.",
+      "button": "RESTORE"
+    }
+  },
+  "send": {
+    "title": "SEND",
+    "error": {
+      "insufficientBalance": "Not enough balance.",
+      "gettingBalance": "Error while getting balance data",
+      "incompleteAddress": "Address is either incomplete or invalid.",
+      "invalidReceiver": "Invalid receiver address",
+      "selectBalance": "Select a balance first",
+      "invalidAmount": "Invalid amount"
+    },
+    "input": {
+      "token": "TOKEN",
+      "to": "TO",
+      "amount": "AMOUNT",
+      "description": "DESCRIPTION (OPTIONAL)"
+    },
+    "available": "available",
+    "chooseToken": "Please, choose a token below.",
+    "minimumAmount": "The minimum amount for any send transaction is 0.000001."
+  },
+  "settings": {
+    "title": "SETTINGS",
+    "sectionTitles": {
+      "wallet": "WALLET",
+      "security": "SECURITY",
+      "notification": "NOTIFICATIONS AND IDIOM",
+      "accounts": "REKENINGEBESTUUR"
+    },
+    "notifications": {
+      "title": "Notifications"
+    },
+    "network": {
+      "title": "Network",
+      "modal": {
+        "title": "NETWORK",
+        "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
+        "error": {
+          "storage": "Error getting node ip from local storage",
+          "invalidIp": "Please put a valid IP",
+          "update": "Something went wrong while updating nodes ip",
+          "reset": "Something wrong while reseting node ip"
+        },
+        "success": {
+          "updated": "Updated",
+          "updatedIp": "Nodes IP updated!",
+          "switchTest": "Switched nodes IP to Testnet",
+          "switchMain": "Switched nodes IP to default main",
+          "reset": "Node IP reseted!"
+        },
+        "placeholder": {
+          "loadingIp": "Loading IP",
+          "loadingPort": "Loading Port"
+        },
+        "button": {
+          "update": "Werk en verbind",
+          "reset": "herstel"
+        },
+        "mainNode": "Hoofknooppunt",
+        "solidityNode": "Soliditeit Node",
+        "testNet": "TestNet"
+      }
+    },
+    "backup": {
+      "title": "Friends Wallet"
+    },
+    "restore": {
+      "title": "Herstel Wallet"
+    },
+    "reset": {
+      "title": "Herstel Wallet",
+      "warning": "Waarskuwing: Hierdie handeling sal alle gestoorde data, insluitend jou 12 geheime woorde, uitvee. As jy nie jou geheime gestoor het nie, doen dit asseblief voordat jy voortgaan.",
+      "button": "OK, ek verstaan ​​dit"
+    },
+    "pin": {
+      "title": "Verander Pin",
+      "success": "Pin suksesvol verander!"
+    },
+    "language": {
+      "title": "Taal",
+      "choose": "Kies asseblief 'n taal hieronder:",
+      "success": {
+        "title": "Taal verander na {{language}}",
+        "description": "Tog moet jy die program weer begin sodat die veranderinge in werking kan tree. Wil jy dit nou doen?"
+      },
+      "button": {
+        "confirm": "Ja, herbegin nou!",
+        "cancel": "Nee, ek sal dit later doen"
+      },
+      "error": "Kon nie voorkeurtaal spaar nie"
+    },
+    "token": {
+      "title": "Token Filter",
+      "search": "Soek tokens",
+      "confirm": "Save",
+      "noResult": "Geen resultate..."
+    },
+    "about": {
+      "title": "oor",
+      "description": "TronWallet is 'n open source, volledig gedesentraliseerde P2P Crypto Wallet vir TRON Network gebou met React Native. Daarmee kan jy tokens stuur en ontvang, stem op 'n Superverteenwoordiger, deelneem aan 'n tekenverkoop, hou jou saldo's en transaksies en nog baie meer by. Tik op die skakel hieronder vir 'n gedetailleerde handleiding oor hoe om dit te gebruik.",
+      "tutorial": "TUTORIAAL"
+    },
+    "accepts": {
+      "title": "Wie aanvaar TRX?"
+    },
+    "accounts": {
+      "title": "rekeninge",
+      "search": "Soek rekeninge",
+      "restoreAccounts": "Herstel rekeninge",
+      "noAccounts": "Geen rekeninge moet herstel word nie"
+    },
+    "partners": "PARTNERS",
+    "askPin": "Vra altyd PIN"
+  },
+  "submitTransaction": {
+    "title": "TRANSAKSIE DETAILS",
+    "notification": "Jy het 'n transaksie van {{address}}",
+    "notificationPayment": "U het 'n betaling van {{address}}",
+    "data": "DATA",
+    "time": "TYD",
+    "button": {
+      "tryAgain": "Probeer weer",
+      "submit": "INDIEN TRANSAKSIE"
+    },
+    "disconnectedMessage": "Dit blyk dat jy ontkoppel is. Skakel weer aan op die internet voordat u met die transaksie voortgaan.",
+    "dic": {
+      "contractType": "Transaksie Tipe",
+      "ownerAddress": "Van",
+      "toAddress": "om",
+      "participateAssetIssueContract": "deel te neem",
+      "transferAssetContract": "oordrag",
+      "transferContract": "oordrag",
+      "unfreezeBalanceContract": "unfreeze",
+      "freezeBalanceContract": "vries",
+      "assetIssueContract": "Skep",
+      "voteWitnessContract": "stem",
+      "frozenDuration": "duur",
+      "frozenBalance": "Totaal om te vries"
+    },
+    "errorDic": {
+      "contractValidate": "Transaksiedata is nie geldig nie. Probeer asseblief weer later.",
+      "signature": "Transaksie handtekening nie geldig nie.",
+      "duplicate": "Transaksie wat reeds uitgesaai is.",
+      "contractValidateCee": "Transaksie data nie geldig nie (CEE). Probeer asseblief weer later.",
+      "bandwith": "Nie genoeg bandwydte nie. Probeer asseblief weer later.",
+      "contractValidateTapos": "Transaksiedata is nie geldig nie (TAPOS). Probeer asseblief weer later.",
+      "tooBig": "Transaksie te groot om ingedien te word.",
+      "expiration": "Transaksie het verstryk. Probeer asseblief weer.",
+      "serverBusy": "Bediener besig.",
+      "resource": "Onvoldoende bandwydte of balans. Jy sal dalk gevriesde TRX nodig hê."
+    },
+    "totalVotes": "Totale stemme"
+  },
+  "transactions": {
+    "title": "MY TRANSAKSIES",
+    "from": "Van",
+    "to": "om",
+    "notFound": "Geen transaksies gevind nie."
+  },
+  "transactionDetails": {
+    "title": "TRANSAKSIE",
+    "clipboard": {
+      "tronscanUrl": "Tronscan url vir hierdie transaksie gekopieer na die knipbord",
+      "publicKey": "Publieke sleutel gekopieer na die knipbord"
+    },
+    "hash": "HASH",
+    "status": "STATUS",
+    "time": "TYD",
+    "block": "BLOCK",
+    "frozenBalance": "BEVRORE BALANS",
+    "unfrozenBalance": "ONVROUE BALANS",
+    "totalVotes": "TOTALE STEMME",
+    "amount": "BEDRAG",
+    "to": "AAN",
+    "from": "VAN",
+    "tokenName": "TOKEN NAAM",
+    "unityValue": "EENHEIDSWAARDE",
+    "totalSupply": "TOTALE VOORSIENING",
+    "startTime": "BEGIN TYD",
+    "endTime": "EIND TYD",
+    "description": "BESKRYWING",
+    "votedAddress": "VOTED ADRES"
+  },
+  "transactionSuccess": {
+    "submitted": "TRANSAKSIE AANGEBIED AAN NETWERK!",
+    "success": "SUKSES!"
+  },
+  "votes": {
+    "title": "STEMME",
+    "totalVotes": "TOTALE STEMME",
+    "votesAvailable": "STEMMINGS BESKIKBAAR",
+    "search": "Soek",
+    "error": "Oeps, iets het nie korrek gelaai nie. Probeer herlaai"
+  },
+  "scanPayment": {
+    "scan": "SCAN",
+    "error": {
+      "receiver": "Ontvanger adres ongeldig",
+      "token": "Token is nie geldig nie",
+      "amount": "Bedrag is nie geldig nie",
+      "description": "Beskrywing te lank",
+      "code": "Betalingskode ongeldig. Skandeer asseblief 'n geldige een"
+    }
+  },
+  "makePayment": {
+    "pay": "PAY",
+    "confirm": "BEVESTIG BETALING",
+    "error": {
+      "receiver": "Ontvanger is gelyk aan versoeker",
+      "token": "Hierdie rekening het nie die teken vir hierdie transaksie nie",
+      "amount": "Hierdie rekening het nie genoeg balans nie.",
+      "description": "Geen beskrywing beskikbaar nie"
+    }
+  },
+  "buildPayment": {
+    "generate": "GENERAAT VERSOEK",
+    "selectCurrency": "Kies die verwysingsvaluta",
+    "error": {
+      "currency": "Ons kon nie ander geldeenheidspryse laai nie. Gebruik asseblief TRX as verwysing"
+    }
+  },
+  "requestPayment": {
+    "title": "VERSOEK BETALING"
+  },
+  "newAccount": {
+    "title": "Rekeningskepping",
+    "placeholder": "My kosbare rekening",
+    "success": {
+      "title": "Nuwe rekening suksesvol geskep",
+      "message": "U kan die naam in u adresboek wysig"
+    },
+    "failure": {
+      "title": "Nuwe rekening waarskuwing",
+      "message": "Om 'n nuwe rekening by te voeg, moet jy ten minste een transaksie op jou laaste rekening hê."
+    }
+  }
+}
