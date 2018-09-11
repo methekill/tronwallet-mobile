@@ -387,6 +387,9 @@
       "tryAgain": "Prøv igjen",
       "submit": "SEND TRANSAKSJON"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "Det ser ut til at du er koblet fra. Koble til Internett igjen før du fortsetter med transaksjonen.",
     "dic": {
       "contractType": "Transaksjonstype",
