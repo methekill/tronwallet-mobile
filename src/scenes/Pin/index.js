@@ -6,6 +6,7 @@ import * as Animatable from 'react-native-animatable'
 import tl from '../../utils/i18n'
 import * as Utils from '../../components/Utils'
 import * as Elements from './elements'
+import { Colors } from '../../components/DesignSystem'
 
 class PinScene extends React.Component {
   state = {
@@ -160,13 +161,13 @@ class PinScene extends React.Component {
           <Elements.Key onPress={() => this._handleKeyInput(7)}>7</Elements.Key>
           <Elements.Key onPress={() => this._handleKeyInput(8)}>8</Elements.Key>
           <Elements.Key onPress={() => this._handleKeyInput(9)}>9</Elements.Key>
-          <Elements.Key />
+          <Elements.Key disabled noBorder />
           <Elements.Key onPress={() => this._handleKeyInput(0)}>0</Elements.Key>
           <Elements.Key
             onPress={this._handleDelete}
             onLongPress={this._handleClear}
           >
-            <Ionicons name='ios-backspace' size={24} color='#FFF' />
+            <Ionicons name='ios-backspace' size={24} color={Colors.secondaryText} />
           </Elements.Key>
         </Elements.KeyPad>
       </Utils.Container>
