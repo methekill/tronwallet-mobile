@@ -18,13 +18,17 @@
   "success": "성공",
   "warning": "알림",
   "cancel": "취소",
+  "address": "주소",
   "ok": "확인",
   "actionModalTitle": "원하는 항목을 선택하세요",
+  "account": "계정",
+  "restore": "복원",
   "error": {
-    "default": "이런 무언가 잘못 되었습니다. 잠시 후 다시 시도해보시기 바랍니다. 만약 오류가 지속된다면 네트워크 설정을 업데이트 하시기 바랍니다.",
-    "buildingTransaction": "전송 중 오류, 다시 시도해 주세요.",
+    "default": "문제가 발생한 것 같네요. 잠시 후 다시 시도해보시기 바랍니다. 오류가 지속된다면 네트워크 설정을 업데이트 하시기 바랍니다.",
+    "buildingTransaction": "트랜잭션 구성 중 에러가 발생했습니다, 다시 시도해 주세요.",
     "gettingTransaction": "트랜잭션 확인 과정에서 에러가 발생했습니다.",
-    "clipboardCopied": "복사 과정 중 문제가 발생했습니다"
+    "clipboardCopied": "복사 과정 중 문제가 발생했습니다",
+    "hideAccount": "계정을 삭제하는 과정에서 문제가 발생했습니다. 다시 시도해보세요"
   },
   "tronPower": "트론 파워",
   "trxPrice": "TRX 가격",
@@ -46,6 +50,7 @@
   "clear": "초기화",
   "allIn": "전액",
   "skip": "건너뛰기",
+  "privateKey": "개인키",
   "balance": {
     "title": "계정",
     "error": {
@@ -58,6 +63,7 @@
     "tokens": "토큰",
     "holdings": "보유량"
   },
+  "hideAccount": "이 계정을 제거하려고합니다. 나중에 설정 메뉴에서 복원할 수 있습니다.",
   "components": {
     "share": {
       "title": "TronWallet 주소 공유",
@@ -68,7 +74,7 @@
       "title": "주소 스캐너",
       "scan": "스캔",
       "explanation": "해당 사용자를 식별하려면 QR코드를 스캔하세요",
-      "permissionMessage": "공용키를 스캔하려면, 앱이 카메라에 접근하는 것을 허용해야 합니다."
+      "permissionMessage": "공개 키를 스캔하려면, 앱에서 카메라에 접근할 수 있게 허락해야 합니다."
     },
     "vote": {
       "enterVote": "투표수 입력",
@@ -122,15 +128,23 @@
       "address": "주소"
     }
   },
+  "importWallet": {
+    "title": "지갑 가져오기",
+    "message": "개인 키와 지갑 주소가 있으면 여기에서 복원할 수 있지만 TronWallet은 니모닉을 주로 사용한다는 점을 명심하십시오. 이 방법으로 복원하면 앱 내 일부 기능을 사용할 수 없을 것입니다.",
+    "button": "가져오기",
+    "error": {
+      "privateKey": "개인키가 유효하지 않거나 불완전합니다."
+    }
+  },
   "freeze": {
     "title": "동결",
     "unfreeze": {
       "title": "동결 해제",
-      "inThreeDays": "3일 후에 TRX를 동결 해제할 수 있습니다",
-      "inXMinutes": "{{minutes}} 분 뒤에 TRX를 동결 해제할 수 있습니다.",
-      "inXHours": "{{hours}} 시간 뒤에 TRX를 동결 해제할 수 있습니다.",
-      "inXDays": "{{days}} 일 뒤에 TRX를 동결 해제할 수 있습니다.",
-      "now": "지금 TRX를 동결 해제할 수 있습니다."
+      "inThreeDays": "3일 후에 TRX 동결을 해제할 수 있습니다",
+      "inXMinutes": "{{minutes}} 분 뒤에 TRX 동결을 해제할 수 있습니다.",
+      "inXHours": "{{hours}} 시간 뒤에 TRX 동결을 해제할 수 있습니다.",
+      "inXDays": "{{days}} 일 뒤에 TRX 동결을 해제할 수 있습니다.",
+      "now": "지금 TRX 동결을 해제할 수 있습니다."
     },
     "error": {
       "minimumAmount": "동결 트랜잭션 최소 수량은 1입니다.",
@@ -170,7 +184,7 @@
       "insufficientBalance": "토큰 구매 자금(TRX)이 충분하지 않습니다",
       "insufficientTrx": {
         "title": "최소한 1 TRX에 해당하는 {{token}}을 구매해야 합니다.",
-        "message": "현재 구매 가능한 수량은 {{amount}}입니다."
+        "message": "현재 {{amount}} 만큼만 구매할 수 있습니다."
       }
     },
     "warning": "{{token}}을 구매하기 위한 TRX 수량이 충분하지 않습니다",
@@ -254,7 +268,7 @@
     "title": "보내기",
     "error": {
       "insufficientBalance": "잔액이 충분하지 않습니다.",
-      "gettingBalance": "잔액 데이터 확인 중 에러 발생",
+      "gettingBalance": "잔액 데이터 확인 중 에러가 발생했습니다",
       "incompleteAddress": "주소가 완벽하지 않거나 올바르지 않습니다.",
       "invalidReceiver": "수신자 주소가 올바르지 않습니다",
       "selectBalance": "먼저 잔액을 선택하세요",
@@ -275,7 +289,8 @@
     "sectionTitles": {
       "wallet": "지갑",
       "security": "보안",
-      "notification": "알림 및 언어"
+      "notification": "알림 및 언어",
+      "accounts": "계정 관리"
     },
     "notifications": {
       "title": "알림"
@@ -343,7 +358,7 @@
       "title": "토큰 필터",
       "search": "토큰 검색",
       "confirm": "저장",
-      "noResult": "결과가 없습니다..."
+      "noResult": "검색 결과가 없습니다..."
     },
     "about": {
       "title": "소개",
@@ -353,24 +368,34 @@
     "accepts": {
       "title": "TRX를 사용할 수 있는 곳은?"
     },
-    "partners": "제휴업체"
+    "accounts": {
+      "title": "계정",
+      "search": "계정 검색",
+      "restoreAccounts": "계정 복원",
+      "noAccounts": "복원할 계정이 없습니다."
+    },
+    "partners": "제휴업체",
+    "askPin": "항상 PIN 물어보기"
   },
   "submitTransaction": {
     "title": "트랜잭션 상세보기",
     "notification": "{{address}}로부터 트랜잭션을 수신했습니다.",
-    "notificationPayment": "{{address}} 로부터 결제대금을 받았습니다.",
+    "notificationPayment": "{{address}}로부터 결제대금을 받았습니다.",
     "data": "데이터",
     "time": "시간",
     "button": {
       "tryAgain": "다시 시도하기",
       "submit": "트랜잭션 제출"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "연결이 끊긴 것 같습니다. 트랜잭션을 진행하기 전에 인터넷에 다시 연결해주세요.",
     "dic": {
       "contractType": "트랜잭션 유형",
       "ownerAddress": "보낸 주소",
-      "toAddress": "받는 사람",
-      "participateAssetIssueContract": "토큰 판매 참여",
+      "toAddress": "받는 주소",
+      "participateAssetIssueContract": "토큰 공개 참여",
       "transferAssetContract": "전송",
       "transferContract": "전송",
       "unfreezeBalanceContract": "동결 해제",
@@ -397,7 +422,7 @@
   "transactions": {
     "title": "내 트랜잭션",
     "from": "보낸 주소",
-    "to": "받는 사람",
+    "to": "받는 주소",
     "notFound": "트랜잭션 내역이 없습니다."
   },
   "transactionDetails": {
@@ -414,7 +439,7 @@
     "unfrozenBalance": "동결 해제된 잔액",
     "totalVotes": "총 투표",
     "amount": "수량",
-    "to": "받는 사람",
+    "to": "받는 주소",
     "from": "보낸 주소",
     "tokenName": "토큰 이름",
     "unityValue": "개체 가치",
@@ -466,6 +491,8 @@
     "title": "결제 요청"
   },
   "newAccount": {
+    "title": "계정 생성",
+    "placeholder": "내 소중한 계정",
     "success": {
       "title": "새로운 계정 생성 성공",
       "message": "주소록의 이름을 편집할 수 있습니다"

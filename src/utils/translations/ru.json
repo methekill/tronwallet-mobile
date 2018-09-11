@@ -387,6 +387,9 @@
       "tryAgain": "Повторить",
       "submit": "ОТПРАВИТЬ ТРАНЗАКЦИЮ"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "Кажется, что вы отключены. Переподключитесь к Интернету перед выполнением транзакции.",
     "dic": {
       "contractType": "Тип транзакции",

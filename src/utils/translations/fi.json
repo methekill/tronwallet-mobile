@@ -387,6 +387,9 @@
       "tryAgain": "Yritä uudelleen",
       "submit": "ANTAA TOIMINTAAN"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "Näyttää siltä, ​​että olet irtikytketty. Kytke uudelleen Internetiin ennen tapahtumaa.",
     "dic": {
       "contractType": "Maksutavan tyyppi",

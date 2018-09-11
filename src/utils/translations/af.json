@@ -387,6 +387,9 @@
       "tryAgain": "Probeer weer",
       "submit": "INDIEN TRANSAKSIE"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "Dit blyk dat jy ontkoppel is. Skakel weer aan op die internet voordat u met die transaksie voortgaan.",
     "dic": {
       "contractType": "Transaksie Tipe",

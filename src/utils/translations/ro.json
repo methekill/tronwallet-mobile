@@ -387,6 +387,9 @@
       "tryAgain": "Încearcă din nou",
       "submit": "TRANSMITEȚI TRANSMITEREA"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "Se pare că ești deconectat. Reconectați-vă la internet înainte de a continua tranzacția.",
     "dic": {
       "contractType": "tipul tranzacției",

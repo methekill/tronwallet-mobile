@@ -387,6 +387,9 @@
       "tryAgain": "Thử lại",
       "submit": "GỬI GIAO DỊCH"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "Có vẻ như bạn bị ngắt kết nối. Kết nối lại với Internet trước khi tiếp tục giao dịch.",
     "dic": {
       "contractType": "Loại giao dịch",

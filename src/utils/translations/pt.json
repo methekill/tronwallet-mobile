@@ -387,6 +387,9 @@
       "tryAgain": "Tente novamente",
       "submit": "ENVIAR TRANSACÇÃO"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "Parece que você está desconectado. Reconecte-se à internet antes de prosseguir com a transação.",
     "dic": {
       "contractType": "Tipo de transação",
@@ -468,7 +471,7 @@
     }
   },
   "makePayment": {
-    "pay": "PAGAR",
+    "pay": "PAGAMENTO",
     "confirm": "CONFIRME O PAGAMENTO",
     "error": {
       "receiver": "Receptor é igual ao solicitante",

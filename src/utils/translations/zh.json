@@ -387,6 +387,9 @@
       "tryAgain": "再试一次",
       "submit": "提交交易"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "好像你已断开连接了。在继续交易之前重新连接到互联网。",
     "dic": {
       "contractType": "交易类型",

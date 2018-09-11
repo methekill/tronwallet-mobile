@@ -387,6 +387,9 @@
       "tryAgain": "Vuelve a intentarlo",
       "submit": "ENVIAR TRANSACCIÓN"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "Parece que estas desconectado. Vuelva a conectarte a internet antes de proceder con la transacción.",
     "dic": {
       "contractType": "Tipo de transacción",

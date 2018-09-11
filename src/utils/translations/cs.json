@@ -387,6 +387,9 @@
       "tryAgain": "Zkuste to znovu",
       "submit": "POTVRDIT TRANSAKCI"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "Zdá se, že jste odpojeni. Připojte se k internetu, pak bude možné v transakci pokračovat.",
     "dic": {
       "contractType": "Typ transakce",

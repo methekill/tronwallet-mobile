@@ -387,6 +387,9 @@
       "tryAgain": "Próbáld újra",
       "submit": "FELHASZNÁLÁSI ADATOK"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "Úgy tűnik, hogy nincs kapcsolat. Újra csatlakozzon az internethez, mielőtt folytatná a tranzakciót.",
     "dic": {
       "contractType": "Tranzakció Típusa",
