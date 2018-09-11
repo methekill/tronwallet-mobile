@@ -387,6 +387,9 @@
       "tryAgain": "Coba lagi",
       "submit": "KIRIM TRANSAKSI"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "Sepertinya Anda terputus. Hubungkan kembali ke internet sebelum melanjutkan dengan transaksi.",
     "dic": {
       "contractType": "tipe transaksi",
