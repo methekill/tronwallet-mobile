@@ -184,7 +184,7 @@
       "insufficientBalance": "토큰 구매 자금(TRX)이 충분하지 않습니다",
       "insufficientTrx": {
         "title": "최소한 1 TRX에 해당하는 {{token}}을 구매해야 합니다.",
-        "message": "현재 구매 가능한 수량은 {{amount}}입니다."
+        "message": "현재 {{amount}} 만큼만 구매할 수 있습니다."
       }
     },
     "warning": "{{token}}을 구매하기 위한 TRX 수량이 충분하지 않습니다",
@@ -268,7 +268,7 @@
     "title": "보내기",
     "error": {
       "insufficientBalance": "잔액이 충분하지 않습니다.",
-      "gettingBalance": "잔액 데이터 확인 중 에러 발생",
+      "gettingBalance": "잔액 데이터 확인 중 에러가 발생했습니다",
       "incompleteAddress": "주소가 완벽하지 않거나 올바르지 않습니다.",
       "invalidReceiver": "수신자 주소가 올바르지 않습니다",
       "selectBalance": "먼저 잔액을 선택하세요",
@@ -358,7 +358,7 @@
       "title": "토큰 필터",
       "search": "토큰 검색",
       "confirm": "저장",
-      "noResult": "결과가 없습니다..."
+      "noResult": "검색 결과가 없습니다..."
     },
     "about": {
       "title": "소개",
@@ -380,7 +380,7 @@
   "submitTransaction": {
     "title": "트랜잭션 상세보기",
     "notification": "{{address}}로부터 트랜잭션을 수신했습니다.",
-    "notificationPayment": "{{address}} 로부터 결제대금을 받았습니다.",
+    "notificationPayment": "{{address}}로부터 결제대금을 받았습니다.",
     "data": "데이터",
     "time": "시간",
     "button": {
@@ -391,8 +391,8 @@
     "dic": {
       "contractType": "트랜잭션 유형",
       "ownerAddress": "보낸 주소",
-      "toAddress": "받는 사람",
-      "participateAssetIssueContract": "토큰 판매 참여",
+      "toAddress": "받는 주소",
+      "participateAssetIssueContract": "토큰 공개 참여",
       "transferAssetContract": "전송",
       "transferContract": "전송",
       "unfreezeBalanceContract": "동결 해제",
@@ -419,7 +419,7 @@
   "transactions": {
     "title": "내 트랜잭션",
     "from": "보낸 주소",
-    "to": "받는 사람",
+    "to": "받는 주소",
     "notFound": "트랜잭션 내역이 없습니다."
   },
   "transactionDetails": {
@@ -436,7 +436,7 @@
     "unfrozenBalance": "동결 해제된 잔액",
     "totalVotes": "총 투표",
     "amount": "수량",
-    "to": "받는 사람",
+    "to": "받는 주소",
     "from": "보낸 주소",
     "tokenName": "토큰 이름",
     "unityValue": "개체 가치",
