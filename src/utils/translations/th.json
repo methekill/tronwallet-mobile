@@ -387,6 +387,9 @@
       "tryAgain": "ลองอีกครั้ง",
       "submit": "ส่งใบสั่งซื้อ"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "ดูเหมือนว่าคุณจะถูกตัดการเชื่อมต่อ เชื่อมต่ออินเทอร์เน็ตก่อนดำเนินการต่อ",
     "dic": {
       "contractType": "ประเภทธุรกรรม",
