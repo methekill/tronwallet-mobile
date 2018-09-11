@@ -172,11 +172,11 @@ class ParticipateHome extends React.Component {
 
     try {
       if (name) {
-        this.setState({ loading: true, searchMode: true })
+        this.setState({ loading: true })
         const assets = await this._updateAssets(0, 10, name)
         this.setState({ currentList: assets, loading: false })
       } else {
-        this.setState({ currentList: assetList, loading: false, searchMode: false })
+        this.setState({ currentList: assetList, loading: false })
       }
     } catch (error) {
       this.setState({ error: error.message })

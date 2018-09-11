@@ -35,7 +35,7 @@ class TransactionDetail extends Component {
     submitError: null,
     isConnected: null,
     tokenAmount: null,
-    nowDate: moment().format('MM/DD/YYYY HH:MM:SS')
+    nowDate: moment().format('DD/MM/YYYY HH:mm:ss')
   }
 
   componentDidMount () {
@@ -177,10 +177,19 @@ class TransactionDetail extends Component {
 
   _renderContracts = () => {
     const { transactionData, nowDate, tokenAmount } = this.state
-    if (!transactionData) return null
-    const { contracts, data } = transactionData
+    if (!transactionData) {
+      return <Utils.View paddingX={'medium'} paddingY={'small'}>
+        <DetailRow
+          key='NOTLOADED'
+          title={tl.t('submitTransaction.error.noData')}
+          text=' '
+        />
+      </Utils.View>
+    }
 
+    const { contracts, data } = transactionData
     const contractsElements = buildTransactionDetails(contracts, tokenAmount)
+
     contractsElements.push(
       <DetailRow
         key='TIME'
