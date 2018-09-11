@@ -25,7 +25,7 @@
   "restore": "복원",
   "error": {
     "default": "이런 무언가 잘못 되었습니다. 잠시 후 다시 시도해보시기 바랍니다. 만약 오류가 지속된다면 네트워크 설정을 업데이트 하시기 바랍니다.",
-    "buildingTransaction": "전송 중 오류, 다시 시도해 주세요.",
+    "buildingTransaction": "트랜잭션 구성 중 에러가 발생했습니다, 다시 시도해 주세요.",
     "gettingTransaction": "트랜잭션 확인 과정에서 에러가 발생했습니다.",
     "clipboardCopied": "복사 과정 중 문제가 발생했습니다",
     "hideAccount": "계정을 삭제하는 과정에서 문제가 발생했습니다. 다시 시도해보세요"
