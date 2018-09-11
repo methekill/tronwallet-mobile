@@ -387,6 +387,9 @@
       "tryAgain": "Versuchen Sie es erneut",
       "submit": "TRANSAKTION EINREICHEN"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "Es scheint, dass Sie keine Internetverbindung haben. Verbinden Sie sich mit dem Internet bevor Sie mit der Transaktion fortfahren.",
     "dic": {
       "contractType": "Buchungsart",
