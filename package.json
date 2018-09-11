@@ -9,7 +9,8 @@
     "e2e": "detox test -c ios.sim.debug",
     "lint": "standard \"src/**/*.js\"",
     "lint:fix": "prettier-standard \"src/**/*.js\"",
-    "precommit": "yarn lint"
+    "precommit": "yarn lint",
+    "postversion": "react-native-version"
   },
   "dependencies": {
     "aws-amplify": "0.4.1",
