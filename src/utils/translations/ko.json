@@ -18,17 +18,13 @@
   "success": "성공",
   "warning": "알림",
   "cancel": "취소",
-  "address": "주소",
   "ok": "확인",
   "actionModalTitle": "원하는 항목을 선택하세요",
-  "account": "계정",
-  "restore": "복원",
   "error": {
     "default": "이런 무언가 잘못 되었습니다. 잠시 후 다시 시도해보시기 바랍니다. 만약 오류가 지속된다면 네트워크 설정을 업데이트 하시기 바랍니다.",
     "buildingTransaction": "전송 중 오류, 다시 시도해 주세요.",
     "gettingTransaction": "트랜잭션 확인 과정에서 에러가 발생했습니다.",
-    "clipboardCopied": "복사 과정 중 문제가 발생했습니다",
-    "hideAccount": "계정을 삭제하는 과정에서 문제가 발생했습니다. 다시 시도해보세요"
+    "clipboardCopied": "복사 과정 중 문제가 발생했습니다"
   },
   "tronPower": "트론 파워",
   "trxPrice": "TRX 가격",
@@ -50,7 +46,6 @@
   "clear": "초기화",
   "allIn": "전액",
   "skip": "건너뛰기",
-  "privateKey": "개인키",
   "balance": {
     "title": "계정",
     "error": {
@@ -63,7 +58,6 @@
     "tokens": "토큰",
     "holdings": "보유량"
   },
-  "hideAccount": "이 계정을 제거하려고합니다. 나중에 설정 메뉴에서 복원할 수 있습니다.",
   "components": {
     "share": {
       "title": "TronWallet 주소 공유",
@@ -126,14 +120,6 @@
       "uniqueAliasError": "주소록에 있는 이름은 고유해야 합니다. 다른 이름으로 설정해주세요.",
       "name": "이름",
       "address": "주소"
-    }
-  },
-  "importWallet": {
-    "title": "지갑 가져오기",
-    "message": "지갑의 개인 키와 주소가 있으면 여기에서 복구 할 수 있지만 TronWallet은 니모닉을 주로 사용한다는 점을 명심하십시오. 이 복구 방법은 앱 내의 일부 기능을 사용 중지합니다.",
-    "button": "수입",
-    "error": {
-      "privateKey": "개인 키가 유효하지 않거나 불완전합니다."
     }
   },
   "freeze": {
@@ -289,8 +275,7 @@
     "sectionTitles": {
       "wallet": "지갑",
       "security": "보안",
-      "notification": "알림 및 언어",
-      "accounts": "계정 관리"
+      "notification": "알림 및 언어"
     },
     "notifications": {
       "title": "알림"
@@ -368,14 +353,7 @@
     "accepts": {
       "title": "TRX를 사용할 수 있는 곳은?"
     },
-    "accounts": {
-      "title": "계정",
-      "search": "계정 검색",
-      "restoreAccounts": "계정 복원",
-      "noAccounts": "복원할 계정이 없습니다."
-    },
-    "partners": "제휴업체",
-    "askPin": "항상 PIN 물어보기"
+    "partners": "제휴업체"
   },
   "submitTransaction": {
     "title": "트랜잭션 상세보기",
@@ -488,8 +466,6 @@
     "title": "결제 요청"
   },
   "newAccount": {
-    "title": "계정 생성",
-    "placeholder": "내 소중한 계정",
     "success": {
       "title": "새로운 계정 생성 성공",
       "message": "주소록의 이름을 편집할 수 있습니다"
