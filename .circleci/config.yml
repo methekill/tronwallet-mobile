@@ -15,16 +15,25 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
+          - 1-gems-{{ checksum "Gemfile.lock" }}
       
+      - run: bundle check || bundle install --path vendor/bundle
       - run: yarn install --skip-integrity-check
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      
+      - save_cache:
+          key: 1-gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
         
       # run tests and lint
-      - run: yarn lint
+      - run:
+          name: fastlane
+          command: bundle exec fastlane test
       # - run: yarn test
 
 workflows:

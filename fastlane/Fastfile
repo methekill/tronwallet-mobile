@@ -5,13 +5,14 @@ default_platform :ios
 platform :ios do
   before_all do
     require File.join(File.dirname(__FILE__), 'environment')
+    setup_circle_ci
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
 
   desc "Runs all the tests"
   lane :test do
-    sh "cd ..; yarn test"
+    # sh "cd ..; yarn test"
     sh "cd ..; yarn lint"
   end
 
@@ -55,6 +56,7 @@ end
 platform :android do
   before_all do
     require File.join(File.dirname(__FILE__), 'environment')
+    setup_circle_ci
   end
 
   desc "Submit a new Beta to Android Beta Testers"
