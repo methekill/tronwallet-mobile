@@ -387,6 +387,9 @@
       "tryAgain": "पुनः प्रयास करें",
       "submit": "जमा करें जमा करें"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "ऐसा लगता है कि आप डिस्कनेक्ट हैं। लेनदेन के साथ आगे बढ़ने से पहले इंटरनेट से पुनः कनेक्ट करें।",
     "dic": {
       "contractType": "सौदे का प्रकार",
