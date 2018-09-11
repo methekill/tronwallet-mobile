@@ -388,7 +388,7 @@
       "submit": "TRANSAKTION EINREICHEN"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "Transaktionsdaten konnten nicht geladen werden"
     },
     "disconnectedMessage": "Es scheint, dass Sie keine Internetverbindung haben. Verbinden Sie sich mit dem Internet bevor Sie mit der Transaktion fortfahren.",
     "dic": {
