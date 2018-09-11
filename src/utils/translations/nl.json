@@ -387,6 +387,9 @@
       "tryAgain": "Probeer het nog eens",
       "submit": "VERSTUUR TRANSACTIE"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "Het lijkt erop dat u bent losgekoppeld. Maak opnieuw verbinding met internet voordat u doorgaat met de transactie.",
     "dic": {
       "contractType": "Transactie Type",
