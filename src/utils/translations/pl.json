@@ -387,6 +387,9 @@
       "tryAgain": "Spróbuj ponownie",
       "submit": "PRZESYŁANIE TRANSAKCJI"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "Wygląda na to, że jesteś odłączony. Połącz się z Internetem przed przystąpieniem do transakcji.",
     "dic": {
       "contractType": "typ transakcji",
