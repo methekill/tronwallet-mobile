@@ -387,6 +387,9 @@
       "tryAgain": "حاول مرة أخرى",
       "submit": "إرسال المعاملة"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "يبدو أنك غير متصل. قم بإعادة الاتصال بالإنترنت قبل إكمال المعاملة.",
     "dic": {
       "contractType": "نوع المعاملة",
