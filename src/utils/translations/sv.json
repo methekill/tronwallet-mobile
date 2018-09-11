@@ -387,6 +387,9 @@
       "tryAgain": "Försök igen",
       "submit": "SÄND TRANSAKTION"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "Det verkar som om du är bortkopplad. Återanslut till internet innan du fortsätter med transaktionen.",
     "dic": {
       "contractType": "Överföringstyp",
