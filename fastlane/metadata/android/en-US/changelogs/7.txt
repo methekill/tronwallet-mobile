@@ -1,0 +1,5 @@
+Changes:
+* Allow user to freeze an amount equal to its balance.
+* Add infinite scrolling to participate list.
+* Add sponsor logos on Settings Scene.
+* Small UX and UI improvements.

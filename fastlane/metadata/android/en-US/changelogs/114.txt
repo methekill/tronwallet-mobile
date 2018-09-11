@@ -1,0 +1,9 @@
+- Address Book
+- Multiple accounts (wallets)
+- Request payment by QRCode
+- Filter tokens (shitcoins)
+- Usability improvements
+- Add AUD currency
+- About and Partners
+- Translations  for Chinese, French, Dutch, Portuguese and Spanish
+- Bug fixes
