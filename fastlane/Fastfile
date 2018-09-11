@@ -74,11 +74,8 @@ platform :android do
 
   lane :build do
     Environment::Public.new.build
-    increment_version_code(
-      gradle_file_path: "./android/build.gradle",
-      #ext_constant_name: "test"
-      #app_folder_name:"app"
-    )
+    sh "cd ..; npm version patch --no-git-tag-version"
+    sh "cd ..; yarn run postversion"
     # gradle(task: 'clean', project_dir: './android/')
 
     # gradle(

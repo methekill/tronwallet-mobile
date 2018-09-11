@@ -10,7 +10,7 @@
     "lint": "standard \"src/**/*.js\"",
     "lint:fix": "prettier-standard \"src/**/*.js\"",
     "precommit": "yarn lint",
-    "postversion": "react-native-version"
+    "postversion": "react-native-version --never-amend"
   },
   "dependencies": {
     "aws-amplify": "0.4.1",
