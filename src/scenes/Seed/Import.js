@@ -34,6 +34,7 @@ class Restore extends Component {
     address: '',
     privateKey: '',
     qrModalVisible: false,
+    onReadScanner: null,
     addressError: null,
     pkError: null,
     loading: false
@@ -103,26 +104,34 @@ class Restore extends Component {
     }
   }
 
-  _openModal = () => this.setState({ qrModalVisible: true })
+  _openModal = (onReadScanner) => this.setState({ qrModalVisible: true, onReadScanner })
 
   _closeModal = () => this.setState({ qrModalVisible: false })
 
-  _readPublicKey = e => this.setState({ address: e.data }, () => {
+  _readPrivateKey = e => {
+    this._changePrivateKey(e.data)
+    this._closeModal()
+  }
+
+  _readPublicKey = e => {
+    this._changeAddress(e.data)
     this._closeModal()
     this.privatekey.focus()
-  })
+  }
 
   _rightContentAddress = () => (
     <React.Fragment>
       <IconButton onPress={() => this._onPaste('address')} icon='md-clipboard' />
       <Utils.HorizontalSpacer />
-      <IconButton onPress={this._openModal} icon='ios-qr-scanner' />
+      <IconButton onPress={() => this._openModal(this._readPublicKey)} icon='ios-qr-scanner' />
     </React.Fragment>
   )
 
   _rightContentPk = () => (
     <React.Fragment>
       <IconButton onPress={() => this._onPaste('privateKey')} icon='md-clipboard' />
+      <Utils.HorizontalSpacer />
+      <IconButton onPress={() => this._openModal(this._readPrivateKey)} icon='ios-qr-scanner' />
     </React.Fragment>
   )
 
@@ -139,6 +148,7 @@ class Restore extends Component {
     const {
       loading,
       qrModalVisible,
+      onReadScanner,
       address,
       addressError,
       pkError,
@@ -169,8 +179,9 @@ class Restore extends Component {
             label={tl.t('privateKey').toUpperCase()}
             rightContent={this._rightContentPk}
             value={privateKey}
-            multiline
             onChangeText={pk => this._changePrivateKey(pk)}
+            multiline
+            blurOnSubmit
           />
           {pkError && (
             <Utils.Text marginY={8} size='xsmall' color='#ff5454'>
@@ -196,7 +207,7 @@ class Restore extends Component {
           animationType='slide'
         >
           <QRScanner
-            onRead={this._readPublicKey}
+            onRead={onReadScanner || this._changeAddress}
             onClose={this._closeModal}
             checkAndroid6Permissions
           />
