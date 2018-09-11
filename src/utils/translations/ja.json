@@ -387,6 +387,9 @@
       "tryAgain": "再試行する",
       "submit": "送信依頼"
     },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
     "disconnectedMessage": "あなたは切断されているようです。取引を進める前に、インターネットに再接続してください。",
     "dic": {
       "contractType": "取引タイプ",
