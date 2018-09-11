@@ -3,7 +3,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/node:9
+      - image: marlonbrgomes/circleci-fastlane:latest
 
     working_directory: ~/repo
 
