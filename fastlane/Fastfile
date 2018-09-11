@@ -20,7 +20,7 @@ platform :ios do
 
     git_add(path: ".")
     git_commit(path: ".", message: "Version Bump [ci skip]")
-    push_to_git_remote(tags: false, remote_branch: "feat/test-cd")
+    push_to_git_remote(tags: false, remote_branch: "feat/fastlane")
   end
 
   lane :build do
