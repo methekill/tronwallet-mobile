@@ -32,9 +32,8 @@ jobs:
         
       # run tests and lint
       - run:
-          name: fastlane
+          name: fastlane test
           command: bundle exec fastlane test
-      # - run: yarn test
 
 workflows:
   version: 2

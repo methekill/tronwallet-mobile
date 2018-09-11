@@ -65,7 +65,8 @@ platform :android do
   end
 
   lane :upgrade do
-    sh "yarn run postversion"
+    sh "cd ..; npm version patch --no-git-tag-version"
+    sh "cd ..; yarn run postversion"
 
     git_add(path: ".")
     git_commit(path: ".", message: "Version Bump [ci skip]")
@@ -74,17 +75,16 @@ platform :android do
 
   lane :build do
     Environment::Public.new.build
-    sh "cd ..; npm version patch --no-git-tag-version"
-    sh "cd ..; yarn run postversion"
-    # gradle(task: 'clean', project_dir: './android/')
 
-    # gradle(
-    #   project_dir: "./android",
-    #   task: 'assemble',
-    #   build_type: 'Release'
-    # )
+    gradle(task: 'clean', project_dir: './android/')
 
-    # supply(track: 'beta', track_promote_to: 'beta')
+    gradle(
+      project_dir: "./android",
+      task: 'assemble',
+      build_type: 'Release'
+    )
+
+    supply(track: 'beta', track_promote_to: 'beta')
   end
 
 end
