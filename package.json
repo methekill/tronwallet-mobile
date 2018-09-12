@@ -1,10 +1,6 @@
 {
   "name": "tronwallet2",
-<<<<<<< HEAD
   "version": "1.1.7",
-=======
-  "version": "1.1.10",
->>>>>>> 088c7c2a64e8dba4a0e5a3d70c6c16321bcefa14
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
