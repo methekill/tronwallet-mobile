@@ -1,0 +1,7 @@
+We’re listening to your feedback and working hard to improve TronWallet. Here’s what’s new:
+- Added QRCode to Add Contacts
+- Enhanced Multiple Accounts Carousel Experience
+- Fixed undefined price
+- Fixed empty load url
+- Fixed default graph (market)
+- Improve Vote XP

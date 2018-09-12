@@ -3,7 +3,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/node:9
+      - image: marlonbrgomes/circleci-fastlane:latest #updated
 
     working_directory: ~/repo
 
@@ -15,20 +15,148 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
+          - 1-gems-{{ checksum "Gemfile.lock" }}
       
+      - run: bundle check || bundle install --path vendor/bundle
       - run: yarn install --skip-integrity-check
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      
+      - save_cache:
+          key: 1-gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
         
       # run tests and lint
-      - run: yarn lint
-      # - run: yarn test
+      - run:
+          name: fastlane test
+          command: bundle exec fastlane test
 
+  ios_upgrade_and_deploy:
+    working_directory: ~/project
+    macos:
+      xcode: "9.2.0"
+
+    steps:
+      - checkout
+
+      - run: brew update
+      - run: brew install ruby
+      - run: sudo gem install fastlane
+
+      - run: yarn install
+
+      - run:
+          name: Run Deploy
+          command: fastlane ios build --env beta
+            
+
+      - store_test_results:
+          path: test_output/report.xml
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: scan-test-results
+      - store_artifacts:
+          path: ~/Library/Logs/scan
+          destination: scan-logs
+
+  android_upgrade:
+    docker:
+      - image: marlonbrgomes/circleci-fastlane:latest
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+          - 1-gems-{{ checksum "Gemfile.lock" }}
+      
+      - run: bundle check || bundle install --path vendor/bundle
+      - run: yarn install --skip-integrity-check
+      - run: git config --global user.email "dev@getty.io"
+      - run: git config --global user.name "Deployment Bot"
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      
+      - save_cache:
+          key: 1-gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+        
+      # run tests and lint
+      - run:
+          name: fastlane upgrade
+          command: bundle exec fastlane android upgrade --env beta
+
+  android_deploy:
+    docker:
+      - image: circleci/android:api-28-node8-alpha
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+          - 1-gems-{{ checksum "Gemfile.lock" }}
+      
+      - run: bundle check || bundle install --path vendor/bundle
+      - run: yarn install --skip-integrity-check
+      - run: echo $DEPLOY_OBJECT | base64 --decode > api-8054606568639612055-951116-e8a064391f73.json
+      - run: echo $CONFIG_OBJECT | base64 --decode > config.js
+      - run: echo $KEYSTORE_OBJECT | base64 --decode > android/app/tronwallet.keystore
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      
+      - save_cache:
+          key: 1-gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+        
+      # run tests and lint
+      - run:
+          name: fastlane build
+          command: bundle exec fastlane android build --env beta
+          
 workflows:
   version: 2
   test:
     jobs:
       - test
+      - android_upgrade:
+          requires:
+            - test
+          filters:
+            branches:
+              only: development
+      - android_deploy:
+          requires:
+            - test
+            - android_upgrade
+          filters:
+            branches:
+              only: development
+      - ios_upgrade_and_deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: development

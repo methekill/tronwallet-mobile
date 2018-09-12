@@ -1,0 +1,9 @@
+Changes:
+* We now show the app version on settings.
+* Improvements on user experience while copying an address.
+* Now you can send decimal values on transactions.
+* Conversion to BTC is fixed.
+* You can now pull to refresh transaction detail.
+* Confirm seed now handles seed with two equal words.
+* UI on seed confirmation flow received some minor improvements on visibility.
+* The error on invalid address now works properly.

@@ -1,0 +1,8 @@
+We’re listening to your feedback and working hard to improve TronWallet. Here’s what’s new:
+
+- Import Private Key from Tronscan (Need reset wallet)
+- Ask pin when app is in background
+- Refresh Design Token Filter
+- Remove Accounts 
+- General Hot Fixes
+- General UI Improvement
