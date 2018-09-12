@@ -23,8 +23,7 @@ import { ONE_TRX } from '../../services/client'
 import guarantee from '../../assets/guarantee.png'
 import NavigationHeader from '../../components/Navigation/Header'
 import { logSentry } from '../../utils/sentryUtils'
-import { FEATURED_TOKENS } from '../../utils/constants'
-import { buildFeaturedFilterString } from '../../utils/userAccountUtils'
+import { FEATURED_TOKENS, VERIFIED_TOKENS } from '../../utils/constants'
 
 import {
   Container,
@@ -89,8 +88,8 @@ class ParticipateHome extends React.Component {
   _getFeaturedTokensFromStore = async () => {
     const store = await getAssetsStore()
     const filtered = store.objects('Asset')
-      .filtered(buildFeaturedFilterString())
       .map(item => Object.assign({}, item))
+      .filter(item => VERIFIED_TOKENS.includes(item.name))
 
     if (filtered.length) {
       this.setState({ featuredTokens: orderAssets(filtered) })
@@ -137,8 +136,7 @@ class ParticipateHome extends React.Component {
     return assets
       .filter(({ issuedPercentage, name, startTime, endTime }) =>
         issuedPercentage < 100 && name !== 'TRX' && startTime < Date.now() && endTime > Date.now() &&
-        !FEATURED_TOKENS.includes(name)
-      )
+        !FEATURED_TOKENS.includes(name))
       .sort((a, b) => b.issuedPercentage - a.issuedPercentage)
   }
 
@@ -275,7 +273,6 @@ class ParticipateHome extends React.Component {
   render () {
     const { currentList } = this.state
     const orderedBalances = orderAssets(currentList)
-
     return (
       <Container>
         <FlatList
