@@ -63,7 +63,7 @@ jobs:
           path: ~/Library/Logs/scan
           destination: scan-logs
 
-  android_upgrade_and_deploy:
+  android_upgrade:
     docker:
       - image: marlonbrgomes/circleci-fastlane:latest
 
@@ -81,8 +81,6 @@ jobs:
       
       - run: bundle check || bundle install --path vendor/bundle
       - run: yarn install --skip-integrity-check
-      - run: echo $DEPLOY_OBJECT | base64 --decode > api-8054606568639612055-951116-e8a064391f73.json
-      - run: echo $CONFIG_OBJECT | base64 --decode > config.js
       - run: git config --global user.email "dev@getty.io"
       - run: git config --global user.name "Deployment Bot"
 
@@ -101,6 +99,38 @@ jobs:
           name: fastlane upgrade
           command: bundle exec fastlane android upgrade --env beta
 
+  android_deploy:
+    docker:
+      - image: circleci/android
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+          - 1-gems-{{ checksum "Gemfile.lock" }}
+      
+      - run: bundle check || bundle install --path vendor/bundle
+      - run: yarn install --skip-integrity-check
+      - run: echo $DEPLOY_OBJECT | base64 --decode > api-8054606568639612055-951116-e8a064391f73.json
+      - run: echo $CONFIG_OBJECT | base64 --decode > config.js
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      
+      - save_cache:
+          key: 1-gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+        
+      # run tests and lint
       - run:
           name: fastlane build
           command: bundle exec fastlane android build --env beta
@@ -110,9 +140,16 @@ workflows:
   test:
     jobs:
       - test
-      - android_upgrade_and_deploy:
+      - android_upgrade:
           requires:
             - test
+          filters:
+            branches:
+              only: feat/fastlane-setup
+      - android_deploy:
+          requires:
+            - test
+            - android_upgrade
           filters:
             branches:
               only: feat/fastlane-setup

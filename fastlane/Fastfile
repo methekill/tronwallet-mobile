@@ -22,7 +22,7 @@ platform :ios do
 
     git_add(path: ".")
     git_commit(path: ".", message: "Version Bump [ci skip]")
-    push_to_git_remote(tags: false, remote_branch: "feat/fastlane")
+    push_to_git_remote(tags: false, remote_branch: "feat/fastlane-setup")
   end
 
   lane :realm do
@@ -43,9 +43,9 @@ platform :ios do
 
     # sh "rm -rf #{ENV["FL_PROJECT_PROVISIONING_PROFILE_FILE"]}"
 
-    slack(
-      message: "Successfully deployed new App Update on #{ENV["ENVIRONMENT"]} environment."
-    )
+    # slack(
+    #   message: "Successfully deployed new App Update on #{ENV["ENVIRONMENT"]} environment."
+    # )
   end
 
   after_all do |lane|
@@ -78,7 +78,7 @@ platform :android do
 
     git_add(path: ".")
     git_commit(path: ".", message: "Version Bump [ci skip]")
-    push_to_git_remote(tags: false, remote_branch: "feat/test-cd")
+    push_to_git_remote(tags: false, remote_branch: "feat/fastlane-setup")
   end
 
   lane :build do
