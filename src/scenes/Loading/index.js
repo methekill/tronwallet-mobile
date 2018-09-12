@@ -16,7 +16,7 @@ import LottieView from 'lottie-react-native'
 class LoadingScene extends Component {
   componentDidMount () {
     SplashScreen.hide()
-    VERIFIED_TOKENS.forEach(token => updateAssets(0, 1, token))
+    VERIFIED_TOKENS.forEach(token => updateAssets(0, 2, token))
     this._setFilteredTokens()
     this._askPin()
   }

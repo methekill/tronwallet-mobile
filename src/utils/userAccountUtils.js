@@ -4,7 +4,7 @@ import getBalanceStore from '../store/balance'
 import getTransactionStore from '../store/transactions'
 import getAssetsStore from '../store/assets'
 import getCandidatesStore from '../store/candidates'
-import { USER_STATUS, USER_FILTERED_TOKENS, FEATURED_TOKENS } from './constants'
+import { USER_STATUS, USER_FILTERED_TOKENS, VERIFIED_TOKENS } from './constants'
 
 import NodesIp from '../utils/nodeIp'
 import { resetContactsData } from '../utils/contactUtils'
@@ -24,9 +24,9 @@ export const resetWalletData = async () => {
 }
 
 export const buildFeaturedFilterString = (comparison = '==', logic = 'OR') =>
-  FEATURED_TOKENS.reduce((filter, token, index) => {
+  VERIFIED_TOKENS.reduce((filter, token, index) => {
     filter += `name ${comparison} '${token}'`
-    if (index + 1 < FEATURED_TOKENS.length) {
+    if (index + 1 < VERIFIED_TOKENS.length) {
       filter += ` ${logic} `
     }
     return filter

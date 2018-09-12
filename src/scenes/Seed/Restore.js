@@ -9,7 +9,7 @@ import * as Utils from '../../components/Utils'
 import ButtonGradient from '../../components/ButtonGradient'
 import NavigationHeader from '../../components/Navigation/Header'
 
-import { resetWalletData, resetListsData } from '../../utils/userAccountUtils'
+import { resetWalletData } from '../../utils/userAccountUtils'
 import { recoverUserKeypair } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
 import { logSentry } from '../../utils/sentryUtils'
@@ -61,10 +61,9 @@ class Restore extends React.Component {
     }
   }
 
-  _
   _softResetData = async () => {
     const { resetAccount, setSecretMode } = this.props.context
-    await Promise.all([resetWalletData(), resetListsData()])
+    await resetWalletData()
     resetAccount()
     setSecretMode('mnemonic')
   }
