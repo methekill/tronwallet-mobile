@@ -93,6 +93,11 @@ platform :android do
     )
 
     supply(track: 'beta', track_promote_to: 'beta')
+
+    slack(
+      message: "Your app was successfully deployed to beta testers, get your apk at: https://play.google.com/apps/testing/com.tronwallet2. Ask for your access at the closed testers list",
+      success: true
+    )
   end
 
 end
