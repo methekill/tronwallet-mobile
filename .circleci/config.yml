@@ -119,6 +119,7 @@ jobs:
       - run: yarn install --skip-integrity-check
       - run: echo $DEPLOY_OBJECT | base64 --decode > api-8054606568639612055-951116-e8a064391f73.json
       - run: echo $CONFIG_OBJECT | base64 --decode > config.js
+      - run: echo $KEYSTORE_OBJECT | base64 --decode > android/app/tronwallet.keystore
 
       - save_cache:
           paths:
