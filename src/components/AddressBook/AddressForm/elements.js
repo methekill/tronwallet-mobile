@@ -5,6 +5,7 @@ export const FormGroup = styled.View`
 `
 export const CancelWrapper = styled.View`
   align-items: center;
+  padding: 12px;
 `
 export const ErrorText = styled.Text`
   font-family: Rubik-Medium;

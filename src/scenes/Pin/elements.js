@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { transparentize } from 'polished'
 import { TouchableOpacity } from 'react-native'
+import { Colors } from '../../components/DesignSystem'
 
 export const Label = styled.Text`
   font-family: Rubik-Medium;
@@ -22,24 +23,28 @@ export const Text = styled.Text`
 export const KeyPad = styled.View`
   flex-direction: row;
   flex-wrap: wrap;
-  height: 256px;
+  height: 242px;
+  margin: 10px;
 `
 
 export const KeyWrapper = styled.TouchableOpacity`
-  height: 64px;
+  height: 52px;
   align-items: center;
   justify-content: center;
-  flex-basis: 33%;
+  flex-basis: 30%;
   flex-grow: 1;
   flex-shrink: 0;
-  padding-bottom: 24px;
+  border-radius: 25px;
+  border-width:${props => props.noBorder ? 0 : 1}px;
+  border-color:${Colors.secondaryText};
+  margin: 4px;
 `
 
 export const KeyText = styled.Text`
   font-family: Rubik-Regular;
-  font-size: 24px;
+  font-size: 16px;
   line-height: 24px;
-  color: #FFFFFF;
+  color:${Colors.secondaryText};
 `
 
 export const Key = ({ children, ...props }) => (

@@ -1,0 +1,505 @@
+{
+  "relativeTime": {
+    "future": "in %s",
+    "past": "%s ago",
+    "s": "a few seconds",
+    "ss": "%d seconds",
+    "m": "a minute",
+    "mm": "%d minutes",
+    "h": "an hour",
+    "hh": "%d hours",
+    "d": "a day",
+    "dd": "%d days",
+    "M": "a month",
+    "MM": "%d months",
+    "y": "a year",
+    "yy": "%d years"
+  },
+  "success": "Success",
+  "warning": "Warning",
+  "cancel": "Cancel",
+  "address": "Osoite",
+  "ok": "OK",
+  "actionModalTitle": "Would you like to",
+  "account": "Tili",
+  "restore": "Palauttaa",
+  "error": {
+    "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
+    "buildingTransaction": "Error while building transaction, try again.",
+    "gettingTransaction": "Error while getting transaction.",
+    "clipboardCopied": "Something wrong while copying",
+    "hideAccount": "Jotain meni väärin tilien poistamiseen, yritä uudelleen \""
+  },
+  "tronPower": "TRON POWER",
+  "trxPrice": "TRX PRICE",
+  "confirmed": "Confirmed",
+  "unconfirmed": "Unconfirmed",
+  "copyAddress": "COPY ADDRESS",
+  "transactionType": {
+    "transfer": "Transfer",
+    "transferAsset": "Transfer Asset",
+    "freeze": "Freeze",
+    "unfreeze": "Unfreeze",
+    "vote": "Vote",
+    "participate": "Participate",
+    "create": "Create",
+    "undefined": "Undefined Type"
+  },
+  "close": "Close",
+  "ends": "Ends",
+  "clear": "Clear",
+  "allIn": "All In",
+  "skip": "Skip",
+  "privateKey": "Yksityinen avain",
+  "balance": {
+    "title": "ACCOUNTS",
+    "error": {
+      "loadingData": "An error occured while loading the data.",
+      "savingCurrency": "Error saving preferred currency"
+    },
+    "chooseCurrency": "Please, choose your preferred currency.",
+    "confirmSeed": "Please tap to confirm your 12 seed words",
+    "bandwidth": "BANDWIDTH",
+    "tokens": "TOKENS",
+    "holdings": "HOLDINGS"
+  },
+  "hideAccount": "Olet poistamassa tämän tilin. Voit palauttaa sen myöhemmin asetuksissa",
+  "components": {
+    "share": {
+      "title": "Share TronWallet address",
+      "message": "This is my TronWallet address:\n\n {{address}}\n\nTip: Once you have copied it you can paste it in your TronWallet app using the special button on Send screen.",
+      "dialogTitle": "Share using:"
+    },
+    "QRScanner": {
+      "title": "Address Scanner",
+      "scan": "Scan",
+      "explanation": "Scan the QRCode to identify the target user",
+      "permissionMessage": "To scan the public key the app needs your permission to access the camera."
+    },
+    "vote": {
+      "enterVote": "ENTER ÄÄNITARVO",
+      "votesRemaining": "ÄÄNESTYKSET JATKUVAT",
+      "setVote": "ASETA ÄÄNESTYS",
+      "moreVotes": "Jos tarvitset enemmän ääntä, voit jäädyttää enemmän TRX: tä.",
+      "confirmVotes": "VAHVISTAA ÄÄNESTYKSET",
+      "yourVotes": "Äänesi",
+      "myVotes": "ÄÄNI ÄÄNI",
+      "confirm": "VAHVISTAA",
+      "freeze": "jäädyttää",
+      "totalVotes": "Saatavilla olevien äänien kokonaismäärä:",
+      "delete": "POISTAA",
+      "set": "SARJA",
+      "freezeOrLower": "Sinulla ei ole tarpeeksi jäädytettyä TRX: tä. Pysäytä enemmän TRX tai laske äänimäärä",
+      "freezeToContinue": "Sinulla ei ole tarpeeksi jäädytettyä TRX: tä. Pysäytä enemmän TRX jatkaaksesi"
+    }
+  },
+  "firstTime": {
+    "button": {
+      "create": "LUOVA WALLET",
+      "restore": "RESTORE WALLET"
+    }
+  },
+  "addressBook": {
+    "shared": {
+      "add": "LISÄTÄ",
+      "edit": "MUOKATA",
+      "delete": "POISTAA",
+      "send": "LÄHETTÄÄ"
+    },
+    "contacts": {
+      "delete": {
+        "title": "Poista yhteys",
+        "message": "Haluatko todella poistaa tämän yhteyden?",
+        "cancelButton": "Peruuttaa",
+        "okButton": "kunnossa"
+      },
+      "empty": "Osoitekirja on tyhjä, lisää uusi kontakti alla olevan painikkeen avulla.",
+      "loadError": "Yhteystietojen lataaminen tapahtui. Yritä uudelleen.",
+      "addContact": "LISÄÄ YHTEYSTIETO",
+      "addToContacts": "LISÄÄ KONTAKTEIHIN"
+    },
+    "form": {
+      "generalError": "Ilmoituslomakkeessa oli ongelma. Ota yhteyttä järjestelmänvalvojaan.",
+      "nameError": "Nimikentän on aloitettava kirjaimella, joka sisältää enintään 32 merkkiä, ja se hyväksyy vain kirjaimet, numerot ja valkoiset tilat.",
+      "addressError": "Jotain ei ole oikein osoitteen kanssa. Tarkista kaksinkertainen kirjoitusvirhe.",
+      "uniqueAddressError": "Avaimen on oltava ainutlaatuinen. Valitse toinen osoite.",
+      "uniqueAliasError": "Osoitteesi nimien on oltava yksilöllisiä. Valitse toinen.",
+      "name": "NIMI",
+      "address": "OSOITE"
+    }
+  },
+  "importWallet": {
+    "title": "IMPORT WALLET",
+    "message": "Jos sinulla on lompakkosi yksityinen avain ja osoite, voit palauttaa sen täällä, mutta muista, että TronWallet toimii ensisijaisesti muistin avulla. Tämä palautusmenetelmä poistaa joitakin sovelluksen toimintoja käytöstä.",
+    "button": "TUONTI",
+    "error": {
+      "privateKey": "Yksityinen avain on virheellinen tai epätäydellinen"
+    }
+  },
+  "freeze": {
+    "title": "FREEZE",
+    "unfreeze": {
+      "title": "VAPAUTTAA",
+      "inThreeDays": "Kolmen päivän jälkeen voit vapauttaa TRX: n",
+      "inXMinutes": "Voit irrottaa TRX: n {{minutes}} minuuttia.",
+      "inXHours": "Voit irrottaa TRX: n {{hours}} tunniksi.",
+      "inXDays": "Voit irrottaa TRX: n {{days}} päivässä.",
+      "now": "Voit vapauttaa TRX: n nyt."
+    },
+    "error": {
+      "minimumAmount": "Jäädytettyjen tapahtumien vähimmäismäärä on 1.",
+      "insufficientBalance": "Riittämätön TRX-tasapaino",
+      "roundNumbers": "Vain pyöristää numeroita"
+    },
+    "amount": "JÄLJELLÄMÄÄRÄ",
+    "balance": "Saldo"
+  },
+  "getVault": {
+    "notInstalled": "Näyttää siltä, ​​että sinulla ei ole puhelimeen asennettua Tron Vaultia jatkaaksesi tapahtumaa.",
+    "downloadHere": "Voit ladata sen täältä"
+  },
+  "market": {
+    "time": {
+      "hour": "1H",
+      "day": "1D",
+      "week": "1W",
+      "month": "1M",
+      "all": "ALL"
+    },
+    "highest": "HIGHEST",
+    "lowest": "LOWEST",
+    "volume": "VOLUME 24H",
+    "cap": "MARKET CAP",
+    "supply": "CIRCULATING SUPPLY"
+  },
+  "participate": {
+    "title": "PARTICIPATE",
+    "featured": "FEATURED",
+    "button": {
+      "confirm": "CONFIRM",
+      "moreInfo": "MORE INFO",
+      "buyNow": "BUY NOW"
+    },
+    "error": {
+      "insufficientBalance": "Not enough funds (TRX) to participate.",
+      "insufficientTrx": {
+        "title": "You need to buy at least one TRX worth of {{token}}.",
+        "message": "Currently you are buying only {{amount}}."
+      }
+    },
+    "warning": "You don't have enough TRX to buy that many {{token}}",
+    "amountToBuy": "AMOUNT TO BUY",
+    "pricePerToken": "PRICE PER TOKEN",
+    "tokenDescription": "TOKEN DESCRIPTION",
+    "tokenInfo": "TOKEN INFO",
+    "token": "TOKEN",
+    "tokens": "TOKENS",
+    "frozen": "FROZEN",
+    "percentage": "PERCENTAGE",
+    "issued": "ISSUED",
+    "totalSupply": "TOTAL SUPPLY",
+    "startTime": "START TIME",
+    "endTime": "END TIME",
+    "description": "DESCRIPTION",
+    "transaction": "TRANSACTION",
+    "ownerAddress": "OWNER ADDRESS",
+    "trxNum": "TRX NUM",
+    "num": "NUM",
+    "block": "BLOCK"
+  },
+  "pin": {
+    "title": "SECURITY CHECK",
+    "enter": "Enter PIN",
+    "new": "Enter New PIN",
+    "reenter": "Re-Enter PIN"
+  },
+  "receive": {
+    "title": "RECEIVE",
+    "clipboardCopied": "Copied to clipboard",
+    "button": {
+      "copy": "Copy",
+      "share": "Share"
+    },
+    "tabs": {
+      "share": "SHARE",
+      "request": "REQUEST"
+    }
+  },
+  "rewards": {
+    "title": "REWARDS",
+    "earned": "You have earned"
+  },
+  "seed": {
+    "confirm": {
+      "title": "CONFIRM SEED",
+      "error": {
+        "title": "Väärä yhdistelmä",
+        "message": "Valitut sanat eivät täsmää. Varmista, että kirjoitit sanat oikeaan järjestykseen."
+      },
+      "success": "Lompakko on vahvistettu",
+      "explanation": "Valitse allaolevat sanat oikeaan järjestykseen vahvistaaksesi salaisen lausekkeen.",
+      "button": {
+        "reset": "Nollaa sanat",
+        "confirm": "VAHVISTA SIEMEN"
+      }
+    },
+    "create": {
+      "title": "LUO SEED",
+      "titleConfirm": "VAHVISTA WALLET SEED",
+      "error": "Hups, meillä on ongelma. Käynnistä sovellus uudelleen.",
+      "generateNew": "Tämä luo aivan uuden lompakon.",
+      "button": {
+        "written": "Minä kirjoitan sen alas",
+        "newSeed": "UUSI SEED",
+        "later": "Vahvista myöhemmin"
+      }
+    },
+    "restore": {
+      "title": "RESTORE WALLET",
+      "explanation": "Voit palauttaa lompakkosi antamalla samat 12 sanat, jotka kirjoitit paperille, kun luot lompakkoasi ensimmäisen kerran. Jos syötät eri sanajärjestyksen, uusi tyhjä lompakko luodaan.",
+      "placeholder": "Kirjoita 12 siemen sanat täällä",
+      "success": "Lompakko palautettiin menestyksekkäästi!",
+      "warning": "Palauta siemen poistaa kaikki tämän laitteen tiedot ja vetää tietoja verkosta palautetulle tilille.",
+      "error": "Oho. Näyttää siltä, ​​että kirjoittamasi sanat eivät ole kelvollisia muistihäiriöitä. Tarkista typo ja yritä uudelleen.",
+      "button": "PALAUTTAA"
+    }
+  },
+  "send": {
+    "title": "LÄHETTÄÄ",
+    "error": {
+      "insufficientBalance": "Riittämätön tasapaino.",
+      "gettingBalance": "Virhe tallennettaessa saldotietoja",
+      "incompleteAddress": "Osoite on joko puutteellinen tai virheellinen.",
+      "invalidReceiver": "Virheellinen vastaanottajan osoite",
+      "selectBalance": "Valitse ensin tasapaino",
+      "invalidAmount": "Virheellinen summa"
+    },
+    "input": {
+      "token": "TOKEN",
+      "to": "TO",
+      "amount": "MÄÄRÄ",
+      "description": "KUVAUS (VAPAAEHTOINEN)"
+    },
+    "available": "käytettävissä",
+    "chooseToken": "Valitse alla oleva merkki.",
+    "minimumAmount": "Minkä tahansa lähetystapahtuman vähimmäismäärä on 0.000001."
+  },
+  "settings": {
+    "title": "ASETUKSET",
+    "sectionTitles": {
+      "wallet": "LOMPAKKO",
+      "security": "TURVALLISUUS",
+      "notification": "ILMOITUKSET JA IDIOM",
+      "accounts": "TILINPÄÄTÖS"
+    },
+    "notifications": {
+      "title": "ilmoitukset"
+    },
+    "network": {
+      "title": "verkko",
+      "modal": {
+        "title": "NETWORK",
+        "explanation": "Tämän vaihtoehdon avulla voit valita solmun, joka sopii paremmin tarpeisiisi ja mieltymyksesi mukaan. Ole varovainen, kun päivität solmun IP: n, kun väärän IP: n voi aiheuttaa häiriöitä lompakossa. Esimerkki: 35.231.121.122:50051",
+        "error": {
+          "storage": "Virhe saada solmup ip paikalliselta tallennukselta",
+          "invalidIp": "Anna voimassa oleva IP-osoite",
+          "update": "Jotain meni vikaan päivitettäessä solmuja ip",
+          "reset": "Jotain väärin, kun node ip on nollattu"
+        },
+        "success": {
+          "updated": "Päivitetty",
+          "updatedIp": "Solmut IP päivitetty!",
+          "switchTest": "Vaihdetut solmut IP testnet",
+          "switchMain": "Vaihtoi solmut IP oletusarvoiseksi pääasemaksi",
+          "reset": "Node IP reseted!"
+        },
+        "placeholder": {
+          "loadingIp": "Loading IP",
+          "loadingPort": "Loading Port"
+        },
+        "button": {
+          "update": "Update and Connect",
+          "reset": "Reset"
+        },
+        "mainNode": "Main Node",
+        "solidityNode": "Solidity Node",
+        "testNet": "TestNet"
+      }
+    },
+    "backup": {
+      "title": "Backup Wallet"
+    },
+    "restore": {
+      "title": "Restore Wallet"
+    },
+    "reset": {
+      "title": "Reset Wallet",
+      "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
+      "button": "OK, I understand it"
+    },
+    "pin": {
+      "title": "Change Pin",
+      "success": "Pin successfully changed!"
+    },
+    "language": {
+      "title": "Language",
+      "choose": "Please, choose a Language below:",
+      "success": {
+        "title": "Language changed to {{language}}",
+        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
+      },
+      "button": {
+        "confirm": "Yes, restart now!",
+        "cancel": "No, I'll do it later"
+      },
+      "error": "Error saving preferred language"
+    },
+    "token": {
+      "title": "Token Filter",
+      "search": "Search tokens",
+      "confirm": "Save",
+      "noResult": "No results..."
+    },
+    "about": {
+      "title": "About",
+      "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
+      "tutorial": "TUTORIAL"
+    },
+    "accepts": {
+      "title": "Kuka hyväksyy TRX: n?"
+    },
+    "accounts": {
+      "title": "tilit",
+      "search": "Etsi tilit",
+      "restoreAccounts": "Palauta tilit",
+      "noAccounts": "Palautettavia tilejä"
+    },
+    "partners": "PARTNERS",
+    "askPin": "Kysy aina PIN-koodia"
+  },
+  "submitTransaction": {
+    "title": "MAKSUTAPAHTUMAN TIEDOT",
+    "notification": "Olet saanut tapahtuman {{address}}",
+    "notificationPayment": "Olet saanut maksun {{address}}",
+    "data": "DATA",
+    "time": "AIKA",
+    "button": {
+      "tryAgain": "Yritä uudelleen",
+      "submit": "ANTAA TOIMINTAAN"
+    },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
+    "disconnectedMessage": "Näyttää siltä, ​​että olet irtikytketty. Kytke uudelleen Internetiin ennen tapahtumaa.",
+    "dic": {
+      "contractType": "Maksutavan tyyppi",
+      "ownerAddress": "alkaen",
+      "toAddress": "jotta",
+      "participateAssetIssueContract": "Osallistua",
+      "transferAssetContract": "Siirtää",
+      "transferContract": "Siirtää",
+      "unfreezeBalanceContract": "Vapauttaa",
+      "freezeBalanceContract": "jäädyttää",
+      "assetIssueContract": "Luoda",
+      "voteWitnessContract": "Äänestys",
+      "frozenDuration": "Kesto",
+      "frozenBalance": "Yhteensä jäätyä"
+    },
+    "errorDic": {
+      "contractValidate": "Tapahtumatiedot eivät ole päteviä. Yritä uudelleen myöhemmin.",
+      "signature": "Tapahtumien allekirjoitus ei ole kelvollinen.",
+      "duplicate": "Transaktio on jo lähetetty.",
+      "contractValidateCee": "Tapahtumatiedot eivät ole voimassa (CEE). Yritä uudelleen myöhemmin.",
+      "bandwith": "Ei tarpeeksi kaistanleveyttä. Yritä uudelleen myöhemmin.",
+      "contractValidateTapos": "Tapahtumatiedot eivät kelpaa (TAPOS). Yritä uudelleen myöhemmin.",
+      "tooBig": "Tapahtuma on liian suuri.",
+      "expiration": "Tapahtuma päättyi. Yritä uudelleen.",
+      "serverBusy": "Palvelin kiireinen.",
+      "resource": "Riittämätön kaistanleveys tai tasapaino. Saatat tarvita jäädytettyä TRX: tä."
+    },
+    "totalVotes": "Äänet yhteensä"
+  },
+  "transactions": {
+    "title": "MY TRANSAKTIOT",
+    "from": "alkaen",
+    "to": "jotta",
+    "notFound": "Ei tapahtumia."
+  },
+  "transactionDetails": {
+    "title": "TRANSACTION",
+    "clipboard": {
+      "tronscanUrl": "Tronscan-URL-osoite tähän tapahtumaan kopioitiin leikepöydälle",
+      "publicKey": "Julkinen avain kopioitiin leikepöydälle"
+    },
+    "hash": "HASH",
+    "status": "STATUS",
+    "time": "AIKA",
+    "block": "LOHKO",
+    "frozenBalance": "JÄÄDYTETTY",
+    "unfrozenBalance": "VÄLTTÄMÄTTÖMÄT TASAVALTA",
+    "totalVotes": "YHTEENSÄ ÄÄNESTYKSET",
+    "amount": "MÄÄRÄ",
+    "to": "TO",
+    "from": "FROM",
+    "tokenName": "TOKENIN NIMI",
+    "unityValue": "YKSITYISARVO",
+    "totalSupply": "YHTEENSÄ TOIMITUS",
+    "startTime": "ALOITUSAIKA",
+    "endTime": "LOPPU AIKA",
+    "description": "KUVAUS",
+    "votedAddress": "ÄÄNESTÄ OSOITE"
+  },
+  "transactionSuccess": {
+    "submitted": "VERKKOON LIITTYVÄ TOIMITUS!",
+    "success": "MENESTYS!"
+  },
+  "votes": {
+    "title": "Äänestykset",
+    "totalVotes": "YHTEENSÄ ÄÄNESTYKSET",
+    "votesAvailable": "ÄÄNESTYKSET SAATAVAT",
+    "search": "Hae",
+    "error": "Hups, jotain ei ladattu oikein. Yritä ladata uudelleen"
+  },
+  "scanPayment": {
+    "scan": "SKANNATA",
+    "error": {
+      "receiver": "Vastaanottajan osoite on virheellinen",
+      "token": "Token ei kelpaa",
+      "amount": "Määrä ei ole kelvollinen",
+      "description": "Kuvaus liian pitkä",
+      "code": "Maksukoodi on virheellinen. Ole hyvä ja skannaa kelvollinen"
+    }
+  },
+  "makePayment": {
+    "pay": "MAKSAA",
+    "confirm": "VAHVISTA MAKSUT",
+    "error": {
+      "receiver": "Vastaanotin on yhtä kuin pyytäjä",
+      "token": "Tällä tilillä ei ole tätä tapahtumaa",
+      "amount": "Tällä tilillä ei ole riittävästi saldoa.",
+      "description": "ei kuvausta saatavilla"
+    }
+  },
+  "buildPayment": {
+    "generate": "GENERATE PYYNNÖT",
+    "selectCurrency": "Valitse viitevaluutta",
+    "error": {
+      "currency": "Emme voineet ladata muita valuuttakursseja. Käytä TRXiä viitteenä"
+    }
+  },
+  "requestPayment": {
+    "title": "PYYNNÖT MAKSU"
+  },
+  "newAccount": {
+    "title": "Tilin luominen",
+    "placeholder": "Arvokas tili",
+    "success": {
+      "title": "Uusi tili luotu onnistuneesti",
+      "message": "Voit muokata osoitekirjaasi nimeä"
+    },
+    "failure": {
+      "title": "Uusi tilin varoitus",
+      "message": "Jos haluat lisätä uuden tilin, sinulla on oltava vähintään yksi tapahtuma viimeisessä tilissäsi."
+    }
+  }
+}

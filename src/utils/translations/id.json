@@ -1,0 +1,505 @@
+{
+  "relativeTime": {
+    "future": "dalam %s",
+    "past": "%s lalu",
+    "s": "beberapa detik",
+    "ss": "%d detik",
+    "m": "Semenit",
+    "mm": "%d menit",
+    "h": "satu jam",
+    "hh": "%d jam",
+    "d": "satu hari",
+    "dd": "%d hari",
+    "M": "sebulan",
+    "MM": "%d bulan",
+    "y": "tahun",
+    "yy": "%d tahun"
+  },
+  "success": "Keberhasilan",
+  "warning": "PERINGATAN",
+  "cancel": "Membatalkan",
+  "address": "Alamat",
+  "ok": "baik",
+  "actionModalTitle": "Apakah Anda mau",
+  "account": "Rekening",
+  "restore": "Mengembalikan",
+  "error": {
+    "default": "Terjebak sesuatu yang salah. Coba lagi nanti, Jika kesalahan terus berlanjut cobalah memperbarui pengaturan jaringan.",
+    "buildingTransaction": "Kesalahan saat membangun transaksi, coba lagi.",
+    "gettingTransaction": "Kesalahan saat bertransaksi.",
+    "clipboardCopied": "Ada yang salah saat menyalin",
+    "hideAccount": "Terjadi kesalahan saat menghapus akun, coba lagi '"
+  },
+  "tronPower": "TRON POWER",
+  "trxPrice": "HARGA TRX",
+  "confirmed": "Dikonfirmasi",
+  "unconfirmed": "Belum dikonfirmasi",
+  "copyAddress": "ALAMAT COPY",
+  "transactionType": {
+    "transfer": "Transfer",
+    "transferAsset": "Transfer Aset",
+    "freeze": "Membekukan",
+    "unfreeze": "Unfreeze",
+    "vote": "Memilih",
+    "participate": "Ikut",
+    "create": "Membuat",
+    "undefined": "Tipe Tidak Terdefinisi"
+  },
+  "close": "Dekat",
+  "ends": "Berakhir",
+  "clear": "Bersih",
+  "allIn": "Semua masuk",
+  "skip": "Melewatkan",
+  "privateKey": "Kunci Pribadi",
+  "balance": {
+    "title": "AKUN",
+    "error": {
+      "loadingData": "Terjadi kesalahan saat memuat data.",
+      "savingCurrency": "Kesalahan saat menyimpan mata uang pilihan"
+    },
+    "chooseCurrency": "Silakan pilih mata uang pilihan Anda.",
+    "confirmSeed": "Ketuk untuk mengkonfirmasi 12 kata benih Anda",
+    "bandwidth": "BANDWIDTH",
+    "tokens": "TOKENS",
+    "holdings": "SAHAM"
+  },
+  "hideAccount": "Anda akan menghapus akun ini. Anda dapat mengembalikannya nanti di pengaturan",
+  "components": {
+    "share": {
+      "title": "Bagikan alamat TronWallet",
+      "message": "Ini adalah alamat TronWallet saya:\n\n {{address}}\n\nTip: Setelah Anda menyalinnya Anda dapat menempelkannya di aplikasi TronWallet Anda menggunakan tombol khusus di layar Kirim.",
+      "dialogTitle": "Bagikan menggunakan:"
+    },
+    "QRScanner": {
+      "title": "Pemindai Alamat",
+      "scan": "Pindai",
+      "explanation": "Pindai QRCode untuk mengidentifikasi pengguna target",
+      "permissionMessage": "Untuk memindai kunci publik, aplikasi membutuhkan izin Anda untuk mengakses kamera."
+    },
+    "vote": {
+      "enterVote": "MASUKKAN NILAI VOTE",
+      "votesRemaining": "SUARA REMOTAN",
+      "setVote": "SET VOTE",
+      "moreVotes": "Jika Anda membutuhkan lebih banyak suara, Anda dapat membekukan lebih banyak TRX.",
+      "confirmVotes": "CONFIRM VOTES",
+      "yourVotes": "Suara Anda",
+      "myVotes": "VOTES SAYA",
+      "confirm": "MEMASTIKAN",
+      "freeze": "Membekukan",
+      "totalVotes": "Jumlah suara yang tersedia:",
+      "delete": "MENGHAPUS",
+      "set": "SET",
+      "freezeOrLower": "Anda tidak memiliki cukup TRX beku. Bekukan lebih banyak TRX atau turunkan jumlah suara",
+      "freezeToContinue": "Anda tidak memiliki cukup TRX beku. Bekukan lebih banyak TRX untuk melanjutkan"
+    }
+  },
+  "firstTime": {
+    "button": {
+      "create": "BUAT DOMPET",
+      "restore": "RESTORE WALLET"
+    }
+  },
+  "addressBook": {
+    "shared": {
+      "add": "MENAMBAHKAN",
+      "edit": "EDIT",
+      "delete": "MENGHAPUS",
+      "send": "KIRIM"
+    },
+    "contacts": {
+      "delete": {
+        "title": "Hapus kontak",
+        "message": "Anda benar-benar ingin menghapus kontak ini?",
+        "cancelButton": "Membatalkan",
+        "okButton": "baik"
+      },
+      "empty": "Buku alamat Anda kosong, tambahkan kontak baru menggunakan tombol di bawah ini.",
+      "loadError": "Terjadi masalah saat memuat kontak. Silakan coba lagi.",
+      "addContact": "TAMBAH KONTAK",
+      "addToContacts": "TAMBAHKAN KE KONTAK"
+    },
+    "form": {
+      "generalError": "Ada masalah saat mengirimkan formulir ini. Silakan hubungi administrator.",
+      "nameError": "Kolom nama harus dimulai dengan huruf, berisi maksimal 32 karakter, dan hanya akan menerima huruf, angka, dan spasi.",
+      "addressError": "Ada yang tidak beres dengan alamatnya. Harap periksa ulang untuk kesalahan ketik.",
+      "uniqueAddressError": "Kunci harus unik. Silakan pilih alamat lain.",
+      "uniqueAliasError": "Nama di buku alamat Anda harus unik. Silakan pilih yang lain.",
+      "name": "NAMA",
+      "address": "ALAMAT"
+    }
+  },
+  "importWallet": {
+    "title": "IMPORT WALLET",
+    "message": "Jika Anda memiliki kunci pribadi dan alamat dompet Anda, Anda dapat memulihkannya di sini tetapi perlu diingat bahwa TronWallet beroperasi dengan mnemonik terutama. Metode pemulihan ini akan menonaktifkan beberapa fungsi dalam Aplikasi.",
+    "button": "IMPOR",
+    "error": {
+      "privateKey": "Kunci pribadi tidak valid atau tidak lengkap"
+    }
+  },
+  "freeze": {
+    "title": "MEMBEKUKAN",
+    "unfreeze": {
+      "title": "UNFREEZE",
+      "inThreeDays": "Setelah tiga hari, Anda dapat mencairkan TRX Anda",
+      "inXMinutes": "Anda dapat mencairkan TRX Anda dalam {{minutes}} menit.",
+      "inXHours": "Anda dapat mencairkan TRX Anda dalam {{hours}} jam.",
+      "inXDays": "Anda dapat mencairkan TRX Anda dalam {{days}} hari.",
+      "now": "Anda dapat mencairkan TRX Anda sekarang."
+    },
+    "error": {
+      "minimumAmount": "Jumlah minimum untuk setiap transaksi pembekuan adalah 1.",
+      "insufficientBalance": "Saldo TRX tidak cukup",
+      "roundNumbers": "Hanya bisa membekukan angka bulat"
+    },
+    "amount": "FREEZE AMOUNT",
+    "balance": "Keseimbangan"
+  },
+  "getVault": {
+    "notInstalled": "Sepertinya Anda tidak memiliki Tron Vault yang dipasang di ponsel Anda untuk melanjutkan transaksi Anda.",
+    "downloadHere": "Anda dapat mengunduhnya di sini"
+  },
+  "market": {
+    "time": {
+      "hour": "1 jam",
+      "day": "1D",
+      "week": "1W",
+      "month": "1 jt",
+      "all": "SEMUA"
+    },
+    "highest": "PALING TINGGI",
+    "lowest": "TERENDAH",
+    "volume": "VOLUME 24 jam",
+    "cap": "CAP MARKET",
+    "supply": "SUPPLY SIRKULATING"
+  },
+  "participate": {
+    "title": "IKUT",
+    "featured": "DITAMPILKAN",
+    "button": {
+      "confirm": "MEMASTIKAN",
+      "moreInfo": "INFO LEBIH LANJUT",
+      "buyNow": "BELI SEKARANG"
+    },
+    "error": {
+      "insufficientBalance": "Tidak cukup dana (TRX) untuk berpartisipasi.",
+      "insufficientTrx": {
+        "title": "Anda harus membeli setidaknya satu TRX senilai {{token}}.",
+        "message": "Saat ini Anda hanya membeli {{amount}}."
+      }
+    },
+    "warning": "Anda tidak memiliki cukup TRX untuk membeli sebanyak itu {{token}}",
+    "amountToBuy": "AMOUNT UNTUK MEMBELI",
+    "pricePerToken": "HARGA PER TOKEN",
+    "tokenDescription": "DESKRIPSI TOKEN",
+    "tokenInfo": "TOKEN INFO",
+    "token": "TOKEN",
+    "tokens": "TOKENS",
+    "frozen": "BEKU",
+    "percentage": "PERSENTASE",
+    "issued": "DIKABARKAN",
+    "totalSupply": "TOTAL SUPPLY",
+    "startTime": "WAKTU MULAI",
+    "endTime": "AKHIR WAKTU",
+    "description": "DESKRIPSI",
+    "transaction": "TRANSAKSI",
+    "ownerAddress": "ALAMAT PEMILIK",
+    "trxNum": "TRX NUM",
+    "num": "NUM",
+    "block": "BLOK"
+  },
+  "pin": {
+    "title": "PEMERIKSAAN KEAMANAN",
+    "enter": "Masukkan PIN",
+    "new": "Masukkan PIN Baru",
+    "reenter": "Masukkan kembali PIN"
+  },
+  "receive": {
+    "title": "MENERIMA",
+    "clipboardCopied": "Disalin ke papan klip",
+    "button": {
+      "copy": "Salinan",
+      "share": "Bagikan"
+    },
+    "tabs": {
+      "share": "BAGIKAN",
+      "request": "PERMINTAAN"
+    }
+  },
+  "rewards": {
+    "title": "HADIAH",
+    "earned": "Anda telah menerima"
+  },
+  "seed": {
+    "confirm": {
+      "title": "CONFIRM SEED",
+      "error": {
+        "title": "Kombinasi salah",
+        "message": "Kata-kata yang dipilih tidak cocok. Pastikan Anda menulis kata-kata dalam urutan yang benar."
+      },
+      "success": "Dompet berhasil dikonfirmasi",
+      "explanation": "Pilih kata-kata di bawah ini dalam urutan yang benar untuk mengonfirmasi frasa rahasia Anda.",
+      "button": {
+        "reset": "RESET KATA",
+        "confirm": "CONFIRM SEED"
+      }
+    },
+    "create": {
+      "title": "BUAT BENIH",
+      "titleConfirm": "CONFIRM WALLET SEED",
+      "error": "Ups, kami punya masalah. Silakan restart aplikasi.",
+      "generateNew": "Ini akan menghasilkan dompet yang benar-benar baru.",
+      "button": {
+        "written": "SAYA TELAH MENULISNYA",
+        "newSeed": "DAPATKAN BIBIT BARU",
+        "later": "Konfirmasikan nanti"
+      }
+    },
+    "restore": {
+      "title": "RESTORE WALLET",
+      "explanation": "Untuk mengembalikan dompet Anda, berikan 12 kata yang sama dengan yang Anda tulis di kertas saat Anda membuat dompet untuk pertama kalinya. Jika Anda memasukkan urutan kata yang berbeda, dompet kosong baru akan dibuat.",
+      "placeholder": "Silakan, ketikkan 12 kata benih Anda di sini",
+      "success": "Dompet dipulihkan dengan sukses!",
+      "warning": "Kembalikan benih akan menghapus semua data pada perangkat ini dan menarik informasi dari jaringan untuk akun yang dipulihkan.",
+      "error": "Ups. Sepertinya kata-kata yang Anda ketikkan bukanlah benih mnemonik yang valid. Periksa salah ketik dan coba lagi.",
+      "button": "MENGEMBALIKAN"
+    }
+  },
+  "send": {
+    "title": "KIRIM",
+    "error": {
+      "insufficientBalance": "Tidak cukup saldo.",
+      "gettingBalance": "Kesalahan saat mendapatkan data keseimbangan",
+      "incompleteAddress": "Alamat tidak lengkap atau tidak valid.",
+      "invalidReceiver": "Alamat penerima tidak valid",
+      "selectBalance": "Pilih keseimbangan dulu",
+      "invalidAmount": "Jumlah tidak valid"
+    },
+    "input": {
+      "token": "TOKEN",
+      "to": "UNTUK",
+      "amount": "JUMLAH",
+      "description": "DESKRIPSI (OPSIONAL)"
+    },
+    "available": "tersedia",
+    "chooseToken": "Silakan, pilih token di bawah ini.",
+    "minimumAmount": "Jumlah minimum untuk setiap transaksi pengiriman adalah 0,000001."
+  },
+  "settings": {
+    "title": "SETELAN",
+    "sectionTitles": {
+      "wallet": "DOMPET",
+      "security": "KEAMANAN",
+      "notification": "NOTIFIKASI DAN IDIOM",
+      "accounts": "MANAJEMEN AKUN"
+    },
+    "notifications": {
+      "title": "Notifikasi"
+    },
+    "network": {
+      "title": "Jaringan",
+      "modal": {
+        "title": "JARINGAN",
+        "explanation": "Dengan opsi ini Anda dapat memilih node yang lebih sesuai dengan kebutuhan dan preferensi Anda. Harap berhati-hati saat memperbarui IP node sementara IP yang salah dapat menyebabkan malfungsi dalam dompet Anda. Contoh: 35.231.121.122:50051",
+        "error": {
+          "storage": "Kesalahan mendapatkan ip node dari penyimpanan lokal",
+          "invalidIp": "Silakan masukkan IP yang valid",
+          "update": "Terjadi kesalahan saat memperbarui node ip",
+          "reset": "Ada yang salah saat mengatur ulang simpul ip"
+        },
+        "success": {
+          "updated": "Diperbarui",
+          "updatedIp": "Node IP diperbarui!",
+          "switchTest": "Beralih node IP ke Testnet",
+          "switchMain": "Switch node IP ke default utama",
+          "reset": "Node IP diatur ulang!"
+        },
+        "placeholder": {
+          "loadingIp": "Memuat IP",
+          "loadingPort": "Memuat Port"
+        },
+        "button": {
+          "update": "Perbarui dan Hubungkan",
+          "reset": "Setel ulang"
+        },
+        "mainNode": "Node Utama",
+        "solidityNode": "Node Soliditas",
+        "testNet": "TestNet"
+      }
+    },
+    "backup": {
+      "title": "Dompet Cadangan"
+    },
+    "restore": {
+      "title": "Pulihkan Dompet"
+    },
+    "reset": {
+      "title": "Setel ulang Wallet",
+      "warning": "Peringatan: Tindakan ini akan menghapus semua data yang disimpan termasuk 12 kata rahasia Anda. Jika Anda tidak menyimpan rahasia Anda, silakan lakukan sebelum melanjutkan.",
+      "button": "OK, saya mengerti"
+    },
+    "pin": {
+      "title": "Ganti PIN",
+      "success": "Pin berhasil diubah!"
+    },
+    "language": {
+      "title": "Bahasa",
+      "choose": "Silakan, pilih Bahasa di bawah ini:",
+      "success": {
+        "title": "Bahasa diubah menjadi {{language}}",
+        "description": "Namun, Anda masih perlu memulai ulang aplikasi agar perubahan dapat diterapkan. Apakah Anda ingin melakukannya sekarang?"
+      },
+      "button": {
+        "confirm": "Ya, mulai sekarang!",
+        "cancel": "Tidak, saya akan melakukannya nanti"
+      },
+      "error": "Kesalahan saat menyimpan bahasa pilihan"
+    },
+    "token": {
+      "title": "Token Filter",
+      "search": "Token pencarian",
+      "confirm": "Menyimpan",
+      "noResult": "Tidak ada hasil..."
+    },
+    "about": {
+      "title": "Tentang",
+      "description": "TronWallet adalah open source Wallet Crypto P2P yang sepenuhnya terdesentralisasi untuk TRON Network yang dibangun dengan React Native. Dengan itu Anda dapat mengirim dan menerima token, memberikan suara pada Perwakilan Super, berpartisipasi dalam penjualan token, melacak saldo dan transaksi Anda, dan banyak lagi. Ketuk tautan di bawah ini untuk tutorial mendetail tentang cara menggunakannya.",
+      "tutorial": "TUTORIAL"
+    },
+    "accepts": {
+      "title": "Siapa yang menerima TRX?"
+    },
+    "accounts": {
+      "title": "Akun",
+      "search": "Cari akun",
+      "restoreAccounts": "Pulihkan Akun",
+      "noAccounts": "Tidak ada akun untuk dipulihkan"
+    },
+    "partners": "MITRA",
+    "askPin": "Selalu minta PIN"
+  },
+  "submitTransaction": {
+    "title": "DETIL TRANSAKSI",
+    "notification": "Anda telah menerima transaksi dari {{address}}",
+    "notificationPayment": "Anda telah menerima pembayaran dari {{address}}",
+    "data": "DATA",
+    "time": "WAKTU",
+    "button": {
+      "tryAgain": "Coba lagi",
+      "submit": "KIRIM TRANSAKSI"
+    },
+    "error": {
+      "noData": "Couldn't load transaction data"
+    },
+    "disconnectedMessage": "Sepertinya Anda terputus. Hubungkan kembali ke internet sebelum melanjutkan dengan transaksi.",
+    "dic": {
+      "contractType": "tipe transaksi",
+      "ownerAddress": "Dari",
+      "toAddress": "Untuk",
+      "participateAssetIssueContract": "Ikut",
+      "transferAssetContract": "Transfer",
+      "transferContract": "Transfer",
+      "unfreezeBalanceContract": "Unfreeze",
+      "freezeBalanceContract": "Membekukan",
+      "assetIssueContract": "Membuat",
+      "voteWitnessContract": "Memilih",
+      "frozenDuration": "Lamanya",
+      "frozenBalance": "Total untuk Beku"
+    },
+    "errorDic": {
+      "contractValidate": "Data transaksi tidak valid. Silakan coba lagi nanti.",
+      "signature": "Tanda tangan transaksi tidak valid.",
+      "duplicate": "Transaksi sudah disiarkan.",
+      "contractValidateCee": "Data transaksi tidak valid (CEE). Silakan coba lagi nanti.",
+      "bandwith": "Tidak cukup bandwidth. Silakan coba lagi nanti.",
+      "contractValidateTapos": "Data transaksi tidak valid (TAPOS). Silakan coba lagi nanti.",
+      "tooBig": "Transaksi terlalu besar untuk dikirimkan.",
+      "expiration": "Transaksi kedaluwarsa. Silakan coba lagi.",
+      "serverBusy": "Server sibuk.",
+      "resource": "Bandwidth atau saldo tidak cukup. Anda mungkin memerlukan beberapa TRX beku."
+    },
+    "totalVotes": "Total Suara"
+  },
+  "transactions": {
+    "title": "TRANSAKSI SAYA",
+    "from": "Dari",
+    "to": "Untuk",
+    "notFound": "Tidak ada transaksi yang ditemukan."
+  },
+  "transactionDetails": {
+    "title": "TRANSAKSI",
+    "clipboard": {
+      "tronscanUrl": "URL Tronscan untuk transaksi ini disalin ke papan klip",
+      "publicKey": "Kunci Publik disalin ke papan klip"
+    },
+    "hash": "HASH",
+    "status": "STATUS",
+    "time": "WAKTU",
+    "block": "BLOK",
+    "frozenBalance": "SALDO BEKU",
+    "unfrozenBalance": "SALDO KESEHATAN",
+    "totalVotes": "TOTAL SUARA",
+    "amount": "JUMLAH",
+    "to": "UNTUK",
+    "from": "DARI",
+    "tokenName": "NAMA TOKEN",
+    "unityValue": "NILAI UNITY",
+    "totalSupply": "TOTAL SUPPLY",
+    "startTime": "WAKTU MULAI",
+    "endTime": "AKHIR WAKTU",
+    "description": "DESKRIPSI",
+    "votedAddress": "ALAMAT VOTED"
+  },
+  "transactionSuccess": {
+    "submitted": "TRANSAKSI DIKIRIMKAN KE JARINGAN!",
+    "success": "KEBERHASILAN!"
+  },
+  "votes": {
+    "title": "SUARA",
+    "totalVotes": "TOTAL SUARA",
+    "votesAvailable": "SUDAH TERSEDIA",
+    "search": "Pencarian",
+    "error": "Ups, ada yang tidak dimuat dengan benar. Coba muat ulang"
+  },
+  "scanPayment": {
+    "scan": "SCAN",
+    "error": {
+      "receiver": "Alamat penerima tidak valid",
+      "token": "Token tidak valid",
+      "amount": "Jumlah tidak valid",
+      "description": "Deskripsi terlalu panjang",
+      "code": "Kode pembayaran tidak valid. Tolong, pindai yang valid"
+    }
+  },
+  "makePayment": {
+    "pay": "MEMBAYAR",
+    "confirm": "KONFIRMASI PEMBAYARAN",
+    "error": {
+      "receiver": "Receiver sama dengan pemohon",
+      "token": "Akun ini tidak memiliki token untuk transaksi ini",
+      "amount": "Akun ini tidak memiliki saldo yang cukup.",
+      "description": "Deskripsi tidak tersedia"
+    }
+  },
+  "buildPayment": {
+    "generate": "BUAT PERMINTAAN",
+    "selectCurrency": "Pilih mata uang referensi",
+    "error": {
+      "currency": "Kami tidak dapat memuat harga mata uang lainnya. Silakan gunakan TRX sebagai referensi"
+    }
+  },
+  "requestPayment": {
+    "title": "PERMINTAAN PEMBAYARAN"
+  },
+  "newAccount": {
+    "title": "Pembuatan akun",
+    "placeholder": "Akun berharga saya",
+    "success": {
+      "title": "Akun baru berhasil dibuat",
+      "message": "Anda dapat mengedit nama di buku alamat Anda"
+    },
+    "failure": {
+      "title": "Peringatan akun baru",
+      "message": "Untuk menambahkan akun baru, Anda harus memiliki setidaknya satu transaksi di akun terakhir Anda."
+    }
+  }
+}

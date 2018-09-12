@@ -23,8 +23,7 @@ import { ONE_TRX } from '../../services/client'
 import guarantee from '../../assets/guarantee.png'
 import NavigationHeader from '../../components/Navigation/Header'
 import { logSentry } from '../../utils/sentryUtils'
-import { FEATURED_TOKENS } from '../../utils/constants'
-import { buildFeaturedFilterString } from '../../utils/userAccountUtils'
+import { FEATURED_TOKENS, VERIFIED_TOKENS } from '../../utils/constants'
 
 import {
   Container,
@@ -89,8 +88,8 @@ class ParticipateHome extends React.Component {
   _getFeaturedTokensFromStore = async () => {
     const store = await getAssetsStore()
     const filtered = store.objects('Asset')
-      .filtered(buildFeaturedFilterString())
       .map(item => Object.assign({}, item))
+      .filter(item => VERIFIED_TOKENS.includes(item.name))
 
     if (filtered.length) {
       this.setState({ featuredTokens: orderAssets(filtered) })
@@ -137,8 +136,7 @@ class ParticipateHome extends React.Component {
     return assets
       .filter(({ issuedPercentage, name, startTime, endTime }) =>
         issuedPercentage < 100 && name !== 'TRX' && startTime < Date.now() && endTime > Date.now() &&
-        !FEATURED_TOKENS.includes(name)
-      )
+        !FEATURED_TOKENS.includes(name))
       .sort((a, b) => b.issuedPercentage - a.issuedPercentage)
   }
 
@@ -172,11 +170,11 @@ class ParticipateHome extends React.Component {
 
     try {
       if (name) {
-        this.setState({ loading: true, searchMode: true })
+        this.setState({ loading: true })
         const assets = await this._updateAssets(0, 10, name)
         this.setState({ currentList: assets, loading: false })
       } else {
-        this.setState({ currentList: assetList, loading: false, searchMode: false })
+        this.setState({ currentList: assetList, loading: false })
       }
     } catch (error) {
       this.setState({ error: error.message })
@@ -184,9 +182,9 @@ class ParticipateHome extends React.Component {
     }
   }
 
-  _renderCardContent = ({ name, price, issuedPercentage, endTime, verified }) => (
+  _renderCardContent = ({ name, price, issuedPercentage, endTime, featured, verified }) => (
     <React.Fragment>
-      {verified && (
+      {featured && (
         <Featured>
           <FeaturedText align='center'>{tl.t('participate.featured')}</FeaturedText>
         </Featured>
@@ -204,9 +202,9 @@ class ParticipateHome extends React.Component {
           ) : (
             <TokenName>{name}</TokenName>
           )}
-          {verified ? <FeaturedTokenPrice>{price / ONE_TRX} TRX</FeaturedTokenPrice> : <TokenPrice>{price / ONE_TRX} TRX</TokenPrice>}
+          {featured ? <FeaturedTokenPrice>{price / ONE_TRX} TRX</FeaturedTokenPrice> : <TokenPrice>{price / ONE_TRX} TRX</TokenPrice>}
         </Row>
-        <VerticalSpacer size={verified ? 12 : 20} />
+        <VerticalSpacer size={featured ? 12 : 20} />
         <Row>
           <View style={{flex: 1, justifyContent: 'center'}}>
             <ProgressBar
@@ -223,7 +221,7 @@ class ParticipateHome extends React.Component {
             </Row>
           </View>
           <HorizontalSpacer size={20} />
-          {verified && (
+          {featured && (
             <BuyButton elevation={8}>
               <ButtonText>{tl.t('participate.button.buyNow')}</ButtonText>
             </BuyButton>
@@ -238,7 +236,7 @@ class ParticipateHome extends React.Component {
       <React.Fragment>
         <TouchableOpacity onPress={() => { this.props.navigation.navigate('Buy', { item: asset }) }}>
           <Card>
-            {asset.verified ? (
+            {asset.featured ? (
               <LinearGradient
                 start={{ x: 0, y: 1 }}
                 end={{ x: 1, y: 0 }}
@@ -275,7 +273,6 @@ class ParticipateHome extends React.Component {
   render () {
     const { currentList } = this.state
     const orderedBalances = orderAssets(currentList)
-
     return (
       <Container>
         <FlatList

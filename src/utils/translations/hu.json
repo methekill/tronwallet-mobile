@@ -18,17 +18,17 @@
   "success": "Success",
   "warning": "Warning",
   "cancel": "Cancel",
-  "address": "Address",
+  "address": "Cím",
   "ok": "OK",
   "actionModalTitle": "Would you like to",
-  "account" : "Account",
-  "restore" : "Restore",
+  "account": "számla",
+  "restore": "visszaállítás",
   "error": {
     "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
     "buildingTransaction": "Error while building transaction, try again.",
     "gettingTransaction": "Error while getting transaction.",
     "clipboardCopied": "Something wrong while copying",
-    "hideAccount" : "Something went wrong deleting account, try again'"
+    "hideAccount": "Valami hiba történt a fiók törlésével, próbálkozzon újra \""
   },
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRICE",
@@ -50,7 +50,7 @@
   "clear": "Clear",
   "allIn": "All In",
   "skip": "Skip",
-  "privateKey": "Private Key",
+  "privateKey": "Privát kulcs",
   "balance": {
     "title": "ACCOUNTS",
     "error": {
@@ -59,11 +59,11 @@
     },
     "chooseCurrency": "Please, choose your preferred currency.",
     "confirmSeed": "Please tap to confirm your 12 seed words",
-    "bandwidth": "BANDWIDTH",
+    "bandwidth": "SÁVSZÉLESSÉG",
     "tokens": "TOKENS",
     "holdings": "HOLDINGS"
   },
-  "hideAccount" : "You are about to remove this account. You can restore it later in the settings",
+  "hideAccount": "El szeretné távolítani ezt a fiókot. A beállítások később visszaállíthatók",
   "components": {
     "share": {
       "title": "Share TronWallet address",
@@ -128,12 +128,12 @@
       "address": "ADDRESS"
     }
   },
-  "importWallet":{
+  "importWallet": {
     "title": "IMPORT WALLET",
-    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
+    "message": "Ha rendelkezel a tárcád privát kulcsa és címe, akkor helyreállíthatja itt, de ne felejtse el, hogy a TronWallet elsősorban mnemonikusan működik. Ez a helyreállítási módszer letiltja néhány funkciót az alkalmazáson belül.",
     "button": "IMPORT",
     "error": {
-      "privateKey": "Private key invalid or incomplete"
+      "privateKey": "A privát kulcs érvénytelen vagy hiányos"
     }
   },
   "freeze": {
@@ -200,85 +200,85 @@
     "totalSupply": "TOTAL SUPPLY",
     "startTime": "START TIME",
     "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "transaction": "TRANSACTION",
-    "ownerAddress": "OWNER ADDRESS",
+    "description": "LEÍRÁS",
+    "transaction": "TRANZAKCIÓ",
+    "ownerAddress": "TULAJDONOS CÍM",
     "trxNum": "TRX NUM",
     "num": "NUM",
-    "block": "BLOCK"
+    "block": "BLOKK"
   },
   "pin": {
-    "title": "SECURITY CHECK",
-    "enter": "Enter PIN",
-    "new": "Enter New PIN",
-    "reenter": "Re-Enter PIN"
+    "title": "BIZTONSÁGI ELLENŐRZÉS",
+    "enter": "Adja meg a PIN kódot",
+    "new": "Írja be az új PIN kódot",
+    "reenter": "Újból adja meg a PIN-kódot"
   },
   "receive": {
-    "title": "RECEIVE",
-    "clipboardCopied": "Copied to clipboard",
+    "title": "KAP",
+    "clipboardCopied": "Másolva a vágólapra",
     "button": {
-      "copy": "Copy",
-      "share": "Share"
+      "copy": "Másolat",
+      "share": "Ossza meg"
     },
     "tabs": {
-      "share": "SHARE",
-      "request": "REQUEST"
+      "share": "OSSZA MEG",
+      "request": "KÉRÉS"
     }
   },
   "rewards": {
-    "title": "REWARDS",
-    "earned": "You have earned"
+    "title": "JUTALMAK",
+    "earned": "Megszerzett"
   },
   "seed": {
     "confirm": {
-      "title": "CONFIRM SEED",
+      "title": "MEGFOGADJA A SEED-et",
       "error": {
-        "title": "Wrong Combination",
-        "message": "Selected words don't match. Make sure you wrote the words in the correct order."
+        "title": "Helytelen kombináció",
+        "message": "A kiválasztott szavak nem egyeznek. Győződjön meg róla, hogy a megfelelő sorrendben írta a szavakat."
       },
-      "success": "Wallet successfully confirmed",
-      "explanation": "Select the words below in the right order to confirm your secret phrase.",
+      "success": "A mobiltárca sikeresen meg lett erősítve",
+      "explanation": "Válassza ki az alábbi szavakat a megfelelő sorrendben a titkos mondat megerősítéséhez.",
       "button": {
         "reset": "RESET WORDS",
-        "confirm": "CONFIRM SEED"
+        "confirm": "MEGFOGADJA A SEED-et"
       }
     },
     "create": {
       "title": "CREATE SEED",
-      "titleConfirm": "CONFIRM WALLET SEED",
-      "error": "Oops, we have a problem. Please restart the application.",
-      "generateNew": "This will generate a completely new wallet.",
+      "titleConfirm": "MEGFOGADJA A FALSZATOT",
+      "error": "Hoppá, van egy gondunk. Indítsa újra az alkalmazást.",
+      "generateNew": "Ez teljesen új pénztárcát fog létrehozni.",
       "button": {
-        "written": "I'VE WRITTEN IT DOWN",
-        "newSeed": "GET NEW SEED",
-        "later": "Confirm later"
+        "written": "ÍRÓT KELL ÍGY",
+        "newSeed": "ÚJ SEED",
+        "later": "Erősítse meg később"
       }
     },
     "restore": {
       "title": "RESTORE WALLET",
-      "explanation": "To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
-      "placeholder": "Please, type your 12 seed words here",
-      "success": "Wallet restored with success!",
-      "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
-      "error": "Oops. Looks like the words you typed aren't a valid mnemonic seed. Check for a typo and try again.",
-      "button": "RESTORE"
+      "explanation": "A tárcájának visszaállításához kérjük, írja be ugyanazt a 12 szót, amelyet papíron írt, amikor először hozta létre a tárcáját. Ha más szavakat ad meg, egy új üres pénztárca jön létre.",
+      "placeholder": "Kérjük, írja be a 12 magszavakat itt",
+      "success": "A pénztárca sikerrel helyreáll!",
+      "warning": "A vetõmag visszaállítása törli az összes adatot ezen az eszközön, és a helyreállított fiókhoz húzza az információkat a hálózattól.",
+      "error": "Hoppá. Úgy tűnik, hogy a begépelt szavak nem érvényes mnemonikus magok. Ellenőrizze a hibát, és próbálkozzon újra.",
+      "button": "VISSZAÁLLÍTÁS"
     }
   },
   "send": {
-    "title": "SEND",
+    "title": "ELKÜLD",
     "error": {
-      "insufficientBalance": "Not enough balance.",
-      "gettingBalance": "Error while getting balance data",
-      "incompleteAddress": "Address is either incomplete or invalid.",
-      "invalidReceiver": "Invalid receiver address",
-      "selectBalance": "Select a balance first",
-      "invalidAmount": "Invalid amount"
+      "insufficientBalance": "Nincs elég egyensúly.",
+      "gettingBalance": "Hiba történt az egyensúlyi adatok beszerzése közben",
+      "incompleteAddress": "A cím vagy hiányos vagy érvénytelen.",
+      "invalidReceiver": "Érvénytelen fogadó cím",
+      "selectBalance": "Először válassza ki az egyensúlyt",
+      "invalidAmount": "Érvénytelen összeg"
     },
     "input": {
-      "token": "TOKEN",
-      "to": "TO",
-      "amount": "AMOUNT",
-      "description": "DESCRIPTION (OPTIONAL)"
+      "token": "JELKÉPES",
+      "to": "NAK NEK",
+      "amount": "ÖSSZEG",
+      "description": "LEÍRÁS (OPCIONÁLIS)"
     },
     "available": "available",
     "chooseToken": "Please, choose a token below.",
@@ -290,7 +290,7 @@
       "wallet": "WALLET",
       "security": "SECURITY",
       "notification": "NOTIFICATIONS AND IDIOM",
-      "accounts": "ACCOUNTS MANAGEMENT"
+      "accounts": "SZÁMVITELI GAZDÁLKODÁS"
     },
     "notifications": {
       "title": "Notifications"
@@ -357,151 +357,149 @@
     "token": {
       "title": "Token Filter",
       "search": "Search tokens",
-      "confirm": "Save",
-      "noResult": "No results..."
+      "confirm": "Mentés",
+      "noResult": "Nincs eredmény..."
     },
     "about": {
-      "title": "About",
-      "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
+      "title": "Ról ről",
+      "description": "A TronWallet egy teljesen nyílt forráskódú, teljesen decentralizált P2P Crypto Wallet a TRON hálózathoz, mely React Native-tel készült. Segítségével zsetonokat küldhet és fogadhat, szavazhat egy szuper képviselőn, részt vehet egy token értékesítésben, nyomon követheti egyenlegeit és tranzakcióit, és még sok mást. Érintse meg az alábbi linket egy részletes ismertetőben, hogyan kell használni.",
       "tutorial": "TUTORIAL"
     },
     "accepts": {
-      "title": "Who accepts TRX?"
+      "title": "Ki fogadja el a TRX-t?"
     },
     "accounts": {
-      "title" : "Accounts",
-      "search" : "Search accounts",
-      "restoreAccounts" : "Restore Accounts",
-      "noAccounts" : "No accounts to restore"
-
+      "title": "Fiókok",
+      "search": "Keresési fiókok",
+      "restoreAccounts": "Számlák visszaállítása",
+      "noAccounts": "Nincs visszaállítandó fiók"
     },
     "partners": "PARTNERS",
-    "askPin" :"Always ask PIN"
-    
+    "askPin": "Mindig kérdezze meg a PIN kódot"
   },
   "submitTransaction": {
-    "title": "TRANSACTION DETAILS",
-    "notification": "You have received a transaction from {{address}}",
-    "notificationPayment": "You have received a payment from {{address}}",
-    "data": "DATA",
-    "time": "TIME",
+    "title": "TRANZAKCIÓ RÉSZLETEK",
+    "notification": "Tranzakciót kapott {{address}}",
+    "notificationPayment": "{{address}}tól kapott fizetést",
+    "data": "ADAT",
+    "time": "IDŐ",
     "button": {
-      "tryAgain": "Try again",
-      "submit": "SUBMIT TRANSACTION"
+      "tryAgain": "Próbáld újra",
+      "submit": "FELHASZNÁLÁSI ADATOK"
     },
-    "error" :{
+    "error": {
       "noData": "Couldn't load transaction data"
     },
-    "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
+    "disconnectedMessage": "Úgy tűnik, hogy nincs kapcsolat. Újra csatlakozzon az internethez, mielőtt folytatná a tranzakciót.",
     "dic": {
-      "contractType": "Transaction Type",
-      "ownerAddress": "From",
-      "toAddress": "To",
-      "participateAssetIssueContract": "Participate",
-      "transferAssetContract": "Transfer",
-      "transferContract": "Transfer",
-      "unfreezeBalanceContract": "Unfreeze",
-      "freezeBalanceContract": "Freeze",
-      "assetIssueContract": "Create",
-      "voteWitnessContract": "Vote",
-      "frozenDuration": "Duration",
-      "frozenBalance": "Total to Freeze"
+      "contractType": "Tranzakció Típusa",
+      "ownerAddress": "Tól től",
+      "toAddress": "Nak nek",
+      "participateAssetIssueContract": "Részt venni",
+      "transferAssetContract": "Átruházás",
+      "transferContract": "Átruházás",
+      "unfreezeBalanceContract": "Kiolvaszt",
+      "freezeBalanceContract": "Fagy",
+      "assetIssueContract": "Teremt",
+      "voteWitnessContract": "Szavazás",
+      "frozenDuration": "tartam",
+      "frozenBalance": "Összesen Freeze"
     },
     "errorDic": {
-      "contractValidate": "Transaction data not valid. Please try again later.",
-      "signature": "Transaction signature not valid.",
-      "duplicate": "Transaction already broadcasted.",
-      "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
-      "bandwith": "Not enought bandwidth. Please try again later.",
-      "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
-      "tooBig": "Transaction too big to be submitted.",
-      "expiration": "Transaction expired. Please try again.",
-      "serverBusy": "Server busy.",
-      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
+      "contractValidate": "A tranzakciós adatok nem érvényesek. Kérlek, próbáld újra később.",
+      "signature": "Tranzakció aláírás nem érvényes.",
+      "duplicate": "Tranzakció már sugárzott.",
+      "contractValidateCee": "A tranzakciós adatok nem érvényesek (CEE). Kérlek, próbáld újra később.",
+      "bandwith": "Nem elég sávszélesség. Kérlek, próbáld újra később.",
+      "contractValidateTapos": "Tranzakciós adatok nem érvényesek (TAPOS). Kérlek, próbáld újra később.",
+      "tooBig": "A tranzakció túl nagy ahhoz, hogy be kell nyújtani.",
+      "expiration": "A tranzakció lejárt. Kérlek próbáld újra.",
+      "serverBusy": "A szerver foglalt.",
+      "resource": "Elégtelen sávszélesség vagy egyensúly. Lehet, hogy szükséged lesz egy fagyasztott TRX-re."
     },
-    "totalVotes": "Total Votes"
+    "totalVotes": "Összes szavazás"
   },
   "transactions": {
-    "title": "MY TRANSACTIONS",
-    "from": "From",
-    "to": "To",
-    "notFound": "No transactions found."
+    "title": "A VÁLLALKOZÁSOK",
+    "from": "Tól től",
+    "to": "Nak nek",
+    "notFound": "Nem található tranzakció."
   },
   "transactionDetails": {
-    "title": "TRANSACTION",
+    "title": "TRANZAKCIÓ",
     "clipboard": {
-      "tronscanUrl": "Tronscan url for this transaction copied to the clipboard",
-      "publicKey": "Public Key copied to the clipboard"
+      "tronscanUrl": "A tranzakció Tronscan URL-je másolt a vágólapra",
+      "publicKey": "A nyilvános kulcs átmásolta a vágólapra"
     },
-    "hash": "HASH",
-    "status": "STATUS",
-    "time": "TIME",
-    "block": "BLOCK",
-    "frozenBalance": "FROZEN BALANCE",
-    "unfrozenBalance": "UNFROZEN BALANCE",
-    "totalVotes": "TOTAL VOTES",
-    "amount": "AMOUNT",
-    "to": "TO",
-    "from": "FROM",
-    "tokenName": "TOKEN NAME",
-    "unityValue": "UNITY VALUE",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "votedAddress": "VOTED ADDRESS"
+    "hash": "hash",
+    "status": "ÁLLAPOT",
+    "time": "IDŐ",
+    "block": "BLOKK",
+    "frozenBalance": "FAGYASZTOTT MÉRLEG",
+    "unfrozenBalance": "MEGSZAKÍTOTT MÉRLEG",
+    "totalVotes": "TELJES SZAVAZÁS",
+    "amount": "ÖSSZEG",
+    "to": "NAK NEK",
+    "from": "TÓL TŐL",
+    "tokenName": "TOKEN NEVE",
+    "unityValue": "EGYSÉGÉRTÉK",
+    "totalSupply": "ÖSSZES ELLÁTÁS",
+    "startTime": "KEZDÉSI IDŐ",
+    "endTime": "IDŐ VÉGE",
+    "description": "LEÍRÁS",
+    "votedAddress": "SZAVATOS CÍM"
   },
   "transactionSuccess": {
-    "submitted": "TRANSACTION SUBMITTED TO NETWORK!",
-    "success": "SUCCESS!"
+    "submitted": "A HÁLÓZATRA VONATKOZÓ ÜGYLETEK!",
+    "success": "SIKER!"
   },
   "votes": {
-    "title": "VOTES",
-    "totalVotes": "TOTAL VOTES",
-    "votesAvailable": "VOTES AVAILABLE",
-    "search": "Search",
-    "error": "Oops, something didn't load correctly. Try to reload"
+    "title": "SZAVAZÁS",
+    "totalVotes": "TELJES SZAVAZÁS",
+    "votesAvailable": "ELFOGADOTT SZAVAZÁS",
+    "search": "Keresés",
+    "error": "Hoppá, valami nem volt megfelelően betöltve. Próbálja meg újratölteni"
   },
   "scanPayment": {
-    "scan": "SCAN",
+    "scan": "LETAPOGATÁS",
     "error": {
-      "receiver": "Receiver address invalid",
-      "token": "Token not valid",
-      "amount": "Amount not valid",
-      "description": "Description too long",
-      "code": "Payment code invalid. Please, scan a valid one"
+      "receiver": "A vevő cím érvénytelen",
+      "token": "A token érvénytelen",
+      "amount": "Az összeg nem érvényes",
+      "description": "A leírás túl hosszú",
+      "code": "Fizetési kód érvénytelen. Kérjük, szkenneljen egy érvényeset"
     }
   },
   "makePayment": {
-    "pay": "PAY",
-    "confirm": "CONFIRM PAYMENT",
+    "pay": "FIZETÉS",
+    "confirm": "MEGERŐSÍTÉS FIZETÉS",
     "error": {
-      "receiver": "Receiver is equal to requester",
-      "token": "This account doesn't have the token for this transaction",
-      "amount": "This account doesn't have enough balance.",
-      "description": "No description available"
+      "receiver": "A vevő egyenlő a kérelemmel",
+      "token": "Ez a fiók nem rendelkezik a tranzakció tokjával",
+      "amount": "Ennek a fióknak nincs elég egyensúlya.",
+      "description": "Nem érhető el leírás"
     }
   },
   "buildPayment": {
-    "generate": "GENERATE REQUEST",
-    "selectCurrency": "Select the reference currency",
+    "generate": "GENERATE KÉRÉS",
+    "selectCurrency": "Válassza ki a referencia pénznemet",
     "error": {
-      "currency": "We weren't able to load other currency prices. Please use TRX as reference"
+      "currency": "Nem tudtunk betölteni más devizaárfolyamokat. Kérjük, használja a TRX referenciaként"
     }
   },
   "requestPayment": {
-    "title": "REQUEST PAYMENT"
+    "title": "FIZETÉSI KÉRELEM"
   },
   "newAccount": {
-    "title": "Account Creation",
-    "placeholder": "My precious account",
+    "title": "Fiók létrehozása",
+    "placeholder": "Drága számlám",
     "success": {
-      "title": "New account successfully created",
-      "message": "You can edit the name on your address book"
+      "title": "Új fiók sikeresen létrehozva",
+      "message": "A nevet a címjegyzékben szerkesztheti"
     },
     "failure": {
-      "title": "New account warning",
-      "message": "To add a new account you should have at least one transaction on your last account."
+      "title": "Új fiók figyelmeztetés",
+      "message": "Új fiók hozzáadásához az utolsó fiókjában legalább egy tranzakciót kell végrehajtania."
     }
   }
 }

@@ -379,7 +379,6 @@ class SendScene extends Component {
             {error && (
               <React.Fragment>
                 <Utils.Error>{error}</Utils.Error>
-                <Utils.VerticalSpacer size='large' />
               </React.Fragment>
             )}
             <Utils.VerticalSpacer size='large' />

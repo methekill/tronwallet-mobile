@@ -18,17 +18,17 @@
   "success": "Success",
   "warning": "Warning",
   "cancel": "Cancel",
-  "address": "Address",
+  "address": "Adresse",
   "ok": "OK",
   "actionModalTitle": "Would you like to",
-  "account" : "Account",
-  "restore" : "Restore",
+  "account": "Konto",
+  "restore": "Gendan",
   "error": {
     "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
     "buildingTransaction": "Error while building transaction, try again.",
     "gettingTransaction": "Error while getting transaction.",
     "clipboardCopied": "Something wrong while copying",
-    "hideAccount" : "Something went wrong deleting account, try again'"
+    "hideAccount": "Der gik noget galt med at slette konto, prøv igen '"
   },
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRICE",
@@ -50,7 +50,7 @@
   "clear": "Clear",
   "allIn": "All In",
   "skip": "Skip",
-  "privateKey": "Private Key",
+  "privateKey": "Privat nøgle",
   "balance": {
     "title": "ACCOUNTS",
     "error": {
@@ -63,7 +63,7 @@
     "tokens": "TOKENS",
     "holdings": "HOLDINGS"
   },
-  "hideAccount" : "You are about to remove this account. You can restore it later in the settings",
+  "hideAccount": "Du er ved at fjerne denne konto. Du kan gendanne det senere i indstillingerne",
   "components": {
     "share": {
       "title": "Share TronWallet address",
@@ -128,12 +128,12 @@
       "address": "ADDRESS"
     }
   },
-  "importWallet":{
-    "title": "IMPORT WALLET",
-    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
-    "button": "IMPORT",
+  "importWallet": {
+    "title": "IMPORTVALLET",
+    "message": "Hvis du har den private nøgle og adresse på din tegnebog, kan du gendanne det her, men husk at TronWallet primært opererer med mnemonics. Denne genvindingsmetode deaktiverer nogle funktioner i App.",
+    "button": "IMPORTERE",
     "error": {
-      "privateKey": "Private key invalid or incomplete"
+      "privateKey": "Privat nøgle er ugyldig eller ufuldstændig"
     }
   },
   "freeze": {
@@ -258,71 +258,71 @@
       "title": "RESTORE WALLET",
       "explanation": "To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
       "placeholder": "Please, type your 12 seed words here",
-      "success": "Wallet restored with success!",
-      "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
-      "error": "Oops. Looks like the words you typed aren't a valid mnemonic seed. Check for a typo and try again.",
+      "success": "Wallet restaureret med succes!",
+      "warning": "Gendan frø vil slette alle data på denne enhed og trække oplysninger fra netværket til den gendannede konto.",
+      "error": "Ups. Det ligner de ord, du skrev, er ikke et gyldigt mnemonisk frø. Tjek for en skrifttype og prøv igen.",
       "button": "RESTORE"
     }
   },
   "send": {
-    "title": "SEND",
+    "title": "SENDE",
     "error": {
-      "insufficientBalance": "Not enough balance.",
-      "gettingBalance": "Error while getting balance data",
-      "incompleteAddress": "Address is either incomplete or invalid.",
-      "invalidReceiver": "Invalid receiver address",
-      "selectBalance": "Select a balance first",
-      "invalidAmount": "Invalid amount"
+      "insufficientBalance": "Ikke nok balance.",
+      "gettingBalance": "Fejl under opnåelse af balancedata",
+      "incompleteAddress": "Adressen er enten ufuldstændig eller ugyldig.",
+      "invalidReceiver": "Ugyldig modtageradresse",
+      "selectBalance": "Vælg først en saldo",
+      "invalidAmount": "Ugyldigt beløb"
     },
     "input": {
-      "token": "TOKEN",
-      "to": "TO",
-      "amount": "AMOUNT",
-      "description": "DESCRIPTION (OPTIONAL)"
+      "token": "POLET",
+      "to": "TIL",
+      "amount": "BELØB",
+      "description": "BESKRIVELSE (VALGFRI)"
     },
-    "available": "available",
-    "chooseToken": "Please, choose a token below.",
-    "minimumAmount": "The minimum amount for any send transaction is 0.000001."
+    "available": "ledig",
+    "chooseToken": "Vælg venligst et symbol nedenfor.",
+    "minimumAmount": "Minimumsbeløbet for enhver afsendt transaktion er 0.000001."
   },
   "settings": {
-    "title": "SETTINGS",
+    "title": "INDSTILLINGER",
     "sectionTitles": {
-      "wallet": "WALLET",
-      "security": "SECURITY",
-      "notification": "NOTIFICATIONS AND IDIOM",
-      "accounts": "ACCOUNTS MANAGEMENT"
+      "wallet": "PUNG",
+      "security": "SIKKERHED",
+      "notification": "NOTIFIKATIONER OG IDIOM",
+      "accounts": "REGNSKABSSTYRING"
     },
     "notifications": {
-      "title": "Notifications"
+      "title": "underretninger"
     },
     "network": {
-      "title": "Network",
+      "title": "Netværk",
       "modal": {
-        "title": "NETWORK",
-        "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
+        "title": "NETVÆRK",
+        "explanation": "Med denne indstilling kan du vælge den node der bedre passer til dine behov og præferencer. Vær forsigtig, mens du opdaterer noden IP, mens forkert IP kan medføre fejl i din tegnebog. Eksempel: 35.231.121.122:50051",
         "error": {
-          "storage": "Error getting node ip from local storage",
-          "invalidIp": "Please put a valid IP",
-          "update": "Something went wrong while updating nodes ip",
-          "reset": "Something wrong while reseting node ip"
+          "storage": "Fejl ved at få node ip fra lokal lagring",
+          "invalidIp": "Angiv venligst en gyldig IP",
+          "update": "Noget gik galt, mens opdatering af noder ip",
+          "reset": "Noget galt, mens nulstillingsnoden ip"
         },
         "success": {
-          "updated": "Updated",
-          "updatedIp": "Nodes IP updated!",
-          "switchTest": "Switched nodes IP to Testnet",
-          "switchMain": "Switched nodes IP to default main",
+          "updated": "Opdateret",
+          "updatedIp": "Nodes IP opdateret!",
+          "switchTest": "Skiftede noder IP til Testnet",
+          "switchMain": "Skiftede noder IP til standard hoved",
           "reset": "Node IP reseted!"
         },
         "placeholder": {
-          "loadingIp": "Loading IP",
-          "loadingPort": "Loading Port"
+          "loadingIp": "Indlæser IP",
+          "loadingPort": "Indlæser port"
         },
         "button": {
-          "update": "Update and Connect",
-          "reset": "Reset"
+          "update": "Opdater og Forbind",
+          "reset": "Nulstil"
         },
-        "mainNode": "Main Node",
-        "solidityNode": "Solidity Node",
+        "mainNode": "Hovednode",
+        "solidityNode": "Soliditet Node",
         "testNet": "TestNet"
       }
     },
@@ -330,19 +330,19 @@
       "title": "Backup Wallet"
     },
     "restore": {
-      "title": "Restore Wallet"
+      "title": "Gendan Wallet"
     },
     "reset": {
-      "title": "Reset Wallet",
-      "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
-      "button": "OK, I understand it"
+      "title": "Nulstil Wallet",
+      "warning": "Advarsel: Denne handling sletter alle gemte data, inklusive dine 12 hemmelige ord. Hvis du ikke gemte din hemmelighed, skal du gøre det, før du fortsætter.",
+      "button": "OK, jeg forstår det"
     },
     "pin": {
-      "title": "Change Pin",
-      "success": "Pin successfully changed!"
+      "title": "Skift pin",
+      "success": "Pin med succes ændret!"
     },
     "language": {
-      "title": "Language",
+      "title": "Sprog",
       "choose": "Please, choose a Language below:",
       "success": {
         "title": "Language changed to {{language}}",
@@ -369,15 +369,13 @@
       "title": "Who accepts TRX?"
     },
     "accounts": {
-      "title" : "Accounts",
-      "search" : "Search accounts",
-      "restoreAccounts" : "Restore Accounts",
-      "noAccounts" : "No accounts to restore"
-
+      "title": "Konti",
+      "search": "Søg i konti",
+      "restoreAccounts": "Gendan konti",
+      "noAccounts": "Ingen konti for at gendanne"
     },
     "partners": "PARTNERS",
-    "askPin" :"Always ask PIN"
-    
+    "askPin": "Spørg altid PIN-kode"
   },
   "submitTransaction": {
     "title": "TRANSACTION DETAILS",
@@ -389,7 +387,7 @@
       "tryAgain": "Try again",
       "submit": "SUBMIT TRANSACTION"
     },
-    "error" :{
+    "error": {
       "noData": "Couldn't load transaction data"
     },
     "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
@@ -398,110 +396,110 @@
       "ownerAddress": "From",
       "toAddress": "To",
       "participateAssetIssueContract": "Participate",
-      "transferAssetContract": "Transfer",
-      "transferContract": "Transfer",
-      "unfreezeBalanceContract": "Unfreeze",
-      "freezeBalanceContract": "Freeze",
-      "assetIssueContract": "Create",
-      "voteWitnessContract": "Vote",
-      "frozenDuration": "Duration",
-      "frozenBalance": "Total to Freeze"
+      "transferAssetContract": "Overførsel",
+      "transferContract": "Overførsel",
+      "unfreezeBalanceContract": "Frigør",
+      "freezeBalanceContract": "Fryse",
+      "assetIssueContract": "skab",
+      "voteWitnessContract": "Stemme",
+      "frozenDuration": "Varighed",
+      "frozenBalance": "Total til Frys"
     },
     "errorDic": {
-      "contractValidate": "Transaction data not valid. Please try again later.",
-      "signature": "Transaction signature not valid.",
-      "duplicate": "Transaction already broadcasted.",
-      "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
-      "bandwith": "Not enought bandwidth. Please try again later.",
-      "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
-      "tooBig": "Transaction too big to be submitted.",
-      "expiration": "Transaction expired. Please try again.",
-      "serverBusy": "Server busy.",
-      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
+      "contractValidate": "Transaktionsdata er ikke gyldige. Prøv igen senere.",
+      "signature": "Transaktions signaturen er ikke gyldig.",
+      "duplicate": "Transaktion, der allerede er sendt.",
+      "contractValidateCee": "Transaktionsdata er ikke gyldige (CEE). Prøv igen senere.",
+      "bandwith": "Ikke nok båndbredde. Prøv igen senere.",
+      "contractValidateTapos": "Transaktionsdata er ikke gyldige (TAPOS). Prøv igen senere.",
+      "tooBig": "Transaktionen er for stor til at blive indsendt.",
+      "expiration": "Transaktionen udløb. Prøv igen.",
+      "serverBusy": "Server optaget.",
+      "resource": "Utilstrækkelig båndbredde eller balance. Du har måske brug for noget frosset TRX."
     },
-    "totalVotes": "Total Votes"
+    "totalVotes": "Samlede stemmer"
   },
   "transactions": {
-    "title": "MY TRANSACTIONS",
-    "from": "From",
-    "to": "To",
-    "notFound": "No transactions found."
+    "title": "MIN TRANSAKTIONER",
+    "from": "Fra",
+    "to": "Til",
+    "notFound": "Ingen transaktioner fundet."
   },
   "transactionDetails": {
-    "title": "TRANSACTION",
+    "title": "TRANSAKTION",
     "clipboard": {
-      "tronscanUrl": "Tronscan url for this transaction copied to the clipboard",
-      "publicKey": "Public Key copied to the clipboard"
+      "tronscanUrl": "Tronscan url for denne transaktion kopieret til udklipsholderen",
+      "publicKey": "Offentlig nøgle kopieret til udklipsholderen"
     },
     "hash": "HASH",
     "status": "STATUS",
-    "time": "TIME",
-    "block": "BLOCK",
+    "time": "TID",
+    "block": "BLOK",
     "frozenBalance": "FROZEN BALANCE",
     "unfrozenBalance": "UNFROZEN BALANCE",
-    "totalVotes": "TOTAL VOTES",
-    "amount": "AMOUNT",
-    "to": "TO",
-    "from": "FROM",
-    "tokenName": "TOKEN NAME",
+    "totalVotes": "TOTALE AFSTEMNINGER",
+    "amount": "BELØB",
+    "to": "TIL",
+    "from": "FRA",
+    "tokenName": "TOKEN NAVN",
     "unityValue": "UNITY VALUE",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "votedAddress": "VOTED ADDRESS"
+    "totalSupply": "Samlet forsyning",
+    "startTime": "STARTTIDSPUNKT",
+    "endTime": "SLUTTID",
+    "description": "BESKRIVELSE",
+    "votedAddress": "STEMMET ADRESSE"
   },
   "transactionSuccess": {
-    "submitted": "TRANSACTION SUBMITTED TO NETWORK!",
-    "success": "SUCCESS!"
+    "submitted": "TRANSAKTION INDLEVERET TIL NETVÆRK!",
+    "success": "SUCCES!"
   },
   "votes": {
-    "title": "VOTES",
-    "totalVotes": "TOTAL VOTES",
-    "votesAvailable": "VOTES AVAILABLE",
-    "search": "Search",
-    "error": "Oops, something didn't load correctly. Try to reload"
+    "title": "sTEMMER",
+    "totalVotes": "TOTALE AFSTEMNINGER",
+    "votesAvailable": "AFSTEMNINGER TILGÆNGELIG",
+    "search": "Søg",
+    "error": "Ups, noget blev ikke indlæst korrekt. Prøv at genindlæse"
   },
   "scanPayment": {
     "scan": "SCAN",
     "error": {
-      "receiver": "Receiver address invalid",
-      "token": "Token not valid",
-      "amount": "Amount not valid",
-      "description": "Description too long",
-      "code": "Payment code invalid. Please, scan a valid one"
+      "receiver": "Modtageren adresse ugyldig",
+      "token": "Token er ikke gyldig",
+      "amount": "Beløbet er ikke gyldigt",
+      "description": "Beskrivelse for lang",
+      "code": "Betalingskode ugyldig. Vær venlig at scanne en gyldig en"
     }
   },
   "makePayment": {
-    "pay": "PAY",
-    "confirm": "CONFIRM PAYMENT",
+    "pay": "BETALE",
+    "confirm": "BEKRÆFT BETALING",
     "error": {
-      "receiver": "Receiver is equal to requester",
-      "token": "This account doesn't have the token for this transaction",
-      "amount": "This account doesn't have enough balance.",
-      "description": "No description available"
+      "receiver": "Modtageren er lig med anmelder",
+      "token": "Denne konto har ikke token for denne transaktion",
+      "amount": "Denne konto har ikke tilstrækkelig balance.",
+      "description": "Ingen beskrivelse tilgængelig"
     }
   },
   "buildPayment": {
-    "generate": "GENERATE REQUEST",
-    "selectCurrency": "Select the reference currency",
+    "generate": "GENERER ANMODNING",
+    "selectCurrency": "Vælg referencevaluta",
     "error": {
-      "currency": "We weren't able to load other currency prices. Please use TRX as reference"
+      "currency": "Vi kunne ikke indlæse andre valutakurser. Brug venligst TRX som reference"
     }
   },
   "requestPayment": {
-    "title": "REQUEST PAYMENT"
+    "title": "ANMODNING BETALING"
   },
   "newAccount": {
-    "title": "Account Creation",
-    "placeholder": "My precious account",
+    "title": "Oprettelse af konti",
+    "placeholder": "Min dyrebare konto",
     "success": {
-      "title": "New account successfully created",
-      "message": "You can edit the name on your address book"
+      "title": "Ny konto blev oprettet",
+      "message": "Du kan redigere navnet på din adressebog"
     },
     "failure": {
-      "title": "New account warning",
-      "message": "To add a new account you should have at least one transaction on your last account."
+      "title": "Ny konto advarsel",
+      "message": "For at tilføje en ny konto skal du have mindst en transaktion på din sidste konto."
     }
   }
 }

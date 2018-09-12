@@ -24,7 +24,7 @@ import AccountsCarousel from './AccountsCarousel'
 import tl from '../../utils/i18n'
 import { isNameValid, isAliasUnique } from '../../utils/validations'
 import { formatAlias } from '../../utils/contactUtils'
-import { USER_PREFERRED_CURRENCY, FEATURED_TOKENS } from '../../utils/constants'
+import { USER_PREFERRED_CURRENCY, VERIFIED_TOKENS } from '../../utils/constants'
 import { createNewAccount } from '../../utils/secretsUtils'
 import { updateAssets } from '../../utils/assetsUtils'
 import withContext from '../../utils/hocs/withContext'
@@ -174,7 +174,7 @@ class BalanceScene extends Component {
     const { balances, publicKey } = this.props.context
 
     if (balances[publicKey]) {
-      const featuredBalances = FEATURED_TOKENS.map(token => { return { name: token, balance: 0 } })
+      const featuredBalances = VERIFIED_TOKENS.map(token => { return { name: token, balance: 0 } })
       return unionBy(balances[publicKey], featuredBalances, 'name')
     }
 
