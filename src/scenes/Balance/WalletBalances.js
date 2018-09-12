@@ -7,7 +7,7 @@ import { orderBalances } from '../../utils/balanceUtils'
 import { Colors } from '../../components/DesignSystem'
 import Badge from '../../components/Badge'
 import * as Utils from '../../components/Utils'
-import { orderAssets, getCustomName } from '../../utils/assetsUtils'
+import { getCustomName } from '../../utils/assetsUtils'
 import { AsyncStorage } from '../../../node_modules/aws-amplify/lib/Common'
 import { USER_FILTERED_TOKENS } from '../../utils/constants'
 import { logSentry } from '../../utils/sentryUtils'
@@ -33,10 +33,10 @@ class WalletBalances extends Component {
     if (currentUserTokens) {
       const parsedTokens = JSON.parse(currentUserTokens)
       const filteredBalances = balances.filter(asset => parsedTokens.findIndex(name => name === asset.name) === -1)
-      return orderAssets(filteredBalances)
+      return orderBalances(filteredBalances)
     }
     if (balances.length) {
-      return orderAssets(balances)
+      return orderBalances(balances)
     }
     return []
   }
@@ -56,7 +56,7 @@ class WalletBalances extends Component {
             </Utils.Text>
           </Utils.Row>
           <Utils.VerticalSpacer size='big' />
-          {balancesToDisplay && orderBalances(balancesToDisplay).map((item) => (
+          {balancesToDisplay && balancesToDisplay.map((item) => (
             <Utils.Content key={item.name} paddingHorizontal='none' paddingVertical='medium'>
               <Utils.Row justify='space-between'>
                 <Badge bg={Colors.lightestBackground} guarantee={item.verified}>{getCustomName(item.name)}</Badge>

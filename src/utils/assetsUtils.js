@@ -24,24 +24,29 @@ export const orderAssets = (assets) => {
   let orderedVerified = []
   let orderedFeatured = []
   let rest = []
-  const verifyAsset = (asset, featured = false) => {
+
+  const verifyAsset = (asset, index, featured = false) => {
     asset.verified = true
     asset.featured = featured
-    if (featured) orderedFeatured.push(asset)
-    else orderedVerified.push(asset)
+    if (featured) orderedFeatured[index] = asset
+    else orderedVerified[index] = asset
   }
-  assets.forEach((asset) => {
+  assets.forEach(asset => {
     if (asset.name === 'TRX') {
       asset.verified = true
       asset.featured = false
-      return orderedVerified.unshift(asset)
+      orderedFeatured.unshift(asset)
     }
     const featuredIndex = FEATURED_TOKENS.findIndex(token => token === asset.name)
+    // featuredIndex + plus one because of the TRX
+    if (featuredIndex > -1) return verifyAsset(asset, featuredIndex + 1, true)
+
     const verifiedIndex = VERIFIED_TOKENS.findIndex(token => token === asset.name)
-    if (featuredIndex > -1) return verifyAsset(asset, true)
-    if (verifiedIndex > -1) return verifyAsset(asset)
+    if (verifiedIndex > -1) return verifyAsset(asset, verifiedIndex)
+
     rest.push(asset)
   })
+
   return [
     ...orderedFeatured.filter((asset) => asset),
     ...orderedVerified.filter((asset) => asset),

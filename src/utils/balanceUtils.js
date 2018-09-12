@@ -1,14 +1,21 @@
-export const orderBalances = (balances) => {
+import { FIXED_TOKENS } from './constants'
+
+export const orderBalances = balances => {
   let orderedBalances = []
-  balances.forEach((balance) => {
-    if (balance.name === 'TRX') {
-      orderedBalances[0] = balance
-    } else if (balance.name === 'TWX') {
-      orderedBalances[1] = balance
+  let rest = []
+
+  balances.forEach(balance => {
+    const verifiedIndex = FIXED_TOKENS.findIndex(token => token === balance.name)
+    if (verifiedIndex > -1) {
+      balance.verified = true
+      orderedBalances[verifiedIndex] = balance
+      return
     }
+    rest.push(balance)
   })
+
   return [
-    ...orderedBalances.filter((balance) => !!balance),
-    ...balances.filter((balance) => balance.name !== 'TRX' && balance.name !== 'TWX')
+    ...orderedBalances.filter(balance => balance),
+    ...rest
   ]
 }
