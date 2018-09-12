@@ -146,17 +146,17 @@ workflows:
             - test
           filters:
             branches:
-              only: feat/fastlane-setup
+              only: development
       - android_deploy:
           requires:
             - test
             - android_upgrade
           filters:
             branches:
-              only: feat/fastlane-setup
+              only: development
       - ios_upgrade_and_deploy:
           requires:
             - test
           filters:
             branches:
-              only: feat/fastlane-setup
+              only: development

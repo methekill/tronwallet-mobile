@@ -22,7 +22,7 @@ platform :ios do
 
     git_add(path: ".")
     git_commit(path: ".", message: "Version Bump [ci skip]")
-    push_to_git_remote(tags: false, remote_branch: "feat/fastlane-setup")
+    push_to_git_remote(tags: false, remote_branch: "development")
   end
 
   lane :realm do
@@ -78,7 +78,7 @@ platform :android do
 
     git_add(path: ".")
     git_commit(path: ".", message: "Version Bump [ci skip]")
-    push_to_git_remote(tags: false, remote_branch: "feat/fastlane-setup")
+    push_to_git_remote(tags: false, remote_branch: "development")
   end
 
   lane :build do
