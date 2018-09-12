@@ -22,11 +22,13 @@ export const getCustomName = (name) => {
 
 export const orderAssets = (assets) => {
   let orderedVerified = []
+  let orderedFeatured = []
   let rest = []
   const verifyAsset = (asset, featured = false) => {
     asset.verified = true
     asset.featured = featured
-    orderedVerified.push(asset)
+    if (featured) orderedFeatured.push(asset)
+    else orderedVerified.push(asset)
   }
   assets.forEach((asset) => {
     if (asset.name === 'TRX') {
@@ -41,6 +43,7 @@ export const orderAssets = (assets) => {
     rest.push(asset)
   })
   return [
+    ...orderedFeatured.filter((asset) => asset),
     ...orderedVerified.filter((asset) => asset),
     ...rest
   ]

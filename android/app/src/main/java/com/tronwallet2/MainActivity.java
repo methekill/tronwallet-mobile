@@ -6,6 +6,7 @@ import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
+import com.facebook.react.modules.i18nmanager.I18nUtil;
 import org.devio.rn.splashscreen.SplashScreen;
 import com.crashlytics.android.Crashlytics;
 import io.fabric.sdk.android.Fabric;
@@ -25,11 +26,14 @@ public class MainActivity extends ReactActivity {
       WritableMap params = Arguments.createMap();
       params.putString("event", "active");
 
+
       // when app starts reactContext will be null initially until bridge between Native and React Native is established
       if (reactContext != null) {
         getReactInstanceManager().getCurrentReactContext()
           .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
           .emit("ActivityStateChange", params);
+          I18nUtil sharedI18nUtilInstance = I18nUtil.getInstance();
+          sharedI18nUtilInstance.allowRTL(reactContext, true);
       }
     }
 
