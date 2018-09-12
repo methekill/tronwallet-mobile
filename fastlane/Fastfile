@@ -15,6 +15,8 @@ platform :ios do
     sh "cd ..; yarn lint"
   end
 
+
+
   lane :upgrade do
     sh "yarn run postversion"
 
@@ -23,17 +25,23 @@ platform :ios do
     push_to_git_remote(tags: false, remote_branch: "feat/fastlane")
   end
 
+  lane :realm do
+    sh "rm -rf ../node_modules/realm"
+    sh "pwd"
+    sh "tar -xzvf ../ios/customLibs/realm.tar.gz -C ../node_modules/"
+  end
+
   lane :build do
     Environment::Public.new.build
 
-    update_app_identifier
-    match
-    get_provisioning_profile
-    update_project_provisioning
-    gym
-    pilot
+    # update_app_identifier
+    # match
+    # get_provisioning_profile
+    # update_project_provisioning
+    # gym
+    # pilot
 
-    sh "rm -rf #{ENV["FL_PROJECT_PROVISIONING_PROFILE_FILE"]}"
+    # sh "rm -rf #{ENV["FL_PROJECT_PROVISIONING_PROFILE_FILE"]}"
 
     slack(
       message: "Successfully deployed new App Update on #{ENV["ENVIRONMENT"]} environment."

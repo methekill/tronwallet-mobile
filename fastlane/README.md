@@ -28,6 +28,11 @@ Runs all the tests
 fastlane ios upgrade
 ```
 
+### ios realm
+```
+fastlane ios realm
+```
+
 ### ios build
 ```
 fastlane ios build
