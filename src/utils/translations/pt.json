@@ -209,7 +209,7 @@
   },
   "pin": {
     "title": "VERIFICAÇÃO DE SEGURANÇA",
-    "enter": "Entrar PIN",
+    "enter": "Digite o PIN",
     "new": "Digite o novo PIN",
     "reenter": "Confirme o PIN"
   },
@@ -244,9 +244,9 @@
       }
     },
     "create": {
-      "title": "CRIAR SEMENTE",
-      "titleConfirm": "CONFIRMAR CARTEIRA",
-      "error": "Opa, nós temos um problema. Por favor, reinicie o aplicativo.",
+      "title": "CRIAR SEED",
+      "titleConfirm": "CONFIRMAR CARTEIRA SEED",
+      "error": "Opa, temos um problema. Por favor, reinicie o aplicativo.",
       "generateNew": "Isso irá gerar uma carteira completamente nova.",
       "button": {
         "written": "EU CONFIRMO",
