@@ -26,20 +26,21 @@ platform :ios do
   end
 
   lane :realm do
-    sh "rm -rf ../node_modules/realm"
+    sh "rm -rf ../node_modules/realm/react-native/ios/RealmReact.xcodeproj/project.pbxproj"
     sh "pwd"
-    sh "tar -xzvf ../ios/customLibs/realm.tar.gz -C ../node_modules/"
+    sh "cp ../ios/customLibs/RealmProject.pbxproj ../node_modules/realm/react-native/ios/RealmReact.xcodeproj/project.pbxproj"
+    # sh "cp ../ios/customLibs/RealmProject.pbxproj ./project.pbxproj"
   end
 
   lane :build do
     Environment::Public.new.build
 
-    # update_app_identifier
-    # match
-    # get_provisioning_profile
-    # update_project_provisioning
-    # gym
-    # pilot
+    update_app_identifier
+    match
+    get_provisioning_profile
+    update_project_provisioning
+    gym
+    pilot
 
     # sh "rm -rf #{ENV["FL_PROJECT_PROVISIONING_PROFILE_FILE"]}"
 
