@@ -5,27 +5,42 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.002741">
+      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.002301">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.002422">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.001761">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: rm -rf ../node_modules/realm" time="0.07973">
+      <testcase classname="fastlane.lanes" name="2: update_app_identifier" time="0.262315">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: pwd" time="0.008968">
+      <testcase classname="fastlane.lanes" name="3: match" time="7.227742">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: tar -xzvf ../ios/customLibs/realm.tar.gz -C ../node_modules/" time="3.058397">
+      <testcase classname="fastlane.lanes" name="4: get_provisioning_profile" time="5.116829">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: update_project_provisioning" time="0.135831">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="6: gym" time="863.010358">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="7: pilot" time="102.642326">
         
       </testcase>
     

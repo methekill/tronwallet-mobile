@@ -57,11 +57,6 @@
 		90874B59B24241C3AFDBCBFD /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC5515BF5C89491EA906D7B9 /* FontAwesome.ttf */; };
 		97111BF887E64838BB0AAFE7 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE0D295D38DB4E3A91A2A8DA /* Rubik-Medium.ttf */; };
 		99A521F79E394A8A8F41D39A /* Rubik-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA4F7D3A4701414A8A359C39 /* Rubik-BoldItalic.ttf */; };
-		A06CD79720F91C6100679CBC /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06CD79620F91C6100679CBC /* NotificationService.swift */; };
-		A06CD79B20F91C6100679CBC /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A06CD79420F91C6000679CBC /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A06CD7A120F91CCB00679CBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A06CD7A020F91CCB00679CBC /* UIKit.framework */; };
-		A06CD7A320F91CD300679CBC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A06CD7A220F91CD300679CBC /* SystemConfiguration.framework */; };
-		A06CD7F720F92CC500679CBC /* libRCTOneSignal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A06CD7F620F92CB200679CBC /* libRCTOneSignal.a */; };
 		A69906EFF44241FABBA9454F /* RNBackgroundFetch+AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F9E396A99F441F8760E980 /* RNBackgroundFetch+AppDelegate.m */; };
 		A7E919B3066E43EB8ED83D33 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B041CF6E2B0142638D1D8862 /* libz.tbd */; };
 		ABAED9FB677148DE918548AA /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AA0C5AC4B4A4A6AAF381C43 /* Rubik-BlackItalic.ttf */; };
@@ -411,13 +406,6 @@
 			remoteGlobalIDString = 3D7682761D8E76B80014119E;
 			remoteInfo = SplashScreen;
 		};
-		A06CD79920F91C6100679CBC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A06CD79320F91C6000679CBC;
-			remoteInfo = OneSignalNotificationServiceExtension;
-		};
 		A06CD7F520F92CB200679CBC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A06CD7F120F92CB200679CBC /* RCTOneSignal.xcodeproj */;
@@ -455,7 +443,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A06CD79B20F91C6100679CBC /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,7 +502,6 @@
 		8F8425BBD8EAA3FF492110B7 /* libPods-tronwallet2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tronwallet2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		948E460590714D2C8CA144E0 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		A06CD78F20F91BD400679CBC /* tronwallet2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = tronwallet2.entitlements; path = tronwallet2/tronwallet2.entitlements; sourceTree = "<group>"; };
-		A06CD79420F91C6000679CBC /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06CD79620F91C6100679CBC /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		A06CD79820F91C6100679CBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A06CD7A020F91CCB00679CBC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -610,16 +596,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A06CD79120F91C6000679CBC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A06CD7A320F91CD300679CBC /* SystemConfiguration.framework in Frameworks */,
-				A06CD7A120F91CCB00679CBC /* UIKit.framework in Frameworks */,
-				A06CD7F720F92CC500679CBC /* libRCTOneSignal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -877,7 +853,6 @@
 				00E356EE1AD99517003FC87E /* tronwallet2Tests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* tronwallet2-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* tronwallet2-tvOSTests.xctest */,
-				A06CD79420F91C6000679CBC /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1039,7 +1014,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				A06CD79A20F91C6100679CBC /* PBXTargetDependency */,
 			);
 			name = tronwallet2;
 			productName = "Hello World";
@@ -1082,23 +1056,6 @@
 			productReference = 2D02E4901E0B4A5D006451C7 /* tronwallet2-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A06CD79320F91C6000679CBC /* OneSignalNotificationServiceExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A06CD79C20F91C6100679CBC /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
-			buildPhases = (
-				A06CD79020F91C6000679CBC /* Sources */,
-				A06CD79120F91C6000679CBC /* Frameworks */,
-				A06CD79220F91C6000679CBC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = OneSignalNotificationServiceExtension;
-			productName = OneSignalNotificationServiceExtension;
-			productReference = A06CD79420F91C6000679CBC /* OneSignalNotificationServiceExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1135,12 +1092,6 @@
 						DevelopmentTeam = SGP85Y6RSS;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
-					};
-					A06CD79320F91C6000679CBC = {
-						CreatedOnToolsVersion = 9.4.1;
-						DevelopmentTeam = SGP85Y6RSS;
-						LastSwiftMigration = 940;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -1251,7 +1202,6 @@
 				00E356ED1AD99517003FC87E /* tronwallet2Tests */,
 				2D02E47A1E0B4A5D006451C7 /* tronwallet2-tvOS */,
 				2D02E48F1E0B4A5D006451C7 /* tronwallet2-tvOSTests */,
-				A06CD79320F91C6000679CBC /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -1656,13 +1606,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A06CD79220F91C6000679CBC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1796,14 +1739,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A06CD79020F91C6000679CBC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A06CD79720F91C6100679CBC /* NotificationService.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1816,11 +1751,6 @@
 			isa = PBXTargetDependency;
 			target = 2D02E47A1E0B4A5D006451C7 /* tronwallet2-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
-		};
-		A06CD79A20F91C6100679CBC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A06CD79320F91C6000679CBC /* OneSignalNotificationServiceExtension */;
-			targetProxy = A06CD79920F91C6100679CBC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1872,6 +1802,8 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "60ae0bd3-5580-40cd-99be-38e09fe5b486";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore me.tronwallet";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tronwallet2.app/tronwallet2";
 			};
 			name = Debug;
@@ -1908,6 +1840,8 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "60ae0bd3-5580-40cd-99be-38e09fe5b486";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore me.tronwallet";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tronwallet2.app/tronwallet2";
 			};
 			name = Release;
@@ -1953,6 +1887,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.tronwallet;
 				PRODUCT_NAME = tronwallet2;
+				PROVISIONING_PROFILE = "60ae0bd3-5580-40cd-99be-38e09fe5b486";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore me.tronwallet";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1997,6 +1933,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.tronwallet;
 				PRODUCT_NAME = tronwallet2;
+				PROVISIONING_PROFILE = "60ae0bd3-5580-40cd-99be-38e09fe5b486";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore me.tronwallet";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -2040,6 +1978,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.tronwallet2-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "60ae0bd3-5580-40cd-99be-38e09fe5b486";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore me.tronwallet";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
@@ -2085,6 +2025,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.tronwallet2-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "60ae0bd3-5580-40cd-99be-38e09fe5b486";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore me.tronwallet";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
@@ -2129,6 +2071,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.tronwallet2-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "60ae0bd3-5580-40cd-99be-38e09fe5b486";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore me.tronwallet";
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tronwallet2-tvOS.app/tronwallet2-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
@@ -2173,6 +2117,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.tronwallet2-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "60ae0bd3-5580-40cd-99be-38e09fe5b486";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore me.tronwallet";
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tronwallet2-tvOS.app/tronwallet2-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
@@ -2255,97 +2201,6 @@
 			};
 			name = Release;
 		};
-		A06CD79D20F91C6100679CBC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = SGP85Y6RSS;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-onesignal/ios/**";
-				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.tronwallet.OneSignalNotificationServiceExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		A06CD79E20F91C6100679CBC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = SGP85Y6RSS;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-onesignal/ios/**";
-				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.tronwallet.OneSignalNotificationServiceExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2390,15 +2245,6 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		A06CD79C20F91C6100679CBC /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A06CD79D20F91C6100679CBC /* Debug */,
-				A06CD79E20F91C6100679CBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
