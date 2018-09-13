@@ -388,7 +388,7 @@
       "submit": "트랜잭션 제출"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "트랜잭션 데이터를 로드할 수 없습니다."
     },
     "disconnectedMessage": "연결이 끊긴 것 같습니다. 트랜잭션을 진행하기 전에 인터넷에 다시 연결해주세요.",
     "dic": {

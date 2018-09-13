@@ -388,7 +388,7 @@
       "submit": "إرسال المعاملة"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "تعذر تحميل بيانات المعاملة"
     },
     "disconnectedMessage": "يبدو أنك غير متصل. قم بإعادة الاتصال بالإنترنت قبل إكمال المعاملة.",
     "dic": {
