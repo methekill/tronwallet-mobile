@@ -76,6 +76,7 @@ jobs:
 
       - run: yarn install
 
+      - run: fastlane ios realm
       - run:
           name: Run Deploy
           command: fastlane ios build --env beta
