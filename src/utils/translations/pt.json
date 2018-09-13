@@ -245,7 +245,7 @@
     },
     "create": {
       "title": "CRIAR SEED",
-      "titleConfirm": "CONFIRMAR CARTEIRA SEED",
+      "titleConfirm": "CONFIRMAR CARTEIRA",
       "error": "Opa, temos um problema. Por favor, reinicie o aplicativo.",
       "generateNew": "Isso irá gerar uma carteira completamente nova.",
       "button": {
