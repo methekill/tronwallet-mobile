@@ -388,7 +388,7 @@
       "submit": "POTVRDIT TRANSAKCI"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "Nelze načíst data transakce"
     },
     "disconnectedMessage": "Zdá se, že jste odpojeni. Připojte se k internetu, pak bude možné v transakci pokračovat.",
     "dic": {
