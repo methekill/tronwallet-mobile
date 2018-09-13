@@ -68,14 +68,14 @@ class ReceiveScreen extends PureComponent {
             <Utils.HorizontalSpacer />
             <Share WrapperButton={ActionButton} />
           </Utils.Row>
+          <Toast
+            ref='toast'
+            position='center'
+            fadeInDuration={750}
+            fadeOutDuration={1000}
+            opacity={0.8}
+          />
         </Utils.Content>
-        <Toast
-          ref='toast'
-          position='center'
-          fadeInDuration={750}
-          fadeOutDuration={1000}
-          opacity={0.8}
-        />
       </KeyboardScreen>
     )
   }

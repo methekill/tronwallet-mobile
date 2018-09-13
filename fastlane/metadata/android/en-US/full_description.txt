@@ -1,0 +1,14 @@
+<h1>TronWallet Features:</h1> ⭐️⭐️⭐️⭐️⭐️
+<b>TronWallet is a fully decentralized P2P crypto wallet for TRON. </b>
+No fees  — Yes, that’s right, sending and receiving TRX is free.
+UX Design — Beautiful and practical design for a fast and intuitive experience
+Open source & Privacy — Very important, your keys are yours and PRIVATE to you only. We never hold your keys (you may check the code!)
+Fully decentralized p2p wallet — no login, no signup
+Local secret encryption + PIN — encrypted the database file on disk with AES-256+SHA2 by supplying a 64-byte encryption key powered by a realm database)
+All TRON network operations supported (except ‘create token’)
+Push notifications — get notified immediately once transactions are processed
+Easy to use — a lot of detail went into making the user experience very simple (and fast!)
+Benchmark vs. 20+ top crypto wallets — yeah, we checked other wallets to make sure Tron Wallet is top-notch in features and build quality
+Tron Wallet API — we made it easy for app and game developers to integrate and use TRON
+
+TronWallet is officially supported by TRON Foundation through TRON Accelerator and is a recommended wallet.

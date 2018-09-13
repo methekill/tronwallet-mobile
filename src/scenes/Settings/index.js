@@ -33,7 +33,7 @@ import AccountRecover from './RecoverAccount'
 import getBalanceStore from '../../store/balance'
 import { orderAssets } from '../../utils/assetsUtils'
 import { USER_PREFERRED_LANGUAGE, USER_FILTERED_TOKENS, FIXED_TOKENS, ALWAYS_ASK_PIN } from '../../utils/constants'
-import tl from '../../utils/i18n'
+import tl, { LANGUAGES } from '../../utils/i18n'
 import fontelloConfig from '../../assets/icons/config.json'
 import { withContext } from '../../store/context'
 import { hardResetWalletData } from '../../utils/userAccountUtils'
@@ -49,16 +49,6 @@ const resetAction = StackActions.reset({
   actions: [NavigationActions.navigate({ routeName: 'Loading' })],
   key: null
 })
-
-const LANGUAGES = [
-  { value: tl.t('cancel') },
-  { key: 'en-US', value: 'English' },
-  { key: 'pt-BR', value: 'Português' },
-  { key: 'fr-FR', value: 'Français' },
-  { key: 'nl-NL', value: 'Nederlands' },
-  { key: 'es-ES', value: 'Español' },
-  { key: 'ch-CH', value: '中文' }
-]
 
 class Settings extends Component {
   static navigationOptions = () => {

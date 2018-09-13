@@ -1,0 +1,3 @@
+Redesign Pin Screen
+Fixed Import Private Key Keyboard Bug
+Added featured Token
