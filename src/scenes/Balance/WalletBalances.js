@@ -63,11 +63,11 @@ class WalletBalances extends Component {
         this.setState({modalTokenVisible: false, errorToken: null})
         this.props.navigation.navigate('TokenDetailScene', { item: newAssetData })
       } else {
-        this.setState({errorToken: 'Token Information not available.'})
+        this.setState({errorToken: tl.t('balanceToken.notAvailable')})
       }
     } catch (error) {
       logSentry(error, 'Error fetching Token Data')
-      this.setState({errorToken: 'Token Information not available'})
+      this.setState({errorToken: tl.t('balanceToken.notAvailable')})
     }
   }
 
@@ -140,7 +140,7 @@ class WalletBalances extends Component {
                 }
                 <Utils.VerticalSpacer />
                 <Utils.Text size='tiny' font='regular'>
-                  {this.state.errorToken || 'Updating token information. Please wait a few seconds.'}
+                  {this.state.errorToken || tl.t('balanceToken.updating')}
                 </Utils.Text>
               </Utils.View>
             </Utils.View>
