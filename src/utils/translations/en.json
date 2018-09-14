@@ -503,5 +503,9 @@
       "title": "New account warning",
       "message": "To add a new account you should have at least one transaction on your last account."
     }
+  },
+  "balanceToken":{
+    "updating" :"Updating token information. Please wait a few seconds.",
+    "notAvailable" :"Token information not available"
   }
 }
