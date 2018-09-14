@@ -5,42 +5,27 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.002301">
+      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.004103">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.001761">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.004022">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: update_app_identifier" time="0.262315">
+      <testcase classname="fastlane.lanes" name="2: yarn run postversion" time="1.309461">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: match" time="7.227742">
+      <testcase classname="fastlane.lanes" name="3: git_add" time="1.440418">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: get_provisioning_profile" time="5.116829">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="5: update_project_provisioning" time="0.135831">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="6: gym" time="863.010358">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="7: pilot" time="102.642326">
+      <testcase classname="fastlane.lanes" name="4: git_commit" time="3.401311">
         
       </testcase>
     
