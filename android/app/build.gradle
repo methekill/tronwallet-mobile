@@ -78,7 +78,7 @@ android {
         applicationId "com.tronwallet2"
         minSdkVersion 16
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode 134
+        versionCode 135
         versionName "1.1.10"
         multiDexEnabled true
         ndk {
