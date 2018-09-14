@@ -142,7 +142,8 @@ const BalanceStack = createStackNavigator({
   SendScene,
   PaymentsScene,
   MakePayScene,
-  ScanPayScene
+  ScanPayScene,
+  TokenDetailScene: TokenInfoScene
 })
 
 const TransactionList = createStackNavigator({
