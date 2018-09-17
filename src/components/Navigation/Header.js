@@ -6,6 +6,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import Feather from 'react-native-vector-icons/Feather'
 
 import * as Utils from '../Utils'
+import FontelloIcon from '../FontelloIcon'
+import { Header, SearchBar, SearchBarWrapper, HeaderWrapper, SearchPreview } from './elements'
 
 class NavigationHeader extends React.Component {
   /*
@@ -90,38 +92,47 @@ class NavigationHeader extends React.Component {
       this.setState({ isSearching: false })
       if (onSearchPressed) onSearchPressed()
     }
-    const searchBar = (
-      <Utils.View justify='center' align='center'>
-        <Utils.FormInput
-          autoCapitalize='none'
-          autoCorrect={false}
-          underlineColorAndroid='transparent'
-          onChangeText={text => onSearch(text)}
-          placeholder='Search'
-          placeholderTextColor='#fff'
-          width={281}
-          height={42}
-          autoFocus
-
-        />
-      </Utils.View>
-    )
 
     return (
       <React.Fragment>
-        {this._renderLeftElement(null, searchBar)}
-        {this._renderRightElement(onClose)}
+        <SearchBarWrapper>
+          <FontelloIcon
+            name='magnifier,-search,-discover,-zoom,-lens'
+            size={16}
+            color={Colors.greyBlue}
+          />
+          <Utils.HorizontalSpacer />
+          <SearchBar
+            autoCapitalize='none'
+            autoCorrect={false}
+            underlineColorAndroid='transparent'
+            onChangeText={text => onSearch(text)}
+            placeholder='Search'
+            placeholderTextColor='#fff'
+            height={42}
+            autoFocus
+          />
+          <TouchableOpacity onPress={onClose}>
+            <Feather name='x' color='white' size={22} />
+          </TouchableOpacity>
+        </SearchBarWrapper>
       </React.Fragment>
     )
   }
 
   render () {
-    const { noBorder } = this.props
     const { isSearching } = this.state
     return (
-      <Utils.Header padding={16} justify='center' noBorder={noBorder}>
-        {isSearching ? this._renderSeachMode() : this._renderDefaultMode()}
-      </Utils.Header>
+      <HeaderWrapper>
+        <Header border={isSearching}>
+          {isSearching ? this._renderSeachMode() : this._renderDefaultMode()}
+        </Header>
+        {
+          isSearching
+            ? <SearchPreview><Utils.Text>Featured Token</Utils.Text></SearchPreview>
+            : null
+        }
+      </HeaderWrapper>
     )
   }
 }

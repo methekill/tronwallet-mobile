@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FlatList, AsyncStorage, Platform } from 'react-native'
+import { FlatList, AsyncStorage } from 'react-native'
 import { Answers } from 'react-native-fabric'
 
 import tl from '../../utils/i18n'
@@ -124,7 +124,7 @@ class TransactionsScene extends Component {
               data={transactions}
               keyExtractor={item => item.id}
               renderItem={({ item }) => <Transaction item={item} onPress={() => this._navigateToDetails(item)} publicKey={publicKey} />}
-              removeClippedSubviews={Platform.OS === 'android'}
+              initialNumToRender={20}
               onEndReachedThreshold={0.75}
             />
           </Background>
