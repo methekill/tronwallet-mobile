@@ -99,7 +99,7 @@ class Create extends React.Component {
               style={{alignItems: 'flex-end'}}>
               <Icon
                 name={'file-copy-to-clipboard,-clip-board,-document,-file,-copy,-sign'}
-                size={22}
+                size={18}
                 color={Colors.greyBlue}
               />
             </TouchableOpacity>
