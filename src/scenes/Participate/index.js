@@ -1,14 +1,6 @@
 import React from 'react'
 import { Answers } from 'react-native-fabric'
-
-import {
-  TouchableOpacity,
-  Image,
-  FlatList,
-  ActivityIndicator,
-  View
-} from 'react-native'
-
+import {TouchableOpacity, Image, FlatList, ActivityIndicator, View, Platform} from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import ProgressBar from 'react-native-progress/Bar'
 import moment from 'moment'
@@ -289,8 +281,8 @@ class ParticipateHome extends React.Component {
   }
 
  _renderEmptyAssets = () => {
-   const { loading, refreshing } = this.state
-   if (!loading && !refreshing) {
+   const { loading, refreshing, searchMode } = this.state
+   if (!loading && !refreshing && searchMode) {
      return (
        <View style={{flex: 1, padding: 20, justifyContent: 'center', alignItems: 'center'}}>
          <Image
@@ -302,6 +294,8 @@ class ParticipateHome extends React.Component {
        </View>
      )
    }
+
+   return null
  }
 
  render () {
@@ -316,16 +310,17 @@ class ParticipateHome extends React.Component {
          searchPreview='Featured Tokens'
        />
        <FlatList
-         ListHeaderComponent={this._renderFeaturedTokens()}
-         ListFooterComponent={this._renderLoading()}
-         ListEmptyComponent={this._renderEmptyAssets()}
+         ListHeaderComponent={this._renderFeaturedTokens}
+         ListFooterComponent={this._renderLoading}
+         ListEmptyComponent={this._renderEmptyAssets}
          initialNumToRender={10}
          data={orderedBalances}
          renderItem={({ item }) => this._renderCard(item)}
          keyExtractor={asset => asset.name}
          scrollEnabled
+         removeClippedSubviews={Platform.OS === 'android'}
          onEndReached={this._loadMore}
-         onEndReachedThreshold={0.75}
+         onEndReachedThreshold={0.5}
        />
      </Container>
    )

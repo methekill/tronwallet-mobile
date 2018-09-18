@@ -1,7 +1,7 @@
 // Dependencies
 import React, { Component } from 'react'
 import { forIn, reduce, union, clamp, debounce } from 'lodash'
-import { Linking, FlatList, Alert, ActivityIndicator } from 'react-native'
+import { Linking, FlatList, Alert, View, Platform } from 'react-native'
 import { Answers } from 'react-native-fabric'
 
 // Utils
@@ -11,7 +11,6 @@ import { formatNumber } from '../../utils/numberUtils'
 
 // Components
 import * as Utils from '../../components/Utils'
-import { Colors } from '../../components/DesignSystem'
 import Header from '../../components/Header'
 import VoteItem from '../../components/Vote/list/Item'
 import AddVotesModal from '../../components/Vote/AddModal'
@@ -20,7 +19,7 @@ import FadeIn from '../../components/Animations/FadeIn'
 import GrowIn from '../../components/Animations/GrowIn'
 import ConfirmVotes from '../../components/Vote/ConfirmButton'
 import NavigationHeader from '../../components/Navigation/Header'
-// import ClearVotes from '../../components/Vote/ClearVotes'
+import ClearVotes from '../../components/Vote/ClearVotes'
 // import SyncButton from '../../components/SyncButton'
 
 // Service
@@ -81,7 +80,7 @@ class VoteScene extends Component {
 
   async componentDidMount () {
     Answers.logContentView('Tab', 'Votes')
-    this._smartSearch = debounce(this._smartSearch, 150)
+    this._onSearching = debounce(this._onSearching, 150)
 
     this._loadCandidates()
     this.didFocusSubscription = this.props.navigation.addListener(
@@ -103,21 +102,19 @@ class VoteScene extends Component {
     })
   }
 
-  _getVoteListFromStore = async (store = null) => {
-    let voteStore
-    if (store) voteStore = store
-    else voteStore = await getCandidateStore()
-    return voteStore
+  _getVoteListFromStore = (start = this.state.offset) => {
+    const maxLength = this.candidateStoreRef.objects('Candidate').length
+    const from = start > maxLength ? start - AMOUNT_TO_FETCH : start
+    const to = clamp(start + AMOUNT_TO_FETCH, maxLength)
+
+    const updatedCandidate = this.candidateStoreRef
       .objects('Candidate')
       .sorted([['votes', true], ['rank', false]])
-      .slice(
-        this.state.offset,
-        clamp(
-          this.state.offset + AMOUNT_TO_FETCH,
-          voteStore.objects('Candidate').length
-        )
-      )
+      .slice(from, to)
       .map(item => Object.assign({}, item))
+
+    this.setState({offset: to})
+    return updatedCandidate
   }
 
   _getLastUserVotesFromStore = async () => {
@@ -147,6 +144,7 @@ class VoteScene extends Component {
 
   _loadCandidates = async () => {
     try {
+      this.candidateStoreRef = await getCandidateStore()
       const voteList = await this._getVoteListFromStore()
       this.setState({ voteList })
     } catch (e) {
@@ -162,7 +160,6 @@ class VoteScene extends Component {
         candidates.map(item => store.create('Candidate', item, true))
       )
       this.setState({ totalVotes, voteList: candidates.slice(0, AMOUNT_TO_FETCH) })
-      // this.setState({ totalVotes, voteList: candidates.slice(0, AMOUNT_TO_FETCH) })
     } catch (e) {
       logSentry(e, 'Refresh Candidates Error')
     }
@@ -170,19 +167,16 @@ class VoteScene extends Component {
 
   _loadMoreCandidates = async () => {
     if (this.state.searchMode) return
-    // Continua aqui em
-    // this.setState({loadingList: true})
+    this.setState({loadingMore: true})
     try {
-      this.setState({ offset: this.state.offset + AMOUNT_TO_FETCH }, async () => {
-        const voteList = await this._getVoteListFromStore()
-        this.setState({
-          voteList: union(this.state.voteList, voteList)
-        })
+      const voteList = await this._getVoteListFromStore(this.state.offset + AMOUNT_TO_FETCH)
+      this.setState({
+        voteList: union(this.state.voteList, voteList),
+        loadingMore: false
       })
     } catch (e) {
       logSentry(e, 'Load More Candidates Error')
-    } finally {
-      // this.setState({loadingList: false})
+      this.setState({loadingMore: false})
     }
   }
 
@@ -203,20 +197,21 @@ class VoteScene extends Component {
           totalUserVotes: currentUserVoteCount,
           totalRemaining: newTotalRemaining,
           currentFullVotes: newFullVoteList,
-          totalFrozen,
-          loadingList: false,
-          refreshing: false
+          totalFrozen
         })
       } else {
         this.setState({
           totalRemaining: totalFrozen,
-          totalFrozen,
-          loadingList: false,
-          refreshing: false
+          totalFrozen
         })
       }
     } catch (e) {
       logSentry(e, 'Votes - Freeze Error')
+    } finally {
+      this.setState({
+        loadingList: false,
+        refreshing: false
+      })
     }
   }
 
@@ -256,7 +251,7 @@ class VoteScene extends Component {
         })
       })
     } catch (error) {
-      this.setState({ error: tl.t('error.gettingTransaction'), loadingList: false })
+      this.setState({ error: tl.t('error.gettingTransaction'), loadingList: false, refreshing: false })
       logSentry(error, 'Vote - open tx')
     }
   }
@@ -300,14 +295,17 @@ class VoteScene extends Component {
 
   _onSearchPressed = () => {
     const { searchMode } = this.state
+    const candidates = this.candidateStoreRef.objects('Candidate').map(item => Object.assign({}, item))
 
     this.setState({ searchMode: !searchMode })
     if (searchMode) {
-      this._restartFromSearch()
+      this.setState({voteList: candidates.slice(0, AMOUNT_TO_FETCH), offset: 0})
+    } else {
+      this.setState({voteList: this._filteredSuggestions(), offset: 0})
     }
   }
 
-  // _smartSearch = async (value) => {
+  // _onSearching = async (value) => {
   //   const store = await getCandidateStore()
   //   const voteList = store.objects('Candidate').sorted([['rank', false]]).map(item => Object.assign({}, item))
   //   if (value) {
@@ -321,13 +319,14 @@ class VoteScene extends Component {
   //   }
   // }
 
-  _restartFromSearch = () => {
-    const candidates = this.candidateStoreRef.objects('Candidate')
-      .map(item => Object.assign({}, item))
-
-    this.setState({voteList: candidates.slice(0, AMOUNT_TO_FETCH), offset: 0})
+  _filteredSuggestions = () => {
+    const candidateTronWallet = this.candidateStoreRef.objects('Candidate').filtered("name = 'TronWalletMe'")[0]
+    const mostVoted = this.state.currentFullVotes
+      .filter(cand => cand.name !== 'TronWalletMe')
+      .sort((a, b) => a.voteCount > b.voteCount ? -1 : a.voteCount < b.voteCount ? 1 : 0)
+    return [candidateTronWallet, ...mostVoted]
   }
-  _smartSearch = async name => {
+  _onSearching = async name => {
     const candidateResult = this.candidateStoreRef.objects('Candidate')
       .filtered('name CONTAINS[c] $0', name)
       .map(item => Object.assign({}, item))
@@ -460,14 +459,15 @@ class VoteScene extends Component {
       return null
     }
   }
-  _renderLoading = () => {
-    return (
-      (false && <React.Fragment>
-        <ActivityIndicator size='small' color={Colors.primaryText} />
-        <Utils.VerticalSpacer />
-      </React.Fragment>)
-    )
-  }
+  _renderRigthElement = () => (
+    this.state.currentFullVotes.length
+      ? <ClearVotes
+        label={this.state.currentFullVotes.length}
+        disabled={this.state.refreshing || this.state.loadingList}
+        onPress={this._clearVotesFromList}
+      />
+      : <View />
+  )
 
   render () {
     const {
@@ -487,33 +487,28 @@ class VoteScene extends Component {
       <Utils.Container>
         <NavigationHeader
           title={tl.t('votes.title')}
-          onSearch={name => this._smartSearch(name)}
+          onSearch={name => this._onSearching(name)}
           onSearchPressed={() => this._onSearchPressed()}
           searchPreview='Suggestions - Most Voted'
           // leftButton={<SyncButton
           //   loading={refreshing || loadingList}
           //   onPress={this._loadData}
           // />}
-          // rightButton={
-          //   <ClearVotes
-          //     label={currentFullVotes.length}
-          //     disabled={refreshing || loadingList}
-          //     onPress={this._clearVotesFromList}
-          //   />}
+          rightButton={this._renderRigthElement()}
         />
         <Utils.View flex={1}>
           <FadeIn name='candidates'>
             <FlatList
               ListHeaderComponent={this._renderListHedear}
-              ListFooterComponent={this._renderLoading()}
               keyExtractor={item => item.address + item.url}
               extraData={[totalUserVotes, currentFullVotes]}
               data={voteList}
               renderItem={this._renderRow}
               onEndReached={this._loadMoreCandidates}
               refreshing={refreshing || loadingList}
-              initialNumToRender={10}
-              onEndReachedThreshold={0.5}
+              initialNumToRender={20}
+              removeClippedSubviews={Platform.OS === 'android'}
+              onEndReachedThreshold={0.75}
             />
           </FadeIn>
         </Utils.View>

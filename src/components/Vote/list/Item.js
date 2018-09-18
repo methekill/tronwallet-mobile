@@ -3,12 +3,10 @@ import PropTypes from 'prop-types'
 import { TouchableOpacity } from 'react-native'
 
 import * as Utils from '../../Utils'
-import formatUrl from '../../../utils/formatUrl'
 import { formatNumber } from '../../../utils/numberUtils'
 import RankBadge from './LeftBadge'
 
 const VoteItem = ({ item, index, disabled, voteCount, openModal }) => {
-  let url = formatUrl(item.url)
   return (
     <TouchableOpacity disabled={disabled} onPress={openModal}>
       <Utils.VoteRow>
@@ -20,7 +18,7 @@ const VoteItem = ({ item, index, disabled, voteCount, openModal }) => {
             />
             <Utils.Column>
               <Utils.Text size='smaller' secondary>
-                {url}
+                {item.name}
               </Utils.Text>
               <Utils.Text lineHeight={20} size='xsmall'>
                 {formatNumber(item.votes)}
