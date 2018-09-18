@@ -60,13 +60,13 @@ class ParticipateHome extends React.Component {
     featuredTokens: [],
     start: 0,
     loading: false,
-    searchMode: false,
-    searchFailed: false
+    searchMode: false
+
   }
 
   async componentDidMount () {
     Answers.logContentView('Tab', 'Participate')
-    this._onSearch = debounce(this._smartSearch, 350)
+    this._smartSearch = debounce(this._smartSearch, 150)
     await this._getFeaturedTokensFromStore()
     this._loadData()
   }
@@ -120,8 +120,7 @@ class ParticipateHome extends React.Component {
 
   _orderAssetsFromList = assets => assets
     .filter(({ issuedPercentage, name, startTime, endTime }) =>
-      issuedPercentage < 100 && name !== 'TRX' && startTime < Date.now() && endTime > Date.now() &&
-  !VERIFIED_TOKENS.includes(name))
+      issuedPercentage < 100 && name !== 'TRX' && startTime < Date.now() && endTime > Date.now() && !VERIFIED_TOKENS.includes(name))
     .sort((a, b) => b.issuedPercentage - a.issuedPercentage)
 
   _updateAssets = async (start, end = AMOUNT_TO_FETCH, name) => {
@@ -133,7 +132,7 @@ class ParticipateHome extends React.Component {
     const { searchMode } = this.state
 
     this.setState({ searchMode: !searchMode })
-    if (searchMode) this._smartSearch('')
+    if (searchMode) this._restartFromSearch()
   }
 
   _smartSearch = async name => {
@@ -142,45 +141,52 @@ class ParticipateHome extends React.Component {
       .map(item => Object.assign({}, item))
 
     if (assetResult.length) {
-      this.setState({ currentList: this._orderAssetsFromList(assetResult), searchFailed: false })
+      this.setState({ currentList: this._orderAssetsFromList(assetResult) })
     } else {
       this.setState({searching: true})
       try {
         const assetFromApi = await updateAssets(0, 2, name)
         if (assetFromApi.length) {
-          this.setState({ currentList: assetFromApi, searchFailed: true })
+          this.setState({ currentList: assetFromApi })
         } else {
-          this.setState({ currentList: assetFromApi, searchFailed: true })
+          this.setState({ currentList: assetFromApi })
         }
       } catch (error) {
         logSentry(error, 'Smart Search Error')
       } finally {
-        this.setState({searching: false, searchFailed: false})
+        this.setState({searching: false})
       }
     }
   }
-  _onSearch = async (name) => {
-    const { assetList } = this.state
-    try {
-      if (name) {
-        this.setState({ loading: true })
-        const assets = await this._updateAssets(0, 10, name)
-        this.setState({ currentList: assets, loading: false })
-      } else {
-        this.setState({ currentList: assetList, loading: false })
-      }
-    } catch (error) {
-      this.setState({ error: error.message })
-      logSentry(error, 'Participate - on search')
-    }
+  _restartFromSearch = () => {
+    const assets = this.assetStoreRef.objects('Asset')
+      .map(item => Object.assign({}, item))
+    this.setState({
+      currentList: this._orderAssetsFromList(assets.slice(0, AMOUNT_TO_FETCH)),
+      start: 0})
   }
+
+  // _onSearch = async (name) => {
+  //   const { assetList } = this.state
+  //   try {
+  //     if (name) {
+  //       this.setState({ loading: true })
+  //       const assets = await this._updateAssets(0, 10, name)
+  //       this.setState({ currentList: assets, loading: false })
+  //     } else {
+  //       this.setState({ currentList: assetList, loading: false })
+  //     }
+  //   } catch (error) {
+  //     this.setState({ error: error.message })
+  //     logSentry(error, 'Participate - on search')
+  //   }
+  // }
 
   _renderFeaturedTokens = () => {
     const { searchMode, featuredTokens, searching } = this.state
     if (searchMode) {
-      return searching &&
-      <View marginVertical={5}>
-        <ActivityIndicator color={Colors.primaryText} />
+      return <View marginVertical={5}>
+        {searching && <ActivityIndicator color={Colors.primaryText} />}
       </View>
     }
 
@@ -207,7 +213,6 @@ class ParticipateHome extends React.Component {
           {verified ? (
             <Row align='center'>
               <HorizontalSpacer size={8} />
-
               <FeaturedTokenName>{getCustomName(name)}</FeaturedTokenName>
               <HorizontalSpacer size={4} />
               <Image source={guarantee} style={{ height: 14, width: 14 }} />
@@ -306,14 +311,15 @@ class ParticipateHome extends React.Component {
      <Container>
        <NavigationHeader
          title={tl.t('participate.title')}
-         onSearch={name => this._onSearch(name)}
+         onSearch={name => this._smartSearch(name)}
          onSearchPressed={() => this._onSearchPressed()}
+         searchPreview='Featured Tokens'
        />
        <FlatList
          ListHeaderComponent={this._renderFeaturedTokens()}
          ListFooterComponent={this._renderLoading()}
          ListEmptyComponent={this._renderEmptyAssets()}
-         initialNumToRender={AMOUNT_TO_FETCH}
+         initialNumToRender={10}
          data={orderedBalances}
          renderItem={({ item }) => this._renderCard(item)}
          keyExtractor={asset => asset.name}

@@ -124,7 +124,7 @@ class TransactionsScene extends Component {
               data={transactions}
               keyExtractor={item => item.id}
               renderItem={({ item }) => <Transaction item={item} onPress={() => this._navigateToDetails(item)} publicKey={publicKey} />}
-              initialNumToRender={20}
+              initialNumToRender={10}
               onEndReachedThreshold={0.75}
             />
           </Background>
