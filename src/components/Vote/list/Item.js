@@ -4,6 +4,7 @@ import { TouchableOpacity } from 'react-native'
 
 import * as Utils from '../../Utils'
 import { formatNumber } from '../../../utils/numberUtils'
+import formatUrl from '../../../utils/formatUrl'
 import RankBadge from './LeftBadge'
 
 const VoteItem = ({ item, index, disabled, voteCount, openModal }) => {
@@ -18,7 +19,7 @@ const VoteItem = ({ item, index, disabled, voteCount, openModal }) => {
             />
             <Utils.Column>
               <Utils.Text size='smaller' secondary>
-                {item.name}
+                {formatUrl(item.url)}
               </Utils.Text>
               <Utils.Text lineHeight={20} size='xsmall'>
                 {formatNumber(item.votes)}

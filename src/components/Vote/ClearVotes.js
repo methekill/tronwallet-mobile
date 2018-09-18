@@ -1,11 +1,10 @@
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
-import Feather from 'react-native-vector-icons/Feather'
 
 import { Spacing } from '../DesignSystem'
-
-const ClearVotes = ({onPress, disabled, label}) => (
+import FontelloIcon from '../FontelloIcon'
+const ClearVotes = ({onPress, disabled}) => (
   <TouchableOpacity
     onPress={onPress}
     style={{
@@ -13,16 +12,16 @@ const ClearVotes = ({onPress, disabled, label}) => (
       alignItems: 'center',
       paddingLeft: Spacing.medium
     }}>
-    <Feather name='trash-2' color='white' size={18} />
+    <FontelloIcon
+      name='delete,-trash,-dust-bin,-remove,-recycle-bin'
+      color='white'
+      size={18}
+    />
   </TouchableOpacity>
 )
 
-ClearVotes.defaultProps = {
-  label: 0
-}
 ClearVotes.propTypes = {
   onPress: PropTypes.func.isRequired,
-  label: PropTypes.number.isRequired
-
+  disabled: PropTypes.bool
 }
 export default ClearVotes

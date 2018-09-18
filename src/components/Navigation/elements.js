@@ -42,7 +42,7 @@ export const SearchPreview = props =>
     start={{ x: 0, y: 0.4 }}
     end={{ x: 0, y: 1 }}
     colors={[Colors.primaryGradient[0], Colors.primaryGradient[1]]}
-    style={{width: '100%', alignItems: 'center', justifyContent: 'flex-start'}}
+    style={{width: '100%', alignItems: 'center', justifyContent: 'flex-start', marginBottom: 8}}
   >
     <View style={{width: '100%', paddingLeft: 16, paddingVertical: 10, justifyContent: 'center', marginLeft: 8, backgroundColor: Colors.background}}>
       <Text letterSpacing={0.8} size='xsmall' color={Colors.greyBlue}>{props.preview}</Text>

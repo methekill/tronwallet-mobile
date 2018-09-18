@@ -21,8 +21,7 @@ const NavigationSearchBar = ({ onSearch, onClose }) => (
       autoCorrect={false}
       underlineColorAndroid='transparent'
       onChangeText={text => onSearch(text)}
-      placeholder='Search'
-      placeholderTextColor='#fff'
+      selectionColor={Colors.greyBlue}
       height={42}
       autoFocus
     />

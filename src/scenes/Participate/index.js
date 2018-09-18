@@ -1,6 +1,6 @@
 import React from 'react'
 import { Answers } from 'react-native-fabric'
-import {TouchableOpacity, Image, FlatList, ActivityIndicator, View, Platform} from 'react-native'
+import {TouchableOpacity, Image, FlatList, ActivityIndicator, Platform} from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import ProgressBar from 'react-native-progress/Bar'
 import moment from 'moment'
@@ -17,6 +17,7 @@ import { logSentry } from '../../utils/sentryUtils'
 import { VERIFIED_TOKENS } from '../../utils/constants'
 
 import {
+  View,
   Container,
   Row
 } from '../../components/Utils'
@@ -52,13 +53,14 @@ class ParticipateHome extends React.Component {
     featuredTokens: [],
     start: 0,
     loading: false,
-    searchMode: false
+    searchMode: false,
+    searchName: ''
 
   }
 
   async componentDidMount () {
     Answers.logContentView('Tab', 'Participate')
-    this._smartSearch = debounce(this._smartSearch, 150)
+    this._onSearching = debounce(this._onSearching, 250)
     await this._getFeaturedTokensFromStore()
     this._loadData()
   }
@@ -110,75 +112,70 @@ class ParticipateHome extends React.Component {
     }
   }
 
-  _orderAssetsFromList = assets => assets
-    .filter(({ issuedPercentage, name, startTime, endTime }) =>
-      issuedPercentage < 100 && name !== 'TRX' && startTime < Date.now() && endTime > Date.now() && !VERIFIED_TOKENS.includes(name))
-    .sort((a, b) => b.issuedPercentage - a.issuedPercentage)
-
   _updateAssets = async (start, end = AMOUNT_TO_FETCH, name) => {
     const assets = await updateAssets(start, end, name)
-    return this._orderAssetsFromList(assets)
+    return this._filterOrderedAssets(assets)
   }
+
+  _filterOrderedAssets = assets => assets
+    .filter(({ issuedPercentage, name, startTime, endTime }) =>
+      issuedPercentage < 100 && name !== 'TRX' && startTime < Date.now() &&
+    endTime > Date.now() && !VERIFIED_TOKENS.includes(name))
 
   _onSearchPressed = () => {
     const { searchMode } = this.state
+    const assets = this.assetStoreRef.objects('Asset').map(item => Object.assign({}, item))
 
-    this.setState({ searchMode: !searchMode })
-    if (searchMode) this._restartFromSearch()
+    this.setState({ searchMode: !searchMode, searchName: '' })
+    if (searchMode) {
+      this.setState({
+        currentList: this._filterOrderedAssets(assets.slice(0, AMOUNT_TO_FETCH)),
+        start: 0})
+    } else {
+      this.setState({ currentList: [] })
+    }
   }
 
-  _smartSearch = async name => {
+  _onSearching = async name => {
     const assetResult = this.assetStoreRef.objects('Asset')
       .filtered('name CONTAINS[c] $0', name)
       .map(item => Object.assign({}, item))
 
+    this.setState({searchName: name})
     if (assetResult.length) {
-      this.setState({ currentList: this._orderAssetsFromList(assetResult) })
+      const searchedList = name ? this._filterOrderedAssets(assetResult) : []
+      this.setState({ currentList: searchedList })
     } else {
-      this.setState({searching: true})
-      try {
-        const assetFromApi = await updateAssets(0, 2, name)
-        if (assetFromApi.length) {
-          this.setState({ currentList: assetFromApi })
-        } else {
-          this.setState({ currentList: assetFromApi })
-        }
-      } catch (error) {
-        logSentry(error, 'Smart Search Error')
-      } finally {
-        this.setState({searching: false})
-      }
+      this._searchFromApi(name)
     }
   }
-  _restartFromSearch = () => {
-    const assets = this.assetStoreRef.objects('Asset')
-      .map(item => Object.assign({}, item))
-    this.setState({
-      currentList: this._orderAssetsFromList(assets.slice(0, AMOUNT_TO_FETCH)),
-      start: 0})
+
+  _searchFromApi = async name => {
+    this.setState({searching: true})
+    try {
+      const assetFromApi = await updateAssets(0, 2, name)
+      this.setState({ currentList: assetFromApi })
+    } catch (error) {
+      logSentry(error, 'Search Participate Error')
+    } finally {
+      this.setState({searching: false})
+    }
   }
 
-  // _onSearch = async (name) => {
-  //   const { assetList } = this.state
-  //   try {
-  //     if (name) {
-  //       this.setState({ loading: true })
-  //       const assets = await this._updateAssets(0, 10, name)
-  //       this.setState({ currentList: assets, loading: false })
-  //     } else {
-  //       this.setState({ currentList: assetList, loading: false })
-  //     }
-  //   } catch (error) {
-  //     this.setState({ error: error.message })
-  //     logSentry(error, 'Participate - on search')
-  //   }
-  // }
-
   _renderFeaturedTokens = () => {
-    const { searchMode, featuredTokens, searching } = this.state
+    const { searchMode, featuredTokens, searching, searchName } = this.state
+    const featTokens = featuredTokens.map(token =>
+      <React.Fragment key={token.name}>{this._renderCard(token)}</React.Fragment>)
+
     if (searchMode) {
-      return <View marginVertical={5}>
-        {searching && <ActivityIndicator color={Colors.primaryText} />}
+      return <View>
+        {
+          searching &&
+          <View marginBottom={10}>
+            <ActivityIndicator color={Colors.primaryText} />
+          </View>
+        }
+        {!searchName && featTokens}
       </View>
     }
 
@@ -188,7 +185,7 @@ class ParticipateHome extends React.Component {
           {tl.t('participate.tokens')}
         </TokensTitle>
         <VerticalSpacer size={20} />
-        {featuredTokens.map(token => <React.Fragment key={token.name}>{this._renderCard(token)}</React.Fragment>)}
+        {featTokens}
       </View>
     )
   }
@@ -216,7 +213,7 @@ class ParticipateHome extends React.Component {
         </Row>
         <VerticalSpacer size={featured ? 12 : 20} />
         <Row>
-          <View style={{flex: 1, justifyContent: 'center'}}>
+          <View flex={1} justify='center'>
             <ProgressBar
               progress={Math.round(issuedPercentage) / 100}
               borderWidth={0}
@@ -276,55 +273,54 @@ class ParticipateHome extends React.Component {
         </React.Fragment>
       )
     }
-
     return null
   }
 
- _renderEmptyAssets = () => {
-   const { loading, refreshing, searchMode } = this.state
-   if (!loading && !refreshing && searchMode) {
-     return (
-       <View style={{flex: 1, padding: 20, justifyContent: 'center', alignItems: 'center'}}>
-         <Image
-           source={require('../../assets/empty.png')}
-           resizeMode='contain'
-           style={{ width: 200, height: 200 }}
-         />
-         <Text style={{fontSize: 14}}>Asset(s) not found</Text>
-       </View>
-     )
-   }
+  _renderEmptyAssets = () => {
+    const { loading, refreshing, searchMode, searchName } = this.state
+    if (!loading && !refreshing && !!searchName && searchMode) {
+      return (
+        <View flex={1} align='center' justify='center' padding={20}>
+          <Image
+            source={require('../../assets/empty.png')}
+            resizeMode='contain'
+            style={{ width: 200, height: 200 }}
+          />
+          <Text>Asset(s) not found</Text>
+        </View>
+      )
+    }
+    return null
+  }
 
-   return null
- }
-
- render () {
-   const { currentList } = this.state
-   const orderedBalances = orderAssets(currentList)
-   return (
-     <Container>
-       <NavigationHeader
-         title={tl.t('participate.title')}
-         onSearch={name => this._smartSearch(name)}
-         onSearchPressed={() => this._onSearchPressed()}
-         searchPreview='Featured Tokens'
-       />
-       <FlatList
-         ListHeaderComponent={this._renderFeaturedTokens}
-         ListFooterComponent={this._renderLoading}
-         ListEmptyComponent={this._renderEmptyAssets}
-         initialNumToRender={10}
-         data={orderedBalances}
-         renderItem={({ item }) => this._renderCard(item)}
-         keyExtractor={asset => asset.name}
-         scrollEnabled
-         removeClippedSubviews={Platform.OS === 'android'}
-         onEndReached={this._loadMore}
-         onEndReachedThreshold={0.5}
-       />
-     </Container>
-   )
- }
+  render () {
+    const { currentList, searchName } = this.state
+    const orderedBalances = orderAssets(currentList)
+    const searchPreview = searchName ? 'Results' : 'Featured Tokens'
+    return (
+      <Container>
+        <NavigationHeader
+          title={tl.t('participate.title')}
+          onSearch={name => this._onSearching(name)}
+          onSearchPressed={() => this._onSearchPressed()}
+          searchPreview={searchPreview}
+        />
+        <FlatList
+          ListHeaderComponent={this._renderFeaturedTokens}
+          ListFooterComponent={this._renderLoading}
+          ListEmptyComponent={this._renderEmptyAssets}
+          initialNumToRender={10}
+          data={orderedBalances}
+          renderItem={({ item }) => this._renderCard(item)}
+          keyExtractor={asset => asset.name}
+          scrollEnabled
+          removeClippedSubviews={Platform.OS === 'android'}
+          onEndReached={this._loadMore}
+          onEndReachedThreshold={0.5}
+        />
+      </Container>
+    )
+  }
 }
 
 export default ParticipateHome

@@ -20,7 +20,6 @@ import GrowIn from '../../components/Animations/GrowIn'
 import ConfirmVotes from '../../components/Vote/ConfirmButton'
 import NavigationHeader from '../../components/Navigation/Header'
 import ClearVotes from '../../components/Vote/ClearVotes'
-// import SyncButton from '../../components/SyncButton'
 
 // Service
 import WalletClient from '../../services/client'
@@ -50,7 +49,10 @@ const INITIAL_STATE = {
   // Loading
   loadingList: true,
   refreshing: false,
+  loadingMore: false,
+  // Search
   searchMode: false,
+  searchName: '',
   // Flags
   offset: 0,
   modalVisible: false,
@@ -93,15 +95,6 @@ class VoteScene extends Component {
     this.didFocusSubscription.remove()
   }
 
-  _loadData = async () => {
-    // const { navigation } = this.props
-    this.candidateStoreRef = await getCandidateStore()
-    this.setState(this.resetVoteData, async () => {
-      await this._refreshCandidates()
-      await this._loadUserData()
-    })
-  }
-
   _getVoteListFromStore = (start = this.state.offset) => {
     const maxLength = this.candidateStoreRef.objects('Candidate').length
     const from = start > maxLength ? start - AMOUNT_TO_FETCH : start
@@ -142,6 +135,14 @@ class VoteScene extends Component {
     return {}
   }
 
+  _loadData = async () => {
+    this.candidateStoreRef = await getCandidateStore()
+    this.setState(this.resetVoteData, async () => {
+      await this._refreshCandidates()
+      await this._loadUserData()
+    })
+  }
+
   _loadCandidates = async () => {
     try {
       this.candidateStoreRef = await getCandidateStore()
@@ -156,9 +157,8 @@ class VoteScene extends Component {
     try {
       const { candidates, totalVotes } = await WalletClient.getTotalVotes()
       const store = await getCandidateStore()
-      store.write(() =>
-        candidates.map(item => store.create('Candidate', item, true))
-      )
+
+      store.write(() => candidates.map(item => store.create('Candidate', item, true)))
       this.setState({ totalVotes, voteList: candidates.slice(0, AMOUNT_TO_FETCH) })
     } catch (e) {
       logSentry(e, 'Refresh Candidates Error')
@@ -167,6 +167,7 @@ class VoteScene extends Component {
 
   _loadMoreCandidates = async () => {
     if (this.state.searchMode) return
+
     this.setState({loadingMore: true})
     try {
       const voteList = await this._getVoteListFromStore(this.state.offset + AMOUNT_TO_FETCH)
@@ -293,46 +294,6 @@ class VoteScene extends Component {
     })
   }
 
-  _onSearchPressed = () => {
-    const { searchMode } = this.state
-    const candidates = this.candidateStoreRef.objects('Candidate').map(item => Object.assign({}, item))
-
-    this.setState({ searchMode: !searchMode })
-    if (searchMode) {
-      this.setState({voteList: candidates.slice(0, AMOUNT_TO_FETCH), offset: 0})
-    } else {
-      this.setState({voteList: this._filteredSuggestions(), offset: 0})
-    }
-  }
-
-  // _onSearching = async (value) => {
-  //   const store = await getCandidateStore()
-  //   const voteList = store.objects('Candidate').sorted([['rank', false]]).map(item => Object.assign({}, item))
-  //   if (value) {
-  //     const regex = new RegExp(value.toLowerCase(), 'i')
-  //     const votesFilter = voteList.filter(vote => vote.url.toLowerCase().match(regex))
-  //     this.setState({ voteList: votesFilter })
-  //   } else {
-  //     this.setState({offset: 0,
-  //       searchMode: false,
-  //       voteList: voteList.slice(0, AMOUNT_TO_FETCH)})
-  //   }
-  // }
-
-  _filteredSuggestions = () => {
-    const candidateTronWallet = this.candidateStoreRef.objects('Candidate').filtered("name = 'TronWalletMe'")[0]
-    const mostVoted = this.state.currentFullVotes
-      .filter(cand => cand.name !== 'TronWalletMe')
-      .sort((a, b) => a.voteCount > b.voteCount ? -1 : a.voteCount < b.voteCount ? 1 : 0)
-    return [candidateTronWallet, ...mostVoted]
-  }
-  _onSearching = async name => {
-    const candidateResult = this.candidateStoreRef.objects('Candidate')
-      .filtered('name CONTAINS[c] $0', name)
-      .map(item => Object.assign({}, item))
-    this.setState({ voteList: candidateResult, loadingList: false })
-  }
-
   _setupVoteModal = item => {
     this.setState({
       modalVisible: true,
@@ -410,6 +371,36 @@ class VoteScene extends Component {
     })
   }
 
+  _onSearchPressed = () => {
+    const { searchMode } = this.state
+    const candidates = this.candidateStoreRef.objects('Candidate').map(item => Object.assign({}, item))
+
+    this.setState({ searchMode: !searchMode, searchName: '' })
+    if (searchMode) {
+      this.setState({voteList: candidates.slice(0, AMOUNT_TO_FETCH), offset: 0})
+    } else {
+      this.setState({voteList: this._filteredSuggestions(), offset: 0})
+    }
+  }
+
+  _onSearching = async name => {
+    let searchedList = []
+    if (name) {
+      searchedList = this.candidateStoreRef.objects('Candidate')
+        .filtered('name CONTAINS[c] $0', name)
+        .map(item => Object.assign({}, item))
+    } else {
+      searchedList = this._filteredSuggestions()
+    }
+    this.setState({ searchName: name, voteList: searchedList, loadingList: false })
+  }
+
+  _filteredSuggestions = () => {
+    const candidateTronWallet = this.candidateStoreRef.objects('Candidate').filtered("name = 'TronWalletMe'")[0]
+    const mostVoted = this.state.currentFullVotes.filter(candidate => candidate.name !== 'TronWalletMe')
+    return [candidateTronWallet, ...mostVoted]
+  }
+
   _renderRow = ({ item, index }) => {
     const { currentVotes, userVotes, refreshing, loadingList } = this.state
     return (
@@ -462,7 +453,6 @@ class VoteScene extends Component {
   _renderRigthElement = () => (
     this.state.currentFullVotes.length
       ? <ClearVotes
-        label={this.state.currentFullVotes.length}
         disabled={this.state.refreshing || this.state.loadingList}
         onPress={this._clearVotesFromList}
       />
@@ -481,20 +471,17 @@ class VoteScene extends Component {
       currentVoteItem,
       startedVoting,
       searchMode,
+      searchName,
       totalFrozen } = this.state
-
+    const searchPreview = searchName ? 'Results' : 'Suggestions - Most Voted'
     return (
       <Utils.Container>
         <NavigationHeader
           title={tl.t('votes.title')}
+          rightButton={this._renderRigthElement()}
           onSearch={name => this._onSearching(name)}
           onSearchPressed={() => this._onSearchPressed()}
-          searchPreview='Suggestions - Most Voted'
-          // leftButton={<SyncButton
-          //   loading={refreshing || loadingList}
-          //   onPress={this._loadData}
-          // />}
-          rightButton={this._renderRigthElement()}
+          searchPreview={searchPreview}
         />
         <Utils.View flex={1}>
           <FadeIn name='candidates'>
@@ -504,9 +491,9 @@ class VoteScene extends Component {
               extraData={[totalUserVotes, currentFullVotes]}
               data={voteList}
               renderItem={this._renderRow}
-              onEndReached={this._loadMoreCandidates}
               refreshing={refreshing || loadingList}
               initialNumToRender={20}
+              onEndReached={this._loadMoreCandidates}
               removeClippedSubviews={Platform.OS === 'android'}
               onEndReachedThreshold={0.75}
             />
