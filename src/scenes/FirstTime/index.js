@@ -1,8 +1,9 @@
 import React from 'react'
-import { BackHandler, TouchableOpacity } from 'react-native'
+import { BackHandler } from 'react-native'
 
 import * as Utils from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
+import { BlackButton } from './elements'
 import tl from '../../utils/i18n'
 // import Logo from '../../components/Logo'
 import ButtonGradient from '../../components/ButtonGradient'
@@ -29,8 +30,8 @@ class FirstTime extends React.Component {
     return (
       <React.Fragment>
         <FeaturesSwiper />
-        <Utils.Content background={Colors.background} padding={20}>
-          <Utils.VerticalSpacer size='big' />
+        <Utils.View background={Colors.background} paddingHorizontal={30}>
+          <Utils.View height={20} />
           <ButtonGradient
             text={tl.t('firstTime.button.create')}
             onPress={() => {
@@ -57,21 +58,19 @@ class FirstTime extends React.Component {
               })
             }}
           />
-          <Utils.VerticalSpacer size='large' />
-          <TouchableOpacity
+          <Utils.VerticalSpacer />
+          <BlackButton
             onPress={() => {
               this.props.navigation.navigate('Pin', {
                 shouldDoubleCheck,
                 testInput,
                 onSuccess: pin => this.props.context.setPin(pin, () => this.props.navigation.navigate('ImportWallet'))
               })
-            }}>
-            <Utils.Text align='center' size='tiny'>
-            RESTORE FROM PRIVATE KEY
-            </Utils.Text>
-          </TouchableOpacity>
+            }}
+            text='RESTORE FROM PRIVATE KEY'
+          />
           <Utils.VersionText>{`v${ConfigJson.version}`}</Utils.VersionText>
-        </Utils.Content>
+        </Utils.View>
       </React.Fragment>
     )
   }
