@@ -48,23 +48,23 @@ class FirstTime extends React.Component {
           />
           <Utils.VerticalSpacer />
           <ButtonGradient
-            text={tl.t('firstTime.button.restore')}
-            onPress={() => {
-              this.props.navigation.navigate('Pin', {
-                shouldDoubleCheck,
-                testInput,
-                onSuccess: pin => this.props.context.setPin(pin, () => this.props.navigation.navigate('SeedRestore'))
-              })
-            }}
-          />
-          <Utils.VerticalSpacer />
-          <BlackButton
             text={tl.t('firstTime.button.import')}
             onPress={() => {
               this.props.navigation.navigate('Pin', {
                 shouldDoubleCheck,
                 testInput,
                 onSuccess: pin => this.props.context.setPin(pin, () => this.props.navigation.navigate('ImportWallet'))
+              })
+            }}
+          />
+          <Utils.VerticalSpacer />
+          <BlackButton
+            text={tl.t('firstTime.button.restore')}
+            onPress={() => {
+              this.props.navigation.navigate('Pin', {
+                shouldDoubleCheck,
+                testInput,
+                onSuccess: pin => this.props.context.setPin(pin, () => this.props.navigation.navigate('SeedRestore'))
               })
             }}
           />
