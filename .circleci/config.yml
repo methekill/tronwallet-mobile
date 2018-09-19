@@ -157,6 +157,7 @@ workflows:
       - ios_deploy:
           requires:
             - test
+            - android_upgrade
           filters:
             branches:
               only: development
