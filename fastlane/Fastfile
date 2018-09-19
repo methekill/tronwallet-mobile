@@ -18,11 +18,7 @@ platform :ios do
 
 
   lane :upgrade do
-    sh "yarn run postversion"
-
-    git_add(path: ".")
-    git_commit(path: ".", message: "Version Bump [ci skip]")
-    push_to_git_remote(tags: false, remote_branch: "development")
+    # We are using the android lane to upgrade both
   end
 
   lane :realm do
@@ -79,7 +75,7 @@ platform :android do
 
     git_add(path: ".")
     git_commit(path: ".", message: "Version Bump [ci skip]")
-    push_to_git_remote(tags: false, remote_branch: "development")
+    push_to_git_remote(tags: false, remote: "origin", local_branch: "development", remote_branch: "development")
   end
 
   lane :build do

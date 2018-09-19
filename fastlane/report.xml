@@ -5,7 +5,7 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.003159">
+      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.01109">
         
       </testcase>
     
