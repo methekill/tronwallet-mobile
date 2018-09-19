@@ -124,6 +124,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-biometrics')
     compile project(':lottie-react-native')
     compile project(':react-native-restart')
     compile project(':react-native-i18n')
