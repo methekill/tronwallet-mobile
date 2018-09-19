@@ -157,7 +157,6 @@ workflows:
       - ios_deploy:
           requires:
             - test
-            - ios_upgrade
           filters:
             branches:
               only: development
