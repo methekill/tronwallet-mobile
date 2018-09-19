@@ -35,33 +35,6 @@ jobs:
           name: fastlane test
           command: bundle exec fastlane test
 
-  ios_upgrade:
-    working_directory: ~/project
-    macos:
-      xcode: "9.2.0"
-
-    steps:
-      - checkout
-
-      - run: brew update
-      - run: brew install ruby
-      - run: sudo gem install fastlane
-
-      - run: yarn install
-
-      - run:
-          name: Run Deploy
-          command: fastlane ios upgrade --env beta
-
-      - store_test_results:
-          path: test_output/report.xml
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: scan-test-results
-      - store_artifacts:
-          path: ~/Library/Logs/scan
-          destination: scan-logs
-
   ios_deploy:
     working_directory: ~/project
     macos:
@@ -181,16 +154,9 @@ workflows:
           filters:
             branches:
               only: development
-      - ios_upgrade:
-          requires:
-            - test
-          filters:
-            branches:
-              only: development
       - ios_deploy:
           requires:
             - test
-            - ios_upgrade
           filters:
             branches:
               only: development
