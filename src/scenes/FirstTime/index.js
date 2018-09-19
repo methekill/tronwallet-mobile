@@ -5,7 +5,6 @@ import * as Utils from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
 import { BlackButton } from './elements'
 import tl from '../../utils/i18n'
-// import Logo from '../../components/Logo'
 import ButtonGradient from '../../components/ButtonGradient'
 import { withContext } from '../../store/context'
 import FeaturesSwiper from './FeaturesSwiper'
@@ -60,6 +59,7 @@ class FirstTime extends React.Component {
           />
           <Utils.VerticalSpacer />
           <BlackButton
+            text={tl.t('firstTime.button.import')}
             onPress={() => {
               this.props.navigation.navigate('Pin', {
                 shouldDoubleCheck,
@@ -67,7 +67,6 @@ class FirstTime extends React.Component {
                 onSuccess: pin => this.props.context.setPin(pin, () => this.props.navigation.navigate('ImportWallet'))
               })
             }}
-            text='RESTORE FROM PRIVATE KEY'
           />
           <Utils.VersionText>{`v${ConfigJson.version}`}</Utils.VersionText>
         </Utils.View>
