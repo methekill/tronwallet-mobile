@@ -2,11 +2,12 @@ import React from 'react'
 import { BackHandler, TouchableOpacity } from 'react-native'
 
 import * as Utils from '../../components/Utils'
+import { Colors } from '../../components/DesignSystem'
 import tl from '../../utils/i18n'
-import Logo from '../../components/Logo'
+// import Logo from '../../components/Logo'
 import ButtonGradient from '../../components/ButtonGradient'
-
 import { withContext } from '../../store/context'
+import FeaturesSwiper from './FeaturesSwiper'
 import ConfigJson from '../../../package.json'
 
 class FirstTime extends React.Component {
@@ -26,12 +27,9 @@ class FirstTime extends React.Component {
     const shouldDoubleCheck = this.props.navigation.getParam('shouldDoubleCheck')
     const testInput = this.props.navigation.getParam('testInput')
     return (
-      <Utils.Container>
-        <Utils.View flex={1} />
-        <Utils.Content>
-          <Utils.Row justify='center'>
-            <Logo />
-          </Utils.Row>
+      <React.Fragment>
+        <FeaturesSwiper />
+        <Utils.Content background={Colors.background} padding={20}>
           <Utils.VerticalSpacer size='big' />
           <ButtonGradient
             text={tl.t('firstTime.button.create')}
@@ -74,7 +72,7 @@ class FirstTime extends React.Component {
           </TouchableOpacity>
           <Utils.VersionText>{`v${ConfigJson.version}`}</Utils.VersionText>
         </Utils.Content>
-      </Utils.Container>
+      </React.Fragment>
     )
   }
 }
