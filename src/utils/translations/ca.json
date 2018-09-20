@@ -211,7 +211,8 @@
     "title": "REVISIÓ DE SEGURETAT",
     "enter": "Introduïu el PIN",
     "new": "Introduïu un PIN nou",
-    "reenter": "Torneu a introduir el PIN"
+    "reenter": "Torneu a introduir el PIN",
+    "biometrics": "Biometric Check"
   },
   "receive": {
     "title": "RECIBIR",
@@ -252,7 +253,9 @@
         "written": "L'he escric",
         "newSeed": "GET NEW SEED",
         "later": "Confirmar més tard"
-      }
+      },
+      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
+      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
       "title": "RESTORE WALLET",
@@ -375,7 +378,8 @@
       "noAccounts": "No hi ha comptes per restaurar"
     },
     "partners": "SOCIS",
-    "askPin": "Sempre pregunteu al PIN"
+    "askPin": "Sempre pregunteu al PIN",
+    "askBiometry": "Activate Biometry"
   },
   "submitTransaction": {
     "title": "DADES DE LA TRANSACCION",
@@ -388,7 +392,7 @@
       "submit": "SUBMIT TRANSACCIÓ"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "No s'han pogut carregar les dades de la transacció"
     },
     "disconnectedMessage": "Sembla que estàs desconnectat. Torneu a connectar a Internet abans de continuar amb la transacció.",
     "dic": {
@@ -500,6 +504,18 @@
     "failure": {
       "title": "Advertiment nou compte",
       "message": "Per afegir un compte nou, hauria d'haver almenys una transacció al vostre últim compte."
+    }
+  },
+  "balanceToken": {
+    "updating": "Actualització de la informació de testimonis. Espereu uns segons.",
+    "notAvailable": "La informació de token no està disponible"
+  },
+  "biometry": {
+    "register": {
+      "title": "Check your biometry"
+    },
+    "auth": {
+      "error": "Access denied"
     }
   }
 }

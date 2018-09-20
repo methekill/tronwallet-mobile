@@ -1,8 +1,8 @@
 {
   "relativeTime": {
-    "future": "%s",
+    "future": "%s में",
     "past": "%s पहले",
-    "s": "कुछ ही सेकंड",
+    "s": "कुछ सेकंड",
     "ss": "%d सेकंड",
     "m": "एक मिनट",
     "mm": "%d मिनट",
@@ -211,7 +211,8 @@
     "title": "सुरक्षा जांच",
     "enter": "पिन दर्ज करें",
     "new": "नया पिन दर्ज करें",
-    "reenter": "पिन पुनः दर्ज करें"
+    "reenter": "पिन पुनः दर्ज करें",
+    "biometrics": "Biometric Check"
   },
   "receive": {
     "title": "प्राप्त करना",
@@ -252,7 +253,9 @@
         "written": "मैंने इसे नीचे लिखा है",
         "newSeed": "नई सीड प्राप्त करें",
         "later": "बाद में पुष्टि करें"
-      }
+      },
+      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
+      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
       "title": "वॉलेट को पुनर्स्थापित करें",
@@ -375,7 +378,8 @@
       "noAccounts": "बहाल करने के लिए कोई खाता नहीं है"
     },
     "partners": "भागीदार",
-    "askPin": "हमेशा पिन पूछें"
+    "askPin": "हमेशा पिन पूछें",
+    "askBiometry": "Activate Biometry"
   },
   "submitTransaction": {
     "title": "लेनदेन का विवरण",
@@ -388,7 +392,7 @@
       "submit": "जमा करें जमा करें"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "लेनदेन डेटा लोड नहीं कर सकते"
     },
     "disconnectedMessage": "ऐसा लगता है कि आप डिस्कनेक्ट हैं। लेनदेन के साथ आगे बढ़ने से पहले इंटरनेट से पुनः कनेक्ट करें।",
     "dic": {
@@ -500,6 +504,18 @@
     "failure": {
       "title": "नया खाता चेतावनी",
       "message": "नया खाता जोड़ने के लिए आपके पास अपने अंतिम खाते पर कम से कम एक लेनदेन होना चाहिए।"
+    }
+  },
+  "balanceToken": {
+    "updating": "टोकन जानकारी अद्यतन कर रहे है। कृपया कुछ सेकंड प्रतीक्षा करें।",
+    "notAvailable": "टोकनकी जानकारी उपलब्ध नहीं है"
+  },
+  "biometry": {
+    "register": {
+      "title": "Check your biometry"
+    },
+    "auth": {
+      "error": "Access denied"
     }
   }
 }

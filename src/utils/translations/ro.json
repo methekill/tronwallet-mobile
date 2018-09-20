@@ -211,7 +211,8 @@
     "title": "VERIFICARE DE SECURITATE",
     "enter": "Introduceți codul PIN",
     "new": "Introduceți codul PIN nou",
-    "reenter": "Reintroduceți codul PIN"
+    "reenter": "Reintroduceți codul PIN",
+    "biometrics": "Biometric Check"
   },
   "receive": {
     "title": "A PRIMI",
@@ -252,7 +253,9 @@
         "written": "Am scris-o",
         "newSeed": "GET SEMNE NOU",
         "later": "Confirmați mai târziu"
-      }
+      },
+      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
+      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
       "title": "RESTORE WALLET",
@@ -375,7 +378,8 @@
       "noAccounts": "Nu există conturi pentru restabilire"
     },
     "partners": "PARTENERI",
-    "askPin": "Întrebați întotdeauna codul PIN"
+    "askPin": "Întrebați întotdeauna codul PIN",
+    "askBiometry": "Activate Biometry"
   },
   "submitTransaction": {
     "title": "DETALII TRANZACȚIONALE",
@@ -500,6 +504,18 @@
     "failure": {
       "title": "Notificare de cont nou",
       "message": "Pentru a adăuga un cont nou, trebuie să aveți cel puțin o tranzacție în ultimul cont."
+    }
+  },
+  "balanceToken": {
+    "updating": "Updating token information. Please wait a few seconds.",
+    "notAvailable": "Token information not available"
+  },
+  "biometry": {
+    "register": {
+      "title": "Check your biometry"
+    },
+    "auth": {
+      "error": "Access denied"
     }
   }
 }

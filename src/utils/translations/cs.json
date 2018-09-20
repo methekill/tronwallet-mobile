@@ -28,7 +28,7 @@
     "buildingTransaction": "Chyba při vytváření transakce, zkuste to znovu.",
     "gettingTransaction": "Chyba při získávání transakce.",
     "clipboardCopied": "Něco se pokazilo během kopírování",
-    "hideAccount": "Něco se nezdařilo smazání účtu, zkuste znovu '"
+    "hideAccount": "Při mazání účtu došlo k chybě, zkuste znovu'"
   },
   "tronPower": "TRON POWER",
   "trxPrice": "CENA TRX",
@@ -59,11 +59,11 @@
     },
     "chooseCurrency": "Prosím, vyberte vaši preferovanou měnu.",
     "confirmSeed": "Klepnutím potvrdíte vašich 12 seed slov",
-    "bandwidth": "BANDWIDTH",
+    "bandwidth": "ŠÍŘKA PÁSMA",
     "tokens": "TOKENY",
     "holdings": "MNOŽSTVÍ"
   },
-  "hideAccount": "Chystáte se tento účet odstranit. Později jej můžete obnovit v nastaveních",
+  "hideAccount": "Chystáte se odstranit tento účet. Později jej můžete obnovit v nastavení",
   "components": {
     "share": {
       "title": "Sdílet TronWallet adresu",
@@ -129,8 +129,8 @@
     }
   },
   "importWallet": {
-    "title": "DOPRAVNÍ PALIVO",
-    "message": "Máte-li soukromý klíč a adresu peněženky, můžete ji zde obnovit, ale pamatujte na to, že TronWallet pracuje především s mnemonikou. Tato metoda obnovení zakáže některé funkce v aplikaci App.",
+    "title": "IMPORTOVAT PENĚŽENKU",
+    "message": "Máte-li soukromý klíč a adresu peněženky, můžete ji zde obnovit, ale pamatujte na to, že TronWallet pracuje především s mnemonikou. Tato metoda obnovení zakáže některé funkce aplikace.",
     "button": "IMPORT",
     "error": {
       "privateKey": "Neplatný nebo neúplný soukromý klíč"
@@ -211,7 +211,8 @@
     "title": "BEZPEČNOSTNÍ KONTROLA",
     "enter": "Zadejte PIN kód",
     "new": "Zadejte nový PIN kód",
-    "reenter": "Zadejte znovu PIN kód"
+    "reenter": "Zadejte znovu PIN kód",
+    "biometrics": "Biometrická kontrola"
   },
   "receive": {
     "title": "PŘIJMOUT",
@@ -252,7 +253,9 @@
         "written": "ZAPSAL(A) JSEM SI TO",
         "newSeed": "ZÍSKAT NOVÝ SEED",
         "later": "Potvrdit později"
-      }
+      },
+      "backupMessage": "K vašim slovům můžete přistupovat prostřednictvím zálohy v nastavení aplikace      ",
+      "seedExplanation": "Vaši peněženku reprezentuje člověkem čitelný seed. Tato slova v přesném pořadí mohou být použita pro opětovné vytvoření peněženky."
     },
     "restore": {
       "title": "OBNOVIT PENĚŽENKU",
@@ -370,12 +373,13 @@
     },
     "accounts": {
       "title": "Účty",
-      "search": "Vyhledávací účty",
+      "search": "Vyhledat účty",
       "restoreAccounts": "Obnovit účty",
-      "noAccounts": "Žádné obnovené účty"
+      "noAccounts": "Žádné účty k obnovení"
     },
     "partners": "PARTNEŘI",
-    "askPin": "Vždy se zeptat na kód PIN"
+    "askPin": "Vždy se zeptat na PIN kód",
+    "askBiometry": "Aktivovat biometrii"
   },
   "submitTransaction": {
     "title": "DETAILY TRANSAKCE",
@@ -500,6 +504,18 @@
     "failure": {
       "title": "Upozornění na nový účet",
       "message": "Chcete-li přidat nový účet, měli byste mít alespoň jednu transakci na posledním účtu."
+    }
+  },
+  "balanceToken": {
+    "updating": "Aktualizace informací o tokenu. Prosím, počkejte pár vteřin.",
+    "notAvailable": "Informace o tokenu nejsou k dispozici"
+  },
+  "biometry": {
+    "register": {
+      "title": "Zkontrolovat biometrii"
+    },
+    "auth": {
+      "error": "Přístup odepřen"
     }
   }
 }

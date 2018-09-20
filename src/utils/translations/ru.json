@@ -211,7 +211,8 @@
     "title": "ПРОВЕРКА БЕЗОПАСНОСТИ",
     "enter": "Введите PIN-код",
     "new": "Введите новый PIN-код",
-    "reenter": "Введите PIN-код еще раз"
+    "reenter": "Введите PIN-код еще раз",
+    "biometrics": "Biometric Check"
   },
   "receive": {
     "title": "ПОЛУЧИТЬ",
@@ -252,7 +253,9 @@
         "written": "Я ЗАПИСАЛ ЕГО",
         "newSeed": "ПОЛУЧИТЬ НОВЫЙ SEED",
         "later": "Подтвердить позже"
-      }
+      },
+      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
+      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
       "title": "ВОССТАНОВИТЬ КОШЕЛЕК",
@@ -369,13 +372,14 @@
       "title": "Кто принимает TRX?"
     },
     "accounts": {
-      "title": "Счета",
-      "search": "Поиск аккаунтов",
+      "title": "Учетные записи",
+      "search": "Поиск учетных записей",
       "restoreAccounts": "Восстановить учетные записи",
       "noAccounts": "Нет учетных записей для восстановления"
     },
     "partners": "ПАРТНЕРЫ",
-    "askPin": "Всегда спрашивайте PIN-код"
+    "askPin": "Всегда спрашивайте PIN-код",
+    "askBiometry": "Activate Biometry"
   },
   "submitTransaction": {
     "title": "ДЕТАЛИ ТРАНЗАКЦИИ",
@@ -388,7 +392,7 @@
       "submit": "ОТПРАВИТЬ ТРАНЗАКЦИЮ"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "Не удалось загрузить данные транзакции"
     },
     "disconnectedMessage": "Кажется, что вы отключены. Переподключитесь к Интернету перед выполнением транзакции.",
     "dic": {
@@ -500,6 +504,18 @@
     "failure": {
       "title": "Новое оповещение учетной записи",
       "message": "Чтобы добавить новую учетную запись, вы должны иметь по крайней мере одну транзакция в старой учетной записи."
+    }
+  },
+  "balanceToken": {
+    "updating": "Обновление информации о токенe. Подождите несколько секунд.",
+    "notAvailable": "Информация о токенe недоступна"
+  },
+  "biometry": {
+    "register": {
+      "title": "Check your biometry"
+    },
+    "auth": {
+      "error": "Access denied"
     }
   }
 }

@@ -211,7 +211,8 @@
     "title": "BIZTONSÁGI ELLENŐRZÉS",
     "enter": "Adja meg a PIN kódot",
     "new": "Írja be az új PIN kódot",
-    "reenter": "Újból adja meg a PIN-kódot"
+    "reenter": "Újból adja meg a PIN-kódot",
+    "biometrics": "Biometric Check"
   },
   "receive": {
     "title": "KAP",
@@ -252,7 +253,9 @@
         "written": "ÍRÓT KELL ÍGY",
         "newSeed": "ÚJ SEED",
         "later": "Erősítse meg később"
-      }
+      },
+      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
+      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
       "title": "RESTORE WALLET",
@@ -375,7 +378,8 @@
       "noAccounts": "Nincs visszaállítandó fiók"
     },
     "partners": "PARTNERS",
-    "askPin": "Mindig kérdezze meg a PIN kódot"
+    "askPin": "Mindig kérdezze meg a PIN kódot",
+    "askBiometry": "Activate Biometry"
   },
   "submitTransaction": {
     "title": "TRANZAKCIÓ RÉSZLETEK",
@@ -500,6 +504,18 @@
     "failure": {
       "title": "Új fiók figyelmeztetés",
       "message": "Új fiók hozzáadásához az utolsó fiókjában legalább egy tranzakciót kell végrehajtania."
+    }
+  },
+  "balanceToken": {
+    "updating": "Updating token information. Please wait a few seconds.",
+    "notAvailable": "Token information not available"
+  },
+  "biometry": {
+    "register": {
+      "title": "Check your biometry"
+    },
+    "auth": {
+      "error": "Access denied"
     }
   }
 }

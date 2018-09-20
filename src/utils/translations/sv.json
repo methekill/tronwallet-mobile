@@ -211,7 +211,8 @@
     "title": "SÄKERHETSKONTROLL",
     "enter": "Ange PIN-kod",
     "new": "Ange ny PIN-kod",
-    "reenter": "Ange PIN-kod igen"
+    "reenter": "Ange PIN-kod igen",
+    "biometrics": "Biometric Check"
   },
   "receive": {
     "title": "MOTTA",
@@ -252,7 +253,9 @@
         "written": "Jag har skrivit det ner",
         "newSeed": "FÅ NYA FRÅN",
         "later": "Bekräfta senare"
-      }
+      },
+      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
+      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
       "title": "RESTORE WALLET",
@@ -375,7 +378,8 @@
       "noAccounts": "Inga konton för att återställa"
     },
     "partners": "PARTNERS",
-    "askPin": "Fråga alltid PIN-kod"
+    "askPin": "Fråga alltid PIN-kod",
+    "askBiometry": "Activate Biometry"
   },
   "submitTransaction": {
     "title": "TRANSAKTIONS DETALJER",
@@ -500,6 +504,18 @@
     "failure": {
       "title": "Ny kontovarning",
       "message": "För att lägga till ett nytt konto borde du ha minst en transaktion på ditt senaste konto."
+    }
+  },
+  "balanceToken": {
+    "updating": "Updating token information. Please wait a few seconds.",
+    "notAvailable": "Token information not available"
+  },
+  "biometry": {
+    "register": {
+      "title": "Check your biometry"
+    },
+    "auth": {
+      "error": "Access denied"
     }
   }
 }

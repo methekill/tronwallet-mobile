@@ -36,12 +36,12 @@
   "unconfirmed": "Não confirmado",
   "copyAddress": "COPIAR ENDEREÇO",
   "transactionType": {
-    "transfer": "Transferir",
+    "transfer": "Transferência",
     "transferAsset": "Transferir Ativo",
     "freeze": "Congelar",
     "unfreeze": "Descongelar",
     "vote": "Votar",
-    "participate": "Participar",
+    "participate": "Participação",
     "create": "Criar",
     "undefined": "Tipo Indefinido"
   },
@@ -58,7 +58,7 @@
       "savingCurrency": "Erro ao salvar a moeda preferida"
     },
     "chooseCurrency": "Por favor, escolha a moeda de sua preferência.",
-    "confirmSeed": "Por favor, toque para confirme as suas 12 palavras seed",
+    "confirmSeed": "Por favor, toque para confirmar suas 12 palavras seed",
     "bandwidth": "BANDA",
     "tokens": "TOKENS",
     "holdings": "TÍTULOS"
@@ -77,7 +77,7 @@
       "permissionMessage": "Para verificar a chave pública, o aplicativo precisa da sua permissão para acessar a câmera."
     },
     "vote": {
-      "enterVote": "ENTRE COM O VALOR DO VOTO",
+      "enterVote": "DIGITE O VALOR DO VOTO",
       "votesRemaining": "VOTOS RESTANTES",
       "setVote": "VOTE",
       "moreVotes": "Se você precisar de mais votos, você pode congelar mais TRX.",
@@ -253,7 +253,9 @@
         "written": "EU CONFIRMO",
         "newSeed": "OBTENHA NOVA SEED",
         "later": "Confirmar mais tarde"
-      }
+      },
+      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
+      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
       "title": "RESTAURAR A CARTEIRA",
@@ -504,12 +506,16 @@
       "message": "Para adicionar uma nova conta, que você deve ter pelo menos uma transação na sua última conta."
     }
   },
+  "balanceToken": {
+    "updating": "A atualizar a informação do token. Por favor aguarde alguns segundos.",
+    "notAvailable": "Informação do token indisponível"
+  },
   "biometry": {
     "register": {
-      "title": "Insira sua biometria"
+      "title": "Check your biometry"
     },
     "auth": {
-      "error": "Acesso negado"
+      "error": "Access denied"
     }
   }
 }

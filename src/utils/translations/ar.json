@@ -211,7 +211,8 @@
     "title": "التحقق الأمني",
     "enter": "أدخل كلمة السر",
     "new": "إدخال كملة السر الجديدة",
-    "reenter": "إعادة إدخال كملة السر"
+    "reenter": "إعادة إدخال كملة السر",
+    "biometrics": "Biometric Check"
   },
   "receive": {
     "title": "تسلم",
@@ -252,7 +253,9 @@
         "written": "قمت بكتابتها",
         "newSeed": "الحصول على جذور جديدة",
         "later": "التأكيد لاحقاً"
-      }
+      },
+      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
+      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
       "title": "استعادة محفظة",
@@ -375,7 +378,8 @@
       "noAccounts": "لا حسابات لاستعادة"
     },
     "partners": "الشركاء",
-    "askPin": "اسأل دائمًا رقم التعريف الشخصي"
+    "askPin": "اسأل دائمًا رقم التعريف الشخصي",
+    "askBiometry": "Activate Biometry"
   },
   "submitTransaction": {
     "title": "تفاصيل المعاملة",
@@ -500,6 +504,18 @@
     "failure": {
       "title": "تحذير يتعلق بالحساب الجديد",
       "message": "لاضافة حساب جديد يجب أن تقوم بمعاملة واحدة على الاقل في حسابك الاخير."
+    }
+  },
+  "balanceToken": {
+    "updating": "جاري تحديث معلومات العملة. الرجاء الانتظار لثوان.",
+    "notAvailable": "لا تتوفر معلومات عن العملة"
+  },
+  "biometry": {
+    "register": {
+      "title": "Check your biometry"
+    },
+    "auth": {
+      "error": "Access denied"
     }
   }
 }

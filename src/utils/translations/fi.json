@@ -211,7 +211,8 @@
     "title": "SECURITY CHECK",
     "enter": "Enter PIN",
     "new": "Enter New PIN",
-    "reenter": "Re-Enter PIN"
+    "reenter": "Re-Enter PIN",
+    "biometrics": "Biometric Check"
   },
   "receive": {
     "title": "RECEIVE",
@@ -252,7 +253,9 @@
         "written": "Minä kirjoitan sen alas",
         "newSeed": "UUSI SEED",
         "later": "Vahvista myöhemmin"
-      }
+      },
+      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
+      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
       "title": "RESTORE WALLET",
@@ -375,7 +378,8 @@
       "noAccounts": "Palautettavia tilejä"
     },
     "partners": "PARTNERS",
-    "askPin": "Kysy aina PIN-koodia"
+    "askPin": "Kysy aina PIN-koodia",
+    "askBiometry": "Activate Biometry"
   },
   "submitTransaction": {
     "title": "MAKSUTAPAHTUMAN TIEDOT",
@@ -500,6 +504,18 @@
     "failure": {
       "title": "Uusi tilin varoitus",
       "message": "Jos haluat lisätä uuden tilin, sinulla on oltava vähintään yksi tapahtuma viimeisessä tilissäsi."
+    }
+  },
+  "balanceToken": {
+    "updating": "Updating token information. Please wait a few seconds.",
+    "notAvailable": "Token information not available"
+  },
+  "biometry": {
+    "register": {
+      "title": "Check your biometry"
+    },
+    "auth": {
+      "error": "Access denied"
     }
   }
 }

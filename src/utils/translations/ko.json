@@ -211,7 +211,8 @@
     "title": "보안 검사",
     "enter": "PIN을 입력하세요",
     "new": "새로운 PIN을 입력하세요",
-    "reenter": "다시 한번 PIN을 입력하세요"
+    "reenter": "다시 한번 PIN을 입력하세요",
+    "biometrics": "Biometric Check"
   },
   "receive": {
     "title": "받기",
@@ -252,7 +253,9 @@
         "written": "다른 곳에 기록해두었습니다",
         "newSeed": "새로운 시드 생성하기",
         "later": "나중에 확인"
-      }
+      },
+      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
+      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
       "title": "지갑 복원",
@@ -375,7 +378,8 @@
       "noAccounts": "복원할 계정이 없습니다."
     },
     "partners": "제휴업체",
-    "askPin": "항상 PIN 물어보기"
+    "askPin": "항상 PIN 물어보기",
+    "askBiometry": "Activate Biometry"
   },
   "submitTransaction": {
     "title": "트랜잭션 상세보기",
@@ -500,6 +504,18 @@
     "failure": {
       "title": "계정 생성 알림",
       "message": "새로운 계정을 추가하려면 보유 계정에서 최소 1회 이상 트랜잭션을 수행해야 합니다."
+    }
+  },
+  "balanceToken": {
+    "updating": "토큰 정보 업데이트 중입니다. 잠시만 기다려 주세요.",
+    "notAvailable": "토큰 정보를 이용할 수 없습니다"
+  },
+  "biometry": {
+    "register": {
+      "title": "Check your biometry"
+    },
+    "auth": {
+      "error": "Access denied"
     }
   }
 }

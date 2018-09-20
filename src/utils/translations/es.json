@@ -27,8 +27,8 @@
     "default": "Woops algo salió mal. Inténtalo de nuevo más tarde, si el error persiste, intente actualizar la configuración de red.",
     "buildingTransaction": "Error durante la transacción, inténtalo de nuevo.",
     "gettingTransaction": "Error al obtener la transacción.",
-    "clipboardCopied": "Algo mal al copiar",
-    "hideAccount": "Se produjo un error al eliminar la cuenta, vuelve a intentarlo '"
+    "clipboardCopied": "Algo salió mal al copiar",
+    "hideAccount": "Se produjo un error al eliminar la cuenta, vuelve a intentarlo."
   },
   "tronPower": "TRON POWER",
   "trxPrice": "PRECIO DE TRX",
@@ -47,10 +47,10 @@
   },
   "close": "Cerrar",
   "ends": "Termina",
-  "clear": "Claro",
-  "allIn": "Todo dentro",
+  "clear": "Limpiar",
+  "allIn": "Todo",
   "skip": "Saltar",
-  "privateKey": "Llave privada",
+  "privateKey": "Clave privada",
   "balance": {
     "title": "CUENTAS",
     "error": {
@@ -211,7 +211,8 @@
     "title": "COMPROBACIÓN DE SEGURIDAD",
     "enter": "Introducir PIN",
     "new": "Introducir nuevo PIN",
-    "reenter": "Vuelva a introducir el PIN"
+    "reenter": "Vuelva a introducir el PIN",
+    "biometrics": "Verificación biométrica"
   },
   "receive": {
     "title": "RECIBIR",
@@ -252,7 +253,9 @@
         "written": "ESTA ESCRITO ABAJO",
         "newSeed": "CONSEGUIR NUEVA SEMILLA",
         "later": "Confirmar más tarde"
-      }
+      },
+      "backupMessage": "Siempre podrás tener acceso a tus palabras accediendo a la copia de seguridad en los ajustes de la aplicación      ",
+      "seedExplanation": "La clave de la semilla es una representación legible de su cartera. Esas palabras, en ese mismo orden, pueden utilizarse para crear su cartera de nuevo."
     },
     "restore": {
       "title": "RESTAURAR BILLETERA",
@@ -375,7 +378,8 @@
       "noAccounts": "Sin cuentas para restaurar"
     },
     "partners": "SOCIOS",
-    "askPin": "Siempre pregunte PIN"
+    "askPin": "Siempre pregunte PIN",
+    "askBiometry": "Activar la verificación biométrica"
   },
   "submitTransaction": {
     "title": "DETALLES DE LA TRANSACCIÓN",
@@ -388,7 +392,7 @@
       "submit": "ENVIAR TRANSACCIÓN"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "No se pudieron cargar los datos de la transacción"
     },
     "disconnectedMessage": "Parece que estas desconectado. Vuelva a conectarte a internet antes de proceder con la transacción.",
     "dic": {
@@ -500,6 +504,18 @@
     "failure": {
       "title": "Nueva advertencia de cuenta",
       "message": "Para agregar una nueva cuenta debe tener al menos una transacción en su última cuenta."
+    }
+  },
+  "balanceToken": {
+    "updating": "Actualizando la información del token. Por favor espere unos segundos.",
+    "notAvailable": "La información del token no está disponible"
+  },
+  "biometry": {
+    "register": {
+      "title": "Compruebe su biometría"
+    },
+    "auth": {
+      "error": "Acceso denegado"
     }
   }
 }

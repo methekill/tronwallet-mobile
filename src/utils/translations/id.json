@@ -211,7 +211,8 @@
     "title": "PEMERIKSAAN KEAMANAN",
     "enter": "Masukkan PIN",
     "new": "Masukkan PIN Baru",
-    "reenter": "Masukkan kembali PIN"
+    "reenter": "Masukkan kembali PIN",
+    "biometrics": "Biometric Check"
   },
   "receive": {
     "title": "MENERIMA",
@@ -252,7 +253,9 @@
         "written": "SAYA TELAH MENULISNYA",
         "newSeed": "DAPATKAN BIBIT BARU",
         "later": "Konfirmasikan nanti"
-      }
+      },
+      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
+      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
       "title": "RESTORE WALLET",
@@ -375,7 +378,8 @@
       "noAccounts": "Tidak ada akun untuk dipulihkan"
     },
     "partners": "MITRA",
-    "askPin": "Selalu minta PIN"
+    "askPin": "Selalu minta PIN",
+    "askBiometry": "Activate Biometry"
   },
   "submitTransaction": {
     "title": "DETIL TRANSAKSI",
@@ -500,6 +504,18 @@
     "failure": {
       "title": "Peringatan akun baru",
       "message": "Untuk menambahkan akun baru, Anda harus memiliki setidaknya satu transaksi di akun terakhir Anda."
+    }
+  },
+  "balanceToken": {
+    "updating": "Updating token information. Please wait a few seconds.",
+    "notAvailable": "Token information not available"
+  },
+  "biometry": {
+    "register": {
+      "title": "Check your biometry"
+    },
+    "auth": {
+      "error": "Access denied"
     }
   }
 }

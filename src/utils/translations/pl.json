@@ -211,7 +211,8 @@
     "title": "KONTROLA BEZPIECZEŃSTWA",
     "enter": "Wpisz PIN",
     "new": "Wprowadź nowy kod PIN",
-    "reenter": "Wprowadź ponownie PIN"
+    "reenter": "Wprowadź ponownie PIN",
+    "biometrics": "Biometric Check"
   },
   "receive": {
     "title": "OTRZYMAĆ",
@@ -252,7 +253,9 @@
         "written": "PRZESŁUJĘŁEM W DÓŁ",
         "newSeed": "Pobierz nowe nasiona",
         "later": "Potwierdź później"
-      }
+      },
+      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
+      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
       "title": "PRZYWRÓĆ PORTFEL",
@@ -375,7 +378,8 @@
       "noAccounts": "Brak kont do przywrócenia"
     },
     "partners": "WZMACNIACZ",
-    "askPin": "Zawsze pytaj PIN"
+    "askPin": "Zawsze pytaj PIN",
+    "askBiometry": "Activate Biometry"
   },
   "submitTransaction": {
     "title": "SZCZEGÓŁY TRANSAKCJI",
@@ -500,6 +504,18 @@
     "failure": {
       "title": "Nowe ostrzeżenie o koncie",
       "message": "Aby dodać nowe konto, powinieneś mieć co najmniej jedną transakcję na swoim ostatnim koncie."
+    }
+  },
+  "balanceToken": {
+    "updating": "Updating token information. Please wait a few seconds.",
+    "notAvailable": "Token information not available"
+  },
+  "biometry": {
+    "register": {
+      "title": "Check your biometry"
+    },
+    "auth": {
+      "error": "Access denied"
     }
   }
 }

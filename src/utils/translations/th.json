@@ -211,7 +211,8 @@
     "title": "ด่านตรวจสอบความปลอดภัย",
     "enter": "ป้อน PIN",
     "new": "ป้อน PIN ใหม่",
-    "reenter": "ป้อน PIN อีกครั้ง"
+    "reenter": "ป้อน PIN อีกครั้ง",
+    "biometrics": "Biometric Check"
   },
   "receive": {
     "title": "รับ",
@@ -252,7 +253,9 @@
         "written": "ฉันได้เขียนมันลง",
         "newSeed": "ได้รับเมล็ดพันธุ์ใหม่",
         "later": "ยืนยันภายหลัง"
-      }
+      },
+      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
+      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
       "title": "เก็บสตางค์",
@@ -375,7 +378,8 @@
       "noAccounts": "ไม่มีบัญชีที่จะเรียกคืน"
     },
     "partners": "พาร์ทเนอร์",
-    "askPin": "ถาม PIN ทุกครั้ง"
+    "askPin": "ถาม PIN ทุกครั้ง",
+    "askBiometry": "Activate Biometry"
   },
   "submitTransaction": {
     "title": "รายละเอียดการทำธุรกรรม",
@@ -500,6 +504,18 @@
     "failure": {
       "title": "คำเตือนเกี่ยวกับบัญชีใหม่",
       "message": "หากต้องการเพิ่มบัญชีใหม่คุณควรมีธุรกรรมอย่างน้อยหนึ่งรายการในบัญชีล่าสุดของคุณ"
+    }
+  },
+  "balanceToken": {
+    "updating": "Updating token information. Please wait a few seconds.",
+    "notAvailable": "Token information not available"
+  },
+  "biometry": {
+    "register": {
+      "title": "Check your biometry"
+    },
+    "auth": {
+      "error": "Access denied"
     }
   }
 }

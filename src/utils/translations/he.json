@@ -211,7 +211,8 @@
     "title": "SECURITY CHECK",
     "enter": "Enter PIN",
     "new": "Enter New PIN",
-    "reenter": "Re-Enter PIN"
+    "reenter": "Re-Enter PIN",
+    "biometrics": "Biometric Check"
   },
   "receive": {
     "title": "RECEIVE",
@@ -252,7 +253,9 @@
         "written": "אני כתבתי את זה למטה",
         "newSeed": "קבל חדש SEED",
         "later": "אשר מאוחר יותר"
-      }
+      },
+      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
+      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
       "title": "שיחזור",
@@ -375,7 +378,8 @@
       "noAccounts": "אין צורך לשחזר חשבונות"
     },
     "partners": "PARTNERS",
-    "askPin": "תמיד שאל את ה- PIN"
+    "askPin": "תמיד שאל את ה- PIN",
+    "askBiometry": "Activate Biometry"
   },
   "submitTransaction": {
     "title": "TRANSACTION DETAILS",
@@ -500,6 +504,18 @@
     "failure": {
       "title": "אזהרה על חשבון חדש",
       "message": "כדי להוסיף חשבון חדש, צריכה להיות לך לפחות עסקה אחת בחשבון האחרון שלך."
+    }
+  },
+  "balanceToken": {
+    "updating": "Updating token information. Please wait a few seconds.",
+    "notAvailable": "Token information not available"
+  },
+  "biometry": {
+    "register": {
+      "title": "Check your biometry"
+    },
+    "auth": {
+      "error": "Access denied"
     }
   }
 }
