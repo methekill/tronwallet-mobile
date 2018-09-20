@@ -2,7 +2,7 @@ import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 import * as Utils from '../../components/Utils'
-import { Colors, ButtonSize } from '../../components/DesignSystem'
+import { Colors, ButtonSize, ScreenSize } from '../../components/DesignSystem'
 import Svg, {Ellipse, Defs, RadialGradient, Stop } from 'react-native-svg'
 
 export const BlackButton = ({onPress, text}) =>
@@ -19,7 +19,7 @@ export const BlackButton = ({onPress, text}) =>
   >
     <Svg height={80} width='100%'>
       <Defs>
-        <RadialGradient id='grad' cx='150' cy='0' rx='90' ry='75' fx='150' fy='75' gradientUnits='userSpaceOnUse'>
+        <RadialGradient id='grad' cx={(ScreenSize.width / 2) - 30} cy='0' rx='100' ry='75' fx='150' fy='75' gradientUnits='userSpaceOnUse'>
           <Stop
             offset='0'
             stopColor={Colors.buttonGradient[1]}
