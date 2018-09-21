@@ -1,7 +1,7 @@
 // Dependencies
 import React, { Component } from 'react'
 import { forIn, reduce, union, clamp, debounce } from 'lodash'
-import { Linking, FlatList, Alert, View, Platform } from 'react-native'
+import { Linking, FlatList, Alert, View, Platform, ActivityIndicator, RefreshControl } from 'react-native'
 import { Answers } from 'react-native-fabric'
 
 // Utils
@@ -29,6 +29,7 @@ import getCandidateStore from '../../store/candidates'
 import { withContext } from '../../store/context'
 import getTransactionStore from '../../store/transactions'
 import { logSentry } from '../../utils/sentryUtils'
+import { Colors } from '../../components/DesignSystem'
 
 const AMOUNT_TO_FETCH = 30
 
@@ -73,7 +74,6 @@ class VoteScene extends Component {
     this.resetVoteData = {
       offset: 0,
       amountToVote: 0,
-      refreshing: true,
       currentVoteItem: {},
       startedVoting: false,
       userVotes: {}
@@ -138,7 +138,7 @@ class VoteScene extends Component {
   _loadData = async () => {
     this.candidateStoreRef = await getCandidateStore()
     this.setState(this.resetVoteData, async () => {
-      await this._refreshCandidates()
+      await this._refreshCandidates(false)
       await this._loadUserData()
     })
   }
@@ -153,7 +153,8 @@ class VoteScene extends Component {
     }
   }
 
-  _refreshCandidates = async () => {
+  _refreshCandidates = async (refreshControl = true) => {
+    if (refreshControl) this.setState({refreshing: true})
     try {
       const { candidates, totalVotes } = await WalletClient.getTotalVotes()
       const store = await getCandidateStore()
@@ -162,6 +163,8 @@ class VoteScene extends Component {
       this.setState({ totalVotes, voteList: candidates.slice(0, AMOUNT_TO_FETCH) })
     } catch (e) {
       logSentry(e, 'Refresh Candidates Error')
+    } finally {
+      this.setState({refreshing: false})
     }
   }
 
@@ -209,8 +212,7 @@ class VoteScene extends Component {
       logSentry(e, 'Votes - Freeze Error')
     } finally {
       this.setState({
-        loadingList: false,
-        refreshing: false
+        loadingList: false
       })
     }
   }
@@ -452,6 +454,8 @@ class VoteScene extends Component {
       return null
     }
   }
+  _renderEmptyList = () => <ActivityIndicator color={Colors.primaryText} />
+
   _renderRigthElement = () => (
     this.state.currentFullVotes.length
       ? <ClearButton
@@ -490,6 +494,11 @@ class VoteScene extends Component {
           <FadeIn name='candidates'>
             <FlatList
               ListHeaderComponent={this._renderListHedear}
+              ListEmptyComponent={this._renderEmptyList}
+              refreshControl={<RefreshControl
+                refreshing={refreshing}
+                onRefresh={this._refreshCandidates}
+              />}
               keyExtractor={item => item.address + item.url}
               extraData={[totalUserVotes, currentFullVotes]}
               data={voteList}
