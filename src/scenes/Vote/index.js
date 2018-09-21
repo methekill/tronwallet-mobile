@@ -19,7 +19,7 @@ import FadeIn from '../../components/Animations/FadeIn'
 import GrowIn from '../../components/Animations/GrowIn'
 import ConfirmVotes from '../../components/Vote/ConfirmButton'
 import NavigationHeader from '../../components/Navigation/Header'
-import ClearVotes from '../../components/Vote/ClearVotes'
+import ClearButton from '../../components/ClearButton'
 
 // Service
 import WalletClient from '../../services/client'
@@ -167,7 +167,6 @@ class VoteScene extends Component {
 
   _loadMoreCandidates = async () => {
     if (this.state.searchMode) return
-
     this.setState({loadingMore: true})
     try {
       const voteList = await this._getVoteListFromStore(this.state.offset + AMOUNT_TO_FETCH)
@@ -373,10 +372,13 @@ class VoteScene extends Component {
 
   _onSearchPressed = () => {
     const { searchMode } = this.state
-    const candidates = this.candidateStoreRef.objects('Candidate').map(item => Object.assign({}, item))
 
     this.setState({ searchMode: !searchMode, searchName: '' })
     if (searchMode) {
+      const candidates = this.candidateStoreRef.objects('Candidate')
+        .sorted([['votes', true], ['rank', false]])
+        .map(item => Object.assign({}, item))
+
       this.setState({voteList: candidates.slice(0, AMOUNT_TO_FETCH), offset: 0})
     } else {
       this.setState({voteList: this._filteredSuggestions(), offset: 0})
@@ -452,9 +454,10 @@ class VoteScene extends Component {
   }
   _renderRigthElement = () => (
     this.state.currentFullVotes.length
-      ? <ClearVotes
+      ? <ClearButton
         disabled={this.state.refreshing || this.state.loadingList}
         onPress={this._clearVotesFromList}
+        style={{marginLeft: 16}}
       />
       : <View />
   )
@@ -473,7 +476,7 @@ class VoteScene extends Component {
       searchMode,
       searchName,
       totalFrozen } = this.state
-    const searchPreview = searchName ? 'Results' : 'Suggestions - Most Voted'
+    const searchPreview = searchName ? `${tl.t('results')}: ${voteList.length}` : tl.t('votes.searchPreview')
     return (
       <Utils.Container>
         <NavigationHeader
@@ -492,10 +495,10 @@ class VoteScene extends Component {
               data={voteList}
               renderItem={this._renderRow}
               refreshing={refreshing || loadingList}
-              initialNumToRender={20}
               onEndReached={this._loadMoreCandidates}
+              maxToRenderPerBatch={AMOUNT_TO_FETCH}
+              onEndReachedThreshold={0.5}
               removeClippedSubviews={Platform.OS === 'android'}
-              onEndReachedThreshold={0.75}
             />
           </FadeIn>
         </Utils.View>

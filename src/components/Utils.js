@@ -361,7 +361,7 @@ export const LeftBadge = styled.View`
   borderTopRightRadius: 8px;
   width: 80px;
   height: 35px;
-  marginVertical: 20px;
+  margin-vertical: 15px;
   paddingRight: 15px;
   marginRight: 20px;
 `

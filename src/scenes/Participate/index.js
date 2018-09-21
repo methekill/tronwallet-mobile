@@ -277,8 +277,8 @@ class ParticipateHome extends React.Component {
   }
 
   _renderEmptyAssets = () => {
-    const { loading, refreshing, searchMode, searchName } = this.state
-    if (!loading && !refreshing && !!searchName && searchMode) {
+    const { loading, searchMode, searching, searchName, currentList } = this.state
+    if (searchMode && !loading && !!searchName & !searching && !currentList.length) {
       return (
         <View flex={1} align='center' justify='center' padding={20}>
           <Image
@@ -286,7 +286,7 @@ class ParticipateHome extends React.Component {
             resizeMode='contain'
             style={{ width: 200, height: 200 }}
           />
-          <Text>Asset(s) not found</Text>
+          <Text style={{fontSize: 13}}>{tl.t('participate.error.notFound')}</Text>
         </View>
       )
     }
@@ -296,7 +296,7 @@ class ParticipateHome extends React.Component {
   render () {
     const { currentList, searchName } = this.state
     const orderedBalances = orderAssets(currentList)
-    const searchPreview = searchName ? 'Results' : 'Featured Tokens'
+    const searchPreview = searchName ? `${tl.t('results')} : ${orderedBalances.length}` : tl.t('participate.searchPreview')
     return (
       <Container>
         <NavigationHeader
@@ -309,12 +309,12 @@ class ParticipateHome extends React.Component {
           ListHeaderComponent={this._renderFeaturedTokens}
           ListFooterComponent={this._renderLoading}
           ListEmptyComponent={this._renderEmptyAssets}
-          initialNumToRender={10}
           data={orderedBalances}
           renderItem={({ item }) => this._renderCard(item)}
           keyExtractor={asset => asset.name}
           scrollEnabled
           removeClippedSubviews={Platform.OS === 'android'}
+          maxToRenderPerBatch={AMOUNT_TO_FETCH}
           onEndReached={this._loadMore}
           onEndReachedThreshold={0.5}
         />
