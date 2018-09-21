@@ -96,7 +96,30 @@
   "firstTime": {
     "button": {
       "create": "Wallet erstellen",
-      "restore": "WALLET WIEDERHERSTELLEN"
+      "restore": "WALLET WIEDERHERSTELLEN",
+      "import": "IMPORTIERE-GELDBÖRSE"
+    },
+    "swiper": {
+      "welcome": {
+        "title": "Willkommen bei \nTRONWALLET",
+        "body": "Die sicherste Geldbörse für TRON"
+      },
+      "security": {
+        "title": "SICHERHEIT",
+        "body": "Datenschutz und Sicherheit für \n Ihre Transaktionen"
+      },
+      "votes": {
+        "title": "ABSTIMMUNGEN",
+        "body": "Einfrieren und stimmen Sie für Super Vertreter"
+      },
+      "addressbook": {
+        "title": "ADRESSBUCH",
+        "body": "Speichern Sie die Adressen Ihrer Freunde \n und Kontakte."
+      },
+      "multipleaccounts": {
+        "title": "MEHRERE KONTEN",
+        "body": "Sie können mehrere Konten in Ihrer Brieftasche verwalten"
+      }
     }
   },
   "addressBook": {
@@ -212,7 +235,7 @@
     "enter": "PIN eingeben",
     "new": "Neue PIN eingeben",
     "reenter": "PIN erneut eingeben",
-    "biometrics": "Biometric Check"
+    "biometrics": "Überprüfe Fingerabdruck"
   },
   "receive": {
     "title": "ERHALTEN",
@@ -254,8 +277,8 @@
         "newSeed": "NEUE GEHEIME WÖRTER ERHALTEN",
         "later": "Später bestätigen"
       },
-      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
-      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
+      "backupMessage": "Sie können jederzeit auf Ihre Wörter zugreifen, indem Sie in den App-Einstellungen auf das Backup zugreifen      ",
+      "seedExplanation": "Der Wörter-Schlüssel ist eine lesbare Darstellung Ihrer Brieftasche. Diese Worte können in genau dieser Reihenfolge verwendet werden, um Ihre Brieftasche neu zu erstellen."
     },
     "restore": {
       "title": "WALLET WIEDERHERSTELLEN",
@@ -379,7 +402,7 @@
     },
     "partners": "PARTNER",
     "askPin": "Fragen Sie immer PIN",
-    "askBiometry": "Activate Biometry"
+    "askBiometry": "Aktivieren Sie Ihren Fingerabdruck"
   },
   "submitTransaction": {
     "title": "DETAILS DER TRANSAKTION",
@@ -512,10 +535,10 @@
   },
   "biometry": {
     "register": {
-      "title": "Check your biometry"
+      "title": "Überprüfen Sie Ihren Fingerabdruck"
     },
     "auth": {
-      "error": "Access denied"
+      "error": "Zugriff verweigert"
     }
   }
 }

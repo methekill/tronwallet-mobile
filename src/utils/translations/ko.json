@@ -96,7 +96,30 @@
   "firstTime": {
     "button": {
       "create": "지갑 생성",
-      "restore": "지갑 복원"
+      "restore": "지갑 복원",
+      "import": "IMPORT WALLET"
+    },
+    "swiper": {
+      "welcome": {
+        "title": "Welcome to \nTRONWALLET",
+        "body": "The most secure wallet for TRON"
+      },
+      "security": {
+        "title": "SECURITY",
+        "body": "Privacy and security for \n your transactions"
+      },
+      "votes": {
+        "title": "VOTES",
+        "body": "Freezing and vote for Super \n Representatives"
+      },
+      "addressbook": {
+        "title": "ADDRESS BOOK",
+        "body": "Save the addresses of your friends \n and contacts."
+      },
+      "multipleaccounts": {
+        "title": "MULTIPLE ACCOUNTS",
+        "body": "You can manage multiple accounts \n in your wallet"
+      }
     }
   },
   "addressBook": {
@@ -212,7 +235,7 @@
     "enter": "PIN을 입력하세요",
     "new": "새로운 PIN을 입력하세요",
     "reenter": "다시 한번 PIN을 입력하세요",
-    "biometrics": "Biometric Check"
+    "biometrics": "생체정보 검사"
   },
   "receive": {
     "title": "받기",
@@ -254,8 +277,8 @@
         "newSeed": "새로운 시드 생성하기",
         "later": "나중에 확인"
       },
-      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
-      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
+      "backupMessage": "설정-지갑 백업 메뉴에서 언제든지 시드 단어를 확인할 수 있습니다.",
+      "seedExplanation": "시드 키는 지갑을 사람들이 읽을 수 있는 형태로 표현한 것입니다. 이 단어를 순서대로 입력하면 지갑을 복구할 수 있습니다."
     },
     "restore": {
       "title": "지갑 복원",
@@ -379,7 +402,7 @@
     },
     "partners": "제휴업체",
     "askPin": "항상 PIN 물어보기",
-    "askBiometry": "Activate Biometry"
+    "askBiometry": "생체인식 활성화"
   },
   "submitTransaction": {
     "title": "트랜잭션 상세보기",
@@ -512,10 +535,10 @@
   },
   "biometry": {
     "register": {
-      "title": "Check your biometry"
+      "title": "생체정보 확인"
     },
     "auth": {
-      "error": "Access denied"
+      "error": "접근이 거부되었습니다"
     }
   }
 }
