@@ -68,7 +68,6 @@ class AddressBook extends Component {
 
   _onTransactionsPress = () => {
     const { currentItem } = this.state
-    console.warn('>>>>', currentItem)
     this._navigate('Transactions', { filter: currentItem.alias })
   }
 
@@ -149,7 +148,7 @@ class AddressBook extends Component {
       text: tl.t('addressBook.shared.edit'),
       icon: <FontelloIcon name='edit' color='white' size={22} />
     },
-    this.state.isUserAccount ? null
+    this.props.isUserAccount ? null
       : {
         onPress: this._onDeletePress,
         text: tl.t('addressBook.shared.delete'),
