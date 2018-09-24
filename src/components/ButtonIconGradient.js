@@ -12,7 +12,8 @@ const ButtonIcon = ({
   disabled,
   size,
   full,
-  icon
+  icon,
+  background
 }) => {
   const flexProps = {}
   if (full) {
@@ -32,7 +33,7 @@ const ButtonIcon = ({
         colors={[Colors.primaryGradient[0], Colors.primaryGradient[1]]}
         style={[styles.gradientView, {width: size, height: size}]}
       >
-        <View style={[styles.outterView, {width: size * 0.96, height: size * 0.96}]}>
+        <View style={[styles.outterView, {width: size * 0.96, height: size * 0.96, backgroundColor: background || Colors.background}]}>
           {icon}
         </View>
       </LinearGradient>
@@ -68,7 +69,6 @@ const styles = StyleSheet.create({
   outterView: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.background,
     borderRadius: 99
   }
 })

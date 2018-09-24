@@ -28,6 +28,7 @@ import { Colors } from '../../components/DesignSystem'
 import { ONE_TRX } from '../../services/client'
 import { rgb } from '../../../node_modules/polished'
 import ActionModal from '../../components/ActionModal'
+import FontelloIcon from '../../components/FontelloIcon'
 
 import { formatFloat } from '../../utils/numberUtils'
 import getAssetsStore from '../../store/assets'
@@ -360,8 +361,16 @@ class TransactionDetails extends React.Component {
         closeModal={this._closeModal}
         animationType='fade'
         actions={[
-          {onPress: this._onAddContactPress, text: tl.t('addressBook.contacts.addToContacts')},
-          {onPress: this._onCopyAddressPress, text: tl.t('copyAddress')}
+          {
+            onPress: this._onAddContactPress,
+            text: tl.t('addressBook.contacts.addToContacts'),
+            icon: <FontelloIcon name='notebook' color='white' size={22} />
+          },
+          {
+            onPress: this._onCopyAddressPress,
+            text: tl.t('copyAddress'),
+            icon: <FontelloIcon name='copy,copy-clipboard' color='white' size={22} />
+          }
         ]}
       />
     )
