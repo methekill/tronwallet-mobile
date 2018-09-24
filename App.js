@@ -58,7 +58,7 @@ import getBalanceStore from './src/store/balance'
 import { USER_PREFERRED_CURRENCY, ALWAYS_ASK_PIN, USE_BIOMETRY } from './src/utils/constants'
 import { ONE_SIGNAL_KEY } from './config'
 import ConfigJson from './package.json'
-
+import tl from './src/utils/i18n'
 import fontelloConfig from './src/assets/icons/config.json'
 
 import './ReactotronConfig'
@@ -131,7 +131,7 @@ const AddressBookStack = createStackNavigator({
   AddContact: AddContactScene
 }, {
   navigationOptions: {
-    header: <NavigationHeader title='ADDRESS BOOK' />
+    header: <NavigationHeader title={tl.t('addressBook.title')} />
   }
 })
 
