@@ -105,3 +105,30 @@ export const EmptyScreenText = styled.Text`
   letter-spacing: 0;
   color: white;
 `
+
+/* Filter */
+export const FilterWrapper = styled.View`
+  height: 60px;
+  margin-bottom: 20px;
+  margin-horizontal: 20px;
+  backgroundColor: ${Colors.darkThree};
+  borderRadius: 5px;
+  flexDirection: row;
+  paddingHorizontal: 20px;
+  paddingVertical: 20px;
+  justify-content: space-between;
+`
+export const FilterText = styled.Text`
+  font-family: Rubik-${props => props.regular ? 'Regular' : 'Medium'};
+  font-size: 14px;
+  line-height: 16px;
+  color: ${props => props.dark ? Colors.secondaryText : Colors.greyBlue};
+  marginHorizontal: ${props => props.marginX ? props.marginX : 0}px;
+`
+export const InnerRow = styled.View`
+  align-items:center;
+  flexDirection: row;
+  margin:0px;
+  padding:0px;
+  max-width:60%;
+`

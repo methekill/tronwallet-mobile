@@ -62,13 +62,12 @@ class AddressBook extends Component {
 
   _onSendPress = () => {
     const { currentItem } = this.state
-
     this._navigate('SendScene', { address: currentItem.address })
   }
 
   _onTransactionsPress = () => {
     const { currentItem } = this.state
-    this._navigate('Transactions', { filter: currentItem.alias })
+    this._navigate('TransactionListScene', { contact: currentItem })
   }
 
   _onDeletePress = () => {
@@ -140,7 +139,7 @@ class AddressBook extends Component {
     },
     {
       onPress: this._onTransactionsPress,
-      text: 'transactions',
+      text: tl.t('txs'),
       icon: <FontelloIcon name='transfer' color='white' size={22} />
     },
     {
