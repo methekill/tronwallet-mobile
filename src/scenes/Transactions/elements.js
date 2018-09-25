@@ -23,7 +23,7 @@ export const HSpacer = styled.View`
   width: 10px;
 `
 export const Background = styled.View`
-  background-color: ${Colors.background}
+  background-color: ${Colors.background};
   flex: 1;
 `
 
@@ -97,6 +97,7 @@ export const EmptyScreenContainer = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
+  padding-top: 50px;
 `
 export const EmptyScreenText = styled.Text`
   font-family: Rubik-Medium;
@@ -117,6 +118,9 @@ export const FilterWrapper = styled.View`
   paddingHorizontal: 20px;
   paddingVertical: 20px;
   justify-content: space-between;
+  shadow-offset: 0 5px;
+  shadow-radius: 10px;
+  shadow-color: #000;
 `
 export const FilterText = styled.Text`
   font-family: Rubik-${props => props.regular ? 'Regular' : 'Medium'};

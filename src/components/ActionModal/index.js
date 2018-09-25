@@ -34,8 +34,11 @@ const AddressBookModal = ({
             key={action.text}
             text={action.text}
             background={Colors.dusk}
+            color={Colors.greyBlue}
             icon={action.icon}
             onPress={action.onPress}
+            textSpacing='small'
+            textSize={9}
             full
           />
         )}

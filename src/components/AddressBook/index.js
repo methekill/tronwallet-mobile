@@ -139,7 +139,7 @@ class AddressBook extends Component {
     },
     {
       onPress: this._onTransactionsPress,
-      text: tl.t('txs'),
+      text: tl.t('txs').toUpperCase(),
       icon: <FontelloIcon name='transfer' color='white' size={22} />
     },
     {

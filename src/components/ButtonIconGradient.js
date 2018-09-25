@@ -3,7 +3,7 @@ import { TouchableOpacity, StyleSheet, View } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import PropTypes from 'prop-types'
 
-import { Colors } from './DesignSystem'
+import { Colors, getAdjustedFontSize } from './DesignSystem'
 import * as Utils from './Utils'
 
 const ButtonIcon = ({
@@ -13,7 +13,10 @@ const ButtonIcon = ({
   size,
   full,
   icon,
-  background
+  background,
+  color,
+  textSpacing,
+  textSize
 }) => {
   const flexProps = {}
   if (full) {
@@ -33,19 +36,22 @@ const ButtonIcon = ({
         colors={[Colors.primaryGradient[0], Colors.primaryGradient[1]]}
         style={[styles.gradientView, {width: size, height: size}]}
       >
-        <View style={[styles.outterView, {width: size * 0.96, height: size * 0.96, backgroundColor: background || Colors.background}]}>
+        <View style={[styles.outterView, {width: size * 0.95, height: size * 0.95, backgroundColor: background || Colors.background}]}>
           {icon}
         </View>
       </LinearGradient>
-      <Utils.VerticalSpacer size='xsmall' />
-      <Utils.Text size='tiny' secondary>{text}</Utils.Text>
+      <Utils.VerticalSpacer size={textSpacing} />
+      <Utils.Text style={{fontSize: getAdjustedFontSize(textSize)}} color={color}>{text}</Utils.Text>
     </TouchableOpacity>
   )
 }
 
 ButtonIcon.defaultProps = {
   disabled: false,
-  size: 64
+  size: 64,
+  textSpacing: 'xsmall',
+  color: Colors.secondaryText,
+  textSize: 11
 }
 
 ButtonIcon.propTypes = {
@@ -53,8 +59,10 @@ ButtonIcon.propTypes = {
   disabled: PropTypes.bool,
   onPress: PropTypes.func,
   icon: PropTypes.element.isRequired,
-  full: PropTypes.bool
-
+  full: PropTypes.bool,
+  textSpacing: PropTypes.string,
+  textSize: PropTypes.number,
+  color: PropTypes.string
 }
 
 const styles = StyleSheet.create({

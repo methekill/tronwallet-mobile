@@ -19,21 +19,7 @@ import Empty from './Empty'
 import FontelloIcon from '../../components/FontelloIcon'
 
 class TransactionsScene extends Component {
-  static navigationOptions = ({ navigation }) => {
-    const { params } = navigation.state
-
-    return {
-      header: (
-        <NavigationHeader
-          title={tl.t('transactions.title')}
-          leftButton={<SyncButton
-            loading={params && params.refreshing}
-            onPress={() => params.updateData()}
-          />}
-        />
-      )
-    }
-  }
+  static navigationOptions = () => ({header: null})
 
   state = {
     refreshing: true,
@@ -47,13 +33,6 @@ class TransactionsScene extends Component {
 
   async componentDidMount () {
     Answers.logContentView('Tab', 'Transactions')
-
-    this.props.navigation.setParams({
-      refreshing: true,
-      updateData: this._onRefresh
-    })
-
-    this._onRefresh()
     this._didFocusSubscription = this.props.navigation.addListener('didFocus', this._onRefresh)
   }
 
@@ -61,33 +40,39 @@ class TransactionsScene extends Component {
     this._didFocusSubscription.remove()
   }
 
+  _getTransactionByAddress = () => this.state.transactions
+    .filter(item => item.ownerAddress === this.props.context.publicKey)
+
   _getSortedTransactionList = store =>
     store
       .objects('Transaction')
       .sorted([['timestamp', true]])
       .map(item => Object.assign({}, item))
 
+  _getDataFromStore = async () => {
+    const transactionStore = await getTransactionStore()
+    const transactions = this._getSortedTransactionList(transactionStore)
+
+    const userTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
+    const filteredTransactions = transactions.filter(({ type, contractData }) =>
+      contractData.tokenName === null ||
+            JSON.parse(userTokens).findIndex(name => name === contractData.tokenName) === -1
+    )
+
+    const assetStore = await getAssetsStore()
+    return this._updateParticipateTransactions(filteredTransactions, assetStore)
+  }
   _onRefresh = async () => {
-    this._setRefreshState(true)
+    this.setState({ refreshing: true })
     try {
-      const contact = {
-        address: 'aeaaeaea',
-        alias: 'aeaeae',
-        name: 'aeaeae'
-      }
-      // const contact = this.props.navigation.getParam('contact', null)
+      const contact = this.props.navigation.getParam('contact', null)
       if (contact) await this._setFilteredContact(contact)
       else await this._updateData()
     } catch (error) {
       logSentry(error, 'On Refresh - Transactions')
     } finally {
-      this._setRefreshState(false)
+      this.setState({ refreshing: false })
     }
-  }
-
-  _setRefreshState = (state) => {
-    this.setState({ refreshing: state })
-    this.props.navigation.setParams({ refreshing: state })
   }
 
   _setFilteredContact = async contact => {
@@ -100,42 +85,26 @@ class TransactionsScene extends Component {
   }
 
   _removeFilteredContact = async () => {
+    this.setState({refreshing: true, contact: { address: '', alias: '', name: '' }})
+    this.props.navigation.setParams({contact: null})
     try {
-      const transactionStore = await getTransactionStore()
-      const transactions = this._getSortedTransactionList(transactionStore)
-
-      const userTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
-      const filteredTransactions = transactions.filter(({ type, contractData }) =>
-        contractData.tokenName === null ||
-        JSON.parse(userTokens).findIndex(name => name === contractData.tokenName) === -1
-      )
-
-      const assetStore = await getAssetsStore()
-      const updatedTransactions = this._updateParticipateTransactions(filteredTransactions, assetStore)
-      this.setState({ transactions: updatedTransactions, contact: { address: '', alias: '', name: '' } })
+      const updatedTransactions = await this._getDataFromStore()
+      this.setState({ transactions: updatedTransactions })
     } catch (error) {
-
+      logSentry(error, 'Remove filterd contact')
+    } finally {
+      this.setState({refreshing: false})
     }
   }
   _updateData = async () => {
     try {
       await updateTransactions(this.props.context.publicKey)
-      const transactionStore = await getTransactionStore()
-      const transactions = this._getSortedTransactionList(transactionStore)
-
-      const userTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
-      const filteredTransactions = transactions.filter(({ type, contractData }) =>
-        contractData.tokenName === null ||
-        JSON.parse(userTokens).findIndex(name => name === contractData.tokenName) === -1
-      )
-
-      const assetStore = await getAssetsStore()
-      const updatedTransactions = this._updateParticipateTransactions(filteredTransactions, assetStore)
-
+      const updatedTransactions = await this._getDataFromStore()
       this.setState({ transactions: updatedTransactions })
     } catch (err) {
-      this._setRefreshState(false)
       logSentry(err, 'Transactions - load data')
+    } finally {
+      this.setState({refreshing: false, contact: {address: '', alias: '', name: ''}})
     }
   }
 
@@ -150,9 +119,6 @@ class TransactionsScene extends Component {
     })
   )
 
-  _getTransactionByAddress = () => this.state.transactions
-    .filter(item => item.ownerAddress === this.props.context.publicKey)
-
   _navigateToDetails = (item) => {
     this.props.navigation.navigate('TransactionDetails', { item })
   }
@@ -166,7 +132,7 @@ class TransactionsScene extends Component {
             color={Colors.primaryGradient[0]}
           />
           <FilterText marginX={12} dark>{tl.t('filter')}:</FilterText>
-          <FilterText numberOfLines={1} regular>{this.state.contact.name}</FilterText>
+          <FilterText numberOfLines={1}>{this.state.contact.name}</FilterText>
         </InnerRow>
         <InnerRow>
           <TouchableOpacity onPress={this._removeFilteredContact}>
@@ -189,6 +155,13 @@ class TransactionsScene extends Component {
 
     return (
       <Background>
+        <NavigationHeader
+          title={tl.t('transactions.title')}
+          leftButton={<SyncButton
+            loading={refreshing}
+            onPress={this._onRefresh}
+          />}
+        />
         <FlatList
           data={transactions}
           ListEmptyComponent={<Empty loading={refreshing} />}
@@ -200,7 +173,6 @@ class TransactionsScene extends Component {
           removeClippedSubviews={Platform.OS === 'android'}
         />
       </Background>
-
     )
   }
 }
