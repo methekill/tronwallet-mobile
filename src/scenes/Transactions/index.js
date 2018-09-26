@@ -127,9 +127,9 @@ class TransactionsScene extends Component {
       return <FilterWrapper>
         <InnerRow>
           <FontelloIcon
-            name='notebook'
-            size={22}
-            color={Colors.primaryGradient[0]}
+            name='agenda-filtro'
+            size={16}
+            color={Colors.buttonGradient[1]}
           />
           <FilterText marginX={12} dark>{tl.t('filter')}:</FilterText>
           <FilterText numberOfLines={1}>{this.state.contact.name}</FilterText>
@@ -139,7 +139,7 @@ class TransactionsScene extends Component {
             <FontelloIcon
               name='close'
               color='white'
-              size={18}
+              size={16}
             />
           </TouchableOpacity>
         </InnerRow>
