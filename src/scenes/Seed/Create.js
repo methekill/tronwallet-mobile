@@ -96,7 +96,7 @@ class Create extends React.Component {
               onPress={this._onCopySeed}
               style={{alignItems: 'flex-end'}}>
               <FontelloIcon
-                name='copy,copy-clipboard'
+                name='copy'
                 size={18}
                 color={Colors.greyBlue}
               />

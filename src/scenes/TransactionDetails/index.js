@@ -369,7 +369,7 @@ class TransactionDetails extends React.Component {
           {
             onPress: this._onCopyAddressPress,
             text: tl.t('copyAddress'),
-            icon: <FontelloIcon name='copy,copy-clipboard' color='white' size={22} />
+            icon: <FontelloIcon name='copy' color='white' size={22} />
           }
         ]}
       />
@@ -383,7 +383,7 @@ class TransactionDetails extends React.Component {
       <View>
         {this._renderAddressModal()}
         {type.toLowerCase() === 'transfer' &&
-          <TouchableOpacity onPress={() => { this._onAddressPress(transferToAddress) }}>
+          <TouchableOpacity disabled={transferToAddress[0] === '@'} onPress={() => { this._onAddressPress(transferToAddress) }}>
             <Elements.AddressRow>
               <Elements.AddressText>{tl.t('transactionDetails.to')}</Elements.AddressText>
               {this._getIcon('ios-arrow-round-up', 30, confirmed ? rgb(63, 231, 123) : rgb(102, 104, 143))}
@@ -392,7 +392,7 @@ class TransactionDetails extends React.Component {
             <Elements.Divider />
           </TouchableOpacity>
         }
-        <TouchableOpacity onPress={() => { this._onAddressPress(transferFromAddress) }}>
+        <TouchableOpacity disabled={transferFromAddress[0] === '@'} onPress={() => { this._onAddressPress(transferFromAddress) }}>
           <Elements.AddressRow>
             <Elements.AddressText>{tl.t('transactionDetails.from')}</Elements.AddressText>
             {this._getIcon('ios-arrow-round-down', 30, confirmed ? rgb(255, 68, 101) : rgb(102, 104, 143))}

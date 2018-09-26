@@ -60,7 +60,7 @@ class ReceiveScreen extends PureComponent {
           <Utils.Row align='center' style={{minWidth: width * 0.6}}>
             <ActionButton onPress={this._copy}>
               <FontelloIcon
-                name='copy,copy-clipboard'
+                name='copy'
                 size={FontSize['small']}
                 color={Colors.primaryText}
               />
