@@ -18,9 +18,9 @@ export const Divider = styled.View`
 `
 
 export const ActionRow = styled.View`
-  flexDirection: row;
-  paddingHorizontal: 10px;
-  paddingVertical: 40px;
+  flex-direction: row;
+  padding-horizontal: 10px;
+  padding-vertical: 40px;
 `
 const Text = css`
   font-size: 12px;

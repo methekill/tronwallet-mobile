@@ -112,11 +112,11 @@ export const FilterWrapper = styled.View`
   height: 60px;
   margin-bottom: 20px;
   margin-horizontal: 20px;
-  backgroundColor: ${Colors.darkThree};
-  borderRadius: 5px;
-  flexDirection: row;
-  paddingHorizontal: 20px;
-  paddingVertical: 20px;
+  background-color: ${Colors.darkThree};
+  border-radius: 5px;
+  flex-direction: row;
+  padding-horizontal: 20px;
+  padding-vertical: 20px;
   justify-content: space-between;
   shadow-offset: 0 5px;
   shadow-radius: 10px;
@@ -127,11 +127,11 @@ export const FilterText = styled.Text`
   font-size: 14px;
   line-height: 16px;
   color: ${props => props.dark ? Colors.secondaryText : Colors.greyBlue};
-  marginHorizontal: ${props => props.marginX ? props.marginX : 0}px;
+  margin-horizontal: ${props => props.marginX ? props.marginX : 0}px;
 `
 export const InnerRow = styled.View`
   align-items:center;
-  flexDirection: row;
+  flex-direction: row;
   margin:0px;
   padding:0px;
   max-width:60%;

@@ -36,7 +36,7 @@ const ButtonIcon = ({
         colors={[Colors.primaryGradient[0], Colors.primaryGradient[1]]}
         style={[styles.gradientView, {width: size, height: size}]}
       >
-        <View style={[styles.outterView, {width: size * 0.95, height: size * 0.95, backgroundColor: background || Colors.background}]}>
+        <View style={[styles.outterView, {width: size * 0.95, height: size * 0.95, backgroundColor: background}]}>
           {icon}
         </View>
       </LinearGradient>
@@ -51,7 +51,8 @@ ButtonIcon.defaultProps = {
   size: 64,
   textSpacing: 'xsmall',
   color: Colors.secondaryText,
-  textSize: 11
+  textSize: 11,
+  background: Colors.background
 }
 
 ButtonIcon.propTypes = {
