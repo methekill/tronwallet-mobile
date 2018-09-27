@@ -90,8 +90,8 @@ class TokenInfo extends PureComponent {
             <Utils.VerticalSpacer size='small' />
             <BoldInfoRow pairs={[
               { key: tl.t('participate.trxNum'), value: trxNum },
-              { key: tl.t('participate.num'), value: num },
-              { key: tl.t('participate.block'), value: block }]}
+              { key: tl.t('participate.num'), value: num }
+            ]}
             />
           </Utils.Container>
         </ScrollView>
