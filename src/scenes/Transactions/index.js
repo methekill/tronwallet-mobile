@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FlatList, AsyncStorage, Platform, TouchableOpacity } from 'react-native'
+import { FlatList, AsyncStorage, Platform, TouchableOpacity, Image } from 'react-native'
 import { Answers } from 'react-native-fabric'
 
 import tl from '../../utils/i18n'
@@ -13,6 +13,7 @@ import getAssetsStore from '../../store/assets'
 import getTransactionStore from '../../store/transactions'
 import { withContext } from '../../store/context'
 import { updateTransactions, getTokenPriceFromStore } from '../../utils/transactionUtils'
+import getContactsStore from '../../store/contacts'
 import { logSentry } from '../../utils/sentryUtils'
 import { Colors } from '../../components/DesignSystem'
 import Empty from './Empty'
@@ -34,14 +35,28 @@ class TransactionsScene extends Component {
   async componentDidMount () {
     Answers.logContentView('Tab', 'Transactions')
     this._didFocusSubscription = this.props.navigation.addListener('didFocus', this._onRefresh)
+    this.contactsStoreRef = await getContactsStore()
   }
 
   componentWillUnmount () {
     this._didFocusSubscription.remove()
   }
 
+  _getAlias = address => {
+    if (!address) return
+    const contact = this.contactsStoreRef.objects('Contact').filtered('address = $0', address)
+    return contact.length ? contact[0].alias : address
+  }
+
   _getTransactionByAddress = () => this.state.transactions
     .filter(item => item.ownerAddress === this.props.context.publicKey)
+    .map(item => Object.assign({},
+      {...item,
+        contractData: {
+          ...item.contractData,
+          transferFromAddress: this._getAlias(item.contractData.transferFromAddress),
+          transferToAddress: this._getAlias(item.contractData.transferToAddress)
+        }}))
 
   _getSortedTransactionList = store =>
     store
@@ -65,6 +80,7 @@ class TransactionsScene extends Component {
   _onRefresh = async () => {
     this.setState({ refreshing: true })
     try {
+      this.contactsStoreRef = await getContactsStore()
       const contact = this.props.navigation.getParam('contact', null)
       if (contact) await this._setFilteredContact(contact)
       else await this._updateData()
@@ -77,11 +93,14 @@ class TransactionsScene extends Component {
 
   _setFilteredContact = async contact => {
     const transactionsStore = await getTransactionStore()
+    const assetStore = await getAssetsStore()
     const transactionsFiltered = transactionsStore.objects('Transaction')
       .filtered('contractData.transferFromAddress = $0 OR contractData.transferToAddress = $0', contact.address)
       .sorted([['timestamp', true]])
       .map(item => Object.assign({}, item))
-    this.setState({transactions: transactionsFiltered, contact})
+    const updatedParticipatedTransactions = this._updateParticipateTransactions(transactionsFiltered, assetStore)
+
+    this.setState({transactions: updatedParticipatedTransactions, contact})
   }
 
   _removeFilteredContact = async () => {
@@ -126,13 +145,13 @@ class TransactionsScene extends Component {
     if (this.state.contact.address) {
       return <FilterWrapper>
         <InnerRow>
-          <FontelloIcon
-            name='agenda-filtro'
-            size={16}
+          <Image
+            source={require('../../assets/gradient-book.png')}
+            style={{width: 16, height: 16}}
             color={Colors.buttonGradient[1]}
           />
           <FilterText marginX={12} dark>{tl.t('filter')}:</FilterText>
-          <FilterText numberOfLines={1}>{this.state.contact.name}</FilterText>
+          <FilterText numberOfLines={1}>{this.state.contact.alias}</FilterText>
         </InnerRow>
         <InnerRow>
           <TouchableOpacity onPress={this._removeFilteredContact}>
