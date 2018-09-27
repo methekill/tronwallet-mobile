@@ -22,15 +22,15 @@
   "ok": "Ok",
   "actionModalTitle": "Czy chciałbyś",
   "account": "Konto",
-  "restore": "Przywracać",
+  "restore": "Przywracanie",
   "error": {
-    "default": "Woops coś poszło nie tak. Spróbuj ponownie później, jeśli utrzymują się błąd spróbuj zaktualizować ustawienia sieciowe.",
-    "buildingTransaction": "Wystąpił błąd podczas tworzenia transakcji, spróbuj ponownie.",
+    "default": "Ups coś poszło nie tak. Spróbuj ponownie później, jeśli błędy się utrzymają spróbuj zaktualizować swoje ustawienia sieciowe.",
+    "buildingTransaction": "Wystąpił błąd podczas zawierania transakcji, spróbuj ponownie.",
     "gettingTransaction": "Wystąpił błąd podczas przetwarzania transakcji.",
     "clipboardCopied": "Coś poszło nie tak podczas kopiowania",
     "hideAccount": "Coś poszło nie tak jak usunięcie konta, spróbuj ponownie \""
   },
-  "tronPower": "MOC TRON ",
+  "tronPower": "SIŁA TRON",
   "trxPrice": "CENA TRX",
   "confirmed": "Potwierdzone",
   "unconfirmed": "Niepotwierdzone",
@@ -51,6 +51,7 @@
   "allIn": "Wszystko",
   "skip": "Pomiń",
   "privateKey": "Prywatny klucz",
+  "results": "Results",
   "balance": {
     "title": "KONTA",
     "error": {
@@ -58,8 +59,8 @@
       "savingCurrency": "Wystąpił błąd podczas zapisywania preferowaną walutę"
     },
     "chooseCurrency": "Wybierz preferowaną walutę.",
-    "confirmSeed": "Proszę naciśnij, aby potwierdzić swoje słowa 12 nasion",
-    "bandwidth": "PASMO",
+    "confirmSeed": "Proszę naciśnij, aby potwierdzić swoje 12 słow seed",
+    "bandwidth": "PRZEPUSTOWOŚĆ",
     "tokens": "TOKENY",
     "holdings": "Zasoby"
   },
@@ -67,67 +68,67 @@
   "components": {
     "share": {
       "title": "Udostępnij adres TronWallet",
-      "message": "To jest mój adres TronWallet:\n\n {{address}}\n\nWskazówka: po skopiowaniu go można wkleić go w TronWallet aplikacji za pomocą specjalnego przycisku na ekranie wysyłki.",
+      "message": "To jest mój adres TronWallet:\n\n {{address}}\n\nWskazówka: po skopiowaniu możesz go wkleić w aplikacje TronWallet za pomocą specjalnego przycisku na ekranie wysyłki.",
       "dialogTitle": "Podziel się za pomocą:"
     },
     "QRScanner": {
       "title": "Adres skanera",
       "scan": "Skanowanie",
       "explanation": "Zeskanuj kod QR, aby zidentyfikować użytkownika docelowego",
-      "permissionMessage": "Do skanowania klucz publiczny aplikacja potrzebuje Twojej zgody, aby uzyskać dostęp do kamery."
+      "permissionMessage": "Aby zeskanować klucz publiczny aplikacja potrzebuje Twojej zgody, aby uzyskać dostęp do kamery."
     },
     "vote": {
-      "enterVote": "WPROWADŹ WARTOŚĆ GŁOSOWANIA",
+      "enterVote": "WPROWADŹ WARTOŚĆ GŁOSÓW",
       "votesRemaining": "POZOSTAŁE GŁOSY",
-      "setVote": "USTAWIĆ GŁOSOWANIE",
-      "moreVotes": "Jeśli potrzebujesz więcej głosów można zamrozić więcej TRX.",
+      "setVote": "USTAW GŁOSOWANIE",
+      "moreVotes": "Jeśli potrzebujesz więcej głosów możesz zamrozić większą ilość TRX.",
       "confirmVotes": "POTWIERDZENIE GŁOSÓW",
       "yourVotes": "Twoje głosy",
       "myVotes": "MOJE GŁOSY",
-      "confirm": "POTWIERDZAĆ",
-      "freeze": "Zamrażać",
-      "totalVotes": "Liczba głosów ogółem:",
-      "delete": "KASOWAĆ",
-      "set": "ZESTAW",
-      "freezeOrLower": "Nie masz wystarczająco zamrożonego TRX. Zablokuj więcej TRX lub zmniejsz liczbę głosów",
-      "freezeToContinue": "Nie masz wystarczająco zamrożonego TRX. Zablokuj więcej TRX, aby kontynuować"
+      "confirm": "POTWIERDŹ",
+      "freeze": "Zamrażanie ",
+      "totalVotes": "Liczba dostępnych głosów :",
+      "delete": "USUŃ",
+      "set": "Wybierz",
+      "freezeOrLower": "Nie masz wystarczającej ilości zamrożonych TRX. Zablokuj więcej TRX lub zmniejsz liczbę głosów",
+      "freezeToContinue": "Nie masz wystarczającej ilości zamrożonych TRX. Zablokuj więcej TRX, aby kontynuować"
     }
   },
   "firstTime": {
     "button": {
       "create": "UTWÓRZ PORTFEL",
       "restore": "PRZYWRÓĆ PORTFEL",
-      "import": "IMPORT WALLET"
+      "import": "IMPORTUJ PORTFEL"
     },
     "swiper": {
       "welcome": {
-        "title": "Welcome to \nTRONWALLET",
-        "body": "The most secure wallet for TRON"
+        "title": "Witamy w \nTRONWALLET",
+        "body": "Najbezpieczniejszy portfel OBSŁUGUJĄCY SIEĆ TRON"
       },
       "security": {
-        "title": "SECURITY",
-        "body": "Privacy and security for \n your transactions"
+        "title": "BEZPIECZEŃSTWO",
+        "body": "Prywatność i bezpieczeństwo twoich transakcji"
       },
       "votes": {
-        "title": "VOTES",
-        "body": "Freezing and vote for Super \n Representatives"
+        "title": "Głosy",
+        "body": "Zamrażanie oraz głosowanie na Super Reprezentantów"
       },
       "addressbook": {
-        "title": "ADDRESS BOOK",
-        "body": "Save the addresses of your friends \n and contacts."
+        "title": "Książka Adresowa",
+        "body": "Zapisz kontakty oraz adresy twoich znajomych "
       },
       "multipleaccounts": {
-        "title": "MULTIPLE ACCOUNTS",
-        "body": "You can manage multiple accounts \n in your wallet"
+        "title": "WIELE KONT",
+        "body": "Możesz zarządzać w swoim portfelu wieloma kontaktami"
       }
     }
   },
   "addressBook": {
     "shared": {
       "add": "DODAJ",
-      "edit": "EDYTOWAĆ",
-      "delete": "KASOWAĆ",
-      "send": "WYSŁAĆ"
+      "edit": "EDYTUJ",
+      "delete": "KASUJ ",
+      "send": "WYŚLIJ "
     },
     "contacts": {
       "delete": {
@@ -143,36 +144,36 @@
     },
     "form": {
       "generalError": "Wystąpił problem z przesłaniem tego formularza. Skontaktuj się z administratorem.",
-      "nameError": "Pole nazwy musi rozpoczynać się od litery, zawierać maksymalnie 32 znaki, a akceptuje tylko litery, cyfry i białe spacje.",
+      "nameError": "Pole nazwy musi rozpoczynać się od litery, zawierać maksymalnie 32 znaki, oraz może zawierać tylko litery, cyfry oraz spacje",
       "addressError": "Coś jest nie tak z adresem. Proszę dwukrotnie sprawdzić literówki.",
       "uniqueAddressError": "Klucz musi być unikalny. Wybierz inny adres.",
-      "uniqueAliasError": "Nazwy w książce adresowej muszą być unikalne. Wybierz inny.",
+      "uniqueAliasError": "Nazwy w książce adresowej muszą być unikalne. Wybierz inną.",
       "name": "NAZWA",
       "address": "ADRES"
     }
   },
   "importWallet": {
-    "title": "IMPORT PORTFEL",
-    "message": "Jeśli masz prywatny klucz i adres swojego portfela, możesz odzyskać go tutaj, ale pamiętaj, że TronWallet działa przede wszystkim z mnemonikami. Ta metoda odzyskiwania wyłączy niektóre funkcje w aplikacji.",
+    "title": "IMPORTUJ PORTFEL",
+    "message": "Jeśli masz prywatny klucz i adres swojego portfela, możesz tutaj go odzyskać, ale pamiętaj, że TronWallet działa przede wszystkim z mnemonikami. Ta metoda odzyskiwania wyłączy niektóre funkcje w aplikacji.",
     "button": "IMPORT",
     "error": {
       "privateKey": "Klucz prywatny jest nieważny lub niekompletny"
     }
   },
   "freeze": {
-    "title": "ZAMRAŻAĆ",
+    "title": "ZAMRAŻANIE",
     "unfreeze": {
-      "title": "ODMROZIĆ",
-      "inThreeDays": "Po upływie trzech dni możesz odblokować TRX",
+      "title": "ODMRAŻANIE",
+      "inThreeDays": "Po upływie trzech dni możesz odmrozić TRX",
       "inXMinutes": "Możesz odblokować TRX w ciągu {{minutes}} minut.",
       "inXHours": "Możesz odblokować TRX w ciągu {{hours}} godzin.",
       "inXDays": "Możesz odblokować TRX w ciągu {{days}} dni.",
-      "now": "Możesz teraz odblokować TRX."
+      "now": "Możesz teraz odmrozić TRX."
     },
     "error": {
       "minimumAmount": "Minimalna kwota transakcji zamrożenia wynosi 1.",
       "insufficientBalance": "Niewystarczające saldo TRX",
-      "roundNumbers": "Można zamrozić tylko okrągłe liczby"
+      "roundNumbers": "Można zamrażać tylko okrągłe liczby"
     },
     "amount": "ZAMROŻONA KWOTA",
     "balance": "Środki"
@@ -208,7 +209,8 @@
       "insufficientTrx": {
         "title": "Musisz kupić co najmniej jedną wartość TRX równą {{token}}.",
         "message": "Obecnie kupujesz tylko {{amount}}."
-      }
+      },
+      "notFound": "Asset(s) not found"
     },
     "warning": "Nie masz wystarczającej ilości TRX, aby kupić tyle {{token}}",
     "amountToBuy": "KWOTA KUPIENIA",
@@ -228,14 +230,15 @@
     "ownerAddress": "ADRES WŁAŚCICIELA",
     "trxNum": "NUM TRX",
     "num": "NUM",
-    "block": "BLOK"
+    "block": "BLOK",
+    "searchPreview": "Featured Tokens"
   },
   "pin": {
     "title": "KONTROLA BEZPIECZEŃSTWA",
     "enter": "Wpisz PIN",
     "new": "Wprowadź nowy kod PIN",
     "reenter": "Wprowadź ponownie PIN",
-    "biometrics": "Biometric Check"
+    "biometrics": "Kontrola biometryczna"
   },
   "receive": {
     "title": "OTRZYMAĆ",
@@ -277,8 +280,8 @@
         "newSeed": "Pobierz nowe nasiona",
         "later": "Potwierdź później"
       },
-      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
-      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
+      "backupMessage": "Zawsze możesz uzyskać dostęp do swoich słów, za pomocą dostępu do kopii zapasowej znajdującej się w ustawieniach aplikacji      ",
+      "seedExplanation": "Klucz seed to możliwa do odczytania przez człowieka reprezentacja twojego portfela. Zawarte słowa w tej samej kolejności można wykorzystać do odtworzenia portfela."
     },
     "restore": {
       "title": "PRZYWRÓĆ PORTFEL",
@@ -402,7 +405,7 @@
     },
     "partners": "WZMACNIACZ",
     "askPin": "Zawsze pytaj PIN",
-    "askBiometry": "Activate Biometry"
+    "askBiometry": "Aktywuj biometrię"
   },
   "submitTransaction": {
     "title": "SZCZEGÓŁY TRANSAKCJI",
@@ -415,7 +418,7 @@
       "submit": "PRZESYŁANIE TRANSAKCJI"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "Nie można załadować danych transakcji"
     },
     "disconnectedMessage": "Wygląda na to, że jesteś odłączony. Połącz się z Internetem przed przystąpieniem do transakcji.",
     "dic": {
@@ -485,6 +488,7 @@
     "totalVotes": "SUMA GŁOSÓW",
     "votesAvailable": "DOSTĘPNE GŁOSY",
     "search": "Szukaj",
+    "searchPreview": "Suggestions - Most Voted",
     "error": "Ups, coś nie załadowało się poprawnie. Spróbuj przeładować"
   },
   "scanPayment": {
@@ -530,15 +534,15 @@
     }
   },
   "balanceToken": {
-    "updating": "Updating token information. Please wait a few seconds.",
-    "notAvailable": "Token information not available"
+    "updating": "Aktualizowanie informacji o tokenach. Poczekaj kilka sekund.",
+    "notAvailable": "Informacje o tokenach są niedostępne"
   },
   "biometry": {
     "register": {
-      "title": "Check your biometry"
+      "title": "Sprawdź swoją biometrię"
     },
     "auth": {
-      "error": "Access denied"
+      "error": "Odmowa dostępu"
     }
   }
 }

@@ -51,6 +51,9 @@
   "allIn": "All In",
   "skip": "Skip",
   "privateKey": "Private Key",
+  "results" : "Results",
+  "filter" : "Filter",
+  "txs": "Transactions",
   "balance": {
     "title": "ACCOUNTS",
     "error": {
@@ -123,6 +126,7 @@
     }
   },
   "addressBook": {
+    "title": "ADDRESS BOOK",
     "shared": {
       "add": "ADD",
       "edit": "EDIT",
@@ -130,6 +134,7 @@
       "send": "SEND"
     },
     "contacts": {
+      "title":"CONTACTS",
       "delete": {
         "title": "Delete Contact",
         "message": "Do you really want to delete this contact?",
@@ -208,7 +213,8 @@
       "insufficientTrx": {
         "title": "You need to buy at least one TRX worth of {{token}}.",
         "message": "Currently you are buying only {{amount}}."
-      }
+      },
+      "notFound" : "Asset(s) not found"
     },
     "warning": "You don't have enough TRX to buy that many {{token}}",
     "amountToBuy": "AMOUNT TO BUY",
@@ -228,7 +234,8 @@
     "ownerAddress": "OWNER ADDRESS",
     "trxNum": "TRX NUM",
     "num": "NUM",
-    "block": "BLOCK"
+    "block": "BLOCK",
+    "searchPreview" : "Featured Tokens"
   },
   "pin": {
     "title": "SECURITY CHECK",
@@ -486,6 +493,7 @@
     "totalVotes": "TOTAL VOTES",
     "votesAvailable": "VOTES AVAILABLE",
     "search": "Search",
+    "searchPreview" : "Suggestions - Most Voted",
     "error": "Oops, something didn't load correctly. Try to reload"
   },
   "scanPayment": {

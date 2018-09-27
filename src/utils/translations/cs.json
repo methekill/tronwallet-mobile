@@ -51,6 +51,7 @@
   "allIn": "Vybrat vše",
   "skip": "Přeskočit",
   "privateKey": "Soukromý klíč",
+  "results": "Results",
   "balance": {
     "title": "ÚČTY",
     "error": {
@@ -97,28 +98,28 @@
     "button": {
       "create": "VYTVOŘIT PENĚŽENKU",
       "restore": "OBNOVIT PENĚŽENKU",
-      "import": "IMPORT WALLET"
+      "import": "IMPORTOVAT PENĚŽENKU"
     },
     "swiper": {
       "welcome": {
-        "title": "Welcome to \nTRONWALLET",
-        "body": "The most secure wallet for TRON"
+        "title": "Vítejte v \nTRONWALLET",
+        "body": "Nejbezpečnější TRON peněženka"
       },
       "security": {
-        "title": "SECURITY",
-        "body": "Privacy and security for \n your transactions"
+        "title": "BEZPEČNOST",
+        "body": "Soukromí a bezpečnost \n pro vaše transakce"
       },
       "votes": {
-        "title": "VOTES",
-        "body": "Freezing and vote for Super \n Representatives"
+        "title": "HLASY",
+        "body": "Zmrazení a hlasování pro \n Super Representatives"
       },
       "addressbook": {
-        "title": "ADDRESS BOOK",
-        "body": "Save the addresses of your friends \n and contacts."
+        "title": "ADRESÁŘ",
+        "body": "Uložení adres vašich přátel \n a kontaktů."
       },
       "multipleaccounts": {
-        "title": "MULTIPLE ACCOUNTS",
-        "body": "You can manage multiple accounts \n in your wallet"
+        "title": "VÍCE ÚČTŮ",
+        "body": "V peněžence můžete spravovat \n více účtů"
       }
     }
   },
@@ -208,7 +209,8 @@
       "insufficientTrx": {
         "title": "Musíte si koupit alespoň jeden TRX v hodnotě {{token}}.",
         "message": "Momentálně kupujete pouze {{amount}}."
-      }
+      },
+      "notFound": "Asset(s) not found"
     },
     "warning": "Nemáte dostatek TRX ke koupi tolika {{token}}",
     "amountToBuy": "KOUPIT MNOŽSTVÍ",
@@ -228,7 +230,8 @@
     "ownerAddress": "ADRESA VLASTNÍKA",
     "trxNum": "POČET TRX",
     "num": "POČET",
-    "block": "BLOK"
+    "block": "BLOK",
+    "searchPreview": "Featured Tokens"
   },
   "pin": {
     "title": "BEZPEČNOSTNÍ KONTROLA",
@@ -485,6 +488,7 @@
     "totalVotes": "POČET HLASŮ",
     "votesAvailable": "VOLNÉ HLASY",
     "search": "Hledat",
+    "searchPreview": "Suggestions - Most Voted",
     "error": "Ups, něco se nenačetlo správně. Zkuste znova načíst"
   },
   "scanPayment": {

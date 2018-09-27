@@ -15,20 +15,20 @@
     "y": "год",
     "yy": "%d лет"
   },
-  "success": "Успешно",
+  "success": "Выполненно",
   "warning": "Внимание",
-  "cancel": "Отмена",
+  "cancel": "Отменить",
   "address": "Адрес",
-  "ok": "Ок",
+  "ok": "ОК",
   "actionModalTitle": "Не хотите ли вы",
   "account": "Счет",
   "restore": "Восстановить",
   "error": {
     "default": "Ой, что-то пошло не так. Повторите попытку позже, если ошибка сохраняется, попробуйте обновить настройки сети.",
-    "buildingTransaction": "Ошибка при создании транзакции, попробуйте еще раз.",
+    "buildingTransaction": "Ошибка во время создания транзакции, попробуйте еще раз.",
     "gettingTransaction": "Ошибка при получении транзакций.",
-    "clipboardCopied": "Ошибка копирования",
-    "hideAccount": "Что-то пошло не так, удалив аккаунт, повторите попытку,"
+    "clipboardCopied": "Что то пошло не так во время копирования",
+    "hideAccount": "Что то пошло не так во время удаления аккаунта, попробуйте выполнить запрос позже."
   },
   "tronPower": "TRON POWER\n",
   "trxPrice": "СТОИМОСТЬ TRX",
@@ -51,6 +51,7 @@
   "allIn": "Все в",
   "skip": "Пропустить",
   "privateKey": "Закрытый ключ",
+  "results": "Results",
   "balance": {
     "title": "УЧЕТНЫЕ ЗАПИСИ",
     "error": {
@@ -58,12 +59,12 @@
       "savingCurrency": "Ошибка сохранения предпочитаемой валюты"
     },
     "chooseCurrency": "Пожалуйста выберите валюту, которую вы предпочитаете.",
-    "confirmSeed": "Пожалуйста, нажмите, для подтверждения seed фразы из 12 слов",
+    "confirmSeed": "Пожалуйста, нажмите, для подтверждения кодовую фразу из 12 слов",
     "bandwidth": "ПРОПУСКНАЯ СПОСОБНОСТЬ",
     "tokens": "ТОКЕНЫ",
-    "holdings": "СБЕРЕЖЕНИЯ"
+    "holdings": "ВКЛАДЫ"
   },
-  "hideAccount": "Вы собираетесь удалить эту учетную запись. Вы можете восстановить его позже в настройках",
+  "hideAccount": "Вы собираетесь удалить эту учетную запись. Вы можете восстановить её в настройках позже.",
   "components": {
     "share": {
       "title": "Поделится адресом TronWallet",
@@ -73,52 +74,52 @@
     "QRScanner": {
       "title": "Сканер Адресов",
       "scan": "Сканировать",
-      "explanation": "Просканируйте QRCode для определения целевого пользователя",
-      "permissionMessage": "Для сканирования открытого ключа, приложению требуется разрешение на доступ к камере."
+      "explanation": "Просканируйте QRCode для определения пользователя",
+      "permissionMessage": "Для сканирования QR, приложению требуется доступ к камере."
     },
     "vote": {
       "enterVote": "ВВЕДИТЕ КОЛИЧЕСТВО ГОЛОСОВ",
       "votesRemaining": "ГОЛОСОВ ОСТАЛОСЬ",
-      "setVote": "УСТАНОВИТЬ ГОЛОСА",
-      "moreVotes": "Если вам нужно больше голосов, вы можете заморозить больше TRX.",
+      "setVote": "ПРОГОЛОСОВАТЬ",
+      "moreVotes": "Если вам нужно больше голосов, заморозьте больше TRX.",
       "confirmVotes": "ПОДТВЕРДИТЬ ГОЛОСА",
-      "yourVotes": "Ваши голоса",
+      "yourVotes": "Ваши Голоса",
       "myVotes": "МОИ ГОЛОСА",
       "confirm": "ПОДТВЕРДИТЬ",
       "freeze": "Заморозить",
-      "totalVotes": "Всего доступно голосов:",
+      "totalVotes": "Всего голосов:",
       "delete": "УДАЛИТЬ",
       "set": "УСТАНОВИТЬ",
-      "freezeOrLower": "Вы не имеете достаточное количество замороженных TRX. Заморозьте больше TRX или установите меньшее количество голосов",
-      "freezeToContinue": "Вы не имеете достаточное количество замороженных TRX. Заморозьте больше TRX для продолжения"
+      "freezeOrLower": "Вы не имеете достаточное количество TRON POWER. Заморозьте больше TRX или установите меньшее количество голосов.",
+      "freezeToContinue": "Вы не имеете достаточное количество TRON POWER. Заморозьте больше TRX для голосования."
     }
   },
   "firstTime": {
     "button": {
       "create": "СОЗДАТЬ КОШЕЛЕК",
       "restore": "ВОССТАНОВИТЬ КОШЕЛЕК",
-      "import": "IMPORT WALLET"
+      "import": "ИМПОРТИРОВАТЬ КОШЕЛЁК "
     },
     "swiper": {
       "welcome": {
-        "title": "Welcome to \nTRONWALLET",
-        "body": "The most secure wallet for TRON"
+        "title": "Добро пожаловать в TRONWALLET",
+        "body": "Самый безопасный крипто кошелёк для TRON"
       },
       "security": {
-        "title": "SECURITY",
-        "body": "Privacy and security for \n your transactions"
+        "title": "Безопасность",
+        "body": "Анонимность и безопасность ваших транзакций"
       },
       "votes": {
-        "title": "VOTES",
-        "body": "Freezing and vote for Super \n Representatives"
+        "title": "Голоса",
+        "body": "Заморозьте монеты и проголосуйте за Супер Представителей"
       },
       "addressbook": {
-        "title": "ADDRESS BOOK",
-        "body": "Save the addresses of your friends \n and contacts."
+        "title": "Контакты",
+        "body": "Сохранить адреса друзей и контактов"
       },
       "multipleaccounts": {
-        "title": "MULTIPLE ACCOUNTS",
-        "body": "You can manage multiple accounts \n in your wallet"
+        "title": "Разделить кошелёк ",
+        "body": "Вы можете использовать более одного кошелёка"
       }
     }
   },
@@ -131,10 +132,10 @@
     },
     "contacts": {
       "delete": {
-        "title": "Удалить контакт",
+        "title": "Удалить Контакт",
         "message": "Вы действительно хотите удалить этот контакт?",
         "cancelButton": "Отмена",
-        "okButton": "Ок"
+        "okButton": "ОК"
       },
       "empty": "Ваша адресная книга пуста, добавьте новый контакт, используя кнопку ниже.",
       "loadError": "Существует проблема с загрузкой контакта. Пожалуйста, попробуйте еще раз.",
@@ -143,7 +144,7 @@
     },
     "form": {
       "generalError": "Существует проблема, подтвеждения этой формы. Пожалуйста, обратитесь к администратору.",
-      "nameError": "Поле Имя должно начинаться с буквы, содержат не более 32 символов, поддерживаются только буквы, цифры и пробелы.",
+      "nameError": "Поле «Имя» должно начинаться с буквы, содержат не более 32 символов, поддерживаются только буквы, цифры и пробелы.",
       "addressError": "Что-то не так с адресом. Пожалуйста, проверьте дважды введенный адрес.",
       "uniqueAddressError": "Ключ должен быть уникальным. Пожалуйста, выберите другой адрес.",
       "uniqueAliasError": "Имена в адресной книге должны быть уникальными. Пожалуйста, выберите другое имя.",
@@ -208,7 +209,8 @@
       "insufficientTrx": {
         "title": "Вам нужно купить по крайней мере один TRX стоящий {{token}}.",
         "message": "В данный момент вы покупаете только {{amount}}."
-      }
+      },
+      "notFound": "Asset(s) not found"
     },
     "warning": "Вы не имеете достаточно TRX чтобы купить эти {{token}}",
     "amountToBuy": "СУММА К ПОКУПКЕ",
@@ -228,14 +230,15 @@
     "ownerAddress": "АДРЕС ВЛАДЕЛЬЦА",
     "trxNum": "TRX NUM",
     "num": "КОЛИЧЕСТВО",
-    "block": "БЛОК"
+    "block": "БЛОК",
+    "searchPreview": "Featured Tokens"
   },
   "pin": {
     "title": "ПРОВЕРКА БЕЗОПАСНОСТИ",
     "enter": "Введите PIN-код",
     "new": "Введите новый PIN-код",
     "reenter": "Введите PIN-код еще раз",
-    "biometrics": "Biometric Check"
+    "biometrics": "Биометрическая защита"
   },
   "receive": {
     "title": "ПОЛУЧИТЬ",
@@ -277,8 +280,8 @@
         "newSeed": "ПОЛУЧИТЬ НОВЫЙ SEED",
         "later": "Подтвердить позже"
       },
-      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
-      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
+      "backupMessage": "Вы всегда можете войти в ваш кошелёк с помощью набора слов, который вы можете получить в разделе «Резервная копия кошелька» в настройках.",
+      "seedExplanation": "Данный набор слов используется для восстановления вашего кошелька. Эти слова подобранны случайным способом."
     },
     "restore": {
       "title": "ВОССТАНОВИТЬ КОШЕЛЕК",
@@ -402,7 +405,7 @@
     },
     "partners": "ПАРТНЕРЫ",
     "askPin": "Всегда спрашивайте PIN-код",
-    "askBiometry": "Activate Biometry"
+    "askBiometry": "Включить биометрию"
   },
   "submitTransaction": {
     "title": "ДЕТАЛИ ТРАНЗАКЦИИ",
@@ -485,6 +488,7 @@
     "totalVotes": "ВСЕГО ГОЛОСОВ",
     "votesAvailable": "ДОСТУПНЫХ ГОЛОСОВ",
     "search": "Поиск",
+    "searchPreview": "Suggestions - Most Voted",
     "error": "Ой что-то не правильно загрузитьлось. Попробуйте перезагрузить"
   },
   "scanPayment": {
@@ -535,10 +539,10 @@
   },
   "biometry": {
     "register": {
-      "title": "Check your biometry"
+      "title": "Проверить вашу биометрию"
     },
     "auth": {
-      "error": "Access denied"
+      "error": "Доступ разрешён"
     }
   }
 }
