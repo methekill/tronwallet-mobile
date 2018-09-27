@@ -34,8 +34,7 @@ class TokenInfo extends PureComponent {
       transaction,
       ownerAddress,
       trxNum,
-      num,
-      block
+      num
     } = this.props.navigation.state.params.item
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: Colors.background }}>
@@ -90,8 +89,8 @@ class TokenInfo extends PureComponent {
             <Utils.VerticalSpacer size='small' />
             <BoldInfoRow pairs={[
               { key: tl.t('participate.trxNum'), value: trxNum },
-              { key: tl.t('participate.num'), value: num },
-              { key: tl.t('participate.block'), value: block }]}
+              { key: tl.t('participate.num'), value: num }
+            ]}
             />
           </Utils.Container>
         </ScrollView>
