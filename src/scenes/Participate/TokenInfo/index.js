@@ -34,8 +34,7 @@ class TokenInfo extends PureComponent {
       transaction,
       ownerAddress,
       trxNum,
-      num,
-      block
+      num
     } = this.props.navigation.state.params.item
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: Colors.background }}>
