@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ActivityIndicator, NetInfo, ScrollView } from 'react-native'
+import { ActivityIndicator, NetInfo, ScrollView, Clipboard } from 'react-native'
 import moment from 'moment'
 import { Answers } from 'react-native-fabric'
 import OneSignal from 'react-native-onesignal'
@@ -10,14 +10,14 @@ import { Colors } from '../../components/DesignSystem'
 import ButtonGradient from '../../components/ButtonGradient'
 import LoadingScene from '../../components/LoadingScene'
 import NavigationHeader from '../../components/Navigation/Header'
-import { DetailRow, DataRow } from './elements'
+import { DetailRow } from './elements'
 
 // Service
 import Client from '../../services/client'
 
 // Utils
 import tl from '../../utils/i18n'
-import { translateError } from './detailMap'
+import buildTransactionDetails, { translateError } from './detailMap'
 import getTransactionStore from '../../store/transactions'
 import { withContext } from '../../store/context'
 import { logSentry } from '../../utils/sentryUtils'
@@ -64,7 +64,7 @@ class TransactionDetail extends Component {
     try {
       // const transactionData = await Client.getTransactionDetails(signedTransaction)
       const transactionData2 = await Client.getTransactionDetailsv2(signedTransaction)
-      console.warn('>>', transactionData2)
+      await Clipboard.setString(signedTransaction)
       this.setState({ transactionData2, signedTransaction, tokenAmount })
     } catch (error) {
       this.setState({ submitError: error.message })
@@ -103,7 +103,7 @@ class TransactionDetail extends Component {
         transaction.contractData.frozenBalance = transactionData2.frozenBalance
         break
       case 'Vote':
-        transaction.contractData.votes = transactionData2.voteList
+        transaction.contractData.votes = transactionData2.votesList
         break
       default:
         transaction.contractData.amount = amount
@@ -115,7 +115,6 @@ class TransactionDetail extends Component {
   _submitTransaction = async () => {
     const {
       signedTransaction,
-      // transactionData: { hash }
       transactionData2: { hash }
     } = this.state
     this.setState({ loadingSubmit: true, submitError: null })
@@ -177,7 +176,7 @@ class TransactionDetail extends Component {
   }
 
   _renderContracts = () => {
-    const { transactionData2, nowDate } = this.state
+    const { transactionData2, nowDate, tokenAmount } = this.state
     if (!transactionData2) {
       return <Utils.View paddingX={'medium'} paddingY={'small'}>
         <DetailRow
@@ -188,10 +187,7 @@ class TransactionDetail extends Component {
       </Utils.View>
     }
 
-    // const { contracts, data } = transactionData
-
-    // const contractsElements = buildTransactionDetails([transactionData2], tokenAmount)
-    const contractsElements = []
+    const contractsElements = buildTransactionDetails(transactionData2, tokenAmount)
 
     contractsElements.push(
       <DetailRow
@@ -200,19 +196,12 @@ class TransactionDetail extends Component {
         text={nowDate}
       />
     )
-    if (transactionData2.data) {
-      contractsElements.push(
-        <DataRow
-          key='DATA'
-          data={transactionData2.data}
-        />
-      )
-    }
+
     return <Utils.View paddingX={'medium'} paddingY={'small'}>{contractsElements}</Utils.View>
   }
 
   _renderSubmitButton = () => {
-    const { loadingSubmit, submitted } = this.state
+    const { loadingSubmit, submitted, submitError } = this.state
 
     return (
       <Utils.View marginTop={5} paddingX={'medium'}>
@@ -226,7 +215,7 @@ class TransactionDetail extends Component {
               testInput: pin => pin === this.props.context.pin,
               onSuccess: this._submitTransaction
             })}
-            disabled={submitted}
+            disabled={submitted || submitError}
             font='bold'
           />
         )}
