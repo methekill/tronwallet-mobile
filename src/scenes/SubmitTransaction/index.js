@@ -17,7 +17,7 @@ import Client from '../../services/client'
 
 // Utils
 import tl from '../../utils/i18n'
-import buildTransactionDetails, { translateError } from './detailMap'
+import { translateError } from './detailMap'
 import getTransactionStore from '../../store/transactions'
 import { withContext } from '../../store/context'
 import { logSentry } from '../../utils/sentryUtils'
@@ -177,7 +177,7 @@ class TransactionDetail extends Component {
   }
 
   _renderContracts = () => {
-    const { transactionData2, nowDate, tokenAmount } = this.state
+    const { transactionData2, nowDate } = this.state
     if (!transactionData2) {
       return <Utils.View paddingX={'medium'} paddingY={'small'}>
         <DetailRow
