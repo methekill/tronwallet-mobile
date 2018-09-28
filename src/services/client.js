@@ -54,12 +54,10 @@ class ClientWallet {
 
   async getTokenList (start, limit, name) {
     const apiUrl = await this.getTronscanUrl()
-    const urlQuery = name
-      ? `${apiUrl}/token?sort=-name&limit=2&name=%25${name}%25`
-      : `${apiUrl}/token?sort=-name&limit=${limit}&start=${start}&status=ico`
-
-    const { data: { data } } = await axios.get(urlQuery)
-    return data.map(asset => ({...asset, id: asset.name, block: 0, transaction: 'not available'}))
+    const { data: { data } } = await axios.get(
+      `${apiUrl}/token?sort=-name&start=${start}&limit=${limit}&name=%25${name}%25&status=ico`
+    )
+    return data
   }
 
   async getTransactionList (address) {

@@ -62,8 +62,10 @@ class TransactionDetail extends Component {
     }
 
     try {
-      const transactionData = await Client.getTransactionDetails(signedTransaction)
-      this.setState({ transactionData, signedTransaction, tokenAmount })
+      // const transactionData = await Client.getTransactionDetails(signedTransaction)
+      const transactionData2 = await Client.getTransactionDetailsv2(signedTransaction)
+      console.warn('>>', transactionData2)
+      this.setState({ transactionData2, signedTransaction, tokenAmount })
     } catch (error) {
       this.setState({ submitError: error.message })
       logSentry(error, 'Submit Tx - Load')
@@ -80,33 +82,31 @@ class TransactionDetail extends Component {
   }
 
   _getTransactionObject = () => {
-    const {
-      transactionData: { hash, contracts }
-    } = this.state
-
-    const type = Client.getContractType(contracts[0].contractTypeId)
+    const { transactionData2 } = this.state
+    const { hash, amount, contractType, time, ownerAddress, toAddress, assetName } = transactionData2
+    const type = Client.getContractType(contractType)
     const transaction = {
       id: hash,
       type,
       contractData: {
-        transferFromAddress: contracts[0].from || contracts[0].ownerAddress,
-        transferToAddress: contracts[0].to,
-        tokenName: type === 'Transfer' ? 'TRX' : contracts[0].token
+        transferFromAddress: ownerAddress,
+        transferToAddress: toAddress,
+        tokenName: type === 'Transfer' ? 'TRX' : assetName
       },
-      ownerAddress: contracts[0].from || contracts[0].ownerAddress,
-      timestamp: Date.now(),
+      ownerAddress: ownerAddress,
+      timestamp: time,
       confirmed: false
     }
 
     switch (type) {
       case 'Freeze':
-        transaction.contractData.frozenBalance = contracts[0].frozenBalance
+        transaction.contractData.frozenBalance = transactionData2.frozenBalance
         break
       case 'Vote':
-        transaction.contractData.votes = contracts[0].votes
+        transaction.contractData.votes = transactionData2.voteList
         break
       default:
-        transaction.contractData.amount = contracts[0].amount
+        transaction.contractData.amount = amount
         break
     }
     return transaction
@@ -115,7 +115,8 @@ class TransactionDetail extends Component {
   _submitTransaction = async () => {
     const {
       signedTransaction,
-      transactionData: { hash }
+      // transactionData: { hash }
+      transactionData2: { hash }
     } = this.state
     this.setState({ loadingSubmit: true, submitError: null })
     const store = await getTransactionStore()
@@ -176,8 +177,8 @@ class TransactionDetail extends Component {
   }
 
   _renderContracts = () => {
-    const { transactionData, nowDate, tokenAmount } = this.state
-    if (!transactionData) {
+    const { transactionData2, nowDate, tokenAmount } = this.state
+    if (!transactionData2) {
       return <Utils.View paddingX={'medium'} paddingY={'small'}>
         <DetailRow
           key='NOTLOADED'
@@ -187,8 +188,10 @@ class TransactionDetail extends Component {
       </Utils.View>
     }
 
-    const { contracts, data } = transactionData
-    const contractsElements = buildTransactionDetails(contracts, tokenAmount)
+    // const { contracts, data } = transactionData
+
+    // const contractsElements = buildTransactionDetails([transactionData2], tokenAmount)
+    const contractsElements = []
 
     contractsElements.push(
       <DetailRow
@@ -197,11 +200,11 @@ class TransactionDetail extends Component {
         text={nowDate}
       />
     )
-    if (data) {
+    if (transactionData2.data) {
       contractsElements.push(
         <DataRow
           key='DATA'
-          data={data}
+          data={transactionData2.data}
         />
       )
     }
