@@ -58,7 +58,7 @@
       "loadingData": "Er is een fout opgetreden tijdens het laden van de gegevens.",
       "savingCurrency": "Fout bij het opslaan van de voorkeursvaluta"
     },
-    "chooseCurrency": "Kies alstublieft uw voorkeurs valuta.",
+    "chooseCurrency": "Kies alstublieft uw voorkeursvaluta.",
     "confirmSeed": "Tik om uw 12 woorden te bevestigen",
     "bandwidth": "BANDWIDTH",
     "tokens": "TOKENS",
@@ -363,7 +363,7 @@
     },
     "reset": {
       "title": "Reset portemonnee",
-      "warning": "Waarschuwing: Deze active wist alle opgeslagen data inclusief je 12 geheime woorden. Als je je geheim niet hebt opgeslagen, doe dit nu voordat je doorgaat.",
+      "warning": "Waarschuwing: Deze actie wist alle opgeslagen data inclusief je 12 geheime woorden. Als je je geheim niet hebt opgeslagen, doe dit nu voordat je doorgaat.",
       "button": "OK, begrijp ik het"
     },
     "pin": {
