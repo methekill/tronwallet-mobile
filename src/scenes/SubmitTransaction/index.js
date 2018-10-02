@@ -62,10 +62,9 @@ class TransactionDetail extends Component {
     }
 
     try {
-      // const transactionData = await Client.getTransactionDetails(signedTransaction)
-      const transactionData2 = await Client.getTransactionDetailsv2(signedTransaction)
+      const transactionData = await Client.getTransactionDetails(signedTransaction)
       await Clipboard.setString(signedTransaction)
-      this.setState({ transactionData2, signedTransaction, tokenAmount })
+      this.setState({ transactionData, signedTransaction, tokenAmount })
     } catch (error) {
       this.setState({ submitError: error.message })
       logSentry(error, 'Submit Tx - Load')
@@ -82,8 +81,8 @@ class TransactionDetail extends Component {
   }
 
   _getTransactionObject = () => {
-    const { transactionData2 } = this.state
-    const { hash, amount, contractType, time, ownerAddress, toAddress, assetName } = transactionData2
+    const { transactionData } = this.state
+    const { hash, amount, contractType, time, ownerAddress, toAddress, assetName } = transactionData
     const type = Client.getContractType(contractType)
     const transaction = {
       id: hash,
@@ -100,10 +99,10 @@ class TransactionDetail extends Component {
 
     switch (type) {
       case 'Freeze':
-        transaction.contractData.frozenBalance = transactionData2.frozenBalance
+        transaction.contractData.frozenBalance = transactionData.frozenBalance
         break
       case 'Vote':
-        transaction.contractData.votes = transactionData2.votesList
+        transaction.contractData.votes = transactionData.votesList
         break
       default:
         transaction.contractData.amount = amount
@@ -115,7 +114,7 @@ class TransactionDetail extends Component {
   _submitTransaction = async () => {
     const {
       signedTransaction,
-      transactionData2: { hash }
+      transactionData: { hash }
     } = this.state
     this.setState({ loadingSubmit: true, submitError: null })
     const store = await getTransactionStore()
@@ -176,8 +175,8 @@ class TransactionDetail extends Component {
   }
 
   _renderContracts = () => {
-    const { transactionData2, nowDate, tokenAmount } = this.state
-    if (!transactionData2) {
+    const { transactionData, nowDate, tokenAmount } = this.state
+    if (!transactionData) {
       return <Utils.View paddingX={'medium'} paddingY={'small'}>
         <DetailRow
           key='NOTLOADED'
@@ -187,7 +186,7 @@ class TransactionDetail extends Component {
       </Utils.View>
     }
 
-    const contractsElements = buildTransactionDetails(transactionData2, tokenAmount)
+    const contractsElements = buildTransactionDetails(transactionData, tokenAmount)
 
     contractsElements.push(
       <DetailRow

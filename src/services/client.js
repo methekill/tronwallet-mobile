@@ -35,21 +35,6 @@ class ClientWallet {
     return { totalVotes, candidates }
   }
 
-  async getTransactionDetails (tx) {
-    const apiUrl = await this.getTronscanUrl()
-    const { data: { transaction } } = await axios.post(
-      `${apiUrl}/transaction?dry-run`,
-      { transaction: tx }
-    )
-    return transaction
-  }
-
-  async getTransactionDetailsv2 (tx) {
-    const apiUrl = this.tronwalletApi
-    const { data } = await axios.post(`${apiUrl}/transaction/detail`, { transaction: tx })
-    return data
-  }
-
   async getTokenList (start, limit, name) {
     const apiUrl = await this.getTronscanUrl()
     const { data: { data } } = await axios.get(
@@ -136,6 +121,12 @@ class ClientWallet {
     const { data } = await axios.get(
       `${this.tronwalletApi}/vote/list?node=${nodeIp}`
     )
+    return data
+  }
+
+  async getTransactionDetails (tx) {
+    const apiUrl = this.tronwalletApi
+    const { data } = await axios.post(`${apiUrl}/transaction/detail`, { transaction: tx })
     return data
   }
 
