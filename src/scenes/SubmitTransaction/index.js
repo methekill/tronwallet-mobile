@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ActivityIndicator, NetInfo, ScrollView, Clipboard } from 'react-native'
+import { ActivityIndicator, NetInfo, ScrollView } from 'react-native'
 import moment from 'moment'
 import { Answers } from 'react-native-fabric'
 import OneSignal from 'react-native-onesignal'
@@ -63,7 +63,6 @@ class TransactionDetail extends Component {
 
     try {
       const transactionData = await Client.getTransactionDetails(signedTransaction)
-      await Clipboard.setString(signedTransaction)
       this.setState({ transactionData, signedTransaction, tokenAmount })
     } catch (error) {
       this.setState({ submitError: error.message })
