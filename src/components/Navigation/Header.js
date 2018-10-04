@@ -59,7 +59,7 @@ class NavigationHeader extends React.Component {
     } else if (onSearch) {
       element =
         <TouchableOpacity
-          style={{padding: 6}}
+          style={{padding: 10}}
           onPress={() => {
             this.setState({ isSearching: true })
             if (onSearchPressed) onSearchPressed()
@@ -68,10 +68,9 @@ class NavigationHeader extends React.Component {
         </TouchableOpacity>
     }
 
-    return <Utils.Row align='center' margin={10} position='absolute' right={10}>
+    return <Utils.View margin={10} position='absolute' right={10}>
       {element}
-      {rightButton}
-    </Utils.Row>
+    </Utils.View>
   }
 
   _renderDefaultMode = () => {
