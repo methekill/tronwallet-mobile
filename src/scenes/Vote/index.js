@@ -20,6 +20,7 @@ import GrowIn from '../../components/Animations/GrowIn'
 import ConfirmVotes from '../../components/Vote/ConfirmButton'
 import NavigationHeader from '../../components/Navigation/Header'
 import ClearButton from '../../components/ClearButton'
+import SyncButton from '../../components/SyncButton'
 
 // Service
 import WalletClient from '../../services/client'
@@ -455,16 +456,19 @@ class VoteScene extends Component {
   }
   _renderEmptyList = () => !this.state.searchMode && <ActivityIndicator color={Colors.primaryText} />
 
-  _renderLeftElement = () => (
-    this.state.currentFullVotes.length
-      ? <ClearButton
-        disabled={this.state.refreshing || this.state.loadingList}
-        onPress={this._clearVotesFromList}
-        padding={10}
-      />
-      : <View />
-  )
-
+  _renderLeftElement = () => {
+    if (this.state.loadingList) {
+      return <SyncButton loading />
+    } else {
+      return this.state.currentFullVotes.length
+        ? <ClearButton
+          disabled={this.state.refreshing || this.state.loadingList}
+          onPress={this._clearVotesFromList}
+          padding={10}
+        />
+        : <View />
+    }
+  }
   render () {
     const {
       refreshing,
