@@ -16,5 +16,5 @@ export default async () =>
   Realm.open({
     path: 'Realm.candidates',
     schema: [CandidateSchema],
-    schemaVersion: 2
+    schemaVersion: 3
   })
