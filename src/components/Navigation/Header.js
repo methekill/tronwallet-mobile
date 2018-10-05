@@ -66,6 +66,8 @@ class NavigationHeader extends React.Component {
           }}>
           <Ionicons name='ios-search' color='white' size={21} />
         </TouchableOpacity>
+    } else {
+      element = rightButton
     }
 
     return <Utils.View margin={10} position='absolute' right={10}>
