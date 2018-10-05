@@ -31,7 +31,7 @@ import getTransactionStore from '../../store/transactions'
 import { logSentry } from '../../utils/sentryUtils'
 import { Colors } from '../../components/DesignSystem'
 
-const AMOUNT_TO_FETCH = 30
+const AMOUNT_TO_FETCH = 200
 
 const INITIAL_STATE = {
   // Numbers of Interest
@@ -453,14 +453,14 @@ class VoteScene extends Component {
       return null
     }
   }
-  _renderEmptyList = () => <ActivityIndicator color={Colors.primaryText} />
+  _renderEmptyList = () => !this.state.searchMode && <ActivityIndicator color={Colors.primaryText} />
 
-  _renderRigthElement = () => (
+  _renderLeftElement = () => (
     this.state.currentFullVotes.length
       ? <ClearButton
         disabled={this.state.refreshing || this.state.loadingList}
         onPress={this._clearVotesFromList}
-        style={{marginLeft: 4}}
+        padding={10}
       />
       : <View />
   )
@@ -484,7 +484,7 @@ class VoteScene extends Component {
       <Utils.Container>
         <NavigationHeader
           title={tl.t('votes.title')}
-          rightButton={this._renderRigthElement()}
+          leftButton={this._renderLeftElement()}
           onSearch={name => this._onSearching(name)}
           onSearchPressed={() => this._onSearchPressed()}
           searchPreview={searchPreview}
