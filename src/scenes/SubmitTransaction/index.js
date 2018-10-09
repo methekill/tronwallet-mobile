@@ -21,6 +21,7 @@ import buildTransactionDetails, { translateError } from './detailMap'
 import getTransactionStore from '../../store/transactions'
 import { withContext } from '../../store/context'
 import { logSentry } from '../../utils/sentryUtils'
+import { updateAssets } from '../../utils/assetsUtils'
 
 const ANSWERS_TRANSACTIONS = ['Transfer', 'Vote', 'Participate', 'Freeze']
 const NOTIFICATION_TRANSACTIONS = ['Transfer', 'Transfer Asset']
@@ -140,6 +141,8 @@ class TransactionDetail extends Component {
           }
         }
         await this.props.context.loadUserData()
+        // TODO - Remove this piece of code when transactions come with Participate Price
+        if (transaction.type === 'Participate') updateAssets(0, 2, transaction.contractData.tokenName)
       }
       this.setState({ submitError: null, loadingSubmit: false, submitted: true }, this._navigateNext)
     } catch (error) {
