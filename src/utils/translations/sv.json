@@ -52,6 +52,9 @@
   "skip": "Hoppa Över",
   "privateKey": "Privat nyckel",
   "results": "Results",
+  "buy": "Buy",
+  "filter": "Filter",
+  "txs": "Transactions",
   "balance": {
     "title": "Konton",
     "error": {
@@ -124,6 +127,7 @@
     }
   },
   "addressBook": {
+    "title": "ADDRESS BOOK",
     "shared": {
       "add": "ADD",
       "edit": "EDIT",
@@ -131,6 +135,7 @@
       "send": "SEND"
     },
     "contacts": {
+      "title": "CONTACTS",
       "delete": {
         "title": "Ta bort kontakt",
         "message": "Är du verkligen säker på att du vill ta bort den här kontakten?",
@@ -213,6 +218,7 @@
       "notFound": "Asset(s) not found"
     },
     "warning": "Du har inte tillräckligt TRX att köpa att många {{token}}",
+    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
     "amountToBuy": "MÄNGD ATT KÖPA",
     "pricePerToken": "PRIS PER TOKEN",
     "tokenDescription": "TOKEN BESKRIVNING",
@@ -231,6 +237,7 @@
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "BLOCKERA",
+    "balance": "BALANCE",
     "searchPreview": "Featured Tokens"
   },
   "pin": {
@@ -405,7 +412,8 @@
     },
     "partners": "PARTNERS",
     "askPin": "Fråga alltid PIN-kod",
-    "askBiometry": "Activate Biometry"
+    "askBiometry": "Activate Biometry",
+    "verifiedTokensOnly": "Verified tokens only"
   },
   "submitTransaction": {
     "title": "TRANSAKTIONS DETALJER",
@@ -489,7 +497,8 @@
     "votesAvailable": "RÖSTAR TILLGÄNGLIG",
     "search": "Sök",
     "searchPreview": "Suggestions - Most Voted",
-    "error": "Oj, något laddades inte korrekt. Försök att ladda om"
+    "error": "Oj, något laddades inte korrekt. Försök att ladda om",
+    "notFound": "Super Representative not found"
   },
   "scanPayment": {
     "scan": "SKANNA",

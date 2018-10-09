@@ -1,6 +1,6 @@
 {
   "relativeTime": {
-    "future": "in %s",
+    "future": "خلال %s",
     "past": "منذ %s",
     "s": "بضع ثوان",
     "ss": "%d ثانية",
@@ -51,7 +51,10 @@
   "allIn": "الجميع",
   "skip": "تخطي",
   "privateKey": "مفتاح سري",
-  "results": "Results",
+  "results": "النتائج",
+  "buy": "Buy",
+  "filter": "تصفية",
+  "txs": "الصفقات",
   "balance": {
     "title": "حسابات",
     "error": {
@@ -98,32 +101,33 @@
     "button": {
       "create": "إنشاء محفظة",
       "restore": "استعادة محفظة",
-      "import": "IMPORT WALLET"
+      "import": "استيراد محفظة"
     },
     "swiper": {
       "welcome": {
-        "title": "Welcome to \nTRONWALLET",
-        "body": "The most secure wallet for TRON"
+        "title": "مرحباً بكم في ترون واليت",
+        "body": "أكثر المحافظ أماناً لعملة ترون"
       },
       "security": {
-        "title": "SECURITY",
-        "body": "Privacy and security for \n your transactions"
+        "title": "الأمان",
+        "body": "الخصوصية والأمان لمعاملاتك"
       },
       "votes": {
-        "title": "VOTES",
-        "body": "Freezing and vote for Super \n Representatives"
+        "title": "أصوات",
+        "body": "التجميد والتصويت للممثلين الرئيسيين"
       },
       "addressbook": {
-        "title": "ADDRESS BOOK",
-        "body": "Save the addresses of your friends \n and contacts."
+        "title": "دفتر العناوين",
+        "body": "احفظ عناوين أصدقائك وجهات اتصالك."
       },
       "multipleaccounts": {
-        "title": "MULTIPLE ACCOUNTS",
-        "body": "You can manage multiple accounts \n in your wallet"
+        "title": "حسابات متعددة",
+        "body": "يمكنك إدارة حساباتك المتعددة داخل محفظتك"
       }
     }
   },
   "addressBook": {
+    "title": "دفتر العناوين",
     "shared": {
       "add": "إضافة",
       "edit": "تعديل",
@@ -131,6 +135,7 @@
       "send": "إرسال"
     },
     "contacts": {
+      "title": "جهات الاتصال",
       "delete": {
         "title": "حذف جهة اتصال",
         "message": "هل ترغب حقاً في حذف جهة الاتصال هذه؟",
@@ -210,9 +215,10 @@
         "title": "يجب أن تشتري ما لا تقل قيمته عن TRX واحد من عملة {{token}}.",
         "message": "أنت تشتري حالياً {{amount}} فقط."
       },
-      "notFound": "Asset(s) not found"
+      "notFound": "لم يتم العثور على أصل (أصول)"
     },
     "warning": "لا يوجد لديك ما يكفي من TRX لشراء هذه الكمية من عملة {{token}}",
+    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
     "amountToBuy": "مبلغ الشراء",
     "pricePerToken": "السعر للعملة الواحدة",
     "tokenDescription": "شرح العملة",
@@ -231,14 +237,15 @@
     "trxNum": "عدد TRX",
     "num": "عدد",
     "block": "كتلة",
-    "searchPreview": "Featured Tokens"
+    "balance": "BALANCE",
+    "searchPreview": "عملات مميزة"
   },
   "pin": {
     "title": "التحقق الأمني",
     "enter": "أدخل كلمة السر",
     "new": "إدخال كملة السر الجديدة",
     "reenter": "إعادة إدخال كملة السر",
-    "biometrics": "Biometric Check"
+    "biometrics": "تحقق من الهوية"
   },
   "receive": {
     "title": "تسلم",
@@ -280,8 +287,8 @@
         "newSeed": "الحصول على جذور جديدة",
         "later": "التأكيد لاحقاً"
       },
-      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
-      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
+      "backupMessage": "يمكنك الوصول لكلماتك عن طريق الذهاب إلى النسخة الاحتياطية في إعدادات التطبيق ",
+      "seedExplanation": "المفتاح الجذري هي عبارة عن كلمات مقروءة تمثل محفظتك. هذه الكلمات والترتيب الموضح نفسه، يمكن استخدامها لإعادة إنشاء محفظتك."
     },
     "restore": {
       "title": "استعادة محفظة",
@@ -405,7 +412,8 @@
     },
     "partners": "الشركاء",
     "askPin": "اسأل دائمًا رقم التعريف الشخصي",
-    "askBiometry": "Activate Biometry"
+    "askBiometry": "تنشيط التحقق",
+    "verifiedTokensOnly": "Verified tokens only"
   },
   "submitTransaction": {
     "title": "تفاصيل المعاملة",
@@ -488,8 +496,9 @@
     "totalVotes": "إجمالي الأصوات",
     "votesAvailable": "الأصوات المتاحة",
     "search": "بحث",
-    "searchPreview": "Suggestions - Most Voted",
-    "error": "عفواً، هناك شيء لم يتحمل بشكل صحيح. حاول إعادة التحميل"
+    "searchPreview": "اقتراحات - الأكثر تصويتاً",
+    "error": "عفواً، هناك شيء لم يتحمل بشكل صحيح. حاول إعادة التحميل",
+    "notFound": "Super Representative not found"
   },
   "scanPayment": {
     "scan": "مسح ضوئي",
@@ -539,10 +548,10 @@
   },
   "biometry": {
     "register": {
-      "title": "Check your biometry"
+      "title": "تحقق من هويتك"
     },
     "auth": {
-      "error": "Access denied"
+      "error": "الدخول مرفوض"
     }
   }
 }

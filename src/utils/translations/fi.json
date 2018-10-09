@@ -52,6 +52,9 @@
   "skip": "Skip",
   "privateKey": "Yksityinen avain",
   "results": "Results",
+  "buy": "Buy",
+  "filter": "Filter",
+  "txs": "Transactions",
   "balance": {
     "title": "ACCOUNTS",
     "error": {
@@ -124,6 +127,7 @@
     }
   },
   "addressBook": {
+    "title": "ADDRESS BOOK",
     "shared": {
       "add": "LISÄTÄ",
       "edit": "MUOKATA",
@@ -131,6 +135,7 @@
       "send": "LÄHETTÄÄ"
     },
     "contacts": {
+      "title": "CONTACTS",
       "delete": {
         "title": "Poista yhteys",
         "message": "Haluatko todella poistaa tämän yhteyden?",
@@ -213,6 +218,7 @@
       "notFound": "Asset(s) not found"
     },
     "warning": "You don't have enough TRX to buy that many {{token}}",
+    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
     "amountToBuy": "AMOUNT TO BUY",
     "pricePerToken": "PRICE PER TOKEN",
     "tokenDescription": "TOKEN DESCRIPTION",
@@ -231,6 +237,7 @@
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "BLOCK",
+    "balance": "BALANCE",
     "searchPreview": "Featured Tokens"
   },
   "pin": {
@@ -405,7 +412,8 @@
     },
     "partners": "PARTNERS",
     "askPin": "Kysy aina PIN-koodia",
-    "askBiometry": "Activate Biometry"
+    "askBiometry": "Activate Biometry",
+    "verifiedTokensOnly": "Verified tokens only"
   },
   "submitTransaction": {
     "title": "MAKSUTAPAHTUMAN TIEDOT",
@@ -489,7 +497,8 @@
     "votesAvailable": "ÄÄNESTYKSET SAATAVAT",
     "search": "Hae",
     "searchPreview": "Suggestions - Most Voted",
-    "error": "Hups, jotain ei ladattu oikein. Yritä ladata uudelleen"
+    "error": "Hups, jotain ei ladattu oikein. Yritä ladata uudelleen",
+    "notFound": "Super Representative not found"
   },
   "scanPayment": {
     "scan": "SKANNATA",

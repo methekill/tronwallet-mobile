@@ -52,6 +52,9 @@
   "skip": "Skip",
   "privateKey": "Privat nøkkel",
   "results": "Results",
+  "buy": "Buy",
+  "filter": "Filter",
+  "txs": "Transactions",
   "balance": {
     "title": "KONTOER",
     "error": {
@@ -124,6 +127,7 @@
     }
   },
   "addressBook": {
+    "title": "ADDRESS BOOK",
     "shared": {
       "add": "LEGG TIL",
       "edit": "REDIGERE",
@@ -131,6 +135,7 @@
       "send": "SENDE"
     },
     "contacts": {
+      "title": "CONTACTS",
       "delete": {
         "title": "Slett kontakt",
         "message": "Vil du virkelig slette denne kontakten?",
@@ -213,6 +218,7 @@
       "notFound": "Asset(s) not found"
     },
     "warning": "Du har ikke nok TRX til å kjøpe så mange {{token}}",
+    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
     "amountToBuy": "BELØP Å KJØPE",
     "pricePerToken": "PRIS PER TOKEN",
     "tokenDescription": "TOKEN BESKRIVELSE",
@@ -231,6 +237,7 @@
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "BLOKKERE",
+    "balance": "BALANCE",
     "searchPreview": "Featured Tokens"
   },
   "pin": {
@@ -405,7 +412,8 @@
     },
     "partners": "PARTNERS",
     "askPin": "Spør alltid PIN-kode",
-    "askBiometry": "Activate Biometry"
+    "askBiometry": "Activate Biometry",
+    "verifiedTokensOnly": "Verified tokens only"
   },
   "submitTransaction": {
     "title": "TRANSAKSJON DETALJER",
@@ -489,7 +497,8 @@
     "votesAvailable": "Stemmer tilgjengelig",
     "search": "Søke",
     "searchPreview": "Suggestions - Most Voted",
-    "error": "Ups, noe lastet ikke riktig. Prøv å laste på nytt"
+    "error": "Ups, noe lastet ikke riktig. Prøv å laste på nytt",
+    "notFound": "Super Representative not found"
   },
   "scanPayment": {
     "scan": "SCAN",
