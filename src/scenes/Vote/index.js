@@ -1,7 +1,7 @@
 // Dependencies
 import React, { Component } from 'react'
 import { forIn, reduce, union, clamp, debounce } from 'lodash'
-import { Linking, FlatList, Alert, View, Platform, ActivityIndicator, RefreshControl } from 'react-native'
+import { Linking, FlatList, Alert, View, Platform, ActivityIndicator, RefreshControl, Image } from 'react-native'
 import { Answers } from 'react-native-fabric'
 
 // Utils
@@ -76,6 +76,7 @@ class VoteScene extends Component {
       amountToVote: 0,
       currentVoteItem: {},
       startedVoting: false,
+      isSearching: false,
       userVotes: {}
     }
   }
@@ -157,7 +158,6 @@ class VoteScene extends Component {
     if (refreshControl) this.setState({refreshing: true})
     try {
       const { candidates, totalVotes } = await WalletClient.getTotalVotes()
-      // const { totalVotes, voteList } = await WalletClient.getWitnessList()
       const store = await getCandidateStore()
 
       store.write(() => candidates.map(item => store.create('Candidate', item, true)))
@@ -455,8 +455,20 @@ class VoteScene extends Component {
       return null
     }
   }
-  _renderEmptyList = () => !this.state.searchMode && <ActivityIndicator color={Colors.primaryText} />
-
+  _renderEmptyList = () => {
+    if ((this.state.loadingList || this.state.refreshing) && !this.state.voteList.length) {
+      return <ActivityIndicator color={Colors.primaryText} />
+    } else {
+      return <Utils.View flex={1} align='center' justify='center' padding={20}>
+        <Image
+          source={require('../../assets/empty.png')}
+          resizeMode='contain'
+          style={{ width: 200, height: 200 }}
+        />
+        <Utils.Text size='tiny'>{tl.t('votes.notFound')}</Utils.Text>
+      </Utils.View>
+    }
+  }
   _renderLeftElement = () => (
     this.state.currentFullVotes.length
       ? <ClearButton
@@ -487,6 +499,7 @@ class VoteScene extends Component {
         <NavigationHeader
           title={tl.t('votes.title')}
           isSearching={isSearching}
+          leftButton={this._renderLeftElement()}
           onSearch={name => this._onSearching(name)}
           onSearchPressed={() => this._onSearchPressed()}
           searchPreview={searchPreview}

@@ -498,7 +498,8 @@
     "votesAvailable": "VOTES AVAILABLE",
     "search": "Search",
     "searchPreview" : "Suggestions - Most Voted",
-    "error": "Oops, something didn't load correctly. Try to reload"
+    "error": "Oops, something didn't load correctly. Try to reload",
+    "notFound": "Super Representative not found"
   },
   "scanPayment": {
     "scan": "SCAN",
