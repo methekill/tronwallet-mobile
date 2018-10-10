@@ -108,6 +108,9 @@ class TransactionDetail extends Component {
         transaction.tokenPrice = amount / tokenAmount
         transaction.contractData.amount = amount
         break
+      case 'Unfreeze':
+        transaction.contractData.frozenBalance = tokenAmount
+        break
       default:
         transaction.contractData.amount = amount
         break
