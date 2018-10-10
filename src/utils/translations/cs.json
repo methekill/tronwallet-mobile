@@ -51,7 +51,10 @@
   "allIn": "Vybrat vše",
   "skip": "Přeskočit",
   "privateKey": "Soukromý klíč",
-  "results": "Results",
+  "results": "Výsledky",
+  "buy": "Buy",
+  "filter": "Filtr",
+  "txs": "Transakce",
   "balance": {
     "title": "ÚČTY",
     "error": {
@@ -124,6 +127,7 @@
     }
   },
   "addressBook": {
+    "title": "ADRESÁŘ",
     "shared": {
       "add": "PŘIDAT",
       "edit": "EDITOVAT",
@@ -131,6 +135,7 @@
       "send": "POSLAT"
     },
     "contacts": {
+      "title": "KONTAKTY",
       "delete": {
         "title": "Smazat kontakt",
         "message": "Chcete skutečně smazat tento kontakt?",
@@ -210,9 +215,10 @@
         "title": "Musíte si koupit alespoň jeden TRX v hodnotě {{token}}.",
         "message": "Momentálně kupujete pouze {{amount}}."
       },
-      "notFound": "Asset(s) not found"
+      "notFound": "Aktiva nenalezena"
     },
     "warning": "Nemáte dostatek TRX ke koupi tolika {{token}}",
+    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
     "amountToBuy": "KOUPIT MNOŽSTVÍ",
     "pricePerToken": "CENA ZA TOKEN",
     "tokenDescription": "POPIS TOKENU",
@@ -231,7 +237,8 @@
     "trxNum": "POČET TRX",
     "num": "POČET",
     "block": "BLOK",
-    "searchPreview": "Featured Tokens"
+    "balance": "BALANCE",
+    "searchPreview": "Doporučené tokeny"
   },
   "pin": {
     "title": "BEZPEČNOSTNÍ KONTROLA",
@@ -405,7 +412,8 @@
     },
     "partners": "PARTNEŘI",
     "askPin": "Vždy se zeptat na PIN kód",
-    "askBiometry": "Aktivovat biometrii"
+    "askBiometry": "Aktivovat biometrii",
+    "verifiedTokensOnly": "Verified tokens only"
   },
   "submitTransaction": {
     "title": "DETAILY TRANSAKCE",
@@ -488,8 +496,9 @@
     "totalVotes": "POČET HLASŮ",
     "votesAvailable": "VOLNÉ HLASY",
     "search": "Hledat",
-    "searchPreview": "Suggestions - Most Voted",
-    "error": "Ups, něco se nenačetlo správně. Zkuste znova načíst"
+    "searchPreview": "Návrhy - nejčastěji hlasované",
+    "error": "Ups, něco se nenačetlo správně. Zkuste znova načíst",
+    "notFound": "Super Representative not found"
   },
   "scanPayment": {
     "scan": "SKENOVAT",
