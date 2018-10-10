@@ -31,7 +31,8 @@ class MakePayment extends PureComponent {
 
     state = {
       loading: false,
-      balances: this.props.context.balances[this.props.context.publicKey]
+      balances: this.props.context.balances[this.props.context.publicKey],
+      transactionData: {}
     }
 
     _getTransactionObject = (transactionData) => {
@@ -53,8 +54,9 @@ class MakePayment extends PureComponent {
       return transaction
     }
 
-    _navigateNext = () => {
-      replaceRoute(this.props.navigation, 'TransactionSuccess', {stackToReset: 'BalanceScene'})
+    _navigateNext = (transactionData) => {
+      const lastTransaction = this._getTransactionObject(transactionData)
+      replaceRoute(this.props.navigation, 'TransactionSuccess', {stackToReset: 'BalanceScene', transaction: lastTransaction})
     }
 
     _checkToken = token => !!this.state.balances.find(b => b.name === token)
@@ -135,7 +137,7 @@ class MakePayment extends PureComponent {
           }
           await this.props.context.loadUserData()
         }
-        this.setState({ loading: false }, this._navigateNext)
+        this.setState({ loading: false }, this._navigateNext(transactionData))
       } catch (error) {
         // This needs to be adapted better from serverless api
         const errorMessage = error.response && error.response.data ? translateError(error.response.data.error)
