@@ -51,7 +51,10 @@
   "allIn": "Tot en",
   "skip": "Omet",
   "privateKey": "Clau privada",
-  "results": "Results",
+  "results": "Resultats",
+  "buy": "Buy",
+  "filter": "Filter",
+  "txs": "Transactions",
   "balance": {
     "title": "COMPTES",
     "error": {
@@ -124,6 +127,7 @@
     }
   },
   "addressBook": {
+    "title": "ADDRESS BOOK",
     "shared": {
       "add": "ADD",
       "edit": "EDIT",
@@ -131,6 +135,7 @@
       "send": "SEND"
     },
     "contacts": {
+      "title": "CONTACTS",
       "delete": {
         "title": "Delete Contact",
         "message": "Voleu suprimir aquest contacte realment?",
@@ -210,9 +215,10 @@
         "title": "Heu de comprar com a mínim un TRX de {{token}}.",
         "message": "Actualment està comprant només {{amount}}."
       },
-      "notFound": "Asset(s) not found"
+      "notFound": "Asset(s) no trobat"
     },
     "warning": "No teniu prou TRX per comprar molts {{token}}",
+    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
     "amountToBuy": "IMPORT PER COMPRAR",
     "pricePerToken": "PREU PER TOKEN",
     "tokenDescription": "DESCRIPCIÓ DE TOKEN",
@@ -231,7 +237,8 @@
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "BLOC",
-    "searchPreview": "Featured Tokens"
+    "balance": "BALANCE",
+    "searchPreview": "Tokens destacats"
   },
   "pin": {
     "title": "REVISIÓ DE SEGURETAT",
@@ -405,7 +412,8 @@
     },
     "partners": "SOCIS",
     "askPin": "Sempre pregunteu al PIN",
-    "askBiometry": "Activa la biometria"
+    "askBiometry": "Activa la biometria",
+    "verifiedTokensOnly": "Verified tokens only"
   },
   "submitTransaction": {
     "title": "DADES DE LA TRANSACCION",
@@ -488,8 +496,9 @@
     "totalVotes": "VOTOS TOTALS",
     "votesAvailable": "VOTS DISPONIBLES",
     "search": "Cerca",
-    "searchPreview": "Suggestions - Most Voted",
-    "error": "Vaja, una cosa no es va carregar correctament. Intenta tornar a carregar"
+    "searchPreview": "Suggeriments - més votades",
+    "error": "Vaja, una cosa no es va carregar correctament. Intenta tornar a carregar",
+    "notFound": "Super Representative not found"
   },
   "scanPayment": {
     "scan": "SCAN",

@@ -52,6 +52,9 @@
   "skip": "Melewatkan",
   "privateKey": "Kunci Pribadi",
   "results": "Results",
+  "buy": "Buy",
+  "filter": "Filter",
+  "txs": "Transactions",
   "balance": {
     "title": "AKUN",
     "error": {
@@ -124,6 +127,7 @@
     }
   },
   "addressBook": {
+    "title": "ADDRESS BOOK",
     "shared": {
       "add": "MENAMBAHKAN",
       "edit": "EDIT",
@@ -131,6 +135,7 @@
       "send": "KIRIM"
     },
     "contacts": {
+      "title": "CONTACTS",
       "delete": {
         "title": "Hapus kontak",
         "message": "Anda benar-benar ingin menghapus kontak ini?",
@@ -213,6 +218,7 @@
       "notFound": "Asset(s) not found"
     },
     "warning": "Anda tidak memiliki cukup TRX untuk membeli sebanyak itu {{token}}",
+    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
     "amountToBuy": "AMOUNT UNTUK MEMBELI",
     "pricePerToken": "HARGA PER TOKEN",
     "tokenDescription": "DESKRIPSI TOKEN",
@@ -231,6 +237,7 @@
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "BLOK",
+    "balance": "BALANCE",
     "searchPreview": "Featured Tokens"
   },
   "pin": {
@@ -405,7 +412,8 @@
     },
     "partners": "MITRA",
     "askPin": "Selalu minta PIN",
-    "askBiometry": "Activate Biometry"
+    "askBiometry": "Activate Biometry",
+    "verifiedTokensOnly": "Verified tokens only"
   },
   "submitTransaction": {
     "title": "DETIL TRANSAKSI",
@@ -489,7 +497,8 @@
     "votesAvailable": "SUDAH TERSEDIA",
     "search": "Pencarian",
     "searchPreview": "Suggestions - Most Voted",
-    "error": "Ups, ada yang tidak dimuat dengan benar. Coba muat ulang"
+    "error": "Ups, ada yang tidak dimuat dengan benar. Coba muat ulang",
+    "notFound": "Super Representative not found"
   },
   "scanPayment": {
     "scan": "SCAN",

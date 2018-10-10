@@ -51,7 +51,10 @@
   "allIn": "All In",
   "skip": "Salta",
   "privateKey": "Chiave privata",
-  "results": "Results",
+  "results": "Risultati",
+  "buy": "Buy",
+  "filter": "Filtro",
+  "txs": "Transizioni",
   "balance": {
     "title": "ACCOUNTS",
     "error": {
@@ -98,32 +101,33 @@
     "button": {
       "create": "CREA PORTAFOGLIO",
       "restore": "RIPRISTINA IL PORTAFOGLIO",
-      "import": "IMPORT WALLET"
+      "import": "IMPORTA PORTAFOGLIO"
     },
     "swiper": {
       "welcome": {
-        "title": "Welcome to \nTRONWALLET",
-        "body": "The most secure wallet for TRON"
+        "title": "Benvenuto su \nTRONWALLET",
+        "body": "Il portafoglio più sicuro per TRON"
       },
       "security": {
-        "title": "SECURITY",
-        "body": "Privacy and security for \n your transactions"
+        "title": "SICUREZZA",
+        "body": "Privacy e sicurezza per\n le tue transazioni"
       },
       "votes": {
-        "title": "VOTES",
-        "body": "Freezing and vote for Super \n Representatives"
+        "title": "VOTI",
+        "body": "Congelamento e voto per Super\n rappresentanti"
       },
       "addressbook": {
-        "title": "ADDRESS BOOK",
-        "body": "Save the addresses of your friends \n and contacts."
+        "title": "RUBRICA",
+        "body": "Salva gli indirizzi dei tuoi amici\n e contatti."
       },
       "multipleaccounts": {
-        "title": "MULTIPLE ACCOUNTS",
-        "body": "You can manage multiple accounts \n in your wallet"
+        "title": "CONTI MULTIPLI",
+        "body": "Puoi gestire più account\n nel tuo portafoglio"
       }
     }
   },
   "addressBook": {
+    "title": "RUBRICA",
     "shared": {
       "add": "AGGIUNGI",
       "edit": "EDITA",
@@ -131,6 +135,7 @@
       "send": "INVIA"
     },
     "contacts": {
+      "title": "CONTATTI",
       "delete": {
         "title": "Elimina contatto",
         "message": "Vuoi davvero eliminare questo contatto?",
@@ -210,9 +215,10 @@
         "title": "Devi acquistare almeno un TRX del valore di {{token}}.",
         "message": "Attualmente stai acquistando solo {{amount}}."
       },
-      "notFound": "Asset(s) not found"
+      "notFound": "Asset(s) non trovato"
     },
     "warning": "Non hai abbastanza TRX per comprare così tanti {{token}}",
+    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
     "amountToBuy": "IMPORTO DA ACQUISTARE",
     "pricePerToken": "PREZZO PER TOKEN",
     "tokenDescription": "DESCRIZIONE TOKEN",
@@ -231,14 +237,15 @@
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "BLOCCO",
-    "searchPreview": "Featured Tokens"
+    "balance": "BALANCE",
+    "searchPreview": "Token in evidenza"
   },
   "pin": {
     "title": "CONTROLLO DI SICUREZZA",
     "enter": "Inserisci PIN",
     "new": "Inserisci un nuovo PIN",
     "reenter": "Re-inserisci PIN",
-    "biometrics": "Biometric Check"
+    "biometrics": "Controllo biometrico"
   },
   "receive": {
     "title": "RICEVI",
@@ -280,8 +287,8 @@
         "newSeed": "OTTIENI NUOVI SEMI",
         "later": "Conferma più tardi"
       },
-      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
-      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
+      "backupMessage": "Puoi sempre accedere alle tue parole accedendo al backup nelle impostazioni dell'app      ",
+      "seedExplanation": "La chiave del seme è una rappresentazione leggibile dal tuo portafoglio. Quelle parole, in quell'ordine esatto, possono essere utilizzate per ricreare il tuo portafoglio."
     },
     "restore": {
       "title": "RIPRISTINA IL PORTAFOGLIO",
@@ -405,7 +412,8 @@
     },
     "partners": "PARTNER",
     "askPin": "Chiedi sempre il PIN",
-    "askBiometry": "Activate Biometry"
+    "askBiometry": "Attiva la biometria",
+    "verifiedTokensOnly": "Verified tokens only"
   },
   "submitTransaction": {
     "title": "DETTAGLI DI TRANSAZIONE",
@@ -418,7 +426,7 @@
       "submit": "INVIA LA TRANSAZIONE"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "Impossibile caricare i dati della transazione"
     },
     "disconnectedMessage": "Sembra che tu sia disconnesso. Riconnettiti a Internet prima di procedere con la transazione.",
     "dic": {
@@ -488,8 +496,9 @@
     "totalVotes": "VOTI TOTALI",
     "votesAvailable": "VOTI DISPONIBILI",
     "search": "Cerca",
-    "searchPreview": "Suggestions - Most Voted",
-    "error": "Spiacenti, qualcosa non è stato caricato correttamente. Prova a ricaricare"
+    "searchPreview": "Suggerimenti - I più votati",
+    "error": "Spiacenti, qualcosa non è stato caricato correttamente. Prova a ricaricare",
+    "notFound": "Super Representative not found"
   },
   "scanPayment": {
     "scan": "SCANSIONE",
@@ -534,15 +543,15 @@
     }
   },
   "balanceToken": {
-    "updating": "Updating token information. Please wait a few seconds.",
-    "notAvailable": "Token information not available"
+    "updating": "Aggiornamento delle informazioni sui token. Si prega di attendere qualche secondo.",
+    "notAvailable": "Informazioni sui token non disponibili"
   },
   "biometry": {
     "register": {
-      "title": "Check your biometry"
+      "title": "Controlla la tua biometria"
     },
     "auth": {
-      "error": "Access denied"
+      "error": "Accesso negato"
     }
   }
 }

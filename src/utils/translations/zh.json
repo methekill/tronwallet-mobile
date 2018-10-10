@@ -52,6 +52,9 @@
   "skip": "Skip",
   "privateKey": "私钥",
   "results": "Results",
+  "buy": "Buy",
+  "filter": "Filter",
+  "txs": "Transactions",
   "balance": {
     "title": "ACCOUNTS",
     "error": {
@@ -124,6 +127,7 @@
     }
   },
   "addressBook": {
+    "title": "ADDRESS BOOK",
     "shared": {
       "add": "ADD",
       "edit": "EDIT",
@@ -131,6 +135,7 @@
       "send": "SEND"
     },
     "contacts": {
+      "title": "CONTACTS",
       "delete": {
         "title": "Delete Contact",
         "message": "Do you really want to delete this contact?",
@@ -213,6 +218,7 @@
       "notFound": "Asset(s) not found"
     },
     "warning": "你没有足够的TRX买那么多 {{token}}",
+    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
     "amountToBuy": "购买金额",
     "pricePerToken": "每个人的价格",
     "tokenDescription": "令牌描述",
@@ -231,6 +237,7 @@
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "块",
+    "balance": "BALANCE",
     "searchPreview": "Featured Tokens"
   },
   "pin": {
@@ -405,7 +412,8 @@
     },
     "partners": "伙伴",
     "askPin": "总是问PIN",
-    "askBiometry": "Activate Biometry"
+    "askBiometry": "Activate Biometry",
+    "verifiedTokensOnly": "Verified tokens only"
   },
   "submitTransaction": {
     "title": "交易明细",
@@ -489,7 +497,8 @@
     "votesAvailable": "投票可用",
     "search": "搜索",
     "searchPreview": "Suggestions - Most Voted",
-    "error": "哎呀，有些东西没有正确加载。尝试重新加载"
+    "error": "哎呀，有些东西没有正确加载。尝试重新加载",
+    "notFound": "Super Representative not found"
   },
   "scanPayment": {
     "scan": "SCAN",
