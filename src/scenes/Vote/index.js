@@ -332,10 +332,10 @@ class VoteScene extends Component {
   }
 
   _acceptCurrentVote = (amountToVote) => {
+    const { isSearching } = this.state
     this.setState({startedVoting: true})
-    amountToVote <= 0
-      ? this._removeVoteFromList()
-      : this._onChangeVotes(amountToVote)
+    amountToVote <= 0 ? this._removeVoteFromList() : this._onChangeVotes(amountToVote)
+    if (isSearching) this._onSearchPressed(isSearching)
   }
 
   _removeVoteFromList = async (address = null) => {
@@ -373,9 +373,7 @@ class VoteScene extends Component {
     })
   }
 
-  _onSearchPressed = () => {
-    const { isSearching } = this.state
-
+  _onSearchPressed = (isSearching) => {
     this.setState({ isSearching: !isSearching, searchName: '' })
     if (isSearching) {
       const candidates = this.candidateStoreRef.objects('Candidate')
@@ -501,7 +499,7 @@ class VoteScene extends Component {
           isSearching={isSearching}
           leftButton={this._renderLeftElement()}
           onSearch={name => this._onSearching(name)}
-          onSearchPressed={() => this._onSearchPressed()}
+          onSearchPressed={() => this._onSearchPressed(isSearching)}
           searchPreview={searchPreview}
         />
         <Utils.View flex={1}>

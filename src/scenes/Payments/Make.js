@@ -35,19 +35,19 @@ class MakePayment extends PureComponent {
     }
 
     _getTransactionObject = (transactionData) => {
-      const { hash, contracts } = transactionData
-      const type = WalletClient.getContractType(contracts[0].contractTypeId)
+      const { hash, amount, contractType, ownerAddress, toAddress, assetName } = transactionData
+      const type = WalletClient.getContractType(contractType)
       const transaction = {
         id: hash,
         type,
         contractData: {
-          transferFromAddress: contracts[0].from || contracts[0].ownerAddress,
-          transferToAddress: contracts[0].to,
-          tokenName: type === 'Transfer' ? 'TRX' : contracts[0].token,
-          amount: contracts[0].amount
+          transferFromAddress: ownerAddress,
+          transferToAddress: toAddress,
+          tokenName: type === 'Transfer' ? 'TRX' : assetName,
+          amount
         },
-        ownerAddress: contracts[0].from || contracts[0].ownerAddress,
-        timestamp: Date.now(),
+        ownerAddress: ownerAddress,
+        timestamp: new Date().getTime(),
         confirmed: false
       }
       return transaction
@@ -91,7 +91,7 @@ class MakePayment extends PureComponent {
     _buildTransaction = async ({to, amount, token, from, data}) => {
       try {
         // Build Transaction
-        const transactionUnsigned = await WalletClient.getTransferTransaction({from, to, amount, token})
+        const transactionUnsigned = await WalletClient.getTransferTransaction({from, to, amount, token, data})
         // Sign Transaction
         const { accounts, publicKey } = this.props.context
         const transactionSigned = await signTransaction(
