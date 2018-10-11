@@ -33,6 +33,7 @@ import FontelloIcon from '../../components/FontelloIcon'
 import { formatFloat } from '../../utils/numberUtils'
 import getAssetsStore from '../../store/assets'
 import { logSentry } from '../../utils/sentryUtils'
+import onBackgroundHandler from '../../utils/onBackgroundHandler'
 
 class TransactionDetails extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -85,6 +86,7 @@ class TransactionDetails extends React.Component {
   async componentDidMount () {
     const item = this.props.navigation.getParam('item', {})
     this.setState({ item })
+    this.appStateListener = onBackgroundHandler(this._onAppStateChange)
   }
 
   componentDidUpdate (prevProps, prevState) {
@@ -93,10 +95,16 @@ class TransactionDetails extends React.Component {
     if (nextItem.id !== prevItem.id) this.setState({item: nextItem}, this._checkTransaction)
   }
 
-  componentWillMount () {
+  componentWillUnmount () {
     clearTimeout(this.checkTransactionTimeout)
+    this.appStateListener.remove()
   }
 
+  _onAppStateChange = nextAppState => {
+    if (nextAppState.match(/background/)) {
+      this.setState({ modalVisible: false })
+    }
+  }
   _closeModal = () => {
     this.setState({
       modalVisible: false,

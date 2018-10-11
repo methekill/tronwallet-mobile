@@ -108,7 +108,7 @@ class BalanceScene extends Component {
     if (nextAppState.match(/background/)) {
       // Closing all modals
       this.setState({ accountModalVisible: false })
-      this.carousel.innerComponent.ActionSheet.hide()
+      if (this.carousel.innerComponent.ActionSheet) this.carousel.innerComponent.ActionSheet.hide()
 
       if (alwaysAskPin) {
         this.props.navigation.navigate('Pin', {
@@ -125,6 +125,7 @@ class BalanceScene extends Component {
       const currency = preferedCurrency || 'TRX'
       this.props.context.setCurrency(currency)
       this.props.context.loadUserData()
+      this.props.context.updateSystemStatus()
     } catch (e) {
       this.setState({ error: tl.t('balance.error.loadingData') })
       logSentry(e, 'Balance - LoadData')
