@@ -83,8 +83,14 @@ class TransactionDetails extends React.Component {
   }
 
   async componentDidMount () {
-    const { item } = this.props.navigation.state.params
-    this.setState({ item }, this._checkTransaction)
+    const item = this.props.navigation.getParam('item', {})
+    this.setState({ item })
+  }
+
+  componentDidUpdate (prevProps, prevState) {
+    const nextItem = this.props.navigation.getParam('item', {})
+    const prevItem = prevState.item || {}
+    if (nextItem.id !== prevItem.id) this.setState({item: nextItem}, this._checkTransaction)
   }
 
   componentWillMount () {

@@ -3,10 +3,7 @@ import {
   RefreshControl,
   ScrollView,
   AsyncStorage,
-  TouchableOpacity,
-  AppState,
-  DeviceEventEmitter,
-  Platform
+  TouchableOpacity
 } from 'react-native'
 import { Answers } from 'react-native-fabric'
 import { unionBy } from 'lodash'
@@ -28,6 +25,7 @@ import { USER_PREFERRED_CURRENCY } from '../../utils/constants'
 import { createNewAccount } from '../../utils/secretsUtils'
 import withContext from '../../utils/hocs/withContext'
 import { logSentry } from '../../utils/sentryUtils'
+import onBackgroundHandler from '../../utils/onBackgroundHandler'
 
 class BalanceScene extends Component {
   static navigationOptions = {
@@ -55,9 +53,7 @@ class BalanceScene extends Component {
 
     this._navListener = this.props.navigation.addListener('didFocus', this._loadData)
 
-    this.appStateListener = Platform.OS === 'android'
-      ? DeviceEventEmitter.addListener('ActivityStateChange', (e) => this._handleAppStateChange(e.event))
-      : AppState.addEventListener('change', this._handleAppStateChange)
+    this.appStateListener = onBackgroundHandler(this._onAppStateChange)
   }
 
   componentWillUnmount () {
@@ -116,14 +112,19 @@ class BalanceScene extends Component {
     this.setState({ refreshing: false })
   }
 
-  _handleAppStateChange = nextAppState => {
+  _onAppStateChange = nextAppState => {
     const { alwaysAskPin } = this.props.context
-    if (nextAppState.match(/background/) && alwaysAskPin) {
+    if (nextAppState.match(/background/)) {
+      // Closing all modals
       this.setState({ accountModalVisible: false })
-      this.props.navigation.navigate('Pin', {
-        testInput: pin => pin === this.props.context.pin,
-        onSuccess: () => {}
-      })
+      this.carousel.innerComponent.ActionSheet.hide()
+
+      if (alwaysAskPin) {
+        this.props.navigation.navigate('Pin', {
+          testInput: pin => pin === this.props.context.pin,
+          onSuccess: () => {}
+        })
+      }
     }
   }
 
@@ -134,6 +135,7 @@ class BalanceScene extends Component {
       const currency = preferedCurrency || 'TRX'
       accounts.map(account => getFreeze(account.address))
       this.props.context.setCurrency(currency)
+      this.props.context.loadUserData()
     } catch (e) {
       this.setState({ error: e.message })
       logSentry(e, 'Balance - LoadAccounts')
