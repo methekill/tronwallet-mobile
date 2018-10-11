@@ -6,7 +6,7 @@ import {
   TouchableOpacity
 } from 'react-native'
 import { Answers } from 'react-native-fabric'
-import { unionBy } from 'lodash'
+import unionBy from 'lodash/unionBy'
 import Feather from 'react-native-vector-icons/Feather'
 
 import FormModal from '../../components/FormModal'
@@ -44,15 +44,7 @@ class BalanceScene extends Component {
 
   componentDidMount () {
     Answers.logContentView('Tab', 'Balance')
-    try {
-      this._loadData()
-    } catch (e) {
-      this.setState({ error: tl.t('balance.error.loadingData') })
-      logSentry(e, 'Balance - LoadData')
-    }
-
     this._navListener = this.props.navigation.addListener('didFocus', this._loadData)
-
     this.appStateListener = onBackgroundHandler(this._onAppStateChange)
   }
 
@@ -107,7 +99,6 @@ class BalanceScene extends Component {
 
   _onRefresh = async () => {
     this.setState({ refreshing: true })
-    await this.props.context.loadUserData()
     await this._loadData()
     this.setState({ refreshing: false })
   }
@@ -130,15 +121,13 @@ class BalanceScene extends Component {
 
   _loadData = async () => {
     try {
-      const { getFreeze, accounts } = this.props.context
       const preferedCurrency = await AsyncStorage.getItem(USER_PREFERRED_CURRENCY)
       const currency = preferedCurrency || 'TRX'
-      accounts.map(account => getFreeze(account.address))
       this.props.context.setCurrency(currency)
       this.props.context.loadUserData()
     } catch (e) {
-      this.setState({ error: e.message })
-      logSentry(e, 'Balance - LoadAccounts')
+      this.setState({ error: tl.t('balance.error.loadingData') })
+      logSentry(e, 'Balance - LoadData')
     }
   }
 

@@ -96,6 +96,7 @@ class Settings extends Component {
 
   componentWillUnmount () {
     this._didFocus.remove()
+    this.appStateListener.remove()
   }
 
   _onAppStateChange = nextAppState => {
@@ -103,7 +104,7 @@ class Settings extends Component {
     if (nextAppState.match(/background/)) {
       let accState = accountsModal
       let langState = languageModal
-      // This is ugly because of React Native MultSectioned Lib
+      // This is ugly because of React Native MultiSectioned Lib
       if (languageModal) {
         this.SectionedMultiSelect._toggleSelector()
         langState = false
@@ -112,8 +113,7 @@ class Settings extends Component {
         this.AccountRecover.innerComponent._toggleSelector()
         accState = false
       }
-
-      this.ActionSheet.hide()
+      if (this.ActionSheet) this.ActionSheet.hide()
 
       this.setState({modalVisible: false, accountsModal: accState, languageModal: langState})
     }
