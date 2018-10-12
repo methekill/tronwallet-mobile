@@ -310,9 +310,9 @@ class Settings extends Component {
             onPress: () => { this.props.navigation.navigate('About') }
           },
           {
-            title: tl.t('settings.accepts.title'),
-            icon: 'question-mark,-circle,-sign,-more,-info',
-            onPress: () => { this._openLink('https://www.tronwallet.me/partners') }
+            title: tl.t('settings.helpCenter.title'),
+            icon: 'message,-chat,-bubble,-text,-rounded',
+            onPress: () => { this._openLink('https://help.tronwallet.me/') }
           },
           {
             title: tl.t('settings.verifiedTokensOnly'),
