@@ -12,13 +12,20 @@ import * as Utils from '../../../components/Utils'
 import { ONE_TRX } from '../../../services/client'
 import tl from '../../../utils/i18n'
 import { replaceRoute } from '../../../utils/navigationUtils'
+import { formatNumber } from '../../../utils/numberUtils'
 
 class TokenInfo extends PureComponent {
   static navigationOptions = () => ({header: null})
 
+  _isTokenAvailableToBuy= ({issuedPercentage, isListed, startTime, endTime}) => {
+    const now = new Date().getTime()
+    return issuedPercentage < 100 && isListed && (startTime <= now && endTime >= now)
+  }
+
   render () {
     const item = this.props.navigation.getParam('item', {})
     const fromBalance = this.props.navigation.getParam('fromBalance', false)
+    const isTokenAvailableToBuy = this._isTokenAvailableToBuy(item)
     const {
       name,
       price,
@@ -66,7 +73,7 @@ class TokenInfo extends PureComponent {
                 <Utils.BoldText>{Math.round(issuedPercentage)}%</Utils.BoldText>
               </Utils.Row>
               <Utils.View height={8} />
-              <ButtonGradient
+              {isTokenAvailableToBuy && <ButtonGradient
                 text={tl.t('participate.button.buyNow').toUpperCase()}
                 onPress={() => {
                   fromBalance
@@ -75,13 +82,13 @@ class TokenInfo extends PureComponent {
                 }}
                 size='medium'
                 full
-              />
+              />}
             </Utils.View>
           </Utils.Content>
           <DividerSpacer size='big' marginX='large' />
           <BoldInfoRow pairs={[
-            { key: tl.t('participate.issued'), value: issued },
-            { key: tl.t('participate.totalSupply'), value: totalSupply }]}
+            { key: tl.t('participate.issued'), value: formatNumber(issued) },
+            { key: tl.t('participate.totalSupply'), value: formatNumber(totalSupply) }]}
           />
           <DividerSpacer size='medium' marginX='large' />
           <SmallRegInfoRow pairs={[
