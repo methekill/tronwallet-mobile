@@ -14,7 +14,6 @@ export const Header = styled.View`
   height: 64px;
   flex-direction: row;
   align-items: center;
-  padding: 16px;
   justify-content: center;
   padding: ${Spacing.medium}px;
   ${props => props.position && css`position: ${props.position}`};
@@ -26,7 +25,6 @@ export const SearchBarWrapper = styled.View`
     flex:1;
     align-items: center;
     flex-direction: row;
-    padding: 5px;
 `
 export const SearchBar = styled.TextInput`
   font-family: Rubik-Medium;

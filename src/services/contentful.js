@@ -6,6 +6,7 @@ const contentfulClient = createClient({accessToken: CONTENTFUL_TOKEN, space: CON
 const defaultParams = {
   content_type: 'asset',
   order: '-fields.isFeatured,-fields.isVerified,fields.position,-fields.issuedPercentage',
+  'fields.isListed': true,
   'fields.issuedPercentage[lt]': 100,
   'fields.startTime[lt]': Date.now(),
   'fields.endTime[gte]': Date.now()
