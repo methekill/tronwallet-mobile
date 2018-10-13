@@ -113,7 +113,7 @@ class Settings extends Component {
         this.AccountRecover.innerComponent._toggleSelector()
         accState = false
       }
-      if (this.ActionSheet) this.ActionSheet.hide()
+      if (this.ActionSheet && this.ActionSheet.hide) this.ActionSheet.hide()
 
       this.setState({modalVisible: false, accountsModal: accState, languageModal: langState})
     }

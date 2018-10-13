@@ -108,7 +108,9 @@ class BalanceScene extends Component {
     if (nextAppState.match(/background/)) {
       // Closing all modals
       this.setState({ accountModalVisible: false })
-      if (this.carousel.innerComponent.ActionSheet) this.carousel.innerComponent.ActionSheet.hide()
+      if (this.carousel.innerComponent.ActionSheet && this.carousel.innerComponent.ActionSheet.hide) {
+        this.carousel.innerComponent.ActionSheet.hide()
+      }
 
       if (alwaysAskPin) {
         this.props.navigation.navigate('Pin', {
