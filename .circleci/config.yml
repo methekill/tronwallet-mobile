@@ -45,11 +45,11 @@ jobs:
 
       - run: brew update
       - run: brew install ruby
-      - run: brew install nvm && export NVM_DIR=~/.nvm && source $(brew --prefix nvm)/nvm.sh && nvm install 8.11.1 && nvm use 8.11.1
+      - run: brew install nvm
 
       - run: sudo gem install fastlane
 
-      - run: yarn install
+      - run: export NVM_DIR=~/.nvm && source $(brew --prefix nvm)/nvm.sh && nvm install 8.11.1 && yarn install
       
       - run: pod install --project-directory=./ios
       - run: fastlane ios realm
