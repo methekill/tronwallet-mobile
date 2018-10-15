@@ -45,6 +45,7 @@ jobs:
 
       - run: brew update
       - run: brew install ruby
+      - run: brew install nvm && nvm install 8.11.1 && nvm use 8.11.1
       - run: sudo gem install fastlane
 
       - run: yarn install
