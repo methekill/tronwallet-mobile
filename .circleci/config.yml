@@ -50,6 +50,7 @@ jobs:
       - run: yarn install
 
       - run: fastlane ios realm
+      - run: pod install --project-directory=./ios
       - run:
           name: Run Deploy
           command: fastlane ios build --env beta
@@ -131,7 +132,6 @@ jobs:
           paths:
             - vendor/bundle
         
-      - run: pod install --project-directory=./ios
       # run tests and lint
       - run:
           name: fastlane android build
