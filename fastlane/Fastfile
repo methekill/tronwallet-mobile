@@ -37,8 +37,8 @@ platform :ios do
     match
     get_provisioning_profile
     update_project_provisioning
-    #gym
-    #pilot
+    gym
+    pilot
 
     # sh "rm -rf #{ENV["FL_PROJECT_PROVISIONING_PROFILE_FILE"]}"
 
