@@ -38,7 +38,7 @@ jobs:
   ios_deploy:
     working_directory: ~/project
     macos:
-      xcode: "9.2.0"
+      xcode: "9.4.1"
 
     steps:
       - checkout
@@ -48,9 +48,9 @@ jobs:
       - run: sudo gem install fastlane
 
       - run: yarn install
-
-      - run: fastlane ios realm
+      
       - run: pod install --project-directory=./ios
+      - run: fastlane ios realm
       - run:
           name: Run Deploy
           command: fastlane ios build --env beta
