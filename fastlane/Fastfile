@@ -5,7 +5,6 @@ default_platform :ios
 platform :ios do
   before_all do
     require File.join(File.dirname(__FILE__), 'environment')
-    setup_circle_ci
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
@@ -31,6 +30,8 @@ platform :ios do
 
   lane :build do
     Environment::Public.new.build
+
+    setup_circle_ci(force: true)
 
     update_app_identifier
     match
