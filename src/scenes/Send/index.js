@@ -96,7 +96,7 @@ class SendScene extends Component {
   _onAppStateChange = nextAppState => {
     if (nextAppState.match(/background/)) {
       this.setState({QRModalVisible: false})
-      if (this.ActionSheet) this.ActionSheet.hide()
+      if (this.ActionSheet && this.ActionSheet.hide) this.ActionSheet.hide()
     }
   }
 

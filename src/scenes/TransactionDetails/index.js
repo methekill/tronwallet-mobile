@@ -36,16 +36,7 @@ import { logSentry } from '../../utils/sentryUtils'
 import onBackgroundHandler from '../../utils/onBackgroundHandler'
 
 class TransactionDetails extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      header: (
-        <NavigationHeader
-          title={tl.t('transactionDetails.title')}
-          onBack={() => navigation.goBack()}
-        />
-      )
-    }
-  }
+  static navigationOptions = () => ({header: null})
 
   static propTypes = {
     navigation: shape({
@@ -576,16 +567,21 @@ class TransactionDetails extends React.Component {
     const { item, refreshing } = this.state
 
     return (
-      <Utils.Container>
-        <ScrollView
-          refreshControl={
-            <RefreshControl
-              refreshing={refreshing}
-              onRefresh={this._onRefresh}
-            />
-          }
-        >
-          {item &&
+      <React.Fragment>
+        <NavigationHeader
+          title={tl.t('transactionDetails.title')}
+          onBack={() => this.props.navigation.goBack()}
+        />
+        <Utils.Container>
+          <ScrollView
+            refreshControl={
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={this._onRefresh}
+              />
+            }
+          >
+            {item &&
             <React.Fragment>
               {this._renderHeader()}
               <View style={{
@@ -601,16 +597,18 @@ class TransactionDetails extends React.Component {
               </View>
               <View style={{ paddingVertical: 16 }} />
             </React.Fragment>
-          }
-        </ScrollView>
-        <Toast
-          ref='addressToast'
-          positionValue={260}
-          fadeInDuration={750}
-          fadeOutDuration={1000}
-          opacity={0.8}
-        />
-      </Utils.Container>
+            }
+          </ScrollView>
+          <Toast
+            ref='addressToast'
+            positionValue={260}
+            fadeInDuration={750}
+            fadeOutDuration={1000}
+            opacity={0.8}
+          />
+        </Utils.Container>
+      </React.Fragment>
+
     )
   }
 }

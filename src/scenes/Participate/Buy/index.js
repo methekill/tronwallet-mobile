@@ -50,16 +50,7 @@ const buyOptions = {
 }
 
 class BuyScene extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      header: (
-        <NavigationHeader
-          title={navigation.state.params.item.name}
-          onBack={() => navigation.goBack()}
-        />
-      )
-    }
-  }
+  static navigationOptions = () => ({header: null})
 
   state = {
     totalRemaining: 0,
@@ -222,6 +213,7 @@ class BuyScene extends Component {
   }
 
   render () {
+    const { navigation } = this.props
     const { item } = this.props.navigation.state.params
     const { name, price } = item
     const { totalRemaining, amountToBuy, notEnoughTrxBalance, loading } = this.state
@@ -229,6 +221,10 @@ class BuyScene extends Component {
     const tokenPrice = price / ONE_TRX
     return (
       <KeyboardScreen>
+        <NavigationHeader
+          title={item.name}
+          onBack={() => navigation.goBack()}
+        />
         <BuyContainer>
           <Utils.Row justify='space-around'>
             <Utils.View align='center' justify='center'>
