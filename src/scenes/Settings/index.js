@@ -12,7 +12,6 @@ import {
   WebView,
   SafeAreaView
 } from 'react-native'
-
 import RNRestart from 'react-native-restart'
 import SectionedMultiSelect from 'react-native-sectioned-multi-select'
 import ActionSheet from 'react-native-actionsheet'
@@ -88,7 +87,9 @@ class Settings extends Component {
     this._onLoadData()
     this._getSelectedTokens()
     OneSignal.getPermissionSubscriptionState(
-      status => this.setState({ subscriptionStatus: status.userSubscriptionEnabled === 'true' })
+      status => {
+        this.setState({ subscriptionStatus: `${status.userSubscriptionEnabled}` === 'true' })
+      }
     )
     this._didFocus = this.props.navigation.addListener('didFocus', () => this._onLoadData(), this._getSelectedTokens)
     this.appStateListener = onBackgroundHandler(this._onAppStateChange)
