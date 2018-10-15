@@ -131,6 +131,7 @@ jobs:
           paths:
             - vendor/bundle
         
+      - run: pod install --project-directory=./ios
       # run tests and lint
       - run:
           name: fastlane android build
