@@ -14,10 +14,6 @@
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* tronwallet2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* tronwallet2Tests.m */; };
 		01634E169BF643198F4A86E0 /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0461F0D7C254AC59D63B4F4 /* Rubik-Black.ttf */; };
-		02CFA9E021628FD800CAFDBE /* tronwallet.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02CFA9DF21628FD800CAFDBE /* tronwallet.ttf */; };
-		02CFA9E121628FD800CAFDBE /* tronwallet.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02CFA9DF21628FD800CAFDBE /* tronwallet.ttf */; };
-		02CFA9E221628FD800CAFDBE /* tronwallet.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02CFA9DF21628FD800CAFDBE /* tronwallet.ttf */; };
-		02CFA9E321628FD800CAFDBE /* tronwallet.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02CFA9DF21628FD800CAFDBE /* tronwallet.ttf */; };
 		0D74072CFD7D4D3AB8A195BE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3008F9A8FC46B788F79C01 /* libc++.tbd */; };
 		0E164D0CE95E47E39CD9787A /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC2246A7C06A467E86C1A3D0 /* Rubik-LightItalic.ttf */; };
 		0F8E6D76E1B64CF5BA007B37 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B52F74CF3CAE44A5ABE1D73C /* Rubik-MediumItalic.ttf */; };
@@ -470,7 +466,7 @@
 		00E356EE1AD99517003FC87E /* tronwallet2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tronwallet2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* tronwallet2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tronwallet2Tests.m; sourceTree = "<group>"; };
-		02CFA9DF21628FD800CAFDBE /* tronwallet.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = tronwallet.ttf; path = "../../../Downloads/fontello-662bc846/font/tronwallet.ttf"; sourceTree = "<group>"; };
+		025CD820217558D70093AAF7 /* tronwallet.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tronwallet.ttf; sourceTree = "<group>"; };
 		0A08B1F827984A1581A26A87 /* ReactNativeConfig.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeConfig.xcodeproj; path = "../node_modules/react-native-config/ios/ReactNativeConfig.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
@@ -686,7 +682,7 @@
 		0FB65A15D8E54311AE327DD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				02CFA9DF21628FD800CAFDBE /* tronwallet.ttf */,
+				025CD820217558D70093AAF7 /* tronwallet.ttf */,
 				32C2C45B66454A0A84BC38BC /* Entypo.ttf */,
 				F74F54C3DAD44274BE7BB042 /* EvilIcons.ttf */,
 				948E460590714D2C8CA144E0 /* Feather.ttf */,
@@ -1593,7 +1589,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02CFA9E121628FD800CAFDBE /* tronwallet.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1623,7 +1618,6 @@
 				0E164D0CE95E47E39CD9787A /* Rubik-LightItalic.ttf in Resources */,
 				97111BF887E64838BB0AAFE7 /* Rubik-Medium.ttf in Resources */,
 				0F8E6D76E1B64CF5BA007B37 /* Rubik-MediumItalic.ttf in Resources */,
-				02CFA9E021628FD800CAFDBE /* tronwallet.ttf in Resources */,
 				E0987A43542E48A184C5A9E4 /* Rubik-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1632,7 +1626,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02CFA9E221628FD800CAFDBE /* tronwallet.ttf in Resources */,
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1641,7 +1634,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02CFA9E321628FD800CAFDBE /* tronwallet.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
