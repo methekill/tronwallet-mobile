@@ -45,8 +45,8 @@ jobs:
 
       - run: brew update
       - run: brew install ruby
-      - run: brew install nvm && nvm install 8.11.1 && nvm use 8.11.1 && export NVM_DIR=~/.nvm && source $(brew --prefix nvm)/nvm.sh
-      
+      - run: brew install nvm && export NVM_DIR=~/.nvm && source $(brew --prefix nvm)/nvm.sh && nvm install 8.11.1 && nvm use 8.11.1
+
       - run: sudo gem install fastlane
 
       - run: yarn install
