@@ -10,7 +10,7 @@ class ClientWallet {
     this.api = Config.MAIN_API_URL
     this.apiTest = Config.API_URL
     this.notifier = Config.NOTIFIER_API_URL
-    this.tronwalletApi = 'https://25dvh7iv22.execute-api.us-east-1.amazonaws.com/prod/tron'
+    this.tronwalletApi = Config.TRONWALLET_API
   }
 
   //* ============TronScan Api============*//
