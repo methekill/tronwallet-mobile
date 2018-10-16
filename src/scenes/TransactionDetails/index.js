@@ -311,19 +311,22 @@ class TransactionDetails extends React.Component {
               color: '#7476a2'
             }}>{amountText}</Text>
             <Utils.Row align='center'>
-              <Elements.AmountText>{amount < 1 ? amount : formatFloat(amount)}</Elements.AmountText>
-              <View style={{ width: 11, height: 1 }} />
-              <View style={{
-                backgroundColor: rgb(46, 47, 71),
-                borderRadius: 2,
-                opacity: 0.97,
-                height: 24,
-                justifyContent: 'center',
-                paddingHorizontal: 8
-              }}>
-                <Elements.BadgeText>{tokenToDisplay}</Elements.BadgeText>
-              </View>
-              <Utils.HorizontalSpacer size='medium' />
+              {type !== 'Unfreeze' &&
+              <React.Fragment>
+                <Elements.AmountText>{amount < 1 ? amount : formatFloat(amount)}</Elements.AmountText>
+                <View style={{ width: 11, height: 1 }} />
+                <View style={{
+                  backgroundColor: rgb(46, 47, 71),
+                  borderRadius: 2,
+                  opacity: 0.97,
+                  height: 24,
+                  justifyContent: 'center',
+                  paddingHorizontal: 8
+                }}>
+                  <Elements.BadgeText>{tokenToDisplay}</Elements.BadgeText>
+                </View>
+                <Utils.HorizontalSpacer size='medium' />
+              </React.Fragment>}
               {this._getHeaderArrowIcon(type)}
             </Utils.Row>
           </React.Fragment>
