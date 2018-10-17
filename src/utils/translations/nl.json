@@ -51,7 +51,10 @@
   "allIn": "Volledig",
   "skip": "Overslaan",
   "privateKey": "Prive sleutel",
-  "results": "Results",
+  "results": "Resultaten",
+  "buy": "Koop",
+  "filter": "Filter",
+  "txs": "Transacties",
   "balance": {
     "title": "REKENINGEN",
     "error": {
@@ -98,32 +101,33 @@
     "button": {
       "create": "MAAK PORTEMONNEE",
       "restore": "HERSTEL PORTEMONNEE",
-      "import": "IMPORT WALLET"
+      "import": "IMPORTEER PORTEMONNEE"
     },
     "swiper": {
       "welcome": {
-        "title": "Welcome to \nTRONWALLET",
-        "body": "The most secure wallet for TRON"
+        "title": "Welkom bij \nTRONWALLET",
+        "body": "De meest veilige portemonnee voor TRON"
       },
       "security": {
-        "title": "SECURITY",
-        "body": "Privacy and security for \n your transactions"
+        "title": "BEVEILIGING",
+        "body": "Privacy en beveiliging voor \n uw transacties"
       },
       "votes": {
-        "title": "VOTES",
-        "body": "Freezing and vote for Super \n Representatives"
+        "title": "STEMMEN",
+        "body": "Vastzetten en stemmen op Super \n vertegenwoordigers"
       },
       "addressbook": {
-        "title": "ADDRESS BOOK",
-        "body": "Save the addresses of your friends \n and contacts."
+        "title": "ADRESBOEK",
+        "body": "Bewaar de adressen van je vrienden \n en contacten."
       },
       "multipleaccounts": {
-        "title": "MULTIPLE ACCOUNTS",
-        "body": "You can manage multiple accounts \n in your wallet"
+        "title": "MEERDERE ACCOUNTS",
+        "body": "U kunt meerdere rekeningen \n beheren in uw portemonnee"
       }
     }
   },
   "addressBook": {
+    "title": "ADRESBOEK",
     "shared": {
       "add": "TOEVOEGEN",
       "edit": "BEWERKEN",
@@ -131,6 +135,7 @@
       "send": "VERZENDEN"
     },
     "contacts": {
+      "title": "CONTACTEN",
       "delete": {
         "title": "Verwijder Contact",
         "message": "Wilt u deze contact echt verwijderen?",
@@ -210,9 +215,10 @@
         "title": "U moet ten minste één TRX aan waarde van {{token}} kopen.",
         "message": "Momenteel koopt u slechts {{amount}}."
       },
-      "notFound": "Asset(s) not found"
+      "notFound": "Asset(s) niet gevonden"
     },
     "warning": "Uw TRX saldo is niet toereikend om zoveel {{token}} te kopen",
+    "enterAmountToBuy": "VOER HET AANTAL IN DAT U WILT KOPEN",
     "amountToBuy": "AANTAL TE KOPEN",
     "pricePerToken": "PRIJS PER TOKEN",
     "tokenDescription": "TOKEN BESCHRIJVING",
@@ -231,14 +237,15 @@
     "trxNum": "AANTAL TRX",
     "num": "AANTAL",
     "block": "BLOCK",
-    "searchPreview": "Featured Tokens"
+    "balance": "Balans",
+    "searchPreview": "Aanbevolen Tokens"
   },
   "pin": {
     "title": "SECURITY CHECK",
     "enter": "PIN invoeren",
     "new": "Voer nieuwe PIN in",
     "reenter": "Voer de pincode opnieuw in",
-    "biometrics": "Biometric Check"
+    "biometrics": "Biometrische controle"
   },
   "receive": {
     "title": "ONTVANG",
@@ -280,8 +287,8 @@
         "newSeed": "KRIJG NIEUWE HERSTEL CODE",
         "later": "Bevestig later"
       },
-      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
-      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
+      "backupMessage": "Je hebt altijd toegang tot je woorden via de back-up in de app-instellingen      ",
+      "seedExplanation": "De 12-woorden sleutel is een leesbare representatie van uw portemonnee. Die woorden, kunnen in die exacte volgorde, worden gebruikt om uw portemonnee opnieuw te maken."
     },
     "restore": {
       "title": "HERSTEL PORTEMONNEE",
@@ -363,7 +370,7 @@
     },
     "reset": {
       "title": "Reset portemonnee",
-      "warning": "Waarschuwing: Deze active wist alle opgeslagen data inclusief je 12 geheime woorden. Als je je geheim niet hebt opgeslagen, doe dit nu voordat je doorgaat.",
+      "warning": "Waarschuwing: deze actie wist alle opgeslagen gegevens, inclusief uw 12 geheime woorden. Als u uw geheim niet hebt opgeslagen, moet u dit doen voordat u doorgaat.",
       "button": "OK, begrijp ik het"
     },
     "pin": {
@@ -405,7 +412,8 @@
     },
     "partners": "PARTNERS",
     "askPin": "Vraag altijd PIN",
-    "askBiometry": "Activate Biometry"
+    "askBiometry": "Activeer biometrie",
+    "verifiedTokensOnly": "Alleen geverifieerde tokens"
   },
   "submitTransaction": {
     "title": "TRANSACTIE DETAILS",
@@ -488,8 +496,9 @@
     "totalVotes": "TOTAAL AANTAL STEMMEN",
     "votesAvailable": "STEMMEN BESCHIKBAAR",
     "search": "Zoeken",
-    "searchPreview": "Suggestions - Most Voted",
-    "error": "Oeps, iets is niet correct geladen. Probeer opnieuw te laden"
+    "searchPreview": "Suggesties - Meest gestemd",
+    "error": "Oeps, iets is niet correct geladen. Probeer opnieuw te laden",
+    "notFound": "Super Vertegenwoordiger niet gevonden"
   },
   "scanPayment": {
     "scan": "SCAN",
@@ -539,10 +548,10 @@
   },
   "biometry": {
     "register": {
-      "title": "Check your biometry"
+      "title": "Controleer uw biometrie"
     },
     "auth": {
-      "error": "Access denied"
+      "error": "Toegang geweigerd"
     }
   }
 }

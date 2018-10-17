@@ -21,6 +21,7 @@ import buildTransactionDetails, { translateError } from './detailMap'
 import getTransactionStore from '../../store/transactions'
 import { withContext } from '../../store/context'
 import { logSentry } from '../../utils/sentryUtils'
+import { updateAssets } from '../../utils/assetsUtils'
 
 const ANSWERS_TRANSACTIONS = ['Transfer', 'Vote', 'Participate', 'Freeze']
 const NOTIFICATION_TRANSACTIONS = ['Transfer', 'Transfer Asset']
@@ -76,12 +77,12 @@ class TransactionDetail extends Component {
     const { navigation } = this.props
     const transaction = this._getTransactionObject()
     const stackToReset = this._getStackToReset(transaction.type)
-    navigation.navigate('TransactionSuccess', { stackToReset })
+    navigation.navigate('TransactionSuccess', { stackToReset, transaction })
   }
 
   _getTransactionObject = () => {
-    const { transactionData } = this.state
-    const { hash, amount, contractType, time, ownerAddress, toAddress, assetName } = transactionData
+    const { transactionData, tokenAmount } = this.state
+    const { hash, amount, contractType, ownerAddress, toAddress, assetName } = transactionData
     const type = Client.getContractType(contractType)
     const transaction = {
       id: hash,
@@ -92,7 +93,7 @@ class TransactionDetail extends Component {
         tokenName: type === 'Transfer' ? 'TRX' : assetName
       },
       ownerAddress: ownerAddress,
-      timestamp: time,
+      timestamp: new Date().getTime(),
       confirmed: false
     }
 
@@ -102,6 +103,13 @@ class TransactionDetail extends Component {
         break
       case 'Vote':
         transaction.contractData.votes = transactionData.votesList
+        break
+      case 'Participate':
+        transaction.tokenPrice = amount / tokenAmount
+        transaction.contractData.amount = amount
+        break
+      case 'Unfreeze':
+        transaction.contractData.frozenBalance = tokenAmount
         break
       default:
         transaction.contractData.amount = amount
@@ -140,6 +148,8 @@ class TransactionDetail extends Component {
           }
         }
         await this.props.context.loadUserData()
+        // TODO - Remove this piece of code when transactions come with Participate Price
+        if (transaction.type === 'Participate') updateAssets(0, 2, transaction.contractData.tokenName)
       }
       this.setState({ submitError: null, loadingSubmit: false, submitted: true }, this._navigateNext)
     } catch (error) {

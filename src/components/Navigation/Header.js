@@ -3,12 +3,11 @@ import { TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 import { Colors } from '../DesignSystem'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import Feather from 'react-native-vector-icons/Feather'
 
 import * as Utils from '../Utils'
 import { Header, HeaderWrapper, SearchPreview } from './elements'
 import NavigationSearchBar from './SearchBar'
-
+import FontelloButton from '../FontelloButton'
 class NavigationHeader extends React.Component {
   /*
      onClose = Right Button with X
@@ -35,17 +34,19 @@ class NavigationHeader extends React.Component {
     let element = null
 
     if (onBack && !leftButton) {
-      element = <TouchableOpacity onPress={onBack} testID='HeaderBack'>
+      element = <TouchableOpacity
+        style={{padding: 12}}
+        onPress={onBack} testID='HeaderBack'>
         <Ionicons
           name='ios-arrow-round-back'
-          size={38}
+          size={36}
           color={Colors.primaryText}
         />
       </TouchableOpacity>
     } else {
       element = leftButton
     }
-    return <Utils.View margin={10} position='absolute' left={10}>
+    return <Utils.View margin={5} position='absolute' left={10}>
       {element}
     </Utils.View>
   }
@@ -53,15 +54,12 @@ class NavigationHeader extends React.Component {
   _renderRightElement = (onClose, onSearch, onSearchPressed, rightButton) => {
     let element = null
     if (onClose) {
-      element = <TouchableOpacity onPress={onClose} testID='HeaderClose'>
-        <Feather name='x' color='white' size={28} />
-      </TouchableOpacity>
+      element = <FontelloButton onPress={onClose} name='close' size={13} />
     } else if (onSearch) {
       element =
         <TouchableOpacity
           style={{padding: 10}}
           onPress={() => {
-            this.setState({ isSearching: true })
             if (onSearchPressed) onSearchPressed()
           }}>
           <Ionicons name='ios-search' color='white' size={21} />
@@ -92,14 +90,13 @@ class NavigationHeader extends React.Component {
   _renderSeachMode = () => {
     const { onSearch, onSearchPressed } = this.props
     const onClose = () => {
-      this.setState({ isSearching: false })
       if (onSearchPressed) onSearchPressed()
     }
     return <NavigationSearchBar onSearch={onSearch} onClose={onClose} />
   }
 
   render () {
-    const { isSearching } = this.state
+    const { isSearching } = this.props
 
     return (
       <HeaderWrapper>

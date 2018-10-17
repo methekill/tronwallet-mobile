@@ -33,18 +33,10 @@ import FontelloIcon from '../../components/FontelloIcon'
 import { formatFloat } from '../../utils/numberUtils'
 import getAssetsStore from '../../store/assets'
 import { logSentry } from '../../utils/sentryUtils'
+import onBackgroundHandler from '../../utils/onBackgroundHandler'
 
 class TransactionDetails extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      header: (
-        <NavigationHeader
-          title={tl.t('transactionDetails.title')}
-          onBack={() => navigation.goBack()}
-        />
-      )
-    }
-  }
+  static navigationOptions = () => ({header: null})
 
   static propTypes = {
     navigation: shape({
@@ -83,10 +75,27 @@ class TransactionDetails extends React.Component {
   }
 
   async componentDidMount () {
-    const { item } = this.props.navigation.state.params
+    const item = this.props.navigation.getParam('item', {})
     this.setState({ item })
+    this.appStateListener = onBackgroundHandler(this._onAppStateChange)
   }
 
+  componentDidUpdate (prevProps, prevState) {
+    const nextItem = this.props.navigation.getParam('item', {})
+    const prevItem = prevState.item || {}
+    if (nextItem.id !== prevItem.id) this.setState({item: nextItem}, this._checkTransaction)
+  }
+
+  componentWillUnmount () {
+    clearTimeout(this.checkTransactionTimeout)
+    this.appStateListener.remove()
+  }
+
+  _onAppStateChange = nextAppState => {
+    if (nextAppState.match(/background/)) {
+      this.setState({ modalVisible: false })
+    }
+  }
   _closeModal = () => {
     this.setState({
       modalVisible: false,
@@ -222,7 +231,7 @@ class TransactionDetails extends React.Component {
     if (lowerType === 'participate') {
       return this._getIcon('ios-arrow-round-up', size, rgb(63, 231, 123))
     }
-    if (lowerType === 'vote' || lowerType === 'transaction') {
+    if (lowerType === 'transaction') {
       return this._getIcon('ios-arrow-round-down', size, rgb(255, 68, 101))
     }
     return null
@@ -302,19 +311,22 @@ class TransactionDetails extends React.Component {
               color: '#7476a2'
             }}>{amountText}</Text>
             <Utils.Row align='center'>
-              <Elements.AmountText>{amount < 1 ? amount : formatFloat(amount)}</Elements.AmountText>
-              <View style={{ width: 11, height: 1 }} />
-              <View style={{
-                backgroundColor: rgb(46, 47, 71),
-                borderRadius: 2,
-                opacity: 0.97,
-                height: 24,
-                justifyContent: 'center',
-                paddingHorizontal: 8
-              }}>
-                <Elements.BadgeText>{tokenToDisplay}</Elements.BadgeText>
-              </View>
-              <Utils.HorizontalSpacer size='medium' />
+              {type !== 'Unfreeze' &&
+              <React.Fragment>
+                <Elements.AmountText>{amount < 1 ? amount : formatFloat(amount)}</Elements.AmountText>
+                <View style={{ width: 11, height: 1 }} />
+                <View style={{
+                  backgroundColor: rgb(46, 47, 71),
+                  borderRadius: 2,
+                  opacity: 0.97,
+                  height: 24,
+                  justifyContent: 'center',
+                  paddingHorizontal: 8
+                }}>
+                  <Elements.BadgeText>{tokenToDisplay}</Elements.BadgeText>
+                </View>
+                <Utils.HorizontalSpacer size='medium' />
+              </React.Fragment>}
               {this._getHeaderArrowIcon(type)}
             </Utils.Row>
           </React.Fragment>
@@ -518,6 +530,16 @@ class TransactionDetails extends React.Component {
     }
   }
 
+  _checkTransaction = async () => {
+    const { item, refreshing } = this.state
+    if (!item.confirmed && !refreshing) {
+      this.checkTransactionTimeout = setTimeout(async () => {
+        await this._onRefresh()
+        this._checkTransaction()
+      }, 2500)
+    }
+  }
+
   _onRefresh = async () => {
     const { item } = this.state
     this.setState({ refreshing: true })
@@ -525,7 +547,8 @@ class TransactionDetails extends React.Component {
       await updateTransactionByHash(item.id)
       const transaction = await this._getTransactionByHash(item.id)
       if (transaction.type === 'Participate') {
-        const tokenPrice = getTokenPriceFromStore(transaction.contractData.tokenName, getAssetsStore())
+        const assetStore = await getAssetsStore()
+        const tokenPrice = getTokenPriceFromStore(transaction.contractData.tokenName, assetStore)
         transaction.tokenPrice = tokenPrice
       }
       this.setState({ item: transaction, refreshing: false })
@@ -547,16 +570,21 @@ class TransactionDetails extends React.Component {
     const { item, refreshing } = this.state
 
     return (
-      <Utils.Container>
-        <ScrollView
-          refreshControl={
-            <RefreshControl
-              refreshing={refreshing}
-              onRefresh={this._onRefresh}
-            />
-          }
-        >
-          {item &&
+      <React.Fragment>
+        <NavigationHeader
+          title={tl.t('transactionDetails.title')}
+          onBack={() => this.props.navigation.goBack()}
+        />
+        <Utils.Container>
+          <ScrollView
+            refreshControl={
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={this._onRefresh}
+              />
+            }
+          >
+            {item &&
             <React.Fragment>
               {this._renderHeader()}
               <View style={{
@@ -572,16 +600,18 @@ class TransactionDetails extends React.Component {
               </View>
               <View style={{ paddingVertical: 16 }} />
             </React.Fragment>
-          }
-        </ScrollView>
-        <Toast
-          ref='addressToast'
-          positionValue={260}
-          fadeInDuration={750}
-          fadeOutDuration={1000}
-          opacity={0.8}
-        />
-      </Utils.Container>
+            }
+          </ScrollView>
+          <Toast
+            ref='addressToast'
+            positionValue={260}
+            fadeInDuration={750}
+            fadeOutDuration={1000}
+            opacity={0.8}
+          />
+        </Utils.Container>
+      </React.Fragment>
+
     )
   }
 }

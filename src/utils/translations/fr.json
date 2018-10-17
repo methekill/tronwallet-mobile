@@ -51,7 +51,10 @@
   "allIn": "Tout compris",
   "skip": "Passer",
   "privateKey": "Clé privée",
-  "results": "Results",
+  "results": "Résultats",
+  "buy": "Acheter",
+  "filter": "Filtre",
+  "txs": "Transactions",
   "balance": {
     "title": "COMPTES",
     "error": {
@@ -98,32 +101,33 @@
     "button": {
       "create": "Créer un portefeuille",
       "restore": "Restaurer votre porte feuille",
-      "import": "IMPORT WALLET"
+      "import": "Importer un portefeuille"
     },
     "swiper": {
       "welcome": {
-        "title": "Welcome to \nTRONWALLET",
-        "body": "The most secure wallet for TRON"
+        "title": "Bienvenue à \nTRONWALLET",
+        "body": "Le portefeuille le plus sécurisé pour TRON"
       },
       "security": {
-        "title": "SECURITY",
-        "body": "Privacy and security for \n your transactions"
+        "title": "SÉCURITÉ",
+        "body": "Confidentialité et sécurité pour\n vos transactions"
       },
       "votes": {
         "title": "VOTES",
-        "body": "Freezing and vote for Super \n Representatives"
+        "body": "Gel et vote pour les Super\nReprésentants"
       },
       "addressbook": {
-        "title": "ADDRESS BOOK",
-        "body": "Save the addresses of your friends \n and contacts."
+        "title": "CARNET D'ADRESSES",
+        "body": "Enregistrer les adresses de vos amis\net contacts."
       },
       "multipleaccounts": {
-        "title": "MULTIPLE ACCOUNTS",
-        "body": "You can manage multiple accounts \n in your wallet"
+        "title": "COMPTES MULTIPLES",
+        "body": "Vous pouvez gérer plusieurs comptes\ndans votre portefeuille"
       }
     }
   },
   "addressBook": {
+    "title": "CARNET D'ADRESSES",
     "shared": {
       "add": "Ajouter",
       "edit": "Editer",
@@ -131,6 +135,7 @@
       "send": "Envoyer"
     },
     "contacts": {
+      "title": "CONTACTS",
       "delete": {
         "title": "Supprimer un contact",
         "message": "Voulez-vous vraiment supprimer ce contact ?",
@@ -210,9 +215,10 @@
         "title": "Vous devez acheter au moins l'équivalent d'un TRX de {{token}}.",
         "message": "Actuellement, vous achetez seulement {{amount}}."
       },
-      "notFound": "Asset(s) not found"
+      "notFound": "Actif(s) non trouvé(s)"
     },
     "warning": "Vous n’avez pas assez TRX pour acheter cette quantité de {{token}}",
+    "enterAmountToBuy": "SAISIR LE MONTANT A ACHETER",
     "amountToBuy": "MONTANT A ACHETER",
     "pricePerToken": "PRIX PAR JETON",
     "tokenDescription": "DESCRIPTION DU JETON",
@@ -231,7 +237,8 @@
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "BLOC",
-    "searchPreview": "Featured Tokens"
+    "balance": "SOLDE",
+    "searchPreview": "Jetons recommandés"
   },
   "pin": {
     "title": "VÉRIFICATION DE LA SÉCURITÉ",
@@ -405,7 +412,8 @@
     },
     "partners": "PARTENAIRES",
     "askPin": "Toujours demander un code PIN",
-    "askBiometry": "Activer la vérification biométrique"
+    "askBiometry": "Activer la vérification biométrique",
+    "verifiedTokensOnly": "Jetons vérifiés uniquement"
   },
   "submitTransaction": {
     "title": "DÉTAILS DE LA TRANSACTION",
@@ -488,8 +496,9 @@
     "totalVotes": "TOTAL DES VOTES",
     "votesAvailable": "VOTES DISPONIBLES",
     "search": "Recherche",
-    "searchPreview": "Suggestions - Most Voted",
-    "error": "Oups, quelque chose n'a pas chargé correctement. Essayez de recharger"
+    "searchPreview": "Suggestions - Les plus votés",
+    "error": "Oups, quelque chose n'a pas chargé correctement. Essayez de recharger",
+    "notFound": "Super Représentant non trouvé"
   },
   "scanPayment": {
     "scan": "SCAN",

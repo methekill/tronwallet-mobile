@@ -36,6 +36,7 @@ import { logSentry } from '../../utils/sentryUtils'
 import { ButtonWrapper } from './elements'
 import { replaceRoute } from '../../utils/navigationUtils'
 import { orderBalances } from '../../utils/balanceUtils'
+import onBackgroundHandler from '../../utils/onBackgroundHandler'
 
 class SendScene extends Component {
   static navigationOptions = () => {
@@ -68,6 +69,8 @@ class SendScene extends Component {
       'didFocus',
       this._loadData
     )
+
+    this.appStateListener = onBackgroundHandler(this._onAppStateChange)
   }
 
   componentDidUpdate () {
@@ -81,6 +84,7 @@ class SendScene extends Component {
 
   componentWillUnmount () {
     this._navListener.remove()
+    this.appStateListener.remove()
   }
 
   _getBalancesFromStore = async () => {
@@ -89,11 +93,19 @@ class SendScene extends Component {
     return store.objects('Balance').filtered(`account = "${this.props.context.publicKey}"`).map(item => Object.assign({}, item))
   }
 
+  _onAppStateChange = nextAppState => {
+    if (nextAppState.match(/background/)) {
+      this.setState({QRModalVisible: false})
+      if (this.ActionSheet && this.ActionSheet.hide) this.ActionSheet.hide()
+    }
+  }
+
   _loadData = async () => {
     this.setState({ loading: true })
 
     const balances = await this._getBalancesFromStore()
     const publicKey = this.props.context.publicKey
+    const { fixedTokens } = this.props.context
     let orderedBalances = []
     let balance = 0
 
@@ -101,7 +113,7 @@ class SendScene extends Component {
       balance = balances.find(asset => asset.name === 'TRX').balance
       const userTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
       const filteredBalances = balances.filter(asset => JSON.parse(userTokens).findIndex(name => name === asset.name) === -1)
-      orderedBalances = orderBalances(filteredBalances)
+      orderedBalances = orderBalances(filteredBalances, fixedTokens)
     }
 
     this.setState({
@@ -279,7 +291,7 @@ class SendScene extends Component {
   }
 
   _handleTokenChange = (index, formattedToken) => {
-    if (index !== 0) {
+    if (index > 0) {
       this.setState({
         token: this.state.balances[index - 1].name,
         formattedToken

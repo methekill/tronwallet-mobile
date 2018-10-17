@@ -12,7 +12,6 @@ import {
   WebView,
   SafeAreaView
 } from 'react-native'
-
 import RNRestart from 'react-native-restart'
 import SectionedMultiSelect from 'react-native-sectioned-multi-select'
 import ActionSheet from 'react-native-actionsheet'
@@ -31,18 +30,19 @@ import { Colors, Spacing } from '../../components/DesignSystem'
 import NavigationHeader from '../../components/Navigation/Header'
 import { SectionTitle, MultiSelectColors, MultiSelectStyles } from './elements'
 import AccountRecover from './RecoverAccount'
+import Loading from '../../components/LoadingScene'
+
 // Utils
 import getBalanceStore from '../../store/balance'
-import { orderAssets } from '../../utils/assetsUtils'
-import { USER_PREFERRED_LANGUAGE, USER_FILTERED_TOKENS, FIXED_TOKENS, ALWAYS_ASK_PIN, USE_BIOMETRY, ENCRYPTED_PIN } from '../../utils/constants'
+import { USER_PREFERRED_LANGUAGE, USER_FILTERED_TOKENS, ALWAYS_ASK_PIN, USE_BIOMETRY, ENCRYPTED_PIN, TOKENS_VISIBLE } from '../../utils/constants'
 import tl, { LANGUAGES } from '../../utils/i18n'
 import fontelloConfig from '../../assets/icons/config.json'
 import { withContext } from '../../store/context'
 import { hardResetWalletData } from '../../utils/userAccountUtils'
 import { getUserSecrets, unhideSecret } from '../../utils/secretsUtils'
 import Client from '../../services/client'
-import Loading from '../../components/LoadingScene'
 import { logSentry } from '../../utils/sentryUtils'
+import onBackgroundHandler from '../../utils/onBackgroundHandler'
 
 const Icon = createIconSetFromFontello(fontelloConfig, 'tronwallet')
 
@@ -70,7 +70,9 @@ class Settings extends Component {
     userSelectedTokens: [],
     currentSelectedTokens: [],
     hiddenAccounts: [],
-    biometricsEnabled: false
+    biometricsEnabled: false,
+    languageModal: false,
+    accountsModal: false
   }
 
   componentDidMount () {
@@ -85,13 +87,37 @@ class Settings extends Component {
     this._onLoadData()
     this._getSelectedTokens()
     OneSignal.getPermissionSubscriptionState(
-      status => this.setState({ subscriptionStatus: status.userSubscriptionEnabled === 'true' })
+      status => {
+        this.setState({ subscriptionStatus: `${status.userSubscriptionEnabled}` === 'true' })
+      }
     )
     this._didFocus = this.props.navigation.addListener('didFocus', () => this._onLoadData(), this._getSelectedTokens)
+    this.appStateListener = onBackgroundHandler(this._onAppStateChange)
   }
 
   componentWillUnmount () {
     this._didFocus.remove()
+    this.appStateListener.remove()
+  }
+
+  _onAppStateChange = nextAppState => {
+    const { accountsModal, languageModal } = this.state
+    if (nextAppState.match(/background/)) {
+      let accState = accountsModal
+      let langState = languageModal
+      // This is ugly because of React Native MultiSectioned Lib
+      if (languageModal) {
+        this.SectionedMultiSelect._toggleSelector()
+        langState = false
+      }
+      if (accountsModal) {
+        this.AccountRecover.innerComponent._toggleSelector()
+        accState = false
+      }
+      if (this.ActionSheet && this.ActionSheet.hide) this.ActionSheet.hide()
+
+      this.setState({modalVisible: false, accountsModal: accState, languageModal: langState})
+    }
   }
 
   _onLoadData = async () => {
@@ -107,14 +133,14 @@ class Settings extends Component {
       const store = await getBalanceStore()
       const tokens = store.objects('Balance')
         .filtered('TRUEPREDICATE DISTINCT(name)')
-        .filter(({ name }) => FIXED_TOKENS.findIndex(token => token === name) === -1)
+        .filter(({ name }) => name !== 'TRX')
         .map(({ name }) => ({ id: name, name }))
 
       const filteredTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
       const selectedTokens = filteredTokens ? JSON.parse(filteredTokens) : []
 
       this.setState({
-        userTokens: orderAssets(tokens),
+        userTokens: tokens,
         userSelectedTokens: selectedTokens,
         currentSelectedTokens: selectedTokens
       })
@@ -196,10 +222,18 @@ class Settings extends Component {
     )
   }
 
+  _changeTokensVisibility = async currentValue => {
+    try {
+      await AsyncStorage.setItem(TOKENS_VISIBLE, `${!this.props.context.verifiedTokensOnly}`)
+      this.props.context.setVerifiedTokensOnly(!this.props.context.verifiedTokensOnly)
+    } catch (error) {
+      this.props.context.setVerifiedTokensOnly(currentValue)
+    }
+  }
   _openLink = (uri) => this.setState({ modalVisible: true, uri })
 
   _handleLanguageChange = async (index) => {
-    if (index !== 0) {
+    if (index > 0) {
       const language = LANGUAGES[index]
       try {
         await AsyncStorage.setItem(USER_PREFERRED_LANGUAGE, language.key)
@@ -253,8 +287,8 @@ class Settings extends Component {
   )
 
   _showTokenSelect = () => {
-    const { userSelectedTokens } = this.state
-    this.setState({ currentSelectedTokens: userSelectedTokens })
+    const { userSelectedTokens, languageModal } = this.state
+    this.setState({ currentSelectedTokens: userSelectedTokens, languageModal: !languageModal })
     this.SectionedMultiSelect._toggleSelector()
   }
 
@@ -277,9 +311,24 @@ class Settings extends Component {
             onPress: () => { this.props.navigation.navigate('About') }
           },
           {
-            title: tl.t('settings.accepts.title'),
-            icon: 'question-mark,-circle,-sign,-more,-info',
-            onPress: () => { this._openLink('https://www.tronwallet.me/partners') }
+            title: tl.t('settings.helpCenter.title'),
+            icon: 'message,-chat,-bubble,-text,-rounded',
+            onPress: () => { this._openLink('https://help.tronwallet.me/') }
+          },
+          {
+            title: tl.t('settings.verifiedTokensOnly'),
+            icon: 'guarantee',
+            right: () => {
+              return (
+                <Switch
+                  circleStyle={{ backgroundColor: Colors.orange }}
+                  backgroundActive={Colors.yellow}
+                  backgroundInactive={Colors.secondaryText}
+                  value={this.props.context.verifiedTokensOnly}
+                  onSyncPress={this._changeTokensVisibility}
+                />
+              )
+            }
           }
         ]
       },
@@ -409,9 +458,14 @@ class Settings extends Component {
           {
             title:  tl.t('settings.accounts.restoreAccounts'),
             icon: 'files,-agreement,-notes,-docs,-pages',
-            onPress: () => this.state.hiddenAccounts.length
-             ? this.AccountRecover.innerComponent._toggleSelector()
-             : Alert.alert(tl.t('account'), tl.t('settings.accounts.noAccounts'))
+            onPress: () => {
+             if(this.state.hiddenAccounts.length){
+              this.setState({accountsModal: !this.state.accountsModal})
+              this.AccountRecover.innerComponent._toggleSelector()
+             }else {
+              Alert.alert(tl.t('account'), tl.t('settings.accounts.noAccounts'))
+             } 
+            }
           },
         ]
       }

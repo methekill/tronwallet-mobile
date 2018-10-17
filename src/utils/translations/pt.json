@@ -36,7 +36,7 @@
   "unconfirmed": "Não confirmado",
   "copyAddress": "COPY ADDRESS",
   "transactionType": {
-    "transfer": "Transferência",
+    "transfer": "Transferir",
     "transferAsset": "Transferir Ativo",
     "freeze": "Congelar",
     "unfreeze": "Descongelar",
@@ -50,8 +50,11 @@
   "clear": "Limpar",
   "allIn": "Tudo em",
   "skip": "Pular",
-  "privateKey": "Chave Privada",
+  "privateKey": "Chave privada",
   "results": "Results",
+  "buy": "Buy",
+  "filter": "Filter",
+  "txs": "Transactions",
   "balance": {
     "title": "CONTAS",
     "error": {
@@ -78,9 +81,9 @@
       "permissionMessage": "Para verificar a chave pública, o aplicativo precisa da sua permissão para acessar a câmera."
     },
     "vote": {
-      "enterVote": "DIGITE O VALOR DO VOTO",
-      "votesRemaining": "VOTOS RESTANTES",
-      "setVote": "VOTE",
+      "enterVote": "ENTRE NO VALOR DE VOTO",
+      "votesRemaining": "VOTOS REMANESCENTES",
+      "setVote": "SET VOTE",
       "moreVotes": "Se você precisar de mais votos, você pode congelar mais TRX.",
       "confirmVotes": "CONFIRMAR VOTOS",
       "yourVotes": "Seus votos",
@@ -97,7 +100,7 @@
   "firstTime": {
     "button": {
       "create": "CRIAR CARTEIRA",
-      "restore": "RESTAURAR A CARTEIRA",
+      "restore": "RESTAURAR CARTEIRA",
       "import": "IMPORT WALLET"
     },
     "swiper": {
@@ -124,6 +127,7 @@
     }
   },
   "addressBook": {
+    "title": "ADDRESS BOOK",
     "shared": {
       "add": "ADICIONAR",
       "edit": "EDITAR",
@@ -131,6 +135,7 @@
       "send": "ENVIAR"
     },
     "contacts": {
+      "title": "CONTACTS",
       "delete": {
         "title": "Excluir contato",
         "message": "Você realmente deseja excluir este contato?",
@@ -213,6 +218,7 @@
       "notFound": "Asset(s) not found"
     },
     "warning": "Você não tem TRX suficiente para comprar tantos {{token}}",
+    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
     "amountToBuy": "QUANTIDADE DE COMPRAR",
     "pricePerToken": "PREÇO POR TOKEN",
     "tokenDescription": "DESCRIÇÃO DO TOKEN",
@@ -227,17 +233,18 @@
     "endTime": "FIM DO TEMPO",
     "description": "DESCRIÇÃO",
     "transaction": "TRANSAÇÃO",
-    "ownerAddress": "ENDEREÇO DO PROPRIETÁRIO",
-    "trxNum": "NUMERO TRX",
-    "num": "NUMERO",
-    "block": "BLOCO",
+    "ownerAddress": "ENDEREÇO ​​DO PROPRIETÁRIO",
+    "trxNum": "TRX NUM",
+    "num": "NUM",
+    "block": "QUADRA",
+    "balance": "BALANCE",
     "searchPreview": "Featured Tokens"
   },
   "pin": {
     "title": "VERIFICAÇÃO DE SEGURANÇA",
     "enter": "Entrar no pino",
     "new": "Digite o novo PIN",
-    "reenter": "Confirme o PIN",
+    "reenter": "Digite novamente o PIN",
     "biometrics": "Biometric Check"
   },
   "receive": {
@@ -404,8 +411,9 @@
       "noAccounts": "Nenhuma conta para restaurar"
     },
     "partners": "PARCEIROS",
-    "askPin": "Sempre pedir o PIN",
-    "askBiometry": "Activate Biometry"
+    "askPin": "Sempre perguntar PIN",
+    "askBiometry": "Activate Biometry",
+    "verifiedTokensOnly": "Verified tokens only"
   },
   "submitTransaction": {
     "title": "DETALHES DA TRANSAÇÃO",
@@ -489,7 +497,8 @@
     "votesAvailable": "VOTOS DISPONÍVEIS",
     "search": "Pesquisa",
     "searchPreview": "Suggestions - Most Voted",
-    "error": "Opa, algo não carregou corretamente. Tente recarregar"
+    "error": "Ups! Algo não foi carregado corretamente. Tente recarregar",
+    "notFound": "Super Representative not found"
   },
   "scanPayment": {
     "scan": "SCAN",

@@ -4,22 +4,22 @@
     "past": "%s 前",
     "s": "数秒",
     "ss": "%d 秒",
-    "m": "分",
+    "m": "一分",
     "mm": "%d 分",
-    "h": "1 時間",
+    "h": "一時間",
     "hh": "%d 時間",
-    "d": "1 日",
+    "d": "一日",
     "dd": "%d 日",
     "M": "1 ヶ月",
     "MM": "%d ヶ月",
-    "y": "1 年",
+    "y": "一年",
     "yy": "%d 年"
   },
   "success": "成功",
   "warning": "警告",
   "cancel": "キャンセル",
   "address": "住所",
-  "ok": "Ok",
+  "ok": "OK",
   "actionModalTitle": "いかかですか",
   "account": "アカウント",
   "restore": "リストア",
@@ -51,7 +51,10 @@
   "allIn": "オールイン",
   "skip": "スキップ",
   "privateKey": "秘密鍵",
-  "results": "Results",
+  "results": "結果",
+  "buy": "Buy",
+  "filter": "フィルター",
+  "txs": "トランザクション",
   "balance": {
     "title": "アカウント",
     "error": {
@@ -98,32 +101,33 @@
     "button": {
       "create": "財布 作成",
       "restore": "財布 復元",
-      "import": "IMPORT WALLET"
+      "import": "インポートウォレット"
     },
     "swiper": {
       "welcome": {
-        "title": "Welcome to \nTRONWALLET",
-        "body": "The most secure wallet for TRON"
+        "title": "TRONWALLETへようこそ",
+        "body": "TRONの最も安全な財布"
       },
       "security": {
-        "title": "SECURITY",
-        "body": "Privacy and security for \n your transactions"
+        "title": "セキュリティ",
+        "body": "お取引のプライバシーとセキュリティ"
       },
       "votes": {
-        "title": "VOTES",
-        "body": "Freezing and vote for Super \n Representatives"
+        "title": "投票",
+        "body": "トークンを凍結した後、スーパー 代表を選び投票して下さい"
       },
       "addressbook": {
-        "title": "ADDRESS BOOK",
-        "body": "Save the addresses of your friends \n and contacts."
+        "title": "アドレス帳",
+        "body": "友人のアドレス \n と連絡先を保存します。"
       },
       "multipleaccounts": {
-        "title": "MULTIPLE ACCOUNTS",
-        "body": "You can manage multiple accounts \n in your wallet"
+        "title": "複数のアカウント",
+        "body": "財布中の複数アカウントを管理する事ができます。"
       }
     }
   },
   "addressBook": {
+    "title": "アドレス帳",
     "shared": {
       "add": "追加",
       "edit": "編集",
@@ -131,6 +135,7 @@
       "send": "送信"
     },
     "contacts": {
+      "title": "連絡先",
       "delete": {
         "title": "連絡先を削除",
         "message": "この連絡先の削除を確認して下さい。",
@@ -210,9 +215,10 @@
         "title": "少なくとも1つのTRX価値 {{token}}を購入する必要があり{{token}} 。",
         "message": "現在は {{amount}}しか買っていません。"
       },
-      "notFound": "Asset(s) not found"
+      "notFound": "アセット(資産)が見つかりません"
     },
     "warning": "あなたは多くの {{token}}を買うのに十分なTRXを持っていません",
+    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
     "amountToBuy": "購入する金額",
     "pricePerToken": "TOKEN当たりの価格",
     "tokenDescription": "TOKEN DESCRIPTION",
@@ -231,14 +237,15 @@
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "ブロック",
-    "searchPreview": "Featured Tokens"
+    "balance": "BALANCE",
+    "searchPreview": "注目のトークン"
   },
   "pin": {
     "title": "セキュリティーチェック",
     "enter": "PINを入力",
     "new": "新しいPINを入力してください",
     "reenter": "PINの再入力",
-    "biometrics": "Biometric Check"
+    "biometrics": "生体認証チェック"
   },
   "receive": {
     "title": "受信",
@@ -280,8 +287,8 @@
         "newSeed": "新しい種を得る",
         "later": "後で確認する"
       },
-      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
-      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
+      "backupMessage": "アプリ内の設定、そしてバックアップをアクセスすることによってあなたの認証言葉をいつでもアクセスできます。      ",
+      "seedExplanation": "シード キーは、人間が読めるように形式されたあなたのウォレットです。そこに示した言葉は正確な順序であなたの財布を再作成するために使用することができます。"
     },
     "restore": {
       "title": "RESTORE WALLET",
@@ -405,7 +412,8 @@
     },
     "partners": "パートナー",
     "askPin": "常にPINを尋ねる",
-    "askBiometry": "Activate Biometry"
+    "askBiometry": "バイオメトリ 起動",
+    "verifiedTokensOnly": "Verified tokens only"
   },
   "submitTransaction": {
     "title": "取引の詳細",
@@ -418,7 +426,7 @@
       "submit": "送信依頼"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "トランザクション データを読み込むことができませんでした。"
     },
     "disconnectedMessage": "あなたは切断されているようです。取引を進める前に、インターネットに再接続してください。",
     "dic": {
@@ -488,8 +496,9 @@
     "totalVotes": "総投票数",
     "votesAvailable": "投票可能",
     "search": "サーチ",
-    "searchPreview": "Suggestions - Most Voted",
-    "error": "おっと、何かが正しく読み込まれませんでした。再読み込みを試みる"
+    "searchPreview": "提案 - 最も投票された",
+    "error": "おっと、何かが正しく読み込まれませんでした。再読み込みを試みる",
+    "notFound": "Super Representative not found"
   },
   "scanPayment": {
     "scan": "スキャン",
@@ -534,15 +543,15 @@
     }
   },
   "balanceToken": {
-    "updating": "Updating token information. Please wait a few seconds.",
-    "notAvailable": "Token information not available"
+    "updating": "トークン情報を更新しています。数秒お待ちください。",
+    "notAvailable": "トークン情報がありません。"
   },
   "biometry": {
     "register": {
-      "title": "Check your biometry"
+      "title": "あなたのバイオメトリをチェックして下さい。"
     },
     "auth": {
-      "error": "Access denied"
+      "error": "アクセスが拒否されました"
     }
   }
 }

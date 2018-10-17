@@ -55,12 +55,13 @@ import { Context } from './src/store/context'
 import NodesIp from './src/utils/nodeIp'
 import { getUserSecrets } from './src/utils/secretsUtils'
 import getBalanceStore from './src/store/balance'
-import { USER_PREFERRED_CURRENCY, ALWAYS_ASK_PIN, USE_BIOMETRY } from './src/utils/constants'
+import { USER_PREFERRED_CURRENCY, ALWAYS_ASK_PIN, USE_BIOMETRY, TOKENS_VISIBLE } from './src/utils/constants'
 import { ONE_SIGNAL_KEY } from './config'
 import ConfigJson from './package.json'
 import tl from './src/utils/i18n'
 import fontelloConfig from './src/assets/icons/config.json'
-
+import { getFixedTokens, getSystemStatus } from './src/services/contentful'
+import StatusMessage from './src/components/StatusMessage'
 import './ReactotronConfig'
 
 if (!__DEV__) {
@@ -252,7 +253,10 @@ class App extends Component {
     alwaysAskPin: true,
     useBiometry: false,
     currency: null,
-    secretMode: 'mnemonic'
+    secretMode: 'mnemonic',
+    verifiedTokensOnly: true,
+    fixedTokens: [],
+    systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }
   }
 
   async componentDidMount () {
@@ -265,9 +269,12 @@ class App extends Component {
       OneSignal.configure()
     }, 1000)
 
+    this._updateSystemStatus()
     this._setNodes()
     this._loadAskPin()
     this._loadUseBiometry()
+    this._loadVerifiedTokenFlag()
+    this._loadFixedTokens()
     const preferedCurrency = await AsyncStorage.getItem(USER_PREFERRED_CURRENCY) || 'TRX'
     this._getPrice(preferedCurrency)
     this.setState({ currency: preferedCurrency })
@@ -403,11 +410,40 @@ class App extends Component {
     }
   }
 
+  _loadVerifiedTokenFlag = async () => {
+    try {
+      const tokenVibility = await AsyncStorage.getItem(TOKENS_VISIBLE)
+      const verifiedTokensOnly = tokenVibility === null ? true : tokenVibility === 'true'
+      this.setState({verifiedTokensOnly})
+    } catch (error) {
+      this.setState({ verifiedTokensOnly: false })
+    }
+  }
+   _loadFixedTokens = async () => {
+     try {
+       const fixedTokens = await getFixedTokens()
+       this.setState({fixedTokens})
+     } catch (error) {
+       this.setState({fixedTokens: ['TRX', 'TWX']})
+       logSentry(error, 'App - Load Fixed Tokens')
+     }
+   }
+
   _setNodes = async () => {
     try {
       await NodesIp.initNodes()
     } catch (e) {
       logSentry(e, 'App - SetNodes')
+    }
+  }
+
+  _updateSystemStatus = async () => {
+    try {
+      const systemStatus = await getSystemStatus()
+      this.setState({systemStatus})
+    } catch (error) {
+      this.setState({systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }})
+      logSentry(error, 'App - can\'t get system status')
     }
   }
 
@@ -418,6 +454,8 @@ class App extends Component {
   _setAskPin = (alwaysAskPin) => this.setState({ alwaysAskPin })
 
   _setUseBiometry = (useBiometry) => this.setState({ useBiometry })
+
+  _setVerifiedTokensOnly = (verifiedTokensOnly) => this.setState({ verifiedTokensOnly })
 
   _setPin = (pin, callback) => {
     this.setState({ pin }, () => {
@@ -468,13 +506,17 @@ class App extends Component {
       hideAccount: this._hideAccount,
       setAskPin: this._setAskPin,
       setUseBiometry: this._setUseBiometry,
-      setSecretMode: this._setSecretMode
+      setSecretMode: this._setSecretMode,
+      setVerifiedTokensOnly: this._setVerifiedTokensOnly,
+      updateSystemStatus: this._updateSystemStatus
     }
 
     return (
       <SafeAreaView style={{ backgroundColor: Colors.background, flex: 1 }} >
         <Context.Provider value={contextProps}>
           <StatusBar barStyle='light-content' />
+          {this.state.systemStatus.showStatus &&
+          <StatusMessage systemStatus={this.state.systemStatus} />}
           <RootNavigator uriPrefix={prefix} />
         </Context.Provider>
       </SafeAreaView>

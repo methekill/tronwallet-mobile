@@ -1,7 +1,7 @@
 // Dependencies
 import React, { Component } from 'react'
 import { forIn, reduce, union, clamp, debounce } from 'lodash'
-import { Linking, FlatList, Alert, View, Platform, ActivityIndicator, RefreshControl } from 'react-native'
+import { Linking, FlatList, Alert, View, Platform, ActivityIndicator, RefreshControl, Image } from 'react-native'
 import { Answers } from 'react-native-fabric'
 
 // Utils
@@ -53,7 +53,7 @@ const INITIAL_STATE = {
   refreshing: false,
   loadingMore: false,
   // Search
-  searchMode: false,
+  isSearching: false,
   searchName: '',
   // Flags
   offset: 0,
@@ -77,6 +77,7 @@ class VoteScene extends Component {
       amountToVote: 0,
       currentVoteItem: {},
       startedVoting: false,
+      isSearching: false,
       userVotes: {}
     }
   }
@@ -169,7 +170,7 @@ class VoteScene extends Component {
   }
 
   _loadMoreCandidates = async () => {
-    if (this.state.searchMode) return
+    if (this.state.isSearching) return
     this.setState({loadingMore: true})
     try {
       const voteList = await this._getVoteListFromStore(this.state.offset + AMOUNT_TO_FETCH)
@@ -331,10 +332,10 @@ class VoteScene extends Component {
   }
 
   _acceptCurrentVote = (amountToVote) => {
+    const { isSearching } = this.state
     this.setState({startedVoting: true})
-    amountToVote <= 0
-      ? this._removeVoteFromList()
-      : this._onChangeVotes(amountToVote)
+    amountToVote <= 0 ? this._removeVoteFromList() : this._onChangeVotes(amountToVote)
+    if (isSearching) this._onSearchPressed()
   }
 
   _removeVoteFromList = async (address = null) => {
@@ -373,10 +374,12 @@ class VoteScene extends Component {
   }
 
   _onSearchPressed = () => {
-    const { searchMode } = this.state
+    const { isSearching, loadingList } = this.state
 
-    this.setState({ searchMode: !searchMode, searchName: '' })
-    if (searchMode) {
+    if (loadingList) return
+
+    this.setState({ isSearching: !isSearching, searchName: '' })
+    if (isSearching) {
       const candidates = this.candidateStoreRef.objects('Candidate')
         .sorted([['votes', true], ['rank', false]])
         .map(item => Object.assign({}, item))
@@ -420,8 +423,8 @@ class VoteScene extends Component {
   }
 
   _renderListHedear = () => {
-    const { totalVotes, totalRemaining, searchMode } = this.state
-    if (!searchMode) {
+    const { totalVotes, totalRemaining, isSearching } = this.state
+    if (!isSearching) {
       return <React.Fragment>
         <GrowIn name='vote-header' height={63}>
           <Header>
@@ -454,21 +457,30 @@ class VoteScene extends Component {
       return null
     }
   }
-  _renderEmptyList = () => !this.state.searchMode && <ActivityIndicator color={Colors.primaryText} />
-
-  _renderLeftElement = () => {
-    if (this.state.loadingList) {
-      return <SyncButton loading />
+  _renderEmptyList = () => {
+    if ((this.state.loadingList || this.state.refreshing) && !this.state.voteList.length) {
+      return <ActivityIndicator color={Colors.primaryText} />
     } else {
-      return this.state.currentFullVotes.length
-        ? <ClearButton
-          disabled={this.state.refreshing || this.state.loadingList}
-          onPress={this._clearVotesFromList}
-          padding={10}
+      return <Utils.View flex={1} align='center' justify='center' padding={20}>
+        <Image
+          source={require('../../assets/empty.png')}
+          resizeMode='contain'
+          style={{ width: 200, height: 200 }}
         />
-        : <View />
+        <Utils.Text size='tiny'>{tl.t('votes.notFound')}</Utils.Text>
+      </Utils.View>
     }
   }
+  _renderLeftElement = () => (
+    this.state.currentFullVotes.length
+      ? <ClearButton
+        disabled={this.state.refreshing || this.state.loadingList}
+        onPress={this._clearVotesFromList}
+        padding={10}
+      />
+      : <View />
+  )
+
   render () {
     const {
       refreshing,
@@ -480,7 +492,7 @@ class VoteScene extends Component {
       voteList,
       currentVoteItem,
       startedVoting,
-      searchMode,
+      isSearching,
       searchName,
       totalFrozen } = this.state
     const searchPreview = searchName ? `${tl.t('results')}: ${voteList.length}` : tl.t('votes.searchPreview')
@@ -488,6 +500,7 @@ class VoteScene extends Component {
       <Utils.Container>
         <NavigationHeader
           title={tl.t('votes.title')}
+          isSearching={isSearching}
           leftButton={this._renderLeftElement()}
           onSearch={name => this._onSearching(name)}
           onSearchPressed={() => this._onSearchPressed()}
@@ -514,7 +527,7 @@ class VoteScene extends Component {
             />
           </FadeIn>
         </Utils.View>
-        {(totalUserVotes > 0 && startedVoting && !searchMode) && <ConfirmVotes onPress={this._openConfirmModal} voteCount={currentFullVotes.length} />}
+        {(totalUserVotes > 0 && startedVoting && !isSearching) && <ConfirmVotes onPress={this._openConfirmModal} voteCount={currentFullVotes.length} />}
         {this.state.modalVisible && (
           <AddVotesModal
             acceptCurrentVote={this._acceptCurrentVote}
