@@ -20,7 +20,6 @@ import GrowIn from '../../components/Animations/GrowIn'
 import ConfirmVotes from '../../components/Vote/ConfirmButton'
 import NavigationHeader from '../../components/Navigation/Header'
 import ClearButton from '../../components/ClearButton'
-import SyncButton from '../../components/SyncButton'
 
 // Service
 import WalletClient from '../../services/client'
