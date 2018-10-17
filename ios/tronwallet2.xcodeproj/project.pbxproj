@@ -15,6 +15,7 @@
 		00E356F31AD99517003FC87E /* tronwallet2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* tronwallet2Tests.m */; };
 		01634E169BF643198F4A86E0 /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0461F0D7C254AC59D63B4F4 /* Rubik-Black.ttf */; };
 		025CD8212175754B0093AAF7 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
+		02EE5BE22177DA3E003D80D7 /* tronwallet.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 025CD820217558D70093AAF7 /* tronwallet.ttf */; };
 		0D74072CFD7D4D3AB8A195BE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3008F9A8FC46B788F79C01 /* libc++.tbd */; };
 		0E164D0CE95E47E39CD9787A /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC2246A7C06A467E86C1A3D0 /* Rubik-LightItalic.ttf */; };
 		0F8E6D76E1B64CF5BA007B37 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B52F74CF3CAE44A5ABE1D73C /* Rubik-MediumItalic.ttf */; };
@@ -1597,6 +1598,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02EE5BE22177DA3E003D80D7 /* tronwallet.ttf in Resources */,
 				025CD8212175754B0093AAF7 /* main.jsbundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
