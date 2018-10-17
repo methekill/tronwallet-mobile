@@ -17,11 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-<<<<<<< HEAD
-	<string>1.2.25</string>
-=======
 	<string>1.2.29</string>
->>>>>>> 8c74efee81150b7aec5b2d2f88f9e14bde969745
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -34,11 +30,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-<<<<<<< HEAD
-	<string>78</string>
-=======
 	<string>86</string>
->>>>>>> 8c74efee81150b7aec5b2d2f88f9e14bde969745
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
