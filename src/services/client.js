@@ -231,15 +231,15 @@ class ClientWallet {
   }
 
   async registerDeviceForNotifications (deviceId, publicKey, removeExtraDeviceIds) {
-    return axios.post(`${Config.TRONWALLET_API}/user/put`, { deviceId, publicKey, refresh: removeExtraDeviceIds })
+    return axios.post(`${this.tronwalletApi}/user/put`, { deviceId, publicKey, refresh: removeExtraDeviceIds })
   }
 
   async notifyNewTransactions (id, transactions) {
-    return axios.post(`${Config.TRONWALLET_API}/notify`, { id, transactions })
+    return axios.post(`${this.tronwalletApi}/notify`, { id, transactions })
   }
 
   async getDevicesFromPublicKey (publicKey) {
-    return axios.get(`${Config.TRONWALLET_API}/user/${publicKey}`)
+    return axios.get(`${this.tronwalletApi}/user/${publicKey}`)
   }
 
   getContractType = number => {
