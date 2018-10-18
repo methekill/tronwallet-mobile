@@ -99,6 +99,7 @@ class ClientWallet {
     const freezeData = { ...frozen, total: frozen.total / ONE_TRX, bandwidth }
     return { balancesData, freezeData, balanceTotal: balance / ONE_TRX }
   }
+
   async getBalances (address) {
     const apiUrl = this.tronwalletApi
     const { data: { balances } } = await axios.get(
@@ -122,6 +123,20 @@ class ClientWallet {
     const body = { address, deviceId, authid: AUTH_ID }
     const { data: { result } } = await axios.post(`${this.tronwalletApi}/gift`, body)
     return result
+  }
+
+  async getTransactionByHash (hash) {
+    const apiUrl = this.tronwalletApi
+    const { data: result } = await axios.get(`${apiUrl}/transaction/${hash}`)
+    if (result.contractType <= 2) {
+      return {
+        ...result,
+        contractType: 1,
+        type: 'Transfer'
+      }
+    } else {
+      return result
+    }
   }
 
   async getAssetList () {
