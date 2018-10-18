@@ -31,13 +31,14 @@ export const updateTransactions = async (address) => {
 }
 
 export const updateTransactionByHash = async (hash) => {
-  const item = await Client.fetchTransactionByHash(hash)
-  const transaction = createTransaction(item)
-  const store = await getTransactionStore()
-
-  store.write(() => {
-    store.create('Transaction', transaction, true)
-  })
+  const item = await Client.getTransactionByHash(hash)
+  if (item.confirmed) {
+    const transaction = createTransaction(item)
+    const store = await getTransactionStore()
+    store.write(() => {
+      store.create('Transaction', transaction, true)
+    })
+  }
 }
 
 const createTransaction = (item) => {
@@ -51,12 +52,12 @@ const createTransaction = (item) => {
     confirmed: true
   }
   if (item.type === 'Transfer') {
-    transaction.id = item.transactionHash
+    transaction.id = item.transactionHash || item.hash
     transaction.contractData = {
-      transferFromAddress: item.transferFromAddress,
-      transferToAddress: item.transferToAddress,
+      transferFromAddress: item.ownerAddress || item.transferFromAddress,
+      transferToAddress: item.toAddress || item.transferToAddress,
       amount: item.amount,
-      tokenName: item.tokenName
+      tokenName: item.assetName || item.tokenName
     }
   }
   if (item.type === 'Create') {

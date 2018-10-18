@@ -38,17 +38,20 @@ jobs:
   ios_deploy:
     working_directory: ~/project
     macos:
-      xcode: "9.2.0"
+      xcode: "9.4.1"
 
     steps:
       - checkout
 
       - run: brew update
       - run: brew install ruby
+      - run: brew install nvm
+
       - run: sudo gem install fastlane
 
-      - run: yarn install
-
+      - run: export NVM_DIR=~/.nvm && source $(brew --prefix nvm)/nvm.sh && nvm install 8.11.1 && yarn install
+      
+      - run: pod install --project-directory=./ios
       - run: fastlane ios realm
       - run:
           name: Run Deploy
@@ -160,4 +163,4 @@ workflows:
             - android_upgrade
           filters:
             branches:
-              only: development
+              only: feat/ci-ios-issuez
