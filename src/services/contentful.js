@@ -6,6 +6,7 @@ const contentfulClient = createClient({accessToken: CONTENTFUL_TOKEN, space: CON
 const defaultParams = {
   content_type: 'asset',
   order: '-fields.isFeatured,-fields.isVerified,fields.position,-fields.issuedPercentage',
+  'fields.isListed': true,
   'fields.issuedPercentage[lt]': 100,
   'fields.startTime[lt]': Date.now(),
   'fields.endTime[gte]': Date.now()
@@ -63,4 +64,13 @@ export const getFixedTokens = async () => {
   const { items: featuredTokens } = await contentfulClient.getEntries(queryEntry)
   const fixedNames = featuredTokens.map(({fields: token}) => token.name)
   return ['TRX', ...fixedNames]
+}
+
+export const getSystemStatus = async () => {
+  const { items } = await contentfulClient.getEntries({
+    content_type: 'systemStatus',
+    select: 'fields.showStatus,fields.statusMessage,fields.statusColor,fields.messageColor'
+  })
+  const { fields: { showStatus, statusMessage, statusColor, messageColor } } = items[0]
+  return { showStatus, statusMessage, statusColor, messageColor }
 }

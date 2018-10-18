@@ -374,7 +374,10 @@ class VoteScene extends Component {
   }
 
   _onSearchPressed = () => {
-    const { isSearching } = this.state
+    const { isSearching, loadingList } = this.state
+
+    if (loadingList) return
+
     this.setState({ isSearching: !isSearching, searchName: '' })
     if (isSearching) {
       const candidates = this.candidateStoreRef.objects('Candidate')

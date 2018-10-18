@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { View, ScrollView, StyleSheet, Alert } from 'react-native'
-import Switch from 'react-native-switch-pro'
 
 // Design
 import tl from '../../utils/i18n'
@@ -261,17 +260,6 @@ class ChangeNetworkModal extends Component {
             </Utils.Row>
           </View>
           <Utils.VerticalSpacer size='medium' />
-          <View style={styles.card}>
-            <Utils.Row justify='space-between' align='center'>
-              <Utils.Text size='smaller' color={Colors.secondaryText}>{tl.t('settings.network.modal.testNet')}</Utils.Text>
-              <Switch
-                circleStyle={{ backgroundColor: Colors.orange }}
-                backgroundActive={Colors.yellow}
-                backgroundInactive={Colors.secondaryText}
-                value={switchTestnet}
-                onSyncPress={this._switchTestnet} />
-            </Utils.Row>
-          </View>
           {error && <Utils.Error>{error}</Utils.Error>}
           <Utils.Content justify='center' align='center'>
             <Utils.Text color='#ffffff' font='light' size='xsmall'>

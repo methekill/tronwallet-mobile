@@ -1,15 +1,15 @@
 PODS:
   - boost-for-react-native (1.63.0)
-  - BoringSSL (10.0.5):
-    - BoringSSL/Implementation (= 10.0.5)
-    - BoringSSL/Interface (= 10.0.5)
-  - BoringSSL/Implementation (10.0.5):
-    - BoringSSL/Interface (= 10.0.5)
-  - BoringSSL/Interface (10.0.5)
-  - Crashlytics (3.10.3):
-    - Fabric (~> 1.7.8)
+  - BoringSSL (10.0.6):
+    - BoringSSL/Implementation (= 10.0.6)
+    - BoringSSL/Interface (= 10.0.6)
+  - BoringSSL/Implementation (10.0.6):
+    - BoringSSL/Interface (= 10.0.6)
+  - BoringSSL/Interface (10.0.6)
+  - Crashlytics (3.10.7):
+    - Fabric (~> 1.7.11)
   - DoubleConversion (1.1.5)
-  - Fabric (1.7.8)
+  - Fabric (1.7.11)
   - Folly (2016.09.26.00):
     - boost-for-react-native
     - DoubleConversion
@@ -55,7 +55,7 @@ PODS:
   - nanopb/encode (0.3.8)
   - "NSData+FastHex (1.0.1)"
   - OneSignal (2.8.5)
-  - Protobuf (3.6.0)
+  - Protobuf (3.6.1)
   - React (0.55.4):
     - React/Core (= 0.55.4)
   - react-native-camera (1.1.4):
@@ -152,7 +152,7 @@ PODS:
     - React
     - Sentry (~> 3.12.4)
     - Sentry/KSCrash (~> 3.12.4)
-  - TrezorCrypto (0.0.5)
+  - TrezorCrypto (0.0.8)
   - yoga (0.55.4.React)
 
 DEPENDENCIES:
@@ -236,10 +236,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  BoringSSL: cf3f1793eb6e3c445c4d150456341f149c268a35
-  Crashlytics: 2aea305161a2122492698c75af27f2b98aa49a25
+  BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
+  Crashlytics: ccaac42660eb9351b9960c0d66106b0bcf99f4fa
   DoubleConversion: e22e0762848812a87afd67ffda3998d9ef29170c
-  Fabric: fba4684a95df789565b0b27fc5b6e68f1755af32
+  Fabric: f233c9492b3bbc1f04e3882986740f7988a58edb
   Folly: 211775e49d8da0ca658aebc8eab89d642935755c
   glog: 1de0bb937dccdc981596d3b5825ebfb765017ded
   gRPC: 9362451032695e2dfb7bafcd3740e3a27939e4ff
@@ -252,7 +252,7 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   "NSData+FastHex": a22ad031ee10a4297d0bf4d20cf03406a4476169
   OneSignal: 42dae269c7eca517aee34963820e1eb922390031
-  Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
+  Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   React: aa2040dbb6f317b95314968021bd2888816e03d5
   react-native-camera: ab22041dcf0403d88f2ae4b9ea3ed2644e680423
   react-native-onesignal: 4f425b36d3edf595c93c1a8d3618a93b71a85a51
@@ -263,9 +263,9 @@ SPEC CHECKSUMS:
   RNTron: e5cc70419d4fc1021255c7bffb764bbf3e8cc560
   Sentry: 7d3ea7176e5184e9c35c12a5825905345807e8c1
   SentryReactNative: 787a08161d641dde91dd36d4c8e76f9b0ba4fc84
-  TrezorCrypto: ecef681446bf02af6248d3b5e394026d7e766e56
+  TrezorCrypto: 938c4b715fff7824a9c891a105e65ee0e4e81662
   yoga: a23273df0088bf7f2bb7e5d7b00044ea57a2a54a
 
 PODFILE CHECKSUM: bab2fb4a222d245b9716f217570f3e9e29e90829
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3
