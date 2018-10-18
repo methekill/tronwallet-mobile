@@ -54,8 +54,8 @@ const createTransaction = (item) => {
   if (item.type === 'Transfer') {
     transaction.id = item.transactionHash || item.hash
     transaction.contractData = {
-      transferFromAddress: item.ownerAddress || item.transferFromAddress,
-      transferToAddress: item.toAddress || item.transferToAddress,
+      transferFromAddress: item.transferFromAddress || item.ownerAddress,
+      transferToAddress: item.transferToAddress || item.toAddress,
       amount: item.amount,
       tokenName: item.assetName || item.tokenName
     }
