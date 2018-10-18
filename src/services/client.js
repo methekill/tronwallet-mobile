@@ -147,6 +147,12 @@ class ClientWallet {
     return data
   }
 
+  async getWitnessesList () {
+    const apiUrl = this.tronwalletApi
+    const { data: { totalVotes, voteList } } = await axios.get(`${apiUrl}/vote/list`)
+    return { voteList, totalVotes }
+  }
+
   async getTransactionDetails (tx) {
     const apiUrl = this.tronwalletApi
     const { data } = await axios.post(`${apiUrl}/transaction/detail`, { transaction: tx })

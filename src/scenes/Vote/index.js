@@ -157,11 +157,10 @@ class VoteScene extends Component {
   _refreshCandidates = async (refreshControl = true) => {
     if (refreshControl) this.setState({refreshing: true})
     try {
-      const { candidates, totalVotes } = await WalletClient.getTotalVotes()
+      const { voteList, totalVotes } = await WalletClient.getWitnessesList()
       const store = await getCandidateStore()
-
-      store.write(() => candidates.map(item => store.create('Candidate', item, true)))
-      this.setState({ totalVotes, voteList: candidates.slice(0, AMOUNT_TO_FETCH) })
+      store.write(() => voteList.map(item => store.create('Candidate', item, true)))
+      this.setState({ totalVotes, voteList: voteList.slice(0, AMOUNT_TO_FETCH) })
     } catch (e) {
       logSentry(e, 'Refresh Candidates Error')
     } finally {
