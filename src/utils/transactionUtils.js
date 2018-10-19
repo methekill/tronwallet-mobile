@@ -20,20 +20,20 @@ export const signTransaction = async (privateKey, transactionUnsigned) => {
 }
 
 export const updateTransactions = async (address) => {
-  const transactions = await Client.getTransactionList(address)
+  const transactions = await Client.getTransactionsList(address)
   const store = await getTransactionStore()
   store.write(() =>
     transactions.map(item => {
-      const transaction = createTransaction(item)
+      const transaction = createTransaction(item, address)
       store.create('Transaction', transaction, true)
     })
   )
 }
 
-export const updateTransactionByHash = async (hash) => {
+export const updateTransactionByHash = async (hash, address) => {
   const item = await Client.getTransactionByHash(hash)
   if (item.confirmed) {
-    const transaction = createTransaction(item)
+    const transaction = createTransaction(item, address)
     const store = await getTransactionStore()
     store.write(() => {
       store.create('Transaction', transaction, true)
@@ -41,37 +41,51 @@ export const updateTransactionByHash = async (hash) => {
   }
 }
 
-const createTransaction = (item) => {
+const createTransaction = (item, address) => {
+  const blockNumber = item.block ? item.block.number : null
   const transaction = {
     id: item.hash,
     type: item.type,
-    block: item.block,
-    contractData: item.contractData,
-    ownerAddress: item.ownerAddress,
-    timestamp: item.timestamp,
-    confirmed: true
+    contractData: {},
+    ownerAddress: address,
+    confirmed: true,
+    block: blockNumber,
+    timestamp: new Date(item.createdAt).getTime()
   }
   if (item.type === 'Transfer') {
-    transaction.id = item.transactionHash || item.hash
+    transaction.id = item.hash
     transaction.contractData = {
-      transferFromAddress: item.transferFromAddress || item.ownerAddress,
-      transferToAddress: item.transferToAddress || item.toAddress,
+      transferFromAddress: item.ownerAddress,
+      transferToAddress: item.toAddress,
       amount: item.amount,
-      tokenName: item.assetName || item.tokenName
+      tokenName: item.assetName || 'TRX'
     }
   }
   if (item.type === 'Create') {
     transaction.contractData = {
-      ...transaction.contractData,
-      tokenName: item.contractData.name,
-      unityValue: item.contractData.trxNum
+      tokenName: item.name,
+      unityValue: item.trxNum,
+      totalSupply: item.totalSupply,
+      startTime: item.startTime,
+      endTime: item.endTime,
+      description: item.description
     }
   }
   if (item.type === 'Participate') {
     transaction.contractData = {
-      ...transaction.contractData,
-      tokenName: item.contractData.token,
-      transferFromAddress: item.contractData.toAddress
+      tokenName: item.assetName,
+      transferFromAddress: item.toAddress,
+      amount: item.amount
+    }
+  }
+  if (item.type === 'Freeze') {
+    transaction.contractData = {
+      frozenBalance: item.frozenBalance
+    }
+  }
+  if (item.type === 'Vote') {
+    transaction.contractData = {
+      votes: item.votesList
     }
   }
 

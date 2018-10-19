@@ -11,6 +11,7 @@ class ClientWallet {
     this.apiTest = Config.API_URL
     this.notifier = Config.NOTIFIER_API_URL
     this.tronwalletApi = Config.TRONWALLET_API
+    this.tronwalletDB = Config.TRONWALLET_DB
   }
 
   //* ============TronScan Api============*//
@@ -20,73 +21,12 @@ class ClientWallet {
     return isTestnet ? this.apiTest : this.api
   }
 
-  async getVoteCycle () {
-    const apiUrl = await this.getTronscanUrl()
-    const { data: {nextCycle} } = await axios.get(`${apiUrl}/vote/next-cycle`)
-    return nextCycle
-  }
-  async getTotalVotes () {
-    const apiUrl = await this.getTronscanUrl()
-    const { data } = await axios.get(`${apiUrl}/vote/current-cycle`)
-    const totalVotes = data.total_votes
-    const candidates = data.candidates
-      .sort((a, b) => a.votes > b.votes ? -1 : a.votes < b.votes ? 1 : 0)
-      .map((candidate, index) => ({ ...candidate, rank: index + 1 }))
-    return { totalVotes, candidates }
-  }
-
   async getTokenList (start, limit, name) {
     const apiUrl = await this.getTronscanUrl()
     const { data: { data } } = await axios.get(
       `${apiUrl}/token?sort=-name&start=${start}&limit=${limit}&name=%25${name}%25&status=ico`
     )
     return data
-  }
-
-  async getTransactionList (address) {
-    const apiUrl = await this.getTronscanUrl()
-    const tx = () =>
-      axios.get(
-        `${apiUrl}/transaction?sort=-timestamp&limit=50&address=${address}`
-      )
-    const tf = () =>
-      axios.get(
-        `${apiUrl}/transfer?sort=-timestamp&limit=50&address=${address}`
-      )
-    const transactions = await Promise.all([tx(), tf()])
-    const txs = transactions[0].data.data.filter(d => d.contractType !== 1)
-    const trfs = transactions[1].data.data.map(d => ({
-      ...d,
-      contractType: 1,
-      ownerAddress: address
-    }))
-    let sortedTxs = [...txs, ...trfs].sort((a, b) => b.timestamp - a.timestamp)
-    sortedTxs = sortedTxs.map(transaction => ({
-      type: this.getContractType(transaction.contractType),
-      ...transaction
-    }))
-    return sortedTxs
-  }
-
-  async fetchTransactionByHash (hash) {
-    const apiUrl = await this.getTronscanUrl()
-
-    const txResponse = await axios.get(`${apiUrl}/transaction/${hash}`)
-
-    if (txResponse.data.contractType <= 2) {
-      const tfResponse = await axios.get(`${apiUrl}/transfer/${hash}`)
-      return {
-        ...tfResponse.data,
-        contractType: 1,
-        ownerAddress: txResponse.data.ownerAddress,
-        type: 'Transfer'
-      }
-    }
-
-    return {
-      ...txResponse.data,
-      type: this.getContractType(txResponse.data.contractType)
-    }
   }
 
   //* ============TronWalletServerless Api============*//
@@ -112,9 +52,8 @@ class ClientWallet {
   }
 
   async getFreeze (address) {
-    const apiUrl = this.tronwalletApi
     const { data: { frozen, bandwidth, balances } } = await axios.get(
-      `${apiUrl}/account/${address}`
+      `${this.tronwalletApi}/account/${address}`
     )
     return { ...frozen, total: frozen.total / ONE_TRX, bandwidth, balances }
   }
@@ -125,17 +64,26 @@ class ClientWallet {
     return result
   }
 
-  async getTransactionByHash (hash) {
-    const apiUrl = this.tronwalletApi
-    const { data: result } = await axios.get(`${apiUrl}/transaction/${hash}`)
-    if (result.contractType <= 2) {
-      return {
-        ...result,
-        contractType: 1,
-        type: 'Transfer'
-      }
+  async getTransactionsList (address) {
+    const reqBody = { '$or': [{ 'toAddress': address }, { 'ownerAddress': address }] }
+    const { data: result } = await axios.post(`${this.tronwalletDB}/transactions/find`, reqBody)
+    return result.map(tx =>
+      tx.contractType <= 2
+        ? {...tx, contractType: 1, type: 'Transfer'}
+        : {...tx, type: this.getContractType(tx.contractType)})
+  }
+
+  async getTransactionByHash (hash, address) {
+    const reqBody = { hash }
+    const { data: result } = await axios.post(`${this.tronwalletDB}/transactions/find/`, reqBody)
+
+    if (result.length) {
+      const transactionDetail = result[0]
+      return transactionDetail.contractType <= 2
+        ? {...transactionDetail, contractType: 1, type: 'Transfer', confirmed: true}
+        : {...transactionDetail, type: this.getContractType(transactionDetail.contractType), confirmed: true}
     } else {
-      return result
+      return { confirmed: false }
     }
   }
 

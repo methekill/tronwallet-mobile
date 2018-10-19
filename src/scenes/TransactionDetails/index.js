@@ -34,6 +34,7 @@ import { formatFloat } from '../../utils/numberUtils'
 import getAssetsStore from '../../store/assets'
 import { logSentry } from '../../utils/sentryUtils'
 import onBackgroundHandler from '../../utils/onBackgroundHandler'
+import { withContext } from '../../store/context'
 
 class TransactionDetails extends React.Component {
   static navigationOptions = () => ({header: null})
@@ -301,7 +302,7 @@ class TransactionDetails extends React.Component {
           <Elements.BadgeText>{getTranslatedType(type).toUpperCase()}</Elements.BadgeText>
         </View>
         <View style={{ height: 15 }} />
-        {type.toLowerCase() !== 'create' &&
+        {(type.toLowerCase() !== 'create' && type.toLowerCase() !== 'unfreeze') &&
           <React.Fragment>
             <Text style={{
               fontFamily: 'Rubik-Medium',
@@ -311,22 +312,19 @@ class TransactionDetails extends React.Component {
               color: '#7476a2'
             }}>{amountText}</Text>
             <Utils.Row align='center'>
-              {type !== 'Unfreeze' &&
-              <React.Fragment>
-                <Elements.AmountText>{amount < 1 ? amount : formatFloat(amount)}</Elements.AmountText>
-                <View style={{ width: 11, height: 1 }} />
-                <View style={{
-                  backgroundColor: rgb(46, 47, 71),
-                  borderRadius: 2,
-                  opacity: 0.97,
-                  height: 24,
-                  justifyContent: 'center',
-                  paddingHorizontal: 8
-                }}>
-                  <Elements.BadgeText>{tokenToDisplay}</Elements.BadgeText>
-                </View>
-                <Utils.HorizontalSpacer size='medium' />
-              </React.Fragment>}
+              <Elements.AmountText>{amount < 1 ? amount : formatFloat(amount)}</Elements.AmountText>
+              <View style={{ width: 11, height: 1 }} />
+              <View style={{
+                backgroundColor: rgb(46, 47, 71),
+                borderRadius: 2,
+                opacity: 0.97,
+                height: 24,
+                justifyContent: 'center',
+                paddingHorizontal: 8
+              }}>
+                <Elements.BadgeText>{tokenToDisplay}</Elements.BadgeText>
+              </View>
+              <Utils.HorizontalSpacer size='medium' />
               {this._getHeaderArrowIcon(type)}
             </Utils.Row>
           </React.Fragment>
@@ -421,47 +419,47 @@ class TransactionDetails extends React.Component {
     } = this.state.item.contractData
 
     return (
-      <Utils.Content>
+      <Utils.Container>
         <Utils.Row>
           <Utils.Column>
             <Elements.Label>{tl.t('transactionDetails.tokenName')}</Elements.Label>
             <Utils.VerticalSpacer size='xsmall' />
-            <Elements.TokenText>{tokenName}</Elements.TokenText>
+            <Elements.DetailText>{tokenName}</Elements.DetailText>
           </Utils.Column>
           <Utils.Column position='absolute' left='50%'>
             <Elements.Label>{tl.t('transactionDetails.unityValue')}</Elements.Label>
             <Utils.VerticalSpacer size='xsmall' />
-            <Elements.TokenText>{(unityValue / ONE_TRX).toFixed(2)} TRX</Elements.TokenText>
+            <Elements.DetailText>{(unityValue / ONE_TRX).toFixed(2)} TRX</Elements.DetailText>
           </Utils.Column>
         </Utils.Row>
         <Utils.VerticalSpacer size='big' />
         <Utils.Column>
           <Elements.Label>{tl.t('transactionDetails.totalSupply')}</Elements.Label>
           <Utils.VerticalSpacer size='xsmall' />
-          <Elements.AmountText>{totalSupply}</Elements.AmountText>
+          <Elements.DetailText>{totalSupply}</Elements.DetailText>
         </Utils.Column>
         <Utils.VerticalSpacer size='big' />
         <Utils.Row>
           <Utils.Column>
             <Elements.Label>{tl.t('transactionDetails.startTime')}</Elements.Label>
             <Utils.VerticalSpacer size='xsmall' />
-            <Elements.DescriptionText>{moment(startTime).format('DD/MM/YYYY hh:mm A')}</Elements.DescriptionText>
+            <Elements.DetailText>{moment(startTime).format('DD/MM/YYYY hh:mm A')}</Elements.DetailText>
           </Utils.Column>
           <Utils.Column position='absolute' left='50%'>
             <Elements.Label>{tl.t('transactionDetails.endTime')}</Elements.Label>
             <Utils.VerticalSpacer size='xsmall' />
-            <Elements.DescriptionText>{moment(endTime).format('DD/MM/YYYY hh:mm A')}</Elements.DescriptionText>
+            <Elements.DetailText>{moment(endTime).format('DD/MM/YYYY hh:mm A')}</Elements.DetailText>
           </Utils.Column>
         </Utils.Row>
         <Utils.VerticalSpacer size='big' />
         <Utils.Column>
           <Elements.Label>{tl.t('transactionDetails.description')}</Elements.Label>
           <Utils.VerticalSpacer size='xsmall' />
-          <Elements.DescriptionText>
+          <Elements.DetailText>
             {description}
-          </Elements.DescriptionText>
+          </Elements.DetailText>
         </Utils.Column>
-      </Utils.Content>
+      </Utils.Container>
     )
   }
 
@@ -544,7 +542,7 @@ class TransactionDetails extends React.Component {
     const { item } = this.state
     this.setState({ refreshing: true })
     try {
-      await updateTransactionByHash(item.id)
+      await updateTransactionByHash(item.id, this.props.context.publickey)
       const transaction = await this._getTransactionByHash(item.id)
       if (transaction.type === 'Participate') {
         const assetStore = await getAssetsStore()
@@ -553,6 +551,7 @@ class TransactionDetails extends React.Component {
       }
       this.setState({ item: transaction, refreshing: false })
     } catch (e) {
+      console.warn('err.', e.message)
       this.setState({refreshing: false})
       logSentry(e, 'Transaction Detail - on refresh')
     }
@@ -616,4 +615,4 @@ class TransactionDetails extends React.Component {
   }
 }
 
-export default TransactionDetails
+export default withContext(TransactionDetails)
