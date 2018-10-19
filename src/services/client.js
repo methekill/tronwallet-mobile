@@ -21,73 +21,12 @@ class ClientWallet {
     return isTestnet ? this.apiTest : this.api
   }
 
-  async getVoteCycle () {
-    const apiUrl = await this.getTronscanUrl()
-    const { data: {nextCycle} } = await axios.get(`${apiUrl}/vote/next-cycle`)
-    return nextCycle
-  }
-  async getTotalVotes () {
-    const apiUrl = await this.getTronscanUrl()
-    const { data } = await axios.get(`${apiUrl}/vote/current-cycle`)
-    const totalVotes = data.total_votes
-    const candidates = data.candidates
-      .sort((a, b) => a.votes > b.votes ? -1 : a.votes < b.votes ? 1 : 0)
-      .map((candidate, index) => ({ ...candidate, rank: index + 1 }))
-    return { totalVotes, candidates }
-  }
-
   async getTokenList (start, limit, name) {
     const apiUrl = await this.getTronscanUrl()
     const { data: { data } } = await axios.get(
       `${apiUrl}/token?sort=-name&start=${start}&limit=${limit}&name=%25${name}%25&status=ico`
     )
     return data
-  }
-
-  async getTransactionList (address) {
-    const apiUrl = await this.getTronscanUrl()
-    const tx = () =>
-      axios.get(
-        `${apiUrl}/transaction?sort=-timestamp&limit=50&address=${address}`
-      )
-    const tf = () =>
-      axios.get(
-        `${apiUrl}/transfer?sort=-timestamp&limit=50&address=${address}`
-      )
-    const transactions = await Promise.all([tx(), tf()])
-    const txs = transactions[0].data.data.filter(d => d.contractType !== 1)
-    const trfs = transactions[1].data.data.map(d => ({
-      ...d,
-      contractType: 1,
-      ownerAddress: address
-    }))
-    let sortedTxs = [...txs, ...trfs].sort((a, b) => b.timestamp - a.timestamp)
-    sortedTxs = sortedTxs.map(transaction => ({
-      type: this.getContractType(transaction.contractType),
-      ...transaction
-    }))
-    return sortedTxs
-  }
-
-  async fetchTransactionByHash (hash) {
-    const apiUrl = await this.getTronscanUrl()
-
-    const txResponse = await axios.get(`${apiUrl}/transaction/${hash}`)
-
-    if (txResponse.data.contractType <= 2) {
-      const tfResponse = await axios.get(`${apiUrl}/transfer/${hash}`)
-      return {
-        ...tfResponse.data,
-        contractType: 1,
-        ownerAddress: txResponse.data.ownerAddress,
-        type: 'Transfer'
-      }
-    }
-
-    return {
-      ...txResponse.data,
-      type: this.getContractType(txResponse.data.contractType)
-    }
   }
 
   //* ============TronWalletServerless Api============*//

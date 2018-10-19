@@ -42,16 +42,16 @@ export const updateTransactionByHash = async (hash, address) => {
 }
 
 const createTransaction = (item, address) => {
-  const timestamp = item.timestamp || (`${item.time}`.length > 14 ? item.time / 1000000 : item.time)
+  const blockNumber = item.block ? item.block.number : null
   const transaction = {
     id: item.hash,
     type: item.type,
-    contractData: item.contractData,
+    contractData: {},
     ownerAddress: address,
     confirmed: true,
-    timestamp
+    block: blockNumber,
+    timestamp: new Date(item.createdAt).getTime()
   }
-  if (item.block) transaction.block = item.block
   if (item.type === 'Transfer') {
     transaction.id = item.hash
     transaction.contractData = {
@@ -63,17 +63,29 @@ const createTransaction = (item, address) => {
   }
   if (item.type === 'Create') {
     transaction.contractData = {
-      ...transaction.contractData,
-      tokenName: item.contractData.name,
-      unityValue: item.contractData.trxNum
+      tokenName: item.name,
+      unityValue: item.trxNum,
+      totalSupply: item.totalSupply,
+      startTime: item.startTime,
+      endTime: item.endTime,
+      description: item.description
     }
   }
   if (item.type === 'Participate') {
     transaction.contractData = {
-      ...transaction.contractData,
       tokenName: item.assetName,
       transferFromAddress: item.toAddress,
       amount: item.amount
+    }
+  }
+  if (item.type === 'Freeze') {
+    transaction.contractData = {
+      frozenBalance: item.frozenBalance
+    }
+  }
+  if (item.type === 'Vote') {
+    transaction.contractData = {
+      votes: item.votesList
     }
   }
 
