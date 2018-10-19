@@ -130,19 +130,21 @@ class ClientWallet {
     const { data: result } = await axios.post(`${this.tronwalletDB}/transactions/find`, reqBody)
     return result.map(tx =>
       tx.contractType <= 2
-        ? {...tx, contractType: 1, type: 'Transfer', owner: address}
-        : {...tx, type: this.getContractType(tx.contractType), owner: address})
+        ? {...tx, contractType: 1, type: 'Transfer'}
+        : {...tx, type: this.getContractType(tx.contractType)})
   }
-  async getTransactionByHash (hash) {
-    const { data: result } = await axios.get(`${this.tronwalletApi}/transaction/${hash}`)
-    if (result.contractType <= 2) {
-      return {
-        ...result,
-        contractType: 1,
-        type: 'Transfer'
-      }
+
+  async getTransactionByHash (hash, address) {
+    const reqBody = { hash }
+    const { data: result } = await axios.post(`${this.tronwalletDB}/transactions/find/`, reqBody)
+
+    if (result.length) {
+      const transactionDetail = result[0]
+      return transactionDetail.contractType <= 2
+        ? {...transactionDetail, contractType: 1, type: 'Transfer', confirmed: true}
+        : {...transactionDetail, type: this.getContractType(transactionDetail.contractType), confirmed: true}
     } else {
-      return result
+      return { confirmed: false }
     }
   }
 

@@ -24,16 +24,16 @@ export const updateTransactions = async (address) => {
   const store = await getTransactionStore()
   store.write(() =>
     transactions.map(item => {
-      const transaction = createTransaction(item)
+      const transaction = createTransaction(item, address)
       store.create('Transaction', transaction, true)
     })
   )
 }
 
-export const updateTransactionByHash = async (hash) => {
+export const updateTransactionByHash = async (hash, address) => {
   const item = await Client.getTransactionByHash(hash)
   if (item.confirmed) {
-    const transaction = createTransaction(item)
+    const transaction = createTransaction(item, address)
     const store = await getTransactionStore()
     store.write(() => {
       store.create('Transaction', transaction, true)
@@ -41,14 +41,13 @@ export const updateTransactionByHash = async (hash) => {
   }
 }
 
-const createTransaction = (item) => {
+const createTransaction = (item, address) => {
   const timestamp = item.timestamp || (`${item.time}`.length > 14 ? item.time / 1000000 : item.time)
-
   const transaction = {
     id: item.hash,
     type: item.type,
     contractData: item.contractData,
-    ownerAddress: item.owner,
+    ownerAddress: address,
     confirmed: true,
     timestamp
   }
@@ -72,8 +71,9 @@ const createTransaction = (item) => {
   if (item.type === 'Participate') {
     transaction.contractData = {
       ...transaction.contractData,
-      tokenName: item.contractData.token,
-      transferFromAddress: item.contractData.toAddress
+      tokenName: item.assetName,
+      transferFromAddress: item.toAddress,
+      amount: item.amount
     }
   }
 

@@ -34,6 +34,7 @@ import { formatFloat } from '../../utils/numberUtils'
 import getAssetsStore from '../../store/assets'
 import { logSentry } from '../../utils/sentryUtils'
 import onBackgroundHandler from '../../utils/onBackgroundHandler'
+import { withContext } from '../../store/context'
 
 class TransactionDetails extends React.Component {
   static navigationOptions = () => ({header: null})
@@ -544,7 +545,7 @@ class TransactionDetails extends React.Component {
     const { item } = this.state
     this.setState({ refreshing: true })
     try {
-      await updateTransactionByHash(item.id)
+      await updateTransactionByHash(item.id, this.props.context.publickey)
       const transaction = await this._getTransactionByHash(item.id)
       if (transaction.type === 'Participate') {
         const assetStore = await getAssetsStore()
@@ -553,6 +554,7 @@ class TransactionDetails extends React.Component {
       }
       this.setState({ item: transaction, refreshing: false })
     } catch (e) {
+      console.warn('err.', e.message)
       this.setState({refreshing: false})
       logSentry(e, 'Transaction Detail - on refresh')
     }
@@ -616,4 +618,4 @@ class TransactionDetails extends React.Component {
   }
 }
 
-export default TransactionDetails
+export default withContext(TransactionDetails)
