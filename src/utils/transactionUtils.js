@@ -20,7 +20,7 @@ export const signTransaction = async (privateKey, transactionUnsigned) => {
 }
 
 export const updateTransactions = async (address) => {
-  const transactions = await Client.getTransactionList(address)
+  const transactions = await Client.getTransactionsList(address)
   const store = await getTransactionStore()
   store.write(() =>
     transactions.map(item => {
@@ -42,22 +42,24 @@ export const updateTransactionByHash = async (hash) => {
 }
 
 const createTransaction = (item) => {
+  const timestamp = item.timestamp || (`${item.time}`.length > 14 ? item.time / 1000000 : item.time)
+
   const transaction = {
     id: item.hash,
     type: item.type,
-    block: item.block,
     contractData: item.contractData,
-    ownerAddress: item.ownerAddress,
-    timestamp: item.timestamp,
-    confirmed: true
+    ownerAddress: item.owner,
+    confirmed: true,
+    timestamp
   }
+  if (item.block) transaction.block = item.block
   if (item.type === 'Transfer') {
-    transaction.id = item.transactionHash || item.hash
+    transaction.id = item.hash
     transaction.contractData = {
-      transferFromAddress: item.ownerAddress || item.transferFromAddress,
-      transferToAddress: item.toAddress || item.transferToAddress,
+      transferFromAddress: item.ownerAddress,
+      transferToAddress: item.toAddress,
       amount: item.amount,
-      tokenName: item.assetName || item.tokenName
+      tokenName: item.assetName || 'TRX'
     }
   }
   if (item.type === 'Create') {

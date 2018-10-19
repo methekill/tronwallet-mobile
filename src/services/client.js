@@ -11,6 +11,7 @@ class ClientWallet {
     this.apiTest = Config.API_URL
     this.notifier = Config.NOTIFIER_API_URL
     this.tronwalletApi = Config.TRONWALLET_API
+    this.tronwalletDB = Config.TRONWALLET_DB
   }
 
   //* ============TronScan Api============*//
@@ -112,9 +113,8 @@ class ClientWallet {
   }
 
   async getFreeze (address) {
-    const apiUrl = this.tronwalletApi
     const { data: { frozen, bandwidth, balances } } = await axios.get(
-      `${apiUrl}/account/${address}`
+      `${this.tronwalletApi}/account/${address}`
     )
     return { ...frozen, total: frozen.total / ONE_TRX, bandwidth, balances }
   }
@@ -125,9 +125,16 @@ class ClientWallet {
     return result
   }
 
+  async getTransactionsList (address) {
+    const reqBody = { '$or': [{ 'toAddress': address }, { 'ownerAddress': address }] }
+    const { data: result } = await axios.post(`${this.tronwalletDB}/transactions/find`, reqBody)
+    return result.map(tx =>
+      tx.contractType <= 2
+        ? {...tx, contractType: 1, type: 'Transfer', owner: address}
+        : {...tx, type: this.getContractType(tx.contractType), owner: address})
+  }
   async getTransactionByHash (hash) {
-    const apiUrl = this.tronwalletApi
-    const { data: result } = await axios.get(`${apiUrl}/transaction/${hash}`)
+    const { data: result } = await axios.get(`${this.tronwalletApi}/transaction/${hash}`)
     if (result.contractType <= 2) {
       return {
         ...result,
