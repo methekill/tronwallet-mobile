@@ -218,7 +218,7 @@
       "notFound": "Aktiva nenalezena"
     },
     "warning": "Nemáte dostatek TRX ke koupi tolika {{token}}",
-    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
+    "enterAmountToBuy": "ZADEJTE MNOŽSTVÍ K NÁKUPU",
     "amountToBuy": "KOUPIT MNOŽSTVÍ",
     "pricePerToken": "CENA ZA TOKEN",
     "tokenDescription": "POPIS TOKENU",
