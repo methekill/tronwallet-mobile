@@ -370,23 +370,23 @@
     },
     "reset": {
       "title": "Ripristina Portafoglio",
-      "warning": "Avvertenza: questa azione cancellerà tutti i dati salvati incluse le 12 parole segrete. Se non hai salvato il tuo segreto, fallo prima di continuare.",
-      "button": "OK, lo capisco"
+      "warning": "Avvertenza: questa azione cancellerà tutti i dati salvati incluse le 12 parole segrete. Se non hai salvato le tue parole segrete, fallo ora prima di continuare.",
+      "button": "OK, ho capito"
     },
     "pin": {
       "title": "Cambia Pin",
       "success": "Pin cambiato con successo!"
     },
     "language": {
-      "title": "linguaggio",
+      "title": "Lingua",
       "choose": "Per favore, scegli una lingua qui sotto:",
       "success": {
         "title": "Lingua modificata a {{language}}",
         "description": "Tuttavia, è comunque necessario riavviare l'app in modo che le modifiche possano avere effetto. Ti piacerebbe farlo ora?"
       },
       "button": {
-        "confirm": "Sì, ricomincia da capo!",
-        "cancel": "No, lo farò dopo"
+        "confirm": "Sì, riavvia adesso!",
+        "cancel": "No, lo farò più tardi"
       },
       "error": "Errore durante il salvataggio della lingua preferita"
     },
@@ -397,7 +397,7 @@
       "noResult": "Nessun risultato..."
     },
     "about": {
-      "title": "Di",
+      "title": "A proposito di",
       "description": "TronWallet è un portafoglio Crypto P2P completamente decentralizzato open source per TRON Network realizzato con React Native. Con esso è possibile inviare e ricevere token, votare un Super Rappresentante, partecipare a una vendita di token, tenere traccia dei propri saldi e transazioni e molto altro ancora. Toccare il link sottostante per un tutorial dettagliato su come usarlo.",
       "tutorial": "TUTORIAL"
     },
