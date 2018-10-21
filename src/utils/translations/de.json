@@ -415,11 +415,11 @@
     },
     "partners": "PARTNER",
     "askPin": "Immer nach der PIN fragen",
-    "askBiometry": "Aktivieren Sie Ihren Fingerabdruck",
-    "verifiedTokensOnly": "Nur überprüfte Tokens"
+    "askBiometry": "Aktivieren Sie Biometrie",
+    "verifiedTokensOnly": "Nur verifizierten Tokens"
   },
   "submitTransaction": {
-    "title": "DETAILS DER TRANSAKTION",
+    "title": "EINZELHEITEN DER TRANSAKTION",
     "notification": "Sie haben eine Transaktion von {{address}} erhalten",
     "notificationPayment": "Sie haben eine Zahlung von {{address}} erhalten",
     "data": "DATEN",
@@ -480,8 +480,8 @@
     "unfrozenBalance": "VERFÜGBARES GUTHABEN",
     "totalVotes": "STIMMEN INSGESAMT",
     "amount": "BETRAG",
-    "to": "An",
-    "from": "Von",
+    "to": "AN",
+    "from": "VON",
     "tokenName": "TOKENNAME",
     "unityValue": "EINHEITS WERT",
     "totalSupply": "GESAMTMENGE",
