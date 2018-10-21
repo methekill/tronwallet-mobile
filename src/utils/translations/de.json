@@ -129,16 +129,16 @@
   "addressBook": {
     "title": "ADRESSBUCH",
     "shared": {
-      "add": "Hinzufügen",
-      "edit": "Bearbeiten",
-      "delete": "Löschen",
-      "send": "Senden"
+      "add": "HINZUFÜGEN",
+      "edit": "BEARBEITEN",
+      "delete": "LÖSCHEN",
+      "send": "SENDEN"
     },
     "contacts": {
       "title": "KONTAKTE",
       "delete": {
         "title": "Kontakt löschen",
-        "message": "Möchten Sie den Kontakt wirklich löschen?",
+        "message": "Möchten Sie diesen Kontakt wirklich löschen?",
         "cancelButton": "Abbrechen",
         "okButton": "OK"
       },
@@ -151,8 +151,8 @@
       "generalError": "Es gab ein Problem bei der Übermittlung des Formulars. Bitte kontaktieren Sie einen Administrator.",
       "nameError": "Das Namensfeld muss mit einem Buchstaben beginnen, darf maximal 32 Zeichen enthalten und akzeptiert nur Buchstaben, Zahlen und Leerzeichen.",
       "addressError": "Etwas stimmt nicht mit der Adresse. Bitte überprüfen Sie diese auf Tippfehler.",
-      "uniqueAddressError": "Der Schlüssel muss eindeutig sein. Bitte wählen Sie eine andere Adresse.",
-      "uniqueAliasError": "Namen in Ihrem Adressbuch müssen eindeutig sein. Bitte wählen Sie einen anderen aus.",
+      "uniqueAddressError": "Der Schlüssel muss einzigartig sein. Bitte wählen Sie eine andere Adresse.",
+      "uniqueAliasError": "Namen in Ihrem Adressbuch müssen einzig sein. Bitte wählen Sie einen anderen aus.",
       "name": "NAME",
       "address": "ADRESSE"
     }
@@ -169,7 +169,7 @@
     "title": "EINFRIEREN",
     "unfreeze": {
       "title": "FREIGEBEN",
-      "inThreeDays": "Nach einem Zeitraum von drei Tagen können Sie Ihre TRX freigeben",
+      "inThreeDays": "Nach einem Zeitraum von drei Tagen können Sie Ihre TRX auftauen und freigeben",
       "inXMinutes": "Sie können Ihre TRX in {{minutes}} Minuten freigeben.",
       "inXHours": "Sie können Ihre TRX in {{hours}} Stunden freigeben.",
       "inXDays": "Sie können Ihre TRX in {{days}} Tagen freigeben.",
