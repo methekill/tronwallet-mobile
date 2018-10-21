@@ -180,26 +180,26 @@
       "insufficientBalance": "Saldo TRX insufficiente",
       "roundNumbers": "Si possono congelare solo numeri interi"
     },
-    "amount": "CONGELA QUANTITÀ",
-    "balance": "Bilancio"
+    "amount": "CONGELA AMMONTARE",
+    "balance": "Saldo"
   },
   "getVault": {
-    "notInstalled": "Sembra che tu non abbia installato Tron Vault nel tuo telefono per procedere con la tua transazione.",
+    "notInstalled": "Sembra che tu non abbia installato Tron Vault nel tuo telefono per poter procedere con la tua transazione.",
     "downloadHere": "Potete scaricarlo qui"
   },
   "market": {
     "time": {
-      "hour": "1H",
-      "day": "1D",
-      "week": "1W",
-      "month": "1M",
-      "all": "TUTTI"
+      "hour": "1ORA",
+      "day": "1GIORNO",
+      "week": "1SETTIMANA",
+      "month": "1MESE",
+      "all": "TUTTO"
     },
     "highest": "IL PIU' ALTO",
     "lowest": "IL PIU' BASSO",
-    "volume": "VOLUME 24H",
-    "cap": "MARKET CAP",
-    "supply": "FORNITURA CIRCOLANTE"
+    "volume": "VOLUME 24 ORE",
+    "cap": "CAPITALIZZAZIONE MERCATO",
+    "supply": "LIQUIDITÀ CIRCOLANTE"
   },
   "participate": {
     "title": "PARTECIPARE",
