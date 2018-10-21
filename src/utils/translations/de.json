@@ -52,7 +52,7 @@
   "skip": "Überspringen",
   "privateKey": "Privater Schlüssel",
   "results": "Ergebnisse",
-  "buy": "Buy",
+  "buy": "Kaufen",
   "filter": "Filter",
   "txs": "Transaktionen",
   "balance": {
@@ -218,7 +218,7 @@
       "notFound": "Asset(s) nicht gefunden"
     },
     "warning": "Sie haben nicht genügend TRX, um diese Menge {{token}} zu kaufen",
-    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
+    "enterAmountToBuy": "Kaufbetrag einfügen",
     "amountToBuy": "Menge kaufen",
     "pricePerToken": "PREIS PRO TOKEN",
     "tokenDescription": "TOKEN BESCHREIBUNG",
@@ -403,6 +403,9 @@
     },
     "accepts": {
       "title": "Wer akzeptiert TRX?"
+    },
+    "helpCenter": {
+      "title": "Help Center"
     },
     "accounts": {
       "title": "Konten",
