@@ -148,8 +148,8 @@
       "addToContacts": "AGGIUNGI AI CONTATTI"
     },
     "form": {
-      "generalError": "Si è verificato un problema durante l'invio di questo modulo. Si prega di contattare un amministratore.",
-      "nameError": "Il campo del nome deve iniziare con una lettera, contenere un massimo di 32 caratteri e accetta solo lettere, numeri e spazi bianchi.",
+      "generalError": "Si è verificato un problema durante il caricamento di questo modulo. Si prega di contattare un amministratore.",
+      "nameError": "Lo spazio per il nome deve iniziare con una lettera, contenere al massimo 32 caratteri e accetta solo lettere, numeri e spazi vuoti.",
       "addressError": "Qualcosa non va con l'indirizzo. Si prega di ricontrollare per errori di battitura.",
       "uniqueAddressError": "La chiave deve essere unica. Si prega di scegliere un indirizzo diverso.",
       "uniqueAliasError": "I nomi nella tua rubrica devono essere unici. Per favore sceglierne uno diverso.",
