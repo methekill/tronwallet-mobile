@@ -86,15 +86,15 @@
       "setVote": "IMPOSTA I VOTI",
       "moreVotes": "Se hai bisogno di più voti puoi congelare più TRX.",
       "confirmVotes": "CONFERMA VOTI",
-      "yourVotes": "I tuoi Voti",
+      "yourVotes": "I tuoi voti",
       "myVotes": "I MIEI VOTI",
       "confirm": "CONFERMA",
       "freeze": "Congela",
       "totalVotes": "Voti totali disponibili:",
-      "delete": "CANCELLA",
+      "delete": "ELIMINA",
       "set": "IMPOSTA",
       "freezeOrLower": "Non hai abbastanza TRX congelati. Congela più TRX o diminuisci l'importo del voto",
-      "freezeToContinue": "Non hai abbastanza TRX congelati. Congelare più TRX per continuare"
+      "freezeToContinue": "Non hai abbastanza TRX congelati. Congela più TRX per continuare"
     }
   },
   "firstTime": {
@@ -122,7 +122,7 @@
       },
       "multipleaccounts": {
         "title": "CONTI MULTIPLI",
-        "body": "Puoi gestire più account\n nel tuo portafoglio"
+        "body": "Puoi gestire più conti\n nel tuo portafoglio"
       }
     }
   },
@@ -130,7 +130,7 @@
     "title": "RUBRICA",
     "shared": {
       "add": "AGGIUNGI",
-      "edit": "EDITA",
+      "edit": "MODIFICA",
       "delete": "CANCELLA",
       "send": "INVIA"
     },
@@ -144,7 +144,7 @@
       },
       "empty": "La tua rubrica è vuota, aggiungi un nuovo contatto usando il pulsante qui sotto.",
       "loadError": "Si è verificato un problema durante il caricamento dei contatti. Per favore riprova.",
-      "addContact": "Aggiungere un contatto",
+      "addContact": "Aggiungi un contatto",
       "addToContacts": "AGGIUNGI AI CONTATTI"
     },
     "form": {
