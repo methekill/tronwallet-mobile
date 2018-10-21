@@ -25,10 +25,10 @@
   "restore": "Ripristinare",
   "error": {
     "default": "Woops qualcosa è andato storto. Riprovate più tardi e se l'errore persiste provate ad aggiornare le impostazioni di rete.",
-    "buildingTransaction": "Errore durante la creazione della transazione, riprovare.",
-    "gettingTransaction": "Errore durante il recupero della transazione.",
-    "clipboardCopied": "Qualcosa non funziona mentre copi",
-    "hideAccount": "È andato storto qualcosa, cancellando l'account, riprova"
+    "buildingTransaction": "Si è verificato un errore durante \nla creazione della transazione. \nRiprovate di nuovo.",
+    "gettingTransaction": "Errore durante la ricezione della transazione.",
+    "clipboardCopied": "Qualcosa non ha funzionato mentre usi “copia”",
+    "hideAccount": "Qualcosa è andato storto durante la cancellazione dell'account, riprova."
   },
   "tronPower": "TRON POWER",
   "trxPrice": "Prezzo TRX",
