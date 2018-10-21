@@ -279,16 +279,16 @@
     },
     "create": {
       "title": "CREA SEME",
-      "titleConfirm": "CONFERMA SEMI WALLET",
+      "titleConfirm": "CONFERMA I SEMI DEL PORTAFOGLIO",
       "error": "Oops, abbiamo un problema Si prega di riavviare l'applicazione.",
       "generateNew": "Questo genererà un portafoglio completamente nuovo.",
       "button": {
-        "written": "L'HO SCRITTO",
+        "written": "L'HO RISCRITTO",
         "newSeed": "OTTIENI NUOVI SEMI",
         "later": "Conferma più tardi"
       },
-      "backupMessage": "Puoi sempre accedere alle tue parole accedendo al backup nelle impostazioni dell'app      ",
-      "seedExplanation": "La chiave del seme è una rappresentazione leggibile dal tuo portafoglio. Quelle parole, in quell'ordine esatto, possono essere utilizzate per ricreare il tuo portafoglio."
+      "backupMessage": "Puoi sempre accedere alle tue parole entrando nel backup nelle impostazioni dell’applicazione",
+      "seedExplanation": "La chiave dei semi è una rappresentazione leggibile dal tuo portafoglio. Quelle parole, in quell'ordine esatto, possono essere utilizzate per ricreare il tuo portafoglio."
     },
     "restore": {
       "title": "RIPRISTINA IL PORTAFOGLIO",
