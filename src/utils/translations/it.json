@@ -150,15 +150,15 @@
     "form": {
       "generalError": "Si è verificato un problema durante il caricamento di questo modulo. Si prega di contattare un amministratore.",
       "nameError": "Lo spazio per il nome deve iniziare con una lettera, contenere al massimo 32 caratteri e accetta solo lettere, numeri e spazi vuoti.",
-      "addressError": "Qualcosa non va con l'indirizzo. Si prega di ricontrollare per errori di battitura.",
-      "uniqueAddressError": "La chiave deve essere unica. Si prega di scegliere un indirizzo diverso.",
-      "uniqueAliasError": "I nomi nella tua rubrica devono essere unici. Per favore sceglierne uno diverso.",
+      "addressError": "C’è aualcosa di sbagliato con l'indirizzo. Si prega di ricontrollare per correggere errori di digitazione.",
+      "uniqueAddressError": "La chiave deve essere unica. Si prega di scegliere un indirizzo differente.",
+      "uniqueAliasError": "I nomi nella tua rubrica devono essere unici. \nSi prega di sceglierne uno differente.",
       "name": "NOME",
       "address": "INDIRIZZO"
     }
   },
   "importWallet": {
-    "title": "PORTAFOGLIO IMPORT",
+    "title": "IMPORTA PORTAFOGLIO",
     "message": "Se hai la chiave privata e l'indirizzo del tuo portafoglio puoi recuperarlo qui, ma tieni presente che TronWallet opera principalmente con mnemonici. Questo metodo di ripristino disabiliterà alcune funzionalità all'interno dell'App.",
     "button": "IMPORTARE",
     "error": {
@@ -166,7 +166,7 @@
     }
   },
   "freeze": {
-    "title": "CONGELARE",
+    "title": "CONGELA",
     "unfreeze": {
       "title": "SCONGELARE",
       "inThreeDays": "Dopo un periodo di tre giorni puoi sbloccare il tuo TRX",
@@ -176,9 +176,9 @@
       "now": "Puoi sbloccare il tuo TRX ora."
     },
     "error": {
-      "minimumAmount": "L'importo minimo per qualsiasi operazione di blocco è 1.",
-      "insufficientBalance": "Equilibrio TRX insufficiente",
-      "roundNumbers": "Può solo congelare numeri interi"
+      "minimumAmount": "L'importo minimo per qualsiasi operazione di congelamento è 1.",
+      "insufficientBalance": "Saldo TRX insufficiente",
+      "roundNumbers": "Si possono congelare solo numeri interi"
     },
     "amount": "CONGELA QUANTITÀ",
     "balance": "Bilancio"
