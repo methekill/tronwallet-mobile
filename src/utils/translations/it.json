@@ -297,14 +297,14 @@
       "success": "Portafoglio ripristinato con successo!",
       "warning": "Ripristinare le parole segrete cancellerà tutti i dati su questo dispositivo e recupererà le informazioni dalla rete per l'account ripristinato.",
       "error": "Ops. Sembra che le parole che hai digitato non siano parole mnemoniche valide. Correggi gli errori e riprova.",
-      "button": "RISTABILIRE"
+      "button": "RIPRISTINARE"
     }
   },
   "send": {
     "title": "INVIARE",
     "error": {
-      "insufficientBalance": "Non abbastanza equilibrio.",
-      "gettingBalance": "Errore durante il recupero dei dati di equilibrio",
+      "insufficientBalance": "Fondi insufficienti.",
+      "gettingBalance": "Errore durante il recupero dei dati sul saldo",
       "incompleteAddress": "L'indirizzo è incompleto o non valido.",
       "invalidReceiver": "Indirizzo del destinatario non valido",
       "selectBalance": "Seleziona prima un saldo",
@@ -313,7 +313,7 @@
     "input": {
       "token": "GETTONE",
       "to": "A",
-      "amount": "QUANTITÀ",
+      "amount": "IMPORTO",
       "description": "DESCRIZIONE (FACOLTATIVA)"
     },
     "available": "a disposizione",
