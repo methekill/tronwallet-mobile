@@ -265,7 +265,7 @@
   },
   "seed": {
     "confirm": {
-      "title": "CONFERMA SEME",
+      "title": "CONFERMA PAROLA SEGRETA",
       "error": {
         "title": "Combinazione errata",
         "message": "Le parole selezionate non corrispondono. Assicurati di aver scritto le parole nell'ordine corretto."
@@ -288,15 +288,15 @@
         "later": "Conferma più tardi"
       },
       "backupMessage": "Puoi sempre accedere alle tue parole entrando nel backup nelle impostazioni dell’applicazione",
-      "seedExplanation": "La chiave con parole segrete è una rappresentazione leggibile dal tuo portafoglio. Quelle parole, in quell'ordine esatto, possono essere utilizzate per ricreare il tuo portafoglio."
+      "seedExplanation": "Il codice con parole segrete è una rappresentazione leggibile dal tuo portafoglio. Quelle parole, in quell'ordine esatto, possono essere utilizzate per ricreare il tuo portafoglio."
     },
     "restore": {
       "title": "RIPRISTINA IL PORTAFOGLIO",
       "explanation": "Per ripristinare il tuo portafoglio, ti preghiamo di fornire le stesse 12 parole che hai scritto su carta quando hai creato il tuo portafoglio per la prima volta. Se inserisci una sequenza diversa di parole, verrà creato un nuovo portafoglio vuoto.",
       "placeholder": "Per favore, scrivi le tue 12 parole segrete qui",
-      "success": "Portafoglio restaurato con successo!",
-      "warning": "Ripristina seed cancellerà tutti i dati su questo dispositivo e recupererà le informazioni dalla rete per l'account ripristinato.",
-      "error": "Ops. Sembra che le parole che hai digitato non siano un seme mnemonico valido. Controlla un errore e riprova.",
+      "success": "Portafoglio ripristinato con successo!",
+      "warning": "Ripristinare le parole segrete cancellerà tutti i dati su questo dispositivo e recupererà le informazioni dalla rete per l'account ripristinato.",
+      "error": "Ops. Sembra che le parole che hai digitato non siano parole mnemoniche valide. Correggi gli errori e riprova.",
       "button": "RISTABILIRE"
     }
   },
