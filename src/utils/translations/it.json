@@ -345,17 +345,17 @@
         "success": {
           "updated": "Aggiornato",
           "updatedIp": "IP dei nodi aggiornati !",
-          "switchTest": "Passare dai nodi IP a Testnet",
-          "switchMain": "Commutazione dei nodi IP su default principale",
-          "reset": "Nodo IP resettato!"
+          "switchTest": "Passaggio dai nodi IP a Testnet",
+          "switchMain": "Passaggio dai nodi IP a rete principale",
+          "reset": "Nodo IP ripristinato!"
         },
         "placeholder": {
-          "loadingIp": "Carico IP",
-          "loadingPort": "Porto di carico"
+          "loadingIp": "Caricare IP",
+          "loadingPort": "Caricare Porta"
         },
         "button": {
           "update": "Aggiorna e Connetti",
-          "reset": "Reset"
+          "reset": "Ripristinare"
         },
         "mainNode": "Nodo principale",
         "solidityNode": "Nodo di solidità",
@@ -363,13 +363,13 @@
       }
     },
     "backup": {
-      "title": "Portafoglio di backup"
+      "title": "Backup del Portafoglio"
     },
     "restore": {
-      "title": "Restore Wallet"
+      "title": "Ristabilire Portafoglio"
     },
     "reset": {
-      "title": "Ripristina Wallet",
+      "title": "Ripristina Portafoglio",
       "warning": "Avvertenza: questa azione cancellerà tutti i dati salvati incluse le 12 parole segrete. Se non hai salvato il tuo segreto, fallo prima di continuare.",
       "button": "OK, lo capisco"
     },
