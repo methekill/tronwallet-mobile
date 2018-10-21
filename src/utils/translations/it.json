@@ -1,6 +1,6 @@
 {
   "relativeTime": {
-    "future": "in %s",
+    "future": "in %s percentuale",
     "past": "%s fa",
     "s": "pochi secondi",
     "ss": "%d secondi",
@@ -52,7 +52,7 @@
   "skip": "Salta",
   "privateKey": "Chiave privata",
   "results": "Risultati",
-  "buy": "Buy",
+  "buy": "Compra",
   "filter": "Filtro",
   "txs": "Transizioni",
   "balance": {
@@ -218,7 +218,7 @@
       "notFound": "Asset(s) non trovato"
     },
     "warning": "Non hai abbastanza TRX per comprare così tanti {{token}}",
-    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
+    "enterAmountToBuy": "Immettere liquidità",
     "amountToBuy": "IMPORTO DA ACQUISTARE",
     "pricePerToken": "PREZZO PER TOKEN",
     "tokenDescription": "DESCRIZIONE TOKEN",
@@ -237,7 +237,7 @@
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "BLOCCO",
-    "balance": "BALANCE",
+    "balance": "Saldo",
     "searchPreview": "Token in evidenza"
   },
   "pin": {
@@ -404,6 +404,9 @@
     "accepts": {
       "title": "Chi accetta TRX?"
     },
+    "helpCenter": {
+      "title": "Centro assistenza"
+    },
     "accounts": {
       "title": "conti",
       "search": "Cerca account",
@@ -413,7 +416,7 @@
     "partners": "PARTNER",
     "askPin": "Chiedi sempre il PIN",
     "askBiometry": "Attiva la biometria",
-    "verifiedTokensOnly": "Verified tokens only"
+    "verifiedTokensOnly": "Solo tokens verificati"
   },
   "submitTransaction": {
     "title": "DETTAGLI DI TRANSAZIONE",
@@ -498,7 +501,7 @@
     "search": "Cerca",
     "searchPreview": "Suggerimenti - I più votati",
     "error": "Spiacenti, qualcosa non è stato caricato correttamente. Prova a ricaricare",
-    "notFound": "Super Representative not found"
+    "notFound": "Super rappresentante non trovato"
   },
   "scanPayment": {
     "scan": "SCANSIONE",
