@@ -316,7 +316,7 @@
       "amount": "IMPORTO",
       "description": "DESCRIZIONE (FACOLTATIVA)"
     },
-    "available": "a disposizione",
+    "available": "disponibile",
     "chooseToken": "Per favore, scegli un token qui sotto.",
     "minimumAmount": "L'importo minimo per qualsiasi transazione di invio è 0.000001."
   },
@@ -325,21 +325,21 @@
     "sectionTitles": {
       "wallet": "PORTAFOGLIO",
       "security": "SICUREZZA",
-      "notification": "NOTIFICHE E IDIOM",
-      "accounts": "GESTIONE DEGLI ACCOUNT"
+      "notification": "NOTIFICHE E LINGUE",
+      "accounts": "GESTIONE DEI CONTI"
     },
     "notifications": {
-      "title": "notifiche"
+      "title": "Notifiche"
     },
     "network": {
       "title": "Rete",
       "modal": {
         "title": "RETE",
-        "explanation": "Con questa opzione puoi selezionare il nodo che meglio si adatta alle tue esigenze e preferenze. Si prega di fare attenzione durante l'aggiornamento del nodo IP, mentre l'IP errato può portare a malfunzionamenti all'interno del proprio portafoglio. Esempio: 35.231.121.122:50051",
+        "explanation": "Con questa opzione puoi selezionare il nodo che meglio si adatta alle tue esigenze e preferenze. Si prega di fare attenzione durante l'aggiornamento del nodo IP, perché l'IP errato porterà a malfunzionamenti all'interno del proprio portafoglio. Esempio: 35.231.121.122:50051",
         "error": {
-          "storage": "Errore durante il recupero dell'ip del nodo dalla memoria locale",
+          "storage": "Errore durante il recupero dell'ip del nodo dall’archivio locale",
           "invalidIp": "Si prega di inserire un IP valido",
-          "update": "Qualcosa è andato storto durante l'aggiornamento dei nodi ip",
+          "update": "Qualcosa è andato storto durante l'aggiornamento delle ip dei nodi",
           "reset": "Qualcosa non va mentre resetta il nodo ip"
         },
         "success": {
