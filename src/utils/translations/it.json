@@ -479,19 +479,19 @@
     "frozenBalance": "SALDO CONGELATO",
     "unfrozenBalance": "SALDO NON CONGELATO",
     "totalVotes": "VOTI TOTALI",
-    "amount": "QUANTITA'",
+    "amount": "IMPORTO",
     "to": "A",
     "from": "DA",
     "tokenName": "NOME DEL TOKEN",
     "unityValue": "VALORE UNITA'",
-    "totalSupply": "FORNITURA TOTALE",
-    "startTime": "TEMPO DI INIZIO",
+    "totalSupply": "DISPONIBILITÀ TOTALE",
+    "startTime": "ORA DI INIZIO",
     "endTime": "TEMPO FINALE",
     "description": "DESCRIZIONE",
-    "votedAddress": "INDIRIZZO VOTI"
+    "votedAddress": "INDIRIZZO VOTATO"
   },
   "transactionSuccess": {
-    "submitted": "TRANSAZIONE SOTTOMESSA IN RETE!",
+    "submitted": "TRANSAZIONE TRSMESSA IN RETE!",
     "success": "SUCCESSO!"
   },
   "votes": {
@@ -504,17 +504,17 @@
     "notFound": "Super rappresentante non trovato"
   },
   "scanPayment": {
-    "scan": "SCANSIONE",
+    "scan": "SCANSIONA",
     "error": {
       "receiver": "Indirizzo del destinatario non valido",
       "token": "Token non valido",
-      "amount": "Quantità non valida",
+      "amount": "Importo non valido",
       "description": "Descrizione troppo lunga",
-      "code": "Codice di pagamento non valido. Per favore, scansionane uno valido"
+      "code": "Codice di pagamento non valido. Per favore, scansionate uno valido"
     }
   },
   "makePayment": {
-    "pay": "PAGA",
+    "pay": "PAGARE",
     "confirm": "PAGAMENTO CONFERMATO",
     "error": {
       "receiver": "Il destinatario è uguale al richiedente",
