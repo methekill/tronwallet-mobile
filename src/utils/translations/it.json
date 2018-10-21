@@ -447,7 +447,7 @@
       "frozenBalance": "Totale da congelare"
     },
     "errorDic": {
-      "contractValidate": "Dati della transazione non validi. Per favore riprova più tardi.",
+      "contractValidate": "Dati della transazione non validi. \nSi prega di riprovare più tardi.",
       "signature": "Firma della transazione non valida.",
       "duplicate": "Transazione già trasmessa.",
       "contractValidateCee": "Dati transazione non validi (CEE). Per favore riprova più tardi.",
@@ -456,26 +456,26 @@
       "tooBig": "Transazione troppo grande per essere trasmessa.",
       "expiration": "Transazione scaduta. Per favore riprova.",
       "serverBusy": "Server occupato.",
-      "resource": "Larghezza di banda o quantità insufficiente. Potresti aver bisogno di TRX congelati."
+      "resource": "Larghezza di banda o saldo insufficiente. Potresti aver bisogno dei TRX congelati."
     },
     "totalVotes": "Voti totali"
   },
   "transactions": {
-    "title": "LE MIE OPERAZIONI",
+    "title": "LE MIE TRANSAZIONI",
     "from": "Da",
     "to": "A",
     "notFound": "Nessuna transazione trovata."
   },
   "transactionDetails": {
-    "title": "TRANSIZIONE",
+    "title": "TRANSAZIONE",
     "clipboard": {
-      "tronscanUrl": "L'url di Tronscan per questa transazione è stato copiato negli appunti",
+      "tronscanUrl": "L'url di Tronscan per questa transazione è stata copiata negli appunti",
       "publicKey": "Chiave pubblica copiata negli appunti"
     },
     "hash": "HASH",
     "status": "STATO",
     "time": "TEMPO",
-    "block": "BLOCCHI",
+    "block": "BLOCCO",
     "frozenBalance": "SALDO CONGELATO",
     "unfrozenBalance": "SALDO NON CONGELATO",
     "totalVotes": "VOTI TOTALI",
