@@ -385,8 +385,8 @@
         "description": "Sie müssen Ihre App sowieso neu starten das die Änderungen wirksam werden. Wollen Sie dies jetzt tun?"
       },
       "button": {
-        "confirm": "Ja, starten Sie jetzt!",
-        "cancel": "Nein, Ich mache das später"
+        "confirm": "Ja, jetzt Neustarten!",
+        "cancel": "Nein, ich werde es später tun"
       },
       "error": "Fehler beim Speichern der bevorzugten Sprache"
     },
@@ -398,7 +398,7 @@
     },
     "about": {
       "title": "Über",
-      "description": "TronWallet ist eine open-Source, vollständig dezentrale P2P Crypto Wallet für das TRON Netzwerk geschaffen mit React Native. Mit dieser können Sie Token senden und empfangen, einen Super Vertreter wählen, an einem Token Verkauf teilnehmen, behalten den Überblick über Ihr Guthaben und Transaktionen und vieles mehr. Um zu erfahren wien man diese benutzt, tippen Sie auf den unten stehenden Link für eine detaillierte Anleitung.",
+      "description": "TronWallet ist eine open-Source, vollständig dezentrale P2P Crypto Wallet für das TRON Netzwerk geschaffen mit React Native. Mit dieser können Sie Token senden und empfangen, einen Super Repräsentant wählen, an einem Token Verkauf teilnehmen, einbehalten, den Überblick über Ihr Guthaben und Transaktionen und vieles mehr. Um zu erfahren wie man diese benutzt, tippen Sie auf den unten stehenden Link für eine detaillierte Anleitung.",
       "tutorial": "ANLEITUNG"
     },
     "accepts": {
