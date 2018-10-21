@@ -234,9 +234,9 @@
     "description": "DESCRIZIONE",
     "transaction": "TRANSAZIONE",
     "ownerAddress": "INDIRIZZO DEL PROPRIETARIO",
-    "trxNum": "TRX NUM",
-    "num": "NUM",
-    "block": "BLOCCO",
+    "trxNum": "NUMERO TRX",
+    "num": "NUMERO",
+    "block": "BLOCCA",
     "balance": "Saldo",
     "searchPreview": "Token in evidenza"
   },
@@ -244,18 +244,18 @@
     "title": "CONTROLLO DI SICUREZZA",
     "enter": "Inserisci PIN",
     "new": "Inserisci un nuovo PIN",
-    "reenter": "Re-inserisci PIN",
+    "reenter": "Inserisci PIN di nuovo",
     "biometrics": "Controllo biometrico"
   },
   "receive": {
-    "title": "RICEVI",
+    "title": "RICEVUTO",
     "clipboardCopied": "Copiato negli appunti",
     "button": {
       "copy": "Copia",
       "share": "Condividi"
     },
     "tabs": {
-      "share": "CONDIVIDERE",
+      "share": "CONDIVIDI",
       "request": "RICHIESTA"
     }
   },
@@ -273,7 +273,7 @@
       "success": "Portafoglio confermato con successo",
       "explanation": "Seleziona le parole qui sotto nel giusto ordine per confermare la tua frase segreta.",
       "button": {
-        "reset": "RESET PAROLE",
+        "reset": "REIMPOSTARE PAROLE",
         "confirm": "CONFERMA SEME"
       }
     },
