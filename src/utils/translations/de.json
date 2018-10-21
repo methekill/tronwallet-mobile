@@ -301,7 +301,7 @@
     }
   },
   "send": {
-    "title": "Senden",
+    "title": "SENDEN",
     "error": {
       "insufficientBalance": "Nicht genug Guthaben.",
       "gettingBalance": "Fehler beim Abrufen des Kontostandes",
@@ -321,11 +321,11 @@
     "minimumAmount": "Der Mindestbetrag für jede Sendetransaktion ist 0,000001."
   },
   "settings": {
-    "title": "Einstellungen",
+    "title": "EINSTELLUNGEN",
     "sectionTitles": {
-      "wallet": "Wallet",
+      "wallet": "WALLET",
       "security": "SICHERHEIT",
-      "notification": "BENACHRICHTIGUNGEN UND IDIOM",
+      "notification": "BENACHRICHTIGUNGEN UND SPRACHE",
       "accounts": "KONTENVERWALTUNG"
     },
     "notifications": {
@@ -358,12 +358,12 @@
           "reset": "Zurücksetzen"
         },
         "mainNode": "Hauptknoten",
-        "solidityNode": "Stabiler Knoten",
+        "solidityNode": "Stabilität Knoten",
         "testNet": "TestNet"
       }
     },
     "backup": {
-      "title": "Gesicherte Wallet"
+      "title": "Backup Wallet"
     },
     "restore": {
       "title": "Wallet Wiederherstellen"
@@ -379,10 +379,10 @@
     },
     "language": {
       "title": "Sprache",
-      "choose": "Bitte wählen Sie Ihre Sprache unten aus:",
+      "choose": "Bitte wählen Sie eine Sprache unten aus:",
       "success": {
         "title": "Sprache auf {{language}} geändert",
-        "description": "Sie müssen Ihre App neu starten um die Änderungen zu aktualsieren. Wollen Sie dies nun tun?"
+        "description": "Sie müssen Ihre App sowieso neu starten das die Änderungen wirksam werden. Wollen Sie dies jetzt tun?"
       },
       "button": {
         "confirm": "Ja, starten Sie jetzt!",
