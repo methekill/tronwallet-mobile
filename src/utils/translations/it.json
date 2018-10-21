@@ -340,12 +340,12 @@
           "storage": "Errore durante il recupero dell'ip del nodo dall’archivio locale",
           "invalidIp": "Si prega di inserire un IP valido",
           "update": "Qualcosa è andato storto durante l'aggiornamento delle ip dei nodi",
-          "reset": "Qualcosa non va mentre resetta il nodo ip"
+          "reset": "Qualcosa non ha funzionato durante il ripristino dell’ip del nodo"
         },
         "success": {
-          "updated": "aggiornato",
-          "updatedIp": "IP dei nodi aggiornato!",
-          "switchTest": "Commutazione dei nodi IP su Testnet",
+          "updated": "Aggiornato",
+          "updatedIp": "IP dei nodi aggiornati !",
+          "switchTest": "Passare dai nodi IP a Testnet",
           "switchMain": "Commutazione dei nodi IP su default principale",
           "reset": "Nodo IP resettato!"
         },
