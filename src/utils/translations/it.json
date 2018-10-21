@@ -515,7 +515,7 @@
   },
   "makePayment": {
     "pay": "PAGARE",
-    "confirm": "PAGAMENTO CONFERMATO",
+    "confirm": "CONFERMA PAGAMENTO",
     "error": {
       "receiver": "Il destinatario è uguale al richiedente",
       "token": "Questo account non ha il token per questa transazione",
@@ -524,29 +524,29 @@
     }
   },
   "buildPayment": {
-    "generate": "GENERA RICHIESTA",
+    "generate": "GENERARE RICHIESTA",
     "selectCurrency": "Seleziona la valuta di riferimento",
     "error": {
       "currency": "Non siamo stati in grado di caricare prezzi di altre valute. Si prega di utilizzare TRX come riferimento"
     }
   },
   "requestPayment": {
-    "title": "RICHIEDI PAGAMENTO"
+    "title": "RICHIESTA PAGAMENTO"
   },
   "newAccount": {
-    "title": "Creazione account",
-    "placeholder": "Il mio prezioso account",
+    "title": "Creazione Conto",
+    "placeholder": "Il mio conto prezioso",
     "success": {
-      "title": "Nuovo account creato con successo",
+      "title": "Nuovo conto creato con successo",
       "message": "Puoi modificare il nome sulla tua rubrica"
     },
     "failure": {
-      "title": "Nuovo avviso dell'account",
+      "title": "Nuovo avviso del conto",
       "message": "Per aggiungere un nuovo account dovresti avere almeno una transazione sul tuo ultimo account."
     }
   },
   "balanceToken": {
-    "updating": "Aggiornamento delle informazioni sui token. Si prega di attendere qualche secondo.",
+    "updating": "Aggiornamento delle informazioni del token. \nSi prega di attendere qualche secondo.",
     "notAvailable": "Informazioni sui token non disponibili"
   },
   "biometry": {
