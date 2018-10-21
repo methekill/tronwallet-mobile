@@ -237,7 +237,7 @@
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "BLOCK",
-    "balance": "BALANCE",
+    "balance": "GUTHABEN",
     "searchPreview": "Top Token"
   },
   "pin": {
@@ -405,7 +405,7 @@
       "title": "Wer akzeptiert TRX?"
     },
     "helpCenter": {
-      "title": "Help Center"
+      "title": "Hilfezentrum"
     },
     "accounts": {
       "title": "Konten",
@@ -416,7 +416,7 @@
     "partners": "PARTNER",
     "askPin": "Immer nach der PIN fragen",
     "askBiometry": "Aktivieren Sie Ihren Fingerabdruck",
-    "verifiedTokensOnly": "Verified tokens only"
+    "verifiedTokensOnly": "Nur überprüfte Tokens"
   },
   "submitTransaction": {
     "title": "DETAILS DER TRANSAKTION",
@@ -501,7 +501,7 @@
     "search": "Suche",
     "searchPreview": "Vorschläge - Meist gewählt",
     "error": "Hoppla, etwas wurde nicht korrekt geladen. Versuchen Sie, erneut zu laden",
-    "notFound": "Super Representative not found"
+    "notFound": "Super Representant nich gefunden"
   },
   "scanPayment": {
     "scan": "SCAN",
