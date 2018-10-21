@@ -47,8 +47,8 @@
   },
   "close": "Chiudi",
   "ends": "Terminare",
-  "clear": "Pulito",
-  "allIn": "All In",
+  "clear": "Chiarificare",
+  "allIn": "Tutto",
   "skip": "Salta",
   "privateKey": "Chiave privata",
   "results": "Risultati",
@@ -56,14 +56,14 @@
   "filter": "Filtro",
   "txs": "Transizioni",
   "balance": {
-    "title": "ACCOUNTS",
+    "title": "Conti",
     "error": {
       "loadingData": "Si è verificato un errore durante il caricamento dei dati.",
       "savingCurrency": "Errore durante il salvataggio della valuta preferita"
     },
     "chooseCurrency": "Per favore scegli la tua valuta preferita.",
     "confirmSeed": "Per favore tocca per confermare le tue 12 parole seed",
-    "bandwidth": "BANDA",
+    "bandwidth": "LARGHEZZA DI BANDA",
     "tokens": "TOKENS",
     "holdings": "HOLDINGS"
   },
