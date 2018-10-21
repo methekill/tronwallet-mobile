@@ -65,7 +65,7 @@
     "confirmSeed": "Per favore tocca per confermare le tue 12 parole seed",
     "bandwidth": "LARGHEZZA DI BANDA",
     "tokens": "TOKENS",
-    "holdings": "HOLDINGS"
+    "holdings": "Tenuti in custodia"
   },
   "hideAccount": "Stai per rimuovere questo account. Puoi ripristinarlo più tardi nelle impostazioni",
   "components": {
@@ -77,13 +77,13 @@
     "QRScanner": {
       "title": "Scanner degli indirizzi",
       "scan": "Scansione",
-      "explanation": "Eseguire la scansione del codice QR per identificare l'utente di destinazione",
-      "permissionMessage": "Per eseguire la scansione della chiave pubblica, l'app richiede la tua autorizzazione per accedere alla videocamera."
+      "explanation": "Eseguite la scansione del codice QR per identificare il destinatario",
+      "permissionMessage": "Per eseguire la scansione della chiave pubblica, l’applicazione richiede il tuo permesso per accedere alla videocamera."
     },
     "vote": {
       "enterVote": "INSERISCI IL VALORE DEL VOTO",
       "votesRemaining": "VOTI RIMANENTI",
-      "setVote": "DEFINISCI VOTI",
+      "setVote": "IMPOSTA I VOTI",
       "moreVotes": "Se hai bisogno di più voti puoi congelare più TRX.",
       "confirmVotes": "CONFERMA VOTI",
       "yourVotes": "I tuoi Voti",
