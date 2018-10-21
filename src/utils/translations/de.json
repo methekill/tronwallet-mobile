@@ -92,16 +92,16 @@
       "freeze": "Einfrieren",
       "totalVotes": "Anzahl verfügbarer Stimmen:",
       "delete": "Löschen",
-      "set": "Platzieren",
+      "set": "EINSTELLEN",
       "freezeOrLower": "Sie haben nicht genug eingefrorene TRX. Frieren Sie mehr TRX ein, oder senken Sie den Stimmenbetrag",
       "freezeToContinue": "Sie haben nicht genug eingefrorene TRX. Um fortzufahren, frieren Sie mehr TRX ein"
     }
   },
   "firstTime": {
     "button": {
-      "create": "Wallet erstellen",
+      "create": "WALLET ERSTELLEN",
       "restore": "WALLET WIEDERHERSTELLEN",
-      "import": "IMPORTIERE-WALLET"
+      "import": "IMPORTIERE WALLET"
     },
     "swiper": {
       "welcome": {
@@ -113,16 +113,16 @@
         "body": "Datenschutz und Sicherheit für \n Ihre Transaktionen"
       },
       "votes": {
-        "title": "ABSTIMMUNGEN",
-        "body": "Einfrieren und stimmen Sie für Super Vertreter"
+        "title": "STIMMEN",
+        "body": "Einfrieren und stimmen Sie für Super Repräsentanten"
       },
       "addressbook": {
         "title": "ADRESSBUCH",
         "body": "Speichern Sie die Adressen Ihrer Freunde \n und Kontakte."
       },
       "multipleaccounts": {
-        "title": "MEHRERE KONTEN",
-        "body": "Sie können mehrere Konten in Ihrer Wallet verwalten"
+        "title": "MEHRFACHEN KONTEN",
+        "body": "Sie können mehrfachen Konten in Ihrer Wallet verwalten"
       }
     }
   },
