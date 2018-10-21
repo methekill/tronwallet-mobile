@@ -71,23 +71,23 @@
   "components": {
     "share": {
       "title": "TronWallet Adresse teilen",
-      "message": "Dies ist meine TronWallet Adresse:\n\n {{address}}\n\nTipp: Sobald Sie diese kopiert haben, können Sie sie in Ihrer TronWallet-app, über die spezielle Taste am Sendebildschirm einfügen.",
+      "message": "Dies ist meine TronWallet Adresse:\n\n {{address}}\n\nTipp: Sobald Sie diese kopiert haben, können Sie sie in Ihrer TronWallet-app, über die spezielle Taste einfügen.",
       "dialogTitle": "Teilen Sie mit:"
     },
     "QRScanner": {
       "title": "Adressen-Scanner",
-      "scan": "Scan",
+      "scan": "Scannen",
       "explanation": "Scannen Sie den QRCode um den Empfänger zu verifizieren",
       "permissionMessage": "Um den öffentlichen Schlüssel zu scannen benötigt die App Ihre Berechtigung um auf die Kamera zugreifen zu können."
     },
     "vote": {
-      "enterVote": "Geben Sie die Abstimmungsbetrag ein",
-      "votesRemaining": "Verfügbare Abstimmungen",
-      "setVote": "Platziere Abstimmung",
+      "enterVote": "ABSTIMMUNGWERT EINGEBEN",
+      "votesRemaining": "VERFÜGBARE STIMMEN",
+      "setVote": "STiMMEN EINSTELLEN",
       "moreVotes": "Wenn Sie mehr Stimmen benötigen, können Sie mehr TRX einfrieren.",
-      "confirmVotes": "ABSTIMMUNG BESTÄTIGEN",
-      "yourVotes": "Ihre Abstimmung",
-      "myVotes": "Meine Abstimmung",
+      "confirmVotes": "ABSTIMMUNGEN BESTÄTIGEN",
+      "yourVotes": "Deine Stimmen",
+      "myVotes": "Meine Abstimmungen",
       "confirm": "BESTÄTIGEN",
       "freeze": "Einfrieren",
       "totalVotes": "Anzahl verfügbarer Stimmen:",
