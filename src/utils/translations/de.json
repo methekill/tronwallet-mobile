@@ -280,7 +280,7 @@
     "create": {
       "title": "ERSTELLEN DER GEHEIMEN WÖRTER",
       "titleConfirm": "GEHEIME WÖRTER DER WALLET BESTÄTIGEN",
-      "error": "Hoppla, haben wir ein Problem. Bitte starten Sie die Anwendung erneut.",
+      "error": "Hoppla, wir haben ein Problem. Bitte starten Sie die Anwendung erneut.",
       "generateNew": "Dies erzeugt eine völlig neue Wallet.",
       "button": {
         "written": "ICH HABE ES AUFGESCHRIEBEN",
@@ -288,7 +288,7 @@
         "later": "Später bestätigen"
       },
       "backupMessage": "Sie können jederzeit auf Ihre Wörter zugreifen, indem Sie in den App-Einstellungen auf das Backup zugreifen      ",
-      "seedExplanation": "Der Wörter-Schlüssel ist eine lesbare Darstellung Ihrer Wallet. Diese Worte können in genau dieser Reihenfolge verwendet werden, um Ihre Wallet neu zu erstellen."
+      "seedExplanation": "Der Wörter-Schlüssel ist eine lesbare Darstellung Ihrer Wallet. Diese Worte können in dieser Reihenfolge verwendet werden, um Ihre Wallet wieder herzustellen."
     },
     "restore": {
       "title": "WALLET WIEDERHERSTELLEN",
