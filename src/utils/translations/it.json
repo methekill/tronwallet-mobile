@@ -423,10 +423,10 @@
     "notification": "Hai ricevuto una transazione da {{address}}",
     "notificationPayment": "Hai ricevuto un pagamento da {{address}}",
     "data": "DATI",
-    "time": "TEMPO",
+    "time": "ORA",
     "button": {
       "tryAgain": "Riprova",
-      "submit": "INVIA LA TRANSAZIONE"
+      "submit": "INVIA TRANSAZIONE"
     },
     "error": {
       "noData": "Impossibile caricare i dati della transazione"
@@ -437,8 +437,8 @@
       "ownerAddress": "A partire dal",
       "toAddress": "A",
       "participateAssetIssueContract": "Partecipare",
-      "transferAssetContract": "Trasferimento",
-      "transferContract": "Trasferimento",
+      "transferAssetContract": "Trasferire",
+      "transferContract": "Trasferire",
       "unfreezeBalanceContract": "Scongela",
       "freezeBalanceContract": "Congela",
       "assetIssueContract": "Crea",
