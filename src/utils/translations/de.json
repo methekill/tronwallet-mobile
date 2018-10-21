@@ -181,7 +181,7 @@
       "roundNumbers": "Sie können nur Runde Zahlen einfrieren"
     },
     "amount": "BETRAG EINFRIEREN",
-    "balance": "Kontostand"
+    "balance": "Guthaben"
   },
   "getVault": {
     "notInstalled": "Es scheint, dass Sie die Tron Vault nicht auf Ihrem Telefon installiert haben, um mit Ihrer Buchung fortzufahren.",
@@ -203,14 +203,14 @@
   },
   "participate": {
     "title": "TEILNEHMEN",
-    "featured": "Gekennzeichnet",
+    "featured": "IM VORDERGRUND",
     "button": {
       "confirm": "BESTÄTIGEN",
       "moreInfo": "MEHR INFO",
       "buyNow": "JETZT KAUFEN"
     },
     "error": {
-      "insufficientBalance": "Nicht genügend Mittel (TRX) verfügbar.",
+      "insufficientBalance": "Nicht genügend Guthaben (TRX) verfügbar um teilzunehmen.",
       "insufficientTrx": {
         "title": "Sie müssen mindestens einen TRX Wert {{token}} kaufen.",
         "message": "Derzeit kaufen Sie nur {{amount}}."
