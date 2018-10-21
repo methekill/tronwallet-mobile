@@ -408,14 +408,14 @@
       "title": "Centro assistenza"
     },
     "accounts": {
-      "title": "conti",
-      "search": "Cerca account",
-      "restoreAccounts": "Ripristina account",
-      "noAccounts": "Nessun account da ripristinare"
+      "title": "Conti",
+      "search": "Cerca conto",
+      "restoreAccounts": "Ristabilire conto",
+      "noAccounts": "Nessun conto da ristabilire"
     },
-    "partners": "PARTNER",
+    "partners": "Soci",
     "askPin": "Chiedi sempre il PIN",
-    "askBiometry": "Attiva la biometria",
+    "askBiometry": "Attiva la Biometria",
     "verifiedTokensOnly": "Solo tokens verificati"
   },
   "submitTransaction": {
