@@ -274,26 +274,26 @@
       "explanation": "Seleziona le parole qui sotto nel giusto ordine per confermare la tua frase segreta.",
       "button": {
         "reset": "REIMPOSTARE PAROLE",
-        "confirm": "CONFERMA SEME"
+        "confirm": "CONFERMA PAROLA SGRETA"
       }
     },
     "create": {
-      "title": "CREA SEME",
-      "titleConfirm": "CONFERMA I SEMI DEL PORTAFOGLIO",
+      "title": "CREA PAROLE SGRETE",
+      "titleConfirm": "CONFERMA LE PAROLE SEGRETE DEL PORTAFOGLIO",
       "error": "Oops, abbiamo un problema Si prega di riavviare l'applicazione.",
       "generateNew": "Questo genererà un portafoglio completamente nuovo.",
       "button": {
-        "written": "L'HO RISCRITTO",
-        "newSeed": "OTTIENI NUOVI SEMI",
+        "written": "L'HO RISCRITTO SU CARTA",
+        "newSeed": "OTTIENI NUOVE PAROLE SEGRETE",
         "later": "Conferma più tardi"
       },
       "backupMessage": "Puoi sempre accedere alle tue parole entrando nel backup nelle impostazioni dell’applicazione",
-      "seedExplanation": "La chiave dei semi è una rappresentazione leggibile dal tuo portafoglio. Quelle parole, in quell'ordine esatto, possono essere utilizzate per ricreare il tuo portafoglio."
+      "seedExplanation": "La chiave con parole segrete è una rappresentazione leggibile dal tuo portafoglio. Quelle parole, in quell'ordine esatto, possono essere utilizzate per ricreare il tuo portafoglio."
     },
     "restore": {
       "title": "RIPRISTINA IL PORTAFOGLIO",
       "explanation": "Per ripristinare il tuo portafoglio, ti preghiamo di fornire le stesse 12 parole che hai scritto su carta quando hai creato il tuo portafoglio per la prima volta. Se inserisci una sequenza diversa di parole, verrà creato un nuovo portafoglio vuoto.",
-      "placeholder": "Per favore, scrivi le tue 12 parole seme qui",
+      "placeholder": "Per favore, scrivi le tue 12 parole segrete qui",
       "success": "Portafoglio restaurato con successo!",
       "warning": "Ripristina seed cancellerà tutti i dati su questo dispositivo e recupererà le informazioni dalla rete per l'account ripristinato.",
       "error": "Ops. Sembra che le parole che hai digitato non siano un seme mnemonico valido. Controlla un errore e riprova.",
