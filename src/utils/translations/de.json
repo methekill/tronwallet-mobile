@@ -218,15 +218,15 @@
       "notFound": "Asset(s) nicht gefunden"
     },
     "warning": "Sie haben nicht genügend TRX, um diese Menge {{token}} zu kaufen",
-    "enterAmountToBuy": "Kaufbetrag einfügen",
-    "amountToBuy": "Menge kaufen",
+    "enterAmountToBuy": "KAUFBETRAG EINFÜGEN",
+    "amountToBuy": "BETRAG ZU KAUFEN",
     "pricePerToken": "PREIS PRO TOKEN",
     "tokenDescription": "TOKEN BESCHREIBUNG",
     "tokenInfo": "TOKEN INFO",
     "token": "TOKEN",
     "tokens": "DIE TOKEN",
     "frozen": "EINGEFROREN",
-    "percentage": "PROZENT",
+    "percentage": "PROZENTSATZ",
     "issued": "AUSGESTELLT",
     "totalSupply": "GESAMTMENGE",
     "startTime": "STARTZEIT",
@@ -238,14 +238,14 @@
     "num": "NUM",
     "block": "BLOCK",
     "balance": "GUTHABEN",
-    "searchPreview": "Top Token"
+    "searchPreview": "Token in Vordergrund"
   },
   "pin": {
     "title": "SICHERHEITS-CHECK",
     "enter": "PIN eingeben",
     "new": "Neue PIN eingeben",
     "reenter": "PIN erneut eingeben",
-    "biometrics": "Überprüfe Fingerabdruck"
+    "biometrics": "Überprüfe Biometrie"
   },
   "receive": {
     "title": "ERHALTEN",
@@ -255,7 +255,7 @@
       "share": "Teilen"
     },
     "tabs": {
-      "share": "Teilen",
+      "share": "MITTEILEN",
       "request": "ANFRAGE"
     }
   },
