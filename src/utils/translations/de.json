@@ -159,7 +159,7 @@
   },
   "importWallet": {
     "title": "IMPORTIERE WALLET",
-    "message": "Wenn Sie den privaten Schlüssel und die Adresse Ihrer Wallet haben, können Sie sie hier wiederherstellen, bedenken Sie jedoch, dass TronWallet hauptsächlich mit Mnemotechniken arbeitet. Diese Wiederherstellungsmethode wird einige Funktionen in der App deaktivieren.",
+    "message": "Wenn Sie den privaten Schlüssel und die Adresse Ihrer Wallet haben, können Sie sie hier wiederherstellen, bedenken Sie jedoch, dass TronWallet hauptsächlich mit Mnemotechniken arbeitet. Diese Wiederherstellungsmethode wird einige Funktionen innerhalb der App deaktivieren.",
     "button": "IMPORTIERE",
     "error": {
       "privateKey": "Privater Schlüssel ist ungültig oder unvollständig"
@@ -500,8 +500,8 @@
     "votesAvailable": "STIMMEN ZUR VERFÜGUNG",
     "search": "Suche",
     "searchPreview": "Vorschläge - Meist gewählt",
-    "error": "Hoppla, etwas wurde nicht korrekt geladen. Versuchen Sie, erneut zu laden",
-    "notFound": "Super Representant nich gefunden"
+    "error": "Hoppla, etwas wurde nicht korrekt geladen. Versuchen Sie erneut zu laden",
+    "notFound": "Super Repräsentant nich gefunden"
   },
   "scanPayment": {
     "scan": "SCAN",
@@ -527,7 +527,7 @@
     "generate": "ANFRAGE GENERIEREN",
     "selectCurrency": "Wählen Sie die Referenzwährung",
     "error": {
-      "currency": "Wir waren nicht in der Lage, andere Währungspreise laden. Bitte verwenden Sie TRX als Referenz"
+      "currency": "Wir waren nicht in der Lage, andere Währungspreise zu laden. Bitte verwenden Sie TRX als Referenz"
     }
   },
   "requestPayment": {
@@ -551,7 +551,7 @@
   },
   "biometry": {
     "register": {
-      "title": "Überprüfen Sie Ihren Fingerabdruck"
+      "title": "Überprüfen Sie Ihren Biometrie"
     },
     "auth": {
       "error": "Zugriff verweigert"
