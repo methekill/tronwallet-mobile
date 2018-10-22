@@ -287,8 +287,8 @@
         "newSeed": "OBTENHA NOVA SEED",
         "later": "Confirmar mais tarde"
       },
-      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
-      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
+      "backupMessage": "Você sempre pode acessar suas palavras acessando o backup das configurações do aplicativo      ",
+      "seedExplanation": "A semente é uma representação legível de sua carteira. Essas palavras, nessa ordem exata, podem ser usadas para re-criar a sua carteira."
     },
     "restore": {
       "title": "RESTAURAR A CARTEIRA",
@@ -405,7 +405,7 @@
       "title": "Quem aceita TRX?"
     },
     "helpCenter": {
-      "title": "Help Center"
+      "title": "Central de ajuda"
     },
     "accounts": {
       "title": "Contas",
@@ -415,8 +415,8 @@
     },
     "partners": "PARCEIROS",
     "askPin": "Sempre pedir o PIN",
-    "askBiometry": "Activate Biometry",
-    "verifiedTokensOnly": "Verified tokens only"
+    "askBiometry": "Ativar a biometria",
+    "verifiedTokensOnly": "Apenas tokens verificados"
   },
   "submitTransaction": {
     "title": "TRANSAÇÃO DETALHADA",
@@ -499,9 +499,9 @@
     "totalVotes": "TOTAL DE VOTOS",
     "votesAvailable": "VOTOS DISPONÍVEIS",
     "search": "Pesquisa",
-    "searchPreview": "Suggestions - Most Voted",
+    "searchPreview": "Sugestões - Mais votados",
     "error": "Opa, algo não carregou corretamente. Tente recarregar",
-    "notFound": "Super Representative not found"
+    "notFound": "Super Representante não encontrado"
   },
   "scanPayment": {
     "scan": "DIGITALIZAÇÃO",
@@ -551,10 +551,10 @@
   },
   "biometry": {
     "register": {
-      "title": "Check your biometry"
+      "title": "Verifique sua biometria"
     },
     "auth": {
-      "error": "Access denied"
+      "error": "Acesso negado"
     }
   }
 }
