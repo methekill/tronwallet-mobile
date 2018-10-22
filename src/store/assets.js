@@ -39,8 +39,8 @@ const AssetsSchema = {
   }
 }
 
-export default async () =>
-  Realm.open({
+export default async () => {
+  this.assets = this.assets ? this.contacts : await Realm.open({
     path: 'Realm.assets',
     schema: [AssetsSchema, FrozenItemSchema],
     schemaVersion: 9,
@@ -55,3 +55,5 @@ export default async () =>
       }
     }
   })
+  return this.assets
+}

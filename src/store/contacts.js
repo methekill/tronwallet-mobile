@@ -10,9 +10,11 @@ const ContactsSchema = {
   }
 }
 
-export default async () =>
-  Realm.open({
+export default async () => {
+  this.contacts = this.contacts ? this.contacts : await Realm.open({
     path: 'Realm.contacts',
     schema: [ContactsSchema],
     schemaVersion: 0
   })
+  return this.contacts
+}

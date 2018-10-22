@@ -33,23 +33,42 @@ class TransactionsScene extends Component {
     }
   }
 
-  async componentDidMount () {
+  componentDidMount () {
     Answers.logContentView('Tab', 'Transactions')
-    this._didFocusSubscription = this.props.navigation.addListener('didFocus', this._onRefresh)
-    this.contactsStoreRef = await getContactsStore()
+    this._didFocusSubscription = this.props.navigation.addListener('didFocus', this._didFocus)
+    this._loadStores()
+  }
+
+  componentDidUpdate (prevProps, prevState) {
+    if(this.state.transactionStoreRef && !prevState.transactionStoreRef) {
+      this._onRefresh()
+    }
+  }
+
+  _didFocus = () => {
+    if(this.state.transactionStoreRef) {
+      this._onRefresh()
+    }
   }
 
   componentWillUnmount () {
     this._didFocusSubscription.remove()
   }
 
+  _loadStores = async () => {
+    const transactionStoreRef = await getTransactionStore()
+    const contactsStoreRef = await getContactsStore()
+    const assetStore = await getAssetsStore()
+    this.setState({ transactionStoreRef, contactsStoreRef, assetStore })
+  }
+
   _getAlias = address => {
     if (!address) return
-    const contact = this.contactsStoreRef.objects('Contact').filtered('address = $0', address)
+    const contact = this.state.contactsStoreRef.objects('Contact').filtered('address = $0', address)
     return contact.length ? contact[0].alias : address
   }
 
-  _getTransactionByAddress = () => this.state.transactions
+  _getTransactionByAddress = (transactions) => transactions
     .filter(item => item.ownerAddress === this.props.context.publicKey)
     .map(item => Object.assign({},
       {...item,
@@ -66,44 +85,43 @@ class TransactionsScene extends Component {
       .map(item => Object.assign({}, item))
 
   _getDataFromStore = async () => {
-    const transactions = this._getSortedTransactionList(this.transactionStoreRef)
-
+    const transactions = this._getSortedTransactionList(this.state.transactionStoreRef)
     const userTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
     const filteredTransactions = transactions.filter(({ type, contractData }) =>
       contractData.tokenName === null ||
             JSON.parse(userTokens).findIndex(name => name === contractData.tokenName) === -1
     )
 
-    const assetStore = await getAssetsStore()
-    return this._updateParticipateTransactions(filteredTransactions, assetStore)
+    return this._updateParticipateTransactions(filteredTransactions, this.state.assetStore)
   }
-  _onRefresh = async () => {
+
+  _onRefresh = () => {
     this.setState({ refreshing: true })
     try {
-      this.transactionStoreRef = await getTransactionStore()
-      this.contactsStoreRef = await getContactsStore()
       const currentAlias = this._getAlias(this.props.context.publicKey)
       const contact = this.props.navigation.getParam('contact', null)
 
       this.setState({currentAlias})
-      if (contact) await this._setFilteredContact(contact)
-      else await this._updateData()
+      if (contact) this._setFilteredContact(contact)
+      else this._updateData()
     } catch (error) {
       logSentry(error, 'On Refresh - Transactions')
-    } finally {
-      this.setState({ refreshing: false })
-    }
+    } 
   }
 
   _setFilteredContact = async contact => {
-    const assetStore = await getAssetsStore()
-    const transactionsFiltered = this.transactionStoreRef.objects('Transaction')
+    const { assetStore }  = this.state
+    const transactionsFiltered = this.state.transactionStoreRef.objects('Transaction')
       .filtered('contractData.transferFromAddress = $0 OR contractData.transferToAddress = $0', contact.address)
       .sorted([['timestamp', true]])
       .map(item => Object.assign({}, item))
     const updatedParticipatedTransactions = this._updateParticipateTransactions(transactionsFiltered, assetStore)
 
-    this.setState({transactions: updatedParticipatedTransactions, contact})
+    this.setState({
+      transactions: this._getTransactionByAddress(updatedParticipatedTransactions),
+      contact,
+      refreshing: false
+    })
   }
 
   _removeFilteredContact = async () => {
@@ -111,7 +129,7 @@ class TransactionsScene extends Component {
     this.props.navigation.setParams({contact: null})
     try {
       const updatedTransactions = await this._getDataFromStore()
-      this.setState({ transactions: updatedTransactions })
+      this.setState({ transactions: this._getTransactionByAddress(updatedTransactions) })
     } catch (error) {
       logSentry(error, 'Remove filterd contact')
     } finally {
@@ -122,7 +140,7 @@ class TransactionsScene extends Component {
     try {
       await updateTransactions(this.props.context.publicKey)
       const updatedTransactions = await this._getDataFromStore()
-      this.setState({ transactions: updatedTransactions })
+      this.setState({ transactions: this._getTransactionByAddress(updatedTransactions) })
     } catch (err) {
       logSentry(err, 'Transactions - load data')
     } finally {
@@ -173,7 +191,7 @@ class TransactionsScene extends Component {
   render () {
     const { refreshing, currentAlias } = this.state
     const { publicKey } = this.props.context
-    const transactions = this._getTransactionByAddress()
+    const { transactions } = this.state
 
     return (
       <Background>

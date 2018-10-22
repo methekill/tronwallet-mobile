@@ -12,9 +12,11 @@ const CandidateSchema = {
   }
 }
 
-export default async () =>
-  Realm.open({
+export default async () => {
+  this.conn = this.conn || await Realm.open({
     path: 'Realm.candidates',
     schema: [CandidateSchema],
     schemaVersion: 3
   })
+  return this.conn
+}
