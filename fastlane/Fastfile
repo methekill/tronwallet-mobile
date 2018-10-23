@@ -31,7 +31,7 @@ platform :ios do
   lane :build do
     Environment::Public.new.build
 
-    # setup_circle_ci(force: true)
+    setup_circle_ci(force: true)
 
     update_app_identifier
     match
