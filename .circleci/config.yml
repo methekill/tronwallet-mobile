@@ -164,4 +164,4 @@ workflows:
             - android_upgrade
           filters:
             branches:
-              only: feat/ci-ios-issuez
+              only: feat/ci-ios-issue
