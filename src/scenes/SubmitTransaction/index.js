@@ -10,7 +10,7 @@ import { Colors } from '../../components/DesignSystem'
 import ButtonGradient from '../../components/ButtonGradient'
 import LoadingScene from '../../components/LoadingScene'
 import NavigationHeader from '../../components/Navigation/Header'
-import { DetailRow } from './elements'
+import { DetailRow, DataRow } from './elements'
 
 // Service
 import Client from '../../services/client'
@@ -36,6 +36,7 @@ class TransactionDetail extends Component {
     submitError: null,
     isConnected: null,
     tokenAmount: null,
+    participateBuyOption: { trxAmount: 0, isCustom: false, assetName: '' },
     nowDate: moment().format('DD/MM/YYYY HH:mm:ss')
   }
 
@@ -51,12 +52,14 @@ class TransactionDetail extends Component {
   _loadData = async () => {
     const { navigation } = this.props
 
-    const { tx: signedTransaction, tokenAmount } = navigation.state.params
+    const signedTransaction = navigation.getParam('tx', '')
+    const tokenAmount = navigation.getParam('tokenAmount', 0)
+    const participateBuyOption = navigation.getParam('buyOption', { trxAmount: 0, isCustom: false })
+
     const connection = await NetInfo.getConnectionInfo()
     const isConnected = !(connection.type === 'none')
 
     this.setState({ isConnected })
-
     if (!isConnected) {
       this.setState({ loadingData: false })
       return null
@@ -64,7 +67,7 @@ class TransactionDetail extends Component {
 
     try {
       const transactionData = await Client.getTransactionDetails(signedTransaction)
-      this.setState({ transactionData, signedTransaction, tokenAmount })
+      this.setState({ transactionData, signedTransaction, tokenAmount, participateBuyOption })
     } catch (error) {
       this.setState({ submitError: error.message })
       logSentry(error, 'Submit Tx - Load')
@@ -184,7 +187,7 @@ class TransactionDetail extends Component {
   }
 
   _renderContracts = () => {
-    const { transactionData, nowDate, tokenAmount } = this.state
+    const { transactionData, nowDate, tokenAmount, participateBuyOption } = this.state
     if (!transactionData) {
       return <Utils.View paddingX={'medium'} paddingY={'small'}>
         <DetailRow
@@ -204,7 +207,14 @@ class TransactionDetail extends Component {
         text={nowDate}
       />
     )
-
+    if (participateBuyOption.isCustom) {
+      contractsElements.unshift(
+        <DataRow
+          key='CUSTOMTRANSACTION'
+          data={`This is an exchange transaction. That means that ${participateBuyOption.trxAmount} TRX will be sent to one of our exchange robot and you will automatically receive ${tokenAmount} ${participateBuyOption.assetName} `}
+        />
+      )
+    }
     return <Utils.View paddingX={'medium'} paddingY={'small'}>{contractsElements}</Utils.View>
   }
 
