@@ -5,17 +5,47 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.002891">
+      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.002577">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.002687">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.001794">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: gym" time="5.496435">
+      <testcase classname="fastlane.lanes" name="2: update_app_identifier" time="0.258017">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: match" time="2.763922">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: get_provisioning_profile" time="7.808333">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: update_project_provisioning" time="0.447021">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="6: gym" time="879.450657">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="7: pilot" time="126.845809">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="8: slack" time="0.345439">
         
       </testcase>
     
