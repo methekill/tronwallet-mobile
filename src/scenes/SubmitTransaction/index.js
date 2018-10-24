@@ -10,7 +10,7 @@ import { Colors } from '../../components/DesignSystem'
 import ButtonGradient from '../../components/ButtonGradient'
 import LoadingScene from '../../components/LoadingScene'
 import NavigationHeader from '../../components/Navigation/Header'
-import { DetailRow, DataRow } from './elements'
+import { DetailRow, DataRow, ExchangeRow } from './elements'
 
 // Service
 import Client from '../../services/client'
@@ -36,8 +36,18 @@ class TransactionDetail extends Component {
     submitError: null,
     isConnected: null,
     tokenAmount: null,
-    participateBuyOption: { trxAmount: 0, isCustom: false, assetName: '' },
-    nowDate: moment().format('DD/MM/YYYY HH:mm:ss')
+    exchangeOption: { trxAmount: 0, isCustom: false, assetName: '' },
+    exchange: {
+      loading: {
+        send: false,
+        receive: false
+      },
+      result: {
+        send: null,
+        receive: null
+      }
+    },
+    nowDate: new Date().getTime()
   }
 
   componentDidMount () {
@@ -49,12 +59,16 @@ class TransactionDetail extends Component {
     if (this.closeTransactionDetails) clearTimeout(this.closeTransactionDetails)
   }
 
+  sleep (time) {
+    return new Promise(resolve => { setTimeout(resolve, time) })
+  }
+
   _loadData = async () => {
     const { navigation } = this.props
 
     const signedTransaction = navigation.getParam('tx', '')
     const tokenAmount = navigation.getParam('tokenAmount', 0)
-    const participateBuyOption = navigation.getParam('buyOption', { trxAmount: 0, isCustom: false })
+    const exchangeOption = navigation.getParam('exchangeOption', {})
 
     const connection = await NetInfo.getConnectionInfo()
     const isConnected = !(connection.type === 'none')
@@ -67,7 +81,7 @@ class TransactionDetail extends Component {
 
     try {
       const transactionData = await Client.getTransactionDetails(signedTransaction)
-      this.setState({ transactionData, signedTransaction, tokenAmount, participateBuyOption })
+      this.setState({ transactionData, signedTransaction, tokenAmount, exchangeOption })
     } catch (error) {
       this.setState({ submitError: error.message })
       logSentry(error, 'Submit Tx - Load')
@@ -119,6 +133,91 @@ class TransactionDetail extends Component {
         break
     }
     return transaction
+  }
+
+  _getExchangeResult = async () => {
+    const { context } = this.props
+    const { tokenAmount, exchange, exchangeOption, nowDate } = this.state
+
+    for (let i = 0; i < 10; i++) {
+      try {
+        const params = {
+          address: context.publicKey,
+          amount: tokenAmount,
+          asset: exchangeOption.assetName,
+          bot: context.exchangeBot
+        }
+        const result = await Client.getTransactionFromExchange(params)
+        if (new Date(result.createdAt).getTime() > nowDate) {
+          this.setState({exchange:
+            {
+              result: {...exchange.result, receive: 'SUCCESS'},
+              loading: {...exchange.loading, receive: false}
+            }})
+          setTimeout(this._navigateNext, 1500)
+          return
+        }
+        await this.sleep(2000)
+      } catch (error) {
+        await this.sleep(2000)
+      }
+    }
+
+    this.setState({exchange: {
+      result: {...exchange.result, receive: 'FAIL'},
+      loading: { ...exchange.loading, receive: false
+      }}})
+  }
+
+  _setSubmission = () => {
+    const { exchangeOption } = this.state
+    if (exchangeOption.isCustom) {
+      this._submitExchangeTransaction()
+    } else {
+      this._submitTransaction()
+    }
+  }
+
+  _submitExchangeTransaction = async () => {
+    const { signedTransaction, exchange, exchangeOption, transactionData: { hash } } = this.state
+    this.setState({ exchange: {...exchange, loading: { send: true, receive: false }}, submitError: null })
+    const store = await getTransactionStore()
+    const transaction = this._getTransactionObject()
+    try {
+      store.write(() => { store.create('Transaction', transaction, true) })
+      // const { code } = await Client.broadcastTransaction(signedTransaction)
+      const code = 'SUCCESS'
+      if (code === 'SUCCESS') {
+        await this.props.context.loadUserData()
+        // TODO - Remove this piece of code when transactions come with Participate Price
+        if (transaction.type === 'Participate') updateAssets(0, 2, exchangeOption.assetName)
+
+        this.setState({
+          submitted: true,
+          exchange:
+          {
+            loading: {receive: true, send: false},
+            result: {...exchange.result, send: 'SUCCESS'}
+          }}, () => {
+          this._getExchangeResult()
+        })
+      }
+      // this.setState({ submitError: null, loadingSubmit: false, submitted: true }, this._navigateNext)
+    } catch (error) {
+      // This needs to be adapted better from serverless api
+      const errorMessage = error.response && error.response.data ? error.response.data.error
+        : error.message
+      this.setState({
+        submitError: translateError(errorMessage),
+        loadingSubmit: false,
+        submitted: true
+      })
+      logSentry(error, 'Submit Tx - Submit')
+      store.write(() => {
+        const lastTransaction = store.objectForPrimaryKey('Transaction', hash)
+        store.delete(lastTransaction)
+      })
+    }
   }
 
   _submitTransaction = async () => {
@@ -177,7 +276,7 @@ class TransactionDetail extends Component {
       transactionType === 'Freeze' || transactionType === 'Unfreeze') {
       return 'BalanceScene'
     }
-    if (transactionType === 'Participate') {
+    if (transactionType === 'Participate' || transactionType === 'Exchange') {
       return 'ParticipateHome'
     }
     if (transactionType === 'Vote') {
@@ -187,7 +286,7 @@ class TransactionDetail extends Component {
   }
 
   _renderContracts = () => {
-    const { transactionData, nowDate, tokenAmount, participateBuyOption } = this.state
+    const { transactionData, nowDate, tokenAmount, exchange, exchangeOption } = this.state
     if (!transactionData) {
       return <Utils.View paddingX={'medium'} paddingY={'small'}>
         <DetailRow
@@ -198,23 +297,37 @@ class TransactionDetail extends Component {
       </Utils.View>
     }
 
-    const contractsElements = buildTransactionDetails(transactionData, tokenAmount)
-
-    contractsElements.push(
-      <DetailRow
-        key='TIME'
-        title={tl.t('submitTransaction.time')}
-        text={nowDate}
-      />
-    )
-    if (participateBuyOption.isCustom) {
+    let contractsElements = []
+    if (exchangeOption.isCustom) {
       contractsElements.unshift(
         <DataRow
           key='CUSTOMTRANSACTION'
-          data={`This is an exchange transaction. That means that ${participateBuyOption.trxAmount} TRX will be sent to one of our exchange robot and you will automatically receive ${tokenAmount} ${participateBuyOption.assetName} `}
+          data={`Token sale from @TronWallet. ${exchangeOption.trxAmount} TRX for ${tokenAmount} ${exchangeOption.assetName} `}
+        />
+      )
+      contractsElements.push(<ExchangeRow
+        title='Sending TRX'
+        key='sendingtrx'
+        loading={exchange.loading.send}
+        result={exchange.result.send}
+      />, <ExchangeRow
+        key='receivetoken'
+        title={`Receiving ${exchangeOption.assetName}`}
+        loading={exchange.loading.receive}
+        result={exchange.result.receive}
+      />
+      )
+    } else {
+      contractsElements = buildTransactionDetails(transactionData, tokenAmount)
+      contractsElements.push(
+        <DetailRow
+          key='TIME'
+          title={tl.t('submitTransaction.time')}
+          text={moment(nowDate).format('DD/MM/YYYY HH:mm:ss')}
         />
       )
     }
+
     return <Utils.View paddingX={'medium'} paddingY={'small'}>{contractsElements}</Utils.View>
   }
 
@@ -231,7 +344,7 @@ class TransactionDetail extends Component {
             onPress={() => this.props.navigation.navigate('Pin', {
               shouldGoBack: true,
               testInput: pin => pin === this.props.context.pin,
-              onSuccess: this._submitTransaction
+              onSuccess: this._setSubmission
             })}
             disabled={submitted || submitError}
             font='bold'

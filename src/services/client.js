@@ -87,6 +87,12 @@ class ClientWallet {
     }
   }
 
+  async getTransactionFromExchange ({address, asset, amount, bot}) {
+    const reqBody = { 'toAddress': address, 'ownerAddress': bot, assetName: asset }
+    const { data: result } = await axios.post(`${this.tronwalletDB}/transactions/find/`, reqBody)
+    return result.length ? result[0] : {}
+  }
+
   async getAssetList () {
     const { nodeIp } = await NodesIp.getAllNodesIp()
     const { data } = await axios.get(

@@ -1,4 +1,5 @@
 import React from 'react'
+import { ActivityIndicator } from 'react-native'
 import styled from 'styled-components'
 
 import tl from '../../utils/i18n'
@@ -32,5 +33,22 @@ export const DataRow = ({ data }) => (
     <Utils.Text secondary size='smaller'>{tl.t('submitTransaction.data')}</Utils.Text>
     <Utils.VerticalSpacer size='small' />
     <Utils.Text align='right' style={{maxWidth: '70%'}} size='xsmall'>{data}</Utils.Text>
+  </RowView>
+)
+
+const resultColor = {'SUCCESS': Colors.weirdGreen, 'FAIL': Colors.red}
+
+export const ExchangeRow = ({title, loading, result}) => (
+  <RowView>
+    <Utils.Text secondary size='smaller'>{title}</Utils.Text>
+    <Utils.VerticalSpacer size='small' />
+    {loading
+      ? <ActivityIndicator size='small' color='white' />
+      : <Utils.Text
+        align='right'
+        color={resultColor[result] || Colors.primaryText}
+        size='xsmall'>
+        {result || 'Waiting...'}
+      </Utils.Text>}
   </RowView>
 )

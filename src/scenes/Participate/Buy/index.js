@@ -170,7 +170,7 @@ class BuyScene extends Component {
       item.isCustom
         ? {
           from: this.props.context.publicKey,
-          to: 'TKi8JMDijic2QXF2oRe7Xg82fTbNa2gATr',
+          to: this.props.context.exchangeBot,
           token: 'TRX',
           amount: amountToPay
         }
@@ -217,7 +217,7 @@ class BuyScene extends Component {
         replaceRoute(this.props.navigation, 'SubmitTransaction', {
           tx: transactionSigned,
           tokenAmount: amountToBuy,
-          buyOption: {
+          exchangeOption: {
             isCustom: item.isCustom,
             trxAmount: amountToBuy * item.price / ONE_TRX,
             assetName: item.name
