@@ -58,8 +58,9 @@ class TransactionsScene extends Component {
     })
   }
 
-  _didFocus = () => {
+  _didFocus = async () => {
     if (this.state.transactionStoreRef && !this.state.refreshing) {
+      await updateTransactions(this.props.context.publicKey)
       this._loadData(this._firstTransactions())
     }
   }
@@ -89,8 +90,6 @@ class TransactionsScene extends Component {
 
     this.setState({ currentAlias, contacts, contact }, async () => {
       try {
-        await updateTransactions(this.props.context.publicKey)
-
         if (contact) this._setFilteredContact(contact)
         else this._updateData(transactionsRef, isLoadingMore)
       } catch (error) {
