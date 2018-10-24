@@ -49,7 +49,7 @@ class TrxValue extends Component {
           </React.Fragment>
         </Utils.Row>
         <Utils.VerticalSpacer />
-        {(currency !== 'USD' && price.USD) && (
+        {/* {(currency !== 'USD' && price.USD) && (
           <FadeIn name='usd-value'>
             <Motion
               defaultStyle={{ price: 0 }}
@@ -62,7 +62,7 @@ class TrxValue extends Component {
               )}
             </Motion>
           </FadeIn>
-        )}
+        )} */}
       </React.Fragment>
     )
   }

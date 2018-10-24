@@ -3,6 +3,7 @@ import { View } from 'react-native'
 import { Motion, spring } from 'react-motion'
 import { CardInfoText } from './elements'
 import { VerticalSpacer } from '../../../components/Utils'
+import { Colors } from '../../../components/DesignSystem'
 
 const CardInfo = ({ label, value, precision = 0 }) => (
   <View>
@@ -14,7 +15,7 @@ const CardInfo = ({ label, value, precision = 0 }) => (
       {value => (
         <React.Fragment>
           <VerticalSpacer size='small' />
-          <CardInfoText>{`${value.power.toFixed(precision)}`}</CardInfoText>
+          <CardInfoText color={Colors.primaryText}>{`${value.power.toFixed(precision)}`}</CardInfoText>
         </React.Fragment>
       )}
     </Motion>

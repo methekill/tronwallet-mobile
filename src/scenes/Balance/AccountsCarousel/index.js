@@ -9,11 +9,7 @@ import { withContext } from '../../../store/context'
 
 import TrxValue from '../TrxValue'
 import * as Utils from '../../../components/Utils'
-import {
-  CarouselCard,
-  TronLogo,
-  Icon
-} from './elements'
+import { CarouselCard, TronLogo, Icon, CardFooterIcon, CardFooter, CardFooterItem, Divider } from './elements'
 import tl from '../../../utils/i18n'
 import { Colors } from '../../../components/DesignSystem'
 import ClearButton from '../../../components/ClearButton'
@@ -48,8 +44,8 @@ class AccountsCarousel extends React.Component {
       tl.t('warning'),
       tl.t('hideAccount'),
       [
-        {text: tl.t('cancel'), style: 'cancel'},
-        {text: 'Remove', onPress: () => this._handleHideAccount(address)}
+        { text: tl.t('cancel'), style: 'cancel' },
+        { text: 'Remove', onPress: () => this._handleHideAccount(address) }
       ]
     )
   }
@@ -102,41 +98,55 @@ class AccountsCarousel extends React.Component {
         />
         <LinearGradient
           start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          colors={['#2b2d44', '#1f2034']}
+          end={{ x: 0, y: 0 }}
+          colors={['rgb(48, 50, 76)', 'rgb(38, 40, 64)']}
           style={{
             flex: 1,
-            padding: 22,
+            // padding: 22,
             alignItems: 'flex-start',
             borderRadius: 6
           }}
         >
           <React.Fragment>
-            <TronLogo>
-              <Icon source={require('../../../assets/tron-logo-small.png')} />
-            </TronLogo>
-            <Utils.Text color='#9b9cb9'>{item.name}</Utils.Text>
-            <Utils.VerticalSpacer />
-            <TouchableOpacity onPress={() => this._onCopyAddress(item.address)}>
-              <Utils.Text color='white' size='smaller' font='regular'>{this._formatAddress(item.address)}</Utils.Text>
-            </TouchableOpacity>
-            <Utils.VerticalSpacer size='medium' />
-            {(
+            <Utils.View padding={22} width='100%'>
+
+              <Utils.Text color='#9b9cb9'>{item.name}</Utils.Text>
+              <TronLogo>
+                <Icon source={require('../../../assets/tron-logo-small.png')} />
+              </TronLogo>
+              <Utils.VerticalSpacer />
+
+              <TouchableOpacity onPress={() => this._onCopyAddress(item.address)}>
+                <Utils.Text color='white' size='smaller' font='regular'>{this._formatAddress(item.address)}</Utils.Text>
+              </TouchableOpacity>
+
+              <Utils.VerticalSpacer size='medium' />
               <TouchableOpacity onPress={() => this.ActionSheet.show()}>
                 <TrxValue trxBalance={item.balance || 0} currency={currency} />
               </TouchableOpacity>
-            )}
-            <Utils.VerticalSpacer size='medium' />
-            <Utils.Row>
-              <CardInfo label={tl.t('tronPower')} value={item.tronPower || 0} />
-              <Utils.HorizontalSpacer size='medium' />
-              <CardInfo label={tl.t('balance.bandwidth')} value={item.bandwidth || 0} />
-            </Utils.Row>
+
+              <Utils.VerticalSpacer size='medium' />
+              <Utils.Row justify='space-between'>
+                <CardInfo label={tl.t('tronPower')} value={item.tronPower || 0} />
+                <CardInfo label={tl.t('balance.bandwidth')} value={item.bandwidth || 0} />
+              </Utils.Row>
+            </Utils.View>
+            <CardFooter>
+              <CardFooterItem>
+                <CardFooterIcon source={require('./../../../assets/icon-freeze.png')} />
+                <Utils.Text>4</Utils.Text>
+              </CardFooterItem>
+              <Divider />
+              <CardFooterItem>
+                <CardFooterIcon source={require('./../../../assets/icon-freeze.png')} />
+                <Utils.Text>4</Utils.Text>
+              </CardFooterItem>
+            </CardFooter>
           </React.Fragment>
           {
             index !== 0 &&
             <ClearButton
-              style={{position: 'absolute', right: 20, bottom: 20}}
+              style={{ position: 'absolute', right: 20, bottom: 20 }}
               onPress={() => this._alertHideAccount(item.address)}
             />
           }
@@ -166,7 +176,7 @@ class AccountsCarousel extends React.Component {
           renderItem={this._renderItem}
           sliderWidth={Dimensions.get('window').width}
           itemWidth={300}
-          slideStyle={{paddingHorizontal: 6}}
+          slideStyle={{ paddingHorizontal: 6 }}
         />
         <Toast
           ref='toast'
