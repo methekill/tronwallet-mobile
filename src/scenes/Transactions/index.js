@@ -33,14 +33,10 @@ class TransactionsScene extends Component {
   componentDidMount () {
     Answers.logContentView('Tab', 'Transactions')
     this._didFocusSubscription = this.props.navigation.addListener('didFocus', this._didFocus)
-    this._loadStores()
+    this._setData()
   }
 
   componentDidUpdate (prevProps, prevState) {
-    if(this.state.transactionStoreRef && !prevState.transactionStoreRef) {
-      this._loadData(this._firstTransactions())
-    }
-
     const contact = this.props.navigation.getParam('contact', null)
     if (contact !== this.state.contact) {
       this._loadData(this._firstTransactions())
@@ -51,45 +47,52 @@ class TransactionsScene extends Component {
     this._didFocusSubscription.remove()
   }
 
-  _loadStores = async () => {
+  _setData = async () => {
     const transactionStoreRef = await getTransactionStore()
     const contactsStoreRef = await getContactsStore()
     const assetStore = await getAssetsStore()
 
-
-    this.setState({ transactionStoreRef, contactsStoreRef, assetStore })
+    this.setState({ transactionStoreRef, contactsStoreRef, assetStore }, async () => {
+      await updateTransactions(this.props.context.publicKey)
+      this._loadData(this._firstTransactions())
+    })
   }
 
   _didFocus = () => {
-    if(this.state.transactionStoreRef && !this.state.refreshing) {
-      this._loadData(this._firstTransactions(), true)
+    if (this.state.transactionStoreRef && !this.state.refreshing) {
+      this._loadData(this._firstTransactions())
     }
   }
 
   _firstTransactions = () => this._allTransactions().slice(0, 10)
 
   _allTransactions = () => (
-    this.state.transactionStoreRef.objects('Transaction').sorted([['timestamp', true]])
+    this.state.transactionStoreRef
+      .objects('Transaction')
+      .filtered('ownerAddress = $0', this.props.context.publicKey)
+      .sorted([['timestamp', true]])
   )
 
   _getAlias = address => {
     if (!address) return
-    const contact = this.state.contacts.find(c => c.address ===address)
+    const contact = this.state.contacts.find(c => c.address === address)
     return contact ? contact.alias : address
   }
 
-  _loadData = (transactionsRef, isRefreshing) => {
+  _loadData = (transactionsRef, isLoadingMore) => {
     this.setState({ refreshing: true })
     const contacts = this.state.contactsStoreRef.objects('Contact').map(item => Object.assign({}, item))
-    const currentAlias = this._getAlias(this.props.context.publicKey)
-    const contact = this.props.navigation.getParam('contact', null) 
-    
+
+    const foundAlias = contacts.find(c => c.address === this.props.context.publicKey)
+    const currentAlias = foundAlias ? foundAlias.alias : this.props.context.publicKey
+    const contact = this.props.navigation.getParam('contact', null)
+
     this.setState({ currentAlias, contacts, contact }, async () => {
       try {
         await updateTransactions(this.props.context.publicKey)
 
         if (contact) this._setFilteredContact(contact)
-        else this._updateData(transactionsRef, isRefreshing)
+        else this._updateData(transactionsRef, isLoadingMore)
       } catch (error) {
         logSentry(error, 'On Refresh - Transactions')
       }
@@ -109,26 +112,25 @@ class TransactionsScene extends Component {
     this.props.navigation.setParams({ contact: null })
   }
 
-  _updateData = async (transactionsRef, isRefreshing = false) => {
+  _updateData = async (transactionsRef, isLoadingMore = false) => {
     try {
-      const updatedTransactions = await this._getFilteredTransactions(transactionsRef)
-      const transactionsWithParticipate = this._updateParticipateTransactions(updatedTransactions, this.state.assetStore)
+      const allTransactions = transactionsRef.map(item => Object.assign({}, item))
+      const transactionsWithParticipate = this._updateParticipateTransactions(allTransactions, this.state.assetStore)
       let transactions = this._getTransactionByAddress(transactionsWithParticipate)
 
-      if (isRefreshing) {
+      if (isLoadingMore) {
         transactions = this._mergeNewTransactions(transactions)
       }
+      const filteredTransactions = await this._getFilteredTransactions(transactions)
 
-      this.setState({ transactions, refreshing: false })
+      this.setState({ transactions: filteredTransactions, refreshing: false })
     } catch (err) {
       this.setState({ refreshing: false })
       logSentry(err, 'Transactions - load data')
     }
   }
 
-  _getFilteredTransactions = async (transactionsRef) => {
-    const transactions = transactionsRef.map(item => Object.assign({}, item))
-
+  _getFilteredTransactions = async (transactions) => {
     const userTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
     return transactions.filter(({ type, contractData }) =>
       contractData.tokenName === null ||
@@ -157,20 +159,19 @@ class TransactionsScene extends Component {
           transferToAddress: this._getAlias(item.contractData.transferToAddress)
         }}))
 
-
   _mergeNewTransactions = (newTransactions) => {
     const { transactions: currentTransactions } = this.state
     const oldTransactions = currentTransactions.filter(t => !newTransactions.find(n => n.id === t.id))
     return [...newTransactions, ...oldTransactions]
   }
 
-
   _loadRemainingTransactions = () => {
     if (this.state.transactionStoreRef && !this.state.refreshing) {
       this._loadData(
         this.state.transactionStoreRef
           .objects('Transaction')
-          .sorted([['timestamp', true]])
+          .sorted([['timestamp', true]]),
+        true
       )
     }
   }
