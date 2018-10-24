@@ -36,13 +36,6 @@ class TransactionsScene extends Component {
     this._setData()
   }
 
-  componentDidUpdate (prevProps, prevState) {
-    const contact = this.props.navigation.getParam('contact', null)
-    if (contact !== this.state.contact) {
-      this._loadData(this._firstTransactions())
-    }
-  }
-
   componentWillUnmount () {
     this._didFocusSubscription.remove()
   }
@@ -51,17 +44,12 @@ class TransactionsScene extends Component {
     const transactionStoreRef = await getTransactionStore()
     const contactsStoreRef = await getContactsStore()
     const assetStore = await getAssetsStore()
-
-    this.setState({ transactionStoreRef, contactsStoreRef, assetStore }, async () => {
-      await updateTransactions(this.props.context.publicKey)
-      this._loadData(this._firstTransactions())
-    })
+    this.setState({ transactionStoreRef, contactsStoreRef, assetStore }, () => this._loadData())
   }
 
-  _didFocus = async () => {
+  _didFocus = () => {
     if (this.state.transactionStoreRef && !this.state.refreshing) {
-      await updateTransactions(this.props.context.publicKey)
-      this._loadData(this._firstTransactions())
+      this._loadData()
     }
   }
 
@@ -80,18 +68,23 @@ class TransactionsScene extends Component {
     return contact ? contact.alias : address
   }
 
-  _loadData = (transactionsRef, isLoadingMore) => {
+  _loadData = async isRefreshing => {
     this.setState({ refreshing: true })
-    const contacts = this.state.contactsStoreRef.objects('Contact').map(item => Object.assign({}, item))
 
+    const contacts = this.state.contactsStoreRef.objects('Contact').map(item => Object.assign({}, item))
     const foundAlias = contacts.find(c => c.address === this.props.context.publicKey)
     const currentAlias = foundAlias ? foundAlias.alias : this.props.context.publicKey
     const contact = this.props.navigation.getParam('contact', null)
 
     this.setState({ currentAlias, contacts, contact }, async () => {
       try {
-        if (contact) this._setFilteredContact(contact)
-        else this._updateData(transactionsRef, isLoadingMore)
+        await updateTransactions(this.props.context.publicKey)
+        if (contact) {
+          this._setFilteredContact(contact)
+        } else {
+          const transactionRef = isRefreshing ? this._allTransactions() : this._firstTransactions()
+          this._updateData(transactionRef, isRefreshing)
+        }
       } catch (error) {
         logSentry(error, 'On Refresh - Transactions')
       }
@@ -109,15 +102,16 @@ class TransactionsScene extends Component {
 
   _removeFilteredContact = () => {
     this.props.navigation.setParams({ contact: null })
+    this.setState({contact: null}, () => this._loadData())
   }
 
-  _updateData = async (transactionsRef, isLoadingMore = false) => {
+  _updateData = async (transactionsRef, isRefreshing = false) => {
     try {
       const allTransactions = transactionsRef.map(item => Object.assign({}, item))
       const transactionsWithParticipate = this._updateParticipateTransactions(allTransactions, this.state.assetStore)
       let transactions = this._getTransactionByAddress(transactionsWithParticipate)
 
-      if (isLoadingMore) {
+      if (isRefreshing) {
         transactions = this._mergeNewTransactions(transactions)
       }
       const filteredTransactions = await this._getFilteredTransactions(transactions)
@@ -164,14 +158,9 @@ class TransactionsScene extends Component {
     return [...newTransactions, ...oldTransactions]
   }
 
-  _loadRemainingTransactions = () => {
+  _loadRemainingTransactions = async () => {
     if (this.state.transactionStoreRef && !this.state.refreshing) {
-      this._loadData(
-        this.state.transactionStoreRef
-          .objects('Transaction')
-          .sorted([['timestamp', true]]),
-        true
-      )
+      this._loadData(true)
     }
   }
 
@@ -216,7 +205,7 @@ class TransactionsScene extends Component {
           title={tl.t('transactions.title')}
           leftButton={<SyncButton
             loading={refreshing}
-            onPress={() => this._loadData(this._firstTransactions(), true)}
+            onPress={() => this._loadData(true)}
           />}
         />
         <FlatList
