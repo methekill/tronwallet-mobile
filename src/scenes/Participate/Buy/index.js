@@ -172,7 +172,7 @@ class BuyScene extends Component {
           from: this.props.context.publicKey,
           to: this.props.context.exchangeBot,
           token: 'TRX',
-          amount: amountToPay
+          amount: this._fixNumber(amountToPay)
         }
         : {
           participateAddress: item.ownerAddress,
@@ -183,6 +183,7 @@ class BuyScene extends Component {
       const data = item.isCustom
         ? await Client.getTransferTransaction(participatePayload)
         : await Client.getParticipateTransaction(this.props.context.publicKey, participatePayload)
+
       await this._openTransactionDetails(data)
     } catch (err) {
       if (err.name === 'DataError') {
@@ -262,7 +263,7 @@ class BuyScene extends Component {
           <AmountText>
             {formatNumber(amountToBuy)}
           </AmountText>
-          <TrxValueText>({formatNumber(amountToPay, true)} TRX)</TrxValueText>
+          <TrxValueText>{formatNumber(amountToPay.toFixed(6))} TRX</TrxValueText>
           {notEnoughTrxBalance && (
             <React.Fragment>
               <VerticalSpacer size={4} />

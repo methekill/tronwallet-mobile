@@ -36,7 +36,7 @@ export const DataRow = ({ data }) => (
   </RowView>
 )
 
-const resultColor = {'SUCCESS': Colors.weirdGreen, 'FAIL': Colors.red}
+const resultColor = {'SUCCESS': Colors.weirdGreen, 'FAIL': Colors.redError}
 
 export const ExchangeRow = ({title, loading, result}) => (
   <RowView>

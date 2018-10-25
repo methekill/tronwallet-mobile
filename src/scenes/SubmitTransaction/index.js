@@ -10,7 +10,7 @@ import { Colors } from '../../components/DesignSystem'
 import ButtonGradient from '../../components/ButtonGradient'
 import LoadingScene from '../../components/LoadingScene'
 import NavigationHeader from '../../components/Navigation/Header'
-import { DetailRow, DataRow, ExchangeRow } from './elements'
+import { DetailRow, ExchangeRow, RowView } from './elements'
 
 // Service
 import Client from '../../services/client'
@@ -45,7 +45,8 @@ class TransactionDetail extends Component {
       result: {
         send: null,
         receive: null
-      }
+      },
+      error: null
     },
     nowDate: new Date().getTime()
   }
@@ -136,9 +137,8 @@ class TransactionDetail extends Component {
   }
 
   _getExchangeResult = async () => {
-    const { context } = this.props
+    const { context, navigation } = this.props
     const { tokenAmount, exchange, exchangeOption, nowDate } = this.state
-
     for (let i = 0; i < 10; i++) {
       try {
         const params = {
@@ -148,25 +148,35 @@ class TransactionDetail extends Component {
           bot: context.exchangeBot
         }
         const result = await Client.getTransactionFromExchange(params)
-        if (new Date(result.createdAt).getTime() > nowDate) {
-          this.setState({exchange:
-            {
+        if (result && (new Date(result.createdAt).getTime() > nowDate)) {
+          this.setState({
+            exchange: {
+              ...exchange,
               result: {...exchange.result, receive: 'SUCCESS'},
               loading: {...exchange.loading, receive: false}
             }})
-          setTimeout(this._navigateNext, 1500)
+          setTimeout(
+            () => navigation.navigate(
+              'TransactionSuccess',
+              { stackToReset: 'ParticipateHome', nextRoute: 'Transactions' }),
+            1500)
           return
         }
         await this.sleep(2000)
       } catch (error) {
+        logSentry('Error on Exchange', error)
         await this.sleep(2000)
       }
     }
 
-    this.setState({exchange: {
-      result: {...exchange.result, receive: 'FAIL'},
-      loading: { ...exchange.loading, receive: false
-      }}})
+    this.setState({
+      exchange: {
+        ...exchange,
+        result: {...exchange.result, receive: 'FAIL'},
+        loading: {...exchange.loading, receive: false},
+        error: 'Please, check your transaction list to see if have received the amount processed'
+      }
+    })
   }
 
   _setSubmission = () => {
@@ -180,29 +190,31 @@ class TransactionDetail extends Component {
 
   _submitExchangeTransaction = async () => {
     const { signedTransaction, exchange, exchangeOption, transactionData: { hash } } = this.state
-    this.setState({ exchange: {...exchange, loading: { send: true, receive: false }}, submitError: null })
     const store = await getTransactionStore()
     const transaction = this._getTransactionObject()
+
+    this.setState({
+      exchange: {...exchange, loading: { send: true, receive: false }},
+      submitted: true,
+      submitError: null
+    })
+
     try {
       store.write(() => { store.create('Transaction', transaction, true) })
-      // const { code } = await Client.broadcastTransaction(signedTransaction)
-      const code = 'SUCCESS'
+      const { code } = await Client.broadcastTransaction(signedTransaction)
+      // const code = 'SUCCESS'
       if (code === 'SUCCESS') {
-        await this.props.context.loadUserData()
         // TODO - Remove this piece of code when transactions come with Participate Price
-        if (transaction.type === 'Participate') updateAssets(0, 2, exchangeOption.assetName)
+        updateAssets(0, 2, exchangeOption.assetName)
 
         this.setState({
-          submitted: true,
-          exchange:
-          {
+          exchange: {
+            ...exchange,
             loading: {receive: true, send: false},
             result: {...exchange.result, send: 'SUCCESS'}
-          }}, () => {
-          this._getExchangeResult()
-        })
+          }},
+        this._getExchangeResult)
       }
-      // this.setState({ submitError: null, loadingSubmit: false, submitted: true }, this._navigateNext)
     } catch (error) {
       // This needs to be adapted better from serverless api
       const errorMessage = error.response && error.response.data ? error.response.data.error
@@ -210,9 +222,14 @@ class TransactionDetail extends Component {
       this.setState({
         submitError: translateError(errorMessage),
         loadingSubmit: false,
-        submitted: true
+        submitted: true,
+        exchange: {
+          ...exchange,
+          loading: {receive: false, send: false},
+          result: {...exchange.result, send: 'FAIL'}
+        }
       })
-      logSentry(error, 'Submit Tx - Submit')
+      logSentry(error, 'Submit Exchange TX - Submit')
       store.write(() => {
         const lastTransaction = store.objectForPrimaryKey('Transaction', hash)
         store.delete(lastTransaction)
@@ -285,8 +302,43 @@ class TransactionDetail extends Component {
     return null
   }
 
+  _renderExchangeContracts = () => {
+    const { exchangeOption, exchange, tokenAmount } = this.state
+    return <Utils.View paddingX='medium' paddingY='small'>
+      <DetailRow key='customtransaction' title='Exchange' text='Token sale from @TronWallet.' />
+      <DetailRow key='trxAmount' title='TRX' text={exchangeOption.trxAmount} />
+      <DetailRow key='tokenAmount' title='Token' text={`${tokenAmount} ${exchangeOption.assetName}`} />
+      <ExchangeRow
+        title='Sending TRX'
+        key='sendingtrx'
+        loading={exchange.loading.send}
+        result={exchange.result.send}
+      />
+      <ExchangeRow
+        title={`Receiving ${exchangeOption.assetName}`}
+        key='receivetoken'
+        loading={exchange.loading.receive}
+        result={exchange.result.receive}
+      />
+      {exchange.error &&
+        <Utils.View>
+          <RowView>
+            <Utils.Text secondary size='smaller'>Message</Utils.Text>
+            <Utils.VerticalSpacer size='small' />
+            <Utils.Text align='right' style={{maxWidth: '70%'}} size='xsmall'>{exchange.error}</Utils.Text>
+          </RowView>
+          <Utils.View height={8} />
+          <ButtonGradient
+            text='CONTINUE'
+            onPress={() => this.props.navigation.navigate('Transactions')}
+            font='bold'
+          />
+        </Utils.View>}
+    </Utils.View>
+  }
+
   _renderContracts = () => {
-    const { transactionData, nowDate, tokenAmount, exchange, exchangeOption } = this.state
+    const { transactionData, nowDate, tokenAmount } = this.state
     if (!transactionData) {
       return <Utils.View paddingX={'medium'} paddingY={'small'}>
         <DetailRow
@@ -297,36 +349,14 @@ class TransactionDetail extends Component {
       </Utils.View>
     }
 
-    let contractsElements = []
-    if (exchangeOption.isCustom) {
-      contractsElements.unshift(
-        <DataRow
-          key='CUSTOMTRANSACTION'
-          data={`Token sale from @TronWallet. ${exchangeOption.trxAmount} TRX for ${tokenAmount} ${exchangeOption.assetName} `}
-        />
-      )
-      contractsElements.push(<ExchangeRow
-        title='Sending TRX'
-        key='sendingtrx'
-        loading={exchange.loading.send}
-        result={exchange.result.send}
-      />, <ExchangeRow
-        key='receivetoken'
-        title={`Receiving ${exchangeOption.assetName}`}
-        loading={exchange.loading.receive}
-        result={exchange.result.receive}
+    const contractsElements = buildTransactionDetails(transactionData, tokenAmount)
+    contractsElements.push(
+      <DetailRow
+        key='TIME'
+        title={tl.t('submitTransaction.time')}
+        text={moment(nowDate).format('DD/MM/YYYY HH:mm:ss')}
       />
-      )
-    } else {
-      contractsElements = buildTransactionDetails(transactionData, tokenAmount)
-      contractsElements.push(
-        <DetailRow
-          key='TIME'
-          title={tl.t('submitTransaction.time')}
-          text={moment(nowDate).format('DD/MM/YYYY HH:mm:ss')}
-        />
-      )
-    }
+    )
 
     return <Utils.View paddingX={'medium'} paddingY={'small'}>{contractsElements}</Utils.View>
   }
@@ -355,35 +385,41 @@ class TransactionDetail extends Component {
   }
 
   _renderRetryConnection = () => (
-    <Utils.Content align='center' justify='center'>
-      <Utils.Text size='small'>
+    <Utils.View paddingX='medium' align='center' justify='center'>
+      <Utils.Text size='smaller'>
         {tl.t('submitTransaction.disconnectedMessage')}
       </Utils.Text>
-      <Utils.VerticalSpacer size='large' />
+      <Utils.VerticalSpacer />
       <ButtonGradient text={tl.t('submitTransaction.button.tryAgain')} onPress={this._loadData} size='small' />
-    </Utils.Content>
+    </Utils.View>
   )
 
   render () {
-    const { submitError, loadingData, isConnected } = this.state
+    const { submitError, loadingData, isConnected, loadingSubmit, exchange } = this.state
+    const { exchangeOption } = this.state
 
     if (loadingData) return <LoadingScene />
+
     return (
       <React.Fragment>
         <NavigationHeader
           title={tl.t('submitTransaction.title')}
-          onClose={!this.state.loadingSubmit ? () => this.props.navigation.goBack() : null}
+          onClose={
+            !loadingSubmit && !exchange.loading.send && !exchange.loading.receive
+              ? () => this.props.navigation.goBack()
+              : null}
         />
         <Utils.Container>
           <ScrollView>
-            {!isConnected && this._renderRetryConnection()}
-            {isConnected && this._renderContracts()}
-            {isConnected && this._renderSubmitButton()}
-            <Utils.Content align='center' justify='center'>
-              {submitError && (
-                <Utils.Error>{submitError}</Utils.Error>
-              )}
-            </Utils.Content>
+            {exchangeOption.isCustom
+              ? this._renderExchangeContracts()
+              : this._renderContracts()}
+            {isConnected
+              ? this._renderSubmitButton()
+              : this._renderRetryConnection()}
+            <Utils.View align='center' justify='center'>
+              {submitError && <Utils.Error>{submitError}</Utils.Error>}
+            </Utils.View>
           </ScrollView>
         </Utils.Container>
       </React.Fragment>
