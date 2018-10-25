@@ -36,7 +36,7 @@ class TransactionDetail extends Component {
     submitError: null,
     isConnected: null,
     tokenAmount: null,
-    exchangeOption: { trxAmount: 0, isCustom: false, assetName: '' },
+    exchangeOption: { trxAmount: 0, isExchangeable: false, assetName: '' },
     exchange: {
       loading: {
         send: false,
@@ -139,7 +139,7 @@ class TransactionDetail extends Component {
   _getExchangeResult = async () => {
     const { context, navigation } = this.props
     const { tokenAmount, exchange, exchangeOption, nowDate } = this.state
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
       try {
         const params = {
           address: context.publicKey,
@@ -174,14 +174,14 @@ class TransactionDetail extends Component {
         ...exchange,
         result: {...exchange.result, receive: 'FAIL'},
         loading: {...exchange.loading, receive: false},
-        error: 'Please, check your transaction list to see if have received the amount processed'
+        error: 'Check your latest transactions to confirm the received the amount processed'
       }
     })
   }
 
   _setSubmission = () => {
     const { exchangeOption } = this.state
-    if (exchangeOption.isCustom) {
+    if (exchangeOption.isExchangeable) {
       this._submitExchangeTransaction()
     } else {
       this._submitTransaction()
@@ -305,25 +305,23 @@ class TransactionDetail extends Component {
   _renderExchangeContracts = () => {
     const { exchangeOption, exchange, tokenAmount } = this.state
     return <Utils.View paddingX='medium' paddingY='small'>
-      <DetailRow key='customtransaction' title='Exchange' text='Token sale from @TronWallet.' />
-      <DetailRow key='trxAmount' title='TRX' text={exchangeOption.trxAmount} />
-      <DetailRow key='tokenAmount' title='Token' text={`${tokenAmount} ${exchangeOption.assetName}`} />
+      <DetailRow title='Exchange' text='Token sale from @TronWallet.' />
+      <DetailRow title='TRX' text={exchangeOption.trxAmount} />
+      <DetailRow title='Asset' text={`${tokenAmount} ${exchangeOption.assetName}`} />
       <ExchangeRow
         title='Sending TRX'
-        key='sendingtrx'
         loading={exchange.loading.send}
         result={exchange.result.send}
       />
       <ExchangeRow
         title={`Receiving ${exchangeOption.assetName}`}
-        key='receivetoken'
         loading={exchange.loading.receive}
         result={exchange.result.receive}
       />
       {exchange.error &&
         <Utils.View>
           <RowView>
-            <Utils.Text secondary size='smaller'>Message</Utils.Text>
+            <Utils.Text secondary size='smaller'>{tl.t('message').toUpperCase()}</Utils.Text>
             <Utils.VerticalSpacer size='small' />
             <Utils.Text align='right' style={{maxWidth: '70%'}} size='xsmall'>{exchange.error}</Utils.Text>
           </RowView>
@@ -411,7 +409,7 @@ class TransactionDetail extends Component {
         />
         <Utils.Container>
           <ScrollView>
-            {exchangeOption.isCustom
+            {exchangeOption.isExchangeable
               ? this._renderExchangeContracts()
               : this._renderContracts()}
             {isConnected

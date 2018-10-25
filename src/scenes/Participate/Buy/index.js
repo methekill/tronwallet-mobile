@@ -167,7 +167,7 @@ class BuyScene extends Component {
       if (amountToPay < 1) throw new DataError('INSUFFICIENT_TRX')
 
       const participatePayload =
-      item.isCustom
+      item.isExchangeable
         ? {
           from: this.props.context.publicKey,
           to: this.props.context.exchangeBot,
@@ -180,7 +180,7 @@ class BuyScene extends Component {
           participateAmount: this._fixNumber(amountToPay)
         }
 
-      const data = item.isCustom
+      const data = item.isExchangeable
         ? await Client.getTransferTransaction(participatePayload)
         : await Client.getParticipateTransaction(this.props.context.publicKey, participatePayload)
 
@@ -219,7 +219,7 @@ class BuyScene extends Component {
           tx: transactionSigned,
           tokenAmount: amountToBuy,
           exchangeOption: {
-            isCustom: item.isCustom,
+            isExchangeable: item.isExchangeable,
             trxAmount: amountToBuy * item.price / ONE_TRX,
             assetName: item.name
           }
