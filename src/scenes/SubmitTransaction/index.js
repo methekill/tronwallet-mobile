@@ -202,7 +202,6 @@ class TransactionDetail extends Component {
     try {
       store.write(() => { store.create('Transaction', transaction, true) })
       const { code } = await Client.broadcastTransaction(signedTransaction)
-      // const code = 'SUCCESS'
       if (code === 'SUCCESS') {
         // TODO - Remove this piece of code when transactions come with Participate Price
         updateAssets(0, 2, exchangeOption.assetName)
@@ -309,12 +308,12 @@ class TransactionDetail extends Component {
       <DetailRow title='TRX' text={exchangeOption.trxAmount} />
       <DetailRow title='Asset' text={`${tokenAmount} ${exchangeOption.assetName}`} />
       <ExchangeRow
-        title='Sending TRX'
+        title={tl.t('submitTransaction.exchange.send', {sendtoken: 'TRX '})}
         loading={exchange.loading.send}
         result={exchange.result.send}
       />
       <ExchangeRow
-        title={`Receiving ${exchangeOption.assetName}`}
+        title={tl.t('submitTransaction.exchange.receive', {receivetoken: exchangeOption.assetName})}
         loading={exchange.loading.receive}
         result={exchange.result.receive}
       />
