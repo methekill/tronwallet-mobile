@@ -7,7 +7,7 @@ import { Colors } from '../../../components/DesignSystem'
 
 const CardInfo = ({ label, value, precision = 0 }) => (
   <View>
-    <CardInfoText>{label}</CardInfoText>
+    <CardInfoText color={Colors.greyBlue}>{label}</CardInfoText>
     <Motion
       defaultStyle={{ power: 0 }}
       style={{ power: spring(value) }}

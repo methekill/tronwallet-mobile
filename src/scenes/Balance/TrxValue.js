@@ -45,7 +45,7 @@ class TrxValue extends Component {
               </FadeIn>
             )}
             <Utils.HorizontalSpacer />
-            <Badge bg='#191a2b'>{currency}</Badge>
+            <Badge bg='#191a2b' guarantee>{currency}</Badge>
           </React.Fragment>
         </Utils.Row>
         <Utils.VerticalSpacer />

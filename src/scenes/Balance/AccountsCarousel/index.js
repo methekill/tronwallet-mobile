@@ -127,8 +127,8 @@ class AccountsCarousel extends React.Component {
 
               <Utils.VerticalSpacer size='medium' />
               <Utils.Row justify='space-between'>
-                <CardInfo label={tl.t('tronPower')} value={item.tronPower || 0} />
-                <CardInfo label={tl.t('balance.bandwidth')} value={item.bandwidth || 0} />
+                <CardInfo label={tl.t('avaliable')} value={item.tronPower || 0} />
+                <CardInfo label={tl.t('freezed')} value={item.bandwidth || 0} />
               </Utils.Row>
             </Utils.View>
             <CardFooter>

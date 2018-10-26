@@ -29,7 +29,6 @@ export const Icon = styled.Image`
   width: 36px;  
 `
 export const CardInfoText = Utils.Text.extend.attrs({
-  color: Colors.greyBlue,
   size: 'smaller'
 })``
 

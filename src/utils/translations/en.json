@@ -30,6 +30,8 @@
     "clipboardCopied": "Something wrong while copying",
     "hideAccount" : "Something went wrong deleting account, try again'"
   },
+  "avaliable": "AVALIABLE",
+  "freezed": "FREEZED",
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRICE",
   "confirmed": "Confirmed",
