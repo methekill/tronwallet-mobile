@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { ScrollView, Alert } from 'react-native'
 import Switch from 'react-native-switch-pro'
+
 import * as Utils from '../../components/Utils'
 import ButtonGradient from './../../components/ButtonGradient'
 import { PolicyText } from './elements'
 import { Colors } from './../../components/DesignSystem'
+import tl from '../../utils/i18n'
 
 class PrivacyPolicy extends Component {
   state = {
@@ -13,7 +15,7 @@ class PrivacyPolicy extends Component {
 
   onPressConfirm = () => {
     if (!this.state.userAccepted) {
-      Alert.alert('You need to accept of privacy terms before to continue. ')
+      Alert.alert(tl.t('privacyPolicy.error'))
     } else {
       this.props.navigation.navigate('PinScreen', this.props.navigation.state)
     }
@@ -31,7 +33,7 @@ class PrivacyPolicy extends Component {
           >
 
             <Utils.View align='center' height='20%'>
-              <Utils.Text lineHeight={36} size='medium'>PRIVACY POLICY</Utils.Text>
+              <Utils.Text lineHeight={36} size='medium'>{tl.t('privacyPolicy.title')}</Utils.Text>
               <Utils.VerticalSpacer />
               <Utils.Text
                 lineHeight={25}
@@ -42,7 +44,7 @@ class PrivacyPolicy extends Component {
                 align='center'
                 light
               >
-                You must read and accept our privacy terms to continue.
+                {tl.t('privacyPolicy.subtitle')}
               </Utils.Text>
               <Utils.VerticalSpacer size='medium' />
               <Utils.View width={8} height={1} background={Colors.lemonYellow} />
@@ -67,10 +69,10 @@ class PrivacyPolicy extends Component {
                     this.setState({ userAccepted })
                   }}
                 />
-                <Utils.Text color={Colors.greyBlue} size='xsmall'>I have read and agree to the terms</Utils.Text>
+                <Utils.Text color={Colors.greyBlue} size='xsmall'>{tl.t('privacyPolicy.acceptTerms')}</Utils.Text>
               </Utils.Row>
               <Utils.VerticalSpacer />
-              <ButtonGradient text='CONTINUE' onPress={this.onPressConfirm} />
+              <ButtonGradient text={tl.t('privacyPolicy.continue')} onPress={this.onPressConfirm} />
             </Utils.View>
 
           </Utils.View>
