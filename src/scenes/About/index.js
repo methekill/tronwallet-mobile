@@ -73,7 +73,7 @@ class About extends PureComponent {
             <View>
               <SectionTitle>{tl.t('settings.partners')}</SectionTitle>
               <Row justify='center'>
-                <TouchableWithoutFeedback onPress={() => this._openLink('https://www.hummingpay.com/')}>
+                <TouchableWithoutFeedback onPress={() => this._openLink('https://www.hummingpay.io/')}>
                   <PayPartner source={require('../../assets/paysponsor.png')} />
                 </TouchableWithoutFeedback>
                 <HorizontalSpacer size='large' />

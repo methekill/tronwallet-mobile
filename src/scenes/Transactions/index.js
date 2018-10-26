@@ -66,8 +66,7 @@ class TransactionsScene extends Component {
       .map(item => Object.assign({}, item))
 
   _getDataFromStore = async () => {
-    const transactionStore = await getTransactionStore()
-    const transactions = this._getSortedTransactionList(transactionStore)
+    const transactions = this._getSortedTransactionList(this.transactionStoreRef)
 
     const userTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
     const filteredTransactions = transactions.filter(({ type, contractData }) =>
@@ -81,6 +80,7 @@ class TransactionsScene extends Component {
   _onRefresh = async () => {
     this.setState({ refreshing: true })
     try {
+      this.transactionStoreRef = await getTransactionStore()
       this.contactsStoreRef = await getContactsStore()
       const currentAlias = this._getAlias(this.props.context.publicKey)
       const contact = this.props.navigation.getParam('contact', null)
@@ -96,9 +96,8 @@ class TransactionsScene extends Component {
   }
 
   _setFilteredContact = async contact => {
-    const transactionsStore = await getTransactionStore()
     const assetStore = await getAssetsStore()
-    const transactionsFiltered = transactionsStore.objects('Transaction')
+    const transactionsFiltered = this.transactionStoreRef.objects('Transaction')
       .filtered('contractData.transferFromAddress = $0 OR contractData.transferToAddress = $0', contact.address)
       .sorted([['timestamp', true]])
       .map(item => Object.assign({}, item))
