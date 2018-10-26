@@ -40,8 +40,8 @@ const TransactionSchema = {
   }
 }
 
-export default async () =>
-  Realm.open({
+export default async () => {
+  this.transactions = this.transactions ? this.transactions : await Realm.open({
     path: 'Realm.transactions',
     schema: [TransactionSchema, ContractDataSchema, VoteSchema],
     schemaVersion: 15,
@@ -55,3 +55,5 @@ export default async () =>
       }
     }
   })
+  return this.transactions
+}
