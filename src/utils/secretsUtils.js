@@ -32,7 +32,7 @@ const getTransactionsFromStore = async (address) => {
   const transactionsStore = await getTransactionStore()
   return transactionsStore
     .objects('Transaction')
-    .filtered(`ownerAddress = "${address}"`)
+    .filtered(`ownerAddress = "${address}" OR contractData.transferFromAddress = "${address}" OR contractData.transferToAddress = "${address}"`)
 }
 
 const isOnBlockchain = async address => {
