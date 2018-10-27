@@ -83,18 +83,18 @@ const SettingsStack = createStackNavigator({
   SeedConfirm,
   NetworkConnection
 }, {
-    navigationOptions: {
-      headerStyle: {
-        backgroundColor: Colors.background,
-        elevation: 0,
-        borderColor: Colors.background
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontFamily: 'rubik-medium'
-      }
+  navigationOptions: {
+    headerStyle: {
+      backgroundColor: Colors.background,
+      elevation: 0,
+      borderColor: Colors.background
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontFamily: 'rubik-medium'
     }
-  })
+  }
+})
 
 const tabWidth = ScreenSize.width / 2
 const indicatorWidth = 15
@@ -133,10 +133,10 @@ const AddressBookStack = createStackNavigator({
   EditAddressBookItem,
   AddContact: AddContactScene
 }, {
-    navigationOptions: {
-      header: <NavigationHeader title={tl.t('addressBook.title')} />
-    }
-  })
+  navigationOptions: {
+    header: <NavigationHeader title={tl.t('addressBook.title')} />
+  }
+})
 
 const BalanceStack = createStackNavigator({
   BalanceScene,
@@ -174,48 +174,48 @@ const AppTabs = createBottomTabNavigator({
   Participate: ParticipateStack,
   Settings: SettingsStack
 }, {
-    navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state
-        let iconName
-        if (routeName === 'Market') {
-          iconName = `graph,-bar,-chart,-statistics,-analytics`
-        } else if (routeName === 'Balance') {
-          iconName = `wallet,-money,-cash,-balance,-purse`
-        } else if (routeName === 'Transfer') {
-          iconName = `fly,-send,-paper,-submit,-plane`
-        } else if (routeName === 'AddressBook') {
-          iconName = `diary,-contact,-address,-organizer,-book`
-        } else if (routeName === 'Vote') {
-          iconName = `shout-out,-speaker,-offer,-announcement,-loud`
-        } else if (routeName === 'Transactions') {
-          iconName = `network,-arrow,-up-dowm,-mobile-data,-send-receive`
-        } else if (routeName === 'Receive') {
-          iconName = `scan,-bar-code,-qr-code,-barcode,-scanner`
-        } else if (routeName === 'Settings') {
-          iconName = `gear,-settings,-update,-setup,-config`
-        } else if (routeName === 'Participate') {
-          iconName = `dollar,-currency,-money,-cash,-coin`
-        }
-
-        return <Icon name={iconName} size={26} color={tintColor} />
+  navigationOptions: ({ navigation }) => ({
+    tabBarIcon: ({ focused, tintColor }) => {
+      const { routeName } = navigation.state
+      let iconName
+      if (routeName === 'Market') {
+        iconName = `graph,-bar,-chart,-statistics,-analytics`
+      } else if (routeName === 'Balance') {
+        iconName = `wallet,-money,-cash,-balance,-purse`
+      } else if (routeName === 'Transfer') {
+        iconName = `fly,-send,-paper,-submit,-plane`
+      } else if (routeName === 'AddressBook') {
+        iconName = `diary,-contact,-address,-organizer,-book`
+      } else if (routeName === 'Vote') {
+        iconName = `shout-out,-speaker,-offer,-announcement,-loud`
+      } else if (routeName === 'Transactions') {
+        iconName = `network,-arrow,-up-dowm,-mobile-data,-send-receive`
+      } else if (routeName === 'Receive') {
+        iconName = `scan,-bar-code,-qr-code,-barcode,-scanner`
+      } else if (routeName === 'Settings') {
+        iconName = `gear,-settings,-update,-setup,-config`
+      } else if (routeName === 'Participate') {
+        iconName = `dollar,-currency,-money,-cash,-coin`
       }
-    }),
-    tabBarOptions: {
-      activeTintColor: Colors.primaryText,
-      inactiveTintColor: Colors.secondaryText,
-      style: {
-        backgroundColor: 'black'
-      },
-      showLabel: false
+
+      return <Icon name={iconName} size={26} color={tintColor} />
+    }
+  }),
+  tabBarOptions: {
+    activeTintColor: Colors.primaryText,
+    inactiveTintColor: Colors.secondaryText,
+    style: {
+      backgroundColor: 'black'
     },
-    initialRouteName: 'Balance'
-  })
+    showLabel: false
+  },
+  initialRouteName: 'Balance'
+})
 
 const RootNavigator = createStackNavigator({
   Loading: LoadingScene,
-  FirstTime,
-  Pin: createSwitchNavigator({ PrivacyPolicy, PinScreen: Pin }, { initialRouteName: 'PrivacyPolicy' }),
+  FirstTime: createSwitchNavigator({ PrivacyPolicy, First: FirstTime }, { initialRouteName: 'PrivacyPolicy' }),
+  Pin,
   CreateSeed,
   SeedRestore,
   ImportWallet,
@@ -229,14 +229,14 @@ const RootNavigator = createStackNavigator({
   Freeze: FreezeVoteScene,
   Rewards: RewardsScene
 }, {
-    mode: 'modal',
-    navigationOptions: {
-      gesturesEnabled: false,
-      header: null
-    },
-    cardStyle: { shadowColor: 'transparent' }
+  mode: 'modal',
+  navigationOptions: {
+    gesturesEnabled: false,
+    header: null
+  },
+  cardStyle: { shadowColor: 'transparent' }
 
-  })
+})
 
 const prefix =
   Platform.OS === 'android' ? 'tronwalletmobile://tronwalletmobile/' : 'tronwalletmobile://'
@@ -262,7 +262,7 @@ class App extends Component {
     systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }
   }
 
-  async componentDidMount() {
+  async componentDidMount () {
     setTimeout(() => {
       OneSignal.init(ONE_SIGNAL_KEY)
       OneSignal.inFocusDisplaying(2)
@@ -281,7 +281,7 @@ class App extends Component {
     this._loadCurrency()
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     OneSignal.removeEventListener('ids', this._onIds)
     OneSignal.removeEventListener('opened', this._onOpened)
     OneSignal.removeEventListener('received', this._onReceived)
