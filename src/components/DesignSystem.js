@@ -29,6 +29,7 @@ export const Colors = {
   lightestBackground: '#3f415d',
   weirdGreen: '#3fe77b',
   lightPurple: '#696A9C',
+  slateGrey: '#51526b',
   primaryText: '#FFFFFF',
   secondaryText: '#66688F',
   summaryText: '#999bb5',
