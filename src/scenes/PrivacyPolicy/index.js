@@ -17,7 +17,7 @@ class PrivacyPolicy extends Component {
     if (!this.state.userAccepted) {
       Alert.alert(tl.t('privacyPolicy.error'))
     } else {
-      this.props.navigation.navigate('PinScreen', this.props.navigation.state)
+      this.props.navigation.navigate('First', this.props.navigation.state)
     }
   }
 
