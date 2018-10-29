@@ -19,6 +19,7 @@
   "warning": "Avvertenza",
   "cancel": "Cancellare",
   "address": "Indirizzo",
+  "message": "Message",
   "ok": "OK",
   "actionModalTitle": "Ti piacerebbe",
   "account": "Conto",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "Impossibile caricare i dati della transazione"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "Sembra che tu sia disconnesso. Riconnettiti a Internet prima di procedere con la transazione.",
     "dic": {
