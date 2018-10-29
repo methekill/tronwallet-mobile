@@ -406,7 +406,7 @@
       "title": "Qui accepte les TRX ?"
     },
     "helpCenter": {
-      "title": "Help Center"
+      "title": "Centre d'aide"
     },
     "accounts": {
       "title": "Comptes",
@@ -433,9 +433,9 @@
       "noData": "Impossible de charger les données de la transaction"
     },
     "exchange": {
-      "send": "Sending {{sendtoken}}",
-      "receive": "Receiving {{receivetoken}}",
-      "error": "Check your latest transactions to confirm the received amount."
+      "send": "Envoi de {{sendtoken}}",
+      "receive": "Réception {{receivetoken}}",
+      "error": "Vérifier vos dernières transactions pour confirmer le montant reçu."
     },
     "disconnectedMessage": "Il semblerai que vous soyez déconnecté. reconnectez vous a Internet pour procéder a la transaction.",
     "dic": {
