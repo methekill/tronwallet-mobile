@@ -19,7 +19,7 @@
   "warning": "알림",
   "cancel": "취소",
   "address": "주소",
-  "message": "Message",
+  "message": "메시지",
   "ok": "확인",
   "actionModalTitle": "원하는 항목을 선택하세요",
   "account": "계정",
@@ -564,7 +564,7 @@
     }
   },
   "privacyPolicy": {
-    "title": "PRIVACY POLICY",
+    "title": "개인 정보 보호 정책",
     "subtitle": "You must read and accept our privacy terms to continue.",
     "error": "You need to accept of privacy terms before to continue. ",
     "acceptTerms": "I have read and agree to the terms",
