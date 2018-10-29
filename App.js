@@ -3,7 +3,8 @@ import { StatusBar, Platform, YellowBox, SafeAreaView, AsyncStorage } from 'reac
 import {
   createBottomTabNavigator,
   createStackNavigator,
-  createMaterialTopTabNavigator
+  createMaterialTopTabNavigator,
+  createSwitchNavigator
 } from 'react-navigation'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
 import axios from 'axios'
@@ -49,6 +50,7 @@ import PaymentsScene from './src/scenes/Payments'
 import ScanPayScene from './src/scenes/Payments/Scan'
 import CreateSeed from './src/scenes/Seed/Create'
 import ImportWallet from './src/scenes/Seed/Import'
+import PrivacyPolicy from './src/scenes/PrivacyPolicy'
 
 import Client from './src/services/client'
 import { Context } from './src/store/context'
@@ -81,18 +83,18 @@ const SettingsStack = createStackNavigator({
   SeedConfirm,
   NetworkConnection
 }, {
-  navigationOptions: {
-    headerStyle: {
-      backgroundColor: Colors.background,
-      elevation: 0,
-      borderColor: Colors.background
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontFamily: 'rubik-medium'
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: Colors.background,
+        elevation: 0,
+        borderColor: Colors.background
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontFamily: 'rubik-medium'
+      }
     }
-  }
-})
+  })
 
 const tabWidth = ScreenSize.width / 2
 const indicatorWidth = 15
@@ -131,10 +133,10 @@ const AddressBookStack = createStackNavigator({
   EditAddressBookItem,
   AddContact: AddContactScene
 }, {
-  navigationOptions: {
-    header: <NavigationHeader title={tl.t('addressBook.title')} />
-  }
-})
+    navigationOptions: {
+      header: <NavigationHeader title={tl.t('addressBook.title')} />
+    }
+  })
 
 const BalanceStack = createStackNavigator({
   BalanceScene,
@@ -172,49 +174,49 @@ const AppTabs = createBottomTabNavigator({
   Participate: ParticipateStack,
   Settings: SettingsStack
 }, {
-  navigationOptions: ({ navigation }) => ({
-    tabBarIcon: ({ focused, tintColor }) => {
-      const { routeName } = navigation.state
-      let iconName
-      if (routeName === 'Market') {
-        iconName = `graph,-bar,-chart,-statistics,-analytics`
-      } else if (routeName === 'Balance') {
-        iconName = `wallet,-money,-cash,-balance,-purse`
-      } else if (routeName === 'Transfer') {
-        iconName = `fly,-send,-paper,-submit,-plane`
-      } else if (routeName === 'AddressBook') {
-        iconName = `diary,-contact,-address,-organizer,-book`
-      } else if (routeName === 'Vote') {
-        iconName = `shout-out,-speaker,-offer,-announcement,-loud`
-      } else if (routeName === 'Transactions') {
-        iconName = `network,-arrow,-up-dowm,-mobile-data,-send-receive`
-      } else if (routeName === 'Receive') {
-        iconName = `scan,-bar-code,-qr-code,-barcode,-scanner`
-      } else if (routeName === 'Settings') {
-        iconName = `gear,-settings,-update,-setup,-config`
-      } else if (routeName === 'Participate') {
-        iconName = `dollar,-currency,-money,-cash,-coin`
-      }
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) => {
+        const { routeName } = navigation.state
+        let iconName
+        if (routeName === 'Market') {
+          iconName = `graph,-bar,-chart,-statistics,-analytics`
+        } else if (routeName === 'Balance') {
+          iconName = `wallet,-money,-cash,-balance,-purse`
+        } else if (routeName === 'Transfer') {
+          iconName = `fly,-send,-paper,-submit,-plane`
+        } else if (routeName === 'AddressBook') {
+          iconName = `diary,-contact,-address,-organizer,-book`
+        } else if (routeName === 'Vote') {
+          iconName = `shout-out,-speaker,-offer,-announcement,-loud`
+        } else if (routeName === 'Transactions') {
+          iconName = `network,-arrow,-up-dowm,-mobile-data,-send-receive`
+        } else if (routeName === 'Receive') {
+          iconName = `scan,-bar-code,-qr-code,-barcode,-scanner`
+        } else if (routeName === 'Settings') {
+          iconName = `gear,-settings,-update,-setup,-config`
+        } else if (routeName === 'Participate') {
+          iconName = `dollar,-currency,-money,-cash,-coin`
+        }
 
-      return <Icon name={iconName} size={26} color={tintColor} />
-    }
-  }),
-  tabBarOptions: {
-    activeTintColor: Colors.primaryText,
-    inactiveTintColor: Colors.secondaryText,
-    style: {
-      backgroundColor: 'black'
+        return <Icon name={iconName} size={26} color={tintColor} />
+      }
+    }),
+    tabBarOptions: {
+      activeTintColor: Colors.primaryText,
+      inactiveTintColor: Colors.secondaryText,
+      style: {
+        backgroundColor: 'black'
+      },
+      showLabel: false
     },
-    showLabel: false
-  },
-  initialRouteName: 'Balance'
-})
+    initialRouteName: 'Balance'
+  })
 
 const RootNavigator = createStackNavigator({
   Loading: LoadingScene,
-  CreateSeed,
   FirstTime,
-  Pin,
+  Pin: createSwitchNavigator({ PrivacyPolicy, PinScreen: Pin }, { initialRouteName: 'PrivacyPolicy' }),
+  CreateSeed,
   SeedRestore,
   ImportWallet,
   App: AppTabs,
@@ -227,13 +229,14 @@ const RootNavigator = createStackNavigator({
   Freeze: FreezeVoteScene,
   Rewards: RewardsScene
 }, {
-  mode: 'modal',
-  navigationOptions: {
-    gesturesEnabled: false,
-    header: null
-  },
-  cardStyle: { shadowColor: 'transparent' }
-})
+    mode: 'modal',
+    navigationOptions: {
+      gesturesEnabled: false,
+      header: null
+    },
+    cardStyle: { shadowColor: 'transparent' }
+
+  })
 
 const prefix =
   Platform.OS === 'android' ? 'tronwalletmobile://tronwalletmobile/' : 'tronwalletmobile://'
@@ -260,7 +263,7 @@ class App extends Component {
     systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }
   }
 
-  async componentDidMount () {
+  async componentDidMount() {
     setTimeout(() => {
       OneSignal.init(ONE_SIGNAL_KEY)
       OneSignal.inFocusDisplaying(2)
@@ -279,7 +282,7 @@ class App extends Component {
     this._loadCurrency()
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     OneSignal.removeEventListener('ids', this._onIds)
     OneSignal.removeEventListener('opened', this._onOpened)
     OneSignal.removeEventListener('received', this._onReceived)
@@ -399,20 +402,20 @@ class App extends Component {
     try {
       const tokenVibility = await AsyncStorage.getItem(TOKENS_VISIBLE)
       const verifiedTokensOnly = tokenVibility === null ? true : tokenVibility === 'true'
-      this.setState({verifiedTokensOnly})
+      this.setState({ verifiedTokensOnly })
     } catch (error) {
       this.setState({ verifiedTokensOnly: false })
     }
   }
-   _loadFixedTokens = async () => {
-     try {
-       const fixedTokens = await getFixedTokens()
-       this.setState({fixedTokens})
-     } catch (error) {
-       this.setState({fixedTokens: ['TRX', 'TWX']})
-       logSentry(error, 'App - Load Fixed Tokens')
-     }
-   }
+  _loadFixedTokens = async () => {
+    try {
+      const fixedTokens = await getFixedTokens()
+      this.setState({ fixedTokens })
+    } catch (error) {
+      this.setState({ fixedTokens: ['TRX', 'TWX'] })
+      logSentry(error, 'App - Load Fixed Tokens')
+    }
+  }
 
   _loadCurrency = async () => {
     try {
@@ -461,11 +464,11 @@ class App extends Component {
     })
   }
 
-  _resetAccounts = () => this.setState({accounts: [], publicKey: null})
+  _resetAccounts = () => this.setState({ accounts: [], publicKey: null })
 
   _hideAccount = address => {
     const newAccounts = this.state.accounts.filter(acc => acc.address !== address)
-    this.setState({accounts: newAccounts})
+    this.setState({ accounts: newAccounts })
   }
 
   render () {
@@ -490,7 +493,7 @@ class App extends Component {
         <Context.Provider value={contextProps}>
           <StatusBar barStyle='light-content' />
           {this.state.systemStatus.showStatus &&
-          <StatusMessage systemStatus={this.state.systemStatus} />}
+            <StatusMessage systemStatus={this.state.systemStatus} />}
           <RootNavigator uriPrefix={prefix} />
         </Context.Provider>
       </SafeAreaView>
