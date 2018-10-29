@@ -19,6 +19,7 @@
   "warning": "Advertencia",
   "cancel": "Cancelar",
   "address": "Dirección",
+  "message": "Mensaje",
   "ok": "Vale",
   "actionModalTitle": "Te gustaría",
   "account": "Cuenta",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "No se pudieron cargar los datos de la transacción"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Compruebe sus últimas transacciones para confirmar la cantidad recibida."
     },
     "disconnectedMessage": "Parece que estas desconectado. Vuelva a conectarte a internet antes de proceder con la transacción.",
     "dic": {
