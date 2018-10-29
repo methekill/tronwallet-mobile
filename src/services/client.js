@@ -37,7 +37,7 @@ class ClientWallet {
 
     const balancesData = balances.sort((a, b) => Number(b.balance) - Number(a.balance))
     const freezeData = { ...frozen, total: frozen.total / ONE_TRX, bandwidth }
-    return { balancesData, freezeData, balanceTotal: balance / ONE_TRX }
+    return { address, balancesData, freezeData, balanceTotal: balance / ONE_TRX }
   }
 
   async getBalances (address) {
@@ -85,6 +85,12 @@ class ClientWallet {
     } else {
       return { confirmed: false }
     }
+  }
+
+  async getTransactionFromExchange ({address, asset, amount, bot}) {
+    const reqBody = { 'toAddress': address, 'ownerAddress': bot, assetName: asset }
+    const { data: result } = await axios.post(`${this.tronwalletDB}/transactions/find/`, reqBody)
+    return result.length ? result[0] : null
   }
 
   async getAssetList () {

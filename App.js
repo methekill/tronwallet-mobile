@@ -3,7 +3,8 @@ import { StatusBar, Platform, YellowBox, SafeAreaView, AsyncStorage } from 'reac
 import {
   createBottomTabNavigator,
   createStackNavigator,
-  createMaterialTopTabNavigator
+  createMaterialTopTabNavigator,
+  createSwitchNavigator
 } from 'react-navigation'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
 import axios from 'axios'
@@ -49,6 +50,7 @@ import PaymentsScene from './src/scenes/Payments'
 import ScanPayScene from './src/scenes/Payments/Scan'
 import CreateSeed from './src/scenes/Seed/Create'
 import ImportWallet from './src/scenes/Seed/Import'
+import PrivacyPolicy from './src/scenes/PrivacyPolicy'
 
 import Client from './src/services/client'
 import { Context } from './src/store/context'
@@ -212,9 +214,9 @@ const AppTabs = createBottomTabNavigator({
 
 const RootNavigator = createStackNavigator({
   Loading: LoadingScene,
-  CreateSeed,
-  FirstTime,
+  FirstTime: createSwitchNavigator({ PrivacyPolicy, First: FirstTime }, { initialRouteName: 'PrivacyPolicy' }),
   Pin,
+  CreateSeed,
   SeedRestore,
   ImportWallet,
   App: AppTabs,
@@ -233,6 +235,7 @@ const RootNavigator = createStackNavigator({
     header: null
   },
   cardStyle: { shadowColor: 'transparent' }
+
 })
 
 const prefix =
@@ -256,6 +259,7 @@ class App extends Component {
     secretMode: 'mnemonic',
     verifiedTokensOnly: true,
     fixedTokens: [],
+    exchangeBot: '',
     systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }
   }
 
@@ -275,9 +279,7 @@ class App extends Component {
     this._loadUseBiometry()
     this._loadVerifiedTokenFlag()
     this._loadFixedTokens()
-    const preferedCurrency = await AsyncStorage.getItem(USER_PREFERRED_CURRENCY) || 'TRX'
-    this._getPrice(preferedCurrency)
-    this.setState({ currency: preferedCurrency })
+    this._loadCurrency()
   }
 
   componentWillUnmount () {
@@ -304,23 +306,21 @@ class App extends Component {
   _loadUserData = async () => {
     // accounts = filtered accounts by hidden status
     // userSecrets =  ref to all userSecrets
-
     let accounts = await getUserSecrets(this.state.pin)
     const userSecrets = accounts
     // First Time
     if (!accounts.length) return
 
-    if (this.state.accounts) {
-      // merge store with state
-      accounts = accounts
-        .filter(account => !account.hide)
-        .map(account => {
-          const stateAccount = this.state.accounts.find(item => item.address === account.address)
-          return Object.assign({}, stateAccount, account)
-        })
-    }
+    // merge store with state
+    accounts = accounts
+      .filter(account => !account.hide)
+      .map(account => {
+        const stateAccount = this.state.accounts.find(item => item.address === account.address)
+        return Object.assign({}, stateAccount, account)
+      })
+
     this.setState({ accounts, userSecrets }, async () => {
-      await Promise.all(accounts.map(async acc => { await this._updateAccount(acc.address) }))
+      await this._updateAccounts(accounts)
       if (!this.state.publicKey) {
         const { address } = accounts[0]
         this.setState({ publicKey: address })
@@ -328,53 +328,41 @@ class App extends Component {
     })
   }
 
-  _updateAccount = async address => {
-    let { accounts, freeze } = this.state
-    const { balanceTotal, freezeData, balancesData } = await Client.getAccountData(address)
-    const balances = { ...this.state.balances, [address]: balancesData }
+  _updateAccounts = async (accountsArray = []) => {
+    const accountDataArray = await Promise.all(accountsArray.map(acc => Client.getAccountData(acc.address)))
+    const updatedBalanceData = {}
+    const updatedFreezeData = {}
+    const updatedAccounDataArray = accountsArray.map((prevAccount, index) => {
+      const { balanceTotal, freezeData, balancesData } = accountDataArray
+        .find(ada => ada.address === prevAccount.address)
 
-    accounts = accounts.map(account => {
-      if (account.address === address) {
-        account.balance = balanceTotal
-        account.tronPower = freezeData.total
-        account.bandwidth = freezeData.bandwidth.netRemaining
-      }
-      return account
-    })
-    freeze[address] = freezeData
+      updatedBalanceData[prevAccount.address] = balancesData
+      updatedFreezeData[prevAccount.address] = freezeData
 
-    this.setState({ accounts, balances, freeze })
-    getBalanceStore().then(store => {
-      store.write(() => {
-        balancesData.map(item =>
-          store.create('Balance', {
-            ...item,
-            account: address,
-            id: `${address}${item.name}`
-          }, true))
+      prevAccount.balance = balanceTotal
+      prevAccount.tronPower = freezeData.total
+      prevAccount.bandwidth = freezeData.bandwidth.netRemaining
+
+      getBalanceStore().then(store => {
+        store.write(() => {
+          balancesData.map(item =>
+            store.create('Balance', {
+              ...item,
+              account: prevAccount.address,
+              id: `${prevAccount.address}${item.name}`
+            }, true))
+        })
       })
-    })
-  }
 
-  _updateBalances = async accounts => {
-    for (let i = 0; i < accounts.length; i++) {
-      this._updateAccount(accounts[i].address)
-    }
+      return prevAccount
+    })
+
+    this.setState({ accounts: updatedAccounDataArray, balances: updatedBalanceData, freeze: updatedFreezeData })
   }
 
   _setCurrency = currency => {
     this.setState({ currency }, () => AsyncStorage.setItem(USER_PREFERRED_CURRENCY, currency))
     if (!this.state.price[currency]) this._getPrice(currency)
-  }
-
-  _getFreeze = async (address) => {
-    try {
-      const value = await Client.getFreeze(address)
-      this.setState({ freeze: Object.assign({}, this.state.freeze, { [address]: value }) })
-    } catch (e) {
-      this.setState({ freeze: Object.assign({}, this.state.freeze, { e }) })
-      logSentry(e, 'App - GetFreeze')
-    }
   }
 
   _getPrice = async (currency = 'TRX') => {
@@ -414,21 +402,31 @@ class App extends Component {
     try {
       const tokenVibility = await AsyncStorage.getItem(TOKENS_VISIBLE)
       const verifiedTokensOnly = tokenVibility === null ? true : tokenVibility === 'true'
-      this.setState({verifiedTokensOnly})
+      this.setState({ verifiedTokensOnly })
     } catch (error) {
       this.setState({ verifiedTokensOnly: false })
     }
   }
-   _loadFixedTokens = async () => {
-     try {
-       const fixedTokens = await getFixedTokens()
-       this.setState({fixedTokens})
-     } catch (error) {
-       this.setState({fixedTokens: ['TRX', 'TWX']})
-       logSentry(error, 'App - Load Fixed Tokens')
-     }
-   }
+  _loadFixedTokens = async () => {
+    try {
+      const fixedTokens = await getFixedTokens()
+      this.setState({ fixedTokens })
+    } catch (error) {
+      this.setState({ fixedTokens: ['TRX', 'TWX'] })
+      logSentry(error, 'App - Load Fixed Tokens')
+    }
+  }
 
+  _loadCurrency = async () => {
+    try {
+      const preferedCurrency = await AsyncStorage.getItem(USER_PREFERRED_CURRENCY) || 'TRX'
+      this._getPrice(preferedCurrency)
+      this.setState({ currency: preferedCurrency })
+    } catch (error) {
+      this.setState({currency: 'TRX'})
+      logSentry(error, 'App - Load Fixed Tokens')
+    }
+  }
   _setNodes = async () => {
     try {
       await NodesIp.initNodes()
@@ -439,10 +437,12 @@ class App extends Component {
 
   _updateSystemStatus = async () => {
     try {
-      const systemStatus = await getSystemStatus()
-      this.setState({systemStatus})
+      const {exchangeBot, systemStatus} = await getSystemStatus()
+      this.setState({systemStatus, exchangeBot})
     } catch (error) {
-      this.setState({systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }})
+      this.setState({
+        exchangeBot: '',
+        systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }})
       logSentry(error, 'App - can\'t get system status')
     }
   }
@@ -464,43 +464,20 @@ class App extends Component {
     })
   }
 
-  _resetAccounts = () => this.setState({accounts: [], publicKey: null})
+  _resetAccounts = () => this.setState({ accounts: [], publicKey: null })
 
   _hideAccount = address => {
     const newAccounts = this.state.accounts.filter(acc => acc.address !== address)
-    this.setState({accounts: newAccounts})
-  }
-
-  _openShare = () => {
-    this.setState({
-      shareModal: true
-    })
-  }
-
-  _closeShare = () => {
-    this.setState({
-      shareModal: false
-    })
-  }
-
-  _toggleShare = () => {
-    this.setState((state) => ({
-      shareModal: !state.shareModal
-    }))
+    this.setState({ accounts: newAccounts })
   }
 
   render () {
     const contextProps = {
       ...this.state,
       loadUserData: this._loadUserData,
-      getFreeze: this._getFreeze,
       getPrice: this._getPrice,
       setPublicKey: this._setPublicKey,
       setPin: this._setPin,
-      openShare: this._openShare,
-      closeShare: this._closeShare,
-      toggleShare: this._toggleShare,
-      updateBalances: this._updateBalances,
       setCurrency: this._setCurrency,
       resetAccount: this._resetAccounts,
       hideAccount: this._hideAccount,
@@ -516,7 +493,7 @@ class App extends Component {
         <Context.Provider value={contextProps}>
           <StatusBar barStyle='light-content' />
           {this.state.systemStatus.showStatus &&
-          <StatusMessage systemStatus={this.state.systemStatus} />}
+            <StatusMessage systemStatus={this.state.systemStatus} />}
           <RootNavigator uriPrefix={prefix} />
         </Context.Provider>
       </SafeAreaView>
