@@ -242,7 +242,7 @@
   },
   "pin": {
     "title": "VERIFICAÇÃO DE SEGURANÇA",
-    "enter": "Entrar no pino",
+    "enter": "Entrar PIN",
     "new": "Digite o novo PIN",
     "reenter": "Digite novamente o PIN",
     "biometrics": "Verificação Biométrica"
