@@ -70,8 +70,11 @@ export const getFixedTokens = async () => {
 export const getSystemStatus = async () => {
   const { items } = await contentfulClient.getEntries({
     content_type: 'systemStatus',
-    select: 'fields.showStatus,fields.statusMessage,fields.statusColor,fields.messageColor'
+    select: 'fields.showStatus,fields.statusMessage,fields.statusColor,fields.messageColor,fields.exchangeBot'
   })
-  const { fields: { showStatus, statusMessage, statusColor, messageColor } } = items[0]
-  return { showStatus, statusMessage, statusColor, messageColor }
+  const { fields: { showStatus, statusMessage, statusColor, messageColor, exchangeBot } } = items[0]
+  return {
+    systemStatus: { showStatus, statusMessage, statusColor, messageColor, exchangeBot },
+    exchangeBot
+  }
 }

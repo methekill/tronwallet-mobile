@@ -29,6 +29,7 @@ export const Colors = {
   lightestBackground: '#3f415d',
   weirdGreen: '#3fe77b',
   lightPurple: '#696A9C',
+  slateGrey: '#51526b',
   primaryText: '#FFFFFF',
   secondaryText: '#66688F',
   summaryText: '#999bb5',
@@ -45,6 +46,7 @@ export const Colors = {
   green: '#a9ff68',
   red: '#9A2520',
   orange: '#ff7f28',
+  redError: '#ff5454',
   RGB: {
     background: '25,26,42',
     darkerBackground: '16,16,26',
