@@ -19,6 +19,7 @@
   "warning": "Avís",
   "cancel": "Cancel·la",
   "address": "adreça",
+  "message": "Message",
   "ok": "D'acord",
   "actionModalTitle": "Would you like to",
   "account": "Compte",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "No s'han pogut carregar les dades de la transacció"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "Sembla que estàs desconnectat. Torneu a connectar a Internet abans de continuar amb la transacció.",
     "dic": {
