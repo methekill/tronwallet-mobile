@@ -1,7 +1,7 @@
 // Dependencies
 import React, { Component } from 'react'
 import { forIn, reduce, union, clamp, debounce } from 'lodash'
-import { Linking, FlatList, Alert, View, Platform, ActivityIndicator, RefreshControl, Image } from 'react-native'
+import { Linking, FlatList, Alert, View, Platform, RefreshControl, Image } from 'react-native'
 import { Answers } from 'react-native-fabric'
 
 // Utils
@@ -29,7 +29,6 @@ import getCandidateStore from '../../store/candidates'
 import { withContext } from '../../store/context'
 import getTransactionStore from '../../store/transactions'
 import { logSentry } from '../../utils/sentryUtils'
-import { Colors } from '../../components/DesignSystem'
 
 const AMOUNT_TO_FETCH = 200
 
@@ -81,14 +80,13 @@ class VoteScene extends Component {
     }
   }
 
-  async componentDidMount () {
+  componentDidMount () {
     Answers.logContentView('Tab', 'Votes')
     this._onSearching = debounce(this._onSearching, 150)
 
     this._loadCandidates()
     this.didFocusSubscription = this.props.navigation.addListener(
-      'didFocus',
-      this._loadData
+      'didFocus', this._loadData
     )
   }
 
@@ -111,11 +109,10 @@ class VoteScene extends Component {
     return updatedCandidate
   }
 
-  _getLastUserVotesFromStore = async () => {
+  _getLastUserVotesFromStore = () => {
     const { context } = this.props
-    const transactionStore = await getTransactionStore()
 
-    const queryVoteUnfreeze = transactionStore
+    const queryVoteUnfreeze = this.transactionsStoreRef
       .objects('Transaction')
       .sorted([['timestamp', true]])
       .filtered('ownerAddress = $0 AND (type == "Vote" OR type == "Unfreeze")', context.publicKey)
@@ -137,18 +134,21 @@ class VoteScene extends Component {
   }
 
   _loadData = async () => {
-    this.candidateStoreRef = await getCandidateStore()
+    const startTime = new Date().getTime()
     this.setState(this.resetVoteData, async () => {
-      await this._refreshCandidates(false)
+      console.warn('1')
+      await this._refreshCandidates()
+      console.warn('2: ', new Date().getTime() - startTime)
       await this._loadUserData()
+      console.warn('3: ', new Date().getTime() - startTime)
     })
   }
 
   _loadCandidates = async () => {
     try {
       this.candidateStoreRef = await getCandidateStore()
-      const voteList = await this._getVoteListFromStore()
-      this.setState({ voteList })
+      this.transactionsStoreRef = await getTransactionStore()
+      this._loadData()
     } catch (e) {
       logSentry(e, 'Load Candidates Error')
     }
@@ -158,8 +158,8 @@ class VoteScene extends Component {
     if (refreshControl) this.setState({refreshing: true})
     try {
       const { voteList, totalVotes } = await WalletClient.getWitnessesList()
-      const store = await getCandidateStore()
-      store.write(() => voteList.map(item => store.create('Candidate', item, true)))
+
+      this.candidateStoreRef.write(() => voteList.map(item => this.candidateStoreRef.create('Candidate', item, true)))
       this.setState({ totalVotes, voteList: voteList.slice(0, AMOUNT_TO_FETCH) })
     } catch (e) {
       logSentry(e, 'Refresh Candidates Error')
@@ -188,10 +188,10 @@ class VoteScene extends Component {
     try {
       let totalFrozen = freeze[publicKey] ? freeze[publicKey].total : 0
 
-      let userVotes = await this._getLastUserVotesFromStore()
+      let userVotes = this._getLastUserVotesFromStore()
       if (userVotes) {
         const currentUserVoteCount = this._getVoteCountFromList(userVotes)
-        const newFullVoteList = await this._getUserFullVotedList(userVotes)
+        const newFullVoteList = this._getUserFullVotedList(userVotes)
         const newTotalRemaining = totalFrozen - currentUserVoteCount >= 0
           ? totalFrozen - currentUserVoteCount : 0
 
@@ -284,7 +284,7 @@ class VoteScene extends Component {
       ? totalFrozen - totalUserVotes
       : 0
 
-    const currentFullVotes = await this._getUserFullVotedList(newVotes)
+    const currentFullVotes = this._getUserFullVotedList(newVotes)
 
     this.setState({
       currentVotes: newVotes,
@@ -308,10 +308,9 @@ class VoteScene extends Component {
 
   _closeConfirmModal = () => this.setState({ confirmModalVisible: false })
 
-  _getUserFullVotedList = async (currentVotes) => {
+  _getUserFullVotedList = (currentVotes) => {
     // Full Votes means users selected candidates with details, not the complete vote list
-    const store = await getCandidateStore()
-    const fullList = store.objects('Candidate').map(item => Object.assign({}, item))
+    const fullList = this.candidateStoreRef.objects('Candidate').map(item => Object.assign({}, item))
 
     const userVotedList = []
     for (const voteAddress in currentVotes) {
@@ -346,7 +345,7 @@ class VoteScene extends Component {
     delete currentVotes[voteToRemove]
 
     const newTotalVoteCount = this._getVoteCountFromList(currentVotes)
-    const newCurrentFullVotes = await this._getUserFullVotedList(currentVotes)
+    const newCurrentFullVotes = this._getUserFullVotedList(currentVotes)
 
     const newRemaining = totalFrozen - newTotalVoteCount > 0
       ? totalFrozen - newTotalVoteCount
@@ -404,6 +403,7 @@ class VoteScene extends Component {
   _filteredSuggestions = () => {
     const candidateTronWallet = this.candidateStoreRef.objects('Candidate').filtered("name = 'TronWalletMe'")[0]
     const mostVoted = this.state.currentFullVotes.filter(candidate => candidate.name !== 'TronWalletMe')
+
     return [candidateTronWallet, ...mostVoted]
   }
 
@@ -456,20 +456,25 @@ class VoteScene extends Component {
       return null
     }
   }
+
   _renderEmptyList = () => {
-    if ((this.state.loadingList || this.state.refreshing) && !this.state.voteList.length) {
-      return <ActivityIndicator color={Colors.primaryText} />
-    } else {
-      return <Utils.View flex={1} align='center' justify='center' padding={20}>
-        <Image
-          source={require('../../assets/empty.png')}
+    const isLoading = (this.state.loadingList || this.state.refreshing) && !this.state.voteList.length
+    return <Utils.View flex={1} align='center' justify='center' padding={20}>
+      {isLoading
+        ? <Image
+          source={require('../../assets/votes.png')}
           resizeMode='contain'
-          style={{ width: 200, height: 200 }}
-        />
-        <Utils.Text size='tiny'>{tl.t('votes.notFound')}</Utils.Text>
-      </Utils.View>
-    }
+          style={{ width: 200, height: 200 }} />
+        : <React.Fragment>
+          <Image
+            source={require('../../assets/empty.png')}
+            resizeMode='contain'
+            style={{ width: 200, height: 200 }} />
+          <Utils.Text size='tiny'>{tl.t('votes.notFound')}</Utils.Text>
+        </React.Fragment>}
+    </Utils.View>
   }
+
   _renderLeftElement = () => (
     this.state.currentFullVotes.length
       ? <ClearButton

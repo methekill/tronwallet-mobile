@@ -31,8 +31,7 @@ class PrivacyPolicy extends Component {
             paddingTop={28}
             paddingHorizontal={35}
           >
-
-            <Utils.View align='center' height='20%'>
+            <Utils.View align='center'>
               <Utils.Text lineHeight={36} size='medium'>{tl.t('privacyPolicy.title')}</Utils.Text>
               <Utils.VerticalSpacer />
               <Utils.Text
@@ -46,9 +45,9 @@ class PrivacyPolicy extends Component {
               >
                 {tl.t('privacyPolicy.subtitle')}
               </Utils.Text>
-              <Utils.VerticalSpacer size='medium' />
+              <Utils.VerticalSpacer size='small' />
               <Utils.View width={8} height={1} background={Colors.lemonYellow} />
-              <Utils.VerticalSpacer size='medium' />
+              <Utils.VerticalSpacer size='small' />
             </Utils.View >
 
             <Utils.View height='60%'>
