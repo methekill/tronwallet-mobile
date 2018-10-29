@@ -19,6 +19,7 @@
   "warning": "Alerte",
   "cancel": "Annuler",
   "address": "Adresse",
+  "message": "Message",
   "ok": "OK",
   "actionModalTitle": "Souhaitez-vous",
   "account": "Compte",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "Impossible de charger les données de la transaction"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "Il semblerai que vous soyez déconnecté. reconnectez vous a Internet pour procéder a la transaction.",
     "dic": {
