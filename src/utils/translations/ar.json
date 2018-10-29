@@ -19,6 +19,7 @@
   "warning": "تحذير",
   "cancel": "إلغاء",
   "address": "عنوان",
+  "message": "Message",
   "ok": "تم",
   "actionModalTitle": "هل ترغب في",
   "account": "الحساب",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "تعذر تحميل بيانات المعاملة"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "يبدو أنك غير متصل. قم بإعادة الاتصال بالإنترنت قبل إكمال المعاملة.",
     "dic": {
