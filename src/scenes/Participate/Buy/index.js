@@ -141,7 +141,7 @@ class BuyScene extends Component {
 
   _renderPadkeys = () => Object.keys(buyOptions).map((buyKey, index) => {
     const { loading } = this.state
-    const { item } = this.props.navigation.state.params
+    const item = this.props.navigation.getParam('item', {})
     const totalPossible = this.state.trxBalance * ONE_TRX / item.price
     const totalRemainingToBuy = this.state.totalRemaining * ONE_TRX / item.price
     const isDisabled = buyOptions[buyKey] > totalRemainingToBuy
@@ -157,7 +157,7 @@ class BuyScene extends Component {
   })
 
   _submit = async () => {
-    const { item } = this.props.navigation.state.params
+    const item = this.props.navigation.getParam('item', {})
     const { trxBalance, amountToBuy } = this.state
     const amountToPay = amountToBuy * (item.price / ONE_TRX)
 
@@ -166,13 +166,24 @@ class BuyScene extends Component {
       if (trxBalance < amountToPay) throw new DataError('INSUFFICIENT_BALANCE')
       if (amountToPay < 1) throw new DataError('INSUFFICIENT_TRX')
 
-      const participatePayload = {
-        participateAddress: item.ownerAddress,
-        participateToken: item.name,
-        participateAmount: this._fixNumber(amountToPay)
-      }
+      const participatePayload =
+      item.isExchangeable
+        ? {
+          from: this.props.context.publicKey,
+          to: this.props.context.exchangeBot,
+          token: 'TRX',
+          amount: this._fixNumber(amountToPay)
+        }
+        : {
+          participateAddress: item.ownerAddress,
+          participateToken: item.name,
+          participateAmount: this._fixNumber(amountToPay)
+        }
 
-      const data = await Client.getParticipateTransaction(this.props.context.publicKey, participatePayload)
+      const data = item.isExchangeable
+        ? await Client.getTransferTransaction(participatePayload)
+        : await Client.getParticipateTransaction(this.props.context.publicKey, participatePayload)
+
       await this._openTransactionDetails(data)
     } catch (err) {
       if (err.name === 'DataError') {
@@ -194,7 +205,10 @@ class BuyScene extends Component {
 
   _openTransactionDetails = async transactionUnsigned => {
     try {
+      const { amountToBuy } = this.state
       const { accounts, publicKey } = this.props.context
+      const item = this.props.navigation.getParam('item', {})
+
       const transactionSigned = await signTransaction(
         accounts.find(item => item.address === publicKey).privateKey,
         transactionUnsigned
@@ -203,7 +217,12 @@ class BuyScene extends Component {
         this.props.navigation.goBack()
         replaceRoute(this.props.navigation, 'SubmitTransaction', {
           tx: transactionSigned,
-          tokenAmount: this.state.amountToBuy
+          tokenAmount: amountToBuy,
+          exchangeOption: {
+            isExchangeable: item.isExchangeable,
+            trxAmount: amountToBuy * item.price / ONE_TRX,
+            assetName: item.name
+          }
         })
       })
     } catch (e) {
@@ -213,10 +232,11 @@ class BuyScene extends Component {
   }
 
   render () {
-    const { navigation } = this.props
-    const { item } = this.props.navigation.state.params
-    const { name, price } = item
     const { totalRemaining, amountToBuy, notEnoughTrxBalance, loading } = this.state
+    const { navigation } = this.props
+    const item = navigation.getParam('item', {})
+    const { name, price } = item
+
     const amountToPay = (price / ONE_TRX) * amountToBuy
     const tokenPrice = price / ONE_TRX
     return (
@@ -243,7 +263,7 @@ class BuyScene extends Component {
           <AmountText>
             {formatNumber(amountToBuy)}
           </AmountText>
-          <TrxValueText>({formatNumber(amountToPay, true)} TRX)</TrxValueText>
+          <TrxValueText>{formatNumber(amountToPay.toFixed(6))} TRX</TrxValueText>
           {notEnoughTrxBalance && (
             <React.Fragment>
               <VerticalSpacer size={4} />
