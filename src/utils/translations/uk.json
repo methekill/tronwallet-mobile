@@ -19,6 +19,7 @@
   "warning": "УВАГА",
   "cancel": "Скасувати",
   "address": "Адреса",
+  "message": "Message",
   "ok": "ОК",
   "actionModalTitle": "Чи хотіли б Ви",
   "account": "Обліковий запис",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "Не вдалося завантажити дані транзакції"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "Здається, що ви відключені. Підключіться до Інтернету, перш ніж продовжувати транзакцію.",
     "dic": {
