@@ -19,6 +19,7 @@
   "warning": "Atenção",
   "cancel": "Cancelar",
   "address": "Endereço",
+  "message": "Message",
   "ok": "Está bem",
   "actionModalTitle": "Você gostaria de",
   "account": "Conta",
@@ -242,7 +243,7 @@
   },
   "pin": {
     "title": "VERIFICAÇÃO DE SEGURANÇA",
-    "enter": "Entrar PIN",
+    "enter": "Entrar no pino",
     "new": "Digite o novo PIN",
     "reenter": "Digite novamente o PIN",
     "biometrics": "Verificação Biométrica"
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "Não foi possível carregar os dados de transacções"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "Parece que você está desconectado. Reconecte-se à internet antes de prosseguir com a transação.",
     "dic": {
