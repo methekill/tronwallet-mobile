@@ -19,6 +19,7 @@
   "warning": "Warning",
   "cancel": "Cancel",
   "address": "Διεύθυνση",
+  "message": "Message",
   "ok": "OK",
   "actionModalTitle": "Would you like to",
   "account": "λογαριασμός",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "Couldn't load transaction data"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
     "dic": {
