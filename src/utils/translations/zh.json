@@ -19,6 +19,7 @@
   "warning": "Warning",
   "cancel": "Cancel",
   "address": "地址",
+  "message": "Message",
   "ok": "OK",
   "actionModalTitle": "Would you like to",
   "account": "帐户",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "Couldn't load transaction data"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "好像你已断开连接了。在继续交易之前重新连接到互联网。",
     "dic": {
