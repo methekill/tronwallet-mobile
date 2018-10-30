@@ -19,6 +19,7 @@
   "warning": "Warning",
   "cancel": "Cancel",
   "address": "Osoite",
+  "message": "Message",
   "ok": "OK",
   "actionModalTitle": "Would you like to",
   "account": "Tili",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "Couldn't load transaction data"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "Näyttää siltä, ​​että olet irtikytketty. Kytke uudelleen Internetiin ennen tapahtumaa.",
     "dic": {

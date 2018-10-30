@@ -19,6 +19,7 @@
   "warning": "चेतावनी",
   "cancel": "रद्द करना",
   "address": "पता",
+  "message": "Message",
   "ok": "ठीक",
   "actionModalTitle": "क्या आप चाहेंगे",
   "account": "लेखा",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "लेनदेन डेटा लोड नहीं कर सकते"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "ऐसा लगता है कि आप डिस्कनेक्ट हैं। लेनदेन के साथ आगे बढ़ने से पहले इंटरनेट से पुनः कनेक्ट करें।",
     "dic": {
