@@ -134,13 +134,9 @@ class VoteScene extends Component {
   }
 
   _loadData = async () => {
-    const startTime = new Date().getTime()
     this.setState(this.resetVoteData, async () => {
-      console.warn('1')
       await this._refreshCandidates()
-      console.warn('2: ', new Date().getTime() - startTime)
       await this._loadUserData()
-      console.warn('3: ', new Date().getTime() - startTime)
     })
   }
 

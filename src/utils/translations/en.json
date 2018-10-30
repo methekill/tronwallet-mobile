@@ -505,7 +505,7 @@
     "totalVotes": "TOTAL VOTES",
     "votesAvailable": "VOTES AVAILABLE",
     "search": "Search",
-    "searchPreview": "Suggestions - Most Voted",
+    "searchPreview": "Suggestions - My latest votes",
     "error": "Oops, something didn't load correctly. Try to reload",
     "notFound": "Super Representative not found"
   },
