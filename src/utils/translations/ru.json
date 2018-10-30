@@ -19,6 +19,7 @@
   "warning": "Внимание",
   "cancel": "Отменить",
   "address": "Адрес",
+  "message": "Message",
   "ok": "ОК",
   "actionModalTitle": "Не хотите ли вы",
   "account": "Счет",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "Не удалось загрузить данные транзакции"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "Кажется, что вы отключены. Переподключитесь к Интернету перед выполнением транзакции.",
     "dic": {

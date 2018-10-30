@@ -19,6 +19,7 @@
   "warning": "警告",
   "cancel": "キャンセル",
   "address": "住所",
+  "message": "Message",
   "ok": "OK",
   "actionModalTitle": "いかかですか",
   "account": "アカウント",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "トランザクション データを読み込むことができませんでした。"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "あなたは切断されているようです。取引を進める前に、インターネットに再接続してください。",
     "dic": {

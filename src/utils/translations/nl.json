@@ -19,6 +19,7 @@
   "warning": "Waarschuwing",
   "cancel": "Annuleren",
   "address": "Adres",
+  "message": "Message",
   "ok": "OK",
   "actionModalTitle": "Wilt u graag",
   "account": "Account",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "Kan transactiegegevens niet laden"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "Het lijkt erop dat u bent losgekoppeld. Maak opnieuw verbinding met internet voordat u doorgaat met de transactie.",
     "dic": {

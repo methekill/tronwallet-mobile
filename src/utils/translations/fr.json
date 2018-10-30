@@ -19,6 +19,7 @@
   "warning": "Alerte",
   "cancel": "Annuler",
   "address": "Adresse",
+  "message": "Message",
   "ok": "OK",
   "actionModalTitle": "Souhaitez-vous",
   "account": "Compte",
@@ -405,7 +406,7 @@
       "title": "Qui accepte les TRX ?"
     },
     "helpCenter": {
-      "title": "Help Center"
+      "title": "Centre d'aide"
     },
     "accounts": {
       "title": "Comptes",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "Impossible de charger les données de la transaction"
+    },
+    "exchange": {
+      "send": "Envoi de {{sendtoken}}",
+      "receive": "Réception {{receivetoken}}",
+      "error": "Vérifier vos dernières transactions pour confirmer le montant reçu."
     },
     "disconnectedMessage": "Il semblerai que vous soyez déconnecté. reconnectez vous a Internet pour procéder a la transaction.",
     "dic": {
@@ -558,12 +564,12 @@
     }
   },
   "privacyPolicy": {
-    "title": "PRIVACY POLICY",
-    "subtitle": "You must read and accept our privacy terms to continue.",
-    "error": "You need to accept of privacy terms before to continue. ",
-    "acceptTerms": "I have read and agree to the terms",
-    "continue": "CONTINUE",
-    "docTitle": "Privacy Policy",
+    "title": "POLITIQUE DE CONFIDENTIALITÉ",
+    "subtitle": "Vous devez lire et accepter nos conditions de confidentialité pour continuer.",
+    "error": "Vous devez accepter les conditions de confidentialité avant de continuer. ",
+    "acceptTerms": "J'ai lu et j'accepte les conditions",
+    "continue": "CONTINUER",
+    "docTitle": "Politique de confidentialité",
     "introduction": "Your privacy is important to us.\nIt is TronWallet's policy to respect your privacy regarding any information we may collect from you across our website, http://tronwallet.me, and other sites we own and operate.\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent.\nWe also let you know why we're collecting it and how it will be used.\nWe only retain collected information for as long as necessary to provide you with your requested service.\nWhat data we store, we'll protect within commercially acceptable means to prevent loss and theft, as well as unauthorised access, disclosure, copying, use or modification.\nWe don't share any personally identifying information publicly or with third-parties, except when required to by law.\nOur website may link to external sites that are not operated by us.\nPlease be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.\nYou are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.\nYour continued use of our website will be regarded as acceptance of our practices around privacy and personal information.\nIf you have any questions about how we handle user data and personal information, feel free to contact us.\nThis policy is effective as of 1 July 2018.",
     "termsOfService": {
       "title": "TronWallet Terms of Service",
