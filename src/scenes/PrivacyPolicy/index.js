@@ -15,7 +15,7 @@ class PrivacyPolicy extends Component {
 
   onPressConfirm = () => {
     if (!this.state.userAccepted) {
-      Alert.alert(tl.t('privacyPolicy.error'))
+      Alert.alert(tl.t('warning'), tl.t('privacyPolicy.error'))
     } else {
       this.props.navigation.navigate('First', this.props.navigation.state)
     }
