@@ -178,6 +178,7 @@ class Settings extends Component {
 
   _onUnhideAccounts = async (accountsSelected = []) => {
     const { loadUserData, pin } = this.props.context
+    this.setState({accountsModal: false})
     if (!accountsSelected.length) return
     try {
       await unhideSecret(pin, accountsSelected)
