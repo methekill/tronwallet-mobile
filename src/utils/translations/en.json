@@ -19,7 +19,7 @@
   "warning": "Warning",
   "cancel": "Cancel",
   "address": "Address",
-  "message" : "Message",
+  "message": "Message",
   "ok": "OK",
   "actionModalTitle": "Would you like to",
   "account": "Account",
@@ -32,7 +32,7 @@
     "hideAccount": "Something went wrong deleting account, try again'"
   },
   "avaliable": "AVALIABLE",
-  "freezed": "FREEZED",
+  "frozen": "FROZEN",
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRICE",
   "confirmed": "Confirmed",
@@ -434,9 +434,9 @@
     "error": {
       "noData": "Couldn't load transaction data"
     },
-    "exchange":{
-      "send" : "Sending {{sendtoken}}",
-      "receive" : "Receiving {{receivetoken}}",
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
       "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
