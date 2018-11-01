@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { ScrollView, SafeAreaView } from 'react-native'
+import { ScrollView } from 'react-native'
 import ProgressBar from 'react-native-progress/Bar'
 import moment from 'moment'
 
@@ -15,11 +15,11 @@ import { replaceRoute } from '../../../utils/navigationUtils'
 import { formatNumber } from '../../../utils/numberUtils'
 
 class TokenInfo extends PureComponent {
-  static navigationOptions = () => ({header: null})
+  static navigationOptions = () => ({ header: null })
 
-  _isTokenAvailableToBuy= ({issuedPercentage, isListed, startTime, endTime}) => {
+  _isTokenAvailableToBuy = ({ issuedPercentage, isListed, startTime, endTime }) => {
     const now = new Date().getTime()
-    return issuedPercentage < 100 && isListed && (startTime <= now && endTime >= now)
+    return (issuedPercentage < 100 && isListed && (startTime <= now && endTime >= now))
   }
 
   render () {
@@ -40,7 +40,7 @@ class TokenInfo extends PureComponent {
       abbr
     } = item
     return (
-      <SafeAreaView style={{ flex: 1, backgroundColor: Colors.background }}>
+      <Utils.SafeAreaView>
         <NavigationHeader
           title={tl.t('participate.tokenInfo')}
           onBack={() => this.props.navigation.goBack()}
@@ -73,42 +73,54 @@ class TokenInfo extends PureComponent {
                 <Utils.BoldText>{Math.round(issuedPercentage)}%</Utils.BoldText>
               </Utils.Row>
               <Utils.View height={8} />
-              {isTokenAvailableToBuy && <ButtonGradient
-                text={tl.t('participate.button.buyNow').toUpperCase()}
-                onPress={() => {
-                  fromBalance
-                    ? replaceRoute(this.props.navigation, 'Buy', {item})
-                    : this.props.navigation.navigate('Buy', {item})
-                }}
-                size='medium'
-                full
-              />}
+              {isTokenAvailableToBuy && (
+                <ButtonGradient
+                  text={tl.t('participate.button.buyNow').toUpperCase()}
+                  onPress={() => {
+                    fromBalance
+                      ? replaceRoute(this.props.navigation, 'Buy', { item })
+                      : this.props.navigation.navigate('Buy', { item })
+                  }}
+                  size='medium'
+                  full
+                />
+              )}
             </Utils.View>
           </Utils.Content>
           <DividerSpacer size='big' marginX='large' />
-          <BoldInfoRow pairs={[
-            { key: tl.t('participate.issued'), value: formatNumber(issued) },
-            { key: tl.t('participate.totalSupply'), value: formatNumber(totalSupply) }]}
+          <BoldInfoRow
+            pairs={[
+              { key: tl.t('participate.issued'), value: formatNumber(issued) },
+              { key: tl.t('participate.totalSupply'), value: formatNumber(totalSupply) }
+            ]}
           />
           <DividerSpacer size='medium' marginX='large' />
-          <SmallRegInfoRow pairs={[
-            { key: tl.t('participate.startTime'), value: moment(startTime).format('DD/MM/YYYY hh:mm A') },
-            { key: tl.t('participate.endTime'), value: moment(endTime).format('DD/MM/YYYY hh:mm A') }]}
+          <SmallRegInfoRow
+            pairs={[
+              { key: tl.t('participate.startTime'), value: moment(startTime).format('DD/MM/YYYY hh:mm A') },
+              { key: tl.t('participate.endTime'), value: moment(endTime).format('DD/MM/YYYY hh:mm A') }
+            ]}
           />
           <DividerSpacer size='medium' marginX='large' />
-          <RegularInfoRow pairs={[
-            { key: tl.t('participate.description'), value: description }]}
+          <RegularInfoRow
+            pairs={[
+              { key: tl.t('participate.description'), value: description }
+            ]}
           />
           <DividerSpacer size='medium' marginX='large' />
-          <RegularInfoRow pairs={[
-            { key: tl.t('participate.ownerAddress'), value: ownerAddress }]}
+          <RegularInfoRow
+            pairs={[
+              { key: tl.t('participate.ownerAddress'), value: ownerAddress }
+            ]}
           />
           <DividerSpacer size='medium' marginX='large' />
-          <RegularInfoRow pairs={[
-            { key: tl.t('participate.transaction'), value: transaction }]}
+          <RegularInfoRow
+            pairs={[
+              { key: tl.t('participate.transaction'), value: transaction }
+            ]}
           />
         </ScrollView>
-      </SafeAreaView>
+      </Utils.SafeAreaView>
     )
   }
 }

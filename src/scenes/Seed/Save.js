@@ -44,37 +44,31 @@ class Save extends React.Component {
     const { seed } = this.state
     const { navigation } = this.props
     return (
-      <Utils.Container>
-        <Utils.View flex={1} />
-        <Utils.View height={1} backgroundColor={Colors.secondaryText} />
-        <Utils.Content backgroundColor={Colors.darkerBackground}>
-          {seed
-            ? (<Utils.Text lineHeight={24} align='center'>
-              {seed}
-            </Utils.Text>)
-            : <ActivityIndicator color={Colors.primaryText} />}
-        </Utils.Content>
-        <Utils.View height={1} backgroundColor={Colors.secondaryText} />
-        <Utils.Content paddingBottom={2}>
-          <Utils.View justify='center' height={60}>
-            <ButtonGradient
-              onPress={() => (
-                navigation.navigate(
-                  'SeedConfirm',
-                  { seed: seed.split(' ') }
-                ))}
-              text={tl.t('seed.create.button.written')}
-              full
-            />
-          </Utils.View>
-        </Utils.Content>
-        <Utils.Button
-          onPress={() => navigation.goBack()}
-        >
-          {tl.t('seed.create.button.later')}
-        </Utils.Button>
-        <Utils.View flex={1} />
-      </Utils.Container>
+      <Utils.SafeAreaView>
+        <Utils.Container>
+          <Utils.View flex={1} />
+          <Utils.View height={1} backgroundColor={Colors.secondaryText} />
+          <Utils.Content backgroundColor={Colors.darkerBackground}>
+            {seed
+              ? (<Utils.Text lineHeight={24} align='center'>{seed}</Utils.Text>)
+              : (<ActivityIndicator color={Colors.primaryText} />)}
+          </Utils.Content>
+          <Utils.View height={1} backgroundColor={Colors.secondaryText} />
+          <Utils.Content paddingBottom={2}>
+            <Utils.View justify='center' height={60}>
+              <ButtonGradient
+                onPress={() =>
+                  navigation.navigate('SeedConfirm', { seed: seed.split(' ') })
+                }
+                text={tl.t('seed.create.button.written')}
+                full
+              />
+            </Utils.View>
+          </Utils.Content>
+          <Utils.Button onPress={() => navigation.goBack()}>{tl.t('seed.create.button.later')}</Utils.Button>
+          <Utils.View flex={1} />
+        </Utils.Container>
+      </Utils.SafeAreaView>
     )
   }
 }

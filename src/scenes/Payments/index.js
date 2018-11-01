@@ -7,6 +7,7 @@ import { Colors } from '../../components/DesignSystem'
 import ReceiveScene from '../Receive/index'
 import PaymentBuilderScene from './Build'
 import NavigationHeader from '../../components/Navigation/Header'
+import { SafeAreaView } from './../../components/Utils'
 
 // Utils
 import tl from '../../utils/i18n'
@@ -41,7 +42,7 @@ export default class TransferScene extends Component {
       indicatorStyle={{
         width: INDICATOR_WIDTH,
         height: 1,
-        marginLeft: (TAB_WIDTH / 2 - INDICATOR_WIDTH / 2)
+        marginLeft: TAB_WIDTH / 2 - INDICATOR_WIDTH / 2
       }}
       tabStyle={{
         padding: 8
@@ -67,19 +68,23 @@ export default class TransferScene extends Component {
 
   render () {
     return (
-      <React.Fragment>
-        <NavigationHeader
-          title={tl.t('receive.title')}
-          onBack={() => { this.props.navigation.goBack() }}
-        />
-        <TabViewAnimated
-          navigationState={this.state}
-          renderScene={this._renderScene}
-          renderHeader={this._renderHeader}
-          onIndexChange={this._handleIndexChange}
-          initialLayout={initialLayout}
-        />
-      </React.Fragment>
+      <SafeAreaView>
+        <React.Fragment>
+          <NavigationHeader
+            title={tl.t('receive.title')}
+            onBack={() => {
+              this.props.navigation.goBack()
+            }}
+          />
+          <TabViewAnimated
+            navigationState={this.state}
+            renderScene={this._renderScene}
+            renderHeader={this._renderHeader}
+            onIndexChange={this._handleIndexChange}
+            initialLayout={initialLayout}
+          />
+        </React.Fragment>
+      </SafeAreaView>
     )
   }
 }

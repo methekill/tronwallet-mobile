@@ -22,9 +22,10 @@ class TrxValue extends Component {
   render () {
     const { trxBalance } = this.props
     const { currency, price } = this.props.context
-    const priceToDisplay = !!trxBalance && !!currency && !!price && !!price[currency]
-      ? trxBalance * price[currency].price
-      : 0
+    const priceToDisplay =
+      !!trxBalance && !!currency && !!price && !!price[currency]
+        ? trxBalance * price[currency].price
+        : 0
 
     return (
       <React.Fragment>
@@ -45,24 +46,12 @@ class TrxValue extends Component {
               </FadeIn>
             )}
             <Utils.HorizontalSpacer />
-            <Badge bg='#191a2b' guarantee>{currency}</Badge>
+            <Badge bg='#191a2b' guarantee>
+              {currency}
+            </Badge>
           </React.Fragment>
         </Utils.Row>
         <Utils.VerticalSpacer />
-        {/* {(currency !== 'USD' && price.USD) && (
-          <FadeIn name='usd-value'>
-            <Motion
-              defaultStyle={{ price: 0 }}
-              style={{ price: spring(trxBalance * price.USD.price) }}
-            >
-              {value => (
-                <Utils.Text size='xsmall' align='left'>
-                  {`${value.price.toFixed(2)} USD`}
-                </Utils.Text>
-              )}
-            </Motion>
-          </FadeIn>
-        )} */}
       </React.Fragment>
     )
   }

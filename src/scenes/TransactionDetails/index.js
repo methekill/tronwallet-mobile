@@ -37,7 +37,7 @@ import onBackgroundHandler from '../../utils/onBackgroundHandler'
 import { withContext } from '../../store/context'
 
 class TransactionDetails extends React.Component {
-  static navigationOptions = () => ({header: null})
+  static navigationOptions = { header: null }
 
   static propTypes = {
     navigation: shape({
@@ -84,7 +84,9 @@ class TransactionDetails extends React.Component {
   componentDidUpdate (prevProps, prevState) {
     const nextItem = this.props.navigation.getParam('item', {})
     const prevItem = prevState.item || {}
-    if (nextItem.id !== prevItem.id) this.setState({item: nextItem}, this._checkTransaction)
+    if (nextItem.id !== prevItem.id) {
+      this.setState({ item: nextItem }, this._checkTransaction)
+    }
   }
 
   componentWillUnmount () {
@@ -120,13 +122,21 @@ class TransactionDetails extends React.Component {
 
     return (
       <React.Fragment>
-        <Utils.View style={{
-          position: 'absolute',
-          right: 16,
-          top: 75,
-          zIndex: 999
-        }}>
-          <IconButton icon='md-copy' bg={Colors.summaryText} highlight iconColor='#FFFFFF' onPress={() => this._copy()} />
+        <Utils.View
+          style={{
+            position: 'absolute',
+            right: 16,
+            top: 75,
+            zIndex: 999
+          }}
+        >
+          <IconButton
+            icon='md-copy'
+            bg={Colors.summaryText}
+            highlight
+            iconColor='#FFFFFF'
+            onPress={() => this._copy()}
+          />
         </Utils.View>
         <Utils.View
           borderRadius={10}
@@ -138,12 +148,17 @@ class TransactionDetails extends React.Component {
           <LinearGradient
             start={{ x: 0, y: 1 }}
             end={{ x: 1, y: 0 }}
-            colors={[Colors.transactionCardGradient[0], Colors.transactionCardGradient[1]]}
+            colors={[
+              Colors.transactionCardGradient[0],
+              Colors.transactionCardGradient[1]
+            ]}
           >
-            <View style={{
-              marginHorizontal: 18,
-              marginVertical: 20
-            }}>
+            <View
+              style={{
+                marginHorizontal: 18,
+                marginVertical: 20
+              }}
+            >
               <Toast
                 ref='hashToast'
                 position='top'
@@ -152,37 +167,55 @@ class TransactionDetails extends React.Component {
                 opacity={0.8}
               />
               <Utils.Row align='center' justify='space-between'>
-                <Elements.DetailLabel>{tl.t('transactionDetails.hash')}</Elements.DetailLabel>
+                <Elements.DetailLabel>
+                  {tl.t('transactionDetails.hash')}
+                </Elements.DetailLabel>
               </Utils.Row>
               <View style={{ height: 10 }} />
-              <Text style={{
-                fontFamily: 'Rubik-Regular',
-                fontSize: 14,
-                lineHeight: 24,
-                marginRight: 40,
-                color: 'white'
-              }}>{id}</Text>
-              <View style={{
-                height: 1,
-                backgroundColor: 'black',
-                marginTop: 16,
-                marginBottom: 20
-              }} />
+              <Text
+                style={{
+                  fontFamily: 'Rubik-Regular',
+                  fontSize: 14,
+                  lineHeight: 24,
+                  marginRight: 40,
+                  color: 'white'
+                }}
+              >
+                {id}
+              </Text>
+              <View
+                style={{
+                  height: 1,
+                  backgroundColor: 'black',
+                  marginTop: 16,
+                  marginBottom: 20
+                }}
+              />
               <View>
                 <Utils.Column>
                   <Utils.Row align='center' justify='space-between'>
-                    <Elements.DetailLabel>{tl.t('transactionDetails.status')}</Elements.DetailLabel>
+                    <Elements.DetailLabel>
+                      {tl.t('transactionDetails.status')}
+                    </Elements.DetailLabel>
                     <Utils.VerticalSpacer />
-                    <Elements.DetailText>{confirmed ? tl.t('confirmed') : tl.t('unconfirmed')}</Elements.DetailText>
+                    <Elements.DetailText>
+                      {confirmed ? tl.t('confirmed') : tl.t('unconfirmed')}
+                    </Elements.DetailText>
                   </Utils.Row>
                   <Utils.VerticalSpacer size='medium' />
                   <Utils.Row align='center' justify='space-between'>
-                    <Elements.DetailLabel>{tl.t('transactionDetails.time')}</Elements.DetailLabel>
-                    <Elements.DetailText>{moment(timestamp).format('DD/MM/YYYY hh:mm A')}</Elements.DetailText>
+                    <Elements.DetailLabel>
+                      {tl.t('transactionDetails.time')}
+                    </Elements.DetailLabel>
+                    <Elements.DetailText>
+                      {moment(timestamp).format('DD/MM/YYYY hh:mm A')}
+                    </Elements.DetailText>
                   </Utils.Row>
                   <Utils.VerticalSpacer size='medium' />
                   <Utils.Row align='center' justify='space-between'>
-                    <Elements.DetailLabel>{tl.t('transactionDetails.block')}</Elements.DetailLabel>
+                    <Elements.DetailLabel>
+                      {tl.t('transactionDetails.block')}
+                    </Elements.DetailLabel>
                     <Elements.DetailText>{block}</Elements.DetailText>
                   </Utils.Row>
                 </Utils.Column>
@@ -194,7 +227,7 @@ class TransactionDetails extends React.Component {
     )
   }
 
-  _getHeaderBadgeColor = (type) => {
+  _getHeaderBadgeColor = type => {
     switch (type.toLowerCase()) {
       case 'create':
         return '#94C047'
@@ -212,14 +245,10 @@ class TransactionDetails extends React.Component {
   }
 
   _getIcon = (name, size, color) => (
-    <Ionicons
-      name={name}
-      size={size}
-      color={color}
-    />
+    <Ionicons name={name} size={size} color={color} />
   )
 
-  _getHeaderArrowIcon = (type) => {
+  _getHeaderArrowIcon = type => {
     const lowerType = type.toLowerCase()
     const size = 45
 
@@ -244,7 +273,7 @@ class TransactionDetails extends React.Component {
     return 'TRX'
   }
 
-  _getHeaderAmountText = (type) => {
+  _getHeaderAmountText = type => {
     switch (type.toLowerCase()) {
       case 'freeze':
         return tl.t('transactionDetails.frozenBalance')
@@ -258,7 +287,10 @@ class TransactionDetails extends React.Component {
   }
 
   _getHeaderAmount = () => {
-    const { type, contractData: { amount, frozenBalance, votes } } = this.state.item
+    const {
+      type,
+      contractData: { amount, frozenBalance, votes }
+    } = this.state.item
 
     switch (type.toLowerCase()) {
       case 'freeze':
@@ -283,57 +315,72 @@ class TransactionDetails extends React.Component {
     if (type === 'Freeze' || type === 'Unfreeze' || (type === 'Transfer' && tokenName === 'TRX')) {
       amount = amountValue / ONE_TRX
     } else if (type === 'Participate') {
-      amount = (amountValue / ONE_TRX) / (tokenPrice / ONE_TRX)
+      amount = amountValue / ONE_TRX / (tokenPrice / ONE_TRX)
     } else {
       amount = amountValue
     }
 
     return (
-      <View style={{
-        alignItems: 'center'
-      }}>
-        <View style={{
-          borderRadius: 5,
-          height: 22,
-          backgroundColor: this._getHeaderBadgeColor(type),
-          justifyContent: 'center',
-          paddingHorizontal: 10
-        }}>
-          <Elements.BadgeText>{getTranslatedType(type).toUpperCase()}</Elements.BadgeText>
+      <View style={{ alignItems: 'center' }} >
+        <View
+          style={{
+            borderRadius: 5,
+            height: 22,
+            backgroundColor: this._getHeaderBadgeColor(type),
+            justifyContent: 'center',
+            paddingHorizontal: 10
+          }}
+        >
+          <Elements.BadgeText>
+            {getTranslatedType(type).toUpperCase()}
+          </Elements.BadgeText>
         </View>
         <View style={{ height: 15 }} />
-        {(type.toLowerCase() !== 'create' && type.toLowerCase() !== 'unfreeze') &&
-          <React.Fragment>
-            <Text style={{
-              fontFamily: 'Rubik-Medium',
-              fontSize: 11,
-              lineHeight: 11,
-              letterSpacing: 0.6,
-              color: '#7476a2'
-            }}>{amountText}</Text>
-            <Utils.Row align='center'>
-              <Elements.AmountText>{amount < 1 ? amount : formatFloat(amount)}</Elements.AmountText>
-              <View style={{ width: 11, height: 1 }} />
-              <View style={{
-                backgroundColor: rgb(46, 47, 71),
-                borderRadius: 2,
-                opacity: 0.97,
-                height: 24,
-                justifyContent: 'center',
-                paddingHorizontal: 8
-              }}>
-                <Elements.BadgeText>{tokenToDisplay}</Elements.BadgeText>
-              </View>
-              <Utils.HorizontalSpacer size='medium' />
-              {this._getHeaderArrowIcon(type)}
-            </Utils.Row>
-          </React.Fragment>
-        }
+        {type.toLowerCase() !== 'create' &&
+          type.toLowerCase() !== 'unfreeze' && (
+            <React.Fragment>
+              <Text
+                style={{
+                  fontFamily: 'Rubik-Medium',
+                  fontSize: 11,
+                  lineHeight: 11,
+                  letterSpacing: 0.6,
+                  color: '#7476a2'
+                }}
+              >
+                {amountText}
+              </Text>
+              <Utils.Row align='center'>
+                <Elements.AmountText>
+                  {amount < 1 ? amount : formatFloat(amount)}
+                </Elements.AmountText>
+                <View style={{ width: 11, height: 1 }} />
+                <View
+                  style={{
+                    backgroundColor: rgb(46, 47, 71),
+                    borderRadius: 2,
+                    opacity: 0.97,
+                    height: 24,
+                    justifyContent: 'center',
+                    paddingHorizontal: 8
+                  }}
+                >
+                  <Elements.BadgeText>{tokenToDisplay}</Elements.BadgeText>
+                </View>
+                <Utils.HorizontalSpacer size='medium' />
+                {this._getHeaderArrowIcon(type)}
+              </Utils.Row>
+            </React.Fragment>
+          )}
       </View>
     )
   }
 
-  _truncateAddress = address => `${address.substring(0, 8)}...${address.substring(address.length - 8, address.length)}`
+  _truncateAddress = address =>
+    `${address.substring(0, 8)}...${address.substring(
+      address.length - 8,
+      address.length
+    )}`
 
   _onAddContactPress = () => {
     const { currentAddress } = this.state
@@ -356,7 +403,7 @@ class TransactionDetails extends React.Component {
     }
   }
 
-  _onAddressPress = (address) => {
+  _onAddressPress = address => {
     this.setState({
       modalVisible: true,
       currentAddress: address
@@ -387,25 +434,51 @@ class TransactionDetails extends React.Component {
   }
 
   _renderToFrom = () => {
-    const { type, confirmed, contractData: { transferFromAddress, transferToAddress } } = this.state.item
+    const {
+      type,
+      confirmed,
+      contractData: { transferFromAddress, transferToAddress }
+    } = this.state.item
 
     return (
       <View>
         {this._renderAddressModal()}
-        {type.toLowerCase() === 'transfer' &&
-          <TouchableOpacity disabled={transferToAddress[0] === '@'} onPress={() => { this._onAddressPress(transferToAddress) }}>
+        {type.toLowerCase() === 'transfer' && (
+          <TouchableOpacity
+            disabled={transferToAddress[0] === '@'}
+            onPress={() => {
+              this._onAddressPress(transferToAddress)
+            }}
+          >
             <Elements.AddressRow>
-              <Elements.AddressText>{tl.t('transactionDetails.to')}</Elements.AddressText>
-              {this._getIcon('ios-arrow-round-up', 30, confirmed ? rgb(63, 231, 123) : rgb(102, 104, 143))}
+              <Elements.AddressText>
+                {tl.t('transactionDetails.to')}
+              </Elements.AddressText>
+              {this._getIcon(
+                'ios-arrow-round-up',
+                30,
+                confirmed ? rgb(63, 231, 123) : rgb(102, 104, 143)
+              )}
             </Elements.AddressRow>
             <Elements.CopiableText>{transferToAddress}</Elements.CopiableText>
             <Elements.Divider />
           </TouchableOpacity>
-        }
-        <TouchableOpacity disabled={transferFromAddress[0] === '@'} onPress={() => { this._onAddressPress(transferFromAddress) }}>
+        )}
+        <TouchableOpacity
+          disabled={transferFromAddress[0] === '@'}
+          onPress={() => {
+            this._onAddressPress(transferFromAddress)
+          }}
+        >
           <Elements.AddressRow>
-            <Elements.AddressText>{tl.t('transactionDetails.from')}</Elements.AddressText>
-            {this._getIcon('ios-arrow-round-down', 30, confirmed ? rgb(255, 68, 101) : rgb(102, 104, 143))}
+            <Elements.AddressText>
+              {tl.t('transactionDetails.from')}
+            </Elements.AddressText>
+            {this._getIcon(
+              'ios-arrow-round-down',
+              30,
+              confirmed ? rgb(255, 68, 101) : rgb(102, 104, 143)
+            )}
           </Elements.AddressRow>
           <Elements.CopiableText>{transferFromAddress}</Elements.CopiableText>
         </TouchableOpacity>
@@ -415,49 +488,70 @@ class TransactionDetails extends React.Component {
 
   _renderCreateBody = () => {
     const {
-      tokenName, unityValue, totalSupply, startTime, endTime, description
+      tokenName,
+      unityValue,
+      totalSupply,
+      startTime,
+      endTime,
+      description
     } = this.state.item.contractData
 
     return (
       <Utils.Container>
         <Utils.Row>
           <Utils.Column>
-            <Elements.Label>{tl.t('transactionDetails.tokenName')}</Elements.Label>
+            <Elements.Label>
+              {tl.t('transactionDetails.tokenName')}
+            </Elements.Label>
             <Utils.VerticalSpacer size='xsmall' />
             <Elements.DetailText>{tokenName}</Elements.DetailText>
           </Utils.Column>
           <Utils.Column position='absolute' left='50%'>
-            <Elements.Label>{tl.t('transactionDetails.unityValue')}</Elements.Label>
+            <Elements.Label>
+              {tl.t('transactionDetails.unityValue')}
+            </Elements.Label>
             <Utils.VerticalSpacer size='xsmall' />
-            <Elements.DetailText>{(unityValue / ONE_TRX).toFixed(2)} TRX</Elements.DetailText>
+            <Elements.DetailText>
+              {(unityValue / ONE_TRX).toFixed(2)} TRX
+            </Elements.DetailText>
           </Utils.Column>
         </Utils.Row>
         <Utils.VerticalSpacer size='big' />
         <Utils.Column>
-          <Elements.Label>{tl.t('transactionDetails.totalSupply')}</Elements.Label>
+          <Elements.Label>
+            {tl.t('transactionDetails.totalSupply')}
+          </Elements.Label>
           <Utils.VerticalSpacer size='xsmall' />
           <Elements.DetailText>{totalSupply}</Elements.DetailText>
         </Utils.Column>
         <Utils.VerticalSpacer size='big' />
         <Utils.Row>
           <Utils.Column>
-            <Elements.Label>{tl.t('transactionDetails.startTime')}</Elements.Label>
+            <Elements.Label>
+              {tl.t('transactionDetails.startTime')}
+            </Elements.Label>
             <Utils.VerticalSpacer size='xsmall' />
-            <Elements.DetailText>{moment(startTime).format('DD/MM/YYYY hh:mm A')}</Elements.DetailText>
+            <Elements.DetailText>
+              {moment(startTime).format('DD/MM/YYYY hh:mm A')}
+            </Elements.DetailText>
           </Utils.Column>
           <Utils.Column position='absolute' left='50%'>
-            <Elements.Label>{tl.t('transactionDetails.endTime')}</Elements.Label>
+            <Elements.Label>
+              {tl.t('transactionDetails.endTime')}
+            </Elements.Label>
             <Utils.VerticalSpacer size='xsmall' />
-            <Elements.DetailText>{moment(endTime).format('DD/MM/YYYY hh:mm A')}</Elements.DetailText>
+            <Elements.DetailText>
+              {moment(endTime).format('DD/MM/YYYY hh:mm A')}
+            </Elements.DetailText>
           </Utils.Column>
         </Utils.Row>
         <Utils.VerticalSpacer size='big' />
         <Utils.Column>
-          <Elements.Label>{tl.t('transactionDetails.description')}</Elements.Label>
+          <Elements.Label>
+            {tl.t('transactionDetails.description')}
+          </Elements.Label>
           <Utils.VerticalSpacer size='xsmall' />
-          <Elements.DetailText>
-            {description}
-          </Elements.DetailText>
+          <Elements.DetailText>{description}</Elements.DetailText>
         </Utils.Column>
       </Utils.Container>
     )
@@ -467,7 +561,7 @@ class TransactionDetails extends React.Component {
     await Clipboard.getString()
   }
 
-  _showToast = (text) => {
+  _showToast = text => {
     this.refs.addressToast.show(text)
   }
 
@@ -478,7 +572,7 @@ class TransactionDetails extends React.Component {
       <React.Fragment key={`${vote.voteAddress}-${index}`}>
         {this._renderAddressModal()}
         <Elements.AddressRow>
-          <TouchableOpacity onPress={() => { this._onAddressPress(vote.voteAddress) }}>
+          <TouchableOpacity onPress={() => { this._onAddressPress(vote.voteAddress) }} >
             <Elements.CopiableText>{vote.voteAddress}</Elements.CopiableText>
           </TouchableOpacity>
           <Elements.VoteText>{vote.voteCount}</Elements.VoteText>
@@ -491,20 +585,28 @@ class TransactionDetails extends React.Component {
       <Utils.Column>
         <Utils.VerticalSpacer size='medium' />
         <Utils.Row justify='space-between'>
-          <Text style={{
-            fontFamily: 'Rubik-Medium',
-            fontSize: 11,
-            lineHeight: 11,
-            letterSpacing: 0.6,
-            color: rgb(116, 118, 162)
-          }}>{tl.t('transactionDetails.votedAddress')}</Text>
-          <Text style={{
-            fontFamily: 'Rubik-Medium',
-            fontSize: 11,
-            lineHeight: 11,
-            letterSpacing: 0.6,
-            color: rgb(116, 118, 162)
-          }}>{tl.t('transactionDetails.amount')}</Text>
+          <Text
+            style={{
+              fontFamily: 'Rubik-Medium',
+              fontSize: 11,
+              lineHeight: 11,
+              letterSpacing: 0.6,
+              color: rgb(116, 118, 162)
+            }}
+          >
+            {tl.t('transactionDetails.votedAddress')}
+          </Text>
+          <Text
+            style={{
+              fontFamily: 'Rubik-Medium',
+              fontSize: 11,
+              lineHeight: 11,
+              letterSpacing: 0.6,
+              color: rgb(116, 118, 162)
+            }}
+          >
+            {tl.t('transactionDetails.amount')}
+          </Text>
         </Utils.Row>
         <Utils.VerticalSpacer size='medium' />
         {votesToRender}
@@ -552,12 +654,12 @@ class TransactionDetails extends React.Component {
       this.setState({ item: transaction, refreshing: false })
     } catch (e) {
       console.warn('err.', e.message)
-      this.setState({refreshing: false})
+      this.setState({ refreshing: false })
       logSentry(e, 'Transaction Detail - on refresh')
     }
   }
 
-  _getTransactionByHash = async (hash) => {
+  _getTransactionByHash = async hash => {
     const store = await getTransactionStore()
     return store
       .objects('Transaction')
@@ -569,48 +671,53 @@ class TransactionDetails extends React.Component {
     const { item, refreshing } = this.state
 
     return (
-      <React.Fragment>
-        <NavigationHeader
-          title={tl.t('transactionDetails.title')}
-          onBack={() => this.props.navigation.goBack()}
-        />
-        <Utils.Container>
-          <ScrollView
-            refreshControl={
-              <RefreshControl
-                refreshing={refreshing}
-                onRefresh={this._onRefresh}
-              />
-            }
-          >
-            {item &&
-            <React.Fragment>
-              {this._renderHeader()}
-              <View style={{
-                paddingHorizontal: 32
-              }}>
-                {this._renderCard()}
-              </View>
-              <View style={{
-                paddingHorizontal: 32
-              }}>
-                <View style={{ height: 24 }} />
-                {this._renderDetails()}
-              </View>
-              <View style={{ paddingVertical: 16 }} />
-            </React.Fragment>
-            }
-          </ScrollView>
-          <Toast
-            ref='addressToast'
-            positionValue={260}
-            fadeInDuration={750}
-            fadeOutDuration={1000}
-            opacity={0.8}
+      <Utils.SafeAreaView>
+        <React.Fragment>
+          <NavigationHeader
+            title={tl.t('transactionDetails.title')}
+            onBack={() => this.props.navigation.goBack()}
           />
-        </Utils.Container>
-      </React.Fragment>
-
+          <Utils.Container>
+            <ScrollView
+              refreshControl={
+                <RefreshControl
+                  refreshing={refreshing}
+                  onRefresh={this._onRefresh}
+                />
+              }
+            >
+              {item && (
+                <React.Fragment>
+                  {this._renderHeader()}
+                  <View
+                    style={{
+                      paddingHorizontal: 32
+                    }}
+                  >
+                    {this._renderCard()}
+                  </View>
+                  <View
+                    style={{
+                      paddingHorizontal: 32
+                    }}
+                  >
+                    <View style={{ height: 24 }} />
+                    {this._renderDetails()}
+                  </View>
+                  <View style={{ paddingVertical: 16 }} />
+                </React.Fragment>
+              )}
+            </ScrollView>
+            <Toast
+              ref='addressToast'
+              positionValue={260}
+              fadeInDuration={750}
+              fadeOutDuration={1000}
+              opacity={0.8}
+            />
+          </Utils.Container>
+        </React.Fragment>
+      </Utils.SafeAreaView>
     )
   }
 }

@@ -17,10 +17,12 @@ class ChangeNetworkModal extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
       header: (
-        <NavigationHeader
-          title={tl.t('settings.network.modal.title')}
-          onBack={() => navigation.goBack()}
-        />
+        <Utils.SafeAreaView>
+          <NavigationHeader
+            title={tl.t('settings.network.modal.title')}
+            onBack={() => navigation.goBack()}
+          />
+        </Utils.SafeAreaView>
       )
     }
   }
@@ -36,10 +38,7 @@ class ChangeNetworkModal extends Component {
   }
 
   componentDidMount () {
-    this.didFocusSubscription = this.props.navigation.addListener(
-      'didFocus',
-      this._loadData
-    )
+    this.didFocusSubscription = this.props.navigation.addListener('didFocus', this._loadData)
   }
 
   componentWillUnmount () {
@@ -48,10 +47,15 @@ class ChangeNetworkModal extends Component {
 
   _loadData = async () => {
     try {
-      const { nodeIp, nodeSolidityIp, isTestnet } = await NodesIp.getAllNodesIp()
+      const {
+        nodeIp,
+        nodeSolidityIp,
+        isTestnet
+      } = await NodesIp.getAllNodesIp()
       const [mainNode, mainNodePort] = nodeIp.split(':')
       const [solidityNode, solidityNodePort] = nodeSolidityIp.split(':')
-      this.setState({ mainNode,
+      this.setState({
+        mainNode,
         mainNodePort,
         solidityNode,
         solidityNodePort,
@@ -83,7 +87,10 @@ class ChangeNetworkModal extends Component {
     this.setState({ loading: true })
 
     if (!this.testIpValidity(ipToSubmit)) {
-      this.setState({ loading: false, error: tl.t('settings.network.modal.error.invalidIp') })
+      this.setState({
+        loading: false,
+        error: tl.t('settings.network.modal.error.invalidIp')
+      })
       return
     }
     this._updateNodes(type, ipToSubmit)
@@ -92,7 +99,10 @@ class ChangeNetworkModal extends Component {
   _updateNodes = async (type, nodeip) => {
     try {
       await NodesIp.setNodeIp(type, nodeip)
-      Alert.alert(tl.t('settings.network.modal.success.updated'), tl.t('settings.network.modal.success.updatedIp'))
+      Alert.alert(
+        tl.t('settings.network.modal.success.updated'),
+        tl.t('settings.network.modal.success.updatedIp')
+      )
       this.setState({ loading: false, error: null })
     } catch (error) {
       this.setState({
@@ -103,13 +113,15 @@ class ChangeNetworkModal extends Component {
     }
   }
 
-  _switchTestnet = async (switchValue) => {
+  _switchTestnet = async switchValue => {
     this.setState({ error: null })
     try {
       await NodesIp.switchTestnet(switchValue)
       this.setState({ switchTestnet: switchValue })
       this._loadData()
-      const alertMessage = switchValue ? tl.t('settings.network.modal.success.switchTest') : tl.t('settings.network.modal.success.switchMain')
+      const alertMessage = switchValue
+        ? tl.t('settings.network.modal.success.switchTest')
+        : tl.t('settings.network.modal.success.switchMain')
       Alert.alert(tl.t('settings.network.modal.success.updated'), alertMessage)
       await Promise.all([resetWalletData(), resetListsData()])
     } catch (error) {
