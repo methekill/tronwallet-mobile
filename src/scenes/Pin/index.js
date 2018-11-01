@@ -25,13 +25,15 @@ class PinScene extends React.Component {
   }
 
   componentDidMount () {
-    Biometrics.isSensorAvailable().then(async biometryType => {
-      const useBiometrySetting = await AsyncStorage.getItem(USE_BIOMETRY)
-      const useBiometry = useBiometrySetting === null ? false : useBiometrySetting === 'true'
-      if ((biometryType === Biometrics.TouchID || biometryType === Biometrics.FaceID) && useBiometry) {
-        this.setState({ biometricsEnabled: true })
-      }
-    })
+    Biometrics.isSensorAvailable()
+      .then(async (biometryType) => {
+        const useBiometrySetting = await AsyncStorage.getItem(USE_BIOMETRY)
+
+        const useBiometry = useBiometrySetting === null ? false : useBiometrySetting === 'true'
+        if ((biometryType === Biometrics.TouchID || biometryType === Biometrics.FaceID) && useBiometry) {
+          this.setState({ biometricsEnabled: true }, () => this._handleBiometrics())
+        }
+      })
 
     this.backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
       const shouldGoBack = this.props.navigation.getParam('shouldGoBack', false)

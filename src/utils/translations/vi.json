@@ -19,6 +19,7 @@
   "warning": "Warning",
   "cancel": "Cancel",
   "address": "Địa chỉ nhà",
+  "message": "Message",
   "ok": "OK",
   "actionModalTitle": "Would you like to",
   "account": "Tài khoản",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "Couldn't load transaction data"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "Có vẻ như bạn bị ngắt kết nối. Kết nối lại với Internet trước khi tiếp tục giao dịch.",
     "dic": {

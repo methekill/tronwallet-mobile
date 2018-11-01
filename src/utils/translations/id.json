@@ -19,6 +19,7 @@
   "warning": "PERINGATAN",
   "cancel": "Membatalkan",
   "address": "Alamat",
+  "message": "Message",
   "ok": "baik",
   "actionModalTitle": "Apakah Anda mau",
   "account": "Rekening",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "Couldn't load transaction data"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "Sepertinya Anda terputus. Hubungkan kembali ke internet sebelum melanjutkan dengan transaksi.",
     "dic": {

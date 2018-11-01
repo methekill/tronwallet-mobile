@@ -19,6 +19,7 @@
   "warning": "Ostrzeżenie",
   "cancel": "Anuluj",
   "address": "Adres",
+  "message": "Message",
   "ok": "Ok",
   "actionModalTitle": "Czy chciałbyś",
   "account": "Konto",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "Nie można załadować danych transakcji"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "Wygląda na to, że jesteś odłączony. Połącz się z Internetem przed przystąpieniem do transakcji.",
     "dic": {

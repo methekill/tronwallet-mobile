@@ -19,6 +19,7 @@
   "warning": "Warnung",
   "cancel": "Abbrechen",
   "address": "Adresse",
+  "message": "Message",
   "ok": "OK",
   "actionModalTitle": "Würden Sie gerne",
   "account": "Konto",
@@ -430,6 +431,11 @@
     },
     "error": {
       "noData": "Transaktionsdaten konnten nicht geladen werden"
+    },
+    "exchange": {
+      "send": "Sending {{sendtoken}}",
+      "receive": "Receiving {{receivetoken}}",
+      "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "Es scheint, dass Sie keine Internetverbindung haben. Verbinden Sie sich mit dem Internet bevor Sie mit der Transaktion fortfahren.",
     "dic": {
