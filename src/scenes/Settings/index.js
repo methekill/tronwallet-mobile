@@ -282,7 +282,7 @@ class Settings extends Component {
   }
 
   _renderNoResults = () => (
-    <Utils.Text lineHeight={20} size='small' color={Colors.background}>
+    <Utils.Text lineHeight={20} size='small' color={Colors.primaryText}>
       {tl.t('settings.token.noResult')}
     </Utils.Text>
   )
