@@ -45,7 +45,7 @@ class Create extends React.Component {
       await createUserKeyPair(pin, oneSignalId, seed)
       await context.loadUserData()
       if (route === 'app') navigation.dispatch(resetAction)
-      else navigation.navigate('SeedConfirm', { seed: seed.split(' '), shouldReset: true })
+      else navigation.navigate('SeedSave', { seed: seed.split(' '), shouldReset: true })
     } catch (e) {
       Alert.alert(tl.t('seed.create.error'))
       logSentry(e, 'Create Seed - Confirm')

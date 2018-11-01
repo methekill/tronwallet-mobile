@@ -1,79 +1,116 @@
 import React from 'react'
-import { ActivityIndicator, Alert } from 'react-native'
+import { Dimensions, Clipboard } from 'react-native'
+import { TabViewAnimated, TabBar } from 'react-native-tab-view'
+import Toast from 'react-native-easy-toast'
 
-import tl from '../../utils/i18n'
 import * as Utils from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
-import ButtonGradient from '../../components/ButtonGradient'
 import NavigationHeader from '../../components/Navigation/Header'
+import FontelloButton from '../../components/FontelloButton'
+import { SecretCard, Secret } from './elements'
 
-import { getUserSecrets } from '../../utils/secretsUtils'
+import tl from '../../utils/i18n'
 import { withContext } from '../../store/context'
-import { logSentry } from '../../utils/sentryUtils'
+
+const initialLayout = {height: 0, width: Dimensions.get('window').width}
+const TAB_WIDTH = Dimensions.get('window').width / 2
+const INDICATOR_WIDTH = 13
 
 class Save extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
-    header: (
-      <NavigationHeader
-        title={tl.t('seed.create.titleConfirm')}
-        onBack={() => navigation.goBack()}
-      />
-    )
-  })
+  static navigationOptions = () => ({ header: null })
 
   state = {
-    seed: null
+    seed: null,
+    privateKey: null,
+    index: 0,
+    routes: [
+      { key: 'seed', title: 'Seed' },
+      { key: 'privatekey', title: 'Private Key' }
+    ]
   }
 
   componentDidMount () {
-    this._getMnemonic()
+    const { userSecrets, publicKey } = this.props.context
+    const currentAccount = userSecrets.find(s => s.address === publicKey) || { privatekey: 'Not available', seed: 'Not available' }
+    this.setState({seed: currentAccount.mnemonic, privateKey: currentAccount.privateKey})
   }
 
-  _getMnemonic = async () => {
-    try {
-      const accounts = await getUserSecrets(this.props.context.pin)
-      const { mnemonic } = accounts[0]
-      this.setState({ seed: mnemonic })
-    } catch (e) {
-      Alert.alert(tl.t('seed.create.error'))
-      logSentry(e, 'Save Seed')
+  _handleIndexChange = index => this.setState({ index })
+
+  _renderHeader = props => (
+    <TabBar
+      {...props}
+      indicatorStyle={{
+        width: INDICATOR_WIDTH,
+        height: 1,
+        marginLeft: (TAB_WIDTH / 2 - INDICATOR_WIDTH / 2)
+      }}
+      tabStyle={{
+        padding: 8
+      }}
+      labelStyle={{
+        fontFamily: 'Rubik-Medium',
+        fontSize: 12,
+        letterSpacing: 0.65,
+        lineHeight: 12
+      }}
+      style={{
+        backgroundColor: Colors.background,
+        elevation: 0,
+        shadowOpacity: 0
+      }}
+    />
+  )
+
+  _onCopyClipboard = async string => {
+    await Clipboard.setString(string)
+    this.refs.toast.show(tl.t('receive.clipboardCopied'))
+  }
+
+  _renderSecret = secret =>
+    <Utils.View align='center'>
+      <SecretCard>
+        <FontelloButton
+          size={16}
+          style={{alignItems: 'flex-end'}}
+          name='copy'
+          color={Colors.secondaryText}
+          onPress={() => this._onCopyClipboard(secret)}
+        />
+        <Secret secret={secret} />
+      </SecretCard>
+    </Utils.View>
+
+  _renderScene = ({ route }) => {
+    switch (route.key) {
+      case 'seed': return this._renderSecret(this.state.seed)
+      case 'privatekey': return this._renderSecret(this.state.privateKey)
+      default: return null
     }
   }
 
   render () {
-    const { seed } = this.state
     const { navigation } = this.props
     return (
       <Utils.Container>
-        <Utils.View flex={1} />
-        <Utils.View height={1} backgroundColor={Colors.secondaryText} />
-        <Utils.Content backgroundColor={Colors.darkerBackground}>
-          {seed
-            ? (<Utils.Text lineHeight={24} align='center'>
-              {seed}
-            </Utils.Text>)
-            : <ActivityIndicator color={Colors.primaryText} />}
-        </Utils.Content>
-        <Utils.View height={1} backgroundColor={Colors.secondaryText} />
-        <Utils.Content paddingBottom={2}>
-          <Utils.View justify='center' height={60}>
-            <ButtonGradient
-              onPress={() => (
-                navigation.navigate(
-                  'SeedConfirm',
-                  { seed: seed.split(' ') }
-                ))}
-              text={tl.t('seed.create.button.written')}
-              full
-            />
-          </Utils.View>
-        </Utils.Content>
-        <Utils.Button
-          onPress={() => navigation.goBack()}
-        >
-          {tl.t('seed.create.button.later')}
-        </Utils.Button>
-        <Utils.View flex={1} />
+        <NavigationHeader
+          title={tl.t('settings.backup.title')}
+          onBack={() => navigation.goBack()}
+        />
+        <TabViewAnimated
+          navigationState={this.state}
+          renderScene={this._renderScene}
+          renderHeader={this._renderHeader}
+          onIndexChange={this._handleIndexChange}
+          initialLayout={initialLayout}
+        />
+        <Toast
+          ref='toast'
+          position='center'
+          fadeInDuration={750}
+          fadeOutDuration={1000}
+          opacity={0.8}
+        />
       </Utils.Container>
     )
   }
