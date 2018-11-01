@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { StatusBar, Platform, YellowBox, SafeAreaView, AsyncStorage } from 'react-native'
+import { StatusBar, Platform, YellowBox, AsyncStorage, View } from 'react-native'
 import {
   createBottomTabNavigator,
   createStackNavigator,
   createMaterialTopTabNavigator,
   createSwitchNavigator
 } from 'react-navigation'
-import { createIconSetFromFontello } from 'react-native-vector-icons'
 import axios from 'axios'
 import Config from 'react-native-config'
 import OneSignal from 'react-native-onesignal'
@@ -14,6 +13,7 @@ import { Sentry } from 'react-native-sentry'
 import { logSentry } from './src/utils/sentryUtils'
 
 import { Colors, ScreenSize } from './src/components/DesignSystem'
+import { TWIcon, SafeAreaView } from './src/components/Utils'
 
 import LoadingScene from './src/scenes/Loading'
 import SendScene from './src/scenes/Send'
@@ -61,7 +61,7 @@ import { USER_PREFERRED_CURRENCY, ALWAYS_ASK_PIN, USE_BIOMETRY, TOKENS_VISIBLE }
 import { ONE_SIGNAL_KEY } from './config'
 import ConfigJson from './package.json'
 import tl from './src/utils/i18n'
-import fontelloConfig from './src/assets/icons/config.json'
+
 import { getFixedTokens, getSystemStatus } from './src/services/contentful'
 import StatusMessage from './src/components/StatusMessage'
 import './ReactotronConfig'
@@ -72,7 +72,6 @@ if (!__DEV__) {
     release: ConfigJson.version
   }).install()
 }
-const Icon = createIconSetFromFontello(fontelloConfig, 'tronwallet')
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader'])
 
@@ -98,35 +97,32 @@ const SettingsStack = createStackNavigator({
 
 const tabWidth = ScreenSize.width / 2
 const indicatorWidth = 15
-const AddressBookTabs = createMaterialTopTabNavigator(
-  {
-    Contacts: ContactsScene,
-    Accounts: AccountsScene
-  },
-  {
-    navigationOptions: { header: null },
-    tabBarOptions: {
-      activeTintColor: Colors.primaryText,
-      inactiveTintColor: '#66688f',
-      style: {
-        paddingTop: 10,
-        backgroundColor: Colors.background,
-        elevation: 0
-      },
-      labelStyle: {
-        fontSize: 12,
-        lineHeight: 12,
-        letterSpacing: 0.6,
-        fontFamily: 'Rubik-Medium'
-      },
-      indicatorStyle: {
-        width: indicatorWidth,
-        height: 1.2,
-        marginLeft: tabWidth / 2 - indicatorWidth / 2
-      }
+const AddressBookTabs = createMaterialTopTabNavigator({
+  Contacts: ContactsScene,
+  Accounts: AccountsScene
+}, {
+  navigationOptions: { header: null },
+  tabBarOptions: {
+    activeTintColor: Colors.primaryText,
+    inactiveTintColor: '#66688f',
+    style: {
+      paddingTop: 10,
+      backgroundColor: Colors.background,
+      elevation: 0
+    },
+    labelStyle: {
+      fontSize: 12,
+      lineHeight: 12,
+      letterSpacing: 0.6,
+      fontFamily: 'Rubik-Medium'
+    },
+    indicatorStyle: {
+      width: indicatorWidth,
+      height: 1.2,
+      marginLeft: tabWidth / 2 - indicatorWidth / 2
     }
   }
-)
+})
 
 const AddressBookStack = createStackNavigator({
   AddressBook: AddressBookTabs,
@@ -134,7 +130,11 @@ const AddressBookStack = createStackNavigator({
   AddContact: AddContactScene
 }, {
   navigationOptions: {
-    header: <NavigationHeader title={tl.t('addressBook.title')} />
+    header: (
+      <SafeAreaView>
+        <NavigationHeader title={tl.t('addressBook.title')} />
+      </SafeAreaView>
+    )
   }
 })
 
@@ -154,13 +154,11 @@ const TransactionList = createStackNavigator({
   TransactionDetails
 })
 
-const ParticipateStack = createStackNavigator(
-  {
-    ParticipateHome,
-    TokenInfo: TokenInfoScene,
-    Buy: BuyScene
-  }
-)
+const ParticipateStack = createStackNavigator({
+  ParticipateHome,
+  TokenInfo: TokenInfoScene,
+  Buy: BuyScene
+})
 
 const AppTabs = createBottomTabNavigator({
   Market: MarketScene,
@@ -198,7 +196,7 @@ const AppTabs = createBottomTabNavigator({
         iconName = `dollar,-currency,-money,-cash,-coin`
       }
 
-      return <Icon name={iconName} size={26} color={tintColor} />
+      return (<TWIcon name={iconName} size={26} color={tintColor} />)
     }
   }),
   tabBarOptions: {
@@ -235,7 +233,6 @@ const RootNavigator = createStackNavigator({
     header: null
   },
   cardStyle: { shadowColor: 'transparent' }
-
 })
 
 const prefix =
@@ -263,7 +260,7 @@ class App extends Component {
     systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }
   }
 
-  async componentDidMount () {
+  componentDidMount () {
     setTimeout(() => {
       OneSignal.init(ONE_SIGNAL_KEY)
       OneSignal.inFocusDisplaying(2)
@@ -303,6 +300,7 @@ class App extends Component {
     // console.log('isActive: ', openResult.notification.isAppInFocus)
     // console.log('openResult: ', openResult)
   }
+
   _loadUserData = async () => {
     // accounts = filtered accounts by hidden status
     // userSecrets =  ref to all userSecrets
@@ -489,14 +487,14 @@ class App extends Component {
     }
 
     return (
-      <SafeAreaView style={{ backgroundColor: Colors.background, flex: 1 }} >
+      <View style={{ backgroundColor: Colors.background, flex: 1 }} >
         <Context.Provider value={contextProps}>
           <StatusBar barStyle='light-content' />
           {this.state.systemStatus.showStatus &&
             <StatusMessage systemStatus={this.state.systemStatus} />}
           <RootNavigator uriPrefix={prefix} />
         </Context.Provider>
-      </SafeAreaView>
+      </View>
     )
   }
 }
