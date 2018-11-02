@@ -8,6 +8,9 @@ jest.mock('react-native-tron')
 jest.mock('../i18n')
 jest.mock('../sentryUtils')
 jest.mock('../../services/client')
+jest.mock('../deeplinkUtils', () => {
+  TronVaultURL: 'testurl'
+})
 
 describe('Transaction Utils', () => {
 
