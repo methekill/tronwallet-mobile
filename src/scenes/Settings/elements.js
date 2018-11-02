@@ -30,5 +30,8 @@ export const MultiSelectStyles = {
   },
   searchBar: {
     backgroundColor: Colors.lightBackground
+  },
+  searchTextInput: {
+    color: Colors.primaryText
   }
 }

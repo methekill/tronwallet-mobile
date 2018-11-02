@@ -9,7 +9,8 @@ import {
   ScrollView,
   AsyncStorage,
   Modal,
-  WebView
+  WebView,
+  SafeAreaView
 } from 'react-native'
 import RNRestart from 'react-native-restart'
 import SectionedMultiSelect from 'react-native-sectioned-multi-select'
@@ -52,8 +53,10 @@ const resetAction = StackActions.reset({
 })
 
 class Settings extends Component {
-  static navigationOptions = {
-    header: null
+  static navigationOptions = () => {
+    return {
+      header: <NavigationHeader title={tl.t('settings.title')} />
+    }
   }
 
   state = {
@@ -68,25 +71,26 @@ class Settings extends Component {
     currentSelectedTokens: [],
     hiddenAccounts: [],
     biometricsEnabled: false,
-    languageModal: false,
+    tokenFilterModal: false,
     accountsModal: false
   }
 
   componentDidMount () {
-    Biometrics.isSensorAvailable().then(async biometryType => {
-      if (biometryType === Biometrics.TouchID || biometryType === Biometrics.FaceID) {
-        this.setState({ biometricsEnabled: true })
-      }
-    })
+    Biometrics.isSensorAvailable()
+      .then(async (biometryType) => {
+        if (biometryType === Biometrics.TouchID || biometryType === Biometrics.FaceID) {
+          this.setState({ biometricsEnabled: true })
+        }
+      })
 
     Answers.logContentView('Tab', 'Settings')
     this._onLoadData()
     this._getSelectedTokens()
-    OneSignal.getPermissionSubscriptionState(status => {
-      this.setState({
-        subscriptionStatus: `${status.userSubscriptionEnabled}` === 'true'
-      })
-    })
+    OneSignal.getPermissionSubscriptionState(
+      status => {
+        this.setState({ subscriptionStatus: `${status.userSubscriptionEnabled}` === 'true' })
+      }
+    )
     this._didFocus = this.props.navigation.addListener('didFocus', () => this._onLoadData(), this._getSelectedTokens)
     this.appStateListener = onBackgroundHandler(this._onAppStateChange)
   }
@@ -97,30 +101,22 @@ class Settings extends Component {
   }
 
   _onAppStateChange = nextAppState => {
-    const { accountsModal, languageModal } = this.state
+    const { accountsModal, tokenFilterModal } = this.state
     if (nextAppState.match(/background/)) {
       let accState = accountsModal
-      let langState = languageModal
+      let tokenFilter = tokenFilterModal
       // This is ugly because of React Native MultiSectioned Lib
-      if (languageModal) {
+      if (tokenFilterModal) {
         this.SectionedMultiSelect._toggleSelector()
-        langState = false
+        tokenFilter = false
       }
-
       if (accountsModal) {
         this.AccountRecover.innerComponent._toggleSelector()
         accState = false
       }
+      if (this.ActionSheet && this.ActionSheet.hide) this.ActionSheet.hide()
 
-      if (this.ActionSheet && this.ActionSheet.hide) {
-        this.ActionSheet.hide()
-      }
-
-      this.setState({
-        modalVisible: false,
-        accountsModal: accState,
-        languageModal: langState
-      })
+      this.setState({modalVisible: false, accountsModal: accState, tokenFilterModal: tokenFilter})
     }
   }
 
@@ -135,8 +131,7 @@ class Settings extends Component {
   _getSelectedTokens = async () => {
     try {
       const store = await getBalanceStore()
-      const tokens = store
-        .objects('Balance')
+      const tokens = store.objects('Balance')
         .filtered('TRUEPREDICATE DISTINCT(name)')
         .filter(({ name }) => name !== 'TRX')
         .map(({ name }) => ({ id: name, name }))
@@ -165,20 +160,17 @@ class Settings extends Component {
       tl.t('warning'),
       tl.t('settings.reset.warning'),
       [
-        { text: tl.t('cancel'), style: 'cancel' },
-        {
-          text: tl.t('settings.reset.button'),
-          onPress: () =>
-            this.props.navigation.navigate('Pin', {
-              shouldGoBack: true,
-              testInput: pin => pin === this.props.context.pin,
-              onSuccess: async () => {
-                await hardResetWalletData(this.props.context.pin)
-                this.props.context.resetAccount()
-                this.props.navigation.dispatch(resetAction)
-              }
-            })
-        }
+        {text: tl.t('cancel'), style: 'cancel'},
+        {text: tl.t('settings.reset.button'),
+          onPress: () => this.props.navigation.navigate('Pin', {
+            shouldGoBack: true,
+            testInput: pin => pin === this.props.context.pin,
+            onSuccess: async () => {
+              await hardResetWalletData(this.props.context.pin)
+              this.props.context.resetAccount()
+              this.props.navigation.dispatch(resetAction)
+            }
+          })}
       ],
       { cancelable: false }
     )
@@ -186,6 +178,7 @@ class Settings extends Component {
 
   _onUnhideAccounts = async (accountsSelected = []) => {
     const { loadUserData, pin } = this.props.context
+    this.setState({accountsModal: false})
     if (!accountsSelected.length) return
     try {
       await unhideSecret(pin, accountsSelected)
@@ -204,10 +197,7 @@ class Settings extends Component {
         this.props.navigation.navigate('Pin', {
           shouldDoubleCheck: true,
           shouldGoBack: true,
-          onSuccess: pin =>
-            this.props.context.setPin(pin, () =>
-              this.refs.settingsToast.show(tl.t('settings.pin.success'))
-            )
+          onSuccess: pin => this.props.context.setPin(pin, () => this.refs.settingsToast.show(tl.t('settings.pin.success')))
         })
       }
     })
@@ -218,8 +208,8 @@ class Settings extends Component {
       ({ subscriptionStatus }) => ({ subscriptionStatus: !subscriptionStatus }),
       () => {
         OneSignal.setSubscription(this.state.subscriptionStatus)
-        OneSignal.getPermissionSubscriptionState(status =>
-          console.log('subscriptions status', status)
+        OneSignal.getPermissionSubscriptionState(
+          status => console.log('subscriptions status', status)
         )
         if (this.state.subscriptionStatus) {
           Client.registerDeviceForNotifications(
@@ -241,10 +231,9 @@ class Settings extends Component {
       this.props.context.setVerifiedTokensOnly(currentValue)
     }
   }
+  _openLink = (uri) => this.setState({ modalVisible: true, uri })
 
-  _openLink = uri => this.setState({ modalVisible: true, uri })
-
-  _handleLanguageChange = async index => {
+  _handleLanguageChange = async (index) => {
     if (index > 0) {
       const language = LANGUAGES[index]
       try {
@@ -253,11 +242,8 @@ class Settings extends Component {
           tl.t('settings.language.success.title', { language: language.value }),
           tl.t('settings.language.success.description'),
           [
-            { text: tl.t('settings.language.button.cancel'), style: 'cancel' },
-            {
-              text: tl.t('settings.language.button.confirm'),
-              onPress: () => RNRestart.Restart()
-            }
+            {text: tl.t('settings.language.button.cancel'), style: 'cancel'},
+            {text: tl.t('settings.language.button.confirm'), onPress: () => RNRestart.Restart()}
           ],
           { cancelable: false }
         )
@@ -278,7 +264,7 @@ class Settings extends Component {
     }
   }
 
-  _saveBiometry = async pin => {
+  _saveBiometry = async (pin) => {
     try {
       const { useBiometry } = this.props.context
 
@@ -296,17 +282,18 @@ class Settings extends Component {
   }
 
   _renderNoResults = () => (
-    <Utils.Text lineHeight={20} size='small' color={Colors.background}>
+    <Utils.Text lineHeight={20} size='small' color={Colors.primaryText}>
       {tl.t('settings.token.noResult')}
     </Utils.Text>
   )
 
   _showTokenSelect = () => {
-    const { userSelectedTokens, languageModal } = this.state
+    const { userSelectedTokens, tokenFilterModal } = this.state
     this.setState({
       currentSelectedTokens: userSelectedTokens,
-      languageModal: !languageModal
+      tokenFilterModal: !tokenFilterModal
     })
+
     this.SectionedMultiSelect._toggleSelector()
   }
 
@@ -326,16 +313,12 @@ class Settings extends Component {
           {
             title: tl.t('settings.about.title'),
             icon: 'question-mark,-circle,-sign,-more,-info',
-            onPress: () => {
-              this.props.navigation.navigate('About')
-            }
+            onPress: () => { this.props.navigation.navigate('About') }
           },
           {
             title: tl.t('settings.helpCenter.title'),
             icon: 'message,-chat,-bubble,-text,-rounded',
-            onPress: () => {
-              this._openLink('https://help.tronwallet.me/')
-            }
+            onPress: () => { this._openLink('https://help.tronwallet.me/') }
           },
           {
             title: tl.t('settings.verifiedTokensOnly'),
@@ -361,23 +344,20 @@ class Settings extends Component {
             title: tl.t('settings.backup.title'),
             icon: 'key,-password,-lock,-privacy,-login',
             hide: secretMode === 'privatekey',
-            onPress: () =>
-              this.props.navigation.navigate('Pin', {
-                shouldGoBack: true,
-                testInput: pin => pin === this.props.context.pin,
-                onSuccess: () =>
-                  this.props.navigation.navigate('SeedSave', { seed })
-              })
+            onPress: () => this.props.navigation.navigate('Pin', {
+              shouldGoBack: true,
+              testInput: pin => pin === this.props.context.pin,
+              onSuccess: () => this.props.navigation.navigate('SeedSave', { seed })
+            })
           },
           {
             title: tl.t('settings.restore.title'),
             icon: 'folder-sync,-data,-folder,-recovery,-sync',
-            onPress: () =>
-              this.props.navigation.navigate('Pin', {
-                shouldGoBack: true,
-                testInput: pin => pin === this.props.context.pin,
-                onSuccess: () => this.props.navigation.navigate('SeedRestore')
-              })
+            onPress: () => this.props.navigation.navigate('Pin', {
+              shouldGoBack: true,
+              testInput: pin => pin === this.props.context.pin,
+              onSuccess: () => this.props.navigation.navigate('SeedRestore')
+            })
           },
           {
             title: tl.t('settings.reset.title'),
@@ -394,7 +374,7 @@ class Settings extends Component {
                   backgroundActive={Colors.yellow}
                   backgroundInactive={Colors.secondaryText}
                   value={this.props.context.alwaysAskPin}
-                  onAsyncPress={callback => {
+                  onAsyncPress={(callback) => {
                     this.props.navigation.navigate('Pin', {
                       shouldGoBack: true,
                       testInput: pin => pin === this.props.context.pin,
@@ -412,17 +392,18 @@ class Settings extends Component {
             title: tl.t('settings.askBiometry'),
             icon: 'lock,-secure,-safety,-safe,-protect',
             right: () => {
-              return this.state.biometricsEnabled ? (
+              return this.state.biometricsEnabled ? 
+              (
                 <Switch
                   circleStyle={{ backgroundColor: Colors.orange }}
                   backgroundActive={Colors.yellow}
                   backgroundInactive={Colors.secondaryText}
                   value={this.props.context.useBiometry}
-                  onAsyncPress={callback => {
+                  onAsyncPress={(callback) => {
                     if (!this.props.context.useBiometry) {
-                      Biometrics.createKeys(tl.t('biometry.register.title'))
+                      Biometrics.createKeys(tl.t('biometry.register.title'));
                     }
-
+                    
                     this.props.navigation.navigate('Pin', {
                       shouldGoBack: true,
                       testInput: pin => pin === this.props.context.pin,
@@ -434,12 +415,12 @@ class Settings extends Component {
                   }}
                 />
               ) : (
-                  <Icon
-                    name={'lock,-secure,-safety,-safe,-protect'}
-                    size={22}
-                    color={Colors.secondaryText}
-                  />
-                )
+                <Icon
+                  name={'lock,-secure,-safety,-safe,-protect'}
+                  size={22}
+                  color={Colors.secondaryText}
+                />
+              )
             }
           }
         ]
@@ -456,8 +437,8 @@ class Settings extends Component {
             title: tl.t('settings.notifications.title'),
             icon: 'user,-person,-avtar,-profile-picture,-dp',
             right: () => {
-              if (this.state.subscriptionStatus === null || this.state.changingSubscription) {
-                return (<ActivityIndicator size="small" color={Colors.primaryText} />)
+              if ((this.state.subscriptionStatus === null) || this.state.changingSubscription) {
+                return <ActivityIndicator size='small' color={Colors.primaryText} />
               }
               return (
                 <Switch
@@ -476,25 +457,21 @@ class Settings extends Component {
             onPress: () => this.props.navigation.navigate('NetworkConnection')
           }
         ]
-      },
-      {
+      },{
         title: tl.t('settings.sectionTitles.accounts'),
         sectionLinks: [
           {
-            title: tl.t('settings.accounts.restoreAccounts'),
+            title:  tl.t('settings.accounts.restoreAccounts'),
             icon: 'files,-agreement,-notes,-docs,-pages',
             onPress: () => {
-              if (this.state.hiddenAccounts.length) {
-                this.setState({ accountsModal: !this.state.accountsModal })
-                this.AccountRecover.innerComponent._toggleSelector()
-              } else {
-                Alert.alert(
-                  tl.t('account'),
-                  tl.t('settings.accounts.noAccounts')
-                )
-              }
+             if(this.state.hiddenAccounts.length){
+              this.setState({accountsModal: !this.state.accountsModal})
+              this.AccountRecover.innerComponent._toggleSelector()
+             }else {
+              Alert.alert(tl.t('account'), tl.t('settings.accounts.noAccounts'))
+             } 
             }
-          }
+          },
         ]
       }
     ]
@@ -503,38 +480,42 @@ class Settings extends Component {
       <ScrollView>
         {list.map(item => (
           <View key={item.title}>
-            <SectionTitle>{item.title}</SectionTitle>
+            <SectionTitle>
+              {item.title}
+            </SectionTitle>
             {item.sectionLinks.map(item => {
               const arrowIconName = 'arrow,-right,-right-arrow,-navigation-right,-arrows'
-              return !item.hide ? (
-                <TouchableWithoutFeedback onPress={item.onPress} key={item.title}>
-                  <Utils.Item padding={16}>
-                    <Utils.Row justify="space-between" align="center">
-                      <Utils.Row justify="space-between" align="center">
-                        <View style={styles.rank}>
-                          <Icon
-                            name={item.icon}
-                            size={22}
-                            color={Colors.secondaryText}
-                          />
-                        </View>
-                        <Utils.View>
-                          <Utils.Text lineHeight={20} size="small">{item.title}</Utils.Text>
-                        </Utils.View>
-                      </Utils.Row>
-                      {!!item.onPress &&
-                        !item.right && (
+              return !item.hide
+                ? (
+                  <TouchableWithoutFeedback onPress={item.onPress} key={item.title}>
+                    <Utils.Item padding={16}>
+                      <Utils.Row justify='space-between' align='center'>
+                        <Utils.Row justify='space-between' align='center'>
+                          <View style={styles.rank}>
+                            <Icon
+                              name={item.icon}
+                              size={22}
+                              color={Colors.secondaryText}
+                            />
+                          </View>
+                          <Utils.View>
+                            <Utils.Text lineHeight={20} size='small'>
+                              {item.title}
+                            </Utils.Text>
+                          </Utils.View>
+                        </Utils.Row>
+                        {(!!item.onPress && !item.right) && (
                           <Icon
                             name={arrowIconName}
                             size={15}
                             color={Colors.secondaryText}
                           />
                         )}
-                      {item.right && item.right()}
-                    </Utils.Row>
-                  </Utils.Item>
-                </TouchableWithoutFeedback>
-              ) : null
+                        {item.right && item.right()}
+                      </Utils.Row>
+                    </Utils.Item>
+                  </TouchableWithoutFeedback>
+                ) : null
             })}
           </View>
         ))}
@@ -542,93 +523,83 @@ class Settings extends Component {
     )
   }
 
-  render() {
-    const {
-      userTokens,
+  render () {
+    const { 
+      userTokens, 
       currentSelectedTokens,
       uri,
-      modalVisible,
-      hiddenAccounts
-    } = this.state
+      tokenFilterModal,
+      modalVisible, 
+      accountsModal,
+      hiddenAccounts } = this.state
     const languageOptions = LANGUAGES.map(language => language.value)
 
     return (
-      <Utils.SafeAreaView>
-        <NavigationHeader title={tl.t('settings.title')} />
-        <Utils.Container
-          keyboardShouldPersistTaps="always"
-          keyboardDismissMode="interactive"
+      <Utils.Container
+        keyboardShouldPersistTaps='always'
+        keyboardDismissMode='interactive'
+      >
+        <ActionSheet
+          ref={ref => { this.ActionSheet = ref }}
+          title={tl.t('settings.language.choose')}
+          options={languageOptions}
+          cancelButtonIndex={0}
+          onPress={index => this._handleLanguageChange(index)}
+        />
+        <Toast
+          ref='settingsToast'
+          position='top'
+          fadeInDuration={1250}
+          fadeOutDuration={1250}
+          opacity={0.8}
+        />
+        <Modal
+          animationType='slide'
+          transparent={false}
+          visible={modalVisible}
+          onRequestClose={() => this.setState({ modalVisible: false })}
         >
-          <ActionSheet
-            ref={ref => {
-              this.ActionSheet = ref
-            }}
-            title={tl.t('settings.language.choose')}
-            options={languageOptions}
-            cancelButtonIndex={0}
-            onPress={index => this._handleLanguageChange(index)}
-          />
-          <Toast
-            ref="settingsToast"
-            position="top"
-            fadeInDuration={1250}
-            fadeOutDuration={1250}
-            opacity={0.8}
-          />
-          <Modal
-            animationType="slide"
-            transparent={false}
-            visible={modalVisible}
-            onRequestClose={() => this.setState({ modalVisible: false })}
-          >
-            <Utils.SafeAreaView>
-              <NavigationHeader
-                title=" "
-                onBack={() => {
-                  this.setState({ modalVisible: false })
-                }}
-              />
-              <WebView
-                source={{ uri }}
-                renderLoading={() => <Loading />}
-                startInLoadingState
-              />
-            </Utils.SafeAreaView>
-          </Modal>
-          <SectionedMultiSelect
-            ref={ref => {
-              this.SectionedMultiSelect = ref
-            }}
-            items={userTokens}
-            uniqueKey="id"
-            onSelectedItemsChange={selected =>
-              this.setState({ currentSelectedTokens: selected })
-            }
-            selectedItems={currentSelectedTokens}
-            onConfirm={this._saveSelectedTokens}
-            showChips={false}
-            showCancelButton
-            hideSelect
-            searchPlaceholderText={tl.t('settings.token.search')}
-            confirmText={tl.t('settings.token.confirm')}
-            noResultsComponent={this._renderNoResults()}
-            colors={MultiSelectColors}
-            styles={MultiSelectStyles}
-          />
-          <AccountRecover
-            ref={ref => {
-              this.AccountRecover = ref
-            }}
-            hiddenAccounts={hiddenAccounts}
-            onUnhide={this._onUnhideAccounts}
-            renderNoResults={this._renderNoResults}
-          />
-          <ScrollView>{this._renderList()}</ScrollView>
-        </Utils.Container>
-      </Utils.SafeAreaView>
+          <SafeAreaView style={{flex: 1, backgroundColor: Colors.background}}>
+            <NavigationHeader title=' ' onBack={() => { this.setState({ modalVisible: false }) }} />
+            <WebView
+              source={{ uri }}
+              renderLoading={() => <Loading />}
+              startInLoadingState
+            />
+          </SafeAreaView>
+        </Modal>
+        <SectionedMultiSelect
+          ref={ref => { this.SectionedMultiSelect = ref }}
+          items={userTokens}
+          uniqueKey='id'
+          onSelectedItemsChange={(selected) => this.setState({ currentSelectedTokens: selected })}
+          selectedItems={currentSelectedTokens}
+          onConfirm={this._saveSelectedTokens}
+          onCancel={()=> this.setState({tokenFilterModal: !tokenFilterModal})}
+          showChips={false}
+          showCancelButton
+          hideSelect
+          searchPlaceholderText={tl.t('settings.token.search')}
+          confirmText={tl.t('settings.token.confirm')}
+          noResultsComponent={this._renderNoResults()}
+          colors={MultiSelectColors}
+          styles={MultiSelectStyles}
+        />
+        <AccountRecover
+          ref={ref => {this.AccountRecover = ref}}
+          hiddenAccounts={hiddenAccounts}
+          onUnhide={this._onUnhideAccounts}
+          renderNoResults={this._renderNoResults}
+          onCancel={()=> this.setState({accountsModal : !accountsModal})}
+        />
+        <ScrollView>
+          {this._renderList()}
+        </ScrollView>
+      </Utils.Container>
     )
   }
 }
+
 
 const styles = StyleSheet.create({
   card: {

@@ -17,7 +17,7 @@ class RecoverAccount extends Component {
     }
     render () {
       const { accountsSelected } = this.state
-      const { hiddenAccounts, renderNoResults } = this.props
+      const { hiddenAccounts, onCancel, renderNoResults } = this.props
       return (
         <SectionedMultiSelect
           ref={ref => { this.innerComponent = ref }}
@@ -26,6 +26,7 @@ class RecoverAccount extends Component {
           onSelectedItemsChange={(selected) => { this.setState({ accountsSelected: selected }) }}
           selectedItems={accountsSelected}
           onConfirm={this._onConfirm}
+          onCancel={onCancel}
           showChips={false}
           showCancelButton
           hideSelect
