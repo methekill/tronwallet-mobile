@@ -19,6 +19,7 @@
   "warning": "알림",
   "cancel": "취소",
   "address": "주소",
+  "message": "메시지",
   "ok": "확인",
   "actionModalTitle": "원하는 항목을 선택하세요",
   "account": "계정",
@@ -52,7 +53,7 @@
   "skip": "건너뛰기",
   "privateKey": "개인키",
   "results": "결과",
-  "buy": "Buy",
+  "buy": "구매하기",
   "filter": "필터",
   "txs": "트랜잭션",
   "balance": {
@@ -218,7 +219,7 @@
       "notFound": "자산을 찾을 수 없습니다"
     },
     "warning": "{{token}}을 구매하기 위한 TRX 수량이 충분하지 않습니다",
-    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
+    "enterAmountToBuy": "구매 수량을 입력하세요",
     "amountToBuy": "구매 수량",
     "pricePerToken": "토큰 당 가격",
     "tokenDescription": "토큰 설명",
@@ -237,7 +238,7 @@
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "블록",
-    "balance": "BALANCE",
+    "balance": "잔액",
     "searchPreview": "추천토큰"
   },
   "pin": {
@@ -404,6 +405,9 @@
     "accepts": {
       "title": "TRX를 사용할 수 있는 곳은?"
     },
+    "helpCenter": {
+      "title": "도움말 센터"
+    },
     "accounts": {
       "title": "계정",
       "search": "계정 검색",
@@ -413,7 +417,7 @@
     "partners": "제휴업체",
     "askPin": "항상 PIN 물어보기",
     "askBiometry": "생체인식 활성화",
-    "verifiedTokensOnly": "Verified tokens only"
+    "verifiedTokensOnly": "검증된 토큰만 보기"
   },
   "submitTransaction": {
     "title": "트랜잭션 상세보기",
@@ -427,6 +431,11 @@
     },
     "error": {
       "noData": "트랜잭션 데이터를 로드할 수 없습니다."
+    },
+    "exchange": {
+      "send": "{{sendtoken}} 보내기",
+      "receive": "{{receivetoken}} 받기",
+      "error": "받은 수량을 확인하려면 최근 트랜잭션을 확인하세요."
     },
     "disconnectedMessage": "연결이 끊긴 것 같습니다. 트랜잭션을 진행하기 전에 인터넷에 다시 연결해주세요.",
     "dic": {
@@ -498,7 +507,7 @@
     "search": "검색하기",
     "searchPreview": "제안 - 최다 득표",
     "error": "제대로 로드되지 않았습니다. 다시 로드해주세요",
-    "notFound": "Super Representative not found"
+    "notFound": "슈퍼 대표 후보를 찾을 수 없습니다"
   },
   "scanPayment": {
     "scan": "스캔",
@@ -552,6 +561,70 @@
     },
     "auth": {
       "error": "접근이 거부되었습니다"
+    }
+  },
+  "privacyPolicy": {
+    "title": "개인 정보 보호 정책",
+    "subtitle": "다음 단계로 진행하려면, 개인 정보 보호 약관을 읽고 동의해야 합니다.",
+    "error": "다음 단계로 넘어가려면 개인 정보 보호 약관에 동의해야 합니다. ",
+    "acceptTerms": "약관을 읽었고 약관 내용에 동의합니다",
+    "continue": "계속",
+    "docTitle": "개인 정보 보호",
+    "introduction": "이것은 저희 웹사이트 http://tronwallet.me 뿐만 아니라 저희가 소유하고 운영하는 다른 사이트 이용 중 수집될 수 있는 모든 정보 중 여러분의 개인 정보를 보호하기 위한 TronWallet 정책입니다.\n저희는 여러분에게 서비스를 제공함에 있어 개인 정보가 정말 필요할 때를 제외하고는 개인 정보를 별도로 요청하지 않습니다. 저희는 여러분이 관련 내용을 인지하고 동의한 상태에서만 공정하고 합법적인 수단으로 개인 정보를 수집합니다. \n또한, 저희는 여러분께 정보를 수집하는 이유와 사용 용도에 대해 알리고 있습니다.\n여러분이 요청한 서비스를 제공하기 위해 필요한 경우에는 수집된 정보를 보유합니다.\n저희가 저장하는 데이터는 분실, 도난, 무단 접근/공개/복사/사용 등을 막기 위해 상업적으로 허용되는 수단을 통해 보호될 것입니다.\n저희는 법에 의해 요청된 경우를 제외하고는 개인을 식별할 수 있는 정보를 제삼자 또는 공개적으로 공유하지 않습니다. \n저희 웹사이트는 저희가 운영하지 않는 외부 사이트와 연결될 수 있습니다.\n저희는 이러한 외부 사이트의 콘텐츠와 관행을 통제할 수 있는 권한이 없으며, 그들의 개인 정보 보호 정책에 대해 저희가 책임지지 않는다는 점을 알려드립니다.\n여러분은 개인 정보 요청을 언제든지 거부할 수 있으며, 이로 인해 여러분이 생각했던 서비스 중 일부가 제한될 수 있다는 점은 양해바랍니다.\n저희 웹사이트를 지속적으로 사용하신다면 개인 정보와 개인 정보와 관련 저희들의 관행에 동의한 것으로 간주될 것입니다.\n이용자의 데이터와 개인 정보 처리에 관한 문의사항이 있다면, 언제든지 저희에게 문의해주시길 바랍니다.\n이 정책은 2018년 7월 1일부로 효력이 발생합니다.",
+    "termsOfService": {
+      "title": "TronWallet 서비스 약관",
+      "section1": {
+        "title": "1. 약관",
+        "body": "By accessing the website at http://tronwallet.me, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law."
+      },
+      "section2": {
+        "title": "2. Use License",
+        "body": "Permission is granted to temporarily download one copy of the materials (information or software) on TronWallet's website for personal, non-commercial transitory viewing only.\nThis is the grant of a license, not a transfer of title, and under this license you may not:\nmodify or copy the materials;\nuse the materials for any commercial purpose, or for any public display (commercial or non-commercial);\nattempt to decompile or reverse engineer any software contained on TronWallet's website;\nremove any copyright or other proprietary notations from the materials;\nor transfer the materials to another person or \"mirror\" the materials on any other server.\nThis license shall automatically terminate if you violate any of these restrictions and may be terminated by TronWallet at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your possession whether in electronic or printed format.\n"
+      },
+      "section3": {
+        "title": "3. Disclaimer",
+        "body": "The materials on TronWallet's website are provided on an 'as is' basis. TronWallet makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.\nFurther, TronWallet does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its website or otherwise relating to such materials or on any sites linked to this site.n"
+      },
+      "section4": {
+        "title": "4. Limitations",
+        "body": "In no event shall TronWallet or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on TronWallet's website, even if TronWallet or a TronWallet authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.\n"
+      },
+      "section5": {
+        "title": "5. Accuracy of materials",
+        "body": "The materials appearing on TronWallet's website could include technical, typographical, or photographic errors. TronWallet does not warrant that any of the materials on its website are accurate, complete or current. TronWallet may make changes to the materials contained on its website at any time without notice. However TronWallet does not make any commitment to update the materials.\n"
+      },
+      "section6": {
+        "title": "6. 링크",
+        "body": "TronWallet has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by TronWallet of the site. Use of any such linked website is at the user's own risk.\n"
+      },
+      "section7": {
+        "title": "7. Modifications",
+        "body": "TronWallet may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service.\n"
+      },
+      "section8": {
+        "title": "8. Governing Law",
+        "body": "These terms and conditions are governed by and construed in accordance with the laws of Vancouver, Canada and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.\n"
+      },
+      "section9": {
+        "title": "9. 암호화폐 리스크",
+        "body": "Cryptocurrency assets are subject to high market risks and volatility. Past performance is not indicative of future results. Investments in blockchain assets may result in loss of part or all of your investment. Please do your own research and use caution. You are solely responsible for your actions on the TRONWALLET. TRONWALLET Team is not responsible for your investment losses.\n"
+      },
+      "section10": {
+        "title": "10. THE TRON NETWORK (SEPARATE FROM TRONWALLET)",
+        "body": "TronWallet is only a user interface to TRON and does not operate the TRON NETWORK. TronWallet is unable to control the actions of others on the TRON NETWORK. When using TRONWALLET, you are directly communicating with the TRON PUBLIC API operated by TRON Foundation. Transactions on the TRONWALLET are irreversible.\n"
+      },
+      "section11": {
+        "title": "11. TRONWALLET DOES NOT ENDORSE ANYTHING",
+        "body": "TRONWALLET does NOT endorse ANY asset on the TRON NETWORK. Asset \"listings\" on TRONWALLET are NOT endorsements. TRONWALLET is a software client ONLY and does NOT conduct any independent diligence or review of any asset. TRON is an open system meaning that scams and market manipulators may exist. Prices shown on TRONWALLET are for informational purposes and do not imply that they can actually be redeemed for a certain price.\n"
+      },
+      "section12": {
+        "title": "12. YOUR OWN RESPONSIBILITIES",
+        "body": "You, the user, are solely responsible for ensuring your own compliance with laws and taxes in your jurisdiction. Cryptocurrencies may be illegal in your area. You, are solely responsible for your own security including keeping your account secret keys safe and backed up.\n"
+      },
+      "section13": {
+        "title": "13. DISCLAIMER OF WARRANTY",
+        "body": "TRONWALLET is provided free of charge and on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.\n"
+      }
     }
   }
 }

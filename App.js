@@ -3,7 +3,8 @@ import { StatusBar, Platform, YellowBox, SafeAreaView, AsyncStorage } from 'reac
 import {
   createBottomTabNavigator,
   createStackNavigator,
-  createMaterialTopTabNavigator
+  createMaterialTopTabNavigator,
+  createSwitchNavigator
 } from 'react-navigation'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
 import axios from 'axios'
@@ -49,6 +50,7 @@ import PaymentsScene from './src/scenes/Payments'
 import ScanPayScene from './src/scenes/Payments/Scan'
 import CreateSeed from './src/scenes/Seed/Create'
 import ImportWallet from './src/scenes/Seed/Import'
+import PrivacyPolicy from './src/scenes/PrivacyPolicy'
 
 import Client from './src/services/client'
 import { Context } from './src/store/context'
@@ -212,9 +214,9 @@ const AppTabs = createBottomTabNavigator({
 
 const RootNavigator = createStackNavigator({
   Loading: LoadingScene,
-  CreateSeed,
-  FirstTime,
+  FirstTime: createSwitchNavigator({ PrivacyPolicy, First: FirstTime }, { initialRouteName: 'PrivacyPolicy' }),
   Pin,
+  CreateSeed,
   SeedRestore,
   ImportWallet,
   App: AppTabs,
@@ -233,6 +235,7 @@ const RootNavigator = createStackNavigator({
     header: null
   },
   cardStyle: { shadowColor: 'transparent' }
+
 })
 
 const prefix =
@@ -256,6 +259,7 @@ class App extends Component {
     secretMode: 'mnemonic',
     verifiedTokensOnly: true,
     fixedTokens: [],
+    exchangeBot: '',
     systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }
   }
 
@@ -398,20 +402,20 @@ class App extends Component {
     try {
       const tokenVibility = await AsyncStorage.getItem(TOKENS_VISIBLE)
       const verifiedTokensOnly = tokenVibility === null ? true : tokenVibility === 'true'
-      this.setState({verifiedTokensOnly})
+      this.setState({ verifiedTokensOnly })
     } catch (error) {
       this.setState({ verifiedTokensOnly: false })
     }
   }
-   _loadFixedTokens = async () => {
-     try {
-       const fixedTokens = await getFixedTokens()
-       this.setState({fixedTokens})
-     } catch (error) {
-       this.setState({fixedTokens: ['TRX', 'TWX']})
-       logSentry(error, 'App - Load Fixed Tokens')
-     }
-   }
+  _loadFixedTokens = async () => {
+    try {
+      const fixedTokens = await getFixedTokens()
+      this.setState({ fixedTokens })
+    } catch (error) {
+      this.setState({ fixedTokens: ['TRX', 'TWX'] })
+      logSentry(error, 'App - Load Fixed Tokens')
+    }
+  }
 
   _loadCurrency = async () => {
     try {
@@ -433,10 +437,12 @@ class App extends Component {
 
   _updateSystemStatus = async () => {
     try {
-      const systemStatus = await getSystemStatus()
-      this.setState({systemStatus})
+      const {exchangeBot, systemStatus} = await getSystemStatus()
+      this.setState({systemStatus, exchangeBot})
     } catch (error) {
-      this.setState({systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }})
+      this.setState({
+        exchangeBot: '',
+        systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }})
       logSentry(error, 'App - can\'t get system status')
     }
   }
@@ -458,11 +464,11 @@ class App extends Component {
     })
   }
 
-  _resetAccounts = () => this.setState({accounts: [], publicKey: null})
+  _resetAccounts = () => this.setState({ accounts: [], publicKey: null })
 
   _hideAccount = address => {
     const newAccounts = this.state.accounts.filter(acc => acc.address !== address)
-    this.setState({accounts: newAccounts})
+    this.setState({ accounts: newAccounts })
   }
 
   render () {
@@ -487,7 +493,7 @@ class App extends Component {
         <Context.Provider value={contextProps}>
           <StatusBar barStyle='light-content' />
           {this.state.systemStatus.showStatus &&
-          <StatusMessage systemStatus={this.state.systemStatus} />}
+            <StatusMessage systemStatus={this.state.systemStatus} />}
           <RootNavigator uriPrefix={prefix} />
         </Context.Provider>
       </SafeAreaView>
