@@ -4,7 +4,8 @@ import {
   createBottomTabNavigator,
   createStackNavigator,
   createMaterialTopTabNavigator,
-  createSwitchNavigator
+  createSwitchNavigator,
+  SafeAreaView
 } from 'react-navigation'
 import axios from 'axios'
 import Config from 'react-native-config'
@@ -13,7 +14,7 @@ import { Sentry } from 'react-native-sentry'
 import { logSentry } from './src/utils/sentryUtils'
 
 import { Colors, ScreenSize } from './src/components/DesignSystem'
-import { TWIcon, SafeAreaView } from './src/components/Utils'
+import { TWIcon } from './src/components/Utils'
 
 import LoadingScene from './src/scenes/Loading'
 import SendScene from './src/scenes/Send'
@@ -131,11 +132,14 @@ const AddressBookStack = createStackNavigator({
 }, {
   navigationOptions: {
     header: (
-      <SafeAreaView>
+      <SafeAreaView style={{ backgroundColor: Colors.background }}>
         <NavigationHeader title={tl.t('addressBook.title')} />
       </SafeAreaView>
-    )
-  }
+    ),
+    gesturesEnabled: false
+  },
+  mode: 'modal',
+  cardStyle: { shadowColor: 'transparent' }
 })
 
 const BalanceStack = createStackNavigator({
@@ -235,8 +239,7 @@ const RootNavigator = createStackNavigator({
   cardStyle: { shadowColor: 'transparent' }
 })
 
-const prefix =
-  Platform.OS === 'android' ? 'tronwalletmobile://tronwalletmobile/' : 'tronwalletmobile://'
+const prefix = Platform.OS === 'android' ? 'tronwalletmobile://tronwalletmobile/' : 'tronwalletmobile://'
 
 class App extends Component {
   state = {
@@ -405,6 +408,7 @@ class App extends Component {
       this.setState({ verifiedTokensOnly: false })
     }
   }
+
   _loadFixedTokens = async () => {
     try {
       const fixedTokens = await getFixedTokens()
@@ -425,6 +429,7 @@ class App extends Component {
       logSentry(error, 'App - Load Fixed Tokens')
     }
   }
+
   _setNodes = async () => {
     try {
       await NodesIp.initNodes()

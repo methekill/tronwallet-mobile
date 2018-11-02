@@ -52,14 +52,8 @@ const resetAction = StackActions.reset({
 })
 
 class Settings extends Component {
-  static navigationOptions = () => {
-    return {
-      header: (
-        <Utils.SafeAreaView>
-          <NavigationHeader title={tl.t('settings.title')} />
-        </Utils.SafeAreaView>
-      )
-    }
+  static navigationOptions = {
+    header: null
   }
 
   state = {
@@ -559,76 +553,79 @@ class Settings extends Component {
     const languageOptions = LANGUAGES.map(language => language.value)
 
     return (
-      <Utils.Container
-        keyboardShouldPersistTaps="always"
-        keyboardDismissMode="interactive"
-      >
-        <ActionSheet
-          ref={ref => {
-            this.ActionSheet = ref
-          }}
-          title={tl.t('settings.language.choose')}
-          options={languageOptions}
-          cancelButtonIndex={0}
-          onPress={index => this._handleLanguageChange(index)}
-        />
-        <Toast
-          ref="settingsToast"
-          position="top"
-          fadeInDuration={1250}
-          fadeOutDuration={1250}
-          opacity={0.8}
-        />
-        <Modal
-          animationType="slide"
-          transparent={false}
-          visible={modalVisible}
-          onRequestClose={() => this.setState({ modalVisible: false })}
+      <Utils.SafeAreaView>
+        <NavigationHeader title={tl.t('settings.title')} />
+        <Utils.Container
+          keyboardShouldPersistTaps="always"
+          keyboardDismissMode="interactive"
         >
-          <Utils.SafeAreaView>
-            <NavigationHeader
-              title=" "
-              onBack={() => {
-                this.setState({ modalVisible: false })
-              }}
-            />
-            <WebView
-              source={{ uri }}
-              renderLoading={() => <Loading />}
-              startInLoadingState
-            />
-          </Utils.SafeAreaView>
-        </Modal>
-        <SectionedMultiSelect
-          ref={ref => {
-            this.SectionedMultiSelect = ref
-          }}
-          items={userTokens}
-          uniqueKey="id"
-          onSelectedItemsChange={selected =>
-            this.setState({ currentSelectedTokens: selected })
-          }
-          selectedItems={currentSelectedTokens}
-          onConfirm={this._saveSelectedTokens}
-          showChips={false}
-          showCancelButton
-          hideSelect
-          searchPlaceholderText={tl.t('settings.token.search')}
-          confirmText={tl.t('settings.token.confirm')}
-          noResultsComponent={this._renderNoResults()}
-          colors={MultiSelectColors}
-          styles={MultiSelectStyles}
-        />
-        <AccountRecover
-          ref={ref => {
-            this.AccountRecover = ref
-          }}
-          hiddenAccounts={hiddenAccounts}
-          onUnhide={this._onUnhideAccounts}
-          renderNoResults={this._renderNoResults}
-        />
-        <ScrollView>{this._renderList()}</ScrollView>
-      </Utils.Container>
+          <ActionSheet
+            ref={ref => {
+              this.ActionSheet = ref
+            }}
+            title={tl.t('settings.language.choose')}
+            options={languageOptions}
+            cancelButtonIndex={0}
+            onPress={index => this._handleLanguageChange(index)}
+          />
+          <Toast
+            ref="settingsToast"
+            position="top"
+            fadeInDuration={1250}
+            fadeOutDuration={1250}
+            opacity={0.8}
+          />
+          <Modal
+            animationType="slide"
+            transparent={false}
+            visible={modalVisible}
+            onRequestClose={() => this.setState({ modalVisible: false })}
+          >
+            <Utils.SafeAreaView>
+              <NavigationHeader
+                title=" "
+                onBack={() => {
+                  this.setState({ modalVisible: false })
+                }}
+              />
+              <WebView
+                source={{ uri }}
+                renderLoading={() => <Loading />}
+                startInLoadingState
+              />
+            </Utils.SafeAreaView>
+          </Modal>
+          <SectionedMultiSelect
+            ref={ref => {
+              this.SectionedMultiSelect = ref
+            }}
+            items={userTokens}
+            uniqueKey="id"
+            onSelectedItemsChange={selected =>
+              this.setState({ currentSelectedTokens: selected })
+            }
+            selectedItems={currentSelectedTokens}
+            onConfirm={this._saveSelectedTokens}
+            showChips={false}
+            showCancelButton
+            hideSelect
+            searchPlaceholderText={tl.t('settings.token.search')}
+            confirmText={tl.t('settings.token.confirm')}
+            noResultsComponent={this._renderNoResults()}
+            colors={MultiSelectColors}
+            styles={MultiSelectStyles}
+          />
+          <AccountRecover
+            ref={ref => {
+              this.AccountRecover = ref
+            }}
+            hiddenAccounts={hiddenAccounts}
+            onUnhide={this._onUnhideAccounts}
+            renderNoResults={this._renderNoResults}
+          />
+          <ScrollView>{this._renderList()}</ScrollView>
+        </Utils.Container>
+      </Utils.SafeAreaView>
     )
   }
 }

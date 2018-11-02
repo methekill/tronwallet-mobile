@@ -91,6 +91,7 @@ class Create extends React.Component {
       logSentry(error, 'Copy Seed - onCopy')
     }
   }
+
   _renderSkip = () => {
     if (this.state.loading) return null
     return (
@@ -121,7 +122,7 @@ class Create extends React.Component {
               />
               <View height={32} />
               {seed
-                ? (<Text size='small' lineHeight={24} align='center'>{seed}</Text>) 
+                ? (<Text size='small' lineHeight={24} align='center'>{seed}</Text>)
                 : (<ActivityIndicator size='small' />)}
               <View height={ScreenSize.height * 0.1} />
               <View

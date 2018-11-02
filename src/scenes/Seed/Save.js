@@ -12,14 +12,9 @@ import { withContext } from '../../store/context'
 import { logSentry } from '../../utils/sentryUtils'
 
 class Save extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
-    header: (
-      <NavigationHeader
-        title={tl.t('seed.create.titleConfirm')}
-        onBack={() => navigation.goBack()}
-      />
-    )
-  })
+  static navigationOptions = {
+    header: null
+  }
 
   state = {
     seed: null
@@ -45,6 +40,10 @@ class Save extends React.Component {
     const { navigation } = this.props
     return (
       <Utils.SafeAreaView>
+        <NavigationHeader
+          title={tl.t('seed.create.titleConfirm')}
+          onBack={() => navigation.goBack()}
+        />
         <Utils.Container>
           <Utils.View flex={1} />
           <Utils.View height={1} backgroundColor={Colors.secondaryText} />
