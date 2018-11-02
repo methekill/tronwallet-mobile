@@ -19,7 +19,7 @@ import { Colors } from '../../components/DesignSystem'
 import Empty from './Empty'
 import FontelloButton from '../../components/FontelloButton'
 
-class TransactionsScene extends Component {
+export class TransactionsSceneWrapper extends Component {
   static navigationOptions = () => ({header: null})
 
   state = {
@@ -224,4 +224,4 @@ class TransactionsScene extends Component {
   }
 }
 
-export default withContext(TransactionsScene)
+export default withContext(TransactionsSceneWrapper)
