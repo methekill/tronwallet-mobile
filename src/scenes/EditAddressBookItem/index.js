@@ -4,6 +4,7 @@ import { Alert } from 'react-native'
 import NavigationHeader from '../../components/Navigation/Header'
 import AddressForm from '../../components/AddressBook/AddressForm'
 import ClearButton from '../../components/ClearButton'
+import * as Utils from './../../components/Utils'
 
 import getContactStore from '../../store/contacts'
 import getSecretsStore from '../../store/secrets'
@@ -20,61 +21,76 @@ class EditContact extends Component {
     contact: this.props.navigation.getParam('item', {})
   }
 
-  render () {
-    const { contact } = this.state
+  onDelete = async () => {
     const { navigation, context } = this.props
     const { address } = navigation.getParam('item', {})
     const isUserAccount = navigation.getParam('isUserAccount', false)
 
+    const store = isUserAccount ? await getSecretsStore(context.pin) : await getContactStore()
+    try {
+      store.write(() => {
+        let item
+        if (isUserAccount) {
+          item = store.objectForPrimaryKey('UserSecret', address)
+        } else {
+          item = store.objectForPrimaryKey('Contact', address)
+        }
+        store.delete(item)
+        if (isUserAccount) {
+          context.loadUserData()
+        }
+      })
+      navigation.goBack()
+    } catch (e) {
+      logSentry(e, 'Contacts - Edit Address')
+    }
+  }
+
+  render () {
+    const { contact } = this.state
+    const { navigation } = this.props
+    const isUserAccount = navigation.getParam('isUserAccount', false)
+
     return (
-      <React.Fragment>
-        <NavigationHeader title={tl.t('addressBook.shared.edit')} onBack={() => navigation.goBack()} rightButton={isUserAccount ? null : (
-          <ClearButton onPress={() => {
-            Alert.alert(
-              tl.t('addressBook.contacts.delete.title'),
-              tl.t('addressBook.contacts.delete.message'),
-              [
-                {
-                  text: tl.t('addressBook.contacts.delete.cancelButton'),
-                  onPress: null,
-                  style: 'cancel'
-                },
-                {
-                  text: tl.t('addressBook.contacts.delete.okButton'),
-                  onPress: async () => {
-                    const store = isUserAccount ? await getSecretsStore(context.pin) : await getContactStore()
-                    try {
-                      store.write(() => {
-                        let item
-                        if (isUserAccount) {
-                          item = store.objectForPrimaryKey('UserSecret', address)
-                        } else {
-                          item = store.objectForPrimaryKey('Contact', address)
+      <Utils.SafeAreaView>
+        <React.Fragment>
+          <NavigationHeader
+            title={tl.t('addressBook.shared.edit')}
+            onBack={() => navigation.goBack()}
+            rightButton={
+              isUserAccount ? null : (
+                <ClearButton
+                  onPress={() => {
+                    Alert.alert(
+                      tl.t('addressBook.contacts.delete.title'),
+                      tl.t('addressBook.contacts.delete.message'),
+                      [
+                        {
+                          text: tl.t('addressBook.contacts.delete.cancelButton'),
+                          onPress: null,
+                          style: 'cancel'
+                        },
+                        {
+                          text: tl.t('addressBook.contacts.delete.okButton'),
+                          onPress: this.onDelete
                         }
-                        store.delete(item)
-                        if (isUserAccount) {
-                          context.loadUserData()
-                        }
-                      })
-                      navigation.goBack()
-                    } catch (e) {
-                      logSentry(e, 'Contacts - Edit Address')
-                    }
-                  }
-                }
-              ]
-            )
-          }} />
-        )} />
-        {!!contact.address && (
-          <AddressForm
-            name={contact.name}
-            address={contact.address}
-            navigation={navigation}
-            type={EDIT}
+                      ]
+                    )
+                  }}
+                />
+              )
+            }
           />
-        )}
-      </React.Fragment>
+          {!!contact.address && (
+            <AddressForm
+              name={contact.name}
+              address={contact.address}
+              navigation={navigation}
+              type={EDIT}
+            />
+          )}
+        </React.Fragment>
+      </Utils.SafeAreaView>
     )
   }
 }

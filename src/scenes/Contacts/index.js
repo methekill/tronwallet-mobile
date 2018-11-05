@@ -4,12 +4,11 @@ import AddressBook from '../../components/AddressBook'
 import FloatingButton from '../../components/FloatingButton'
 
 import { getContactsFromStore } from '../../utils/contactUtils'
+
 import tl from '../../utils/i18n'
 import { logSentry } from '../../utils/sentryUtils'
 
 export default class Contacts extends Component {
-  static navigationOptions = () => ({ title: tl.t('addressBook.contacts.title') })
-
   state = {
     contacts: null,
     refreshing: false
@@ -18,12 +17,9 @@ export default class Contacts extends Component {
   async componentDidMount () {
     await this._loadContacts()
 
-    this._didFocusSubscription = this.props.navigation.addListener(
-      'didFocus',
-      async () => {
-        await this._loadContacts()
-      }
-    )
+    this._didFocusSubscription = this.props.navigation.addListener('didFocus', async () => {
+      await this._loadContacts()
+    })
   }
 
   componentWillUnmount () {

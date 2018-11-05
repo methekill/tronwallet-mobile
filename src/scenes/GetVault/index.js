@@ -32,49 +32,47 @@ export default props => {
   }
 
   return (
-    <Utils.Container>
-      <Utils.StatusBar transparent />
-      <Header
-        onLeftPress={() => props.navigation.goBack()}
-        leftIcon={
-          <Ionicons name='ios-close' color={Colors.primaryText} size={40} />
-        }
-        rightIcon={<Utils.View />}
-      >
-        <Utils.View align='center'>
-          <Utils.Text size='medium'>Tron Vault</Utils.Text>
-        </Utils.View>
-      </Header>
-      <Utils.Content align='center' justify='center'>
-        <Image
-          style={{ width: width * 0.2, height: width * 0.2 }}
-          source={tronLogo}
-        />
-        <Utils.VerticalSpacer size='medium' />
-        <Utils.Text size='xsmall'>
-          {tl.t('getVault.notInstalled')}
-        </Utils.Text>
-        <Utils.VerticalSpacer size='large' />
-        <Utils.Text size='small' font='light'>
-          {tl.t('getVault.downloadHere')}
-        </Utils.Text>
-        <Utils.VerticalSpacer size='medium' />
-        <TouchableOpacity onPress={onPress}>
-          {Platform.OS === 'ios' ? (
-            <Image
-              style={{ height: 60 }}
-              resizeMode='contain'
-              source={logoIOS}
-            />
-          ) : (
-            <Image
-              style={{ height: 60 }}
-              resizeMode='contain'
-              source={logoAndroid}
-            />
-          )}
-        </TouchableOpacity>
-      </Utils.Content>
-    </Utils.Container>
+    <Utils.SafeAreaView>
+      <Utils.Container>
+        <Utils.StatusBar transparent />
+        <Header
+          onLeftPress={() => props.navigation.goBack()}
+          leftIcon={<Ionicons name='ios-close' color={Colors.primaryText} size={40} />}
+          rightIcon={<Utils.View />}
+        >
+          <Utils.View align='center'>
+            <Utils.Text size='medium'>Tron Vault</Utils.Text>
+          </Utils.View>
+        </Header>
+        <Utils.Content align='center' justify='center'>
+          <Image
+            style={{ width: width * 0.2, height: width * 0.2 }}
+            source={tronLogo}
+          />
+          <Utils.VerticalSpacer size='medium' />
+          <Utils.Text size='xsmall'>{tl.t('getVault.notInstalled')}</Utils.Text>
+          <Utils.VerticalSpacer size='large' />
+          <Utils.Text size='small' font='light'>
+            {tl.t('getVault.downloadHere')}
+          </Utils.Text>
+          <Utils.VerticalSpacer size='medium' />
+          <TouchableOpacity onPress={onPress}>
+            {Platform.OS === 'ios' ? (
+              <Image
+                style={{ height: 60 }}
+                resizeMode='contain'
+                source={logoIOS}
+              />
+            ) : (
+              <Image
+                style={{ height: 60 }}
+                resizeMode='contain'
+                source={logoAndroid}
+              />
+            )}
+          </TouchableOpacity>
+        </Utils.Content>
+      </Utils.Container>
+    </Utils.SafeAreaView>
   )
 }

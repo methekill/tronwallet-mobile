@@ -14,15 +14,8 @@ import { resetWalletData, resetListsData } from '../../utils/userAccountUtils'
 import { logSentry } from '../../utils/sentryUtils'
 
 class ChangeNetworkModal extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      header: (
-        <NavigationHeader
-          title={tl.t('settings.network.modal.title')}
-          onBack={() => navigation.goBack()}
-        />
-      )
-    }
+  static navigationOptions = {
+    header: null
   }
 
   state = {
@@ -36,10 +29,7 @@ class ChangeNetworkModal extends Component {
   }
 
   componentDidMount () {
-    this.didFocusSubscription = this.props.navigation.addListener(
-      'didFocus',
-      this._loadData
-    )
+    this.didFocusSubscription = this.props.navigation.addListener('didFocus', this._loadData)
   }
 
   componentWillUnmount () {
@@ -48,10 +38,15 @@ class ChangeNetworkModal extends Component {
 
   _loadData = async () => {
     try {
-      const { nodeIp, nodeSolidityIp, isTestnet } = await NodesIp.getAllNodesIp()
+      const {
+        nodeIp,
+        nodeSolidityIp,
+        isTestnet
+      } = await NodesIp.getAllNodesIp()
       const [mainNode, mainNodePort] = nodeIp.split(':')
       const [solidityNode, solidityNodePort] = nodeSolidityIp.split(':')
-      this.setState({ mainNode,
+      this.setState({
+        mainNode,
         mainNodePort,
         solidityNode,
         solidityNodePort,
@@ -83,7 +78,10 @@ class ChangeNetworkModal extends Component {
     this.setState({ loading: true })
 
     if (!this.testIpValidity(ipToSubmit)) {
-      this.setState({ loading: false, error: tl.t('settings.network.modal.error.invalidIp') })
+      this.setState({
+        loading: false,
+        error: tl.t('settings.network.modal.error.invalidIp')
+      })
       return
     }
     this._updateNodes(type, ipToSubmit)
@@ -92,7 +90,10 @@ class ChangeNetworkModal extends Component {
   _updateNodes = async (type, nodeip) => {
     try {
       await NodesIp.setNodeIp(type, nodeip)
-      Alert.alert(tl.t('settings.network.modal.success.updated'), tl.t('settings.network.modal.success.updatedIp'))
+      Alert.alert(
+        tl.t('settings.network.modal.success.updated'),
+        tl.t('settings.network.modal.success.updatedIp')
+      )
       this.setState({ loading: false, error: null })
     } catch (error) {
       this.setState({
@@ -103,13 +104,15 @@ class ChangeNetworkModal extends Component {
     }
   }
 
-  _switchTestnet = async (switchValue) => {
+  _switchTestnet = async switchValue => {
     this.setState({ error: null })
     try {
       await NodesIp.switchTestnet(switchValue)
       this.setState({ switchTestnet: switchValue })
       this._loadData()
-      const alertMessage = switchValue ? tl.t('settings.network.modal.success.switchTest') : tl.t('settings.network.modal.success.switchMain')
+      const alertMessage = switchValue
+        ? tl.t('settings.network.modal.success.switchTest')
+        : tl.t('settings.network.modal.success.switchMain')
       Alert.alert(tl.t('settings.network.modal.success.updated'), alertMessage)
       await Promise.all([resetWalletData(), resetListsData()])
     } catch (error) {
@@ -164,110 +167,116 @@ class ChangeNetworkModal extends Component {
     } = this.state
 
     return (
-      <Utils.Container
-        keyboardShouldPersistTaps={'always'}
-        keyboardDismissMode='interactive'
-      >
-        <ScrollView>
-          <Utils.StatusBar transparent />
-          <View style={styles.card}>
-            <Utils.Text size='xsmall' secondary>
-              {tl.t('settings.network.modal.mainNode')}
-            </Utils.Text>
-            <Utils.Row justify='space-between'>
-              <Utils.FormInput
-                defaultValue={mainNode}
-                keyboardType='numeric'
-                placeholder={tl.t('settings.network.modal.placeholder.loadingIp')}
-                editable={!switchTestnet}
-                style={styles.buttonUpdate}
-                onChangeText={text => this.changeInput(text, 'mainNode')}
-                underlineColorAndroid='transparent'
-              />
-              <Utils.FormInput
-                defaultValue={mainNodePort}
-                keyboardType='numeric'
-                placeholder={tl.t('settings.network.modal.placeholder.loadingPort')}
-                editable={!switchTestnet}
-                style={styles.buttonReset}
-                onChangeText={text => this.changeInput(text, 'mainNodePort')}
-                underlineColorAndroid='transparent'
-              />
-            </Utils.Row>
-            <Utils.Row justify='space-between'>
-              <View style={styles.buttonUpdate}>
-                <ButtonGradient
-                  text={tl.t('settings.network.modal.button.update')}
-                  onPress={() => this._submit('main')}
-                  disabled={switchTestnet}
-                  size='small'
+      <Utils.SafeAreaView>
+        <NavigationHeader
+          title={tl.t('settings.network.modal.title')}
+          onBack={() => this.props.navigation.goBack()}
+        />
+        <Utils.Container
+          keyboardShouldPersistTaps={'always'}
+          keyboardDismissMode='interactive'
+        >
+          <ScrollView>
+            <Utils.StatusBar transparent />
+            <View style={styles.card}>
+              <Utils.Text size='xsmall' secondary>
+                {tl.t('settings.network.modal.mainNode')}
+              </Utils.Text>
+              <Utils.Row justify='space-between'>
+                <Utils.FormInput
+                  defaultValue={mainNode}
+                  keyboardType='numeric'
+                  placeholder={tl.t('settings.network.modal.placeholder.loadingIp')}
+                  editable={!switchTestnet}
+                  style={styles.buttonUpdate}
+                  onChangeText={text => this.changeInput(text, 'mainNode')}
+                  underlineColorAndroid='transparent'
                 />
-              </View>
-              <View style={styles.buttonReset}>
-                <ButtonGradient
-                  text={tl.t('settings.network.modal.button.reset')}
-                  onPress={() => this._reset('main')}
-                  disabled={switchTestnet}
-                  size='small'
+                <Utils.FormInput
+                  defaultValue={mainNodePort}
+                  keyboardType='numeric'
+                  placeholder={tl.t('settings.network.modal.placeholder.loadingPort')}
+                  editable={!switchTestnet}
+                  style={styles.buttonReset}
+                  onChangeText={text => this.changeInput(text, 'mainNodePort')}
+                  underlineColorAndroid='transparent'
                 />
-              </View>
-            </Utils.Row>
-          </View>
-          <Utils.VerticalSpacer size='medium' />
-          <View style={styles.card}>
-            <Utils.Text size='xsmall' secondary>
-              {tl.t('settings.network.modal.solidityNode')}
-            </Utils.Text>
-            <Utils.Row justify='space-between'>
-              <Utils.FormInput
-                defaultValue={solidityNode}
-                keyboardType='numeric'
-                placeholder={tl.t('settings.network.modal.placeholder.loadingIp')}
-                editable={!switchTestnet}
-                style={styles.buttonUpdate}
-                onChangeText={text => this.changeInput(text, 'solidityNode')}
-                underlineColorAndroid='transparent'
-              />
-              <Utils.FormInput
-                defaultValue={solidityNodePort}
-                keyboardType='numeric'
-                placeholder={tl.t('settings.network.modal.placeholder.loadingPort')}
-                style={styles.buttonReset}
-                editable={!switchTestnet}
-                onChangeText={text =>
-                  this.changeInput(text, 'solidityNodePort')
-                }
-                underlineColorAndroid='transparent'
-              />
-            </Utils.Row>
-            <Utils.Row justify='space-between'>
-              <View style={styles.buttonUpdate}>
-                <ButtonGradient
-                  text={tl.t('settings.network.modal.button.update')}
-                  onPress={() => this._submit('solidity')}
-                  disabled={switchTestnet}
-                  size='small'
+              </Utils.Row>
+              <Utils.Row justify='space-between'>
+                <View style={styles.buttonUpdate}>
+                  <ButtonGradient
+                    text={tl.t('settings.network.modal.button.update')}
+                    onPress={() => this._submit('main')}
+                    disabled={switchTestnet}
+                    size='small'
+                  />
+                </View>
+                <View style={styles.buttonReset}>
+                  <ButtonGradient
+                    text={tl.t('settings.network.modal.button.reset')}
+                    onPress={() => this._reset('main')}
+                    disabled={switchTestnet}
+                    size='small'
+                  />
+                </View>
+              </Utils.Row>
+            </View>
+            <Utils.VerticalSpacer size='medium' />
+            <View style={styles.card}>
+              <Utils.Text size='xsmall' secondary>
+                {tl.t('settings.network.modal.solidityNode')}
+              </Utils.Text>
+              <Utils.Row justify='space-between'>
+                <Utils.FormInput
+                  defaultValue={solidityNode}
+                  keyboardType='numeric'
+                  placeholder={tl.t('settings.network.modal.placeholder.loadingIp')}
+                  editable={!switchTestnet}
+                  style={styles.buttonUpdate}
+                  onChangeText={text => this.changeInput(text, 'solidityNode')}
+                  underlineColorAndroid='transparent'
                 />
-              </View>
-              <View style={styles.buttonReset}>
-                <ButtonGradient
-                  text={tl.t('settings.network.modal.button.reset')}
-                  onPress={() => this._reset('solidity')}
-                  disabled={switchTestnet}
-                  size='small'
+                <Utils.FormInput
+                  defaultValue={solidityNodePort}
+                  keyboardType='numeric'
+                  placeholder={tl.t('settings.network.modal.placeholder.loadingPort')}
+                  style={styles.buttonReset}
+                  editable={!switchTestnet}
+                  onChangeText={text =>
+                    this.changeInput(text, 'solidityNodePort')
+                  }
+                  underlineColorAndroid='transparent'
                 />
-              </View>
-            </Utils.Row>
-          </View>
-          <Utils.VerticalSpacer size='medium' />
-          {error && <Utils.Error>{error}</Utils.Error>}
-          <Utils.Content justify='center' align='center'>
-            <Utils.Text color='#ffffff' font='light' size='xsmall'>
-              {tl.t('settings.network.modal.explanation')}
-            </Utils.Text>
-          </Utils.Content>
-        </ScrollView>
-      </Utils.Container>
+              </Utils.Row>
+              <Utils.Row justify='space-between'>
+                <View style={styles.buttonUpdate}>
+                  <ButtonGradient
+                    text={tl.t('settings.network.modal.button.update')}
+                    onPress={() => this._submit('solidity')}
+                    disabled={switchTestnet}
+                    size='small'
+                  />
+                </View>
+                <View style={styles.buttonReset}>
+                  <ButtonGradient
+                    text={tl.t('settings.network.modal.button.reset')}
+                    onPress={() => this._reset('solidity')}
+                    disabled={switchTestnet}
+                    size='small'
+                  />
+                </View>
+              </Utils.Row>
+            </View>
+            <Utils.VerticalSpacer size='medium' />
+            {error && <Utils.Error>{error}</Utils.Error>}
+            <Utils.Content justify='center' align='center'>
+              <Utils.Text color='#ffffff' font='light' size='xsmall'>
+                {tl.t('settings.network.modal.explanation')}
+              </Utils.Text>
+            </Utils.Content>
+          </ScrollView>
+        </Utils.Container>
+      </Utils.SafeAreaView>
     )
   }
 }

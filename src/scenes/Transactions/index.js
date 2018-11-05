@@ -18,9 +18,10 @@ import { logSentry } from '../../utils/sentryUtils'
 import { Colors } from '../../components/DesignSystem'
 import Empty from './Empty'
 import FontelloButton from '../../components/FontelloButton'
+import { SafeAreaView } from './../../components/Utils'
 
 class TransactionsScene extends Component {
-  static navigationOptions = () => ({header: null})
+  static navigationOptions = () => ({ header: null })
 
   state = {
     refreshing: true,
@@ -55,12 +56,11 @@ class TransactionsScene extends Component {
 
   _firstTransactions = () => this._allTransactions().slice(0, 10)
 
-  _allTransactions = () => (
+  _allTransactions = () =>
     this.state.transactionStoreRef
       .objects('Transaction')
       .filtered('ownerAddress = $0', this.props.context.publicKey)
       .sorted([['timestamp', true]])
-  )
 
   _getAlias = address => {
     if (!address) return
@@ -71,9 +71,13 @@ class TransactionsScene extends Component {
   _loadData = async isRefreshing => {
     this.setState({ refreshing: true })
 
-    const contacts = this.state.contactsStoreRef.objects('Contact').map(item => Object.assign({}, item))
+    const contacts = this.state.contactsStoreRef
+      .objects('Contact')
+      .map(item => Object.assign({}, item))
     const foundAlias = contacts.find(c => c.address === this.props.context.publicKey)
-    const currentAlias = foundAlias ? foundAlias.alias : this.props.context.publicKey
+    const currentAlias = foundAlias
+      ? foundAlias.alias
+      : this.props.context.publicKey
     const contact = this.props.navigation.getParam('contact', null)
 
     this.setState({ currentAlias, contacts, contact }, async () => {
@@ -82,7 +86,9 @@ class TransactionsScene extends Component {
         if (contact) {
           this._setFilteredContact(contact)
         } else {
-          const transactionRef = isRefreshing ? this._allTransactions() : this._firstTransactions()
+          const transactionRef = isRefreshing
+            ? this._allTransactions()
+            : this._firstTransactions()
           this._updateData(transactionRef, isRefreshing)
         }
       } catch (error) {
@@ -94,7 +100,10 @@ class TransactionsScene extends Component {
   _setFilteredContact = contact => {
     const transactionsFiltered = this.state.transactionStoreRef
       .objects('Transaction')
-      .filtered('contractData.transferFromAddress = $0 OR contractData.transferToAddress = $0', contact.address)
+      .filtered(
+        'contractData.transferFromAddress = $0 OR contractData.transferToAddress = $0',
+        contact.address
+      )
       .sorted([['timestamp', true]])
 
     this._updateData(transactionsFiltered)
@@ -102,20 +111,23 @@ class TransactionsScene extends Component {
 
   _removeFilteredContact = () => {
     this.props.navigation.setParams({ contact: null })
-    this.setState({contact: null}, () => this._loadData())
+    this.setState({ contact: null }, () => this._loadData())
   }
 
   _updateData = async (transactionsRef, isRefreshing = false) => {
     try {
       const allTransactions = transactionsRef.map(item => Object.assign({}, item))
-      const transactionsWithParticipate = this._updateParticipateTransactions(allTransactions, this.state.assetStore)
+      const transactionsWithParticipate = this._updateParticipateTransactions(
+        allTransactions,
+        this.state.assetStore
+      )
       let transactions = this._getTransactionByAddress(transactionsWithParticipate)
 
       if (isRefreshing) {
         transactions = this._mergeNewTransactions(transactions)
       }
-      const filteredTransactions = await this._getFilteredTransactions(transactions)
 
+      const filteredTransactions = await this._getFilteredTransactions(transactions)
       this.setState({ transactions: filteredTransactions, refreshing: false })
     } catch (err) {
       this.setState({ refreshing: false })
@@ -123,16 +135,16 @@ class TransactionsScene extends Component {
     }
   }
 
-  _getFilteredTransactions = async (transactions) => {
+  _getFilteredTransactions = async transactions => {
     const userTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
     return transactions.filter(({ type, contractData }) =>
       contractData.tokenName === null ||
-            JSON.parse(userTokens).findIndex(name => name === contractData.tokenName) === -1
+        JSON.parse(userTokens).findIndex(name => name === contractData.tokenName) === -1
     )
   }
 
-  _updateParticipateTransactions = (transactions, assetStore) => (
-    transactions.map((transaction) => {
+  _updateParticipateTransactions = (transactions, assetStore) =>
+    transactions.map(transaction => {
       if (transaction.type === 'Participate') {
         const tokenPrice = getTokenPriceFromStore(transaction.contractData.tokenName, assetStore)
         return { ...transaction, tokenPrice }
@@ -140,19 +152,29 @@ class TransactionsScene extends Component {
         return transaction
       }
     })
-  )
 
-  _getTransactionByAddress = (transactions) => transactions
-    .filter(item => item.ownerAddress === this.props.context.publicKey)
-    .map(item => Object.assign({},
-      {...item,
-        contractData: {
-          ...item.contractData,
-          transferFromAddress: this._getAlias(item.contractData.transferFromAddress),
-          transferToAddress: this._getAlias(item.contractData.transferToAddress)
-        }}))
+  _getTransactionByAddress = transactions =>
+    transactions
+      .filter(item => item.ownerAddress === this.props.context.publicKey)
+      .map(item =>
+        Object.assign(
+          {},
+          {
+            ...item,
+            contractData: {
+              ...item.contractData,
+              transferFromAddress: this._getAlias(
+                item.contractData.transferFromAddress
+              ),
+              transferToAddress: this._getAlias(
+                item.contractData.transferToAddress
+              )
+            }
+          }
+        )
+      )
 
-  _mergeNewTransactions = (newTransactions) => {
+  _mergeNewTransactions = newTransactions => {
     const { transactions: currentTransactions } = this.state
     const oldTransactions = currentTransactions.filter(t => !newTransactions.find(n => n.id === t.id))
     return [...newTransactions, ...oldTransactions]
@@ -164,32 +186,36 @@ class TransactionsScene extends Component {
     }
   }
 
-  _navigateToDetails = (item) => {
+  _navigateToDetails = item => {
     this.props.navigation.navigate('TransactionDetails', { item })
   }
 
   _renderFilter = () => {
     const { contact } = this.state
     if (contact && contact.address) {
-      return <FilterWrapper>
-        <InnerRow>
-          <Image
-            source={require('../../assets/gradient-book.png')}
-            style={{width: 16, height: 16}}
-            color={Colors.buttonGradient[1]}
-          />
-          <FilterText marginX={12} dark>{tl.t('filter')}:</FilterText>
-          <FilterText numberOfLines={1}>{contact.alias}</FilterText>
-        </InnerRow>
-        <InnerRow>
-          <FontelloButton
-            onPress={this._removeFilteredContact}
-            name='close'
-            color='white'
-            size={16}
-          />
-        </InnerRow>
-      </FilterWrapper>
+      return (
+        <FilterWrapper>
+          <InnerRow>
+            <Image
+              source={require('../../assets/gradient-book.png')}
+              style={{ width: 16, height: 16 }}
+              color={Colors.buttonGradient[1]}
+            />
+            <FilterText marginX={12} dark>
+              {tl.t('filter')}:
+            </FilterText>
+            <FilterText numberOfLines={1}>{contact.alias}</FilterText>
+          </InnerRow>
+          <InnerRow>
+            <FontelloButton
+              onPress={this._removeFilteredContact}
+              name='close'
+              color='white'
+              size={16}
+            />
+          </InnerRow>
+        </FilterWrapper>
+      )
     } else {
       return null
     }
@@ -200,26 +226,37 @@ class TransactionsScene extends Component {
     const { transactions } = this.state
 
     return (
-      <Background>
-        <NavigationHeader
-          title={tl.t('transactions.title')}
-          leftButton={<SyncButton
-            loading={refreshing}
-            onPress={() => this._loadData(true)}
-          />}
-        />
-        <FlatList
-          data={transactions}
-          ListEmptyComponent={<Empty loading={refreshing} />}
-          ListHeaderComponent={this._renderFilter}
-          keyExtractor={item => item.id}
-          renderItem={({ item }) => <Transaction item={item} currentAlias={currentAlias} onPress={() => this._navigateToDetails(item)} publicKey={publicKey} />}
-          initialNumToRender={10}
-          onEndReachedThreshold={0.75}
-          onEndReached={this._loadRemainingTransactions}
-          removeClippedSubviews={Platform.OS === 'android'}
-        />
-      </Background>
+      <SafeAreaView>
+        <Background>
+          <NavigationHeader
+            title={tl.t('transactions.title')}
+            leftButton={
+              <SyncButton
+                loading={refreshing}
+                onPress={() => this._loadData(true)}
+              />
+            }
+          />
+          <FlatList
+            data={transactions}
+            ListEmptyComponent={<Empty loading={refreshing} />}
+            ListHeaderComponent={this._renderFilter}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => (
+              <Transaction
+                item={item}
+                currentAlias={currentAlias}
+                onPress={() => this._navigateToDetails(item)}
+                publicKey={publicKey}
+              />
+            )}
+            initialNumToRender={10}
+            onEndReachedThreshold={0.75}
+            onEndReached={this._loadRemainingTransactions}
+            removeClippedSubviews={Platform.OS === 'android'}
+          />
+        </Background>
+      </SafeAreaView>
     )
   }
 }
