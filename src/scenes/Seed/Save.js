@@ -30,11 +30,20 @@ class Save extends React.Component {
   }
 
   componentDidMount () {
+    this._setUserSecrets()
+  }
+
+  componentDidUpdate (prevProps) {
+    const { publicKey: newPublicKey } = this.props.context
+    const { publicKey: oldPublicKey } = prevProps.context
+    if (newPublicKey !== oldPublicKey) this._setUserSecrets()
+  }
+
+  _setUserSecrets = () => {
     const { userSecrets, publicKey } = this.props.context
     const currentAccount = userSecrets.find(s => s.address === publicKey) || { privatekey: 'Not available', seed: 'Not available' }
     this.setState({seed: currentAccount.mnemonic, privateKey: currentAccount.privateKey})
   }
-
   _handleIndexChange = index => this.setState({ index })
 
   _renderHeader = props => (
