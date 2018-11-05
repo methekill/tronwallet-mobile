@@ -71,7 +71,7 @@ class Settings extends Component {
     currentSelectedTokens: [],
     hiddenAccounts: [],
     biometricsEnabled: false,
-    languageModal: false,
+    tokenFilterModal: false,
     accountsModal: false
   }
 
@@ -101,14 +101,14 @@ class Settings extends Component {
   }
 
   _onAppStateChange = nextAppState => {
-    const { accountsModal, languageModal } = this.state
+    const { accountsModal, tokenFilterModal } = this.state
     if (nextAppState.match(/background/)) {
       let accState = accountsModal
-      let langState = languageModal
+      let tokenFilter = tokenFilterModal
       // This is ugly because of React Native MultiSectioned Lib
-      if (languageModal) {
+      if (tokenFilterModal) {
         this.SectionedMultiSelect._toggleSelector()
-        langState = false
+        tokenFilter = false
       }
       if (accountsModal) {
         this.AccountRecover.innerComponent._toggleSelector()
@@ -116,7 +116,7 @@ class Settings extends Component {
       }
       if (this.ActionSheet && this.ActionSheet.hide) this.ActionSheet.hide()
 
-      this.setState({modalVisible: false, accountsModal: accState, languageModal: langState})
+      this.setState({modalVisible: false, accountsModal: accState, tokenFilterModal: tokenFilter})
     }
   }
 
@@ -178,6 +178,7 @@ class Settings extends Component {
 
   _onUnhideAccounts = async (accountsSelected = []) => {
     const { loadUserData, pin } = this.props.context
+    this.setState({accountsModal: false})
     if (!accountsSelected.length) return
     try {
       await unhideSecret(pin, accountsSelected)
@@ -281,14 +282,18 @@ class Settings extends Component {
   }
 
   _renderNoResults = () => (
-    <Utils.Text lineHeight={20} size='small' color={Colors.background}>
+    <Utils.Text lineHeight={20} size='small' color={Colors.primaryText}>
       {tl.t('settings.token.noResult')}
     </Utils.Text>
   )
 
   _showTokenSelect = () => {
-    const { userSelectedTokens, languageModal } = this.state
-    this.setState({ currentSelectedTokens: userSelectedTokens, languageModal: !languageModal })
+    const { userSelectedTokens, tokenFilterModal } = this.state
+    this.setState({
+      currentSelectedTokens: userSelectedTokens,
+      tokenFilterModal: !tokenFilterModal
+    })
+
     this.SectionedMultiSelect._toggleSelector()
   }
 
@@ -519,7 +524,14 @@ class Settings extends Component {
   }
 
   render () {
-    const { userTokens, currentSelectedTokens, uri, modalVisible, hiddenAccounts } = this.state
+    const { 
+      userTokens, 
+      currentSelectedTokens,
+      uri,
+      tokenFilterModal,
+      modalVisible, 
+      accountsModal,
+      hiddenAccounts } = this.state
     const languageOptions = LANGUAGES.map(language => language.value)
 
     return (
@@ -563,6 +575,7 @@ class Settings extends Component {
           onSelectedItemsChange={(selected) => this.setState({ currentSelectedTokens: selected })}
           selectedItems={currentSelectedTokens}
           onConfirm={this._saveSelectedTokens}
+          onCancel={()=> this.setState({tokenFilterModal: !tokenFilterModal})}
           showChips={false}
           showCancelButton
           hideSelect
@@ -577,6 +590,7 @@ class Settings extends Component {
           hiddenAccounts={hiddenAccounts}
           onUnhide={this._onUnhideAccounts}
           renderNoResults={this._renderNoResults}
+          onCancel={()=> this.setState({accountsModal : !accountsModal})}
         />
         <ScrollView>
           {this._renderList()}
