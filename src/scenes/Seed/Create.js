@@ -60,10 +60,7 @@ class Create extends React.Component {
       if (route === 'app') {
         navigation.dispatch(resetAction)
       } else {
-        navigation.navigate('SeedConfirm', {
-          seed: seed.split(' '),
-          shouldReset: true
-        })
+        navigation.navigate('SeedSave')
       }
     } catch (e) {
       Alert.alert(tl.t('seed.create.error'))

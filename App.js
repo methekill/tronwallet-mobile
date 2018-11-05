@@ -320,13 +320,8 @@ class App extends Component {
         return Object.assign({}, stateAccount, account)
       })
 
-    this.setState({ accounts, userSecrets }, async () => {
-      await this._updateAccounts(accounts)
-      if (!this.state.publicKey) {
-        const { address } = accounts[0]
-        this.setState({ publicKey: address })
-      }
-    })
+    const publicKey = this.state.publicKey || accounts[0].address
+    this.setState({ accounts, userSecrets, publicKey }, () => this._updateAccounts(accounts))
   }
 
   _updateAccounts = async (accountsArray = []) => {

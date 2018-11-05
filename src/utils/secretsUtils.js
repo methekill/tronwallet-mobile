@@ -74,9 +74,10 @@ export const createNewAccount = async (pin, oneSignalId, newAccountName) => {
 }
 
 const generateKeypair = async (pin, oneSignalId, mnemonic, vaultNumber, randomlyGenerated, removeExtraDeviceIds = false) => {
+  // RandomlyGenerated is deprecated
   const generatedKeypair = await RNTron.generateKeypair(mnemonic, 0, false)
   generatedKeypair.mnemonic = mnemonic
-  generatedKeypair.confirmed = !randomlyGenerated
+  generatedKeypair.confirmed = true
   generatedKeypair.name = 'Main Account'
   generatedKeypair.alias = '@main_account'
   generatedKeypair.hide = false

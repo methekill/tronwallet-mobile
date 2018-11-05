@@ -9,7 +9,6 @@ import SyncButton from '../../components/SyncButton'
 import NavigationHeader from '../../components/Navigation/Header'
 import * as Utils from '../../components/Utils'
 import WalletBalances from './WalletBalances'
-import BalanceWarning from './BalanceWarning'
 import BalanceNavigation from './BalanceNavigation'
 import AccountsCarousel from './AccountsCarousel'
 
@@ -159,13 +158,11 @@ class BalanceScene extends Component {
 
   render () {
     const {
-      seed,
       refreshing,
       accountModalVisible,
       newAccountName,
       accountNameError
     } = this.state
-    const { accounts } = this.props.context
     return (
       <Utils.SafeAreaView>
         <React.Fragment>
@@ -186,12 +183,6 @@ class BalanceScene extends Component {
               <Utils.VerticalSpacer size='medium' />
               <Utils.Content paddingTop={0}>
                 <BalanceNavigation navigation={this.props.navigation} />
-                {accounts[0] &&
-                  !accounts[0].confirmed && (
-                    <BalanceWarning seed={seed} navigation={this.props.navigation} >
-                      {tl.t('balance.confirmSeed')}
-                    </BalanceWarning>
-                  )}
                 <WalletBalances balances={this._getBalancesToDisplay()} />
               </Utils.Content>
             </ScrollView>
