@@ -20,8 +20,6 @@ class Save extends React.Component {
   static navigationOptions = () => ({ header: null })
 
   state = {
-    seed: null,
-    privateKey: null,
     index: 0,
     routes: [
       { key: 'seed', title: 'Seed' },
@@ -29,21 +27,6 @@ class Save extends React.Component {
     ]
   }
 
-  componentDidMount () {
-    this._setUserSecrets()
-  }
-
-  componentDidUpdate (prevProps) {
-    const { publicKey: newPublicKey } = this.props.context
-    const { publicKey: oldPublicKey } = prevProps.context
-    if (newPublicKey !== oldPublicKey) this._setUserSecrets()
-  }
-
-  _setUserSecrets = () => {
-    const { userSecrets, publicKey } = this.props.context
-    const currentAccount = userSecrets.find(s => s.address === publicKey) || { privatekey: 'Not available', seed: 'Not available' }
-    this.setState({seed: currentAccount.mnemonic, privateKey: currentAccount.privateKey})
-  }
   _handleIndexChange = index => this.setState({ index })
 
   _renderHeader = props => (
@@ -74,6 +57,7 @@ class Save extends React.Component {
   _onCopyClipboard = async string => {
     await Clipboard.setString(string)
     this.refs.toast.show(tl.t('receive.clipboardCopied'))
+    setTimeout(() => Clipboard.setString(''), 30000)
   }
 
   _renderSecret = secret =>
@@ -91,15 +75,18 @@ class Save extends React.Component {
     </Utils.View>
 
   _renderScene = ({ route }) => {
+    const { userSecrets, publicKey } = this.props.context
+    const currentAccount = userSecrets.find(s => s.address === publicKey) || { privatekey: 'Not available', seed: 'Not available' }
     switch (route.key) {
-      case 'seed': return this._renderSecret(this.state.seed)
-      case 'privatekey': return this._renderSecret(this.state.privateKey)
+      case 'seed': return this._renderSecret(currentAccount.mnemonic)
+      case 'privatekey': return this._renderSecret(currentAccount.privateKey)
       default: return null
     }
   }
 
   render () {
     const { navigation } = this.props
+
     return (
       <Utils.SafeAreaView>
 
