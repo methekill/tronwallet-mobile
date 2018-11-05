@@ -35,7 +35,8 @@ class Confirm extends React.Component {
         onBack={() =>
           navigation.getParam('shouldReset', false)
             ? navigation.dispatch(resetAction)
-            : navigation.goBack()}
+            : navigation.goBack()
+        }
       />
     )
   })
@@ -59,12 +60,17 @@ class Confirm extends React.Component {
     try {
       const originalWords = this.state.seed.join(' ')
       const selectedWords = this.state.selected.join(' ')
-      if (originalWords !== selectedWords) throw new DataError('Words dont match!')
+      if (originalWords !== selectedWords) {
+        throw new DataError('Words dont match!')
+      }
       await confirmSecret(context.pin)
       Answers.logCustom('Wallet Operation', { type: 'Create' })
       await this._handleSuccess()
     } catch (error) {
-      Alert.alert(tl.t('seed.confirm.error.title'), tl.t('seed.confirm.error.message'))
+      Alert.alert(
+        tl.t('seed.confirm.error.title'),
+        tl.t('seed.confirm.error.message')
+      )
       if (error.name !== 'DataError') {
         logSentry(error, 'Confirm Seed - Submit')
       }
@@ -88,11 +94,17 @@ class Confirm extends React.Component {
         }
         navigation.navigate('Rewards', rewardsParams)
       } else {
-        Answers.logCustom('Wallet Operation', { type: 'Gift', message: 'User gifted or not registered' })
+        Answers.logCustom('Wallet Operation', {
+          type: 'Gift',
+          message: 'User gifted or not registered'
+        })
         throw new DataError('User gifted or not registered')
       }
     } catch (error) {
-      Answers.logCustom('Wallet Operation', { type: 'Gift', message: error.message })
+      Answers.logCustom('Wallet Operation', {
+        type: 'Gift',
+        message: error.message
+      })
       if (error.name !== 'DataError') {
         logSentry(error, 'Gift')
       }
@@ -124,7 +136,7 @@ class Confirm extends React.Component {
   }
 
   _resetWords = () => {
-    this.setState((state) => ({
+    this.setState(state => ({
       selected: [],
       remainingWords: [...state.initialWords]
     }))
@@ -134,61 +146,61 @@ class Confirm extends React.Component {
     const { loading } = this.state
 
     return (
-      <Utils.Container testID='ConfirmSeed'>
-        <ScrollView>
-          <Utils.Content align='center' justify='center'>
-            <Utils.Text>
-              {tl.t('seed.confirm.explanation')}
-            </Utils.Text>
-          </Utils.Content>
-          <Utils.View height={1} backgroundColor={Colors.secondaryText} />
-          <Utils.Content flex={1} background={Colors.darkerBackground}>
-            <Utils.Row wrap='wrap' justify='center'>
-              {this.state.selected.map((word, index) => (
-                <FadeIn name={`${index}`} key={index}>
-                  <WordWrapper
-                    onPress={() => this._deselectWord(word, index)}
-                  >
-                    <Utils.Text>{word}</Utils.Text>
-                  </WordWrapper>
-                </FadeIn>
-              ))}
-            </Utils.Row>
-            <Utils.View height={1} backgroundColor={Colors.secondaryText} marginY={16} />
-            <Utils.Row wrap='wrap' justify='center' testID='remainingWords'>
-              {this.state.remainingWords.map((word, index) => (
-                <FadeIn name={`${index}`} key={index}>
-                  <WordWrapper
-                    onPress={() => this._selectWord(word, index)}
-                  >
-                    <Utils.Text>{word}</Utils.Text>
-                  </WordWrapper>
-                </FadeIn>
-              ))}
-            </Utils.Row>
-          </Utils.Content>
-          <Utils.View height={1} backgroundColor={Colors.secondaryText} />
-          <Utils.VerticalSpacer />
-          <Utils.Row justify='center'>
-            <Utils.View align='center' paddingY='medium'>
-              <ButtonGradient
-                text={tl.t('seed.confirm.button.reset')}
-                disabled={loading || !this.state.selected.length}
-                onPress={this._resetWords}
+      <Utils.SafeAreaView>
+        <Utils.Container testID='ConfirmSeed'>
+          <ScrollView>
+            <Utils.Content align='center' justify='center'>
+              <Utils.Text>{tl.t('seed.confirm.explanation')}</Utils.Text>
+            </Utils.Content>
+            <Utils.View height={1} backgroundColor={Colors.secondaryText} />
+            <Utils.Content flex={1} background={Colors.darkerBackground}>
+              <Utils.Row wrap='wrap' justify='center'>
+                {this.state.selected.map((word, index) => (
+                  <FadeIn name={`${index}`} key={index}>
+                    <WordWrapper onPress={() => this._deselectWord(word, index)}>
+                      <Utils.Text>{word}</Utils.Text>
+                    </WordWrapper>
+                  </FadeIn>
+                ))}
+              </Utils.Row>
+              <Utils.View
+                height={1}
+                backgroundColor={Colors.secondaryText}
+                marginY={16}
               />
-            </Utils.View>
-            <Utils.HorizontalSpacer size='large' />
-            <Utils.View align='center' paddingY='medium'>
-              <ButtonGradient
-                testID='ConfirmButton'
-                text={tl.t('seed.confirm.button.confirm')}
-                disabled={loading || this.state.selected.length < 12}
-                onPress={this._handleSubmit}
-              />
-            </Utils.View>
-          </Utils.Row>
-        </ScrollView>
-      </Utils.Container>
+              <Utils.Row wrap='wrap' justify='center' testID='remainingWords'>
+                {this.state.remainingWords.map((word, index) => (
+                  <FadeIn name={`${index}`} key={index}>
+                    <WordWrapper onPress={() => this._selectWord(word, index)}>
+                      <Utils.Text>{word}</Utils.Text>
+                    </WordWrapper>
+                  </FadeIn>
+                ))}
+              </Utils.Row>
+            </Utils.Content>
+            <Utils.View height={1} backgroundColor={Colors.secondaryText} />
+            <Utils.VerticalSpacer />
+            <Utils.Row justify='center'>
+              <Utils.View align='center' paddingY='medium'>
+                <ButtonGradient
+                  text={tl.t('seed.confirm.button.reset')}
+                  disabled={loading || !this.state.selected.length}
+                  onPress={this._resetWords}
+                />
+              </Utils.View>
+              <Utils.HorizontalSpacer size='large' />
+              <Utils.View align='center' paddingY='medium'>
+                <ButtonGradient
+                  testID='ConfirmButton'
+                  text={tl.t('seed.confirm.button.confirm')}
+                  disabled={loading || this.state.selected.length < 12}
+                  onPress={this._handleSubmit}
+                />
+              </Utils.View>
+            </Utils.Row>
+          </ScrollView>
+        </Utils.Container>
+      </Utils.SafeAreaView>
     )
   }
 }

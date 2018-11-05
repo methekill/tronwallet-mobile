@@ -51,32 +51,41 @@ class ReceiveScreen extends PureComponent {
     const publicKey = context.publicKey
 
     return (
-      <KeyboardScreen>
-        <Utils.Content align='center'>
-          <Utils.VerticalSpacer size='medium' />
-          {!!publicKey && <QRCode value={publicKey} onLoad={this._onLoad} loading={this.state.loading} size={width * 0.5} />}
-          <Utils.Text size='xsmall' font='medium' secondary>{publicKey}</Utils.Text>
-          <Utils.VerticalSpacer size='medium' />
-          <Utils.Row align='center' style={{minWidth: width * 0.6}}>
-            <ActionButton onPress={this._copy}>
-              <FontelloIcon
-                name='copy'
-                size={FontSize['small']}
-                color={Colors.primaryText}
+      <Utils.SafeAreaView>
+        <KeyboardScreen>
+          <Utils.Content align='center'>
+            <Utils.VerticalSpacer size='medium' />
+            {!!publicKey && (
+              <QRCode
+                value={publicKey}
+                onLoad={this._onLoad}
+                loading={this.state.loading}
+                size={width * 0.5}
               />
-            </ActionButton>
-            <Utils.HorizontalSpacer />
-            <Share WrapperButton={ActionButton} />
-          </Utils.Row>
-          <Toast
-            ref='toast'
-            position='center'
-            fadeInDuration={750}
-            fadeOutDuration={1000}
-            opacity={0.8}
-          />
-        </Utils.Content>
-      </KeyboardScreen>
+            )}
+            <Utils.Text size='xsmall' font='medium' secondary>{publicKey}</Utils.Text>
+            <Utils.VerticalSpacer size='medium' />
+            <Utils.Row align='center' style={{ minWidth: width * 0.6 }}>
+              <ActionButton onPress={this._copy}>
+                <FontelloIcon
+                  name='copy'
+                  size={FontSize['small']}
+                  color={Colors.primaryText}
+                />
+              </ActionButton>
+              <Utils.HorizontalSpacer />
+              <Share WrapperButton={ActionButton} />
+            </Utils.Row>
+            <Toast
+              ref='toast'
+              position='center'
+              fadeInDuration={750}
+              fadeOutDuration={1000}
+              opacity={0.8}
+            />
+          </Utils.Content>
+        </KeyboardScreen>
+      </Utils.SafeAreaView>
     )
   }
 }

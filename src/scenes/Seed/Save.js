@@ -92,26 +92,29 @@ class Save extends React.Component {
   render () {
     const { navigation } = this.props
     return (
-      <Utils.Container>
-        <NavigationHeader
-          title={tl.t('settings.backup.title')}
-          onBack={() => navigation.goBack()}
-        />
-        <TabViewAnimated
-          navigationState={this.state}
-          renderScene={this._renderScene}
-          renderHeader={this._renderHeader}
-          onIndexChange={this._handleIndexChange}
-          initialLayout={initialLayout}
-        />
-        <Toast
-          ref='toast'
-          position='center'
-          fadeInDuration={750}
-          fadeOutDuration={1000}
-          opacity={0.8}
-        />
-      </Utils.Container>
+      <Utils.SafeAreaView>
+
+        <Utils.Container>
+          <NavigationHeader
+            title={tl.t('settings.backup.title')}
+            onBack={() => navigation.goBack()}
+          />
+          <TabViewAnimated
+            navigationState={this.state}
+            renderScene={this._renderScene}
+            renderHeader={this._renderHeader}
+            onIndexChange={this._handleIndexChange}
+            initialLayout={initialLayout}
+          />
+          <Toast
+            ref='toast'
+            position='center'
+            fadeInDuration={750}
+            fadeOutDuration={1000}
+            opacity={0.8}
+          />
+        </Utils.Container>
+      </Utils.SafeAreaView>
     )
   }
 }

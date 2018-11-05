@@ -19,6 +19,7 @@ class Restore extends React.Component {
     seed: '',
     loading: false
   }
+
   _navigateToFirstTime = () => {
     const resetAction = StackActions.reset({
       index: 0,
@@ -68,7 +69,7 @@ class Restore extends React.Component {
     setSecretMode('mnemonic')
   }
 
-  _onKeyPress = (event) => {
+  _onKeyPress = event => {
     if (event.nativeEvent.key === 'Enter') {
       this._handleRestore()
     }
@@ -77,45 +78,47 @@ class Restore extends React.Component {
   render () {
     const { loading } = this.state
     return (
-      <Utils.Container>
-        <NavigationHeader
-          title={tl.t('seed.restore.title')}
-          onBack={() => this.props.navigation.goBack()}
-          noBorder
-        />
-        <Utils.Content paddingBottom='2'>
-          <Utils.FormInput
-            testID='restoreInput'
-            placeholder={tl.t('seed.restore.placeholder')}
-            height={90}
-            padding={16}
-            multiline
-            underlineColorAndroid='transparent'
-            blurOnSubmit
-            numberOfLines={4}
-            autoCapitalize='none'
-            autoCorrect={false}
-            value={this.state.seed}
-            onChangeText={seed => this.setState({ seed })}
-            onKeyPress={this._onKeyPress}
+      <Utils.SafeAreaView>
+        <Utils.Container>
+          <NavigationHeader
+            title={tl.t('seed.restore.title')}
+            onBack={() => this.props.navigation.goBack()}
+            noBorder
           />
-        </Utils.Content>
-        <Utils.Content paddingTop='2' paddingBottom='4'>
-          <ButtonGradient
-            testID='RestoreButton'
-            disabled={!this.state.seed.length || loading}
-            onPress={this._handleRestore}
-            text={tl.t('seed.restore.button')}
-          />
-        </Utils.Content>
-        <Utils.Content paddingTop='8'>
-          <Utils.Text weight='300' font='light' secondary size='smaller'>
-            {tl.t('seed.restore.explanation')}
-          </Utils.Text>
-        </Utils.Content>
-        <Utils.VerticalSpacer />
-        <Utils.View flex={1} />
-      </Utils.Container>
+          <Utils.Content paddingBottom='2'>
+            <Utils.FormInput
+              testID='restoreInput'
+              placeholder={tl.t('seed.restore.placeholder')}
+              height={90}
+              padding={16}
+              multiline
+              underlineColorAndroid='transparent'
+              blurOnSubmit
+              numberOfLines={4}
+              autoCapitalize='none'
+              autoCorrect={false}
+              value={this.state.seed}
+              onChangeText={seed => this.setState({ seed })}
+              onKeyPress={this._onKeyPress}
+            />
+          </Utils.Content>
+          <Utils.Content paddingTop='2' paddingBottom='4'>
+            <ButtonGradient
+              testID='RestoreButton'
+              disabled={!this.state.seed.length || loading}
+              onPress={this._handleRestore}
+              text={tl.t('seed.restore.button')}
+            />
+          </Utils.Content>
+          <Utils.Content paddingTop='8'>
+            <Utils.Text weight='300' font='light' secondary size='smaller'>
+              {tl.t('seed.restore.explanation')}
+            </Utils.Text>
+          </Utils.Content>
+          <Utils.VerticalSpacer />
+          <Utils.View flex={1} />
+        </Utils.Container>
+      </Utils.SafeAreaView>
     )
   }
 }

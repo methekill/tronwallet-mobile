@@ -23,13 +23,12 @@ class PrivacyPolicy extends Component {
 
   render () {
     return (
-      <Utils.Container>
-        <Utils.Content paddingVertical='medium' paddingHorizontal='medium' flex={1} >
-          <Utils.View
+      <Utils.SafeAreaView>
+        <Utils.Container>
+          <Utils.Content
+            paddingVertical='medium'
+            paddingHorizontal='medium'
             flex={1}
-            background={Colors.dusk}
-            paddingTop={28}
-            paddingHorizontal={35}
           >
             <Utils.View align='center'>
               <Utils.Text lineHeight={36} size='medium'>{tl.t('privacyPolicy.title')}</Utils.Text>
@@ -48,7 +47,7 @@ class PrivacyPolicy extends Component {
               <Utils.VerticalSpacer size='small' />
               <Utils.View width={8} height={1} background={Colors.lemonYellow} />
               <Utils.VerticalSpacer size='small' />
-            </Utils.View >
+            </Utils.View>
 
             <Utils.View height='60%'>
               <ScrollView>
@@ -64,19 +63,22 @@ class PrivacyPolicy extends Component {
                   circleStyle={{ backgroundColor: Colors.orange }}
                   backgroundActive={Colors.yellow}
                   backgroundInactive={Colors.secondaryText}
-                  onSyncPress={(userAccepted) => {
+                  onSyncPress={userAccepted => {
                     this.setState({ userAccepted })
                   }}
                 />
                 <Utils.Text color={Colors.greyBlue} size='xsmall'>{tl.t('privacyPolicy.acceptTerms')}</Utils.Text>
               </Utils.Row>
               <Utils.VerticalSpacer />
-              <ButtonGradient text={tl.t('privacyPolicy.continue')} onPress={this.onPressConfirm} />
+              <ButtonGradient
+                text={tl.t('privacyPolicy.continue')}
+                onPress={this.onPressConfirm}
+              />
             </Utils.View>
 
-          </Utils.View>
-        </Utils.Content>
-      </Utils.Container>
+          </Utils.Content>
+        </Utils.Container>
+      </Utils.SafeAreaView>
     )
   }
 }
