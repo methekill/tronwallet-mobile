@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Alert, Keyboard } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import moment from 'moment'
 import { Answers } from 'react-native-fabric'
 
@@ -21,6 +20,7 @@ import { withContext } from '../../store/context'
 import { formatNumber } from '../../utils/numberUtils'
 import { logSentry, DataError } from '../../utils/sentryUtils'
 import { replaceRoute } from '../../utils/navigationUtils'
+import FontelloIcon from '../../components/FontelloIcon'
 
 class FreezeScene extends Component {
   static navigationOptions = {
@@ -198,7 +198,7 @@ class FreezeScene extends Component {
 
   _leftContent = () => (
     <Utils.View marginRight={8} marginLeft={8}>
-      <Ionicons name='ios-unlock' size={16} color={Colors.secondaryText} />
+      <FontelloIcon name='lock' size={12} color={Colors.secondaryText} />
     </Utils.View>
   )
 
