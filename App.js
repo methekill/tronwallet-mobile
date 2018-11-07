@@ -260,6 +260,7 @@ class App extends Component {
     verifiedTokensOnly: true,
     fixedTokens: [],
     exchangeBot: '',
+    systemAddress: {},
     systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }
   }
 
@@ -435,8 +436,8 @@ class App extends Component {
 
   _updateSystemStatus = async () => {
     try {
-      const {exchangeBot, systemStatus} = await getSystemStatus()
-      this.setState({systemStatus, exchangeBot})
+      const {exchangeBot, systemStatus, systemAddress} = await getSystemStatus()
+      this.setState({systemStatus, exchangeBot, systemAddress})
     } catch (error) {
       this.setState({
         exchangeBot: '',

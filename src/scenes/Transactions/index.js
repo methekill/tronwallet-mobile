@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { FlatList, AsyncStorage, Platform, Image } from 'react-native'
 import { Answers } from 'react-native-fabric'
+import forIn from 'lodash/forIn'
 
 import tl from '../../utils/i18n'
 import Transaction from './Transaction'
@@ -64,8 +65,22 @@ class TransactionsScene extends Component {
 
   _getAlias = address => {
     if (!address) return
-    const contact = this.state.contacts.find(c => c.address === address)
-    return contact ? contact.alias : address
+    const { systemAddress } = this.props.context
+
+    let systemFixedName = null
+    forIn(systemAddress, (sys) => {
+      if (sys.address === address) {
+        systemFixedName = sys.name
+        return false
+      }
+    })
+
+    if (systemFixedName) {
+      return systemFixedName
+    } else {
+      const contact = this.state.contacts.find(c => c.address === address)
+      return contact ? contact.alias : address
+    }
   }
 
   _loadData = async isRefreshing => {

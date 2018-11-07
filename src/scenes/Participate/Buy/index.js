@@ -167,10 +167,10 @@ class BuyScene extends Component {
     })
 
   _submit = async () => {
+    const { systemAddress, publicKey } = this.props.context
     const item = this.props.navigation.getParam('item', {})
     const { trxBalance, amountToBuy } = this.state
     const amountToPay = amountToBuy * (item.price / ONE_TRX)
-
     this.setState({ loading: true })
     try {
       if (trxBalance < amountToPay) throw new DataError('INSUFFICIENT_BALANCE')
@@ -178,8 +178,8 @@ class BuyScene extends Component {
 
       const participatePayload = item.isExchangeable
         ? {
-          from: this.props.context.publicKey,
-          to: this.props.context.exchangeBot,
+          from: publicKey,
+          to: systemAddress.exchangeBot.address,
           token: 'TRX',
           amount: this._fixNumber(amountToPay)
         }
