@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { AsyncStorage } from 'react-native'
 import SplashScreen from 'react-native-splash-screen'
 import { StackActions, NavigationActions } from 'react-navigation'
+import LottieView from 'lottie-react-native'
 
 import * as Utils from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
@@ -10,10 +11,9 @@ import { getUserSecrets } from '../../utils/secretsUtils'
 import SecretStore from '../../store/secrets'
 import { withContext } from '../../store/context'
 import { USER_STATUS, USER_FILTERED_TOKENS } from '../../utils/constants'
-import LottieView from 'lottie-react-native'
 
 class LoadingScene extends Component {
-  componentDidMount () {
+  async componentDidMount () {
     SplashScreen.hide()
     this._setFilteredTokens()
     this._askPin()

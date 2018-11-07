@@ -2,6 +2,7 @@ import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { withNavigation } from 'react-navigation'
 
 import * as Utils from '../../components/Utils'
 import { Colors, FontSize, Spacing } from '../../components/DesignSystem'
@@ -39,4 +40,6 @@ BalanceWarning.propTypes = {
   children: PropTypes.string.isRequired
 }
 
-export default withContext(BalanceWarning)
+export default withContext(
+  withNavigation(BalanceWarning)
+)

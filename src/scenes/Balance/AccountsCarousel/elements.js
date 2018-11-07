@@ -7,6 +7,7 @@ import { Motion, spring } from 'react-motion'
 import ClearButton from '../../../components/ClearButton'
 import { Colors } from './../../../components/DesignSystem'
 import * as Utils from './../../../components/Utils'
+import { shortNumberFormat } from './../../../utils/numberUtils'
 
 const borderRadius = css`
   border-radius: 6px;
@@ -67,7 +68,7 @@ export const CardFooter = styled.View`
   border-top-width: 1px;
   width: 100%;
   height: 41px;
-  padding-left: 11px;
+  padding-left: 18px;
 `
 
 export const Value = styled.Text`
@@ -97,7 +98,7 @@ export const CardInfo = ({ label, value, currency, precision = 0 }) => (
     <Utils.VerticalSpacer size='xsmall' />
     <Motion defaultStyle={{ power: 0 }} style={{ power: spring(value) }}>
       {({ power }) => (
-        <Value>{`${power.toFixed(precision)} ${currency}`}</Value>
+        <Value>{`${shortNumberFormat(power.toFixed(precision))} ${currency}`}</Value>
       )}
     </Motion>
   </View>

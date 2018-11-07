@@ -69,8 +69,6 @@ class TransactionsScene extends Component {
   }
 
   _loadData = async isRefreshing => {
-    this.setState({ refreshing: true })
-
     const contacts = this.state.contactsStoreRef
       .objects('Contact')
       .map(item => Object.assign({}, item))
@@ -80,7 +78,7 @@ class TransactionsScene extends Component {
       : this.props.context.publicKey
     const contact = this.props.navigation.getParam('contact', null)
 
-    this.setState({ currentAlias, contacts, contact }, async () => {
+    this.setState({ currentAlias, contacts, contact, refreshing: true }, async () => {
       try {
         await updateTransactions(this.props.context.publicKey)
         if (contact) {
