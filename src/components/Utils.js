@@ -523,5 +523,9 @@ export const TWIcon = createIconSetFromFontello(fontelloConfig, 'tronwallet')
 
 export const SafeAreaView = styled.SafeAreaView`
   flex: 1;
-  background-color: ${Colors.background};
+  background-color: ${props => props.background};
 `
+
+SafeAreaView.defaultProps = {
+  background: Colors.background
+}

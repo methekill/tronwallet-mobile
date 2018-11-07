@@ -1,5 +1,6 @@
 import React from 'react'
 import { Image, StyleSheet } from 'react-native'
+import { withNavigation } from 'react-navigation'
 
 import ButtonIconGradient from '../../components/ButtonIconGradient'
 
@@ -56,4 +57,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default BalanceNavigation
+export default withNavigation(BalanceNavigation)

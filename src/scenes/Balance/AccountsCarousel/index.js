@@ -117,8 +117,10 @@ class AccountsCarousel extends React.Component {
     const balance = get(item, 'balance', 0)
     const tronPower = get(item, 'tronPower', 0)
     const bandwidth = get(item, 'bandwidth', 0)
-    const avaliable = shortNumberFormat(balance * this.price)
-    const frozen = shortNumberFormat(tronPower * this.price)
+    const avaliable = (balance * this.price)
+    const frozen = (tronPower * this.price)
+    const trxBalance = frozen + avaliable
+
     return (
       <CarouselCard>
         <LinearGradient
@@ -141,9 +143,7 @@ class AccountsCarousel extends React.Component {
               </TronLogo>
               <Utils.VerticalSpacer />
 
-              <TouchableOpacity
-                onPress={() => this._onCopyAddress(item.address)}
-              >
+              <TouchableOpacity onPress={() => this._onCopyAddress(item.address)} >
                 <Utils.Text color='white' size='smaller' font='regular'>
                   {this._formatAddress(item.address)}
                 </Utils.Text>
@@ -151,7 +151,7 @@ class AccountsCarousel extends React.Component {
 
               <Utils.VerticalSpacer size='small' />
               <TouchableOpacity onPress={() => this.ActionSheet.show()}>
-                <TrxValue trxBalance={balance} currency={currency} />
+                <TrxValue trxBalance={trxBalance} currency={currency} />
               </TouchableOpacity>
 
               <Utils.VerticalSpacer size='small' />
@@ -172,24 +172,18 @@ class AccountsCarousel extends React.Component {
             <CardFooter>
               <Utils.Column width='50%'>
                 <Utils.Row>
-                  <Utils.TWIcon
-                    name='bandwidth'
-                    size={16}
-                    color={Colors.greyBlue}
-                  />
+                  <Utils.TWIcon name='bandwidth' size={16} color={Colors.greyBlue} />
                   <Label paddingLeft={10}>{tl.t('balance.bandwidth')}</Label>
                 </Utils.Row>
               </Utils.Column>
 
               <Utils.Column width='50%' align='flex-end'>
                 <Utils.Row justify='center' align='center'>
-                  <Value paddingRight={10}>
+                  <Value paddingRight={20}>
                     {shortNumberFormat(bandwidth)}
                   </Value>
                   {index !== 0 && (
-                    <BtnTrash
-                      onPress={() => this._alertHideAccount(item.address)}
-                    />
+                    <BtnTrash onPress={() => this._alertHideAccount(item.address)} />
                   )}
                 </Utils.Row>
               </Utils.Column>
@@ -205,6 +199,20 @@ class AccountsCarousel extends React.Component {
     return (
       !!accounts && (
         <React.Fragment>
+          <Carousel
+            ref={ref => {
+              this.carousel = ref
+            }}
+            layout='default'
+            enableMomentum
+            decelerationRate={0.9}
+            data={accounts}
+            itemWidth={300}
+            sliderWidth={Dimensions.get('window').width}
+            slideStyle={{ paddingHorizontal: 6 }}
+            renderItem={this._renderItem}
+            onSnapToItem={this._onSnapToItem}
+          />
           <ActionSheet
             ref={ref => {
               this.ActionSheet = ref
@@ -213,20 +221,6 @@ class AccountsCarousel extends React.Component {
             options={CURRENCIES}
             cancelButtonIndex={0}
             onPress={this._handleCurrencyChange}
-          />
-          <Carousel
-            ref={ref => {
-              this.carousel = ref
-            }}
-            layout='default'
-            onSnapToItem={this._onSnapToItem}
-            enableMomentum
-            decelerationRate={0.9}
-            data={accounts}
-            renderItem={this._renderItem}
-            sliderWidth={Dimensions.get('window').width}
-            itemWidth={300}
-            slideStyle={{ paddingHorizontal: 6 }}
           />
           <Toast
             ref='toast'

@@ -63,7 +63,7 @@
     "react-native-tab-view": "^0.0.78",
     "react-native-tron": "gettyio/react-native-tron#1.0.4",
     "react-native-vector-icons": "^4.6.0",
-    "react-navigation": "2.17.0",
+    "react-navigation": "^2.18.2",
     "reactotron-react-native": "^1.14.0",
     "realm": "^2.15.3",
     "rn-placeholder": "^1.2.0",
