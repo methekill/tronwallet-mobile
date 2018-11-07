@@ -12,6 +12,7 @@ import { string, number, bool, shape, array } from 'prop-types'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Toast from 'react-native-easy-toast'
 import LinearGradient from 'react-native-linear-gradient'
+import forIn from 'lodash/forIn'
 
 import tl from '../../utils/i18n'
 import {
@@ -403,10 +404,20 @@ class TransactionDetails extends React.Component {
     }
   }
 
-  _onAddressPress = address => {
+  _onAddressPress = addressName => {
+    const { systemAddress } = this.props.context
+    let systemFixedAddress = addressName
+
+    forIn(systemAddress, (sys) => {
+      if (sys.name === addressName) {
+        systemFixedAddress = sys.address
+        return false
+      }
+    })
+
     this.setState({
       modalVisible: true,
-      currentAddress: address
+      currentAddress: systemFixedAddress
     })
   }
 

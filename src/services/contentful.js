@@ -3,6 +3,8 @@ import { CONTENTFUL_TOKEN, CONTENTFUL_SPACE } from '../../config.js'
 
 const contentfulClient = createClient({accessToken: CONTENTFUL_TOKEN, space: CONTENTFUL_SPACE})
 
+const SYSTEM_CONTENT = '11bJZFl0J6CMEwoMi20sqC'
+
 const defaultParams = {
   content_type: 'asset',
   order: '-fields.isFeatured,-fields.isVerified,fields.position,-fields.issuedPercentage',
@@ -68,11 +70,11 @@ export const getFixedTokens = async () => {
 }
 
 export const getSystemStatus = async () => {
-  const SYSTEM_STATUS_ID = '11bJZFl0J6CMEwoMi20sqC'
-  const systemEntry = await contentfulClient.getEntry(SYSTEM_STATUS_ID)
-  const { fields: { showStatus, statusMessage, statusColor, messageColor, exchangeBot } } = systemEntry
+  const systemEntry = await contentfulClient.getEntry(SYSTEM_CONTENT)
+  const { fields: { showStatus, statusMessage, statusColor, messageColor, exchangeBot, systemAddress } } = systemEntry
   return {
     systemStatus: { showStatus, statusMessage, statusColor, messageColor, exchangeBot },
-    exchangeBot
+    exchangeBot,
+    systemAddress
   }
 }
