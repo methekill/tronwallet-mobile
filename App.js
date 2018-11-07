@@ -337,7 +337,7 @@ class App extends Component {
 
       prevAccount.balance = balanceTotal
       prevAccount.tronPower = freezeData.total
-      prevAccount.bandwidth = freezeData.bandwidth.netRemaining
+      prevAccount.bandwidth = freezeData.bandwidth.netRemaining + freezeData.bandwidth.freeNetRemaining
 
       getBalanceStore().then(store => {
         store.write(() => {
