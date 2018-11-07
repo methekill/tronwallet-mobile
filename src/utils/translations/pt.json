@@ -49,7 +49,7 @@
   "close": "Fechar",
   "ends": "Fim",
   "clear": "Limpar",
-  "allIn": "Tudo Incluído",
+  "allIn": "Incluir Tudo",
   "skip": "Pular",
   "privateKey": "Chave Privada",
   "results": "Resultados",
@@ -66,7 +66,7 @@
     "confirmSeed": "Por favor, toque para confirmar suas 12 palavras seed",
     "bandwidth": "BANDA",
     "tokens": "TOKENS",
-    "holdings": "TÍTULOS"
+    "holdings": "VALORES"
   },
   "hideAccount": "Esta ação irá remover esta conta, mas você pode recuperar depois no menu de configurações.",
   "components": {
@@ -82,7 +82,7 @@
       "permissionMessage": "Para verificar a chave pública, o aplicativo precisa da sua permissão para acessar a câmera."
     },
     "vote": {
-      "enterVote": "DIGITE O VALOR DO VOTO",
+      "enterVote": "DIGITE O VALOR DE VOTOS",
       "votesRemaining": "VOTOS RESTANTES",
       "setVote": "VOTE",
       "moreVotes": "Se você precisar de mais votos, você pode congelar mais TRX.",
@@ -133,7 +133,7 @@
       "add": "ADICIONAR",
       "edit": "EDITAR",
       "delete": "EXCLUIR",
-      "send": "Enviar"
+      "send": "ENVIAR"
     },
     "contacts": {
       "title": "CONTATOS",
@@ -257,7 +257,7 @@
     },
     "tabs": {
       "share": "Compartilhar",
-      "request": "SOLICITAÇÃO"
+      "request": "Solicitar"
     }
   },
   "rewards": {
@@ -284,8 +284,8 @@
       "error": "Opa, temos um problema. Por favor, reinicie o aplicativo.",
       "generateNew": "Isso irá gerar uma carteira completamente nova.",
       "button": {
-        "written": "EU CONFIRMO",
-        "newSeed": "OBTENHA NOVA SEED",
+        "written": "EU ANOTEI",
+        "newSeed": "OBTER NOVAS PALAVRAS",
         "later": "Confirmar mais tarde"
       },
       "backupMessage": "Você sempre pode acessar suas palavras acessando o backup das configurações do aplicativo      ",
@@ -364,13 +364,13 @@
       }
     },
     "backup": {
-      "title": "Cópia de segurança da Carteira"
+      "title": "Backup da Carteira"
     },
     "restore": {
       "title": "Restaurar Carteira"
     },
     "reset": {
-      "title": "Recompor a Carteira",
+      "title": "Restabelecer Carteira",
       "warning": "Aviso: Esta ação irá apagar todos os dados salvos, incluindo suas 12 palavras secretas. Se você não salvou seu segredo, faça isso antes de continuar.",
       "button": "OK, eu entendi"
     },
@@ -399,7 +399,7 @@
     },
     "about": {
       "title": "Sobre",
-      "description": "IP alterado para Testnet",
+      "description": "TronWallet é uma carteira de Crypto Moeda P2P completamente descentralizada de código aberto para a rede TRON construída com o React Native. Com ela você pode enviar e receber tokens, votar em um Super Representante, participar de promoções de tokens, acompanhar seus saldos e transações e muito mais. Toque no link abaixo para um tutorial detalhado sobre como usá-la.",
       "tutorial": "TUTORIAL"
     },
     "accepts": {
@@ -427,7 +427,7 @@
     "time": "TEMPO",
     "button": {
       "tryAgain": "Tente outra vez",
-      "submit": "ENVIAR TRANSAÇÃO"
+      "submit": "SUBMETER TRANSAÇÃO"
     },
     "error": {
       "noData": "Não foi possível carregar os dados da transação"
@@ -505,7 +505,7 @@
     "totalVotes": "TOTAL DE VOTOS",
     "votesAvailable": "VOTOS DISPONÍVEIS",
     "search": "Pesquisa",
-    "searchPreview": "Sugestões - Mais votados",
+    "searchPreview": "Sugestões - Meus votos recentes",
     "error": "Opa, algo não carregou corretamente. Tente recarregar",
     "notFound": "Super Representante não encontrado"
   },
