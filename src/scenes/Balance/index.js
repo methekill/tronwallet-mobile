@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { RefreshControl, ScrollView, TouchableOpacity } from 'react-native'
 import { Answers } from 'react-native-fabric'
-import unionBy from 'lodash/unionBy'
 import Feather from 'react-native-vector-icons/Feather'
 
 import FormModal from '../../components/FormModal'
@@ -44,6 +43,16 @@ class BalanceScene extends Component {
   componentWillUnmount () {
     this._navListener.remove()
     this.appStateListener.remove()
+  }
+
+  _loadData = async () => {
+    try {
+      this.props.context.loadUserData()
+      this.props.context.updateSystemStatus()
+    } catch (e) {
+      this.setState({ error: tl.t('balance.error.loadingData') })
+      logSentry(e, 'Balance - LoadData')
+    }
   }
 
   _createAccountPressed = () => {
@@ -118,42 +127,20 @@ class BalanceScene extends Component {
     }
   }
 
-  _loadData = async () => {
-    try {
-      this.props.context.loadUserData()
-      this.props.context.updateSystemStatus()
-    } catch (e) {
-      this.setState({ error: tl.t('balance.error.loadingData') })
-      logSentry(e, 'Balance - LoadData')
-    }
-  }
-
   _rightButtonHeader = () => {
     const { secretMode } = this.props.context
     const { creatingNewAccount } = this.state
     if (secretMode === 'privatekey') {
       return null
     }
+
     return (
       <TouchableOpacity onPress={this._createAccountPressed} disabled={creatingNewAccount} >
         {creatingNewAccount
-          ? (<SyncButton loading onPress={() => { }} />)
+          ? (<SyncButton loading />)
           : (<Feather name='plus' color={'white'} size={28} />)}
       </TouchableOpacity>
     )
-  }
-
-  _getBalancesToDisplay = () => {
-    const { balances, publicKey, fixedTokens } = this.props.context
-
-    if (balances[publicKey]) {
-      const featuredBalances = fixedTokens.map(token => {
-        return { name: token, balance: 0 }
-      })
-      return unionBy(balances[publicKey], featuredBalances, 'name')
-    }
-
-    return []
   }
 
   render () {
@@ -182,8 +169,8 @@ class BalanceScene extends Component {
               <AccountsCarousel ref={input => (this.carousel = input)} />
               <Utils.VerticalSpacer size='medium' />
               <Utils.Content paddingTop={0}>
-                <BalanceNavigation navigation={this.props.navigation} />
-                <WalletBalances balances={this._getBalancesToDisplay()} />
+                <BalanceNavigation />
+                <WalletBalances />
               </Utils.Content>
             </ScrollView>
           </Utils.Container>

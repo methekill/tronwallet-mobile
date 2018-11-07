@@ -151,6 +151,8 @@ const BalanceStack = createStackNavigator({
   MakePayScene,
   ScanPayScene,
   TokenDetailScene: TokenInfoScene
+}, {
+  mode: 'modal'
 })
 
 const TransactionList = createStackNavigator({

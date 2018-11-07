@@ -13,7 +13,7 @@ class TrxValue extends Component {
     const crypto = ['BTC', 'ETH']
 
     if (Number.isInteger(value) || crypto.indexOf(currency) >= 0) {
-      return formatNumber(value, true)
+      return formatNumber(value, false)
     } else {
       return value.toFixed(2)
     }
@@ -22,10 +22,6 @@ class TrxValue extends Component {
   render () {
     const { trxBalance } = this.props
     const { currency, price } = this.props.context
-    const priceToDisplay =
-      !!trxBalance && !!currency && !!price && !!price[currency]
-        ? trxBalance * price[currency].price
-        : 0
 
     return (
       <React.Fragment>
@@ -35,7 +31,7 @@ class TrxValue extends Component {
               <FadeIn name='usd-value'>
                 <Motion
                   defaultStyle={{ price: 0 }}
-                  style={{ price: spring(priceToDisplay) }}
+                  style={{ price: spring(trxBalance) }}
                 >
                   {value => (
                     <Utils.Text size='large'>

@@ -5,7 +5,7 @@ import Switch from 'react-native-switch-pro'
 import * as Utils from '../../components/Utils'
 import ButtonGradient from './../../components/ButtonGradient'
 import { PolicyText } from './elements'
-import { Colors } from './../../components/DesignSystem'
+import { Colors, Spacing } from './../../components/DesignSystem'
 import tl from '../../utils/i18n'
 
 class PrivacyPolicy extends Component {
@@ -23,14 +23,22 @@ class PrivacyPolicy extends Component {
 
   render () {
     return (
-      <Utils.SafeAreaView>
-        <Utils.Container>
-          <Utils.Content
-            paddingVertical='medium'
-            paddingHorizontal='medium'
-            flex={1}
+      <Utils.SafeAreaView background={Colors.darkerBackground}>
+
+        <Utils.Content
+          paddingVertical='medium'
+          paddingHorizontal='medium'
+          flex={1}
+        >
+          <Utils.View
+            align='center'
+            background={Colors.dusk}
+            paddingVertical={Spacing.medium}
+            paddingHorizontal={Spacing.medium}
+            borderRadius={8}
           >
-            <Utils.View align='center'>
+            <Utils.View height='20%' align='center'>
+              <Utils.VerticalSpacer size='medium' />
               <Utils.Text lineHeight={36} size='medium'>{tl.t('privacyPolicy.title')}</Utils.Text>
               <Utils.VerticalSpacer />
               <Utils.Text
@@ -70,14 +78,12 @@ class PrivacyPolicy extends Component {
                 <Utils.Text color={Colors.greyBlue} size='xsmall'>{tl.t('privacyPolicy.acceptTerms')}</Utils.Text>
               </Utils.Row>
               <Utils.VerticalSpacer />
-              <ButtonGradient
-                text={tl.t('privacyPolicy.continue')}
-                onPress={this.onPressConfirm}
-              />
+              <ButtonGradient text={tl.t('privacyPolicy.continue')} onPress={this.onPressConfirm} />
             </Utils.View>
 
-          </Utils.Content>
-        </Utils.Container>
+          </Utils.View>
+        </Utils.Content>
+
       </Utils.SafeAreaView>
     )
   }
