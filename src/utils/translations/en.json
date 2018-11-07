@@ -31,7 +31,7 @@
     "clipboardCopied": "Something wrong while copying",
     "hideAccount": "Something went wrong deleting account, try again'"
   },
-  "avaliable": "AVALIABLE",
+  "avaliable": "AVAILABLE",
   "frozen": "FROZEN",
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRICE",
@@ -172,6 +172,7 @@
     "title": "FREEZE",
     "unfreeze": {
       "title": "UNFREEZE",
+      "inXTime" : "You can unfreeze your TRX",
       "inThreeDays": "After a three day period you can unfreeze your TRX",
       "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
       "inXHours": "You can unfreeze your TRX in {{hours}} hours.",

@@ -119,13 +119,18 @@ export const ButtonText = styled.Text`
   text-align: center;
   letter-spacing: 0.8;
 `
+ButtonText.defaultProps = {
+  numberOfLines: 1
+}
+
 export const BuyButton = styled.TouchableOpacity`
   background-color: ${Colors.darkThree};
   border-radius: 5px;
   justify-content: center;
   align-items: center;
-  padding-vertical: 6px;
+  padding-vertical: 7px;
   padding-horizontal: 30px;
+  max-width: 90px;
   elevation: ${props => props.elevation || 2};
 `
 export const TokensTitle = styled.Text`

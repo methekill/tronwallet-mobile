@@ -322,13 +322,8 @@ class App extends Component {
         return Object.assign({}, stateAccount, account)
       })
 
-    this.setState({ accounts, userSecrets }, async () => {
-      await this._updateAccounts(accounts)
-      if (!this.state.publicKey) {
-        const { address } = accounts[0]
-        this.setState({ publicKey: address })
-      }
-    })
+    const publicKey = this.state.publicKey || accounts[0].address
+    this.setState({ accounts, userSecrets, publicKey }, () => this._updateAccounts(accounts))
   }
 
   _updateAccounts = async (accountsArray = []) => {
@@ -344,7 +339,7 @@ class App extends Component {
 
       prevAccount.balance = balanceTotal
       prevAccount.tronPower = freezeData.total
-      prevAccount.bandwidth = freezeData.bandwidth.netRemaining
+      prevAccount.bandwidth = freezeData.bandwidth.netRemaining + freezeData.bandwidth.freeNetRemaining
 
       getBalanceStore().then(store => {
         store.write(() => {

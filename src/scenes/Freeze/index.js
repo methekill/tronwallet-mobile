@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Alert, Keyboard } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import moment from 'moment'
 import { Answers } from 'react-native-fabric'
 
@@ -16,11 +15,11 @@ import NavigationHeader from '../../components/Navigation/Header'
 
 import Client, { ONE_TRX } from '../../services/client'
 import { signTransaction } from '../../utils/transactionUtils'
-import getTransactionStore from '../../store/transactions'
 import { withContext } from '../../store/context'
 import { formatNumber } from '../../utils/numberUtils'
 import { logSentry, DataError } from '../../utils/sentryUtils'
 import { replaceRoute } from '../../utils/navigationUtils'
+import FontelloIcon from '../../components/FontelloIcon'
 
 class FreezeScene extends Component {
   static navigationOptions = {
@@ -47,46 +46,25 @@ class FreezeScene extends Component {
   }
 
   _checkUnfreeze = async () => {
-    const { context } = this.props
+    const { freeze, publicKey } = this.props.context
     let unfreezeStatus = {
       msg: tl.t('freeze.unfreeze.inThreeDays'),
       disabled: false
     }
-    try {
-      const transactionStore = await getTransactionStore()
+    const { balances } = freeze[publicKey]
+    const { expires: frozenExpiration } = balances[0]
 
-      const queryFreeze = transactionStore
-        .objects('Transaction')
-        .sorted([['timestamp', true]])
-        .filtered('ownerAddress = $0 AND (type == "Unfreeze" OR type == "Freeze")', context.publicKey)
-
-      const lastFreeze =
-        queryFreeze.length && queryFreeze[0].type === 'Freeze'
-          ? queryFreeze[0]
-          : null
-
-      if (lastFreeze) {
-        const lastFreezeTimePlusThree = moment(lastFreeze.timestamp).add(3, 'days')
-        const differenceFromNow = lastFreezeTimePlusThree.diff(moment())
-        const duration = moment.duration(differenceFromNow)
-
-        if (duration.asSeconds() > 0) {
-          unfreezeStatus.msg = duration.asDays() < 1 ? duration.asHours() < 1
-            ? tl.t('freeze.unfreeze.inXMinutes', { minutes: Math.round(duration.asMinutes()) })
-            : tl.t('freeze.unfreeze.inXHours', { hours: Math.round(duration.asHours()) })
-            : tl.t('freeze.unfreeze.inXDays', { days: Math.round(duration.asDays()) })
-          unfreezeStatus.disabled = true
-          return unfreezeStatus
-        } else {
-          unfreezeStatus.msg = tl.t('freeze.unfreeze.now')
-          unfreezeStatus.disabled = false
-          return unfreezeStatus
-        }
+    if (frozenExpiration > 0) {
+      if (frozenExpiration < new Date().getTime()) {
+        unfreezeStatus.msg = tl.t('freeze.unfreeze.now')
+        unfreezeStatus.disabled = false
+        return unfreezeStatus
       } else {
+        unfreezeStatus.msg = `${tl.t('freeze.unfreeze.inXTime')} ${moment(frozenExpiration).fromNow()}`
+        unfreezeStatus.disabled = true
         return unfreezeStatus
       }
-    } catch (e) {
-      logSentry(e, 'Unfreeze - Load Status')
+    } else {
       return unfreezeStatus
     }
   }
@@ -198,7 +176,7 @@ class FreezeScene extends Component {
 
   _leftContent = () => (
     <Utils.View marginRight={8} marginLeft={8}>
-      <Ionicons name='ios-unlock' size={16} color={Colors.secondaryText} />
+      <FontelloIcon name='lock' size={12} color={Colors.secondaryText} />
     </Utils.View>
   )
 
