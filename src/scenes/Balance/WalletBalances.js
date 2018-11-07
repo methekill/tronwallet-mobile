@@ -30,32 +30,40 @@ class WalletBalances extends Component {
   }
 
   async componentDidUpdate (prevProps) {
-    const { balances, publicKey, fixedTokens, freeze } = this.props.context
+    const { balances, publicKey, fixedTokens } = this.props.context
     if (balances[publicKey] !== prevProps.context.balances[prevProps.context.publicKey]) {
       try {
-        const total = get(freeze, [publicKey, 'total'], 0)
         const parsedTokens = parseFixedTokens(fixedTokens)
-        const selectedBalances = balances[publicKey].slice(0).map(item => {
-          if (item.name === 'TRX') {
-            return {
-              ...item,
-              balance: total + item.balance
-            }
-          }
-          return item
-        })
-
-        const filteredTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS) || '[]'
+        const selectedBalances = this._updateTRXBalance(balances[publicKey].slice(0))
+        const tokens = unionBy(selectedBalances, parsedTokens, 'name')
+        const list = await this._updateListByStoreTokens(tokens)
         this.setState({
-          list: orderBalances(
-            unionBy(selectedBalances, parsedTokens, JSON.parse(filteredTokens), 'name'),
-            fixedTokens
-          )
+          list: orderBalances(list, fixedTokens)
         })
       } catch (e) {
         logSentry(e, 'WalletBalances - Update Data')
       }
     }
+  }
+
+  _updateListByStoreTokens = (list) => {
+    return AsyncStorage.getItem(USER_FILTERED_TOKENS).then(tokens => {
+      const filteredTokens = JSON.parse(tokens)
+      return list.filter(item => {
+        return filteredTokens.indexOf(item.name) === -1
+      })
+    })
+  }
+
+  _updateTRXBalance = (list) => {
+    const { publicKey, freeze } = this.props.context
+    const total = get(freeze, [publicKey, 'total'], 0)
+    return list.map(item => {
+      if (item.name === 'TRX') {
+        return { ...item, balance: total + item.balance }
+      }
+      return item
+    })
   }
 
   navigateToTokenDetails = async (item) => {
