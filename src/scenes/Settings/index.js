@@ -53,10 +53,8 @@ const resetAction = StackActions.reset({
 })
 
 class Settings extends Component {
-  static navigationOptions = () => {
-    return {
-      header: <NavigationHeader title={tl.t('settings.title')} />
-    }
+  static navigationOptions = {
+    header: null
   }
 
   state = {
@@ -535,6 +533,8 @@ class Settings extends Component {
     const languageOptions = LANGUAGES.map(language => language.value)
 
     return (
+      <Utils.SafeAreaView>
+      <NavigationHeader title={tl.t('settings.title')} />
       <Utils.Container
         keyboardShouldPersistTaps='always'
         keyboardDismissMode='interactive'
@@ -595,7 +595,8 @@ class Settings extends Component {
         <ScrollView>
           {this._renderList()}
         </ScrollView>
-      </Utils.Container>
+        </Utils.Container>
+      </Utils.SafeAreaView>
     )
   }
 }
