@@ -274,7 +274,7 @@ class BuyScene extends Component {
               <Utils.View align='center' justify='center'>
                 <BuyText>{tl.t('participate.balance')}</BuyText>
                 <VerticalSpacer size={8} />
-                <BuyText white>{formatNumber(totalRemaining)}</BuyText>
+                <BuyText white>{formatNumber(totalRemaining)} TRX</BuyText>
               </Utils.View>
               <Utils.View align='center' justify='center'>
                 <BuyText>{tl.t('participate.pricePerToken')}</BuyText>
@@ -282,8 +282,8 @@ class BuyScene extends Component {
                 <BuyText white> {tokenPrice} TRX</BuyText>
               </Utils.View>
             </Utils.Row>
-            <VerticalSpacer size={24} />
-            <BuyText white>{tl.t('participate.enterAmountToBuy')}</BuyText>
+            <VerticalSpacer size={28} />
+            <BuyText>{tl.t('participate.enterAmountToBuy')}</BuyText>
             <AmountText>{formatNumber(amountToBuy)}</AmountText>
             <TrxValueText>
               {formatNumber(amountToPay.toFixed(6))} TRX
