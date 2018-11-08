@@ -8,3 +8,4 @@ export const USER_FILTERED_TOKENS = '@TronWallet:userFilteredTokens'
 export const TOKENS_VISIBLE = '@TronWallet:tokensVisibility'
 export const ADD = 'ADD'
 export const EDIT = 'EDIT'
+export const WALLET_TOKENS = ['TRX', 'TWX']
