@@ -222,7 +222,7 @@
     "warning": "Você não tem suficiente TRX para comprar tantos {{token}}",
     "enterAmountToBuy": "INSIRA O VALOR DE COMPRA",
     "amountToBuy": "QUANTIDADE PARA COMPRAR",
-    "pricePerToken": "PREÇO POR TOKEN",
+    "pricePerToken": "PREÇO",
     "tokenDescription": "DESCRIÇÃO DO TOKEN",
     "tokenInfo": "INFORMAÇÃO DO TOKEN",
     "token": "TOKEN",
@@ -239,7 +239,7 @@
     "trxNum": "NUMERO TRX",
     "num": "NUMERO",
     "block": "BLOCO",
-    "balance": "BALANÇA",
+    "balance": "SALDO",
     "searchPreview": "Tokens em destaque"
   },
   "pin": {
