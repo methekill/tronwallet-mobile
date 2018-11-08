@@ -7391,6 +7391,11 @@ react-native-maps@0.21.0:
     babel-plugin-module-resolver "^2.3.0"
     babel-preset-react-native "1.9.0"
 
+react-native-mixpanel@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-mixpanel/-/react-native-mixpanel-1.1.1.tgz#012580fb1b42b6c0ee35d0af0a24af68cfa79b89"
+  integrity sha512-jjCYGri9xQ+NO5lu9RCm+hH/u9dP++4VPhUe6O8smUiJtqhBVwQtDn+iJM/NBBQwBVq5SKaDipbYdgOHdJT2WQ==
+
 react-native-modal@^6.0.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-modal-6.4.0.tgz#a6c2599b4c9d53ac99071bc658215367ee81e278"
