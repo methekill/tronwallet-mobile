@@ -261,7 +261,6 @@ class App extends Component {
     secretMode: 'mnemonic',
     verifiedTokensOnly: true,
     fixedTokens: [],
-    exchangeBot: '',
     systemAddress: {},
     systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }
   }
@@ -438,11 +437,10 @@ class App extends Component {
 
   _updateSystemStatus = async () => {
     try {
-      const {exchangeBot, systemStatus, systemAddress} = await getSystemStatus()
-      this.setState({systemStatus, exchangeBot, systemAddress})
+      const {systemStatus, systemAddress} = await getSystemStatus()
+      this.setState({systemStatus, systemAddress})
     } catch (error) {
       this.setState({
-        exchangeBot: '',
         systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }})
       logSentry(error, 'App - can\'t get system status')
     }
