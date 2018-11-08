@@ -194,8 +194,7 @@ class TransactionDetail extends Component {
         ...exchange,
         result: { ...exchange.result, receive: 'FAIL' },
         loading: { ...exchange.loading, receive: false },
-        error:
-          'Check your latest transactions to confirm the received the amount processed'
+        error: tl.t('submitTransaction.exchange.error')
       }
     })
   }
