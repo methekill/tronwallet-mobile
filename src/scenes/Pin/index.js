@@ -31,7 +31,9 @@ class PinScene extends React.Component {
 
         const useBiometry = useBiometrySetting === null ? false : useBiometrySetting === 'true'
         if ((biometryType === Biometrics.TouchID || biometryType === Biometrics.FaceID) && useBiometry) {
-          this.setState({ biometricsEnabled: true }, () => this._handleBiometrics())
+          this.setState({ biometricsEnabled: true }, () => {
+            setTimeout(this._handleBiometrics, 500)
+          })
         }
       })
 
