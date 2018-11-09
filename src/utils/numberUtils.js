@@ -34,7 +34,7 @@ export const formatFloat = (n, precision = 6) => {
 
 export const shortNumberFormat = (number) => {
   if (number < 9999) {
-    return number
+    return formatNumber(number)
   }
 
   if (number < 1000000) {

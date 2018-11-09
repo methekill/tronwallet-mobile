@@ -181,7 +181,8 @@ class BuyScene extends Component {
           from: publicKey,
           to: systemAddress.exchangeBot.address,
           token: 'TRX',
-          amount: this._fixNumber(amountToPay)
+          amount: this._fixNumber(amountToPay),
+          data: `@token=${item.contentfulId}`
         }
         : {
           participateAddress: item.ownerAddress,
