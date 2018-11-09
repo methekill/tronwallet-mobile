@@ -36,7 +36,7 @@ export const getTokens = async (verifiedOnly = false, start = 0) => {
       featured.push({...asset, image})
       allAssets.push({...asset, image})
     } else {
-      allAssets.push({asset})
+      allAssets.push(asset)
       assets.push(asset)
     }
   })
