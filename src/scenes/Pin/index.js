@@ -31,7 +31,13 @@ class PinScene extends React.Component {
 
         const useBiometry = useBiometrySetting === null ? false : useBiometrySetting === 'true'
         if ((biometryType === Biometrics.TouchID || biometryType === Biometrics.FaceID) && useBiometry) {
-          this.setState({ biometricsEnabled: true }, () => this._handleBiometrics())
+          this.setState({ biometricsEnabled: true }, () => {
+            setTimeout(() => {
+              if (this.props.navigation.isFocused()) {
+                this._handleBiometrics()
+              }
+            }, 500)
+          })
         }
       })
 
@@ -83,13 +89,13 @@ class PinScene extends React.Component {
     }
     if (completeAndNoDoubleCheck || completeAndDoubleCheck) {
       if (this.state.isDoubleChecking && this.state.pin === this.state.checkPin) {
-        this.props.navigation.goBack()
+        this.props.navigation.goBack(null)
         return onSuccess(this.state.pin)
       }
       if (!shouldDoubleCheck) {
         const result = await testInput(this.state.pin)
         if (result) {
-          this.props.navigation.goBack()
+          this.props.navigation.goBack(null)
           if (onSuccess) return onSuccess(this.state.pin)
         }
       }
