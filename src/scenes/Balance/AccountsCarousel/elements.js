@@ -98,7 +98,7 @@ export const CardInfo = ({ label, value, currency, precision = 0 }) => (
     <Utils.VerticalSpacer size='xsmall' />
     <Motion defaultStyle={{ power: 0 }} style={{ power: spring(value) }}>
       {({ power }) => (
-        <Value>{`${shortNumberFormat(power.toFixed(precision))} ${currency}`}</Value>
+        <Value>{`${shortNumberFormat(power)} ${currency}`}</Value>
       )}
     </Motion>
   </View>
