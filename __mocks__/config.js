@@ -1,0 +1,4 @@
+export const AUTH_ID = 'AUTH_ID'
+export const ONE_SIGNAL_KEY = 'ONE_SIGNAL_KEY'
+export const CONTENTFUL_TOKEN = 'CONTENTFUL_TOKEN'
+export const CONTENTFUL_SPACE = 'CONTENTFUL_SPACE'
