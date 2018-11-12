@@ -134,5 +134,14 @@ Realm.Object = class Object {
 };
 
 export default {
-  open: (params) => new Realm(params)
+  open: (params) => {
+    const realm = new Realm(params)
+
+    // TODO global filtered realm function.
+    // This is working. We can add every query here or improve to make it dynamic :)
+    realm.filtered = (store, query) => (
+      realm.objects(store).filter(a => `name == '${a.name}'` === query)
+    )
+    return realm
+  }
 }

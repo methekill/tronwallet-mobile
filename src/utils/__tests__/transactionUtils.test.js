@@ -1,7 +1,8 @@
-import { signTransaction, updateTransactions } from '../transactionUtils'
+import { signTransaction, updateTransactions, getTokenPriceFromStore } from '../transactionUtils'
 import { logSentry } from '../sentryUtils'
 import getTransactionStore from '../../store/transactions'
 import transactionList from '../../services/__mocks__/transactionList'
+import getAssetsStore from '../../store/assets'
 
 jest.mock('realm')
 jest.mock('react-native-tron')
@@ -37,6 +38,32 @@ describe('Transaction Utils', () => {
       await updateTransactions('any address')
       transactionStoreRef = await getTransactionStore()
       expect(transactionStoreRef.objects('Transaction').length).toBe(transactionList.length)
+    })
+  })
+
+  describe('#getTokenPriceFromStore', () => {
+    let assetStore
+    beforeEach(async () => {
+      assetStore = await getAssetsStore()
+      assetStore.write(() => {
+        assetStore.create('Asset', { id: 1, name: 'TWX', price: 1000 })
+        assetStore.create('Asset', { id: 2, name: 'ANOTHER_TOKEN', price: 100 })
+      })
+
+      // Mock the realm filtered method 
+      assetStore.filtered = (store, query) => (
+        assetStore.objects(store).filter(a => `name == '${a.name}'` === query)
+      )
+    })
+
+    test('Should return the TWX price', async () => {
+      const price = await getTokenPriceFromStore('TWX', assetStore)
+      expect(price).toBe(1000)
+    })
+
+    test('Should return ANOTHER_TOKEN price', async () => {
+      const price = await getTokenPriceFromStore('ANOTHER_TOKEN', assetStore)
+      expect(price).toBe(100)
     })
   })
 })
