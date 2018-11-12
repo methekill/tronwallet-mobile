@@ -35,6 +35,10 @@ jobs:
           name: fastlane test
           command: bundle exec fastlane test
 
+      - run:
+          name: jest test
+          command: yarn test
+
   ios_deploy:
     working_directory: ~/project
     macos:
