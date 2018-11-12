@@ -12,16 +12,16 @@ import { USER_FILTERED_TOKENS } from '../../utils/constants'
 
 import getAssetsStore from '../../store/assets'
 import getTransactionStore from '../../store/transactions'
+import getContactsStore from '../../store/contacts'
 import { withContext } from '../../store/context'
 import { updateTransactions, getTokenPriceFromStore } from '../../utils/transactionUtils'
-import getContactsStore from '../../store/contacts'
 import { logSentry } from '../../utils/sentryUtils'
 import { Colors } from '../../components/DesignSystem'
 import Empty from './Empty'
 import FontelloButton from '../../components/FontelloButton'
 import { SafeAreaView } from './../../components/Utils'
 
-class TransactionsScene extends Component {
+export class TransactionsSceneWrapper extends Component {
   static navigationOptions = () => ({ header: null })
 
   state = {
@@ -274,4 +274,4 @@ class TransactionsScene extends Component {
   }
 }
 
-export default withContext(TransactionsScene)
+export default withContext(TransactionsSceneWrapper)
