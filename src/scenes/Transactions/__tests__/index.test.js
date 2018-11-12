@@ -35,7 +35,7 @@ describe('Transaction Scene', () => {
     const addListenerMockResult = jest.fn()
     const addListenerMock = jest.fn(() => (addListenerMockResult))
     const props = { navigation: { addListener: addListenerMock } }
-    
+
     const { wrapper } = setup(props)
     const instance = wrapper.instance()
     const spy = jest.spyOn(wrapper.instance(), '_setData')
@@ -77,9 +77,9 @@ describe('Transaction Scene', () => {
     test('_setData', async () => {
       const { wrapper } = setup()
       const instance = wrapper.instance()
-  
+
       const spy = jest.spyOn(instance, '_loadData')
-  
+
       await instance._setData()
       const state = wrapper.state()
 

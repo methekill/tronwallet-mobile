@@ -9,17 +9,16 @@ jest.mock('react-native-tron')
 jest.mock('../i18n')
 jest.mock('../sentryUtils')
 jest.mock('../../services/client')
-jest.mock('../deeplinkUtils', () => {
+jest.mock('../deeplinkUtils', () => ({
   TronVaultURL: 'testurl'
-})
+}))
 
 describe('Transaction Utils', () => {
-
   describe('#signTransaction', async () => {
     test('should return the signed transaction when valid key and transaction', async () => {
       const privateKey = 'valid key'
       const transactionUnsigned = 'transaction'
-   
+
       const transactionSigned = await signTransaction(privateKey, transactionUnsigned)
       expect(transactionSigned).toBe('signTransaction success')
     })
@@ -27,7 +26,7 @@ describe('Transaction Utils', () => {
     test('should send the error to sentry when something goes wrong', async () => {
       const privateKey = 'invalid pass'
       const transactionUnsigned = 'transaction'
-   
+
       await signTransaction(privateKey, transactionUnsigned)
       expect(logSentry).toBeCalledWith('signTransaction error', 'Signing Transaction')
     })
@@ -36,7 +35,7 @@ describe('Transaction Utils', () => {
   describe('#updateTransactions', () => {
     test('update realm transactions', async () => {
       await updateTransactions('any address')
-      transactionStoreRef = await getTransactionStore()
+      const transactionStoreRef = await getTransactionStore()
       expect(transactionStoreRef.objects('Transaction').length).toBe(transactionList.length)
     })
   })
@@ -50,7 +49,7 @@ describe('Transaction Utils', () => {
         assetStore.create('Asset', { id: 2, name: 'ANOTHER_TOKEN', price: 100 })
       })
 
-      // Mock the realm filtered method 
+      // Mock the realm filtered method
       assetStore.filtered = (store, query) => (
         assetStore.objects(store).filter(a => `name == '${a.name}'` === query)
       )

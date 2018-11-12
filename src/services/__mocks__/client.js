@@ -12,4 +12,3 @@ const ClientWallet = jest.fn().mockImplementation(() => {
 })
 
 export default new ClientWallet()
-
