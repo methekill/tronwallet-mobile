@@ -10,14 +10,14 @@ export const Label = styled.Text`
   font-size: 11px;
   color: #66688F;
   letter-spacing: 0.6;
-  line-height: 11px;
+  line-height: 12px;
 `
 
 export const Text = styled.Text`
   font-family: Rubik-Medium;
   font-size: 16px;
   color: #FFF;
-  line-height: 16px;
+  line-height: 18px;
 `
 
 export const KeyPad = styled.View`

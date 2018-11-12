@@ -35,10 +35,10 @@
   "trxPrice": "PREÇO TRX",
   "confirmed": "Confirmado",
   "unconfirmed": "Não confirmado",
-  "copyAddress": "COPIAR ENDEREÇO",
+  "copyAddress": "COPIAR",
   "transactionType": {
     "transfer": "Transferência",
-    "transferAsset": "Transferir Ativo",
+    "transferAsset": "Transferir",
     "freeze": "Congelar",
     "unfreeze": "Descongelar",
     "vote": "Votar",
@@ -77,16 +77,16 @@
     },
     "QRScanner": {
       "title": "Scanner de Endereço",
-      "scan": "Escâner",
+      "scan": "Scanner",
       "explanation": "Escaneie o QRCode para identificar o usuário de destino",
       "permissionMessage": "Para verificar a chave pública, o aplicativo precisa da sua permissão para acessar a câmera."
     },
     "vote": {
-      "enterVote": "DIGITE O VALOR DE VOTOS",
+      "enterVote": "DIGITE A QTD DE VOTOS",
       "votesRemaining": "VOTOS RESTANTES",
       "setVote": "VOTE",
       "moreVotes": "Se você precisar de mais votos, você pode congelar mais TRX.",
-      "confirmVotes": "CONFIRMAR VOTOS",
+      "confirmVotes": "CONFIRMAR",
       "yourVotes": "Seus votos",
       "myVotes": "MEUS VOTOS",
       "confirm": "CONFIRMAR",
@@ -170,6 +170,7 @@
     "title": "CONGELAR",
     "unfreeze": {
       "title": "DESCONGELAR",
+      "inXTime" : "You can unfreeze your TRX",
       "inThreeDays": "Após um período de três dias você pode descongelar seu TRX",
       "inXMinutes": "Você pode descongelar seu TRX em {{minutes}} minutos.",
       "inXHours": "Você pode descongelar seu TRX em {{hours}} horas.",
@@ -181,7 +182,7 @@
       "insufficientBalance": "Saldo insuficiente do TRX",
       "roundNumbers": "Pode congelar somente números redondos"
     },
-    "amount": "CONGELAR A QUANTIDADE",
+    "amount": "CONGELAR",
     "balance": "Saldo"
   },
   "getVault": {
@@ -221,9 +222,9 @@
     "warning": "Você não tem suficiente TRX para comprar tantos {{token}}",
     "enterAmountToBuy": "INSIRA O VALOR DE COMPRA",
     "amountToBuy": "QUANTIDADE PARA COMPRAR",
-    "pricePerToken": "PREÇO POR TOKEN",
+    "pricePerToken": "PREÇO",
     "tokenDescription": "DESCRIÇÃO DO TOKEN",
-    "tokenInfo": "INFORMAÇÃO SOBRE O TOKEN",
+    "tokenInfo": "INFORMAÇÃO DO TOKEN",
     "token": "TOKEN",
     "tokens": "TOKEN",
     "frozen": "CONGELADO",
@@ -238,7 +239,7 @@
     "trxNum": "NUMERO TRX",
     "num": "NUMERO",
     "block": "BLOCO",
-    "balance": "BALANÇA",
+    "balance": "SALDO",
     "searchPreview": "Tokens em destaque"
   },
   "pin": {
@@ -415,7 +416,7 @@
       "noAccounts": "Sem contas para restaurar"
     },
     "partners": "PARCEIROS",
-    "askPin": "Sempre pedir o PIN",
+    "askPin": "Sempre pedir PIN",
     "askBiometry": "Ativar a biometria",
     "verifiedTokensOnly": "Apenas tokens verificados"
   },

@@ -18,7 +18,7 @@ import tl from '../../utils/i18n'
 import { formatNumber } from '../../utils/numberUtils'
 import { orderBalances, parseFixedTokens } from '../../utils/balanceUtils'
 import { getCustomName } from '../../utils/assetsUtils'
-import { USER_FILTERED_TOKENS } from '../../utils/constants'
+import { USER_FILTERED_TOKENS, WALLET_TOKENS } from '../../utils/constants'
 import { logSentry } from '../../utils/sentryUtils'
 import { withContext } from '../../store/context'
 import { queryToken } from '../../services/contentful'
@@ -34,7 +34,7 @@ class WalletBalances extends Component {
     const { balances, publicKey, fixedTokens } = this.props.context
     if (balances[publicKey] !== prevProps.context.balances[prevProps.context.publicKey]) {
       try {
-        const parsedTokens = parseFixedTokens(fixedTokens)
+        const parsedTokens = parseFixedTokens(WALLET_TOKENS)
         const selectedBalances = this._updateTRXBalance(balances[publicKey].slice(0))
         const tokens = unionBy(selectedBalances, parsedTokens, 'name')
         const list = await this._updateListByStoreTokens(tokens)

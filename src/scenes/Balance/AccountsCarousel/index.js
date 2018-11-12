@@ -165,13 +165,13 @@ class AccountsCarousel extends React.Component {
               <Utils.Row justify='space-between'>
                 <CardInfo
                   label={tl.t('avaliable')}
-                  value={avaliable}
-                  currency={currency}
+                  value={balance}
+                  currency='TRX'
                 />
                 <CardInfo
                   label={tl.t('frozen')}
-                  value={frozen}
-                  currency={currency}
+                  value={tronPower}
+                  currency='TRX'
                 />
               </Utils.Row>
             </Utils.View>

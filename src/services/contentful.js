@@ -29,15 +29,15 @@ export const getTokens = async (verifiedOnly = false, start = 0) => {
   const featured = []
   const assets = []
   const allAssets = []
-
-  featuredTokens.map(({fields: token}) => {
+  featuredTokens.map(({sys: { id: contentfulId }, fields: token}) => {
+    const asset = {...token, contentfulId}
     if (token.isFeatured) {
       const image = token.featuredCover ? `https:${token.featuredCover.fields.file.url}` : null
-      featured.push({...token, image})
-      allAssets.push({...token, image})
+      featured.push({...asset, image})
+      allAssets.push({...asset, image})
     } else {
-      allAssets.push(token)
-      assets.push(token)
+      allAssets.push(asset)
+      assets.push(asset)
     }
   })
   return {featured, assets, allAssets, totalTokens: total}
@@ -71,10 +71,9 @@ export const getFixedTokens = async () => {
 
 export const getSystemStatus = async () => {
   const systemEntry = await contentfulClient.getEntry(SYSTEM_CONTENT)
-  const { fields: { showStatus, statusMessage, statusColor, messageColor, exchangeBot, systemAddress } } = systemEntry
+  const { fields: { showStatus, statusMessage, statusColor, messageColor, systemAddress } } = systemEntry
   return {
-    systemStatus: { showStatus, statusMessage, statusColor, messageColor, exchangeBot },
-    exchangeBot,
+    systemStatus: { showStatus, statusMessage, statusColor, messageColor },
     systemAddress
   }
 }

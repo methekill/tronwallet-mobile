@@ -83,7 +83,7 @@ export const MarginFixer = styled.View`
 
 export const BuyText = styled.Text`
   text-align: center;
-  font-size: 11;
+  font-size: 13;
   font-family: Rubik-Medium;
   letter-spacing: 0.7;
   color: ${props => props.white ? Colors.primaryText : Colors.secondaryText};
@@ -129,8 +129,9 @@ export const BuyButton = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   padding-vertical: 7px;
-  padding-horizontal: 30px;
-  max-width: 90px;
+  min-width: 90px;
+  max-width: 110px;
+  box-shadow: 1px 2px #000;
   elevation: ${props => props.elevation || 2};
 `
 export const TokensTitle = styled.Text`

@@ -9,20 +9,11 @@ import * as Utils from '../../components/Utils'
 import { formatNumber } from '../../utils/numberUtils'
 
 class TrxValue extends Component {
-  _formatBalance = (value, currency) => {
-    const crypto = ['BTC', 'ETH']
-
-    if (Number.isInteger(value) || crypto.indexOf(currency) >= 0) {
-      return formatNumber(value, false)
-    } else {
-      return value.toFixed(2)
-    }
-  }
+  _balanceTextSize = balance => formatNumber(balance).length > 10 ? 'medium' : 'large'
 
   render () {
     const { trxBalance } = this.props
     const { currency, price } = this.props.context
-
     return (
       <React.Fragment>
         <Utils.Row justify='flex-start' align='center'>
@@ -35,7 +26,7 @@ class TrxValue extends Component {
                 {value => (
                   <Utils.View maxWidth={190}>
                     <Utils.Text size='large' adjustsFontSizeToFit numberOfLines={1}>
-                      {this._formatBalance(value.price, currency)}
+                      {formatNumber(value.price, currency)}
                     </Utils.Text>
                   </Utils.View>
                 )}
