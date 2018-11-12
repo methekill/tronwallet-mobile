@@ -17,3 +17,5 @@ export const orderBalances = (balances, fixedTokens) => {
     ...rest
   ]
 }
+
+export const parseFixedTokens = (tokens) => tokens.map(name => ({ name, balance: 0 }))

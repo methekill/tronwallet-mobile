@@ -37,7 +37,7 @@
   "unconfirmed": "Onbevestigd",
   "copyAddress": "ADRES KOPIËREN",
   "transactionType": {
-    "transfer": "Versturen",
+    "transfer": "Transactie",
     "transferAsset": "Verstuur token",
     "freeze": "Vastzetten",
     "unfreeze": "Ontgrendelen",

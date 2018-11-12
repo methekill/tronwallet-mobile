@@ -5,7 +5,7 @@ import Switch from 'react-native-switch-pro'
 import * as Utils from '../../components/Utils'
 import ButtonGradient from './../../components/ButtonGradient'
 import { PolicyText } from './elements'
-import { Colors } from './../../components/DesignSystem'
+import { Colors, Spacing } from './../../components/DesignSystem'
 import tl from '../../utils/i18n'
 
 class PrivacyPolicy extends Component {
@@ -23,15 +23,22 @@ class PrivacyPolicy extends Component {
 
   render () {
     return (
-      <Utils.Container>
-        <Utils.Content paddingVertical='medium' paddingHorizontal='medium' flex={1} >
+      <Utils.SafeAreaView background={Colors.darkerBackground}>
+
+        <Utils.Content
+          paddingVertical='medium'
+          paddingHorizontal='medium'
+          flex={1}
+        >
           <Utils.View
-            flex={1}
+            align='center'
             background={Colors.dusk}
-            paddingTop={28}
-            paddingHorizontal={35}
+            paddingVertical={Spacing.medium}
+            paddingHorizontal={Spacing.medium}
+            borderRadius={8}
           >
-            <Utils.View align='center'>
+            <Utils.View height='20%' align='center'>
+              <Utils.VerticalSpacer size='medium' />
               <Utils.Text lineHeight={36} size='medium'>{tl.t('privacyPolicy.title')}</Utils.Text>
               <Utils.VerticalSpacer />
               <Utils.Text
@@ -48,7 +55,7 @@ class PrivacyPolicy extends Component {
               <Utils.VerticalSpacer size='small' />
               <Utils.View width={8} height={1} background={Colors.lemonYellow} />
               <Utils.VerticalSpacer size='small' />
-            </Utils.View >
+            </Utils.View>
 
             <Utils.View height='60%'>
               <ScrollView>
@@ -64,7 +71,7 @@ class PrivacyPolicy extends Component {
                   circleStyle={{ backgroundColor: Colors.orange }}
                   backgroundActive={Colors.yellow}
                   backgroundInactive={Colors.secondaryText}
-                  onSyncPress={(userAccepted) => {
+                  onSyncPress={userAccepted => {
                     this.setState({ userAccepted })
                   }}
                 />
@@ -76,7 +83,8 @@ class PrivacyPolicy extends Component {
 
           </Utils.View>
         </Utils.Content>
-      </Utils.Container>
+
+      </Utils.SafeAreaView>
     )
   }
 }

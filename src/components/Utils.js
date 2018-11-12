@@ -2,11 +2,13 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { ImageBackground, Image, Platform } from 'react-native'
-import _ from 'lodash'
+import capitalize from 'lodash/capitalize'
 import Ionicon from 'react-native-vector-icons/Ionicons'
 import PropTypes from 'prop-types'
-
+import { createIconSetFromFontello } from 'react-native-vector-icons'
 import { Colors, Spacing, FontSize } from './DesignSystem'
+
+import fontelloConfig from './../assets/icons/config.json'
 
 /* Tron Wallet's border settings. Use it anywhere you need the default Tron Wallet
 border. */
@@ -174,7 +176,7 @@ VerticalSpacer.propTypes = {
 
 export const Text = styled.Text`
   color: ${props => props.color};
-  font-family: ${props => `Rubik-${_.capitalize(props.font || 'medium')}`};
+  font-family: ${props => `Rubik-${capitalize(props.font)}`};
   ${props => props.size && css` font-size: ${FontSize[props.size]}px`};
   ${props => props.light && css` font-family: rubik-light`};
   ${props => props.padding && css` padding: ${props.padding}px`};
@@ -196,7 +198,8 @@ export const Text = styled.Text`
 
 Text.defaultProps = {
   size: 'small',
-  color: Colors.primaryText
+  color: Colors.primaryText,
+  font: 'medium'
 }
 
 Text.propTypes = {
@@ -287,7 +290,7 @@ export const PasteButton = styled.TouchableOpacity`
   margin-horizontal: 5px;
   padding: ${Spacing.small}px;
   border-width: 1px;
-  ${tronWalletBorder}
+  ${tronWalletBorder};
 `
 export const PlusButton = styled.TouchableOpacity`
   background-color: ${Colors.secondaryText};
@@ -479,7 +482,7 @@ export const LightButton = styled.TouchableOpacity`
   background-color: ${props => props.disabled ? Colors.background : Colors.lightestBackground};
   border-radius: 4px;
   border-width: 2px;
-  border-color:  ${Colors.lightestBackground};
+  border-color: ${Colors.lightestBackground};
 `
 /* Text components used throughout the app: */
 
@@ -515,3 +518,14 @@ export const VersionText = styled.Text`
   padding: 20px;
   align-self: center;
 `
+
+export const TWIcon = createIconSetFromFontello(fontelloConfig, 'tronwallet')
+
+export const SafeAreaView = styled.SafeAreaView`
+  flex: 1;
+  background-color: ${props => props.background};
+`
+
+SafeAreaView.defaultProps = {
+  background: Colors.background
+}

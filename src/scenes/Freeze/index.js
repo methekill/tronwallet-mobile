@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Alert, Keyboard } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import moment from 'moment'
 import { Answers } from 'react-native-fabric'
 
@@ -16,11 +15,11 @@ import NavigationHeader from '../../components/Navigation/Header'
 
 import Client, { ONE_TRX } from '../../services/client'
 import { signTransaction } from '../../utils/transactionUtils'
-import getTransactionStore from '../../store/transactions'
 import { withContext } from '../../store/context'
 import { formatNumber } from '../../utils/numberUtils'
 import { logSentry, DataError } from '../../utils/sentryUtils'
 import { replaceRoute } from '../../utils/navigationUtils'
+import FontelloIcon from '../../components/FontelloIcon'
 
 class FreezeScene extends Component {
   static navigationOptions = {
@@ -39,10 +38,7 @@ class FreezeScene extends Component {
 
   componentDidMount () {
     Answers.logContentView('Page', 'Freeze')
-    this._didFocusSubscription = this.props.navigation.addListener(
-      'didFocus',
-      this._loadData
-    )
+    this._didFocusSubscription = this.props.navigation.addListener('didFocus', this._loadData)
   }
 
   componentWillUnmount () {
@@ -50,44 +46,25 @@ class FreezeScene extends Component {
   }
 
   _checkUnfreeze = async () => {
-    const { context } = this.props
+    const { freeze, publicKey } = this.props.context
     let unfreezeStatus = {
       msg: tl.t('freeze.unfreeze.inThreeDays'),
       disabled: false
     }
-    try {
-      const transactionStore = await getTransactionStore()
+    const { balances } = freeze[publicKey]
+    const { expires: frozenExpiration } = balances[0]
 
-      const queryFreeze = transactionStore
-        .objects('Transaction')
-        .sorted([['timestamp', true]])
-        .filtered('ownerAddress = $0 AND (type == "Unfreeze" OR type == "Freeze")', context.publicKey)
-
-      const lastFreeze = queryFreeze.length && queryFreeze[0].type === 'Freeze'
-        ? queryFreeze[0] : null
-
-      if (lastFreeze) {
-        const lastFreezeTimePlusThree = moment(lastFreeze.timestamp).add(3, 'days')
-        const differenceFromNow = lastFreezeTimePlusThree.diff(moment())
-        const duration = moment.duration(differenceFromNow)
-
-        if (duration.asSeconds() > 0) {
-          unfreezeStatus.msg = duration.asDays() < 1 ? duration.asHours() < 1
-            ? tl.t('freeze.unfreeze.inXMinutes', { minutes: Math.round(duration.asMinutes()) })
-            : tl.t('freeze.unfreeze.inXHours', { hours: Math.round(duration.asHours()) })
-            : tl.t('freeze.unfreeze.inXDays', { days: Math.round(duration.asDays()) })
-          unfreezeStatus.disabled = true
-          return unfreezeStatus
-        } else {
-          unfreezeStatus.msg = tl.t('freeze.unfreeze.now')
-          unfreezeStatus.disabled = false
-          return unfreezeStatus
-        }
+    if (frozenExpiration > 0) {
+      if (frozenExpiration < new Date().getTime()) {
+        unfreezeStatus.msg = tl.t('freeze.unfreeze.now')
+        unfreezeStatus.disabled = false
+        return unfreezeStatus
       } else {
+        unfreezeStatus.msg = `${tl.t('freeze.unfreeze.inXTime')} ${moment(frozenExpiration).fromNow()}`
+        unfreezeStatus.disabled = true
         return unfreezeStatus
       }
-    } catch (e) {
-      logSentry(e, 'Unfreeze - Load Status')
+    } else {
       return unfreezeStatus
     }
   }
@@ -110,7 +87,7 @@ class FreezeScene extends Component {
 
   _submitUnfreeze = async () => {
     const { publicKey } = this.props.context
-    this.setState({loading: true})
+    this.setState({ loading: true })
     try {
       const data = await Client.getUnfreezeTransaction(publicKey, this.props.context.pin)
       this._openTransactionDetails(data)
@@ -119,7 +96,7 @@ class FreezeScene extends Component {
       this.setState({ loadingSign: false })
       logSentry(e, 'Unfreeze - Submit')
     } finally {
-      this.setState({loading: false})
+      this.setState({ loading: false })
     }
   }
 
@@ -131,9 +108,15 @@ class FreezeScene extends Component {
 
     this.setState({ loading: true })
     try {
-      if (convertedAmount <= 0) { throw new DataError(tl.t('freeze.error.minimiumAmount')) }
-      if (balance < convertedAmount) { throw new DataError(tl.t('freeze.error.insufficientAmount')) }
-      if (!Number.isInteger(convertedAmount)) { throw new DataError(tl.t('freeze.error.roundNumbers')) }
+      if (convertedAmount <= 0) {
+        throw new DataError(tl.t('freeze.error.minimiumAmount'))
+      }
+      if (balance < convertedAmount) {
+        throw new DataError(tl.t('freeze.error.insufficientAmount'))
+      }
+      if (!Number.isInteger(convertedAmount)) {
+        throw new DataError(tl.t('freeze.error.roundNumbers'))
+      }
       this._freezeToken()
     } catch (error) {
       if (error.name === 'DataError') {
@@ -161,7 +144,7 @@ class FreezeScene extends Component {
     }
   }
 
-  _openTransactionDetails = async (transactionUnsigned) => {
+  _openTransactionDetails = async transactionUnsigned => {
     try {
       const { accounts, publicKey, freeze } = this.props.context
       const totalFrozen = Math.floor(freeze[publicKey].total) * ONE_TRX
@@ -193,7 +176,7 @@ class FreezeScene extends Component {
 
   _leftContent = () => (
     <Utils.View marginRight={8} marginLeft={8}>
-      <Ionicons name='ios-unlock' size={16} color={Colors.secondaryText} />
+      <FontelloIcon name='lock' size={12} color={Colors.secondaryText} />
     </Utils.View>
   )
 
@@ -212,67 +195,72 @@ class FreezeScene extends Component {
     const trxBalance = this._getBalance()
 
     return (
-      <KeyboardScreen>
-        <NavigationHeader
-          title={tl.t('freeze.title')}
-          onBack={() => { this.props.navigation.goBack() }}
-          noBorder
-        />
-        <Utils.Container>
-          <Header>
-            <Utils.View align='center'>
-              <Utils.Text size='xsmall' secondary>
-                {tl.t('freeze.balance')}
-              </Utils.Text>
-              <Utils.VerticalSpacer size='medium' />
-              <Utils.Row align='center'>
-                <Utils.Text size='large'>{formatNumber(trxBalance)}</Utils.Text>
-                <Utils.HorizontalSpacer />
-                <Badge>TRX</Badge>
-              </Utils.Row>
-            </Utils.View>
-          </Header>
-          <Utils.Content paddingTop={8}>
-            <Input
-              label={tl.t('freeze.amount')}
-              leftContent={this._leftContent}
-              keyboardType='numeric'
-              align='right'
-              value={amount}
-              onChangeText={value => this._changeFreeze(value)}
-              onSubmitEditing={() => Keyboard.dismiss()}
-              placeholder='0'
-              type='int'
-              numbersOnly
-            />
-            <Utils.VerticalSpacer size='small' />
-            <Utils.SummaryInfo>
-              {`${tl.t('tronPower')} ${formatNumber(newTotalPower)}`}
-            </Utils.SummaryInfo>
-            <Utils.VerticalSpacer size='medium' />
-            <ButtonGradient
-              font='bold'
-              text={tl.t('freeze.title')}
-              onPress={this._submit}
-              disabled={loading || !(amount > 0 && amount <= trxBalance)}
-            />
-            <Utils.VerticalSpacer size='big' />
-            <Utils.View align='center' justify='center'>
+      <Utils.SafeAreaView>
+        <KeyboardScreen>
+          <NavigationHeader
+            title={tl.t('freeze.title')}
+            onBack={() => { this.props.navigation.goBack() }}
+            noBorder
+          />
+          <Utils.Container>
+            <Header>
+              <Utils.View align='center'>
+                <Utils.Text size='xsmall' secondary>
+                  {tl.t('freeze.balance')}
+                </Utils.Text>
+                <Utils.VerticalSpacer size='medium' />
+                <Utils.Row align='center'>
+                  <Utils.Text size='large'>
+                    {formatNumber(trxBalance)}
+                  </Utils.Text>
+                  <Utils.HorizontalSpacer />
+                  <Badge>TRX</Badge>
+                </Utils.Row>
+              </Utils.View>
+            </Header>
+            <Utils.Content paddingTop={8}>
+              <Input
+                label={tl.t('freeze.amount')}
+                leftContent={this._leftContent}
+                keyboardType='numeric'
+                align='right'
+                value={amount}
+                onChangeText={value => this._changeFreeze(value)}
+                onSubmitEditing={() => Keyboard.dismiss()}
+                placeholder='0'
+                type='int'
+                numbersOnly
+              />
+              <Utils.VerticalSpacer size='small' />
               <Utils.SummaryInfo>
-                {unfreezeStatus.msg}
+                {`${tl.t('tronPower')} ${formatNumber(newTotalPower)}`}
               </Utils.SummaryInfo>
               <Utils.VerticalSpacer size='medium' />
-              <Utils.LightButton
-                paddingY={'medium'}
-                paddingX={'large'}
-                disabled={unfreezeStatus.disabled || loading || !userTotalPower}
-                onPress={this._submitUnfreeze}>
-                <Utils.Text size='xsmall'>{tl.t('freeze.unfreeze.title')}</Utils.Text>
-              </Utils.LightButton>
-            </Utils.View>
-          </Utils.Content>
-        </Utils.Container>
-      </KeyboardScreen>
+              <ButtonGradient
+                font='bold'
+                text={tl.t('freeze.title')}
+                onPress={this._submit}
+                disabled={loading || !(amount > 0 && amount <= trxBalance)}
+              />
+              <Utils.VerticalSpacer size='big' />
+              <Utils.View align='center' justify='center'>
+                <Utils.SummaryInfo>{unfreezeStatus.msg}</Utils.SummaryInfo>
+                <Utils.VerticalSpacer size='medium' />
+                <Utils.LightButton
+                  paddingY={'medium'}
+                  paddingX={'large'}
+                  disabled={unfreezeStatus.disabled || loading || !userTotalPower}
+                  onPress={this._submitUnfreeze}
+                >
+                  <Utils.Text size='xsmall'>
+                    {tl.t('freeze.unfreeze.title')}
+                  </Utils.Text>
+                </Utils.LightButton>
+              </Utils.View>
+            </Utils.Content>
+          </Utils.Container>
+        </KeyboardScreen>
+      </Utils.SafeAreaView>
     )
   }
 }

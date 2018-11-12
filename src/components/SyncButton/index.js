@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react'
-import {
-  Animated,
-  TouchableOpacity,
-  Easing} from 'react-native'
+import { Animated, TouchableOpacity, Easing, StyleSheet } from 'react-native'
 
 import { Spacing } from '../DesignSystem'
 
 class SyncButton extends PureComponent {
+  static defaultProps = {
+    onPress: () => null
+  }
+
   constructor () {
     super()
     this.spinValue = new Animated.Value(0)
@@ -46,18 +47,27 @@ class SyncButton extends PureComponent {
     })
 
     return (
-      <TouchableOpacity disabled={loading} style={{padding: Spacing.medium}} onPress={onPress}>
+      <TouchableOpacity disabled={loading} style={styles.touchable} onPress={onPress}>
         <Animated.Image
-          style={{
-            width: 17,
-            height: 17,
+          style={[styles.image, {
             opacity: loading ? 0.4 : 1,
-            transform: [{rotate: spin}] }}
+            transform: [{ rotate: spin }]
+          }]}
           source={require('../../assets/refresh.png')}
         />
       </TouchableOpacity>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  touchable: {
+    padding: Spacing.medium
+  },
+  image: {
+    width: 17,
+    height: 17
+  }
+})
 
 export default SyncButton

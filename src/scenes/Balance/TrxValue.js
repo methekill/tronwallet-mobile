@@ -9,23 +9,11 @@ import * as Utils from '../../components/Utils'
 import { formatNumber } from '../../utils/numberUtils'
 
 class TrxValue extends Component {
-  _formatBalance = (value, currency) => {
-    const crypto = ['BTC', 'ETH']
-
-    if (Number.isInteger(value) || crypto.indexOf(currency) >= 0) {
-      return formatNumber(value, true)
-    } else {
-      return value.toFixed(2)
-    }
-  }
+  _balanceTextSize = balance => formatNumber(balance).length > 10 ? 'medium' : 'large'
 
   render () {
     const { trxBalance } = this.props
     const { currency, price } = this.props.context
-    const priceToDisplay = !!trxBalance && !!currency && !!price && !!price[currency]
-      ? trxBalance * price[currency].price
-      : 0
-
     return (
       <React.Fragment>
         <Utils.Row justify='flex-start' align='center'>
@@ -34,35 +22,23 @@ class TrxValue extends Component {
               <FadeIn name='usd-value'>
                 <Motion
                   defaultStyle={{ price: 0 }}
-                  style={{ price: spring(priceToDisplay) }}
+                  style={{ price: spring(trxBalance) }}
                 >
                   {value => (
-                    <Utils.Text size='large'>
-                      {this._formatBalance(value.price, currency)}
+                    <Utils.Text size={this._balanceTextSize(value.price)}>
+                      {formatNumber(value.price)}
                     </Utils.Text>
                   )}
                 </Motion>
               </FadeIn>
             )}
             <Utils.HorizontalSpacer />
-            <Badge bg='#191a2b'>{currency}</Badge>
+            <Badge bg='#191a2b' guarantee>
+              {currency}
+            </Badge>
           </React.Fragment>
         </Utils.Row>
         <Utils.VerticalSpacer />
-        {(currency !== 'USD' && price.USD) && (
-          <FadeIn name='usd-value'>
-            <Motion
-              defaultStyle={{ price: 0 }}
-              style={{ price: spring(trxBalance * price.USD.price) }}
-            >
-              {value => (
-                <Utils.Text size='xsmall' align='left'>
-                  {`${value.price.toFixed(2)} USD`}
-                </Utils.Text>
-              )}
-            </Motion>
-          </FadeIn>
-        )}
       </React.Fragment>
     )
   }

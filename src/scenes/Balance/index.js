@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
-import {
-  RefreshControl,
-  ScrollView,
-  TouchableOpacity
-} from 'react-native'
+import { RefreshControl, ScrollView, TouchableOpacity } from 'react-native'
 import { Answers } from 'react-native-fabric'
-import unionBy from 'lodash/unionBy'
 import Feather from 'react-native-vector-icons/Feather'
 
 import FormModal from '../../components/FormModal'
@@ -13,7 +8,6 @@ import SyncButton from '../../components/SyncButton'
 import NavigationHeader from '../../components/Navigation/Header'
 import * as Utils from '../../components/Utils'
 import WalletBalances from './WalletBalances'
-import BalanceWarning from './BalanceWarning'
 import BalanceNavigation from './BalanceNavigation'
 import AccountsCarousel from './AccountsCarousel'
 
@@ -51,14 +45,28 @@ class BalanceScene extends Component {
     this.appStateListener.remove()
   }
 
+  _loadData = async () => {
+    try {
+      this.props.context.loadUserData()
+      this.props.context.updateSystemStatus()
+    } catch (e) {
+      this.setState({ error: tl.t('balance.error.loadingData') })
+      logSentry(e, 'Balance - LoadData')
+    }
+  }
+
   _createAccountPressed = () => {
     const { userSecrets } = this.props.context
     const newAccountName = `Account ${userSecrets.length}`
 
-    this.setState({ accountModalVisible: true, newAccountName, accountNameError: null })
+    this.setState({
+      accountModalVisible: true,
+      newAccountName,
+      accountNameError: null
+    })
   }
 
-  _validateAccountName = async (name) => {
+  _validateAccountName = async name => {
     if (name) {
       if (!isNameValid(name)) {
         return tl.t('addressBook.form.nameError')
@@ -73,7 +81,7 @@ class BalanceScene extends Component {
     return null
   }
 
-  _handleAccountNameChange = async (name) => {
+  _handleAccountNameChange = async name => {
     const accountNameError = await this._validateAccountName(name)
     this.setState({ newAccountName: name, accountNameError })
   }
@@ -119,97 +127,69 @@ class BalanceScene extends Component {
     }
   }
 
-  _loadData = async () => {
-    try {
-      this.props.context.loadUserData()
-      this.props.context.updateSystemStatus()
-    } catch (e) {
-      this.setState({ error: tl.t('balance.error.loadingData') })
-      logSentry(e, 'Balance - LoadData')
-    }
-  }
-
   _rightButtonHeader = () => {
     const { secretMode } = this.props.context
     const { creatingNewAccount } = this.state
     if (secretMode === 'privatekey') {
       return null
-    } else {
-      return <TouchableOpacity onPress={this._createAccountPressed} disabled={creatingNewAccount}>
+    }
+
+    return (
+      <TouchableOpacity onPress={this._createAccountPressed} disabled={creatingNewAccount} >
         {creatingNewAccount
-          ? <SyncButton
-            loading
-            onPress={() => { }}
-          />
-          : <Feather name='plus' color={'white'} size={28} />
-        }
+          ? (<SyncButton loading />)
+          : (<Feather name='plus' color={'white'} size={28} />)}
       </TouchableOpacity>
-    }
-  }
-
-  _getBalancesToDisplay = () => {
-    const { balances, publicKey, fixedTokens } = this.props.context
-
-    if (balances[publicKey]) {
-      const featuredBalances = fixedTokens.map(token => { return { name: token, balance: 0 } })
-      return unionBy(balances[publicKey], featuredBalances, 'name')
-    }
-
-    return []
+    )
   }
 
   render () {
     const {
-      seed,
       refreshing,
       accountModalVisible,
       newAccountName,
       accountNameError
     } = this.state
-    const { accounts } = this.props.context
     return (
-      <React.Fragment>
-        <NavigationHeader
-          title={tl.t('balance.title')}
-          rightButton={this._rightButtonHeader()}
-        />
-        <Utils.Container justify='flex-start' align='stretch'>
-          <ScrollView
-            refreshControl={
-              <RefreshControl
-                refreshing={refreshing}
-                onRefresh={this._onRefresh}
-              />
-            }
-          >
-            <AccountsCarousel ref={input => (this.carousel = input)} />
-            <Utils.VerticalSpacer size='medium' />
-            <Utils.Content paddingTop={0}>
-              <BalanceNavigation navigation={this.props.navigation} />
-              {accounts[0] && !accounts[0].confirmed && (
-                <BalanceWarning seed={seed} navigation={this.props.navigation}>
-                  {tl.t('balance.confirmSeed')}
-                </BalanceWarning>
-              )}
-              <WalletBalances balances={this._getBalancesToDisplay()} />
-            </Utils.Content>
-          </ScrollView>
-        </Utils.Container>
-        <FormModal
-          title={tl.t('newAccount.title')}
-          error={accountNameError}
-          inputLabel={tl.t('addressBook.form.name')}
-          inputValue={newAccountName}
-          inputPlaceholder={tl.t('newAccount.placeholder')}
-          onChangeText={this._handleAccountNameChange}
-          buttonText={tl.t(`addressBook.shared.add`)}
-          onButtonPress={this._addNewAccount}
-          buttonDisabled={!!accountNameError || !newAccountName}
-          visible={accountModalVisible}
-          closeModal={() => this.setState({ accountModalVisible: false })}
-          animationType='fade'
-        />
-      </React.Fragment>
+      <Utils.SafeAreaView>
+        <React.Fragment>
+          <NavigationHeader
+            title={tl.t('balance.title')}
+            rightButton={this._rightButtonHeader()}
+          />
+          <Utils.Container justify='flex-start' align='stretch'>
+            <ScrollView
+              refreshControl={
+                <RefreshControl
+                  refreshing={refreshing}
+                  onRefresh={this._onRefresh}
+                />
+              }
+            >
+              <AccountsCarousel ref={input => (this.carousel = input)} />
+              <Utils.VerticalSpacer size='medium' />
+              <Utils.Content paddingTop={0}>
+                <BalanceNavigation />
+                <WalletBalances />
+              </Utils.Content>
+            </ScrollView>
+          </Utils.Container>
+          <FormModal
+            title={tl.t('newAccount.title')}
+            error={accountNameError}
+            inputLabel={tl.t('addressBook.form.name')}
+            inputValue={newAccountName}
+            inputPlaceholder={tl.t('newAccount.placeholder')}
+            onChangeText={this._handleAccountNameChange}
+            buttonText={tl.t(`addressBook.shared.add`)}
+            onButtonPress={this._addNewAccount}
+            buttonDisabled={!!accountNameError || !newAccountName}
+            visible={accountModalVisible}
+            closeModal={() => this.setState({ accountModalVisible: false })}
+            animationType='fade'
+          />
+        </React.Fragment>
+      </Utils.SafeAreaView>
     )
   }
 }

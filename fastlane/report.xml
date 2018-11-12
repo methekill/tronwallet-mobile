@@ -5,17 +5,27 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.002891">
+      <testcase classname="fastlane.lanes" name="0: Verifying fastlane version" time="0.002681">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.002687">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.001498">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: gym" time="5.496435">
+      <testcase classname="fastlane.lanes" name="2: rm -rf ../node_modules/realm/react-native/ios/RealmReact.xcodeproj/project.pbxproj" time="0.166397">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: pwd" time="0.058587">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: cp ../ios/customLibs/RealmProject.pbxproj ../node_modules/realm/react-native/ios/RealmReact.xcodeproj/project.pbxproj" time="0.110323">
         
       </testcase>
     
