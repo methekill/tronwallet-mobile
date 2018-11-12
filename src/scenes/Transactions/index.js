@@ -21,7 +21,7 @@ import Empty from './Empty'
 import FontelloButton from '../../components/FontelloButton'
 import { SafeAreaView } from './../../components/Utils'
 
-class TransactionsSceneWrapper extends Component {
+export class TransactionsSceneWrapper extends Component {
   static navigationOptions = () => ({ header: null })
 
   state = {
