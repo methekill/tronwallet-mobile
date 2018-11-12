@@ -19,10 +19,12 @@ const BalanceNavigation = ({ navigation }) => {
       <Utils.Row>
         <ButtonIconGradient
           text={tl.t('makePayment.pay').toUpperCase()}
-          icon={<Image
-            source={require('../../assets/icon-scan.png')}
-            style={styles.icon}
-          />}
+          icon={
+            <Image
+              source={require('../../assets/icon-scan.png')}
+              style={styles.icon}
+            />
+          }
           full
           onPress={() => navigateNext('ScanPayScene')}
         />

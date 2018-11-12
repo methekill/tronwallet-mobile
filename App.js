@@ -73,9 +73,8 @@ if (!__DEV__) {
     disableNativeIntegration: Platform.OS === 'android',
     release: ConfigJson.version
   }).install()
-
-  Mixpanel.sharedInstanceWithToken(MIXPANEL_TOKEN)
 }
+Mixpanel.sharedInstanceWithToken(MIXPANEL_TOKEN)
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader'])
 

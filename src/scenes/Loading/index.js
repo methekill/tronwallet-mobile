@@ -15,8 +15,13 @@ import { USER_STATUS, USER_FILTERED_TOKENS } from '../../utils/constants'
 class LoadingScene extends Component {
   async componentDidMount () {
     SplashScreen.hide()
+    this.lottie.play()
     this._setFilteredTokens()
     this._askPin()
+  }
+
+  componentWillUnmount () {
+    this.lottie.reset()
   }
 
   _getUseStatus = async () => {
@@ -85,15 +90,10 @@ class LoadingScene extends Component {
 
   render () {
     return (
-      <Utils.View
-        flex={1}
-        align='center'
-        justify='center'
-        background={Colors.background}
-      >
+      <Utils.View flex={1} align='center' justify='center' background={Colors.background} >
         <LottieView
+          ref={ref => { this.lottie = ref }}
           source={require('./../../assets/animations/world_locations.json')}
-          autoPlay
           loop
           style={{ width: 200, height: 200 }}
         />

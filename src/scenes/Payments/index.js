@@ -4,7 +4,8 @@ import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view'
 
 // Design
 import { Colors } from '../../components/DesignSystem'
-import ReceiveScene from '../Receive/index'
+
+import ReceiveScene from '../Receive'
 import PaymentBuilderScene from './Build'
 import NavigationHeader from '../../components/Navigation/Header'
 import { SafeAreaView } from './../../components/Utils'

@@ -34,29 +34,31 @@ class NavigationHeader extends React.Component {
     let element = null
 
     if (onBack && !leftButton) {
-      element = <TouchableOpacity
-        style={{padding: 12}}
-        onPress={onBack} testID='HeaderBack'>
-        <Ionicons
-          name='ios-arrow-round-back'
-          size={36}
-          color={Colors.primaryText}
-        />
-      </TouchableOpacity>
+      element = (
+        <TouchableOpacity style={{padding: 12}} onPress={onBack} testID='HeaderBack'>
+          <Ionicons
+            name='ios-arrow-round-back'
+            size={36}
+            color={Colors.primaryText}
+          />
+        </TouchableOpacity>
+      )
     } else {
       element = leftButton
     }
-    return <Utils.View margin={5} position='absolute' left={10}>
-      {element}
-    </Utils.View>
+    return (
+      <Utils.View margin={5} position='absolute' left={10}>
+        {element}
+      </Utils.View>
+    )
   }
 
   _renderRightElement = (onClose, onSearch, onSearchPressed, rightButton) => {
     let element = null
     if (onClose) {
-      element = <FontelloButton onPress={onClose} name='close' size={13} />
+      element = (<FontelloButton onPress={onClose} name='close' size={13} />)
     } else if (onSearch) {
-      element =
+      element = (
         <TouchableOpacity
           style={{padding: 10}}
           onPress={() => {
@@ -64,13 +66,16 @@ class NavigationHeader extends React.Component {
           }}>
           <Ionicons name='ios-search' color='white' size={21} />
         </TouchableOpacity>
+      )
     } else {
       element = rightButton
     }
 
-    return <Utils.View margin={10} position='absolute' right={10}>
-      {element}
-    </Utils.View>
+    return (
+      <Utils.View margin={10} position='absolute' right={10}>
+        {element}
+      </Utils.View>
+    )
   }
 
   _renderDefaultMode = () => {
@@ -90,9 +95,11 @@ class NavigationHeader extends React.Component {
   _renderSeachMode = () => {
     const { onSearch, onSearchPressed } = this.props
     const onClose = () => {
-      if (onSearchPressed) onSearchPressed()
+      if (onSearchPressed) {
+        onSearchPressed()
+      }
     }
-    return <NavigationSearchBar onSearch={onSearch} onClose={onClose} />
+    return (<NavigationSearchBar onSearch={onSearch} onClose={onClose} />)
   }
 
   render () {
@@ -101,16 +108,13 @@ class NavigationHeader extends React.Component {
     return (
       <HeaderWrapper>
         <Header border={isSearching}>
-          {
-            isSearching
-              ? this._renderSeachMode()
-              : this._renderDefaultMode()}
+          {isSearching
+            ? this._renderSeachMode()
+            : this._renderDefaultMode()}
         </Header>
-        {
-          isSearching
-            ? <SearchPreview preview={this.props.searchPreview} />
-            : null
-        }
+        { isSearching
+          ? <SearchPreview preview={this.props.searchPreview} />
+          : null}
       </HeaderWrapper>
     )
   }
