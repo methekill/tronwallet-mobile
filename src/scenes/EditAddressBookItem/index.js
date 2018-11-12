@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Alert } from 'react-native'
+import MixPanel from 'react-native-mixpanel'
 
 import NavigationHeader from '../../components/Navigation/Header'
 import AddressForm from '../../components/AddressBook/AddressForm'
@@ -17,6 +18,7 @@ class EditContact extends Component {
   static navigationOptions = {
     header: null
   }
+
   state = {
     contact: this.props.navigation.getParam('item', {})
   }
@@ -36,6 +38,7 @@ class EditContact extends Component {
           item = store.objectForPrimaryKey('Contact', address)
         }
         store.delete(item)
+        MixPanel.trackWithProperties('Contacts Operation', { type: 'Delete Address' })
         if (isUserAccount) {
           context.loadUserData()
         }

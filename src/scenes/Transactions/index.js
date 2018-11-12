@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { FlatList, AsyncStorage, Platform, Image } from 'react-native'
+import { FlatList, AsyncStorage, Platform, Image, StyleSheet } from 'react-native'
 import { Answers } from 'react-native-fabric'
 import forIn from 'lodash/forIn'
+import MixPanel from 'react-native-mixpanel'
 
 import tl from '../../utils/i18n'
 import Transaction from './Transaction'
-import { Background, InnerRow, FilterText, FilterWrapper } from './elements'
+import { InnerRow, FilterText, FilterWrapper } from './elements'
 import NavigationHeader from '../../components/Navigation/Header'
 import SyncButton from '../../components/SyncButton'
 import { USER_FILTERED_TOKENS } from '../../utils/constants'
@@ -22,7 +23,7 @@ import FontelloButton from '../../components/FontelloButton'
 import { SafeAreaView } from './../../components/Utils'
 
 class TransactionsScene extends Component {
-  static navigationOptions = () => ({ header: null })
+  static navigationOptions = { header: null }
 
   state = {
     refreshing: true,
@@ -42,11 +43,16 @@ class TransactionsScene extends Component {
     this._didFocusSubscription.remove()
   }
 
-  _setData = async () => {
-    const transactionStoreRef = await getTransactionStore()
-    const contactsStoreRef = await getContactsStore()
-    const assetStore = await getAssetsStore()
-    this.setState({ transactionStoreRef, contactsStoreRef, assetStore }, () => this._loadData())
+  _setData = () => {
+    Promise.all([getTransactionStore(), getContactsStore(), getAssetsStore()])
+      .then(retults => {
+        this.setState({
+          transactionStoreRef: retults[0],
+          contactsStoreRef: retults[1],
+          assetStore: retults[2]
+        }, () => this._loadData())
+        MixPanel.trackWithProperties('Transactions', { type: 'My transactions' })
+      })
   }
 
   _didFocus = () => {
@@ -84,13 +90,9 @@ class TransactionsScene extends Component {
   }
 
   _loadData = async isRefreshing => {
-    const contacts = this.state.contactsStoreRef
-      .objects('Contact')
-      .map(item => Object.assign({}, item))
+    const contacts = this.state.contactsStoreRef.objects('Contact').map(item => Object.assign({}, item))
     const foundAlias = contacts.find(c => c.address === this.props.context.publicKey)
-    const currentAlias = foundAlias
-      ? foundAlias.alias
-      : this.props.context.publicKey
+    const currentAlias = foundAlias ? foundAlias.alias : this.props.context.publicKey
     const contact = this.props.navigation.getParam('contact', null)
 
     this.setState({ currentAlias, contacts, contact, refreshing: true }, async () => {
@@ -176,12 +178,8 @@ class TransactionsScene extends Component {
             ...item,
             contractData: {
               ...item.contractData,
-              transferFromAddress: this._getAlias(
-                item.contractData.transferFromAddress
-              ),
-              transferToAddress: this._getAlias(
-                item.contractData.transferToAddress
-              )
+              transferFromAddress: this._getAlias(item.contractData.transferFromAddress),
+              transferToAddress: this._getAlias(item.contractData.transferToAddress)
             }
           }
         )
@@ -233,45 +231,57 @@ class TransactionsScene extends Component {
       return null
     }
   }
-  render () {
-    const { refreshing, currentAlias } = this.state
-    const { publicKey } = this.props.context
-    const { transactions } = this.state
 
+  _renderItem = ({ item }) => {
+    const { currentAlias } = this.state
+    const { publicKey } = this.props.context
+    return (
+      <Transaction
+        item={item}
+        currentAlias={currentAlias}
+        onPress={() => this._navigateToDetails(item)}
+        publicKey={publicKey}
+      />
+    )
+  }
+
+  render () {
+    const { refreshing } = this.state
+    const { transactions } = this.state
     return (
       <SafeAreaView>
-        <Background>
-          <NavigationHeader
-            title={tl.t('transactions.title')}
-            leftButton={
-              <SyncButton
-                loading={refreshing}
-                onPress={() => this._loadData(true)}
-              />
-            }
-          />
-          <FlatList
-            data={transactions}
-            ListEmptyComponent={<Empty loading={refreshing} />}
-            ListHeaderComponent={this._renderFilter}
-            keyExtractor={item => item.id}
-            renderItem={({ item }) => (
-              <Transaction
-                item={item}
-                currentAlias={currentAlias}
-                onPress={() => this._navigateToDetails(item)}
-                publicKey={publicKey}
-              />
-            )}
-            initialNumToRender={10}
-            onEndReachedThreshold={0.75}
-            onEndReached={this._loadRemainingTransactions}
-            removeClippedSubviews={Platform.OS === 'android'}
-          />
-        </Background>
+        <NavigationHeader
+          title={tl.t('transactions.title')}
+          leftButton={
+            <SyncButton
+              loading={refreshing}
+              onPress={() => this._loadData(true)}
+            />
+          }
+        />
+        <FlatList
+          contentContainerStyle={transactions.length === 0 ? styles.emptyList : {}}
+          data={transactions}
+          ListEmptyComponent={<Empty loading={refreshing} />}
+          ListHeaderComponent={this._renderFilter}
+          keyExtractor={item => item.id}
+          renderItem={this._renderItem}
+          initialNumToRender={10}
+          onEndReachedThreshold={0.75}
+          onEndReached={this._loadRemainingTransactions}
+          removeClippedSubviews={Platform.OS === 'android'}
+        />
       </SafeAreaView>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  emptyList: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%'
+  }
+})
 
 export default withContext(TransactionsScene)

@@ -6,6 +6,7 @@ import Feather from 'react-native-vector-icons/Feather'
 import Modal from 'react-native-modal'
 import get from 'lodash/get'
 import unionBy from 'lodash/unionBy'
+import MixPanel from 'react-native-mixpanel'
 
 // Design
 import { Colors } from '../../components/DesignSystem'
@@ -46,6 +47,12 @@ class WalletBalances extends Component {
     }
   }
 
+  componentWillUnmount () {
+    if (this.searchAnimate) {
+      this.searchAnimate.reset()
+    }
+  }
+
   _updateListByStoreTokens = (list) => {
     return AsyncStorage.getItem(USER_FILTERED_TOKENS).then(tokens => {
       const filteredTokens = JSON.parse(tokens)
@@ -66,11 +73,11 @@ class WalletBalances extends Component {
     })
   }
 
-  navigateToTokenDetails = async (item) => {
+  _navigateToTokenDetails = (item) => {
     this.props.navigation.navigate('TokenDetailScene', { item, fromBalance: true })
   }
 
-  onItemPress = async ({ name: tokenName }) => {
+  _onItemPress = async ({ name: tokenName }) => {
     this.setState({ modalTokenVisible: true, errorToken: null })
     try {
       const customParams = {
@@ -79,7 +86,10 @@ class WalletBalances extends Component {
       }
       const { results } = await queryToken(false, tokenName, customParams)
       if (results.length) {
-        this.setState({ modalTokenVisible: false, errorToken: null }, () => this.navigateToTokenDetails(results[0]))
+        this.setState({ modalTokenVisible: false, errorToken: null }, () => {
+          this._navigateToTokenDetails(results[0])
+          MixPanel.trackWithProperties('Account Operation', { type: 'Navigate to Token Info', token: tokenName })
+        })
       } else {
         this.setState({ errorToken: tl.t('balanceToken.notAvailable') })
       }
@@ -98,6 +108,7 @@ class WalletBalances extends Component {
           </TouchableOpacity>
           {this.state.modalTokenVisible && (
             <LottieView
+              ref={ref => { this.searchAnimate = ref }}
               autoPlay
               source={require('../../assets/animations/searchToken.json')}
               loop={!!this.state.errorToken}
@@ -115,9 +126,7 @@ class WalletBalances extends Component {
 
   renderItem = ({ item }) => (
     <Utils.Content key={item.name} paddingHorizontal='none' paddingVertical='medium'>
-      <TouchableOpacity
-        disabled={item.name === 'TRX'}
-        onPress={() => this.onItemPress(item)}>
+      <TouchableOpacity disabled={item.name === 'TRX'} onPress={() => this._onItemPress(item)}>
         <Utils.Row justify='space-between'>
           <Badge bg={Colors.lightestBackground} guarantee={item.verified}>{getCustomName(item.name)}</Badge>
           <Utils.Text>{formatNumber(item.balance)}</Utils.Text>

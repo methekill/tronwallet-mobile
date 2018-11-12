@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import {ActivityIndicator, Alert, ScrollView} from 'react-native'
 import axios from 'axios'
 import Config from 'react-native-config'
+import MixPanel from 'react-native-mixpanel'
 
 // Design
-import * as Utils from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
+import * as Utils from '../../components/Utils'
 import KeyboardScreen from '../../components/KeyboardScreen'
 import Input from '../../components/Input'
 import ButtonGradient from '../../components/ButtonGradient'
@@ -62,6 +63,7 @@ class RequestPayment extends Component {
       newCurrencyPrices['EUR'] = formatNumber(eurData.quotes['EUR'].price)
 
       this.setState({ currencyPrices: newCurrencyPrices })
+      MixPanel.trackWithProperties('Build Operation', { type: 'Load data' })
     } catch (err) {
       Alert.alert(tl.t('warning'), tl.t('buildPayment.error.currency'))
       logSentry(err, 'Build Payment')
@@ -75,7 +77,7 @@ class RequestPayment extends Component {
     if (!amount || !amountTrx || Number(amount) <= 0 || Number(amountTrx) <= 0) {
       this.amount.focus()
     } else {
-      this.setState({modalQRVisible: true})
+      this.setState({ modalQRVisible: true })
     }
   }
 
@@ -88,6 +90,7 @@ class RequestPayment extends Component {
       this.setState({[field]: text})
     }
   }
+
   _changeCurrency = (newCurrency) => {
     const { amount, currencyPrices } = this.state
     const amountTrx = (amount / currencyPrices[newCurrency]).toFixed(6)
@@ -102,15 +105,17 @@ class RequestPayment extends Component {
 
   _renderCurrencySelecter = () => {
     const { currencySelected } = this.state
-    return <SelecterWrapper>
-      <Utils.Row align='center'>
-        {CURRENCY_OPTIONS.map(currency => (
-          <SelecterOption onPress={() => this._changeCurrency(currency)} key={currency} disabled={currency === currencySelected}>
-            <Utils.Text size='tiny'>{currency}</Utils.Text>
-          </SelecterOption>
-        ))}
-      </Utils.Row>
-    </SelecterWrapper>
+    return (
+      <SelecterWrapper>
+        <Utils.Row align='center'>
+          {CURRENCY_OPTIONS.map(currency => (
+            <SelecterOption onPress={() => this._changeCurrency(currency)} key={currency} disabled={currency === currencySelected}>
+              <Utils.Text size='tiny'>{currency}</Utils.Text>
+            </SelecterOption>
+          ))}
+        </Utils.Row>
+      </SelecterWrapper>
+    )
   }
 
   _renderInputCurreny = () => (
@@ -126,7 +131,8 @@ class RequestPayment extends Component {
       amountTrx,
       modalQRVisible,
       description,
-      currencySelected } = this.state
+      currencySelected
+    } = this.state
     return (
       <KeyboardScreen>
         <ScrollView>
@@ -157,19 +163,19 @@ class RequestPayment extends Component {
               onChangeText={text => this._changeInput(text, 'description')}
             />
             <Utils.VerticalSpacer size='large' />
-            {loading ? (
-              <ActivityIndicator size='small' color={Colors.primaryText} />
-            ) : (
-              <ButtonGradient
-                font='bold'
-                text={tl.t('buildPayment.generate')}
-                onPress={this._checkRequestData}
-              />
-            )}
+            {loading
+              ? (<ActivityIndicator size='small' color={Colors.primaryText} />)
+              : (
+                <ButtonGradient
+                  font='bold'
+                  text={tl.t('buildPayment.generate')}
+                  onPress={this._checkRequestData}
+                />
+              )}
           </Utils.Content>
           <RequestModal
             visible={modalQRVisible}
-            onClose={() => this.setState({modalQRVisible: false})}
+            onClose={() => this.setState({ modalQRVisible: false })}
             amount={amount}
             amountTrx={amountTrx}
             currency={currencySelected}

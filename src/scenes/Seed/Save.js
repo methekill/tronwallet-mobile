@@ -1,12 +1,14 @@
 import React from 'react'
-import { Dimensions, Clipboard } from 'react-native'
+import { Dimensions, Clipboard, StyleSheet } from 'react-native'
 import { TabViewAnimated, TabBar } from 'react-native-tab-view'
 import Toast from 'react-native-easy-toast'
+import MixPanel from 'react-native-mixpanel'
 
 import * as Utils from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
 import NavigationHeader from '../../components/Navigation/Header'
-import FontelloButton from '../../components/FontelloButton'
+
+import FontelloIcon from '../../components/FontelloIcon'
 import { SecretCard, Secret } from './elements'
 
 import tl from '../../utils/i18n'
@@ -14,10 +16,10 @@ import { withContext } from '../../store/context'
 
 const initialLayout = {height: 0, width: Dimensions.get('window').width}
 const TAB_WIDTH = Dimensions.get('window').width / 2
-const INDICATOR_WIDTH = 13
+const INDICATOR_WIDTH = 15
 
 class Save extends React.Component {
-  static navigationOptions = () => ({ header: null })
+  static navigationOptions = { header: null }
 
   state = {
     index: 0,
@@ -32,69 +34,63 @@ class Save extends React.Component {
   _renderHeader = props => (
     <TabBar
       {...props}
-      indicatorStyle={{
-        width: INDICATOR_WIDTH,
-        height: 1,
-        marginLeft: (TAB_WIDTH / 2 - INDICATOR_WIDTH / 2)
-      }}
-      tabStyle={{
-        padding: 8
-      }}
-      labelStyle={{
-        fontFamily: 'Rubik-Medium',
-        fontSize: 12,
-        letterSpacing: 0.65,
-        lineHeight: 12
-      }}
-      style={{
-        backgroundColor: Colors.background,
-        elevation: 0,
-        shadowOpacity: 0
-      }}
+      indicatorStyle={styles.indicatorStyle}
+      tabStyle={styles.tabBarStyle}
+      labelStyle={styles.labelStyle}
+      style={styles.tabBarStyle}
     />
   )
 
-  _onCopyClipboard = async string => {
+  _onCopyClipboard = (eventName, string) => async () => {
     await Clipboard.setString(string)
+    MixPanel.trackWithProperties('Wallet Operation', { type: 'Copy - ' + eventName })
     this.refs.toast.show(tl.t('receive.clipboardCopied'))
     setTimeout(() => Clipboard.setString(''), 30000)
   }
 
-  _renderSecret = secret =>
+  _getAccountIfo = () => {
+    const { userSecrets, publicKey } = this.props.context
+    const accountIndex = userSecrets.findIndex(s => s.address === publicKey)
+    if (accountIndex > -1) {
+      return userSecrets[accountIndex]
+    }
+
+    return { privatekey: 'Not available', mnemonic: 'Not available' }
+  }
+
+  _renderSecret = (eventName, secret) => (
     <Utils.View align='center'>
       <SecretCard>
-        <FontelloButton
-          size={16}
-          style={{alignItems: 'flex-end'}}
-          name='copy'
-          color={Colors.secondaryText}
-          onPress={() => this._onCopyClipboard(secret)}
-        />
+        <Utils.View align='flex-end' justify='center' height={30} padding={0} >
+          <Utils.Button width={28} height={28} justify='center' onPress={this._onCopyClipboard(eventName, secret)} >
+            <FontelloIcon name='copy' size={20} color={Colors.secondaryText} />
+          </Utils.Button>
+        </Utils.View>
         <Secret secret={secret} />
       </SecretCard>
     </Utils.View>
+  )
 
   _renderScene = ({ route }) => {
-    const { userSecrets, publicKey } = this.props.context
-    const currentAccount = userSecrets.find(s => s.address === publicKey) || { privatekey: 'Not available', seed: 'Not available' }
+    const currentAccount = this._getAccountIfo()
     switch (route.key) {
-      case 'seed': return this._renderSecret(currentAccount.mnemonic)
-      case 'privatekey': return this._renderSecret(currentAccount.privateKey)
+      case 'seed':
+        return this._renderSecret('seed', currentAccount.mnemonic)
+      case 'privatekey':
+        return this._renderSecret('privatekey', currentAccount.privateKey)
       default: return null
     }
   }
 
   render () {
     const { navigation } = this.props
-
     return (
       <Utils.SafeAreaView>
-
+        <NavigationHeader
+          title={tl.t('settings.backup.title')}
+          onBack={() => navigation.goBack()}
+        />
         <Utils.Container>
-          <NavigationHeader
-            title={tl.t('settings.backup.title')}
-            onBack={() => navigation.goBack()}
-          />
           <TabViewAnimated
             navigationState={this.state}
             renderScene={this._renderScene}
@@ -114,5 +110,27 @@ class Save extends React.Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  indicatorStyle: {
+    width: INDICATOR_WIDTH,
+    height: 1,
+    marginLeft: (TAB_WIDTH / 2 - INDICATOR_WIDTH / 2)
+  },
+  tabStyle: {
+    padding: 8
+  },
+  labelStyle: {
+    fontSize: 12,
+    lineHeight: 12,
+    letterSpacing: 0.6,
+    fontFamily: 'Rubik-Medium'
+  },
+  tabBarStyle: {
+    backgroundColor: Colors.background,
+    elevation: 0,
+    shadowOpacity: 0
+  }
+})
 
 export default withContext(Save)

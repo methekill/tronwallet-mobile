@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-
 import { Alert, ActivityIndicator } from 'react-native'
+import MixPanel from 'react-native-mixpanel'
 
 import { withContext } from '../../../store/context'
 
@@ -47,7 +47,7 @@ const buyOptions = {
 }
 
 class BuyScene extends Component {
-  static navigationOptions = () => ({ header: null })
+  static navigationOptions = { header: null }
 
   state = {
     totalRemaining: 0,
@@ -173,8 +173,12 @@ class BuyScene extends Component {
     const amountToPay = amountToBuy * (item.price / ONE_TRX)
     this.setState({ loading: true })
     try {
-      if (trxBalance < amountToPay) throw new DataError('INSUFFICIENT_BALANCE')
-      if (amountToPay < 1) throw new DataError('INSUFFICIENT_TRX')
+      if (trxBalance < amountToPay) {
+        throw new DataError('INSUFFICIENT_BALANCE')
+      }
+      if (amountToPay < 1) {
+        throw new DataError('INSUFFICIENT_TRX')
+      }
 
       const participatePayload = item.isExchangeable
         ? {
@@ -191,12 +195,10 @@ class BuyScene extends Component {
 
       const data = item.isExchangeable
         ? await Client.getTransferTransaction(participatePayload)
-        : await Client.getParticipateTransaction(
-          this.props.context.publicKey,
-          participatePayload
-        )
+        : await Client.getParticipateTransaction(this.props.context.publicKey, participatePayload)
 
       await this._openTransactionDetails(data)
+      MixPanel.trackWithProperties('Participate', { type: 'Buy token' })
     } catch (err) {
       if (err.name === 'DataError') {
         if (err.message === 'INSUFFICIENT_BALANCE') {
@@ -320,15 +322,15 @@ class BuyScene extends Component {
             </Utils.Row>
           </MarginFixer>
           <BuyContainer>
-            {loading ? (
-              <ActivityIndicator size='small' color={Colors.primaryText} />
-            ) : (
-              <ButtonGradient
-                disabled={amountToBuy === 0 || loading}
-                onPress={() => this._submit()}
-                text={tl.t('participate.button.confirm')}
-              />
-            )}
+            {loading
+              ? (<ActivityIndicator size='small' color={Colors.primaryText} />)
+              : (
+                <ButtonGradient
+                  disabled={amountToBuy === 0 || loading}
+                  onPress={() => this._submit()}
+                  text={tl.t('participate.button.confirm')}
+                />
+              )}
           </BuyContainer>
         </KeyboardScreen>
       </Utils.SafeAreaView>

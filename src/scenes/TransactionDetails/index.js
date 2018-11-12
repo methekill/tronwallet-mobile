@@ -13,13 +13,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import Toast from 'react-native-easy-toast'
 import LinearGradient from 'react-native-linear-gradient'
 import forIn from 'lodash/forIn'
+import MixPanel from 'react-native-mixpanel'
 
 import tl from '../../utils/i18n'
-import {
-  updateTransactionByHash,
-  getTranslatedType,
-  getTokenPriceFromStore
-} from '../../utils/transactionUtils'
+import { updateTransactionByHash, getTranslatedType, getTokenPriceFromStore } from '../../utils/transactionUtils'
 import getTransactionStore from '../../store/transactions'
 import IconButton from '../../components/IconButton'
 import * as Utils from '../../components/Utils'
@@ -79,6 +76,7 @@ class TransactionDetails extends React.Component {
   async componentDidMount () {
     const item = this.props.navigation.getParam('item', {})
     this.setState({ item })
+    MixPanel.trackWithProperties('Transactions', { type: 'Transaction Detail' })
     this.appStateListener = onBackgroundHandler(this._onAppStateChange)
   }
 
@@ -683,51 +681,41 @@ class TransactionDetails extends React.Component {
 
     return (
       <Utils.SafeAreaView>
-        <React.Fragment>
-          <NavigationHeader
-            title={tl.t('transactionDetails.title')}
-            onBack={() => this.props.navigation.goBack()}
+        <NavigationHeader
+          title={tl.t('transactionDetails.title')}
+          onBack={() => this.props.navigation.goBack()}
+        />
+        <Utils.Container>
+          <ScrollView
+            refreshControl={
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={this._onRefresh}
+              />
+            }
+          >
+            {item && (
+              <React.Fragment>
+                {this._renderHeader()}
+                <Utils.View paddingX='large'>
+                  {this._renderCard()}
+                </Utils.View>
+                <Utils.View paddingX='large'>
+                  <Utils.VerticalSpacer size='medium' />
+                  {this._renderDetails()}
+                </Utils.View>
+                <Utils.VerticalSpacer size='medium' />
+              </React.Fragment>
+            )}
+          </ScrollView>
+          <Toast
+            ref='addressToast'
+            positionValue={260}
+            fadeInDuration={750}
+            fadeOutDuration={1000}
+            opacity={0.8}
           />
-          <Utils.Container>
-            <ScrollView
-              refreshControl={
-                <RefreshControl
-                  refreshing={refreshing}
-                  onRefresh={this._onRefresh}
-                />
-              }
-            >
-              {item && (
-                <React.Fragment>
-                  {this._renderHeader()}
-                  <View
-                    style={{
-                      paddingHorizontal: 32
-                    }}
-                  >
-                    {this._renderCard()}
-                  </View>
-                  <View
-                    style={{
-                      paddingHorizontal: 32
-                    }}
-                  >
-                    <View style={{ height: 24 }} />
-                    {this._renderDetails()}
-                  </View>
-                  <View style={{ paddingVertical: 16 }} />
-                </React.Fragment>
-              )}
-            </ScrollView>
-            <Toast
-              ref='addressToast'
-              positionValue={260}
-              fadeInDuration={750}
-              fadeOutDuration={1000}
-              opacity={0.8}
-            />
-          </Utils.Container>
-        </React.Fragment>
+        </Utils.Container>
       </Utils.SafeAreaView>
     )
   }

@@ -2,6 +2,7 @@ package com.tronwallet2;
 
 import android.app.Application;
 import com.facebook.react.ReactApplication;
+import com.kevinejohn.RNMixpanel.RNMixpanel;
 import com.rnbiometrics.ReactNativeBiometricsPackage;
 import com.airbnb.android.react.lottie.LottiePackage;
 import com.avishayil.rnrestart.ReactNativeRestartPackage;
@@ -39,7 +40,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new ReactNativeBiometricsPackage(),
+          new RNMixpanel(),
+          new ReactNativeBiometricsPackage(),
           new LottiePackage(),
           new ReactNativeRestartPackage(),
           new RNI18nPackage(),

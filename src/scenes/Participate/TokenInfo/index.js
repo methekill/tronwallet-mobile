@@ -2,12 +2,13 @@ import React, { PureComponent } from 'react'
 import { ScrollView } from 'react-native'
 import ProgressBar from 'react-native-progress/Bar'
 import moment from 'moment'
+import Mixpanel from 'react-native-mixpanel'
 
 import NavigationHeader from '../../../components/Navigation/Header'
 import { BoldInfoRow, RegularInfoRow, SmallRegInfoRow } from '../../../components/KeyPairInfoRow'
-import { Colors } from '../../../components/DesignSystem'
 import { WhiteLabelText, PercentageView, DividerSpacer } from '../Elements'
 import ButtonGradient from '../../../components/ButtonGradient'
+import { Colors } from '../../../components/DesignSystem'
 import * as Utils from '../../../components/Utils'
 import { ONE_TRX } from '../../../services/client'
 import tl from '../../../utils/i18n'
@@ -15,16 +16,29 @@ import { replaceRoute } from '../../../utils/navigationUtils'
 import { formatNumber } from '../../../utils/numberUtils'
 
 class TokenInfo extends PureComponent {
-  static navigationOptions = () => ({ header: null })
+  static navigationOptions = { header: null }
 
   _isTokenAvailableToBuy = ({ issuedPercentage, isListed, startTime, endTime }) => {
     const now = new Date().getTime()
     return (issuedPercentage < 100 && isListed && (startTime <= now && endTime >= now))
   }
 
+  _navigateToBuyToken = () => {
+    const { navigation } = this.props
+    const item = navigation.getParam('item', {})
+    const fromBalance = navigation.getParam('fromBalance', false)
+
+    if (fromBalance) {
+      replaceRoute(navigation, 'Buy', { item })
+    } else {
+      navigation.navigate('Buy', { item })
+    }
+
+    Mixpanel.trackWithProperties('Token info', { type: 'Buy token', token: item.name })
+  }
+
   render () {
     const item = this.props.navigation.getParam('item', {})
-    const fromBalance = this.props.navigation.getParam('fromBalance', false)
     const isTokenAvailableToBuy = this._isTokenAvailableToBuy(item)
     const {
       name,
@@ -76,11 +90,7 @@ class TokenInfo extends PureComponent {
               {isTokenAvailableToBuy && (
                 <ButtonGradient
                   text={tl.t('participate.button.buyNow').toUpperCase()}
-                  onPress={() => {
-                    fromBalance
-                      ? replaceRoute(this.props.navigation, 'Buy', { item })
-                      : this.props.navigation.navigate('Buy', { item })
-                  }}
+                  onPress={this._navigateToBuyToken}
                   size='medium'
                   full
                 />
