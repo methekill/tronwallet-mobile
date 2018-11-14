@@ -1,4 +1,5 @@
 
 export default {
-  t: (text) => (text)
+  t: (text) => (text),
+  getLanguages: () => Promise.resolve(['en'])
 }
