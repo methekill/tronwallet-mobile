@@ -2,6 +2,10 @@ fastlane_version "2.81.0"
 
 default_platform :ios
 
+def ci?
+  ENV.key?('CI') && ENV['CI'] == 'true'
+end
+
 platform :ios do
   before_all do
     require File.join(File.dirname(__FILE__), 'environment')
@@ -31,7 +35,9 @@ platform :ios do
   lane :build do
     Environment::Public.new.build
 
-    #setup_circle_ci(force: true)
+    if ci?
+      setup_circle_ci(force: true)
+    end
 
     update_app_identifier
     match
