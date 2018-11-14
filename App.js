@@ -52,6 +52,8 @@ import ScanPayScene from './src/scenes/Payments/Scan'
 import CreateSeed from './src/scenes/Seed/Create'
 import ImportWallet from './src/scenes/Seed/Import'
 import PrivacyPolicy from './src/scenes/PrivacyPolicy'
+import ExchangeScene from './src/scenes/Exchange'
+import ExchangeTransaction from './src/scenes/Exchange/Transaction'
 
 import Client from './src/services/client'
 import { Context } from './src/store/context'
@@ -166,6 +168,13 @@ const ParticipateStack = createStackNavigator({
   Buy: BuyScene
 })
 
+const ExchangeStack = createStackNavigator({
+  ExchangeScene,
+  ExchangeTransaction
+}, {
+  mode: 'modal'
+})
+
 const AppTabs = createBottomTabNavigator({
   Market: MarketScene,
   Vote: {
@@ -176,7 +185,8 @@ const AppTabs = createBottomTabNavigator({
   Balance: BalanceStack,
   Transactions: TransactionList,
   Participate: ParticipateStack,
-  Settings: SettingsStack
+  Settings: SettingsStack,
+  Exchange: ExchangeStack
 }, {
   navigationOptions: ({ navigation }) => ({
     tabBarIcon: ({ focused, tintColor }) => {
@@ -200,6 +210,8 @@ const AppTabs = createBottomTabNavigator({
         iconName = `gear,-settings,-update,-setup,-config`
       } else if (routeName === 'Participate') {
         iconName = `dollar,-currency,-money,-cash,-coin`
+      } else if (routeName === 'Exchange') {
+        iconName = `participate`
       }
 
       return (<TWIcon name={iconName} size={26} color={tintColor} />)
@@ -213,7 +225,7 @@ const AppTabs = createBottomTabNavigator({
     },
     showLabel: false
   },
-  initialRouteName: 'Balance'
+  initialRouteName: 'Exchange'
 })
 
 const RootNavigator = createStackNavigator({

@@ -12,6 +12,7 @@ class ClientWallet {
     this.notifier = Config.NOTIFIER_API_URL
     this.tronwalletApi = Config.TRONWALLET_API
     this.tronwalletDB = Config.TRONWALLET_DB
+    this.tronwalletExApi = 'https://cdm9gqf4rc.execute-api.us-east-1.amazonaws.com/dev/exchange'
   }
 
   //* ============TronScan Api============*//
@@ -105,6 +106,11 @@ class ClientWallet {
     const apiUrl = this.tronwalletApi
     const { data: { totalVotes, voteList } } = await axios.get(`${apiUrl}/vote/list`)
     return { voteList, totalVotes }
+  }
+
+  async getExchangesList () {
+    const { data: exchangeList } = await axios.get(`${this.tronwalletExApi}/list`)
+    return exchangeList
   }
 
   async getTransactionDetails (tx) {
@@ -202,6 +208,12 @@ class ClientWallet {
       `${this.tronwalletApi}/unsigned/vote`,
       reqBody
     )
+    return transaction
+  }
+
+  async getExchangeTransaction ({address, tokenId, exchangeId, quant, expected}) {
+    const reqBody = { address, tokenId, exchangeId, quant, expected }
+    const { data: { transaction } } = await axios.post(`${this.tronwalletExApi}/build`, reqBody)
     return transaction
   }
 
