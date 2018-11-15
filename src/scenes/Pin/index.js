@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  BackHandler,
-  TouchableOpacity,
-  AsyncStorage,
-  Alert
-} from 'react-native'
+import { BackHandler, AsyncStorage, Alert } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Biometrics from 'react-native-biometrics'
 import * as Animatable from 'react-native-animatable'
@@ -12,7 +7,7 @@ import * as Animatable from 'react-native-animatable'
 import tl from '../../utils/i18n'
 import { decrypt } from '../../utils/encrypt'
 import * as Utils from '../../components/Utils'
-import * as Elements from './elements'
+import { GoBackButton, Label, Text, PinDigit, KeyPad, Key, BiometricButton } from './elements'
 import { Colors } from '../../components/DesignSystem'
 import { USE_BIOMETRY, ENCRYPTED_PIN } from '../../utils/constants'
 
@@ -21,7 +16,7 @@ class PinScene extends React.Component {
     isDoubleChecking: false,
     pin: '',
     checkPin: '',
-    biometricsEnabled: false
+    biometricsEnabled: true
   }
 
   componentDidMount () {
@@ -145,9 +140,9 @@ class PinScene extends React.Component {
     if (biometricsEnabled) {
       return (
         <Utils.View flex={0.4} justify='center' align='center'>
-          <TouchableOpacity onPress={this._handleBiometrics}>
-            <Elements.Text>{tl.t('pin.biometrics')}</Elements.Text>
-          </TouchableOpacity>
+          <BiometricButton onPress={this._handleBiometrics}>
+            <Text>{tl.t('pin.biometrics')}</Text>
+          </BiometricButton>
         </Utils.View>
       )
     }
@@ -170,22 +165,23 @@ class PinScene extends React.Component {
 
   render () {
     const shouldGoBack = this.props.navigation.getParam('shouldGoBack', false)
+    const currentState = this.state.isDoubleChecking
+      ? this.state.checkPin
+      : this.state.pin
     return (
       <Utils.SafeAreaView>
         <Utils.Container>
           <Utils.Content>
             {this.state.isDoubleChecking && (
-              <Elements.GoBackButton onPress={this._resetState} />
+              <GoBackButton onPress={this._resetState} />
             )}
             {shouldGoBack && (
-              <Elements.GoBackButton
-                onPress={() => this.props.navigation.goBack()}
-              />
+              <GoBackButton onPress={() => this.props.navigation.goBack()} />
             )}
             <Utils.View align='center'>
-              <Elements.Label>{tl.t('pin.title')}</Elements.Label>
+              <Label>{tl.t('pin.title')}</Label>
               <Utils.VerticalSpacer />
-              <Elements.Text>{this._renderTitle()}</Elements.Text>
+              <Text>{this._renderTitle()}</Text>
             </Utils.View>
           </Utils.Content>
           <Utils.View flex={1} justify='center' align='center'>
@@ -195,78 +191,36 @@ class PinScene extends React.Component {
               }}
             >
               <Utils.Row align='center' justify='space-between' width={264}>
-                <Elements.PinDigit
-                  digit={0}
-                  currentState={
-                    this.state.isDoubleChecking
-                      ? this.state.checkPin
-                      : this.state.pin
-                  }
-                />
-                <Elements.PinDigit
-                  digit={1}
-                  currentState={
-                    this.state.isDoubleChecking
-                      ? this.state.checkPin
-                      : this.state.pin
-                  }
-                />
-                <Elements.PinDigit
-                  digit={2}
-                  currentState={
-                    this.state.isDoubleChecking
-                      ? this.state.checkPin
-                      : this.state.pin
-                  }
-                />
-                <Elements.PinDigit
-                  digit={3}
-                  currentState={
-                    this.state.isDoubleChecking
-                      ? this.state.checkPin
-                      : this.state.pin
-                  }
-                />
-                <Elements.PinDigit
-                  digit={4}
-                  currentState={
-                    this.state.isDoubleChecking
-                      ? this.state.checkPin
-                      : this.state.pin
-                  }
-                />
-                <Elements.PinDigit
-                  digit={5}
-                  currentState={
-                    this.state.isDoubleChecking
-                      ? this.state.checkPin
-                      : this.state.pin
-                  }
-                />
+                <PinDigit digit={0} currentState={currentState} />
+                <PinDigit digit={1} currentState={currentState} />
+                <PinDigit digit={2} currentState={currentState} />
+                <PinDigit digit={3} currentState={currentState} />
+                <PinDigit digit={4} currentState={currentState} />
+                <PinDigit digit={5} currentState={currentState} />
               </Utils.Row>
             </Animatable.View>
           </Utils.View>
 
-          <Elements.KeyPad>
-            <Elements.Key onPress={() => this._handleKeyInput(1)}>1</Elements.Key>
-            <Elements.Key onPress={() => this._handleKeyInput(2)}>2</Elements.Key>
-            <Elements.Key onPress={() => this._handleKeyInput(3)}>3</Elements.Key>
-            <Elements.Key onPress={() => this._handleKeyInput(4)}>4</Elements.Key>
-            <Elements.Key onPress={() => this._handleKeyInput(5)}>5</Elements.Key>
-            <Elements.Key onPress={() => this._handleKeyInput(6)}>6</Elements.Key>
-            <Elements.Key onPress={() => this._handleKeyInput(7)}>7</Elements.Key>
-            <Elements.Key onPress={() => this._handleKeyInput(8)}>8</Elements.Key>
-            <Elements.Key onPress={() => this._handleKeyInput(9)}>9</Elements.Key>
-            <Elements.Key disabled noBorder />
-            <Elements.Key onPress={() => this._handleKeyInput(0)}>0</Elements.Key>
-            <Elements.Key onPress={this._handleDelete} onLongPress={this._handleClear} >
+          <KeyPad>
+            <Key onPress={this._handleKeyInput}>1</Key>
+            <Key onPress={this._handleKeyInput}>2</Key>
+            <Key onPress={this._handleKeyInput}>3</Key>
+            <Key onPress={this._handleKeyInput}>4</Key>
+            <Key onPress={this._handleKeyInput}>5</Key>
+            <Key onPress={this._handleKeyInput}>6</Key>
+            <Key onPress={this._handleKeyInput}>7</Key>
+            <Key onPress={this._handleKeyInput}>8</Key>
+            <Key onPress={this._handleKeyInput}>9</Key>
+            <Key disabled noBorder />
+            <Key onPress={this._handleKeyInput}>0</Key>
+            <Key onPress={this._handleDelete} onLongPress={this._handleClear} >
               <Ionicons
                 name='ios-backspace'
                 size={24}
                 color={Colors.secondaryText}
               />
-            </Elements.Key>
-          </Elements.KeyPad>
+            </Key>
+          </KeyPad>
 
           {this._renderBiometrics()}
         </Utils.Container>
