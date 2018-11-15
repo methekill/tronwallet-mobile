@@ -325,6 +325,7 @@ export const ButtonWrapper = styled.TouchableOpacity`
   align-items: center;
   ${props => props.side && `${props.side}: ${Spacing.medium}`};
   ${props => props.marginBottom && css` margin-bottom: ${Spacing[props.marginBottom]}px`};
+  border: 1px solid yellow;
 `
 ButtonWrapper.propTypes = {
   marginBottom: PropTypes.oneOf(['xsmall', 'small', 'medium', 'big', 'large']),
@@ -343,6 +344,7 @@ export const Card = styled.View`
   width: 100%;
   border-radius: 6px;
 `
+
 export const TransactionCard = styled.TouchableOpacity`
   padding-top: ${Spacing.medium};
   background-color: ${Colors.background};
@@ -371,6 +373,7 @@ export const LeftBadge = styled.View`
   paddingRight: 15px;
   marginRight: 20px;
 `
+
 export const NumKeyWrapper = styled.View`
   flex-grow: 1;
   padding: ${Spacing.xsmall}px;
@@ -380,6 +383,7 @@ export const NumKeyWrapper = styled.View`
   ${props => props.double && css`flex-basis: 66%; flex-grow: 2;`};
   ${props => props.disabled && css`opacity: 0.2`}
 `
+
 export const NumKey = styled.TouchableOpacity`
   ${props =>
     props.double && css`
@@ -492,6 +496,7 @@ export const BoldText = styled.Text`
   line-height: 36px;
   color: ${Colors.primaryText};
 `
+
 export const SectionTitle = styled.Text`
   font-family: Rubik-Medium;
   font-size: ${props => props.small ? 8 : 11}px;
@@ -499,6 +504,7 @@ export const SectionTitle = styled.Text`
   letter-spacing: 0.6px;
   color: ${Colors.titleLabel};
 `
+
 export const RegularText = styled.Text`
   padding-top: 10px;
   font-family: Rubik-Regular;

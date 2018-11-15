@@ -15,7 +15,7 @@ class NavigationHeader extends React.Component {
      onSearch = Right Button with magnifying glass
    */
   static propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     onClose: PropTypes.func,
     onBack: PropTypes.func,
     onSearch: PropTypes.func,
@@ -85,7 +85,9 @@ class NavigationHeader extends React.Component {
       <React.Fragment>
         {this._renderLeftElement(onBack, leftButton)}
         <Utils.View justify='center' align='center'>
-          <Utils.Text lineHeight={36} size='average' font='medium'>{title.toUpperCase()}</Utils.Text>
+          {title && (
+            <Utils.Text lineHeight={36} size='average' font='medium'>{title.toUpperCase()}</Utils.Text>
+          )}
         </Utils.View >
         {this._renderRightElement(onClose, onSearch, onSearchPressed, rightButton)}
       </React.Fragment>
