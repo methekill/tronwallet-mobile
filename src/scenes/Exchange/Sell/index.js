@@ -13,7 +13,7 @@ import * as Utils from '../../../components/Utils'
 import tl from '../../../utils/i18n'
 import { Colors } from '../../../components/DesignSystem'
 import { withContext } from '../../../store/context'
-import WalletClient, { ONE_TRX } from '../../../services/client'
+import WalletClient from '../../../services/client'
 import { estimatedCost, tokenIdParser } from '../../../utils/exchangeUtils'
 
 class SendScene extends Component {
@@ -55,20 +55,18 @@ class SendScene extends Component {
     const { sellAmount } = this.state
     const { exchangeId, price, firstTokenId } = this.state.exData
     const { publicKey, accounts } = this.props.context
-    const expected = Math.round(sellAmount * price) || 1
-    const quant = firstTokenId === '_'
-      ? Math.floor(sellAmount * ONE_TRX * price * 1.01)
-      : sellAmount
+    const expected = sellAmount * price
 
     this.setState({loading: true})
     try {
       const exParams = {
         address: publicKey,
         tokenId: firstTokenId,
-        quant,
-        expected,
-        exchangeId
+        quant: sellAmount,
+        exchangeId,
+        expected
       }
+
       this.setState({step: 'Waiting..'})
       const transactionUnsigned = await WalletClient.getExchangeTransaction(exParams)
 
@@ -84,7 +82,7 @@ class SendScene extends Component {
         this.setState({step: 'Fail !'})
       }
     } catch (error) {
-      console.warn('Error while submiting', error)
+      console.warn('Error while submiting', error.message)
     } finally {
       this.setState({loading: false})
     }
@@ -101,14 +99,18 @@ class SendScene extends Component {
       sellAmount,
       loading
     } = this.state
-    const cost = estimatedCost(exData.price, sellAmount || 0).toFixed(4)
-    const estimatedFixedCost = estimatedCost(exData.price, 1).toFixed(4)
+    const cost = estimatedCost(exData.price, sellAmount || 0, false).toFixed(4)
     return (
       <Utils.SafeAreaView>
         <ScrollView>
           <Utils.View align='center' justify='center'>
             <Utils.Text size='xsmall' color={Colors.greyBlue}>
-              {tokenIdParser(exData.firstTokenId)}/{tokenIdParser(exData.secondTokenId)} = {estimatedFixedCost}
+              {tokenIdParser(exData.firstTokenId)}/{tokenIdParser(exData.secondTokenId)} = {exData.price.toFixed(4)}
+            </Utils.Text>
+          </Utils.View>
+          <Utils.View align='center' justify='center'>
+            <Utils.Text size='tiny' color={Colors.greyBlue}>
+              Min to sell {Math.ceil(1 / exData.price)}
             </Utils.Text>
           </Utils.View>
           <Utils.View flex={1} justify='center' paddingX='medium' paddingY='medium'>
@@ -130,7 +132,7 @@ class SendScene extends Component {
               editable={false}
             />
             <Utils.Text padding={20} font='regular' size='tiny' align='center'>
-                Slightly increase the estimated cost, and the turnover rate will be higher.
+                Slightly lower the estimated cost, and the turnover rate will be higher.
             </Utils.Text>
             <ButtonGradient
               font='bold'

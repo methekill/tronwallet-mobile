@@ -13,7 +13,7 @@ import * as Utils from '../../../components/Utils'
 import tl from '../../../utils/i18n'
 import { Colors } from '../../../components/DesignSystem'
 import { withContext } from '../../../store/context'
-import WalletClient, { ONE_TRX } from '../../../services/client'
+import WalletClient from '../../../services/client'
 import { estimatedCost, tokenIdParser } from '../../../utils/exchangeUtils'
 
 class SendScene extends Component {
@@ -56,10 +56,8 @@ class SendScene extends Component {
     const { buyAmount } = this.state
     const { exchangeId, price, secondTokenId } = this.state.exData
     const { publicKey, accounts } = this.props.context
-    const expected = Math.round(buyAmount * price) || 1
-    const quant = secondTokenId === '_'
-      ? Math.floor(buyAmount * ONE_TRX * price * 1.01)
-      : buyAmount
+    const quant = buyAmount
+    const expected = estimatedCost(price, buyAmount, true)
 
     this.setState({loading: true})
     try {
@@ -67,11 +65,10 @@ class SendScene extends Component {
         address: publicKey,
         tokenId: secondTokenId,
         quant,
-        expected,
-        exchangeId
+        exchangeId,
+        expected
       }
 
-      console.warn('....', exParams)
       this.setState({step: 'Getting exchange Transaction'})
       const transactionUnsigned = await WalletClient.getExchangeTransaction(exParams)
 
@@ -105,14 +102,18 @@ class SendScene extends Component {
       buyAmount,
       loading
     } = this.state
-    const cost = estimatedCost(exData.price, buyAmount || 0).toFixed(4)
-    const estimatedFixedCost = estimatedCost(exData.price, 1).toFixed(4)
+    const cost = estimatedCost(exData.price, buyAmount || 0, true).toFixed(4)
     return (
       <Utils.SafeAreaView>
         <ScrollView>
           <Utils.View align='center' justify='center'>
             <Utils.Text size='xsmall' color={Colors.greyBlue}>
-              {tokenIdParser(exData.firstTokenId)}/{tokenIdParser(exData.secondTokenId)} = {estimatedFixedCost}
+              {tokenIdParser(exData.firstTokenId)}/{tokenIdParser(exData.secondTokenId)} = {exData.price.toFixed(4)}
+            </Utils.Text>
+          </Utils.View>
+          <Utils.View align='center' justify='center'>
+            <Utils.Text size='tiny' color={Colors.greyBlue}>
+              Min to buy {Math.ceil(1 / exData.price)}
             </Utils.Text>
           </Utils.View>
           <Utils.View flex={1} justify='center' paddingX='medium' paddingY='medium'>

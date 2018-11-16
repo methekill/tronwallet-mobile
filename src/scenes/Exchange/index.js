@@ -35,7 +35,6 @@ class ExchangeScene extends Component {
     _loadData = async () => {
       try {
         let exchangeList = await WalletClient.getExchangesList()
-        exchangeList = exchangeList.filter(ex => ex.available)
         this.setState({exchangeList, loading: false})
       } catch (error) {
         console.warn('Error Exchange List', error)

@@ -2,6 +2,7 @@ import axios from 'axios'
 import Config from 'react-native-config'
 import NodesIp from '../utils/nodeIp'
 import { AUTH_ID } from '../../config'
+import { getExchangesAvailable } from './contentful'
 
 export const ONE_TRX = 1000000
 
@@ -109,10 +110,21 @@ class ClientWallet {
   }
 
   async getExchangesList () {
-    const { data: exchangeList } = await axios.get(`${this.tronwalletExApi}/list`)
-    return exchangeList
+    const [fullExchangeList, selectedExchangeList] = await Promise.all([
+      axios.get(`${this.tronwalletExApi}/list`),
+      getExchangesAvailable()
+    ])
+    let { data: exchangeList } = fullExchangeList
+    return exchangeList.reduce((filtered, ex) => {
+      let avlb = selectedExchangeList.find(aex => aex.exchangeId === ex.exchangeId)
+      if (avlb) filtered.push({...ex, ...avlb})
+      return filtered
+    }, [])
   }
 
+  async getExchangeById (id) {
+
+  }
   async getTransactionDetails (tx) {
     const apiUrl = this.tronwalletApi
     const { data } = await axios.post(`${apiUrl}/transaction/detail`, { transaction: tx })
@@ -213,7 +225,7 @@ class ClientWallet {
 
   async getExchangeTransaction ({address, tokenId, exchangeId, quant, expected}) {
     const reqBody = { address, tokenId, exchangeId, quant, expected }
-    const { data: { transaction } } = await axios.post(`${this.tronwalletExApi}/build`, reqBody)
+    const { data: { transaction } } = await axios.post(`${this.tronwalletExApi}/unsigned`, reqBody)
     return transaction
   }
 
