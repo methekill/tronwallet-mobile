@@ -13,8 +13,9 @@ import * as Utils from '../../../components/Utils'
 import tl from '../../../utils/i18n'
 import { Colors } from '../../../components/DesignSystem'
 import { withContext } from '../../../store/context'
-import WalletClient from '../../../services/client'
-import { estimatedCost, tokenIdParser } from '../../../utils/exchangeUtils'
+import WalletClient, { ONE_TRX } from '../../../services/client'
+import { estimatedBuyCost, tokenIdParser } from '../../../utils/exchangeUtils'
+import { formatFloat } from '../../../utils/numberUtils'
 
 class SendScene extends Component {
   static navigationOptions = { header: null }
@@ -54,27 +55,29 @@ class SendScene extends Component {
 
   _exchangeToken = async () => {
     const { buyAmount } = this.state
-    const { exchangeId, price, secondTokenId } = this.state.exData
+    const { exchangeId, price, secondTokenId, firstTokenId } = this.state.exData
     const { publicKey, accounts } = this.props.context
-    const quant = buyAmount
-    const expected = estimatedCost(price, buyAmount, true)
+
+    const quant = estimatedBuyCost(buyAmount, price, secondTokenId === '_', true)
+    const expected = buyAmount * (firstTokenId === '_' ? ONE_TRX : 1)
 
     this.setState({loading: true})
     try {
       const exParams = {
         address: publicKey,
         tokenId: secondTokenId,
-        quant,
         exchangeId,
+        quant,
         expected
       }
 
       this.setState({step: 'Getting exchange Transaction'})
       const transactionUnsigned = await WalletClient.getExchangeTransaction(exParams)
 
-      const privateKey = accounts.find(acc => acc.address === publicKey).privateKey
+      const userKey = accounts.find(acc => acc.address === publicKey).privateKey
       this.setState({step: 'Signing exchange'})
-      const signedTransaction = await RNTron.signTransaction(privateKey, transactionUnsigned)
+      const signedTransaction = await RNTron.signTransaction(userKey, transactionUnsigned)
+
       this.setState({step: 'Broadcasting'})
       const { code } = await WalletClient.broadcastTransaction(signedTransaction)
 
@@ -102,7 +105,7 @@ class SendScene extends Component {
       buyAmount,
       loading
     } = this.state
-    const cost = estimatedCost(exData.price, buyAmount || 0, true).toFixed(4)
+    const cost = estimatedBuyCost(exData.price, buyAmount || 0, exData.secondTokenId === '_')
     return (
       <Utils.SafeAreaView>
         <ScrollView>
@@ -131,7 +134,7 @@ class SendScene extends Component {
             <Input
               label='ESTIMATED COST'
               rightContent={() => this._renderRightContent(exData.secondTokenId)}
-              placeholder={cost}
+              placeholder={formatFloat(cost)}
               editable={false}
             />
             <Utils.Text padding={20} font='regular' size='tiny' align='center'>
