@@ -6,6 +6,7 @@ import moment from 'moment'
 import debounce from 'lodash/debounce'
 import union from 'lodash/union'
 import clamp from 'lodash/clamp'
+import MixPanel from 'react-native-mixpanel'
 
 // Design
 import NavigationHeader from '../../components/Navigation/Header'
@@ -57,10 +58,14 @@ class ParticipateHome extends React.Component {
     isSearching: false
   }
 
-  async componentDidMount () {
+  componentDidMount () {
     Answers.logContentView('Tab', 'Participate')
     this._onSearching = debounce(this._onSearching, 250)
     this._navListener = this.props.navigation.addListener('didFocus', this._loadData)
+  }
+
+  componentWillUnmount () {
+    this._navListener.remove()
   }
 
   _loadData = async () => {
@@ -74,6 +79,7 @@ class ParticipateHome extends React.Component {
         featuredTokens: featured,
         currentList: assets
       })
+      MixPanel.trackWithProperties('Participate', { type: 'Initial load participate' })
     } catch (error) {
       logSentry(error, 'Initial load participate')
       this.setState({ error: error.message })
@@ -118,28 +124,30 @@ class ParticipateHome extends React.Component {
 
   _onSearchPressed = () => {
     const { isSearching, assetList } = this.state
-    this.setState({ isSearching: !isSearching, searchName: '' })
-
+    const state = { isSearching: !isSearching, searchName: '' }
     if (isSearching) {
-      this.setState({ currentList: assetList })
+      state.currentList = assetList
     } else {
-      this.setState({ currentList: [] })
+      state.currentList = []
     }
+    this.setState(state)
   }
 
-  _onSearching = async name => {
+  _onSearching = name => {
     const { assetList, featuredTokens } = this.state
-
-    const regex = new RegExp(name.toUpperCase(), 'i')
+    const searchValue = name.replace(/^[^a-zA-Z]/g, '')
+    const regex = new RegExp(searchValue.toUpperCase(), 'i')
     const resultList = [...featuredTokens, ...assetList].filter(ast => regex.test(ast.name.toUpperCase()))
 
-    this.setState({ searchName: name })
-    if (resultList.length) {
-      const searchedList = name ? resultList : []
-      this.setState({ currentList: searchedList })
-    } else {
-      this._searchFromApi(name)
-    }
+    this.setState({ searchName: name }, () => {
+      MixPanel.trackWithProperties('Participate', { type: 'Search Participate', name })
+      if (resultList.length) {
+        const searchedList = name ? resultList : []
+        this.setState({ currentList: searchedList })
+      } else {
+        this._searchFromApi(name)
+      }
+    })
   }
 
   _searchFromApi = async name => {
@@ -153,6 +161,11 @@ class ParticipateHome extends React.Component {
     } finally {
       this.setState({ searching: false })
     }
+  }
+
+  _navigateToBuyToken = (item) => {
+    this.props.navigation.navigate('TokenInfo', { item })
+    MixPanel.trackWithProperties('Participate', { type: 'Navigate to Buy token', token: item.name })
   }
 
   _renderFeaturedTokens = () => {
@@ -210,18 +223,14 @@ class ParticipateHome extends React.Component {
           <Featured>
             <FeaturedText align='center'>{tl.t('participate.featured')}</FeaturedText>
           </Featured>
-          <BuyButton
-            onPress={() => {
-              this.props.navigation.navigate('TokenInfo', { item: asset })
-            }}
-            elevation={4}
-          >
+          <BuyButton onPress={() => this._navigateToBuyToken(asset)} elevation={4} >
             <ButtonText>{tl.t('buy').toUpperCase()}</ButtonText>
           </BuyButton>
         </View>
       </GradientCard>
     )
   }
+
   _renderCardContent = asset => {
     const { name, abbr, price, issuedPercentage, endTime, isVerified } = asset
     return (
@@ -229,19 +238,19 @@ class ParticipateHome extends React.Component {
         <TokenLabel label={abbr.substr(0, 4).toUpperCase()} />
         <HorizontalSpacer size={24} />
         <View flex={1} justify='space-between'>
-          {isVerified ? (
-            <Row align='center'>
-              <FeaturedTokenName>{getCustomName(name)}</FeaturedTokenName>
-              <HorizontalSpacer size={4} />
-              <FontelloIcon
-                name='guarantee'
-                style={{ height: 14, width: 14 }}
-                color='#3face7'
-              />
-            </Row>
-          ) : (
-            <TokenName>{name}</TokenName>
-          )}
+          {isVerified
+            ? (
+              <Row align='center'>
+                <FeaturedTokenName>{getCustomName(name)}</FeaturedTokenName>
+                <HorizontalSpacer size={4} />
+                <FontelloIcon
+                  name='guarantee'
+                  style={{ height: 14, width: 14 }}
+                  color='#3face7'
+                />
+              </Row>
+            )
+            : (<TokenName>{name}</TokenName>)}
           <View>
             <ProgressBar
               progress={Math.round(issuedPercentage) / 100}
@@ -262,12 +271,7 @@ class ParticipateHome extends React.Component {
         </View>
         <View flex={1} align='flex-end' justify='space-between'>
           <TokenPrice>{price / ONE_TRX} TRX</TokenPrice>
-          <BuyButton
-            onPress={() => {
-              this.props.navigation.navigate('TokenInfo', { item: asset })
-            }}
-            elevation={4}
-          >
+          <BuyButton onPress={() => this._navigateToBuyToken(asset)} elevation={4} >
             <ButtonText>{tl.t('buy').toUpperCase()}</ButtonText>
           </BuyButton>
         </View>
@@ -298,13 +302,7 @@ class ParticipateHome extends React.Component {
       error
     } = this.state
 
-    if (
-      (isSearching &&
-        !loading &&
-        !!searchName & !searching &&
-        !currentList.length) ||
-      error
-    ) {
+    if ((isSearching && !loading && !!searchName & !searching && !currentList.length) || error) {
       return (
         <View flex={1} align='center' justify='center' padding={20}>
           <Image
@@ -332,52 +330,43 @@ class ParticipateHome extends React.Component {
   )
 
   render () {
-    const {
-      refreshing,
-      currentList,
-      searchName,
-      featuredTokens,
-      isSearching,
-      loading
-    } = this.state
-    const searchPreview = searchName
-      ? `${tl.t('results')} : ${currentList.length}`
-      : tl.t('participate.searchPreview')
+    const { currentList, searchName, featuredTokens, isSearching, loading, refreshing } = this.state
+    const searchPreview = searchName ? `${tl.t('results')} : ${currentList.length}` : tl.t('participate.searchPreview')
     return (
       <SafeAreaView>
+        <NavigationHeader
+          title={tl.t('participate.title')}
+          isSearching={isSearching}
+          onSearch={name => this._onSearching(name)}
+          onSearchPressed={() => this._onSearchPressed()}
+          searchPreview={searchPreview}
+        />
         <Container>
-          <NavigationHeader
-            title={tl.t('participate.title')}
-            isSearching={isSearching}
-            onSearch={name => this._onSearching(name)}
-            onSearchPressed={() => this._onSearchPressed()}
-            searchPreview={searchPreview}
-          />
-          {loading ? (
-            <LoadingScene />
-          ) : (
-            <FlatList
-              ListHeaderComponent={this._renderFeaturedTokens}
-              ListFooterComponent={this._renderLoading}
-              ListEmptyComponent={this._renderEmptyAssets}
-              ItemSeparatorComponent={this._renderSeparator}
-              refreshControl={
-                <RefreshControl
-                  refreshing={refreshing}
-                  onRefresh={this._refreshData}
-                />
-              }
-              data={currentList}
-              extraData={[featuredTokens]}
-              renderItem={({ item }) => this._renderCardContent(item)}
-              keyExtractor={asset => asset.name}
-              scrollEnabled
-              removeClippedSubviews={Platform.OS === 'android'}
-              maxToRenderPerBatch={BATCH_NUMBER}
-              onEndReached={this._loadMore}
-              onEndReachedThreshold={0.5}
-            />
-          )}
+          {loading
+            ? (<LoadingScene />)
+            : (
+              <FlatList
+                ListHeaderComponent={this._renderFeaturedTokens}
+                ListFooterComponent={this._renderLoading}
+                ListEmptyComponent={this._renderEmptyAssets}
+                ItemSeparatorComponent={this._renderSeparator}
+                refreshControl={
+                  <RefreshControl
+                    refreshing={refreshing}
+                    onRefresh={this._refreshData}
+                  />
+                }
+                data={currentList}
+                extraData={[featuredTokens]}
+                renderItem={({ item }) => this._renderCardContent(item)}
+                keyExtractor={asset => asset.name}
+                scrollEnabled
+                removeClippedSubviews={Platform.OS === 'android'}
+                maxToRenderPerBatch={BATCH_NUMBER}
+                onEndReached={this._loadMore}
+                onEndReachedThreshold={0.5}
+              />
+            )}
         </Container>
       </SafeAreaView>
     )

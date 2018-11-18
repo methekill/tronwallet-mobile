@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { ScrollView, Alert } from 'react-native'
 import Switch from 'react-native-switch-pro'
+import MixPanel from 'react-native-mixpanel'
 
 import * as Utils from '../../components/Utils'
 import ButtonGradient from './../../components/ButtonGradient'
@@ -18,6 +19,7 @@ class PrivacyPolicy extends Component {
       Alert.alert(tl.t('warning'), tl.t('privacyPolicy.error'))
     } else {
       this.props.navigation.navigate('First', this.props.navigation.state)
+      MixPanel.track('Privacy Policy')
     }
   }
 

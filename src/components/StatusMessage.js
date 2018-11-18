@@ -1,15 +1,18 @@
 import React from 'react'
+import { SafeAreaView } from 'react-native'
 import PropTypes from 'prop-types'
 
 import * as Utils from './Utils'
 import { Colors } from './DesignSystem'
 
-const StatusMessage = ({systemStatus}) => (
-  <Utils.View padding={5} background={systemStatus.statusColor || Colors.background}>
-    <Utils.Text size='tiny' font='regular' align='center' color={systemStatus.messageColor || Colors.primaryText}>
-      {systemStatus.statusMessage}
-    </Utils.Text>
-  </Utils.View>
+const StatusMessage = ({ systemStatus }) => (
+  <SafeAreaView>
+    <Utils.View padding={5} background={systemStatus.statusColor || Colors.background}>
+      <Utils.Text size='tiny' font='regular' align='center' color={systemStatus.messageColor || Colors.primaryText}>
+        {systemStatus.statusMessage}
+      </Utils.Text>
+    </Utils.View>
+  </SafeAreaView>
 )
 
 StatusMessage.propTypes = {

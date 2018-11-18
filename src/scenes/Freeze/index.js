@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Alert, Keyboard } from 'react-native'
 import moment from 'moment'
 import { Answers } from 'react-native-fabric'
+import MixPanel from 'react-native-mixpanel'
 
 import tl from '../../utils/i18n'
 import * as Utils from '../../components/Utils'
@@ -79,6 +80,7 @@ class FreezeScene extends Component {
         unfreezeStatus,
         total: tronPower
       })
+      MixPanel.trackWithProperties('Freeze Operation', { type: 'Load Data' })
     } catch (e) {
       logSentry(e, 'Freeze - Load Data')
       this.setState({ loading: false })
@@ -91,6 +93,7 @@ class FreezeScene extends Component {
     try {
       const data = await Client.getUnfreezeTransaction(publicKey, this.props.context.pin)
       this._openTransactionDetails(data)
+      MixPanel.trackWithProperties('Freeze Operation', { type: 'Unfreeze' })
     } catch (e) {
       Alert.alert(tl.t('error.buildingTransaction'))
       this.setState({ loadingSign: false })
@@ -136,6 +139,7 @@ class FreezeScene extends Component {
     try {
       const data = await Client.getFreezeTransaction(this.props.context.publicKey, convertedAmount)
       this._openTransactionDetails(data)
+      MixPanel.trackWithProperties('Freeze Operation', { type: 'Freeze' })
     } catch (e) {
       Alert.alert(Alert.alert(tl.t('error.buildingTransaction')))
       logSentry(e, 'Freeze - Create Tx')

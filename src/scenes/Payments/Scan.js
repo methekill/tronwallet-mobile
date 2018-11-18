@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Alert, ActivityIndicator } from 'react-native'
 import QRCodeScanner from 'react-native-qrcode-scanner'
 import { withNavigationFocus } from 'react-navigation'
+import MixPanel from 'react-native-mixpanel'
+
 // Design
 import * as Utils from '../../components/Utils'
 import NavigationHeader from '../../components/Navigation/Header'
@@ -63,6 +65,7 @@ class ScanPayment extends Component {
       navigation.navigate('MakePayScene', {
         payment: { address, amount, token, description }
       })
+      MixPanel.trackWithProperties('Account Operation', { type: 'Scan Payment', token })
     } catch (error) {
       if (error.name === 'DataError') {
         Alert.alert(tl.t('warning'), error.message)

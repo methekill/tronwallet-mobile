@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Keyboard, TouchableWithoutFeedback, Clipboard, Modal } from 'react-native'
 import PropTypes from 'prop-types'
+import MixPanel from 'react-native-mixpanel'
 
 import { FormGroup, CancelWrapper, ErrorText } from './elements'
 import IconButton from '../../../components/IconButton'
@@ -47,6 +48,7 @@ class ContactsForm extends Component {
   componentDidUpdate (prevProps, prevState) {
     if (prevProps.address !== this.props.address) this._changeAddress(this.props.address)
   }
+
   _nextInput = input => {
     if (input === 'address') {
       this.address.focus()
@@ -77,6 +79,7 @@ class ContactsForm extends Component {
         try {
           await store.write(() => { store.create('UserSecret', account, true) })
           this.props.navigation.goBack()
+          MixPanel.trackWithProperties('Contacts Operation', { type: 'WriteUserSecret' })
         } catch (e) {
           this.setState({
             generalError: tl.t('addressBook.form.generalError')
@@ -88,6 +91,7 @@ class ContactsForm extends Component {
         try {
           await store.write(() => { store.create('Contact', data, true) })
           this.props.navigation.goBack()
+          MixPanel.trackWithProperties('Contacts Operation', { type: 'WriteContact' })
         } catch (e) {
           this.setState({
             generalError: tl.t('addressBook.form.generalError')
@@ -183,6 +187,7 @@ class ContactsForm extends Component {
     if (address) {
       this._changeAddress(address)
       this._nextInput('submit')
+      MixPanel.trackWithProperties('Contacts Operation', { type: 'Paste address' })
     }
   }
 
@@ -192,6 +197,7 @@ class ContactsForm extends Component {
 
   _readPublicKey = e => {
     this.address.focus()
+    MixPanel.trackWithProperties('Contacts Operation', { type: 'Scan address' })
     this.setState({ address: e.data }, () => {
       this._closeModal()
     })
@@ -223,9 +229,7 @@ class ContactsForm extends Component {
               />
               {nameError && (
                 <React.Fragment>
-                  <ErrorText>
-                    {nameError}
-                  </ErrorText>
+                  <ErrorText>{nameError}</ErrorText>
                 </React.Fragment>
               )}
               <Input
@@ -240,17 +244,13 @@ class ContactsForm extends Component {
               />
               {addressError && (
                 <React.Fragment>
-                  <ErrorText>
-                    {addressError}
-                  </ErrorText>
+                  <ErrorText>{addressError}</ErrorText>
                 </React.Fragment>
               )}
               <VerticalSpacer size='medium' />
               {generalError && (
                 <React.Fragment>
-                  <ErrorText>
-                    {generalError}
-                  </ErrorText>
+                  <ErrorText>{generalError}</ErrorText>
                 </React.Fragment>
               )}
               <ButtonGradient

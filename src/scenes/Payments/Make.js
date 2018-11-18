@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { Alert, ActivityIndicator } from 'react-native'
 import { Answers } from 'react-native-fabric'
 import OneSignal from 'react-native-onesignal'
+import MixPanel from 'react-native-mixpanel'
 
 // Design
 import * as Utils from '../../components/Utils'
@@ -136,6 +137,7 @@ class MakePayment extends PureComponent {
               })
             }
           }
+          MixPanel.trackWithProperties('Payment Operation', { type: 'Payment Success', transaction: transaction })
           await this.props.context.loadUserData()
         }
         this.setState({ loading: false }, this._navigateNext(transactionData))
@@ -187,11 +189,8 @@ class MakePayment extends PureComponent {
           <Utils.VerticalSpacer size='large' />
           <Utils.View paddingX='medium'>
             {loading
-              ? <ActivityIndicator size='small' color={Colors.primaryText} />
-              : <ButtonGradient
-                text={tl.t('makePayment.confirm')}
-                onPress={this._checkPayment}
-              />}
+              ? (<ActivityIndicator size='small' color={Colors.primaryText} />)
+              : (<ButtonGradient text={tl.t('makePayment.confirm')} onPress={this._checkPayment} />)}
           </Utils.View>
         </Utils.Container>
       )

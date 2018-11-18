@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { FlatList, Alert, Image } from 'react-native'
+import MixPanel from 'react-native-mixpanel'
 
 import { Container } from '../Utils'
 import ActionModal from '../ActionModal'
@@ -32,6 +33,7 @@ class AddressBook extends Component {
       this.setState({ modalVisible: false })
     }
   }
+
   _onRefresh = () => {
     const { reloadData } = this.props
 
@@ -64,24 +66,24 @@ class AddressBook extends Component {
   _onEditPress = () => {
     const { currentItem } = this.state
 
-    this._navigate(
-      'EditAddressBookItem',
-      {
-        item: currentItem,
-        isUserAccount: this.props.isUserAccount,
-        reloadData: this.props.reloadData
-      }
-    )
+    this._navigate('EditAddressBookItem', {
+      item: currentItem,
+      isUserAccount: this.props.isUserAccount,
+      reloadData: this.props.reloadData
+    })
+    MixPanel.trackWithProperties('Contacts Operation', { type: 'Edit account' })
   }
 
   _onSendPress = () => {
     const { currentItem } = this.state
     this._navigate('SendScene', { address: currentItem.address })
+    MixPanel.trackWithProperties('Contacts Operation', { type: 'Navigate to Send' })
   }
 
   _onTransactionsPress = () => {
     const { currentItem } = this.state
     this._navigate('TransactionListScene', { contact: currentItem })
+    MixPanel.trackWithProperties('Contacts Operation', { type: 'Navigate to TransactionList' })
   }
 
   _onDeletePress = () => {
@@ -110,6 +112,7 @@ class AddressBook extends Component {
               store.write(() => {
                 let item = store.objectForPrimaryKey('Contact', currentItem.address)
                 store.delete(item)
+                MixPanel.trackWithProperties('Contacts Operation', { type: 'Delete account' })
               })
               reloadData()
               this.setState({

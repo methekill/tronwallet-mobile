@@ -10,6 +10,7 @@ import {
 import axios from 'axios'
 import Config from 'react-native-config'
 import OneSignal from 'react-native-onesignal'
+import Mixpanel from 'react-native-mixpanel'
 import { Sentry } from 'react-native-sentry'
 import { logSentry } from './src/utils/sentryUtils'
 
@@ -59,13 +60,13 @@ import NodesIp from './src/utils/nodeIp'
 import { getUserSecrets } from './src/utils/secretsUtils'
 import getBalanceStore from './src/store/balance'
 import { USER_PREFERRED_CURRENCY, ALWAYS_ASK_PIN, USE_BIOMETRY, TOKENS_VISIBLE } from './src/utils/constants'
-import { ONE_SIGNAL_KEY } from './config'
+import { ONE_SIGNAL_KEY, MIXPANEL_TOKEN } from './config'
 import ConfigJson from './package.json'
 import tl from './src/utils/i18n'
 
 import { getFixedTokens, getSystemStatus } from './src/services/contentful'
 import StatusMessage from './src/components/StatusMessage'
-import './ReactotronConfig'
+// import './ReactotronConfig'
 
 if (!__DEV__) {
   Sentry.config('https://8ffba48a3f30473883ba930c49ab233d@sentry.io/1236809', {
@@ -73,6 +74,7 @@ if (!__DEV__) {
     release: ConfigJson.version
   }).install()
 }
+Mixpanel.sharedInstanceWithToken(MIXPANEL_TOKEN)
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader'])
 
@@ -92,7 +94,8 @@ const SettingsStack = createStackNavigator({
     headerTintColor: '#fff',
     headerTitleStyle: {
       fontFamily: 'rubik-medium'
-    }
+    },
+    gesturesEnabled: false
   }
 })
 
@@ -323,6 +326,7 @@ class App extends Component {
       })
 
     const publicKey = this.state.publicKey || accounts[0].address
+    Mixpanel.identify(publicKey)
     this.setState({ accounts, userSecrets, publicKey }, () => this._updateAccounts(accounts))
   }
 
@@ -491,8 +495,9 @@ class App extends Component {
       <View style={{ backgroundColor: Colors.background, flex: 1 }} >
         <Context.Provider value={contextProps}>
           <StatusBar barStyle='light-content' />
-          {this.state.systemStatus.showStatus &&
-            <StatusMessage systemStatus={this.state.systemStatus} />}
+          {this.state.systemStatus.showStatus && (
+            <StatusMessage systemStatus={this.state.systemStatus} />
+          )}
           <RootNavigator uriPrefix={prefix} />
         </Context.Provider>
       </View>

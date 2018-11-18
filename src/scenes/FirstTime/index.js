@@ -1,5 +1,6 @@
 import React from 'react'
 import { BackHandler } from 'react-native'
+import Mixpanel from 'react-native-mixpanel'
 
 import * as Utils from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
@@ -23,51 +24,68 @@ class FirstTime extends React.Component {
     BackHandler.exitApp()
   }
 
+  _handlePinSuccess = (scene) => {
+    this.props.navigation.navigate(scene)
+    Mixpanel.track(`Navigation to ${scene} scene`)
+  }
+
+  _navigateToCreateWalletScene = () => {
+    const { context, navigation } = this.props
+    const shouldDoubleCheck = navigation.getParam('shouldDoubleCheck')
+    const testInput = navigation.getParam('testInput')
+
+    this._navigate({
+      shouldDoubleCheck,
+      testInput,
+      onSuccess: pin => {
+        context.setPin(pin, () => this._handlePinSuccess('CreateSeed'))
+      }
+    })
+  }
+
+  _navigateToImportScene = () => {
+    const { context, navigation } = this.props
+    const shouldDoubleCheck = navigation.getParam('shouldDoubleCheck')
+    const testInput = navigation.getParam('testInput')
+
+    this._navigate({
+      shouldDoubleCheck,
+      testInput,
+      onSuccess: pin => {
+        context.setPin(pin, () => this._handlePinSuccess('ImportWallet'))
+      }
+    })
+  }
+
+  _navigateToRestoreWalletScene = () => {
+    const { context, navigation } = this.props
+    const shouldDoubleCheck = navigation.getParam('shouldDoubleCheck')
+    const testInput = navigation.getParam('testInput')
+
+    this._navigate({
+      shouldDoubleCheck,
+      testInput,
+      onSuccess: pin => {
+        context.setPin(pin, () => this._handlePinSuccess('SeedRestore'))
+      }
+    })
+  }
+
+  _navigate = (navigationProps) => {
+    this.props.navigation.navigate('Pin', navigationProps)
+  }
+
   render () {
-    const shouldDoubleCheck = this.props.navigation.getParam('shouldDoubleCheck')
-    const testInput = this.props.navigation.getParam('testInput')
     return (
       <React.Fragment>
         <FeaturesSwiper />
         <Utils.View background={Colors.background} paddingHorizontal={30}>
           <Utils.View height={20} />
-          <ButtonGradient
-            text={tl.t('firstTime.button.create')}
-            onPress={() => {
-              this.props.navigation.navigate('Pin', {
-                shouldDoubleCheck,
-                testInput,
-                onSuccess: async pin => {
-                  this.props.context.setPin(
-                    pin,
-                    () => this.props.navigation.navigate('CreateSeed')
-                  )
-                }
-              })
-            }}
-          />
+          <ButtonGradient text={tl.t('firstTime.button.create')} onPress={this._navigateToCreateWalletScene} />
           <Utils.VerticalSpacer />
-          <ButtonGradient
-            text={tl.t('firstTime.button.import')}
-            onPress={() => {
-              this.props.navigation.navigate('Pin', {
-                shouldDoubleCheck,
-                testInput,
-                onSuccess: pin => this.props.context.setPin(pin, () => this.props.navigation.navigate('ImportWallet'))
-              })
-            }}
-          />
+          <ButtonGradient text={tl.t('firstTime.button.import')} onPress={this._navigateToImportScene} />
           <Utils.VerticalSpacer />
-          <BlackButton
-            text={tl.t('firstTime.button.restore')}
-            onPress={() => {
-              this.props.navigation.navigate('Pin', {
-                shouldDoubleCheck,
-                testInput,
-                onSuccess: pin => this.props.context.setPin(pin, () => this.props.navigation.navigate('SeedRestore'))
-              })
-            }}
-          />
+          <BlackButton text={tl.t('firstTime.button.restore')} onPress={this._navigateToRestoreWalletScene} />
           <Utils.VersionText>{`v${ConfigJson.version}`}</Utils.VersionText>
         </Utils.View>
       </React.Fragment>

@@ -11,6 +11,7 @@ import {
 import ActionSheet from 'react-native-actionsheet'
 import Toast from 'react-native-easy-toast'
 import get from 'lodash/get'
+import MixPanel from 'react-native-mixpanel'
 
 import { withContext } from '../../../store/context'
 import { Colors } from '../../../components/DesignSystem'
@@ -64,6 +65,7 @@ class AccountsCarousel extends React.Component {
     if (accounts.length) {
       const { address } = accounts[activeAccount]
       setPublicKey(address)
+      MixPanel.trackWithProperties('Account Operation', { type: 'Switch account', address })
     }
   }
 
@@ -84,6 +86,7 @@ class AccountsCarousel extends React.Component {
       await hideSecret(pin, address)
       this.carousel.snapToItem(nextAccountIndex)
       hideAccount(address)
+      MixPanel.trackWithProperties('Account Operation', { type: 'Hide Account', address })
     } catch (error) {
       logSentry(error, 'Hide Account Handler')
       Alert.alert(tl.t('warning'), tl.t('error.hideAccount'))
@@ -94,6 +97,7 @@ class AccountsCarousel extends React.Component {
     if (index) {
       const currency = CURRENCIES[index]
       this.props.context.setCurrency(currency)
+      MixPanel.trackWithProperties('Account Operation', { type: 'Set currency', currency })
     }
   }
 
@@ -101,6 +105,7 @@ class AccountsCarousel extends React.Component {
     try {
       await Clipboard.setString(address)
       this.refs.toast.show(tl.t('receive.clipboardCopied'))
+      MixPanel.trackWithProperties('Account Operation', { type: 'Copy Address - Clipboard' })
     } catch (error) {
       logSentry(error, 'Copy Address - Clipboard')
     }
@@ -143,11 +148,13 @@ class AccountsCarousel extends React.Component {
               </TronLogo>
               <Utils.VerticalSpacer />
 
-              <TouchableOpacity onPress={() => this._onCopyAddress(item.address)} >
-                <Utils.Text color='white' size='smaller' font='regular'>
-                  {this._formatAddress(item.address)}
-                </Utils.Text>
-              </TouchableOpacity>
+              <Utils.View width={132}>
+                <TouchableOpacity onPress={() => this._onCopyAddress(item.address)} >
+                  <Utils.Text color='white' size='smaller' font='regular' numberOfLines={1} ellipsizeMode='middle'>
+                    {item.address}
+                  </Utils.Text>
+                </TouchableOpacity>
+              </Utils.View>
 
               <Utils.VerticalSpacer size='small' />
               <TouchableOpacity onPress={() => this.ActionSheet.show()}>

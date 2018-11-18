@@ -48,6 +48,7 @@ PODS:
   - lottie-react-native (2.5.6):
     - lottie-ios
     - React
+  - Mixpanel (3.3.6)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -65,6 +66,9 @@ PODS:
   - react-native-camera/RCT (1.1.4):
     - React
   - react-native-camera/RN (1.1.4):
+    - React
+  - react-native-mixpanel (0.0.6):
+    - Mixpanel
     - React
   - react-native-onesignal (3.2.5):
     - OneSignal (= 2.8.5)
@@ -162,6 +166,7 @@ DEPENDENCIES:
   - lottie-ios (from `../node_modules/lottie-ios`)
   - lottie-react-native (from `../node_modules/lottie-react-native`)
   - react-native-camera (from `../node_modules/react-native-camera`)
+  - react-native-mixpanel (from `../node_modules/react-native-mixpanel`)
   - react-native-onesignal (from `../node_modules/react-native-onesignal`)
   - React/ART (from `../node_modules/react-native`)
   - React/Core (from `../node_modules/react-native`)
@@ -195,6 +200,7 @@ SPEC REPOS:
     - gRPC-ProtoRPC
     - gRPC-RxLibrary
     - KSCrash
+    - Mixpanel
     - nanopb
     - "NSData+FastHex"
     - OneSignal
@@ -217,6 +223,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native"
   react-native-camera:
     :path: "../node_modules/react-native-camera"
+  react-native-mixpanel:
+    :path: "../node_modules/react-native-mixpanel"
   react-native-onesignal:
     :path: "../node_modules/react-native-onesignal"
   ReactNativeFabric:
@@ -249,12 +257,14 @@ SPEC CHECKSUMS:
   KSCrash: 5394936f41e5c1ef7b79cf79b30d53299b0c160e
   lottie-ios: 9f24be3ecb13412223b6ac70d97437742b0e3de1
   lottie-react-native: db4bd75685428c4ad0ec2f913145abff3d38b640
+  Mixpanel: 801ed99810d6bfc80762f91d472ad95c15e45f37
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   "NSData+FastHex": a22ad031ee10a4297d0bf4d20cf03406a4476169
   OneSignal: 42dae269c7eca517aee34963820e1eb922390031
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   React: aa2040dbb6f317b95314968021bd2888816e03d5
   react-native-camera: ab22041dcf0403d88f2ae4b9ea3ed2644e680423
+  react-native-mixpanel: 0683bc3f3f8db8f9d79a8ba8584ee51030338a2f
   react-native-onesignal: 4f425b36d3edf595c93c1a8d3618a93b71a85a51
   ReactNativeFabric: 3912bf9c714d7cc98110eadf06ca6dedef219322
   RNBackgroundFetch: 8c4f77f83c398c659bce82af2f0a885079417b9e
@@ -266,6 +276,6 @@ SPEC CHECKSUMS:
   TrezorCrypto: 938c4b715fff7824a9c891a105e65ee0e4e81662
   yoga: a23273df0088bf7f2bb7e5d7b00044ea57a2a54a
 
-PODFILE CHECKSUM: bab2fb4a222d245b9716f217570f3e9e29e90829
+PODFILE CHECKSUM: 612c786e74049056402c8a5f70c555a71e4cf5c3
 
 COCOAPODS: 1.5.3

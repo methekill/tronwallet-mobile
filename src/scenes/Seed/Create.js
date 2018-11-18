@@ -1,14 +1,9 @@
 import React from 'react'
-import {
-  ActivityIndicator,
-  Alert,
-  TouchableOpacity,
-  Clipboard,
-  Image
-} from 'react-native'
+import { ActivityIndicator, Alert, TouchableOpacity, Clipboard, Image } from 'react-native'
 import { StackActions, NavigationActions } from 'react-navigation'
 import RNTron from 'react-native-tron'
 import Toast from 'react-native-easy-toast'
+import MixPanel from 'react-native-mixpanel'
 
 import { Colors, ScreenSize } from '../../components/DesignSystem'
 import ButtonGradient from '../../components/ButtonGradient'
@@ -20,14 +15,16 @@ import {
   Text,
   Content,
   HorizontalSpacer,
-  SafeAreaView
+  SafeAreaView,
+  Button
 } from '../../components/Utils'
 
 import { createUserKeyPair } from '../../utils/secretsUtils'
 import { withContext } from '../../store/context'
 import { logSentry } from '../../utils/sentryUtils'
 import tl from '../../utils/i18n'
-import FontelloButton from '../../components/FontelloButton'
+
+import FontelloIcon from '../../components/FontelloIcon'
 
 const resetAction = StackActions.reset({
   index: 0,
@@ -62,6 +59,7 @@ class Create extends React.Component {
       } else {
         navigation.navigate('SeedSave')
       }
+      MixPanel.trackWithProperties('Wallet Operation', { type: 'Confirm' })
     } catch (e) {
       Alert.alert(tl.t('seed.create.error'))
       logSentry(e, 'Create Seed - Confirm')
@@ -110,13 +108,11 @@ class Create extends React.Component {
           />
           <Content flex={1} paddingSize='medium'>
             <MainCard>
-              <FontelloButton
-                onPress={this._onCopySeed}
-                style={{ alignItems: 'flex-end' }}
-                name='copy'
-                size={18}
-                color={Colors.greyBlue}
-              />
+              <View align='flex-end' justify='center' height={30} >
+                <Button width={30} height={30} justify='center' onPress={this._onCopySeed} >
+                  <FontelloIcon name='copy' size={20} color={Colors.greyBlue} />
+                </Button>
+              </View>
               <View height={32} />
               {seed
                 ? (<Text size='small' lineHeight={24} align='center'>{seed}</Text>)

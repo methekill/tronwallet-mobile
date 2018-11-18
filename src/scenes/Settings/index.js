@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import {
   StyleSheet,
   View,
@@ -22,6 +21,7 @@ import { StackActions, NavigationActions } from 'react-navigation'
 import OneSignal from 'react-native-onesignal'
 import Switch from 'react-native-switch-pro'
 import Biometrics from 'react-native-biometrics'
+import MixPanel from 'react-native-mixpanel'
 
 // Design
 import * as Utils from '../../components/Utils'
@@ -91,6 +91,7 @@ class Settings extends Component {
     )
     this._didFocus = this.props.navigation.addListener('didFocus', () => this._onLoadData(), this._getSelectedTokens)
     this.appStateListener = onBackgroundHandler(this._onAppStateChange)
+    MixPanel.trackWithProperties('Settings Operation', { type: 'Load data' })
   }
 
   componentWillUnmount () {
@@ -151,6 +152,7 @@ class Settings extends Component {
     const { alwaysAskPin } = this.props.context
     await AsyncStorage.setItem(ALWAYS_ASK_PIN, `${!alwaysAskPin}`)
     this.props.context.setAskPin(!alwaysAskPin)
+    MixPanel.trackWithProperties('Settings Operation', { type: 'Setting ask pin', value: !alwaysAskPin })
   }
 
   _resetWallet = async () => {
@@ -167,6 +169,7 @@ class Settings extends Component {
               await hardResetWalletData(this.props.context.pin)
               this.props.context.resetAccount()
               this.props.navigation.dispatch(resetAction)
+              MixPanel.trackWithProperties('Settings Operation', { type: 'Reset Wallet' })
             }
           })}
       ],
@@ -225,6 +228,7 @@ class Settings extends Component {
     try {
       await AsyncStorage.setItem(TOKENS_VISIBLE, `${!this.props.context.verifiedTokensOnly}`)
       this.props.context.setVerifiedTokensOnly(!this.props.context.verifiedTokensOnly)
+      MixPanel.trackWithProperties('Settings Operation', { type: 'Change tokens visibility' })
     } catch (error) {
       this.props.context.setVerifiedTokensOnly(currentValue)
     }
@@ -241,7 +245,13 @@ class Settings extends Component {
           tl.t('settings.language.success.description'),
           [
             {text: tl.t('settings.language.button.cancel'), style: 'cancel'},
-            {text: tl.t('settings.language.button.confirm'), onPress: () => RNRestart.Restart()}
+            {
+              text: tl.t('settings.language.button.confirm'),
+              onPress: () => {
+                MixPanel.trackWithProperties('Settings Operation', { type: 'Change language', value: language.value })
+                RNRestart.Restart()
+              }
+            }
           ],
           { cancelable: false }
         )
@@ -257,6 +267,7 @@ class Settings extends Component {
     try {
       await AsyncStorage.setItem(USER_FILTERED_TOKENS, JSON.stringify(currentSelectedTokens))
       this.setState({ userSelectedTokens: currentSelectedTokens })
+      MixPanel.trackWithProperties('Settings Operation', { type: 'Token filter' })
     } catch (error) {
       logSentry(error, 'Settings - Save tokens')
     }
@@ -273,6 +284,7 @@ class Settings extends Component {
 
       await AsyncStorage.setItem(USE_BIOMETRY, `${!useBiometry}`)
       this.props.context.setUseBiometry(!useBiometry)
+      MixPanel.trackWithProperties('Settings Operation', { type: 'Save Biometry', value: !useBiometry })
     } catch (error) {
       logSentry(error, 'Settings - Save Biometry')
       Alert.alert(tl.t('biometry.auth.error'))
