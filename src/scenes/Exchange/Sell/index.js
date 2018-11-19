@@ -13,8 +13,8 @@ import * as Utils from '../../../components/Utils'
 import tl from '../../../utils/i18n'
 import { Colors } from '../../../components/DesignSystem'
 import { withContext } from '../../../store/context'
-import WalletClient, { ONE_TRX } from '../../../services/client'
-import { estimatedSellCost, tokenIdParser } from '../../../utils/exchangeUtils'
+import WalletClient from '../../../services/client'
+import { estimatedSellCost, expectedSell } from '../../../utils/exchangeUtils'
 import { formatFloat } from '../../../utils/numberUtils'
 
 class SendScene extends Component {
@@ -41,8 +41,6 @@ class SendScene extends Component {
     this.setState({exData})
   }
 
-  _tokenParser = token => token === '_' ? 'TRX' : token.toUpperCase()
-
   _submit = () => {
     const { sellAmount } = this.state
     if (sellAmount <= 0 || !sellAmount) {
@@ -55,10 +53,10 @@ class SendScene extends Component {
   _exchangeToken = async () => {
     const { sellAmount } = this.state
     const { exchangeId, price, firstTokenId, secondTokenId } = this.state.exData
-    const { publicKey, accounts } = this.props.context
+    const { publicKey, accounts, loadUserData } = this.props.context
 
-    const quant = sellAmount * (firstTokenId === '_' ? ONE_TRX : 1)
-    const expected = estimatedSellCost(price, sellAmount, secondTokenId === '_', true)
+    const quant = expectedSell(sellAmount, firstTokenId === 'TRX')
+    const expected = estimatedSellCost(price, sellAmount, secondTokenId === 'TRX', true)
 
     this.setState({loading: true})
     try {
@@ -78,9 +76,9 @@ class SendScene extends Component {
       const signedTransaction = await RNTron.signTransaction(userKey, transactionUnsigned)
       this.setState({step: 'Broadcasting'})
       const { code } = await WalletClient.broadcastTransaction(signedTransaction)
-
       if (code === 'SUCCESS') {
         this.setState({step: 'Success !'})
+        loadUserData()
       } else {
         this.setState({step: 'Fail !'})
       }
@@ -91,9 +89,27 @@ class SendScene extends Component {
     }
   }
 
+  _renderCurrentBalance = () => {
+    const { exData } = this.state
+    const { balances, publicKey } = this.props.context
+    const firstTokenBalance = balances[publicKey].find(bl => bl.name === exData.firstTokenId) || { balance: 0 }
+    const secondTokenBalance = balances[publicKey].find(bl => bl.name === exData.secondTokenId) || { balance: 0 }
+    return <Utils.View paddingX='large' justify='center' paddingY='small'>
+      <Utils.Row align='center' justify='space-around'>
+        <Utils.View>
+          <Utils.Text size='smaller' color={Colors.greyBlue}>{exData.firstTokenId}</Utils.Text>
+          <Utils.Text size='smaller' color={Colors.greyBlue}>{firstTokenBalance.balance}</Utils.Text>
+        </Utils.View>
+        <Utils.View>
+          <Utils.Text size='smaller' color={Colors.greyBlue}>{exData.secondTokenId}</Utils.Text>
+          <Utils.Text size='smaller' color={Colors.greyBlue}>{secondTokenBalance.balance}</Utils.Text>
+        </Utils.View>
+      </Utils.Row>
+    </Utils.View>
+  }
   _renderRightContent = text =>
     <Utils.Text size='small' color={Colors.greyBlue}>
-      {this._tokenParser(text)}
+      {text}
     </Utils.Text>
 
   render () {
@@ -102,13 +118,13 @@ class SendScene extends Component {
       sellAmount,
       loading
     } = this.state
-    const cost = estimatedSellCost(exData.price, sellAmount || 0, exData.secondTokenId === '_')
+    const cost = estimatedSellCost(exData.price, sellAmount || 0, exData.secondTokenId === 'TRX')
     return (
       <Utils.SafeAreaView>
         <ScrollView>
           <Utils.View align='center' justify='center'>
             <Utils.Text size='xsmall' color={Colors.greyBlue}>
-              {tokenIdParser(exData.firstTokenId)}/{tokenIdParser(exData.secondTokenId)} = {exData.price.toFixed(4)}
+              {exData.firstTokenId}/{exData.secondTokenId} = {exData.price.toFixed(4)}
             </Utils.Text>
           </Utils.View>
           <Utils.View align='center' justify='center'>
@@ -116,6 +132,7 @@ class SendScene extends Component {
               Min to sell {Math.ceil(1 / exData.price)}
             </Utils.Text>
           </Utils.View>
+          {this._renderCurrentBalance()}
           <Utils.View flex={1} justify='center' paddingX='medium' paddingY='medium'>
             <Input
               label={tl.t('sell').toUpperCase()}

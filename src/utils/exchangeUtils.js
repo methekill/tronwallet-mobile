@@ -1,14 +1,18 @@
 import { ONE_TRX } from '../services/client'
 
-export const estimatedCost = (price = 0, quant = 0, high = true) => (high ? 1.01 : 0.99) * price * quant
-export const tokenIdParser = token => token === '_' ? 'TRX' : token
+const SELL_VARIATION = 0.99
+const BUY_VARIATION = 1.01
 
-export const estimatedBuyCost = (price = 0, quant = 0, isTrx, trueParse) =>
+export const estimatedBuyCost = (price = 0, quant = 0, isTrx, parsed = false) =>
   isTrx
-    ? (1.01 * price * quant).toFixed(4) * (trueParse ? ONE_TRX : 1)
-    : Math.ceil(price * quant).toString()
+    ? (BUY_VARIATION * price * quant).toFixed(4) * (parsed ? ONE_TRX : 1)
+    : Math.ceil(price * quant * BUY_VARIATION).toString()
 
-export const estimatedSellCost = (price = 0, quant = 0, isTrx, trueParse) =>
+export const expectedBuy = (value, isTrx) => Math.round((isTrx ? ONE_TRX : 1) * value)
+
+export const estimatedSellCost = (price = 0, quant = 0, isTrx, parsed = false) =>
   isTrx
-    ? (0.99 * price * quant).toFixed(4) * (trueParse ? ONE_TRX : 1)
-    : Math.floor(price * quant).toString()
+    ? (SELL_VARIATION * price * quant).toFixed(4) * (parsed ? ONE_TRX : 1)
+    : Math.floor(price * quant * SELL_VARIATION).toString()
+
+export const expectedSell = (value, isTrx) => Math.round((isTrx ? ONE_TRX : 1) * value)

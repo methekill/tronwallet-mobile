@@ -30,8 +30,6 @@ class ExchangeScene extends Component {
       this._loadData()
     }
 
-    _tokenParser = token => token === '_' ? 'TRX' : token
-
     _loadData = async () => {
       try {
         let exchangeList = await WalletClient.getExchangesList()
@@ -64,7 +62,7 @@ class ExchangeScene extends Component {
         />
         <Utils.View flex={1} paddingX='small' justify='center'>
           <Utils.Text size='small'>
-            {this._tokenParser(item.firstTokenId)} / {this._tokenParser(item.secondTokenId)}
+            {item.firstTokenId} / {item.secondTokenId}
           </Utils.Text>
           <Utils.View height={8} />
           <Utils.Row justify='space-between'>
