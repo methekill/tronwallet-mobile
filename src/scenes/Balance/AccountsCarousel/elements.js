@@ -126,3 +126,21 @@ export const BtnTrash = ({ onPress }) => (
 
 // borderTopLeftRadius: 6px;
 // borderTopRightRadius: 6px;
+export const TopCardGradient = () => (
+  <Utils.View >
+    <LinearGradient
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 0 }}
+      colors={[Colors.buttonGradient[0], Colors.buttonGradient[1]]}
+      style={{ height: 14, borderRadius: 6 }}
+    />
+    <Utils.View
+      position='absolute'
+      left={0}
+      right={0}
+      bottom={0}
+      height={10}
+      background='rgb(48, 50, 76)'
+    />
+  </Utils.View>
+)
