@@ -11,6 +11,7 @@ import OneSignal from 'react-native-onesignal'
 import Switch from 'react-native-switch-pro'
 import Biometrics from 'react-native-biometrics'
 import MixPanel from 'react-native-mixpanel'
+import RNDevice from 'react-native-device-info'
 
 // Design
 import * as Utils from '../../components/Utils'
@@ -274,10 +275,13 @@ class Settings extends Component {
   }
 
   _saveBiometry = async (pin) => {
+    const { useBiometry } = this.props.context
+    console.log()
     try {
-      const { useBiometry } = this.props.context
       if (!useBiometry) {
-        const signature = await Biometrics.createSignature(tl.t('biometry.register.title'), pin)
+        await Biometrics.createKeys(tl.t('biometry.register.title'))
+        const uid = await RNDevice.getUniqueID()
+        const signature = await Biometrics.createSignature(tl.t('biometry.register.title'), uid)
         await AsyncStorage.setItem(ENCRYPTED_PIN, encrypt(pin, signature))
       }
       await AsyncStorage.setItem(USE_BIOMETRY, `${!useBiometry}`)
@@ -418,8 +422,8 @@ class Settings extends Component {
                       //   testInput: pin => pin === this.props.context.pin,
                       //   onSuccess: this._saveBiometry
                       // })
-                      this._getPinCallback(() => {
-                        this._saveBiometry()
+                      this._getPinCallback((pin) => {
+                        this._saveBiometry(pin)
                       })
                       /* eslint-disable */
                       callback(false)

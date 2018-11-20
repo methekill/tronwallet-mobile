@@ -47,8 +47,8 @@ export const KeyText = styled.Text`
   color:${Colors.secondaryText};
 `
 
-export const Key = ({ children, noBorder, onPress }) => (
-  <KeyWrapper noBorder={noBorder} onPress={() => onPress(children)} >
+export const Key = ({ children, noBorder, onPress, pointerEvents }) => (
+  <KeyWrapper noBorder={noBorder} onPress={() => onPress(children)} pointerEvents={pointerEvents} >
     <KeyText>
       {children}
     </KeyText>
