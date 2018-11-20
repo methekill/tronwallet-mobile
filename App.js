@@ -301,8 +301,9 @@ class App extends Component {
       <View style={{ backgroundColor: Colors.background, flex: 1 }} >
         <Context.Provider value={contextProps}>
           <StatusBar barStyle='light-content' />
-          {this.state.systemStatus.showStatus &&
-            <StatusMessage systemStatus={this.state.systemStatus} />}
+          {this.state.systemStatus.showStatus && (
+            <StatusMessage systemStatus={this.state.systemStatus} />
+          )}
           <RootNavigator uriPrefix={prefix} />
         </Context.Provider>
       </View>

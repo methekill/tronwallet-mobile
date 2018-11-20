@@ -22,8 +22,9 @@ import Empty from './Empty'
 import FontelloButton from '../../components/FontelloButton'
 import { SafeAreaView } from './../../components/Utils'
 
-class TransactionsScene extends Component {
+export class TransactionsScene extends Component {
   static navigationOptions = { header: null }
+  static displayName = 'TransactionsScene'
 
   state = {
     refreshing: true,
@@ -44,7 +45,7 @@ class TransactionsScene extends Component {
   }
 
   _setData = () => {
-    Promise.all([getTransactionStore(), getContactsStore(), getAssetsStore()])
+    return Promise.all([getTransactionStore(), getContactsStore(), getAssetsStore()])
       .then(retults => {
         this.setState({
           transactionStoreRef: retults[0],
