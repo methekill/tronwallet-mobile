@@ -13,10 +13,16 @@ export const Divider = styled.View`
   background-color: ${Colors.greyBlue};
   height: 0.6;
 `
-
-export const TradePair = ({text}) =>
-  <Utils.View align='center' justify='center'>
-    <Utils.Text size='tiny' color={Colors.greyBlue}>
-      {text}
+export const ExchangePair = ({firstToken, secondToken, price}) =>
+  <Utils.View paddingX='medium' marginY={18} flex={1} justify='center' align='center'>
+    <Utils.View height={0.6} background={Colors.greyBlue} width='100%' />
+    <Utils.Text marginY={8} size='smaller' color={Colors.greyBlue}>
+      {`${firstToken}/${secondToken} ≈ ${price.toFixed(4)}`}
     </Utils.Text>
+    <Utils.View height={0.6} background={Colors.greyBlue} width='100%' />
   </Utils.View>
+
+export const ExchangeVariation = ({text}) =>
+  <Utils.Text padding={15} font='regular' size='tiny' align='center'>
+    {text}
+  </Utils.Text>

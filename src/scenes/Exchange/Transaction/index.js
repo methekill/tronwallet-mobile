@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Dimensions } from 'react-native'
-import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view'
+import { TabViewAnimated, TabBar } from 'react-native-tab-view'
 
 // Design
 import { Colors } from '../../../components/DesignSystem'
@@ -11,6 +11,9 @@ import { SafeAreaView } from '../../../components/Utils'
 
 // Utils
 import tl from '../../../utils/i18n'
+
+// Service
+import WalletClient from '../../../services/client'
 
 const initialLayout = {
   height: 0,
@@ -31,9 +34,42 @@ export default class TransferScene extends Component {
     routes: [
       { key: 'buy', title: tl.t('buy') },
       { key: 'sell', title: tl.t('sell') }
-    ]
+    ],
+    exchangeData: this.props.navigation.getParam('exData',
+      { exchangeId: -1,
+        creatorAddress: '',
+        createTime: 0,
+        firstTokenId: '',
+        firstTokenBalance: 0,
+        secondTokenId: '',
+        secondTokenBalance: 0,
+        available: false,
+        price: 0
+      }),
+    refreshingPrice: false
   }
 
+  componentDidMount () {
+    this.refreshInterval = setInterval(this._refreshPrice, 10000)
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.refreshInterval)
+  }
+
+  _refreshPrice = async () => {
+    const { refreshingPrice, exchangeData } = this.state
+    if (refreshingPrice) return
+    this.setState({refreshingPrice: true})
+    try {
+      const updatedExchangeData = await WalletClient.getExchangeById(exchangeData.exchangeId)
+      this.setState({exchangeData: updatedExchangeData})
+    } catch (error) {
+      console.warn('Failed to refresh', error.message)
+    } finally {
+      this.setState({refreshingPrice: false})
+    }
+  }
   _handleIndexChange = index => this.setState({ index })
 
   _renderHeader = props => (
@@ -61,11 +97,16 @@ export default class TransferScene extends Component {
     />
   )
 
-  _renderScene = SceneMap({
-    sell: () => <SellScene {...this.props} />,
-    buy: () => <BuyScene {...this.props} />
-  })
-
+  _renderScene = ({ route }) => {
+    switch (route.key) {
+      case 'sell':
+        return <SellScene {...this.props} exchangeData={this.state.exchangeData} />
+      case 'buy':
+        return <BuyScene {...this.props} exchangeData={this.state.exchangeData} />
+      default:
+        return null
+    }
+  }
   render () {
     return (
       <SafeAreaView>

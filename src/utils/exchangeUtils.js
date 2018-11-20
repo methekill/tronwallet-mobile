@@ -1,18 +1,46 @@
 import { ONE_TRX } from '../services/client'
 
-const SELL_VARIATION = 0.99
-const BUY_VARIATION = 1.01
+export const SELL_VARIATION = 0.99
+export const BUY_VARIATION = 1.01
 
-export const estimatedBuyCost = (price = 0, quant = 0, isTrx, parsed = false) =>
-  isTrx
-    ? (BUY_VARIATION * price * quant).toFixed(4) * (parsed ? ONE_TRX : 1)
-    : Math.ceil(price * quant * BUY_VARIATION).toString()
+/* GOTRON FORMULA */
+const exchangeToSupply = (supply, balance, quant) => {
+  let newBalance = balance + quant
+  let issuedSupply = (-supply * (1.0 - Math.pow((1.0 + (quant / newBalance)), 0.0005)))
+  return { supply: supply + issuedSupply, relay: issuedSupply }
+}
 
-export const expectedBuy = (value, isTrx) => Math.round((isTrx ? ONE_TRX : 1) * value)
+const exchangeFromSupply = (supply, balance, supplyQuant) => {
+  supply = supply - supplyQuant
 
-export const estimatedSellCost = (price = 0, quant = 0, isTrx, parsed = false) =>
-  isTrx
-    ? (SELL_VARIATION * price * quant).toFixed(4) * (parsed ? ONE_TRX : 1)
-    : Math.floor(price * quant * SELL_VARIATION).toString()
+  let exchangeBalance = balance * (Math.pow(1.0 + (supplyQuant / supply), 2000.0) - 1.0)
+
+  return exchangeBalance
+}
+
+const exchangePrice = (firstBalance, secondBalance, quant, parseTrx = false) => {
+  let supply = 1000000000000000000
+  quant = parseFloat(quant)
+  let { supply: newSupply, relay } = exchangeToSupply(supply, firstBalance, quant)
+  let estimatedCost = exchangeFromSupply(newSupply, secondBalance, relay) / (parseTrx ? ONE_TRX : 1)
+
+  return estimatedCost
+}
+/* GOTRON FORMULA */
+
+export const estimatedBuyCost = (firstBalance, secondBalance, quant, parseTrx = false) => {
+  const cost = exchangePrice(firstBalance, secondBalance, quant, parseTrx)
+  return parseTrx
+    ? cost * BUY_VARIATION
+    : Math.ceil(cost * BUY_VARIATION)
+}
+
+export const estimatedSellCost = (firstBalance, secondBalance, quant, parseTrx = false) => {
+  const cost = exchangePrice(firstBalance, secondBalance, quant, parseTrx)
+  return parseTrx
+    ? cost * SELL_VARIATION
+    : Math.floor(cost * SELL_VARIATION)
+}
 
 export const expectedSell = (value, isTrx) => Math.round((isTrx ? ONE_TRX : 1) * value)
+export const expectedBuy = (value, isTrx) => Math.round((isTrx ? ONE_TRX : 1) * value)

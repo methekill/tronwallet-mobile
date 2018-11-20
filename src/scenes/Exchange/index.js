@@ -30,6 +30,10 @@ class ExchangeScene extends Component {
       this._loadData()
     }
 
+    componentWillUnmount () {
+      this._navListener.remove()
+    }
+
     _loadData = async () => {
       try {
         let exchangeList = await WalletClient.getExchangesList()

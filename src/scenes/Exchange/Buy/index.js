@@ -1,62 +1,77 @@
 import React, { Component } from 'react'
 import {
-  ScrollView
+  ScrollView,
+  Alert
 } from 'react-native'
 import RNTron from 'react-native-tron'
 
 // Design
 import Input from '../../../components/Input'
-import ButtonGradient from '../../../components/ButtonGradient'
 import * as Utils from '../../../components/Utils'
 import { Colors } from '../../../components/DesignSystem'
-import { TradePair } from '../elements'
+import { ExchangePair, ExchangeVariation } from '../elements'
+import ExchangeBalancePair from '../ExchangeBalancePair'
+
 // Utils
 import tl from '../../../utils/i18n'
 import { withContext } from '../../../store/context'
-import WalletClient from '../../../services/client'
-import { estimatedBuyCost, expectedBuy } from '../../../utils/exchangeUtils'
+import { expectedBuy, estimatedBuyCost } from '../../../utils/exchangeUtils'
 import { formatFloat } from '../../../utils/numberUtils'
 
-class SendScene extends Component {
+// Service
+import WalletClient from '../../../services/client'
+import ExchangeButton from '../ExchangeButton'
+
+class BuyScene extends Component {
   static navigationOptions = { header: null }
 
   state = {
-    exData: {
-      exchangeId: -1,
-      creatorAddress: '',
-      createTime: 0,
-      firstTokenId: '',
-      firstTokenBalance: 0,
-      secondTokenId: '',
-      secondTokenBalance: 0,
-      available: false,
-      price: 0
-    },
     buyAmount: '',
     loading: false,
-    step: 'Waiting'
-  }
-
-  componentDidMount () {
-    const exData = this.props.navigation.getParam('exData', {})
-    this.setState({exData})
+    refreshingPrice: false,
+    result: false
   }
 
   _submit = () => {
     const { buyAmount } = this.state
+    const { balances, publicKey } = this.props.context
+    const { firstTokenBalance, secondTokenBalance, firstTokenId, secondTokenId } = this.props.exchangeData
+
     if (buyAmount <= 0 || !buyAmount) {
       this.buyAmount.focus()
       return
     }
-    this._exchangeToken()
+
+    const estimatedCost = estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount, secondTokenId === 'TRX')
+
+    if (secondTokenBalance < estimatedCost) {
+      Alert.alert(tl.t('warning'),
+        `Not enough trading balance. Currently at ${secondTokenBalance} ${secondTokenId}`)
+      this.buyAmount.focus()
+      return
+    }
+
+    const { balance: userSecondTokenBalance } =
+      balances[publicKey].find(bl => bl.name === secondTokenId) || { balance: 0 }
+
+    if (userSecondTokenBalance <= 0 || userSecondTokenBalance < estimatedCost) {
+      Alert.alert(tl.t('warning'), `You don't have enough ${secondTokenId} to buy ${firstTokenId}`)
+      return
+    }
+
+    this.props.navigation.navigate('Pin', {
+      shouldGoBack: true,
+      testInput: pin => pin === this.props.context.pin,
+      onSuccess: this._exchangeToken
+    })
   }
 
   _exchangeToken = async () => {
     const { buyAmount } = this.state
-    const { exchangeId, price, secondTokenId, firstTokenId } = this.state.exData
     const { publicKey, accounts, loadUserData } = this.props.context
+    const { exchangeId, firstTokenBalance, secondTokenBalance, secondTokenId, firstTokenId } = this.props.exchangeData
 
-    const quant = estimatedBuyCost(buyAmount, price, secondTokenId === 'TRX', true)
+    const quant = estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount)
     const expected = expectedBuy(buyAmount, firstTokenId === 'TRX')
 
     this.setState({loading: true})
@@ -69,47 +84,36 @@ class SendScene extends Component {
         expected
       }
 
-      this.setState({step: 'Getting exchange Transaction'})
       const transactionUnsigned = await WalletClient.getExchangeTransaction(exParams)
-
       const userKey = accounts.find(acc => acc.address === publicKey).privateKey
-      this.setState({step: 'Signing exchange'})
       const signedTransaction = await RNTron.signTransaction(userKey, transactionUnsigned)
 
-      this.setState({step: 'Broadcasting'})
       const { code } = await WalletClient.broadcastTransaction(signedTransaction)
 
       if (code === 'SUCCESS') {
-        this.setState({step: 'Success !'})
+        this.setState({result: 'success', loading: false})
         loadUserData()
       } else {
-        this.setState({step: 'Fail !'})
+        this.setState({result: 'Coulnd\'t perform exchange'})
       }
     } catch (error) {
-      this.setState({step: 'Fail !'})
-      console.warn('Error while submiting', error)
+      this.setState({result: error.message})
     } finally {
-      this.setState({loading: false})
+      setTimeout(() => this.setState({buyAmount: '', result: false}), 2500)
     }
   }
 
   _renderCurrentBalance = () => {
-    const { exData } = this.state
+    const { firstTokenId, secondTokenId } = this.props.exchangeData
     const { balances, publicKey } = this.props.context
-    const firstTokenBalance = balances[publicKey].find(bl => bl.name === exData.firstTokenId) || { balance: 0 }
-    const secondTokenBalance = balances[publicKey].find(bl => bl.name === exData.secondTokenId) || { balance: 0 }
-    return <Utils.View paddingX='large' justify='center' paddingY='medium'>
-      <Utils.Row align='center' justify='space-around'>
-        <Utils.View>
-          <Utils.Text size='smaller' color={Colors.greyBlue}>{exData.firstTokenId}</Utils.Text>
-          <Utils.Text size='smaller' color={Colors.greyBlue}>{firstTokenBalance.balance}</Utils.Text>
-        </Utils.View>
-        <Utils.View>
-          <Utils.Text size='smaller' color={Colors.greyBlue}>{exData.secondTokenId}</Utils.Text>
-          <Utils.Text size='smaller' color={Colors.greyBlue}>{secondTokenBalance.balance}</Utils.Text>
-        </Utils.View>
-      </Utils.Row>
-    </Utils.View>
+    const {balance: firstTokenBalance} = balances[publicKey].find(bl => bl.name === firstTokenId) || { balance: 0 }
+    const {balance: secondTokenBalance} = balances[publicKey].find(bl => bl.name === secondTokenId) || { balance: 0 }
+    return <ExchangeBalancePair
+      firstToken={firstTokenId}
+      firstTokenBalance={firstTokenBalance}
+      secondToken={secondTokenId}
+      secondTokenBalance={secondTokenBalance}
+    />
   }
 
   _renderRightContent = token =>
@@ -119,25 +123,34 @@ class SendScene extends Component {
 
   render () {
     const {
-      exData,
       buyAmount,
-      loading
+      loading,
+      result
     } = this.state
-    const cost = estimatedBuyCost(exData.price, buyAmount || 0, exData.secondTokenId === 'TRX')
-    const isTokenToken = exData.secondTokenId !== 'TRX' && exData.firstTokenId !== 'TRX'
+    const {
+      firstTokenId,
+      firstTokenBalance,
+      secondTokenId,
+      secondTokenBalance,
+      price } = this.props.exchangeData
+    const cost = estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount || 0, secondTokenId === 'TRX')
+    const isTokenToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
     return (
       <Utils.SafeAreaView>
         <ScrollView>
-          <TradePair
-            text={`${exData.firstTokenId}/${exData.secondTokenId} = ${exData.price.toFixed(4)}`}
-          />
+          <Utils.View height={24} />
           {this._renderCurrentBalance()}
+          <ExchangePair
+            firstToken={firstTokenId}
+            secondToken={secondTokenId}
+            price={price}
+          />
           <Utils.View flex={1} justify='center' paddingX='medium' paddingY='small'>
             <Input
               label={tl.t('buy').toUpperCase()}
               innerRef={input => { this.buyAmount = input }}
               onChangeText={buyAmount => this.setState({buyAmount})}
-              rightContent={() => this._renderRightContent(exData.firstTokenId)}
+              rightContent={() => this._renderRightContent(firstTokenId)}
               placeholder='0'
               keyboardType='numeric'
               type='float'
@@ -145,27 +158,23 @@ class SendScene extends Component {
               value={buyAmount}
             />
             {isTokenToken &&
-            <Utils.Text padding={10} size='tiny' font='regular'>
-             Valid trading value ≈ {Math.floor(cost / exData.price)} {exData.firstTokenId}
+            <Utils.Text size='tiny' font='regular' align='right'>
+             Valid trading value ≈ {Math.floor(cost / price)} {firstTokenId}
             </Utils.Text>}
             <Input
               label='ESTIMATED COST'
-              rightContent={() => this._renderRightContent(exData.secondTokenId)}
+              rightContent={() => this._renderRightContent(secondTokenId)}
               placeholder={formatFloat(cost)}
               editable={false}
             />
-            <Utils.Text padding={20} font='regular' size='tiny' align='center'>
-                Slightly increase the estimated cost, and the turnover rate will be higher.
-            </Utils.Text>
-            <ButtonGradient
-              font='bold'
-              text={tl.t('buy').toUpperCase()}
-              onPress={this._submit}
-              disabled={loading}
+            <ExchangeVariation
+              text='Slightly higher the estimated cost, and the turnover rate will be higher.'
             />
-            <Utils.Text padding={20} align='center' size='large' color={Colors.greyBlue}>
-              {this.state.step}
-            </Utils.Text>
+            <ExchangeButton
+              loading={loading}
+              result={result}
+              onSubmit={this._submit}
+            />
           </Utils.View>
         </ScrollView>
       </Utils.SafeAreaView>
@@ -173,4 +182,4 @@ class SendScene extends Component {
   }
 }
 
-export default withContext(SendScene)
+export default withContext(BuyScene)
