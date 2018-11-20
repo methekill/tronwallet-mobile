@@ -11,7 +11,7 @@ jest.mock('react-native-mixpanel')
 jest.mock('../../../utils/i18n')
 
 describe('Transaction Scene', () => {
-  test('componentDidMount', () => {
+  test('Should add listener when componentDidMount called', () => {
     const addListenerMockResult = jest.fn()
     const addListenerMock = jest.fn(() => (addListenerMockResult))
     const props = { navigation: { addListener: addListenerMock } }
@@ -19,16 +19,13 @@ describe('Transaction Scene', () => {
     const { wrapper } = setupTransactionScene(props)
     const instance = wrapper.instance()
 
-    const spy = jest.spyOn(instance, '_setData')
-
     instance.componentDidMount()
     expect(Answers.logContentView).toBeCalledWith('Tab', 'Transactions')
     expect(addListenerMock).toBeCalledWith('didFocus', instance._didFocus)
     expect(instance._didFocusSubscription).toEqual(addListenerMockResult)
-    expect(spy).toBeCalled()
   })
 
-  test('componentWillUnmount', () => {
+  test('Should remove listener when componentWillUnmount called', () => {
     const removeSubscription = jest.fn()
 
     const { wrapper } = setupTransactionScene()
@@ -36,10 +33,11 @@ describe('Transaction Scene', () => {
     instance._didFocusSubscription = { remove: removeSubscription }
 
     instance.componentWillUnmount()
+
     expect(removeSubscription).toBeCalled()
   })
 
-  test('Should refresh the data when clicing on the refresh Button', () => {
+  test('Should refresh the data when clicking on the refresh Button', () => {
     const { wrapper, syncButton } = setupTransactionScene()
     const spy = jest.spyOn(wrapper.instance(), '_loadData')
 
@@ -47,22 +45,21 @@ describe('Transaction Scene', () => {
     expect(spy).toBeCalled()
   })
 
-  describe('#_setData', () => {
-    test('_setData', async () => {
-      const { wrapper } = setupTransactionScene()
-      const instance = wrapper.instance()
+  test('Should load expected transactions when _setData called', async () => {
+    const { wrapper } = setupTransactionScene()
+    const instance = wrapper.instance()
 
-      const spy = jest.spyOn(instance, '_loadData')
+    const spy = jest.spyOn(instance, '_loadData')
 
-      await instance._setData()
-      const state = wrapper.state()
+    await instance._setData()
 
-      const transactionStoreRef = await getTransactionStore()
-      const contactsStoreRef = await getContactsStore()
-      const assetStore = await getAssetsStore()
+    const state = wrapper.state()
 
-      expect(state).toMatchObject({ transactionStoreRef, contactsStoreRef, assetStore })
-      expect(spy).toBeCalled()
-    })
+    const transactionStoreRef = await getTransactionStore()
+    const contactsStoreRef = await getContactsStore()
+    const assetStore = await getAssetsStore()
+
+    expect(state).toMatchObject({ transactionStoreRef, contactsStoreRef, assetStore })
+    expect(spy).toBeCalled()
   })
 })
