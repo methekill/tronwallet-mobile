@@ -52,11 +52,9 @@ describe('Transaction Scene', () => {
     expect(spy).toBeCalled()
   })
 
-  test('Should load expected transactions when data is loaded', async () => {
+  test('Should load stores on state when data is set', async () => {
     const { wrapper } = transactionScene
     const instance = wrapper.instance()
-
-    const spy = jest.spyOn(instance, '_loadData')
 
     await instance._setData()
 
@@ -67,6 +65,5 @@ describe('Transaction Scene', () => {
     const assetStore = await getAssetsStore()
 
     expect(state).toMatchObject({ transactionStoreRef, contactsStoreRef, assetStore })
-    expect(spy).toBeCalled()
   })
 })
