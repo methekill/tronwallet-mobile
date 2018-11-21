@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import {
-  ScrollView,
-  Alert
-} from 'react-native'
+import { ScrollView, Alert } from 'react-native'
 import RNTron from 'react-native-tron'
 
 // Design
@@ -97,23 +94,10 @@ class BuyScene extends Component {
         this.setState({result: 'Coulnd\'t perform exchange'})
       }
     } catch (error) {
-      this.setState({result: error.message})
+      this.setState({result: error.message, loading: false})
     } finally {
-      setTimeout(() => this.setState({buyAmount: '', result: false}), 2500)
+      setTimeout(() => this.setState({buyAmount: '', result: false}), 4000)
     }
-  }
-
-  _renderCurrentBalance = () => {
-    const { firstTokenId, secondTokenId } = this.props.exchangeData
-    const { balances, publicKey } = this.props.context
-    const {balance: firstTokenBalance} = balances[publicKey].find(bl => bl.name === firstTokenId) || { balance: 0 }
-    const {balance: secondTokenBalance} = balances[publicKey].find(bl => bl.name === secondTokenId) || { balance: 0 }
-    return <ExchangeBalancePair
-      firstToken={firstTokenId}
-      firstTokenBalance={firstTokenBalance}
-      secondToken={secondTokenId}
-      secondTokenBalance={secondTokenBalance}
-    />
   }
 
   _renderRightContent = token =>
@@ -139,7 +123,10 @@ class BuyScene extends Component {
       <Utils.SafeAreaView>
         <ScrollView>
           <Utils.View height={24} />
-          {this._renderCurrentBalance()}
+          <ExchangeBalancePair
+            firstToken={firstTokenId}
+            secondToken={secondTokenId}
+          />
           <ExchangePair
             firstToken={firstTokenId}
             secondToken={secondTokenId}
@@ -171,6 +158,7 @@ class BuyScene extends Component {
               text='Slightly higher the estimated cost, and the turnover rate will be higher.'
             />
             <ExchangeButton
+              text={tl.t('buy').toUpperCase()}
               loading={loading}
               result={result}
               onSubmit={this._submit}

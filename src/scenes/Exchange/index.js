@@ -4,13 +4,13 @@ import { FlatList, Image } from 'react-native'
 // Design
 import * as Utils from '../../components/Utils'
 import NavigationHeader from '../../components/Navigation/Header'
-import { ExchangeRow, Divider } from './elements'
+import { ExchangeRow, Divider, TinyTriangle } from './elements'
 
 // Utils
 import { withContext } from '../../store/context'
-// import tl from '../../utils/i18n'
+
+import tl from '../../utils/i18n'
 import { Colors } from '../../components/DesignSystem'
-import FontelloIcon from '../../components/FontelloIcon'
 
 // Services
 import WalletClient from '../../services/client'
@@ -46,15 +46,14 @@ class ExchangeScene extends Component {
     _renderPercentageIndicator = id => {
       const currentPercentage = Math.random() * 200 - 100
       const color = currentPercentage >= 0 ? Colors.weirdGreen : Colors.unconfirmed
-      const arrow = currentPercentage >= 0 ? 'transfer-up' : 'transfer-down'
-      return <Utils.Row>
+      const triangle = currentPercentage >= 0
+        ? { color: Colors.weirdGreen, direction: 'up' }
+        : { color: Colors.unconfirmed, direction: 'down' }
+
+      return <Utils.Row align='center'>
         <Utils.Text size='xsmall' color={color}>{currentPercentage.toFixed(2)}%</Utils.Text>
         <Utils.View width={16} />
-        <FontelloIcon
-          color={color}
-          name={arrow}
-          size={14}
-        />
+        <TinyTriangle direction={triangle.direction} color={triangle.color} />
       </Utils.Row>
     }
 
@@ -85,7 +84,7 @@ class ExchangeScene extends Component {
       return (
         <Utils.SafeAreaView>
           <NavigationHeader
-            title='Exchange'
+            title={tl.t('exchange')}
           />
           {loading
             ? <LoadingScene />
@@ -99,5 +98,4 @@ class ExchangeScene extends Component {
       )
     }
 }
-
 export default withContext(ExchangeScene)

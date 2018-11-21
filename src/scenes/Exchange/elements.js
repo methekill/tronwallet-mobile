@@ -26,3 +26,20 @@ export const ExchangeVariation = ({text}) =>
   <Utils.Text padding={15} font='regular' size='tiny' align='center'>
     {text}
   </Utils.Text>
+
+export const TinyTriangle = ({color, direction, down}) =>
+  <Utils.View style={{
+    width: 0,
+    height: 0,
+    backgroundColor: 'transparent',
+    borderStyle: 'solid',
+    borderLeftWidth: 4,
+    borderRightWidth: 4,
+    borderBottomWidth: 9,
+    borderLeftColor: 'transparent',
+    borderRightColor: 'transparent',
+    borderBottomColor: color,
+    transform: [
+      {rotate: direction === 'up' ? '0deg' : '180deg'}
+    ]
+  }} />

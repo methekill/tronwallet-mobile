@@ -1,42 +1,42 @@
 import React from 'react'
 import { ActivityIndicator } from 'react-native'
-import LottieView from 'lottie-react-native'
 import PropTypes from 'prop-types'
 
 import ButtonGradient from '../../../components/ButtonGradient'
-import tl from '../../../utils/i18n'
 import * as Utils from '../../../components/Utils'
 import { Colors } from '../../../components/DesignSystem'
+import FadeIn from '../../../components/Animations/FadeIn'
 
-const ExchangeButton = ({loading, result, onSubmit}) => {
-  if (loading) {
-    return <Utils.View align='center' justify='center'>
-      <ActivityIndicator color={Colors.primaryText} />
-    </Utils.View>
-  }
-  if (result) {
-    return result === 'success'
-      ? <LottieView
-        source={require('../../../assets/animations/checked_done_.json')}
-        autoPlay
-        loop={false}
-        resizeMode='cover'
-        style={{ width: 80, height: 80, alignSelf: 'center' }}
-      />
-      : <Utils.Text size='small' color={Colors.redError}>
-        {result}
+const ExchangeButton = ({text, loading, result, onSubmit}) => {
+  let element
+
+  if (loading) element = <ActivityIndicator color={Colors.primaryText} />
+  else if (result) {
+    element = <FadeIn name='result'>
+      <Utils.Text
+        size={result === 'success' ? 'medium' : 'small'}
+        color={result === 'success' ? Colors.green : Colors.redError}
+        align='center'
+        font='regular'
+      >
+        {result === 'success' ? 'Success ✓' : 'Exchange Failed, please try again'}
       </Utils.Text>
+    </FadeIn>
+  } else {
+    element = <ButtonGradient
+      font='bold'
+      text={text}
+      onPress={onSubmit}
+      disabled={loading}
+    />
   }
-  return <ButtonGradient
-    font='bold'
-    text={tl.t('buy').toUpperCase()}
-    onPress={onSubmit}
-    disabled={loading}
-  />
+
+  return element
 }
 
 ExchangeButton.propTypes = {
   loading: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired,
   result: PropTypes.oneOfType([ PropTypes.string, PropTypes.bool ]).isRequired,
   onSubmit: PropTypes.func.isRequired
 }

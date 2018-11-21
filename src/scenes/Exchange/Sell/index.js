@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import {
-  ScrollView,
-  Alert
-} from 'react-native'
+import { ScrollView, Alert } from 'react-native'
 import RNTron from 'react-native-tron'
 
 // Design
@@ -112,21 +109,8 @@ class SellScene extends Component {
     } catch (error) {
       this.setState({result: error.message})
     } finally {
-      setTimeout(() => this.setState({sellAmount: '', result: false}), 2500)
+      setTimeout(() => this.setState({sellAmount: '', result: false}), 4000)
     }
-  }
-
-  _renderCurrentBalance = () => {
-    const { firstTokenId, secondTokenId } = this.props.exchangeData
-    const { balances, publicKey } = this.props.context
-    const {balance: firstTokenBalance} = balances[publicKey].find(bl => bl.name === firstTokenId) || { balance: 0 }
-    const {balance: secondTokenBalance} = balances[publicKey].find(bl => bl.name === secondTokenId) || { balance: 0 }
-    return <ExchangeBalancePair
-      firstToken={firstTokenId}
-      firstTokenBalance={firstTokenBalance}
-      secondToken={secondTokenId}
-      secondTokenBalance={secondTokenBalance}
-    />
   }
 
   _renderRightContent = text =>
@@ -152,7 +136,10 @@ class SellScene extends Component {
       <Utils.SafeAreaView>
         <ScrollView>
           <Utils.View height={24} />
-          {this._renderCurrentBalance()}
+          <ExchangeBalancePair
+            firstToken={firstTokenId}
+            secondToken={secondTokenId}
+          />
           <ExchangePair
             firstToken={firstTokenId}
             secondToken={secondTokenId}
@@ -180,6 +167,7 @@ class SellScene extends Component {
               text='Slightly lower the estimated cost, and the turnover rate will be higher.'
             />
             <ExchangeButton
+              text={tl.t('sell').toUpperCase()}
               loading={loading}
               result={result}
               onSubmit={this._submit}
