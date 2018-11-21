@@ -46,6 +46,7 @@
     "vote": "Vote",
     "participate": "Participate",
     "create": "Create",
+    "exchange" : "Exchange",
     "undefined": "Undefined Type"
   },
   "close": "Close",

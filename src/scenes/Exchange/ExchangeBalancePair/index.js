@@ -15,7 +15,11 @@ const ExchangeBalancePair = ({firstToken, firstTokenBalance, secondToken, second
         <Motion
           defaultStyle={{ firstBalance: 0 }}
           style={{firstBalance: spring(firstTokenBalance)}}>
-          {value => <Utils.Text size='xsmall' color={Colors.greyBlue}>{formatNumber(value.firstBalance)}</Utils.Text>}
+          {value =>
+            <Utils.Text size='xsmall' color={Colors.greyBlue}>
+              {formatNumber(value.firstBalance)}
+            </Utils.Text>
+          }
         </Motion>
       </Utils.View>
       <Utils.View flex={0.33} align='center' justify='center'>
@@ -29,7 +33,11 @@ const ExchangeBalancePair = ({firstToken, firstTokenBalance, secondToken, second
         <Motion
           defaultStyle={{ secondBalance: 0 }}
           style={{secondBalance: spring(secondTokenBalance)}}>
-          {value => <Utils.Text size='xsmall' color={Colors.greyBlue}>{formatNumber(value.secondBalance)}</Utils.Text>}
+          {value =>
+            <Utils.Text size='xsmall' color={Colors.greyBlue}>
+              {formatNumber(value.secondBalance)}
+            </Utils.Text>
+          }
         </Motion>
       </Utils.View>
     </Utils.Row>

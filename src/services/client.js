@@ -13,7 +13,7 @@ class ClientWallet {
     this.notifier = Config.NOTIFIER_API_URL
     this.tronwalletApi = Config.TRONWALLET_API
     this.tronwalletDB = Config.TRONWALLET_DB
-    this.tronwalletExApi = 'https://ccwag9ulok.execute-api.us-east-1.amazonaws.com/dev/exchange'
+    this.tronwalletExApi = Config.TRONWALLET_EX
   }
 
   //* ============TronScan Api============*//
@@ -259,6 +259,8 @@ class ClientWallet {
         return 'Freeze'
       case 12:
         return 'Unfreeze'
+      case 44:
+        return 'Exchange'
       default:
         return 'Unregistred Name'
     }
