@@ -29,6 +29,10 @@ class BuyScene extends Component {
     result: false
   }
 
+  componentWillUnmount () {
+    clearTimeout(this.buyTimeout)
+  }
+
   _submit = () => {
     const { buyAmount } = this.state
     const { balances, publicKey } = this.props.context
@@ -96,7 +100,7 @@ class BuyScene extends Component {
     } catch (error) {
       this.setState({result: error.message, loading: false})
     } finally {
-      setTimeout(() => this.setState({buyAmount: '', result: false}), 4000)
+      this.buyTimeout = setTimeout(() => this.setState({buyAmount: '', result: false}), 4000)
     }
   }
 

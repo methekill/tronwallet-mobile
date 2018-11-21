@@ -28,6 +28,10 @@ class SellScene extends Component {
     result: false
   }
 
+  componentWillUnmount () {
+    clearTimeout(this.sellTimeout)
+  }
+
   _refreshPrice = async () => {
     const { exData, refreshingPrice } = this.state
 
@@ -109,7 +113,7 @@ class SellScene extends Component {
     } catch (error) {
       this.setState({result: error.message})
     } finally {
-      setTimeout(() => this.setState({sellAmount: '', result: false}), 4000)
+      this.sellTimeout = setTimeout(() => this.setState({sellAmount: '', result: false}), 4000)
     }
   }
 
@@ -131,7 +135,8 @@ class SellScene extends Component {
       price
     } = this.props.exchangeData
     const cost = estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount || 0, secondTokenId === 'TRX')
-
+    const minToSell = Math.round((1 / price) * 1.05)
+    const isTokenToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
     return (
       <Utils.SafeAreaView>
         <ScrollView>
@@ -157,6 +162,10 @@ class SellScene extends Component {
               numbersOnly
               value={sellAmount}
             />
+            {isTokenToken &&
+            <Utils.Text size='tiny' font='regular' align='right'>
+             Minimun to sell ≈ {minToSell} {firstTokenId}
+            </Utils.Text>}
             <Input
               label='ESTIMATED COST'
               rightContent={() => this._renderRightContent(secondTokenId)}
