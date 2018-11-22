@@ -31,6 +31,8 @@
     "clipboardCopied": "Что то пошло не так во время копирования",
     "hideAccount": "Что то пошло не так во время удаления аккаунта, попробуйте выполнить запрос позже."
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "TRON POWER\n",
   "trxPrice": "СТОИМОСТЬ TRX",
   "confirmed": "Подтверждено",
@@ -170,6 +172,7 @@
     "title": "ЗАМОРОЗИТЬ",
     "unfreeze": {
       "title": "РАЗМОРОЗИТЬ",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "После трех дней Вы сможете разморозить ваши TRX",
       "inXMinutes": "Вы сможете разморозить ваши TRX через {{minutes}} минут.",
       "inXHours": "Вы сможете разморозить ваши TRX через {{hours}} часов.",
