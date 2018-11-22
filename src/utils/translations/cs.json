@@ -31,6 +31,8 @@
     "clipboardCopied": "Něco se pokazilo během kopírování",
     "hideAccount": "Při mazání účtu došlo k chybě, zkuste znovu'"
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "TRON POWER",
   "trxPrice": "CENA TRX",
   "confirmed": "Potvrzeno",
@@ -170,6 +172,7 @@
     "title": "ZMRAZIT",
     "unfreeze": {
       "title": "ROZMRAZIT",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "TRX můžete rozmrazit po třech dnech",
       "inXMinutes": "TRX můžete rozmrazit za {{minutes}} minut.",
       "inXHours": "TRX můžete rozmrazit za {{hours}} hodin.",
