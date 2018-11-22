@@ -563,6 +563,7 @@
       "title": "생체정보 확인"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "접근이 거부되었습니다"
     }
   },
