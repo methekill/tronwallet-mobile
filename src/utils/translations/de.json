@@ -563,6 +563,7 @@
       "title": "Überprüfen Sie Ihren Biometrie"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "Zugriff verweigert"
     }
   },
