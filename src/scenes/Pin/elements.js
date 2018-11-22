@@ -41,7 +41,7 @@ export const KeyWrapper = styled.TouchableOpacity`
 `
 
 KeyWrapper.defaultProps = {
-  noBorder: true
+  noBorder: false
 }
 
 export const KeyText = styled.Text`
