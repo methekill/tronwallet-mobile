@@ -563,6 +563,7 @@
       "title": "تحقق من هويتك"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "الدخول مرفوض"
     }
   },
