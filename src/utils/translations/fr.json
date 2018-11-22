@@ -31,6 +31,8 @@
     "clipboardCopied": "Quelque chose n'a pas fonctionné lors de la copie",
     "hideAccount": "Quelque chose n'a pas fonctionné en supprimant le compte, réessayez s'il vous plait '"
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "PUISSANCE DE TRON",
   "trxPrice": "PRIX D'UN TRX",
   "confirmed": "Confirmé",
@@ -170,6 +172,7 @@
     "title": "GEL",
     "unfreeze": {
       "title": "DÉGELER",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "Après une période de trois jours, vous pouvez dégeler vos TRX",
       "inXMinutes": "Vous pouvez dégeler vos TRX en {{minutes}} minutes.",
       "inXHours": "Vous pouvez dégeler vos TRX en {{hours}} minutes.",
