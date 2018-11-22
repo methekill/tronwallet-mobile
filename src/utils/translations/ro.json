@@ -31,6 +31,8 @@
     "clipboardCopied": "Something wrong while copying",
     "hideAccount": "Sa întâmplat ceva, ștergerea contului, încercați din nou \""
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRICE",
   "confirmed": "Confirmed",
@@ -170,6 +172,7 @@
     "title": "ÎNGHEŢA",
     "unfreeze": {
       "title": "Deblocați",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "După o perioadă de trei zile puteți dezgheța TRX-ul",
       "inXMinutes": "Puteți dezgheța TRX-ul dvs. în {{minutes}} minute.",
       "inXHours": "Puteți dezgheța TRX-ul dvs. în {{hours}} ore.",
