@@ -31,6 +31,8 @@
     "clipboardCopied": "Qualcosa non ha funzionato mentre usi “copia”",
     "hideAccount": "Qualcosa è andato storto durante la cancellazione dell'account, riprova."
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "LA FORZA DI TRON",
   "trxPrice": "Il prezzo TRX",
   "confirmed": "Confermato",
@@ -170,6 +172,7 @@
     "title": "CONGELA",
     "unfreeze": {
       "title": "SCONGELARE",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "Dopo un periodo di tre giorni puoi sbloccare il tuo TRX",
       "inXMinutes": "Puoi sbloccare il tuo TRX in {{minutes}} minuti.",
       "inXHours": "Puoi sbloccare il tuo TRX in {{hours}} ore.",
