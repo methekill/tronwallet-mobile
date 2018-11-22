@@ -31,6 +31,8 @@
     "clipboardCopied": "Something wrong while copying",
     "hideAccount": "Đã xảy ra lỗi khi xóa tài khoản, hãy thử lại '"
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRICE",
   "confirmed": "Confirmed",
@@ -170,6 +172,7 @@
     "title": "ĐÔNG CỨNG",
     "unfreeze": {
       "title": "UNFREEZE",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "Sau khoảng thời gian ba ngày, bạn có thể giải phóng TRX của mình",
       "inXMinutes": "Bạn có thể giải phóng TRX của mình sau {{minutes}} phút.",
       "inXHours": "Bạn có thể giải phóng TRX của mình sau {{hours}} giờ.",
