@@ -31,6 +31,8 @@
     "clipboardCopied": "Something wrong while copying",
     "hideAccount": "删除帐户有问题，请重试'"
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRICE",
   "confirmed": "Confirmed",
@@ -170,6 +172,7 @@
     "title": "FREEZE",
     "unfreeze": {
       "title": "UNFREEZE",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "After a three day period you can unfreeze your TRX",
       "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
       "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
