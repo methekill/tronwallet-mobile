@@ -563,6 +563,7 @@
       "title": "Zkontrolovat biometrii"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "Přístup odepřen"
     }
   },
