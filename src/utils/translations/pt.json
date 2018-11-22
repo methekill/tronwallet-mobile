@@ -31,6 +31,8 @@
     "clipboardCopied": "Algo deu errado ao copiar",
     "hideAccount": "Algo deu errado, por favor tente novamente"
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "TRON POWER",
   "trxPrice": "PREÇO TRX",
   "confirmed": "Confirmado",
@@ -170,7 +172,7 @@
     "title": "CONGELAR",
     "unfreeze": {
       "title": "DESCONGELAR",
-      "inXTime" : "You can unfreeze your TRX",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "Após um período de três dias você pode descongelar seu TRX",
       "inXMinutes": "Você pode descongelar seu TRX em {{minutes}} minutos.",
       "inXHours": "Você pode descongelar seu TRX em {{hours}} horas.",
@@ -561,6 +563,7 @@
       "title": "Verifique sua biometria"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "Acesso negado"
     }
   },

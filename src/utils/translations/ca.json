@@ -31,6 +31,8 @@
     "clipboardCopied": "Alguna cosa malament mentre copia",
     "hideAccount": "S'ha produït un error en suprimir el compte, torneu-ho a provar \""
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "TRON POWER",
   "trxPrice": "PREU TRX",
   "confirmed": "Confirmat",
@@ -170,6 +172,7 @@
     "title": "CONGELAR",
     "unfreeze": {
       "title": "UNFREEZE",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "Després d'un període de tres dies es pot descongelar el TRX",
       "inXMinutes": "Podeu descongelar el TRX en {{minutes}} minuts.",
       "inXHours": "Podeu descongelar el TRX en {{hours}} hores.",
@@ -560,6 +563,7 @@
       "title": "Comprova la teva biometria"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "Accés denegat"
     }
   },

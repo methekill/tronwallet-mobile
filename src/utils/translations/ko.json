@@ -31,6 +31,8 @@
     "clipboardCopied": "복사 과정 중 문제가 발생했습니다",
     "hideAccount": "계정을 삭제하는 과정에서 문제가 발생했습니다. 다시 시도해보세요"
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "트론 파워",
   "trxPrice": "TRX 가격",
   "confirmed": "확인됨",
@@ -170,6 +172,7 @@
     "title": "동결",
     "unfreeze": {
       "title": "동결 해제",
+      "inXTime": "TRX 동결을 해제할 수 있습니다",
       "inThreeDays": "3일 후에 TRX 동결을 해제할 수 있습니다",
       "inXMinutes": "{{minutes}} 분 뒤에 TRX 동결을 해제할 수 있습니다.",
       "inXHours": "{{hours}} 시간 뒤에 TRX 동결을 해제할 수 있습니다.",
@@ -560,6 +563,7 @@
       "title": "생체정보 확인"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "접근이 거부되었습니다"
     }
   },
