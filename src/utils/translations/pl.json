@@ -563,6 +563,7 @@
       "title": "Sprawdź swoją biometrię"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "Odmowa dostępu"
     }
   },
