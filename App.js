@@ -97,24 +97,6 @@ class App extends Component {
     // console.log('openResult: ', openResult)
   }
 
-  _checkBiomentrics = () => {
-    // Biometrics.isSensorAvailable()
-    //   .then(async (biometryType) => {
-    //     const useBiometrySetting = await AsyncStorage.getItem(USE_BIOMETRY)
-
-    //     const useBiometry = useBiometrySetting === null ? false : useBiometrySetting === 'true'
-    //     if ((biometryType === Biometrics.TouchID || biometryType === Biometrics.FaceID) && useBiometry) {
-    //       this.setState({ biometricsEnabled: true }, () => {
-    //         setTimeout(() => {
-    //           if (this.props.navigation.isFocused()) {
-    //             this._handleBiometrics()
-    //           }
-    //         }, 500)
-    //       })
-    //     }
-    //   })
-  }
-
   _loadUserData = async () => {
     // accounts = filtered accounts by hidden status
     // userSecrets =  ref to all userSecrets
