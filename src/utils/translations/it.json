@@ -563,6 +563,7 @@
       "title": "Controlla la tua biometria"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "Accesso negato"
     }
   },
