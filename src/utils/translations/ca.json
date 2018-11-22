@@ -563,6 +563,7 @@
       "title": "Comprova la teva biometria"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "Accés denegat"
     }
   },
