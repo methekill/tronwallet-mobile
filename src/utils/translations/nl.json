@@ -31,6 +31,8 @@
     "clipboardCopied": "Er klopt iets niet tijdens het kopiëren",
     "hideAccount": "Er is iets misgegaan bij het verwijderen van een account, probeer het opnieuw '"
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRIJS",
   "confirmed": "Bevestigd",
@@ -170,6 +172,7 @@
     "title": "VASTZETTEN",
     "unfreeze": {
       "title": "ONTGRENDELEN",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "Na een periode van drie dagen kunt u uw TRX weer ontgrendelen",
       "inXMinutes": "U kunt uw TRX ontgrendelen over {{minutes}} minuten.",
       "inXHours": "U kunt uw TRX ontgrendelen over {{hours}} uren.",
