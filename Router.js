@@ -46,6 +46,8 @@ import ScanPayScene from './src/scenes/Payments/Scan'
 import CreateSeed from './src/scenes/Seed/Create'
 import ImportWallet from './src/scenes/Seed/Import'
 import PrivacyPolicy from './src/scenes/PrivacyPolicy'
+import Notifications from './src/scenes/Notifications'
+import News from './src/scenes/News'
 
 import tl from './src/utils/i18n'
 
@@ -192,21 +194,23 @@ const AppTabs = createBottomTabNavigator({
 })
 
 const RootNavigator = createStackNavigator({
-  Loading: LoadingScene,
-  FirstTime: createSwitchNavigator({ PrivacyPolicy, First: FirstTime }, { initialRouteName: 'PrivacyPolicy' }),
-  Pin,
-  CreateSeed,
-  SeedRestore,
-  ImportWallet,
-  App: AppTabs,
-  GetVault: GetVaultScene,
-  SubmitTransaction: {
-    screen: SubmitTransactionScene,
-    path: 'transaction/:tx'
-  },
-  TransactionSuccess,
-  Freeze: FreezeVoteScene,
-  Rewards: RewardsScene
+  // Loading: LoadingScene,
+  // FirstTime: createSwitchNavigator({ PrivacyPolicy, First: FirstTime }, { initialRouteName: 'PrivacyPolicy' }),
+  // Pin,
+  // CreateSeed,
+  // SeedRestore,
+  // ImportWallet,
+  // App: AppTabs,
+  // GetVault: GetVaultScene,
+  // SubmitTransaction: {
+  //   screen: SubmitTransactionScene,
+  //   path: 'transaction/:tx'
+  // },
+  // TransactionSuccess,
+  // Freeze: FreezeVoteScene,
+  // Rewards: RewardsScene,
+  // Notifications,
+  News
 }, {
   mode: 'modal',
   navigationOptions: {
