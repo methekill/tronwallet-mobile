@@ -29,7 +29,6 @@ describe('AsyncStorage Utils', () => {
     test('should set the value', async () => {
       await Async.set(key, data)
       const currentData = await Async.get(key)
-      console.log(currentData)
       expect(currentData).toBe(data)
     })
   })

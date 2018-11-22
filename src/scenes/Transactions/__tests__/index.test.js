@@ -13,7 +13,7 @@ import transactionListMock from '../../../services/__mocks__/transactionList'
 
 jest.mock('react-native-fabric')
 jest.mock('react-native-mixpanel')
-jest.mock('../../../utils/i18n')
+// jest.mock('../../../utils/i18n')
 
 describe('Transaction Scene', () => {
   const defaultProps = {

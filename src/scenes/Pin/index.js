@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { BackHandler, AsyncStorage, Alert } from 'react-native'
 import Biometrics from 'react-native-biometrics'
 import RNDevice from 'react-native-device-info'
@@ -13,7 +13,7 @@ import * as Utils from '../../components/Utils'
 
 import { USE_BIOMETRY, ENCRYPTED_PIN } from '../../utils/constants'
 
-class PinScene extends React.Component {
+class PinScene extends Component {
   state = {
     isDoubleChecking: false,
     pin: null,
@@ -29,28 +29,24 @@ class PinScene extends React.Component {
       return true
     })
 
-    this.didFocusEvent = this.props.navigation.addListener('didFocus', async (payload) => {
-      const useBiometrySetting = await Async.get(USE_BIOMETRY, false)
-      if (useBiometrySetting) {
-        Biometrics.isSensorAvailable()
-          .then(async (biometryType) => {
-            if (biometryType === Biometrics.TouchID || biometryType === Biometrics.FaceID) {
-              this.setState({ biometricsEnabled: true }, () => {
-                setTimeout(() => {
-                  if (this.props.navigation.isFocused()) {
-                    this._handleBiometrics()
-                  }
-                }, 500)
-              })
-            }
-          })
-      }
-    })
+    this.didFocusEvent = this.props.navigation.addListener('didFocus', this._didFocus)
   }
 
   componentWillUnmount () {
     this.backHandler.remove()
     this.didFocusEvent.remove()
+  }
+
+  _didFocus = async () => {
+    const useBiometrySetting = await Async.get(USE_BIOMETRY, false)
+    if (useBiometrySetting) {
+      Biometrics.isSensorAvailable()
+        .then(async (biometryType) => {
+          if (biometryType === Biometrics.TouchID || biometryType === Biometrics.FaceID) {
+            this.setState({ biometricsEnabled: true }, this._handleBiometrics)
+          }
+        })
+    }
   }
 
   _onSibmit = async (currentPin) => {

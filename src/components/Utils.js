@@ -325,7 +325,6 @@ export const ButtonWrapper = styled.TouchableOpacity`
   align-items: center;
   ${props => props.side && `${props.side}: ${Spacing.medium}`};
   ${props => props.marginBottom && css` margin-bottom: ${Spacing[props.marginBottom]}px`};
-  border: 1px solid yellow;
 `
 ButtonWrapper.propTypes = {
   marginBottom: PropTypes.oneOf(['xsmall', 'small', 'medium', 'big', 'large']),
