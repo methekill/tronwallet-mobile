@@ -1,567 +1,569 @@
 {
   "relativeTime": {
-    "future": "em %s",
-    "past": "%s atrás",
-    "s": "em alguns segundos",
-    "ss": "%d segundos",
-    "m": "um minuto",
-    "mm": "%d minutos",
-    "h": "uma hora",
-    "hh": "%d horas",
-    "d": "por dia",
-    "dd": "%d dias",
-    "M": "por mês",
-    "MM": "%d meses",
-    "y": "um ano",
-    "yy": "%d anos"
+    "future": "in %s",
+    "past": "%s ago",
+    "s": "a few seconds",
+    "ss": "%d seconds",
+    "m": "a minute",
+    "mm": "%d minutes",
+    "h": "an hour",
+    "hh": "%d hours",
+    "d": "a day",
+    "dd": "%d days",
+    "M": "a month",
+    "MM": "%d months",
+    "y": "a year",
+    "yy": "%d years"
   },
-  "success": "Sucesso",
-  "warning": "Aviso",
-  "cancel": "Cancelar",
-  "address": "Endereço",
+  "success": "Success",
+  "warning": "Warning",
+  "cancel": "Cancel",
+  "address": "Address",
   "message": "Message",
   "ok": "OK",
-  "actionModalTitle": "Você gostaria de",
-  "account": "Conta",
-  "restore": "Recuperar",
+  "actionModalTitle": "Would you like to",
+  "account": "Account",
+  "restore": "Restore",
   "error": {
-    "default": "Ops, algo saiu errado. Tente novamente mais tarde, se o erro persistir, tente atualizar as configurações de rede.",
-    "buildingTransaction": "Erro ao criar a transação, tente novamente.",
-    "gettingTransaction": "Erro ao obter a transação.",
-    "clipboardCopied": "Algo deu errado ao copiar",
-    "hideAccount": "Algo deu errado, por favor tente novamente"
+    "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
+    "buildingTransaction": "Error while building transaction, try again.",
+    "gettingTransaction": "Error while getting transaction.",
+    "clipboardCopied": "Something wrong while copying",
+    "hideAccount": "Something went wrong deleting account, try again'"
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "TRON POWER",
-  "trxPrice": "PREÇO TRX",
-  "confirmed": "Confirmado",
-  "unconfirmed": "Não confirmado",
-  "copyAddress": "COPIAR",
+  "trxPrice": "TRX PRICE",
+  "confirmed": "Confirmed",
+  "unconfirmed": "Unconfirmed",
+  "copyAddress": "COPY ADDRESS",
   "transactionType": {
-    "transfer": "Transferência",
-    "transferAsset": "Transferir",
-    "freeze": "Congelar",
-    "unfreeze": "Descongelar",
-    "vote": "Votar",
-    "participate": "Participação",
-    "create": "Criar",
-    "undefined": "Tipo Indefinido"
+    "transfer": "Transfer",
+    "transferAsset": "Transfer Asset",
+    "freeze": "Freeze",
+    "unfreeze": "Unfreeze",
+    "vote": "Vote",
+    "participate": "Participate",
+    "create": "Create",
+    "undefined": "Undefined Type"
   },
-  "close": "Fechar",
-  "ends": "Fim",
-  "clear": "Limpar",
-  "allIn": "Incluir Tudo",
-  "skip": "Pular",
-  "privateKey": "Chave Privada",
-  "results": "Resultados",
-  "buy": "Comprar",
-  "filter": "Filtrar",
-  "txs": "Transações",
+  "close": "Close",
+  "ends": "Ends",
+  "clear": "Clear",
+  "allIn": "All In",
+  "skip": "Skip",
+  "privateKey": "Private Key",
+  "results": "Results",
+  "buy": "Buy",
+  "filter": "Filter",
+  "txs": "Transactions",
   "balance": {
-    "title": "CONTAS",
+    "title": "ACCOUNTS",
     "error": {
-      "loadingData": "Ocorreu um erro ao carregar os dados.",
-      "savingCurrency": "Erro ao salvar a moeda preferida"
+      "loadingData": "An error occured while loading the data.",
+      "savingCurrency": "Error saving preferred currency"
     },
-    "chooseCurrency": "Por favor, escolha a moeda de sua preferência.",
-    "confirmSeed": "Por favor, toque para confirmar suas 12 palavras seed",
-    "bandwidth": "BANDA",
+    "chooseCurrency": "Please, choose your preferred currency.",
+    "confirmSeed": "Please tap to confirm your 12 seed words",
+    "bandwidth": "BANDWIDTH",
     "tokens": "TOKENS",
-    "holdings": "VALORES"
+    "holdings": "HOLDINGS"
   },
-  "hideAccount": "Esta ação irá remover esta conta, mas você pode recuperar depois no menu de configurações.",
+  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
   "components": {
     "share": {
-      "title": "Compartilhar Endereço TronWallet",
-      "message": "Este é o endereço da minha TronWallet:\n\n {{address}}\n\nDica: Depois de copiá-lo, você pode colá-lo em seu aplicativo TronWallet usando o botão especial na tela Enviar.",
-      "dialogTitle": "Compartilhe usando:"
+      "title": "Share TronWallet address",
+      "message": "This is my TronWallet address:\n\n {{address}}\n\nTip: Once you have copied it you can paste it in your TronWallet app using the special button on Send screen.",
+      "dialogTitle": "Share using:"
     },
     "QRScanner": {
-      "title": "Scanner de Endereço",
-      "scan": "Scanner",
-      "explanation": "Escaneie o QRCode para identificar o usuário de destino",
-      "permissionMessage": "Para verificar a chave pública, o aplicativo precisa da sua permissão para acessar a câmera."
+      "title": "Address Scanner",
+      "scan": "Scan",
+      "explanation": "Scan the QRCode to identify the target user",
+      "permissionMessage": "To scan the public key the app needs your permission to access the camera."
     },
     "vote": {
-      "enterVote": "DIGITE A QTD DE VOTOS",
-      "votesRemaining": "VOTOS RESTANTES",
-      "setVote": "VOTE",
-      "moreVotes": "Se você precisar de mais votos, você pode congelar mais TRX.",
-      "confirmVotes": "CONFIRMAR",
-      "yourVotes": "Seus votos",
-      "myVotes": "MEUS VOTOS",
-      "confirm": "CONFIRMAR",
-      "freeze": "Congelar",
-      "totalVotes": "Total de votos disponíveis:",
-      "delete": "EXCLUIR",
-      "set": "CONFIGURAR",
-      "freezeOrLower": "Você não tem TRX suficiente, congelado. Congele mais TRX ou reduza a quantidade de votos",
-      "freezeToContinue": "Você não tem TRX congelado suficiente. Congele mais TRX para continuar"
+      "enterVote": "ENTER THE VOTE VALUE",
+      "votesRemaining": "VOTES REMAINING",
+      "setVote": "SET VOTE",
+      "moreVotes": "If you need more votes you can Freeze more TRX.",
+      "confirmVotes": "CONFIRM VOTES",
+      "yourVotes": "Your Votes",
+      "myVotes": "MY VOTES",
+      "confirm": "CONFIRM",
+      "freeze": "Freeze",
+      "totalVotes": "Total votes available:",
+      "delete": "DELETE",
+      "set": "SET",
+      "freezeOrLower": "You do not have enough frozen TRX. Freeze more TRX or lower the vote amount",
+      "freezeToContinue": "You do not have enough frozen TRX. Freeze more TRX to continue"
     }
   },
   "firstTime": {
     "button": {
-      "create": "CRIAR CARTEIRA",
-      "restore": "RESTAURAR A CARTEIRA",
-      "import": "IMPORTAR CARTEIRA"
+      "create": "CREATE WALLET",
+      "restore": "RESTORE WALLET",
+      "import": "IMPORT WALLET"
     },
     "swiper": {
       "welcome": {
-        "title": "Bem-vindo ao TRONWALLET",
-        "body": "A carteira mais segura para TRON"
+        "title": "Welcome to \nTRONWALLET",
+        "body": "The most secure wallet for TRON"
       },
       "security": {
-        "title": "SEGURANÇA",
-        "body": "Privacidade e segurança para suas transações"
+        "title": "SECURITY",
+        "body": "Privacy and security for \n your transactions"
       },
       "votes": {
-        "title": "VOTOS",
-        "body": "Congele e vote para Super Representatives"
+        "title": "VOTES",
+        "body": "Freezing and vote for Super \n Representatives"
       },
       "addressbook": {
-        "title": "AGENDA",
-        "body": "Salve os endereços de seus amigos e contatos."
+        "title": "ADDRESS BOOK",
+        "body": "Save the addresses of your friends \n and contacts."
       },
       "multipleaccounts": {
-        "title": "MÚLTIPLAS CONTAS",
-        "body": "Você pode controlar múltiplas contas na sua carteira"
+        "title": "MULTIPLE ACCOUNTS",
+        "body": "You can manage multiple accounts \n in your wallet"
       }
     }
   },
   "addressBook": {
-    "title": "AGENDA",
+    "title": "ADDRESS BOOK",
     "shared": {
-      "add": "ADICIONAR",
-      "edit": "EDITAR",
-      "delete": "EXCLUIR",
-      "send": "ENVIAR"
+      "add": "ADD",
+      "edit": "EDIT",
+      "delete": "DELETE",
+      "send": "SEND"
     },
     "contacts": {
-      "title": "CONTATOS",
+      "title": "CONTACTS",
       "delete": {
-        "title": "Excluir contato",
-        "message": "Você quer mesmo excluir este contato?",
-        "cancelButton": "Cancelar",
+        "title": "Delete Contact",
+        "message": "Do you really want to delete this contact?",
+        "cancelButton": "Cancel",
         "okButton": "OK"
       },
-      "empty": "Sua agenda está vazia, adicione um novo contato utilizando o botão abaixo.",
-      "loadError": "Houve um problema ao carregar os contatos. Por favor, tente novamente.",
-      "addContact": "ADICIONAR CONTATO",
-      "addToContacts": "ADICIONAR AOS CONTATOS"
+      "empty": "Your address book is empty, add a new contact using the button below.",
+      "loadError": "There was a problem loading the contacts. Please try again.",
+      "addContact": "ADD CONTACT",
+      "addToContacts": "ADD TO CONTACTS"
     },
     "form": {
-      "generalError": "Houve um problema ao enviar este formulário. Entre em contato com o administrador.",
-      "nameError": "O campo nome deve começar com uma letra, conter um máximo de 32 caracteres, e ele irá aceitar apenas letras, números e espaços em branco.",
-      "addressError": "Algo não está certo com o endereço. Por favor, verifique novamente se há erros de digitação.",
-      "uniqueAddressError": "A chave deve ser única. Por favor, escolha um endereço diferente.",
-      "uniqueAliasError": "Os nomes no seu catálogo de endereços devem ser únicos. Por favor, escolha um diferente.",
-      "name": "NOME",
-      "address": "ENDEREÇO"
+      "generalError": "There was a problem submitting this form. Please contact an administrator.",
+      "nameError": "The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.",
+      "addressError": "Something isn't right with the address. Please double check for typos.",
+      "uniqueAddressError": "The key must be unique. Please choose a different address.",
+      "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
+      "name": "NAME",
+      "address": "ADDRESS"
     }
   },
   "importWallet": {
-    "title": "IMPORTAR WALLET",
-    "message": "Se você tem a chave privada e o endereço da sua carteira, você pode recupear aqui, mas tenha em mente que o TronWallet não poderá recupera-la caso perca o seu smartphone. Este método de recuperação irá desativar algumas funcionalidades dentro do aplicativo.",
-    "button": "IMPORTAR",
+    "title": "IMPORT WALLET",
+    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
+    "button": "IMPORT",
     "error": {
-      "privateKey": "Chave privada inválida ou incompleta."
+      "privateKey": "Private key invalid or incomplete"
     }
   },
   "freeze": {
-    "title": "CONGELAR",
+    "title": "FREEZE",
     "unfreeze": {
-      "title": "DESCONGELAR",
-      "inXTime" : "You can unfreeze your TRX",
-      "inThreeDays": "Após um período de três dias você pode descongelar seu TRX",
-      "inXMinutes": "Você pode descongelar seu TRX em {{minutes}} minutos.",
-      "inXHours": "Você pode descongelar seu TRX em {{hours}} horas.",
-      "inXDays": "Você pode descongelar seu TRX em {{days}} dias.",
-      "now": "Você pode descongelar seu TRX agora."
+      "title": "UNFREEZE",
+      "inXTime": "You can unfreeze your TRX",
+      "inThreeDays": "After a three day period you can unfreeze your TRX",
+      "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
+      "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
+      "inXDays": "You can unfreeze your TRX in {{days}} days.",
+      "now": "You can unfreeze your TRX now."
     },
     "error": {
-      "minimumAmount": "A quantidade mínima para qualquer transação de congelamento é 1.",
-      "insufficientBalance": "Saldo insuficiente do TRX",
-      "roundNumbers": "Pode congelar somente números redondos"
+      "minimumAmount": "The minimum amount for any freeze transaction is 1.",
+      "insufficientBalance": "Insufficient TRX balance",
+      "roundNumbers": "Can only freeze round numbers"
     },
-    "amount": "CONGELAR",
-    "balance": "Saldo"
+    "amount": "FREEZE AMOUNT",
+    "balance": "Balance"
   },
   "getVault": {
-    "notInstalled": "Parece que você não tem TronWallet instalado em seu telefone para prosseguir com sua transação.",
-    "downloadHere": "Você pode baixá-lo aqui"
+    "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
+    "downloadHere": "You can download it here"
   },
   "market": {
     "time": {
       "hour": "1H",
-      "day": "1 Dia",
-      "week": "1 Semana",
-      "month": "1 Mês",
-      "all": "Todos"
+      "day": "1D",
+      "week": "1W",
+      "month": "1M",
+      "all": "ALL"
     },
-    "highest": "MAIS ALTO",
-    "lowest": "MAIS BAIXO",
-    "volume": "VOLUME EM 24H",
-    "cap": "VALOR DE MERCADO",
-    "supply": "OFERTA EM CIRCULAÇÃO"
+    "highest": "HIGHEST",
+    "lowest": "LOWEST",
+    "volume": "VOLUME 24H",
+    "cap": "MARKET CAP",
+    "supply": "CIRCULATING SUPPLY"
   },
   "participate": {
-    "title": "PARTICIPAR",
-    "featured": "DESTAQUE",
+    "title": "PARTICIPATE",
+    "featured": "FEATURED",
     "button": {
-      "confirm": "CONFIRMAR",
-      "moreInfo": "MAIS INFORMAÇÕES",
-      "buyNow": "COMPRE AGORA"
+      "confirm": "CONFIRM",
+      "moreInfo": "MORE INFO",
+      "buyNow": "BUY NOW"
     },
     "error": {
-      "insufficientBalance": "Não fundos suficientes (TRX) para participar.",
+      "insufficientBalance": "Not enough funds (TRX) to participate.",
       "insufficientTrx": {
-        "title": "Você precisa comprar pelo menos um TRX em {{token}}.",
-        "message": "Atualmente você está comprando apenas {{amount}}."
+        "title": "You need to buy at least one TRX worth of {{token}}.",
+        "message": "Currently you are buying only {{amount}}."
       },
-      "notFound": "Ativo(s) não encontrado"
+      "notFound": "Asset(s) not found"
     },
-    "warning": "Você não tem suficiente TRX para comprar tantos {{token}}",
-    "enterAmountToBuy": "INSIRA O VALOR DE COMPRA",
-    "amountToBuy": "QUANTIDADE PARA COMPRAR",
-    "pricePerToken": "PREÇO",
-    "tokenDescription": "DESCRIÇÃO DO TOKEN",
-    "tokenInfo": "INFORMAÇÃO DO TOKEN",
+    "warning": "You don't have enough TRX to buy that many {{token}}",
+    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
+    "amountToBuy": "AMOUNT TO BUY",
+    "pricePerToken": "PRICE PER TOKEN",
+    "tokenDescription": "TOKEN DESCRIPTION",
+    "tokenInfo": "TOKEN INFO",
     "token": "TOKEN",
-    "tokens": "TOKEN",
-    "frozen": "CONGELADO",
-    "percentage": "PERCENTUAL",
-    "issued": "EMITIDO",
-    "totalSupply": "OFERTA TOTAL",
-    "startTime": "HORA DE INÍCIO",
-    "endTime": "HORA DO TÉRMINO",
-    "description": "DESCRIÇÃO",
-    "transaction": "TRANSAÇÃO",
-    "ownerAddress": "ENDEREÇO DO PROPRIETÁRIO",
-    "trxNum": "NUMERO TRX",
-    "num": "NUMERO",
-    "block": "BLOCO",
-    "balance": "SALDO",
-    "searchPreview": "Tokens em destaque"
+    "tokens": "TOKENS",
+    "frozen": "FROZEN",
+    "percentage": "PERCENTAGE",
+    "issued": "ISSUED",
+    "totalSupply": "TOTAL SUPPLY",
+    "startTime": "START TIME",
+    "endTime": "END TIME",
+    "description": "DESCRIPTION",
+    "transaction": "TRANSACTION",
+    "ownerAddress": "OWNER ADDRESS",
+    "trxNum": "TRX NUM",
+    "num": "NUM",
+    "block": "BLOCK",
+    "balance": "BALANCE",
+    "searchPreview": "Featured Tokens"
   },
   "pin": {
-    "title": "VERIFICAÇÃO DE SEGURANÇA",
-    "enter": "Digite o PIN",
-    "new": "Digite o novo PIN",
-    "reenter": "Confirme o PIN",
-    "biometrics": "Biometria Check"
+    "title": "SECURITY CHECK",
+    "enter": "Enter PIN",
+    "new": "Enter New PIN",
+    "reenter": "Re-Enter PIN",
+    "biometrics": "Biometric Check"
   },
   "receive": {
-    "title": "RECEBER",
-    "clipboardCopied": "Copiado para a área de transferência",
+    "title": "RECEIVE",
+    "clipboardCopied": "Copied to clipboard",
     "button": {
-      "copy": "Copiar",
-      "share": "Compartilhar"
+      "copy": "Copy",
+      "share": "Share"
     },
     "tabs": {
-      "share": "Compartilhar",
-      "request": "Solicitar"
+      "share": "SHARE",
+      "request": "REQUEST"
     }
   },
   "rewards": {
-    "title": "RECOMPENSAS",
-    "earned": "Você ganhou"
+    "title": "REWARDS",
+    "earned": "You have earned"
   },
   "seed": {
     "confirm": {
-      "title": "CONFIRMAR SEED",
+      "title": "CONFIRM SEED",
       "error": {
-        "title": "Combinação errada",
-        "message": "Palavras selecionadas não combinam. Certifique-se de que escreveu as palavras na ordem correta."
+        "title": "Wrong Combination",
+        "message": "Selected words don't match. Make sure you wrote the words in the correct order."
       },
-      "success": "Carteira confirmada com sucesso",
-      "explanation": "Selecione as palavras abaixo, em ordem, para confirmar sua frase secreta.",
+      "success": "Wallet successfully confirmed",
+      "explanation": "Select the words below in the right order to confirm your secret phrase.",
       "button": {
-        "reset": "REDEFINIR PALAVRAS",
-        "confirm": "CONFIRMAR SEED"
+        "reset": "RESET WORDS",
+        "confirm": "CONFIRM SEED"
       }
     },
     "create": {
-      "title": "CRIAR SEED",
-      "titleConfirm": "CONFIRMAR CARTEIRA",
-      "error": "Opa, temos um problema. Por favor, reinicie o aplicativo.",
-      "generateNew": "Isso irá gerar uma carteira completamente nova.",
+      "title": "CREATE SEED",
+      "titleConfirm": "CONFIRM WALLET SEED",
+      "error": "Oops, we have a problem. Please restart the application.",
+      "generateNew": "This will generate a completely new wallet.",
       "button": {
-        "written": "EU ANOTEI",
-        "newSeed": "OBTER NOVAS PALAVRAS",
-        "later": "Confirmar mais tarde"
+        "written": "I'VE WRITTEN IT DOWN",
+        "newSeed": "GET NEW SEED",
+        "later": "Confirm later"
       },
-      "backupMessage": "Você sempre pode acessar suas palavras acessando o backup das configurações do aplicativo      ",
-      "seedExplanation": "A semente é uma representação legível de sua carteira. Essas palavras, nessa ordem exata, podem ser usadas para re-criar a sua carteira."
+      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
+      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
-      "title": "RESTAURAR A CARTEIRA",
-      "explanation": "Para restaurar sua carteira, por favor, forneça as mesmas 12 palavras que você escreveu no papel quando criou sua carteira pela primeira vez. Se você inserir uma sequência diferente de palavras, uma nova carteira vazia, será criada.",
-      "placeholder": "Por favor, digite suas 12 palavras seed aqui",
-      "success": "Carteira restaurada com sucesso!",
-      "warning": "Restaurar seed apagará todos os dados deste dispositivo extraindo informações da rede para a conta restaurada.",
-      "error": "Opa. Parece que as palavras que você digitou não são de uma seed válida. Verificar se há um erro de digitação e tente novamente.",
-      "button": "RESTAURAR"
+      "title": "RESTORE WALLET",
+      "explanation": "To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
+      "placeholder": "Please, type your 12 seed words here",
+      "success": "Wallet restored with success!",
+      "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
+      "error": "Oops. Looks like the words you typed aren't a valid mnemonic seed. Check for a typo and try again.",
+      "button": "RESTORE"
     }
   },
   "send": {
-    "title": "ENVIAR",
+    "title": "SEND",
     "error": {
-      "insufficientBalance": "Saldo insuficiente.",
-      "gettingBalance": "Erro ao obter o saldo",
-      "incompleteAddress": "Endereço inválido ou incompleto.",
-      "invalidReceiver": "Endereço de destinatário inválido",
-      "selectBalance": "Selecione primeiro um valor",
-      "invalidAmount": "Valor inválido"
+      "insufficientBalance": "Not enough balance.",
+      "gettingBalance": "Error while getting balance data",
+      "incompleteAddress": "Address is either incomplete or invalid.",
+      "invalidReceiver": "Invalid receiver address",
+      "selectBalance": "Select a balance first",
+      "invalidAmount": "Invalid amount"
     },
     "input": {
       "token": "TOKEN",
-      "to": "PARA",
-      "amount": "QUANTIDADE",
-      "description": "DESCRIÇÃO (OPCIONAL)"
+      "to": "TO",
+      "amount": "AMOUNT",
+      "description": "DESCRIPTION (OPTIONAL)"
     },
-    "available": "disponível",
-    "chooseToken": "Por favor, escolha um token abaixo.",
-    "minimumAmount": "A quantidade mínima para qualquer transação de envio é 0.000001."
+    "available": "available",
+    "chooseToken": "Please, choose a token below.",
+    "minimumAmount": "The minimum amount for any send transaction is 0.000001."
   },
   "settings": {
-    "title": "Configurações",
+    "title": "SETTINGS",
     "sectionTitles": {
-      "wallet": "CARTEIRA",
-      "security": "SEGURANÇA",
-      "notification": "NOTIFICAÇÕES E IDIOMA",
-      "accounts": "GERENCIAMENTO DE CONTAS"
+      "wallet": "WALLET",
+      "security": "SECURITY",
+      "notification": "NOTIFICATIONS AND IDIOM",
+      "accounts": "ACCOUNTS MANAGEMENT"
     },
     "notifications": {
-      "title": "Notificações"
+      "title": "Notifications"
     },
     "network": {
-      "title": "Rede",
+      "title": "Network",
       "modal": {
-        "title": "REDE",
-        "explanation": "Com esta opção você pode selecionar o nó que melhor atenderá suas necessidades e preferências. Por favor, tenha cuidado ao atualizar o IP do nó, visto que o IP errado pode provocar o mau funcionamento de sua carteira. Exemplo: 35.231.121.122:50051",
+        "title": "NETWORK",
+        "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
         "error": {
-          "storage": "Erro ao conectar ao servidor",
-          "invalidIp": "Por favor, entre com um IP válido",
-          "update": "Algo deu errado durante a atualização do ip",
-          "reset": "Erro ao recuperar o ip"
+          "storage": "Error getting node ip from local storage",
+          "invalidIp": "Please put a valid IP",
+          "update": "Something went wrong while updating nodes ip",
+          "reset": "Something wrong while reseting node ip"
         },
         "success": {
-          "updated": "Atualizado",
-          "updatedIp": "IP atualizado!",
-          "switchTest": "IPalterado para Testnet",
-          "switchMain": "IP do nó trocado para o padrão principal",
-          "reset": "IP atualizado!"
+          "updated": "Updated",
+          "updatedIp": "Nodes IP updated!",
+          "switchTest": "Switched nodes IP to Testnet",
+          "switchMain": "Switched nodes IP to default main",
+          "reset": "Node IP reseted!"
         },
         "placeholder": {
-          "loadingIp": "Carregando IP",
-          "loadingPort": "Carregando Porta"
+          "loadingIp": "Loading IP",
+          "loadingPort": "Loading Port"
         },
         "button": {
-          "update": "Atualizar e Conectar",
-          "reset": "Restaurar"
+          "update": "Update and Connect",
+          "reset": "Reset"
         },
-        "mainNode": "Nó Principal",
-        "solidityNode": "Estabilidade do Nó",
-        "testNet": "Testnet"
+        "mainNode": "Main Node",
+        "solidityNode": "Solidity Node",
+        "testNet": "TestNet"
       }
     },
     "backup": {
-      "title": "Backup da Carteira"
+      "title": "Backup Wallet"
     },
     "restore": {
-      "title": "Restaurar Carteira"
+      "title": "Restore Wallet"
     },
     "reset": {
-      "title": "Restabelecer Carteira",
-      "warning": "Aviso: Esta ação irá apagar todos os dados salvos, incluindo suas 12 palavras secretas. Se você não salvou seu segredo, faça isso antes de continuar.",
-      "button": "OK, eu entendi"
+      "title": "Reset Wallet",
+      "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
+      "button": "OK, I understand it"
     },
     "pin": {
-      "title": "Altere o Pin",
-      "success": "Pin alterado com sucesso!"
+      "title": "Change Pin",
+      "success": "Pin successfully changed!"
     },
     "language": {
-      "title": "Idioma",
-      "choose": "Por favor, escolha um idioma abaixo:",
+      "title": "Language",
+      "choose": "Please, choose a Language below:",
       "success": {
-        "title": "Idioma alterado para {{language}}",
-        "description": "Você precisa reiniciar o aplicativo para que as alterações entrem em vigor. Você gostaria de fazer isso agora?"
+        "title": "Language changed to {{language}}",
+        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
       },
       "button": {
-        "confirm": "Sim, reiniciar agora!",
-        "cancel": "Não, vou reiniciar mais tarde"
+        "confirm": "Yes, restart now!",
+        "cancel": "No, I'll do it later"
       },
-      "error": "Erro ao salvar o idioma preferido"
+      "error": "Error saving preferred language"
     },
     "token": {
-      "title": "Filtrar Token",
-      "search": "Buscar tokens",
-      "confirm": "Salvar",
-      "noResult": "Nenhum resultado encontrado..."
+      "title": "Token Filter",
+      "search": "Search tokens",
+      "confirm": "Save",
+      "noResult": "No results..."
     },
     "about": {
-      "title": "Sobre",
-      "description": "TronWallet é uma carteira de Crypto Moeda P2P completamente descentralizada de código aberto para a rede TRON construída com o React Native. Com ela você pode enviar e receber tokens, votar em um Super Representante, participar de promoções de tokens, acompanhar seus saldos e transações e muito mais. Toque no link abaixo para um tutorial detalhado sobre como usá-la.",
+      "title": "About",
+      "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
       "tutorial": "TUTORIAL"
     },
     "accepts": {
-      "title": "Quem aceita TRX?"
+      "title": "Who accepts TRX?"
     },
     "helpCenter": {
-      "title": "Central de ajuda"
+      "title": "Help Center"
     },
     "accounts": {
-      "title": "Contas",
-      "search": "Pesquisar contas",
-      "restoreAccounts": "Restaurar as contas",
-      "noAccounts": "Sem contas para restaurar"
+      "title": "Accounts",
+      "search": "Search accounts",
+      "restoreAccounts": "Restore Accounts",
+      "noAccounts": "No accounts to restore"
     },
-    "partners": "PARCEIROS",
-    "askPin": "Sempre pedir PIN",
-    "askBiometry": "Ativar a biometria",
-    "verifiedTokensOnly": "Apenas tokens verificados"
+    "partners": "PARTNERS",
+    "askPin": "Always ask PIN",
+    "askBiometry": "Activate Biometry",
+    "verifiedTokensOnly": "Verified tokens only"
   },
   "submitTransaction": {
-    "title": "TRANSAÇÃO DETALHADA",
-    "notification": "Você recebeu uma transação de {{address}}",
-    "notificationPayment": "Você recebeu um pagamento de {{address}}",
-    "data": "Dados",
-    "time": "TEMPO",
+    "title": "TRANSACTION DETAILS",
+    "notification": "You have received a transaction from {{address}}",
+    "notificationPayment": "You have received a payment from {{address}}",
+    "data": "DATA",
+    "time": "TIME",
     "button": {
-      "tryAgain": "Tente outra vez",
-      "submit": "SUBMETER TRANSAÇÃO"
+      "tryAgain": "Try again",
+      "submit": "SUBMIT TRANSACTION"
     },
     "error": {
-      "noData": "Não foi possível carregar os dados da transação"
+      "noData": "Couldn't load transaction data"
     },
     "exchange": {
       "send": "Sending {{sendtoken}}",
       "receive": "Receiving {{receivetoken}}",
       "error": "Check your latest transactions to confirm the received amount."
     },
-    "disconnectedMessage": "Parece que você está desconectado. Reconecte-se à internet antes de prosseguir com a transação.",
+    "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
     "dic": {
-      "contractType": "Tipo de transação",
-      "ownerAddress": "De",
-      "toAddress": "Para",
-      "participateAssetIssueContract": "Participar",
-      "transferAssetContract": "Transferir",
-      "transferContract": "Transferir",
-      "unfreezeBalanceContract": "Descongelar",
-      "freezeBalanceContract": "Congelar",
-      "assetIssueContract": "Criar",
-      "voteWitnessContract": "Votar",
-      "frozenDuration": "Duração",
-      "frozenBalance": "Total de congelado"
+      "contractType": "Transaction Type",
+      "ownerAddress": "From",
+      "toAddress": "To",
+      "participateAssetIssueContract": "Participate",
+      "transferAssetContract": "Transfer",
+      "transferContract": "Transfer",
+      "unfreezeBalanceContract": "Unfreeze",
+      "freezeBalanceContract": "Freeze",
+      "assetIssueContract": "Create",
+      "voteWitnessContract": "Vote",
+      "frozenDuration": "Duration",
+      "frozenBalance": "Total to Freeze"
     },
     "errorDic": {
-      "contractValidate": "Dados de transação inválidos. Por favor, tente novamente mais tarde.",
-      "signature": "Assinatura de transação inválida.",
-      "duplicate": "Transação já transmitida.",
-      "contractValidateCee": "Dados de transação inválidos (CEE). Por favor, tente novamente mais tarde.",
-      "bandwith": "Não há bandwidth suficiente. Por favor, tente mais tarde.",
-      "contractValidateTapos": "Dados de transação inválidos(TAPOS). Por favor, tente novamente mais tarde.",
-      "tooBig": "Transação grande demais para ser enviada.",
-      "expiration": "Transação expirada. Por favor, tente novamente.",
-      "serverBusy": "Servidor ocupado.",
-      "resource": "Bandwidth ou saldo insuficiente. Talvez seja necessário congelar algum TRX."
+      "contractValidate": "Transaction data not valid. Please try again later.",
+      "signature": "Transaction signature not valid.",
+      "duplicate": "Transaction already broadcasted.",
+      "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
+      "bandwith": "Not enought bandwidth. Please try again later.",
+      "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
+      "tooBig": "Transaction too big to be submitted.",
+      "expiration": "Transaction expired. Please try again.",
+      "serverBusy": "Server busy.",
+      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
     },
-    "totalVotes": "Total de votos"
+    "totalVotes": "Total Votes"
   },
   "transactions": {
-    "title": "MINHAS TRANSAÇÕES",
-    "from": "De",
-    "to": "Para",
-    "notFound": "Nenhuma transação encontrada."
+    "title": "MY TRANSACTIONS",
+    "from": "From",
+    "to": "To",
+    "notFound": "No transactions found."
   },
   "transactionDetails": {
-    "title": "TRANSAÇÃO",
+    "title": "TRANSACTION",
     "clipboard": {
-      "tronscanUrl": "Url Tronscan copiada",
-      "publicKey": "Chave pública copiada"
+      "tronscanUrl": "Tronscan url for this transaction copied to the clipboard",
+      "publicKey": "Public Key copied to the clipboard"
     },
     "hash": "HASH",
     "status": "STATUS",
-    "time": "TEMPO",
-    "block": "BLOCO",
-    "frozenBalance": "CONGELAR SALDO",
-    "unfrozenBalance": "DESCONGELAR SALDO",
-    "totalVotes": "TOTAL DE VOTOS",
-    "amount": "QUANTIDADE",
-    "to": "PARA",
-    "from": "De",
-    "tokenName": "NOME DO TOKEN",
-    "unityValue": "VALOR UNITÁRIO",
-    "totalSupply": "OFERTA TOTAL",
-    "startTime": "HORA DE INÍCIO",
-    "endTime": "HORA DO TÉRMINO",
-    "description": "DESCRIÇÃO",
-    "votedAddress": "ENDEREÇO VOTADO"
+    "time": "TIME",
+    "block": "BLOCK",
+    "frozenBalance": "FROZEN BALANCE",
+    "unfrozenBalance": "UNFROZEN BALANCE",
+    "totalVotes": "TOTAL VOTES",
+    "amount": "AMOUNT",
+    "to": "TO",
+    "from": "FROM",
+    "tokenName": "TOKEN NAME",
+    "unityValue": "UNITY VALUE",
+    "totalSupply": "TOTAL SUPPLY",
+    "startTime": "START TIME",
+    "endTime": "END TIME",
+    "description": "DESCRIPTION",
+    "votedAddress": "VOTED ADDRESS"
   },
   "transactionSuccess": {
-    "submitted": "TRANSAÇÃO ENVIADA!",
-    "success": "SUCESSO!"
+    "submitted": "TRANSACTION SUBMITTED TO NETWORK!",
+    "success": "SUCCESS!"
   },
   "votes": {
-    "title": "VOTOS",
-    "totalVotes": "TOTAL DE VOTOS",
-    "votesAvailable": "VOTOS DISPONÍVEIS",
-    "search": "Pesquisa",
-    "searchPreview": "Sugestões - Meus votos recentes",
-    "error": "Opa, algo não carregou corretamente. Tente recarregar",
-    "notFound": "Super Representante não encontrado"
+    "title": "VOTES",
+    "totalVotes": "TOTAL VOTES",
+    "votesAvailable": "VOTES AVAILABLE",
+    "search": "Search",
+    "searchPreview": "Suggestions - My latest votes",
+    "error": "Oops, something didn't load correctly. Try to reload",
+    "notFound": "Super Representative not found"
   },
   "scanPayment": {
-    "scan": "DIGITALIZAÇÃO",
+    "scan": "SCAN",
     "error": {
-      "receiver": "Endereço do destinatário inválido",
-      "token": "Token inválido",
-      "amount": "Quantidade inválida",
-      "description": "Descrição muito longa",
-      "code": "Código de pagamento inválido. Por favor, digitalize um código válido"
+      "receiver": "Receiver address invalid",
+      "token": "Token not valid",
+      "amount": "Amount not valid",
+      "description": "Description too long",
+      "code": "Payment code invalid. Please, scan a valid one"
     }
   },
   "makePayment": {
-    "pay": "PAGAR",
-    "confirm": "CONFIRMAR PAGAMENTO",
+    "pay": "PAY",
+    "confirm": "CONFIRM PAYMENT",
     "error": {
-      "receiver": "O destinatário é igual ao solicitante",
-      "token": "Esta conta não tem o token para esta transação",
-      "amount": "Esta conta não tem saldo suficiente.",
-      "description": "Descrição não disponível"
+      "receiver": "Receiver is equal to requester",
+      "token": "This account doesn't have the token for this transaction",
+      "amount": "This account doesn't have enough balance.",
+      "description": "No description available"
     }
   },
   "buildPayment": {
-    "generate": "GERAR PEDIDO",
-    "selectCurrency": "Selecione a moeda de referência",
+    "generate": "GENERATE REQUEST",
+    "selectCurrency": "Select the reference currency",
     "error": {
-      "currency": "Não conseguimos carregar outros preços para a moeda. Por favor use TRX como referência"
+      "currency": "We weren't able to load other currency prices. Please use TRX as reference"
     }
   },
   "requestPayment": {
-    "title": "SOLICITAR PAGAMENTO"
+    "title": "REQUEST PAYMENT"
   },
   "newAccount": {
-    "title": "Criação de conta",
-    "placeholder": "Minha conta",
+    "title": "Account Creation",
+    "placeholder": "My precious account",
     "success": {
-      "title": "Nova conta criada com sucesso",
-      "message": "Você pode editar o nome no seu address book"
+      "title": "New account successfully created",
+      "message": "You can edit the name on your address book"
     },
     "failure": {
-      "title": "Aviso de nova conta",
-      "message": "Para adicionar uma nova conta, que você deve ter pelo menos uma transação na sua última conta."
+      "title": "New account warning",
+      "message": "To add a new account you should have at least one transaction on your last account."
     }
   },
   "balanceToken": {
-    "updating": "A atualizar a informação do token. Por favor aguarde alguns segundos.",
-    "notAvailable": "Informação do token indisponível"
+    "updating": "Updating token information. Please wait a few seconds.",
+    "notAvailable": "Token information not available"
   },
   "biometry": {
     "register": {
-      "title": "Verifique sua biometria"
+      "title": "Check your biometry"
     },
     "auth": {
-      "error": "Acesso negado"
+      "error": "Access denied"
     }
   },
   "privacyPolicy": {
@@ -576,7 +578,7 @@
       "title": "TronWallet Terms of Service",
       "section1": {
         "title": "1. Terms",
-        "body": "By accessing the website at http://tronwallet.me, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law."
+        "body": "By accessing this application, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this app. The materials contained in this website are protected by applicable copyright and trademark law."
       },
       "section2": {
         "title": "2. Use License",
