@@ -31,6 +31,8 @@
     "clipboardCopied": "コピー実行に問題が発生しました。",
     "hideAccount": "アカウントの削除が間違っていました。もう一度お試しください。"
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "TRON パワー",
   "trxPrice": "TRX 価格",
   "confirmed": "確認しました。",
@@ -170,6 +172,7 @@
     "title": "凍結",
     "unfreeze": {
       "title": "凍結 解除",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "3 日後、TRX を解除することができます。",
       "inXMinutes": "{{minutes}} 分で、TRX を解除することができます。",
       "inXHours": "{{hours}} 時間で、TRX を解除することができます。",
