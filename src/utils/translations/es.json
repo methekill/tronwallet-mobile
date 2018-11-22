@@ -31,6 +31,8 @@
     "clipboardCopied": "Algo salió mal al copiar",
     "hideAccount": "Se produjo un error al eliminar la cuenta, vuelve a intentarlo."
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "TRON POWER",
   "trxPrice": "PRECIO DE TRX",
   "confirmed": "Confirmado",
@@ -170,6 +172,7 @@
     "title": "CONGELAR",
     "unfreeze": {
       "title": "DESCONGELAR",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "Después de un período de tres días puedes descongelar sus TRX",
       "inXMinutes": "Puedes descongelar sus TRX en {{minutes}} minutos.",
       "inXHours": "Puedes descongelar sus TRX en {{hours}} horas.",
