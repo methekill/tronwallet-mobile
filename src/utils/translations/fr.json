@@ -20,7 +20,7 @@
   "cancel": "Annuler",
   "address": "Adresse",
   "message": "Message",
-  "ok": "OK",
+  "ok": "Ok",
   "actionModalTitle": "Souhaitez-vous",
   "account": "Compte",
   "restore": "Restaurer",
@@ -31,8 +31,8 @@
     "clipboardCopied": "Quelque chose n'a pas fonctionné lors de la copie",
     "hideAccount": "Quelque chose n'a pas fonctionné en supprimant le compte, réessayez s'il vous plait '"
   },
-  "avaliable": "AVAILABLE",
-  "frozen": "FROZEN",
+  "avaliable": "Disponible",
+  "frozen": "Gelé",
   "tronPower": "PUISSANCE DE TRON",
   "trxPrice": "PRIX D'UN TRX",
   "confirmed": "Confirmé",
@@ -116,7 +116,7 @@
         "body": "Confidentialité et sécurité pour\n vos transactions"
       },
       "votes": {
-        "title": "VOTES",
+        "title": "Votes",
         "body": "Gel et vote pour les Super\nReprésentants"
       },
       "addressbook": {
@@ -138,12 +138,12 @@
       "send": "Envoyer"
     },
     "contacts": {
-      "title": "CONTACTS",
+      "title": "Contacts",
       "delete": {
         "title": "Supprimer un contact",
         "message": "Voulez-vous vraiment supprimer ce contact ?",
         "cancelButton": "Annuler",
-        "okButton": "OK"
+        "okButton": "Ok"
       },
       "empty": "Votre carnet d’adresses est vide, ajoutez un nouveau contact en utilisant le bouton ci-dessous.",
       "loadError": "Il y a un problème de chargement des contacts. S’il vous plaît essayer de nouveau.",
@@ -172,7 +172,7 @@
     "title": "GEL",
     "unfreeze": {
       "title": "DÉGELER",
-      "inXTime": "You can unfreeze your TRX",
+      "inXTime": "Vous pouvez dégeler vos TRX",
       "inThreeDays": "Après une période de trois jours, vous pouvez dégeler vos TRX",
       "inXMinutes": "Vous pouvez dégeler vos TRX en {{minutes}} minutes.",
       "inXHours": "Vous pouvez dégeler vos TRX en {{hours}} minutes.",
@@ -195,13 +195,13 @@
     "time": {
       "hour": "1H",
       "day": "1D",
-      "week": "1W",
-      "month": "1M",
+      "week": "1 semaine",
+      "month": "1 mois",
       "all": "TOUT"
     },
     "highest": "LE PLUS HAUT",
     "lowest": "LE PLUS BAS",
-    "volume": "VOLUME 24H",
+    "volume": "Volume sur 24 heures",
     "cap": "CAPITALISATION",
     "supply": "MASSE EN CIRCULATION"
   },
@@ -235,8 +235,8 @@
     "totalSupply": "OFFRE TOTALE",
     "startTime": "TEMPS DEPART",
     "endTime": "TEMPS FIN",
-    "description": "DESCRIPTION",
-    "transaction": "TRANSACTION",
+    "description": "Description",
+    "transaction": "Transaction",
     "ownerAddress": "ADRESSE DU PROPRIÉTAIRE",
     "trxNum": "TRX NUM",
     "num": "NUM",
@@ -363,7 +363,7 @@
         },
         "mainNode": "Nœud principal",
         "solidityNode": "Solidité du noeud",
-        "testNet": "TestNet"
+        "testNet": "Testnet"
       }
     },
     "backup": {
@@ -476,12 +476,12 @@
     "notFound": "Aucune transaction trouvée."
   },
   "transactionDetails": {
-    "title": "TRANSACTION",
+    "title": "Transaction",
     "clipboard": {
       "tronscanUrl": "L'url Tronscan pour cette transaction a été copiée dans le presse-papiers",
       "publicKey": "La clef publique a été copiée dans le presse-papiers"
     },
-    "hash": "HASH",
+    "hash": "Hash",
     "status": "STATUT",
     "time": "TEMPS",
     "block": "BLOC",
@@ -496,7 +496,7 @@
     "totalSupply": "OFFRE TOTALE",
     "startTime": "TEMPS DE DÉPART",
     "endTime": "TEMPS DE FIN",
-    "description": "DESCRIPTION",
+    "description": "Description",
     "votedAddress": "ADRESSE VOTÉE"
   },
   "transactionSuccess": {
@@ -504,7 +504,7 @@
     "success": "SUCCÈS !"
   },
   "votes": {
-    "title": "VOTES",
+    "title": "Votes",
     "totalVotes": "TOTAL DES VOTES",
     "votesAvailable": "VOTES DISPONIBLES",
     "search": "Recherche",
@@ -513,7 +513,7 @@
     "notFound": "Super Représentant non trouvé"
   },
   "scanPayment": {
-    "scan": "SCAN",
+    "scan": "Scan",
     "error": {
       "receiver": "Adresse du destinataire invalide",
       "token": "Token non valide",
