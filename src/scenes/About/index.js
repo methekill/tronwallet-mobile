@@ -1,14 +1,8 @@
 import React, { PureComponent } from 'react'
-import {
-  Modal,
-  WebView,
-  TouchableWithoutFeedback,
-  View,
-  ScrollView
-} from 'react-native'
+import { TouchableWithoutFeedback, View, ScrollView } from 'react-native'
 
 import NavigationHeader from '../../components/Navigation/Header'
-import Loading from '../../components/LoadingScene'
+import ModalWebView from './../../components/ModalWebView'
 
 // Design
 import { Container, Content, Row, HorizontalSpacer, VerticalSpacer, VersionText, SafeAreaView } from '../../components/Utils'
@@ -23,16 +17,7 @@ class About extends PureComponent {
     header: null
   }
 
-  state = {
-    modalVisible: false,
-    partnerUri: ''
-  }
-
-  _openLink = partnerUri => this.setState({ modalVisible: true, partnerUri })
-
   render () {
-    const { modalVisible, partnerUri } = this.state
-
     return (
       <SafeAreaView>
         <Container>
@@ -47,53 +32,25 @@ class About extends PureComponent {
                 <VerticalSpacer size='large' />
                 <TutorialWrapper>
                   <TouchableWithoutFeedback
-                    onPress={() =>
-                      this._openLink(
-                        'https://blog.getty.io/how-to-tronwallet-tutorial-2228a6218646'
-                      )
-                    }
+                    onPress={() => {
+                      this.webView.open('https://blog.getty.io/how-to-tronwallet-tutorial-2228a6218646')
+                    }}
                   >
-                    <TutorialText>
-                      {tl.t('settings.about.tutorial')}
-                    </TutorialText>
+                    <TutorialText>{tl.t('settings.about.tutorial')}</TutorialText>
                   </TouchableWithoutFeedback>
                 </TutorialWrapper>
-                <Modal
-                  animationType='slide'
-                  transparent={false}
-                  visible={modalVisible}
-                  onRequestClose={() => this.setState({ modalVisible: false })}
-                >
-                  <SafeAreaView>
-                    <NavigationHeader
-                      title=''
-                      onBack={() => {
-                        this.props.navigation.goBack()
-                      }}
-                    />
-                    <WebView
-                      source={{ uri: partnerUri }}
-                      renderLoading={() => <Loading />}
-                      startInLoadingState
-                    />
-                  </SafeAreaView>
-                </Modal>
               </View>
               <View>
                 <SectionTitle>{tl.t('settings.partners')}</SectionTitle>
                 <Row justify='center'>
-                  <TouchableWithoutFeedback
-                    onPress={() => this._openLink('https://www.hummingpay.io/')}
-                  >
+                  <TouchableWithoutFeedback onPress={() => this.webView.open('https://www.hummingpay.io/')} >
                     <PayPartner
                       source={require('../../assets/paysponsor.png')}
                     />
                   </TouchableWithoutFeedback>
                   <HorizontalSpacer size='large' />
                   <HorizontalSpacer size='large' />
-                  <TouchableWithoutFeedback
-                    onPress={() => this._openLink('https://getty.io/')}
-                  >
+                  <TouchableWithoutFeedback onPress={() => this.webView.open('https://getty.io/')} >
                     <Getty source={require('../../assets/gettysponsor.png')} />
                   </TouchableWithoutFeedback>
                 </Row>
@@ -102,6 +59,8 @@ class About extends PureComponent {
             </Content>
           </ScrollView>
         </Container>
+
+        <ModalWebView ref={ref => { this.webView = ref }} />
       </SafeAreaView>
     )
   }

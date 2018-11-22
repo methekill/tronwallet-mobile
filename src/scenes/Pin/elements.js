@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { transparentize } from 'polished'
-import { TouchableOpacity } from 'react-native'
-import { Colors } from '../../components/DesignSystem'
+
+import { Colors, Spacing } from '../../components/DesignSystem'
 
 export const Label = styled.Text`
   font-family: Rubik-Medium;
@@ -35,20 +35,24 @@ export const KeyWrapper = styled.TouchableOpacity`
   flex-grow: 1;
   flex-shrink: 0;
   border-radius: 25px;
-  border-width:${props => props.noBorder ? 0 : 1}px;
-  border-color:${Colors.secondaryText};
+  border-width: ${props => props.noBorder ? 0 : 1}px;
+  border-color: ${Colors.secondaryText};
   margin: 4px;
 `
+
+KeyWrapper.defaultProps = {
+  noBorder: false
+}
 
 export const KeyText = styled.Text`
   font-family: Rubik-Regular;
   font-size: 16px;
   line-height: 24px;
-  color:${Colors.secondaryText};
+  color: ${Colors.secondaryText};
 `
 
-export const Key = ({ children, ...props }) => (
-  <KeyWrapper {...props}>
+export const Key = ({ children, noBorder, onPress, pointerEvents }) => (
+  <KeyWrapper noBorder={noBorder} onPress={() => onPress(children)} pointerEvents={pointerEvents} >
     <KeyText>
       {children}
     </KeyText>
@@ -106,11 +110,20 @@ export const PinDigit = ({ digit, currentState }) => {
   )
 }
 
+const GoBackBtn = styled.TouchableOpacity`
+  position: absolute;
+  top: 10;
+  left: 8;
+  padding: ${Spacing.medium}px;
+  z-index: 1;
+`
+
 export const GoBackButton = props => (
-  <TouchableOpacity
-    style={{ position: 'absolute', top: 10, left: 8, padding: 16, zIndex: 1 }}
-    {...props}
-  >
+  <GoBackBtn {...props} >
     <Ionicons name='ios-arrow-round-back' size={32} color='#FFF' />
-  </TouchableOpacity>
+  </GoBackBtn>
 )
+
+export const BiometricButton = styled.TouchableOpacity`
+  padding: ${Spacing.medium}px;
+`
