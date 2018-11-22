@@ -19,10 +19,10 @@
   "warning": "Waarschuwing",
   "cancel": "Annuleren",
   "address": "Adres",
-  "message": "Message",
+  "message": "Bericht",
   "ok": "OK",
   "actionModalTitle": "Wilt u graag",
-  "account": "Account",
+  "account": "Rekening",
   "restore": "Herstellen",
   "error": {
     "default": "Oeps, er is iets misgegaan. Probeer het later opnieuw. Als de fout aanhoudt, probeert u de netwerkinstellingen bij te werken.",
@@ -31,8 +31,8 @@
     "clipboardCopied": "Er klopt iets niet tijdens het kopiëren",
     "hideAccount": "Er is iets misgegaan bij het verwijderen van een account, probeer het opnieuw '"
   },
-  "avaliable": "AVAILABLE",
-  "frozen": "FROZEN",
+  "avaliable": "BESCHIKBAAR",
+  "frozen": "VASTGEZET",
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRIJS",
   "confirmed": "Bevestigd",
@@ -66,7 +66,7 @@
     },
     "chooseCurrency": "Kies alstublieft uw voorkeurs valuta.",
     "confirmSeed": "Tik om uw 12 woorden te bevestigen",
-    "bandwidth": "BANDWIDTH",
+    "bandwidth": "BANDBREEDTE",
     "tokens": "TOKENS",
     "holdings": "BEZITTINGEN"
   },
@@ -161,7 +161,7 @@
     }
   },
   "importWallet": {
-    "title": "IMPORT WALLET",
+    "title": "IMPORTEER PORTEMONNEE",
     "message": "Als u de privésleutel en het adres van uw portemonnee hebt, kunt u deze hier herstellen, maar houd er rekening mee dat TronWallet voornamelijk werkt met mnemonics. Met deze herstelmethode worden sommige functies in de app uitgeschakeld.",
     "button": "IMPORTEREN",
     "error": {
@@ -172,7 +172,7 @@
     "title": "VASTZETTEN",
     "unfreeze": {
       "title": "ONTGRENDELEN",
-      "inXTime": "You can unfreeze your TRX",
+      "inXTime": "U kunt nu uw TRX ontgrendelen",
       "inThreeDays": "Na een periode van drie dagen kunt u uw TRX weer ontgrendelen",
       "inXMinutes": "U kunt uw TRX ontgrendelen over {{minutes}} minuten.",
       "inXHours": "U kunt uw TRX ontgrendelen over {{hours}} uren.",
@@ -240,12 +240,12 @@
     "ownerAddress": "ADRES VAN DE EIGENAAR",
     "trxNum": "AANTAL TRX",
     "num": "AANTAL",
-    "block": "BLOCK",
+    "block": "BLOK",
     "balance": "Balans",
     "searchPreview": "Aanbevolen Tokens"
   },
   "pin": {
-    "title": "SECURITY CHECK",
+    "title": "VEILIGHEIDSCHECK",
     "enter": "PIN invoeren",
     "new": "Voer nieuwe PIN in",
     "reenter": "Voer de pincode opnieuw in",
@@ -330,7 +330,7 @@
       "wallet": "PORTEMONNEE",
       "security": "BEVEILIGING",
       "notification": "MELDINGEN EN IDIOM",
-      "accounts": "ACCOUNTS MANAGEMENT"
+      "accounts": "BEHEER VAN DE REKENINGEN"
     },
     "notifications": {
       "title": "Notificaties"
