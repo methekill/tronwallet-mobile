@@ -172,7 +172,7 @@
     "title": "동결",
     "unfreeze": {
       "title": "동결 해제",
-      "inXTime": "You can unfreeze your TRX",
+      "inXTime": "TRX 동결을 해제할 수 있습니다",
       "inThreeDays": "3일 후에 TRX 동결을 해제할 수 있습니다",
       "inXMinutes": "{{minutes}} 분 뒤에 TRX 동결을 해제할 수 있습니다.",
       "inXHours": "{{hours}} 시간 뒤에 TRX 동결을 해제할 수 있습니다.",
