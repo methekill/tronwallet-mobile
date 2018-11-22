@@ -5,8 +5,11 @@ import { FEATURED_TOKENS, VERIFIED_TOKENS } from './constants'
 export const updateAssets = async (start = 0, limit = 100, name = '') => {
   const assets = await Client.getTokenList(start, limit, name)
   const store = await getAssetsStore()
-
-  store.write(() => assets.map(asset => store.create('Asset', asset, true)))
+  store.write(() => assets.map(asset => {
+    if (asset.id) {
+      store.create('Asset', asset, true)
+    }
+  }))
 
   return assets
 }

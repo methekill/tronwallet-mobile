@@ -3,6 +3,7 @@ import { Alert, Keyboard, ActivityIndicator, Clipboard, Modal } from 'react-nati
 import { StackActions, NavigationActions } from 'react-navigation'
 import { Answers } from 'react-native-fabric'
 import RNTron from 'react-native-tron'
+import MixPanel from 'react-native-mixpanel'
 
 // Design
 import tl from '../../utils/i18n'
@@ -59,7 +60,7 @@ class Restore extends Component {
     const { pin, oneSignalId, setSecretMode, loadUserData } = this.props.context
     const { address, privateKey } = this.state
     Keyboard.dismiss()
-    this.setState({loading: true})
+    this.setState({ loading: true })
     try {
       await this._checkAccount()
       await restoreFromPrivateKey(pin, oneSignalId, address, privateKey)
@@ -67,19 +68,19 @@ class Restore extends Component {
       await loadUserData()
       this.props.navigation.dispatch(resetAction)
       Answers.logCustom('Wallet Operation', { type: 'Import from PrivateKey' })
+      MixPanel.trackWithProperties('Wallet Operation', { type: 'Import from PrivateKey' })
     } catch (error) {
       Alert.alert(tl.t('warning'), 'Address or private key not valid')
     } finally {
-      this.setState({loading: false})
+      this.setState({ loading: false })
     }
   }
 
   _checkAccount = async () => {
     const { address, privateKey } = this.state
-    const mockTransaction = {from: address, to: 'TJo2xFo14Rnx9vvMSm1kRTQhVHPW4KPQ76', amount: 0, token: 'TRX'}
+    const mockTransaction = { from: address, to: 'TJo2xFo14Rnx9vvMSm1kRTQhVHPW4KPQ76', amount: 0, token: 'TRX' }
     try {
-      const transactionUnsigned = await WalletClient
-        .getTransferTransaction(mockTransaction)
+      const transactionUnsigned = await WalletClient.getTransferTransaction(mockTransaction)
       const transactionSigned = await RNTron.signTransaction(privateKey, transactionUnsigned)
       await WalletClient.broadcastTransaction(transactionSigned)
     } catch (error) {
@@ -136,11 +137,7 @@ class Restore extends Component {
   )
 
   _disableImport = () => {
-    const {loading,
-      address,
-      addressError,
-      pkError,
-      privateKey } = this.state
+    const { loading, address, addressError, pkError, privateKey } = this.state
     return loading || !address || !privateKey || !!pkError || !!addressError
   }
 
@@ -152,67 +149,72 @@ class Restore extends Component {
       address,
       addressError,
       pkError,
-      privateKey } = this.state
+      privateKey
+    } = this.state
     return (
-      <Utils.Container>
-        <NavigationHeader
-          title={tl.t('importWallet.title')}
-          onBack={() => this.props.navigation.goBack()}
-          noBorder
-        />
-        <Utils.Content>
-          <Input
-            innerRef={(input) => { this.address = input }}
-            label={tl.t('address').toUpperCase()}
-            rightContent={this._rightContentAddress}
-            value={address}
-            onChangeText={to => this._changeAddress(to)}
-            onSubmitEditing={() => this.privatekey.focus()}
+      <Utils.SafeAreaView>
+        <Utils.Container>
+          <NavigationHeader
+            title={tl.t('importWallet.title')}
+            onBack={() => this.props.navigation.goBack()}
+            noBorder
           />
-          {addressError && (
-            <Utils.Text marginY={8} size='xsmall' color='#ff5454'>
-              {addressError}
-            </Utils.Text>
-          )}
-          <Input
-            innerRef={(input) => { this.privatekey = input }}
-            label={tl.t('privateKey').toUpperCase()}
-            rightContent={this._rightContentPk}
-            value={privateKey}
-            onChangeText={pk => this._changePrivateKey(pk)}
-            multiline
-            blurOnSubmit
-          />
-          {pkError && (
-            <Utils.Text marginY={8} size='xsmall' color='#ff5454'>
-              {pkError}
-            </Utils.Text>
-          )}
-          <Utils.Text marginY={20} size='tiny' font='regular'>
-            {tl.t('importWallet.message')}
-          </Utils.Text>
-          {loading
-            ? <ActivityIndicator size='small' color={Colors.primaryText} />
-            : <ButtonGradient
-              font='bold'
-              text={tl.t('importWallet.button')}
-              onPress={this._submit}
-              disabled={this._disableImport()}
+          <Utils.Content>
+            <Input
+              innerRef={(input) => { this.address = input }}
+              label={tl.t('address').toUpperCase()}
+              rightContent={this._rightContentAddress}
+              value={address}
+              onChangeText={to => this._changeAddress(to)}
+              onSubmitEditing={() => this.privatekey.focus()}
             />
-          }
-        </Utils.Content>
-        <Modal
-          visible={qrModalVisible}
-          onRequestClose={this._closeModal}
-          animationType='slide'
-        >
-          <QRScanner
-            onRead={onReadScanner || this._changeAddress}
-            onClose={this._closeModal}
-            checkAndroid6Permissions
-          />
-        </Modal>
-      </Utils.Container>
+            {addressError && (
+              <Utils.Text marginY={8} size='xsmall' color='#ff5454'>
+                {addressError}
+              </Utils.Text>
+            )}
+            <Input
+              innerRef={(input) => { this.privatekey = input }}
+              label={tl.t('privateKey').toUpperCase()}
+              rightContent={this._rightContentPk}
+              value={privateKey}
+              onChangeText={pk => this._changePrivateKey(pk)}
+              multiline
+              blurOnSubmit
+            />
+            {pkError && (
+              <Utils.Text marginY={8} size='xsmall' color='#ff5454'>
+                {pkError}
+              </Utils.Text>
+            )}
+            <Utils.Text marginY={20} size='tiny' font='regular'>
+              {tl.t('importWallet.message')}
+            </Utils.Text>
+            {loading
+              ? (<ActivityIndicator size='small' color={Colors.primaryText} />)
+              : (
+                <ButtonGradient
+                  font='bold'
+                  text={tl.t('importWallet.button')}
+                  onPress={this._submit}
+                  disabled={this._disableImport()}
+                />
+              )
+            }
+          </Utils.Content>
+          <Modal
+            visible={qrModalVisible}
+            onRequestClose={this._closeModal}
+            animationType='slide'
+          >
+            <QRScanner
+              onRead={onReadScanner || this._changeAddress}
+              onClose={this._closeModal}
+              checkAndroid6Permissions
+            />
+          </Modal>
+        </Utils.Container>
+      </Utils.SafeAreaView>
     )
   }
 }

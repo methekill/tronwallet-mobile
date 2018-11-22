@@ -1,8 +1,13 @@
 // Dependencies
 import React, { Component } from 'react'
-import { forIn, reduce, union, clamp, debounce } from 'lodash'
 import { Linking, FlatList, Alert, View, Platform, RefreshControl, Image } from 'react-native'
 import { Answers } from 'react-native-fabric'
+import MixPanel from 'react-native-mixpanel'
+import forIn from 'lodash/forIn'
+import reduce from 'lodash/reduce'
+import union from 'lodash/union'
+import clamp from 'lodash/clamp'
+import debounce from 'lodash/debounce'
 
 // Utils
 import tl from '../../utils/i18n'
@@ -148,6 +153,7 @@ class VoteScene extends Component {
       this.candidateStoreRef = await getCandidateStore()
       this.transactionsStoreRef = await getTransactionStore()
       this._loadData()
+      MixPanel.trackWithProperties('Vote Operation', { type: 'Load Data' })
     } catch (e) {
       logSentry(e, 'Load Candidates Error')
     }

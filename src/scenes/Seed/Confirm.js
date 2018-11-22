@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { ScrollView, Alert } from 'react-native'
 import { StackActions, NavigationActions } from 'react-navigation'
 import { Answers } from 'react-native-fabric'
+import MixPanel from 'react-native-mixpanel'
 
 import tl from '../../utils/i18n'
 import * as Utils from '../../components/Utils'
@@ -28,18 +29,9 @@ const resetAction = StackActions.reset({
 })
 
 class Confirm extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
-    header: (
-      <NavigationHeader
-        title={tl.t('seed.confirm.title')}
-        onBack={() =>
-          navigation.getParam('shouldReset', false)
-            ? navigation.dispatch(resetAction)
-            : navigation.goBack()
-        }
-      />
-    )
-  })
+  static navigationOptions = {
+    header: null
+  }
 
   constructor (props) {
     super()
@@ -66,6 +58,7 @@ class Confirm extends React.Component {
       await confirmSecret(context.pin)
       Answers.logCustom('Wallet Operation', { type: 'Create' })
       await this._handleSuccess()
+      MixPanel.trackWithProperties('Wallet Operation', { type: 'See private key and seed' })
     } catch (error) {
       Alert.alert(
         tl.t('seed.confirm.error.title'),
@@ -143,10 +136,19 @@ class Confirm extends React.Component {
   }
 
   render () {
+    const { navigation } = this.props
     const { loading } = this.state
 
     return (
       <Utils.SafeAreaView>
+        <NavigationHeader
+          title={tl.t('seed.confirm.title')}
+          onBack={() =>
+            navigation.getParam('shouldReset', false)
+              ? navigation.dispatch(resetAction)
+              : navigation.goBack()
+          }
+        />
         <Utils.Container testID='ConfirmSeed'>
           <ScrollView>
             <Utils.Content align='center' justify='center'>

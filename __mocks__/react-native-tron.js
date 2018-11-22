@@ -9,5 +9,5 @@ const signTransaction = (privateKey, transactionUnsigned) => {
 }
 
 export default {
-  signTransaction,
+  signTransaction
 }

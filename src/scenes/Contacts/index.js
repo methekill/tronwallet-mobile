@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import MixPanel from 'react-native-mixpanel'
 
 import AddressBook from '../../components/AddressBook'
 import FloatingButton from '../../components/FloatingButton'
@@ -35,6 +36,7 @@ export default class Contacts extends Component {
         contacts,
         error: null
       })
+      MixPanel.trackWithProperties('Contacts Operation', { type: 'Load Contacts' })
     } catch (e) {
       this.setState({
         error: tl.t('addressBook.contacts.loadError')
@@ -45,7 +47,6 @@ export default class Contacts extends Component {
 
   _onAddPress = () => {
     const { navigation } = this.props
-
     navigation.navigate('AddContact')
   }
 

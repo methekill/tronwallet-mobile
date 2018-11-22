@@ -1,17 +1,5 @@
 import React, { Component } from 'react'
-
-import {
-  StyleSheet,
-  View,
-  TouchableWithoutFeedback,
-  Alert,
-  ActivityIndicator,
-  ScrollView,
-  AsyncStorage,
-  Modal,
-  WebView,
-  SafeAreaView
-} from 'react-native'
+import { StyleSheet, Alert, ActivityIndicator, AsyncStorage, SectionList } from 'react-native'
 import RNRestart from 'react-native-restart'
 import SectionedMultiSelect from 'react-native-sectioned-multi-select'
 import ActionSheet from 'react-native-actionsheet'
@@ -22,15 +10,17 @@ import { StackActions, NavigationActions } from 'react-navigation'
 import OneSignal from 'react-native-onesignal'
 import Switch from 'react-native-switch-pro'
 import Biometrics from 'react-native-biometrics'
+import MixPanel from 'react-native-mixpanel'
+import RNDevice from 'react-native-device-info'
 
 // Design
 import * as Utils from '../../components/Utils'
 import { encrypt } from '../../utils/encrypt'
 import { Colors, Spacing } from '../../components/DesignSystem'
 import NavigationHeader from '../../components/Navigation/Header'
-import { SectionTitle, MultiSelectColors, MultiSelectStyles } from './elements'
+import { SectionTitle, MultiSelectColors, MultiSelectStyles, ListItem } from './elements'
+import ModalWebView from './../../components/ModalWebView'
 import AccountRecover from './RecoverAccount'
-import Loading from '../../components/LoadingScene'
 
 // Utils
 import getBalanceStore from '../../store/balance'
@@ -68,14 +58,14 @@ class Settings extends Component {
     userSelectedTokens: [],
     currentSelectedTokens: [],
     hiddenAccounts: [],
-    biometricsEnabled: false,
+    biometricsEnabled: true,
     tokenFilterModal: false,
     accountsModal: false
   }
 
   componentDidMount () {
     Biometrics.isSensorAvailable()
-      .then(async (biometryType) => {
+      .then((biometryType) => {
         if (biometryType === Biometrics.TouchID || biometryType === Biometrics.FaceID) {
           this.setState({ biometricsEnabled: true })
         }
@@ -91,11 +81,20 @@ class Settings extends Component {
     )
     this._didFocus = this.props.navigation.addListener('didFocus', () => this._onLoadData(), this._getSelectedTokens)
     this.appStateListener = onBackgroundHandler(this._onAppStateChange)
+    MixPanel.trackWithProperties('Settings Operation', { type: 'Load data' })
   }
 
   componentWillUnmount () {
     this._didFocus.remove()
     this.appStateListener.remove()
+  }
+
+  _getPinCallback = (onSuccess, shouldGoBack = true) => {
+    this.props.navigation.navigate('Pin', {
+      testInput: pin => pin === this.props.context.pin,
+      shouldGoBack,
+      onSuccess
+    })
   }
 
   _onAppStateChange = nextAppState => {
@@ -114,7 +113,7 @@ class Settings extends Component {
       }
       if (this.ActionSheet && this.ActionSheet.hide) this.ActionSheet.hide()
 
-      this.setState({modalVisible: false, accountsModal: accState, tokenFilterModal: tokenFilter})
+      this.setState({ modalVisible: false, accountsModal: accState, tokenFilterModal: tokenFilter })
     }
   }
 
@@ -151,6 +150,7 @@ class Settings extends Component {
     const { alwaysAskPin } = this.props.context
     await AsyncStorage.setItem(ALWAYS_ASK_PIN, `${!alwaysAskPin}`)
     this.props.context.setAskPin(!alwaysAskPin)
+    MixPanel.trackWithProperties('Settings Operation', { type: 'Setting ask pin', value: !alwaysAskPin })
   }
 
   _resetWallet = async () => {
@@ -158,8 +158,9 @@ class Settings extends Component {
       tl.t('warning'),
       tl.t('settings.reset.warning'),
       [
-        {text: tl.t('cancel'), style: 'cancel'},
-        {text: tl.t('settings.reset.button'),
+        { text: tl.t('cancel'), style: 'cancel' },
+        {
+          text: tl.t('settings.reset.button'),
           onPress: () => this.props.navigation.navigate('Pin', {
             shouldGoBack: true,
             testInput: pin => pin === this.props.context.pin,
@@ -167,8 +168,10 @@ class Settings extends Component {
               await hardResetWalletData(this.props.context.pin)
               this.props.context.resetAccount()
               this.props.navigation.dispatch(resetAction)
+              MixPanel.trackWithProperties('Settings Operation', { type: 'Reset Wallet' })
             }
-          })}
+          })
+        }
       ],
       { cancelable: false }
     )
@@ -176,7 +179,7 @@ class Settings extends Component {
 
   _onUnhideAccounts = async (accountsSelected = []) => {
     const { loadUserData, pin } = this.props.context
-    this.setState({accountsModal: false})
+    this.setState({ accountsModal: false })
     if (!accountsSelected.length) return
     try {
       await unhideSecret(pin, accountsSelected)
@@ -225,10 +228,12 @@ class Settings extends Component {
     try {
       await AsyncStorage.setItem(TOKENS_VISIBLE, `${!this.props.context.verifiedTokensOnly}`)
       this.props.context.setVerifiedTokensOnly(!this.props.context.verifiedTokensOnly)
+      MixPanel.trackWithProperties('Settings Operation', { type: 'Change tokens visibility' })
     } catch (error) {
       this.props.context.setVerifiedTokensOnly(currentValue)
     }
   }
+
   _openLink = (uri) => this.setState({ modalVisible: true, uri })
 
   _handleLanguageChange = async (index) => {
@@ -240,8 +245,14 @@ class Settings extends Component {
           tl.t('settings.language.success.title', { language: language.value }),
           tl.t('settings.language.success.description'),
           [
-            {text: tl.t('settings.language.button.cancel'), style: 'cancel'},
-            {text: tl.t('settings.language.button.confirm'), onPress: () => RNRestart.Restart()}
+            { text: tl.t('settings.language.button.cancel'), style: 'cancel' },
+            {
+              text: tl.t('settings.language.button.confirm'),
+              onPress: () => {
+                MixPanel.trackWithProperties('Settings Operation', { type: 'Change language', value: language.value })
+                RNRestart.Restart()
+              }
+            }
           ],
           { cancelable: false }
         )
@@ -257,25 +268,28 @@ class Settings extends Component {
     try {
       await AsyncStorage.setItem(USER_FILTERED_TOKENS, JSON.stringify(currentSelectedTokens))
       this.setState({ userSelectedTokens: currentSelectedTokens })
+      MixPanel.trackWithProperties('Settings Operation', { type: 'Token filter' })
     } catch (error) {
       logSentry(error, 'Settings - Save tokens')
     }
   }
 
   _saveBiometry = async (pin) => {
+    const { useBiometry } = this.props.context
+    console.log()
     try {
-      const { useBiometry } = this.props.context
-
       if (!useBiometry) {
-        const signature = await Biometrics.createSignature(tl.t('biometry.register.title'), '')
+        await Biometrics.createKeys(tl.t('biometry.register.title'))
+        const uid = await RNDevice.getUniqueID()
+        const signature = await Biometrics.createSignature(tl.t('biometry.register.title'), uid)
         await AsyncStorage.setItem(ENCRYPTED_PIN, encrypt(pin, signature))
       }
-
       await AsyncStorage.setItem(USE_BIOMETRY, `${!useBiometry}`)
       this.props.context.setUseBiometry(!useBiometry)
+      MixPanel.trackWithProperties('Settings Operation', { type: 'Save Biometry', value: !useBiometry })
     } catch (error) {
       logSentry(error, 'Settings - Save Biometry')
-      Alert.alert(tl.t('biometry.auth.error'))
+      Alert.alert(tl.t('biometry.auth.title'), tl.t('biometry.auth.error'))
     }
   }
 
@@ -301,7 +315,7 @@ class Settings extends Component {
     const list = [
       {
         title: tl.t('settings.sectionTitles.wallet'),
-        sectionLinks: [
+        data: [
           {
             title: tl.t('settings.token.title'),
             icon: 'sort,-filter,-arrange,-funnel,-filter',
@@ -311,51 +325,52 @@ class Settings extends Component {
           {
             title: tl.t('settings.about.title'),
             icon: 'question-mark,-circle,-sign,-more,-info',
-            onPress: () => { this.props.navigation.navigate('About') }
+            onPress: () => this.props.navigation.navigate('About')
           },
           {
             title: tl.t('settings.helpCenter.title'),
             icon: 'message,-chat,-bubble,-text,-rounded',
-            onPress: () => { this._openLink('https://help.tronwallet.me/') }
+            onPress: () => {
+              // this._openLink('https://help.tronwallet.me/')
+              this.helpView.open('https://help.tronwallet.me/')
+            }
           },
           {
             title: tl.t('settings.verifiedTokensOnly'),
             icon: 'guarantee',
-            right: () => {
-              return (
-                <Switch
-                  circleStyle={{ backgroundColor: Colors.orange }}
-                  backgroundActive={Colors.yellow}
-                  backgroundInactive={Colors.secondaryText}
-                  value={this.props.context.verifiedTokensOnly}
-                  onSyncPress={this._changeTokensVisibility}
-                />
-              )
-            }
+            right: () => (
+              <Switch
+                circleStyle={{ backgroundColor: Colors.orange }}
+                backgroundActive={Colors.yellow}
+                backgroundInactive={Colors.secondaryText}
+                value={this.props.context.verifiedTokensOnly}
+                onSyncPress={this._changeTokensVisibility}
+              />
+            )
           }
         ]
       },
       {
         title: tl.t('settings.sectionTitles.security'),
-        sectionLinks: [
+        data: [
           {
             title: tl.t('settings.backup.title'),
             icon: 'key,-password,-lock,-privacy,-login',
             hide: secretMode === 'privatekey',
-            onPress: () => this.props.navigation.navigate('Pin', {
-              shouldGoBack: true,
-              testInput: pin => pin === this.props.context.pin,
-              onSuccess: () => this.props.navigation.navigate('SeedSave', { seed })
-            })
+            onPress: () => {
+              this._getPinCallback(() => {
+                this.props.navigation.navigate('SeedSave', { seed })
+              })
+            }
           },
           {
             title: tl.t('settings.restore.title'),
             icon: 'folder-sync,-data,-folder,-recovery,-sync',
-            onPress: () => this.props.navigation.navigate('Pin', {
-              shouldGoBack: true,
-              testInput: pin => pin === this.props.context.pin,
-              onSuccess: () => this.props.navigation.navigate('SeedRestore')
-            })
+            onPress: () => {
+              this._getPinCallback(() => {
+                this.props.navigation.navigate('SeedRestore')
+              })
+            }
           },
           {
             title: tl.t('settings.reset.title'),
@@ -390,42 +405,45 @@ class Settings extends Component {
             title: tl.t('settings.askBiometry'),
             icon: 'lock,-secure,-safety,-safe,-protect',
             right: () => {
-              return this.state.biometricsEnabled ? 
-              (
-                <Switch
-                  circleStyle={{ backgroundColor: Colors.orange }}
-                  backgroundActive={Colors.yellow}
-                  backgroundInactive={Colors.secondaryText}
-                  value={this.props.context.useBiometry}
-                  onAsyncPress={(callback) => {
-                    if (!this.props.context.useBiometry) {
-                      Biometrics.createKeys(tl.t('biometry.register.title'));
-                    }
-                    
-                    this.props.navigation.navigate('Pin', {
-                      shouldGoBack: true,
-                      testInput: pin => pin === this.props.context.pin,
-                      onSuccess: this._saveBiometry
-                    })
-                    /* eslint-disable */
-                    callback(false)
-                    /* eslint-disable */
-                  }}
-                />
-              ) : (
-                <Icon
-                  name={'lock,-secure,-safety,-safe,-protect'}
-                  size={22}
-                  color={Colors.secondaryText}
-                />
-              )
+              return this.state.biometricsEnabled ?
+                (
+                  <Switch
+                    circleStyle={{ backgroundColor: Colors.orange }}
+                    backgroundActive={Colors.yellow}
+                    backgroundInactive={Colors.secondaryText}
+                    value={this.props.context.useBiometry}
+                    onAsyncPress={(callback) => {
+                      // if (!this.props.context.useBiometry) {
+                      //   Biometrics.createKeys(tl.t('biometry.register.title'));
+                      // }
+
+                      // this.props.navigation.navigate('Pin', {
+                      //   shouldGoBack: true,
+                      //   testInput: pin => pin === this.props.context.pin,
+                      //   onSuccess: this._saveBiometry
+                      // })
+                      this._getPinCallback((pin) => {
+                        this._saveBiometry(pin)
+                      })
+                      /* eslint-disable */
+                      callback(false)
+                      /* eslint-disable */
+                    }}
+                  />
+                ) : (
+                  <Icon
+                    name={'lock,-secure,-safety,-safe,-protect'}
+                    size={22}
+                    color={Colors.secondaryText}
+                  />
+                )
             }
           }
         ]
       },
       {
         title: tl.t('settings.sectionTitles.notification'),
-        sectionLinks: [
+        data: [
           {
             title: tl.t('settings.language.title'),
             icon: 'earth,-globe,-planet,-world,-universe',
@@ -455,19 +473,19 @@ class Settings extends Component {
             onPress: () => this.props.navigation.navigate('NetworkConnection')
           }
         ]
-      },{
+      }, {
         title: tl.t('settings.sectionTitles.accounts'),
-        sectionLinks: [
+        data: [
           {
-            title:  tl.t('settings.accounts.restoreAccounts'),
+            title: tl.t('settings.accounts.restoreAccounts'),
             icon: 'files,-agreement,-notes,-docs,-pages',
             onPress: () => {
-             if(this.state.hiddenAccounts.length){
-              this.setState({accountsModal: !this.state.accountsModal})
-              this.AccountRecover.innerComponent._toggleSelector()
-             }else {
-              Alert.alert(tl.t('account'), tl.t('settings.accounts.noAccounts'))
-             } 
+              if (this.state.hiddenAccounts.length) {
+                this.setState({ accountsModal: !this.state.accountsModal })
+                this.AccountRecover.innerComponent._toggleSelector()
+              } else {
+                Alert.alert(tl.t('account'), tl.t('settings.accounts.noAccounts'))
+              }
             }
           },
         ]
@@ -475,127 +493,72 @@ class Settings extends Component {
     ]
 
     return (
-      <ScrollView>
-        {list.map(item => (
-          <View key={item.title}>
-            <SectionTitle>
-              {item.title}
-            </SectionTitle>
-            {item.sectionLinks.map(item => {
-              const arrowIconName = 'arrow,-right,-right-arrow,-navigation-right,-arrows'
-              return !item.hide
-                ? (
-                  <TouchableWithoutFeedback onPress={item.onPress} key={item.title}>
-                    <Utils.Item padding={16}>
-                      <Utils.Row justify='space-between' align='center'>
-                        <Utils.Row justify='space-between' align='center'>
-                          <View style={styles.rank}>
-                            <Icon
-                              name={item.icon}
-                              size={22}
-                              color={Colors.secondaryText}
-                            />
-                          </View>
-                          <Utils.View>
-                            <Utils.Text lineHeight={20} size='small'>
-                              {item.title}
-                            </Utils.Text>
-                          </Utils.View>
-                        </Utils.Row>
-                        {(!!item.onPress && !item.right) && (
-                          <Icon
-                            name={arrowIconName}
-                            size={15}
-                            color={Colors.secondaryText}
-                          />
-                        )}
-                        {item.right && item.right()}
-                      </Utils.Row>
-                    </Utils.Item>
-                  </TouchableWithoutFeedback>
-                ) : null
-            })}
-          </View>
-        ))}
-      </ScrollView>
+      <SectionList
+        sections={list}
+        renderSectionHeader={({ section }) => <SectionTitle>{section.title}</SectionTitle>}
+        renderItem={({ item, index, section }) => item.hide ? null : <ListItem {...item} />}
+        keyExtractor={(item, index) => item.title}
+        stickySectionHeadersEnabled={false}
+      />
     )
   }
 
-  render () {
-    const { 
-      userTokens, 
+  render() {
+    const {
+      userTokens,
       currentSelectedTokens,
       uri,
       tokenFilterModal,
-      modalVisible, 
+      modalVisible,
       accountsModal,
       hiddenAccounts } = this.state
     const languageOptions = LANGUAGES.map(language => language.value)
 
     return (
       <Utils.SafeAreaView>
-      <NavigationHeader title={tl.t('settings.title')} />
-      <Utils.Container
-        keyboardShouldPersistTaps='always'
-        keyboardDismissMode='interactive'
-      >
-        <ActionSheet
-          ref={ref => { this.ActionSheet = ref }}
-          title={tl.t('settings.language.choose')}
-          options={languageOptions}
-          cancelButtonIndex={0}
-          onPress={index => this._handleLanguageChange(index)}
-        />
-        <Toast
-          ref='settingsToast'
-          position='top'
-          fadeInDuration={1250}
-          fadeOutDuration={1250}
-          opacity={0.8}
-        />
-        <Modal
-          animationType='slide'
-          transparent={false}
-          visible={modalVisible}
-          onRequestClose={() => this.setState({ modalVisible: false })}
-        >
-          <SafeAreaView style={{flex: 1, backgroundColor: Colors.background}}>
-            <NavigationHeader title=' ' onBack={() => { this.setState({ modalVisible: false }) }} />
-            <WebView
-              source={{ uri }}
-              renderLoading={() => <Loading />}
-              startInLoadingState
-            />
-          </SafeAreaView>
-        </Modal>
-        <SectionedMultiSelect
-          ref={ref => { this.SectionedMultiSelect = ref }}
-          items={userTokens}
-          uniqueKey='id'
-          onSelectedItemsChange={(selected) => this.setState({ currentSelectedTokens: selected })}
-          selectedItems={currentSelectedTokens}
-          onConfirm={this._saveSelectedTokens}
-          onCancel={()=> this.setState({tokenFilterModal: !tokenFilterModal})}
-          showChips={false}
-          showCancelButton
-          hideSelect
-          searchPlaceholderText={tl.t('settings.token.search')}
-          confirmText={tl.t('settings.token.confirm')}
-          noResultsComponent={this._renderNoResults()}
-          colors={MultiSelectColors}
-          styles={MultiSelectStyles}
-        />
-        <AccountRecover
-          ref={ref => {this.AccountRecover = ref}}
-          hiddenAccounts={hiddenAccounts}
-          onUnhide={this._onUnhideAccounts}
-          renderNoResults={this._renderNoResults}
-          onCancel={()=> this.setState({accountsModal : !accountsModal})}
-        />
-        <ScrollView>
+        <NavigationHeader title={tl.t('settings.title')} />
+        <Utils.Container keyboardShouldPersistTaps='always' keyboardDismissMode='interactive'> 
+          <SectionedMultiSelect
+            ref={ref => { this.SectionedMultiSelect = ref }}
+            items={userTokens}
+            uniqueKey='id'
+            onSelectedItemsChange={(selected) => this.setState({ currentSelectedTokens: selected })}
+            selectedItems={currentSelectedTokens}
+            onConfirm={this._saveSelectedTokens}
+            onCancel={() => this.setState({ tokenFilterModal: !tokenFilterModal })}
+            showChips={false}
+            showCancelButton
+            hideSelect
+            searchPlaceholderText={tl.t('settings.token.search')}
+            confirmText={tl.t('settings.token.confirm')}
+            noResultsComponent={this._renderNoResults()}
+            colors={MultiSelectColors}
+            styles={MultiSelectStyles}
+          />
+          <AccountRecover
+            ref={ref => { this.AccountRecover = ref }}
+            hiddenAccounts={hiddenAccounts}
+            onUnhide={this._onUnhideAccounts}
+            renderNoResults={this._renderNoResults}
+            onCancel={() => this.setState({ accountsModal: !accountsModal })}
+          />
           {this._renderList()}
-        </ScrollView>
+          <ActionSheet
+            ref={ref => { this.ActionSheet = ref }}
+            title={tl.t('settings.language.choose')}
+            options={languageOptions}
+            cancelButtonIndex={0}
+            onPress={index => this._handleLanguageChange(index)}
+          />
+          <Toast
+            ref='settingsToast'
+            position='top'
+            fadeInDuration={1250}
+            fadeOutDuration={1250}
+            opacity={0.8}
+          />
         </Utils.Container>
+        <ModalWebView ref={ref=> this.helpView = ref} />
       </Utils.SafeAreaView>
     )
   }

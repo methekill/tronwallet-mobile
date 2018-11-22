@@ -574,6 +574,7 @@
       "title": "Check your biometry"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "Access denied"
     }
   },

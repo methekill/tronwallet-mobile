@@ -62,6 +62,8 @@ target 'tronwallet2' do
 
   pod 'lottie-react-native', :path => '../node_modules/lottie-react-native'
 
+  pod 'react-native-mixpanel', :path => '../node_modules/react-native-mixpanel'
+
   post_install do |installer|
     installer.pods_project.targets.each do |target|
       if target.name == "React"

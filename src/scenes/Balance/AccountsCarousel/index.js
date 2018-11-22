@@ -1,36 +1,16 @@
 import React from 'react'
 import Carousel from 'react-native-snap-carousel'
-import LinearGradient from 'react-native-linear-gradient'
-import {
-  TouchableOpacity,
-  Dimensions,
-  Alert,
-  Clipboard,
-  StyleSheet
-} from 'react-native'
+import { Dimensions, Alert, Clipboard } from 'react-native'
 import ActionSheet from 'react-native-actionsheet'
 import Toast from 'react-native-easy-toast'
 import get from 'lodash/get'
+import MixPanel from 'react-native-mixpanel'
+
+import Card from './Card'
 
 import { withContext } from '../../../store/context'
-import { Colors } from '../../../components/DesignSystem'
-
-import TrxValue from '../TrxValue'
-import * as Utils from '../../../components/Utils'
-import {
-  CarouselCard,
-  CardInfo,
-  CardFooter,
-  TronLogo,
-  Icon,
-  BtnTrash,
-  Label,
-  Value
-} from './elements'
-
 import { hideSecret } from '../../../utils/secretsUtils'
 import { logSentry } from '../../../utils/sentryUtils'
-import { shortNumberFormat } from './../../../utils/numberUtils'
 import tl from '../../../utils/i18n'
 
 const CURRENCIES = [
@@ -64,6 +44,7 @@ class AccountsCarousel extends React.Component {
     if (accounts.length) {
       const { address } = accounts[activeAccount]
       setPublicKey(address)
+      MixPanel.trackWithProperties('Account Operation', { type: 'Switch account', address })
     }
   }
 
@@ -84,6 +65,7 @@ class AccountsCarousel extends React.Component {
       await hideSecret(pin, address)
       this.carousel.snapToItem(nextAccountIndex)
       hideAccount(address)
+      MixPanel.trackWithProperties('Account Operation', { type: 'Hide Account', address })
     } catch (error) {
       logSentry(error, 'Hide Account Handler')
       Alert.alert(tl.t('warning'), tl.t('error.hideAccount'))
@@ -94,6 +76,7 @@ class AccountsCarousel extends React.Component {
     if (index) {
       const currency = CURRENCIES[index]
       this.props.context.setCurrency(currency)
+      MixPanel.trackWithProperties('Account Operation', { type: 'Set currency', currency })
     }
   }
 
@@ -101,6 +84,7 @@ class AccountsCarousel extends React.Component {
     try {
       await Clipboard.setString(address)
       this.refs.toast.show(tl.t('receive.clipboardCopied'))
+      MixPanel.trackWithProperties('Account Operation', { type: 'Copy Address - Clipboard' })
     } catch (error) {
       logSentry(error, 'Copy Address - Clipboard')
     }
@@ -117,80 +101,20 @@ class AccountsCarousel extends React.Component {
     const balance = get(item, 'balance', 0)
     const tronPower = get(item, 'tronPower', 0)
     const bandwidth = get(item, 'bandwidth', 0)
-    const avaliable = (balance * this.price)
-    const frozen = (tronPower * this.price)
-    const trxBalance = frozen + avaliable
-
     return (
-      <CarouselCard>
-        <LinearGradient
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-          colors={[Colors.buttonGradient[0], Colors.buttonGradient[1]]}
-          style={styles.linearCard}
-        />
-        <LinearGradient
-          start={{ x: 0, y: 0 }}
-          end={{ x: 0, y: 0 }}
-          colors={['rgb(48, 50, 76)', 'rgb(38, 40, 64)']}
-          style={styles.linearCardBody}
-        >
-          <React.Fragment>
-            <Utils.View padding={22} width='100%'>
-              <Utils.Text color='#9b9cb9'>{item.name}</Utils.Text>
-              <TronLogo>
-                <Icon source={require('../../../assets/tron-logo-small.png')} />
-              </TronLogo>
-              <Utils.VerticalSpacer />
-
-              <TouchableOpacity onPress={() => this._onCopyAddress(item.address)} >
-                <Utils.Text color='white' size='smaller' font='regular'>
-                  {this._formatAddress(item.address)}
-                </Utils.Text>
-              </TouchableOpacity>
-
-              <Utils.VerticalSpacer size='small' />
-              <TouchableOpacity onPress={() => this.ActionSheet.show()}>
-                <TrxValue trxBalance={trxBalance} currency={currency} />
-              </TouchableOpacity>
-
-              <Utils.VerticalSpacer size='small' />
-              <Utils.Row justify='space-between'>
-                <CardInfo
-                  label={tl.t('avaliable')}
-                  value={balance}
-                  currency='TRX'
-                />
-                <CardInfo
-                  label={tl.t('frozen')}
-                  value={tronPower}
-                  currency='TRX'
-                />
-              </Utils.Row>
-            </Utils.View>
-
-            <CardFooter>
-              <Utils.Column width='50%'>
-                <Utils.Row>
-                  <Utils.TWIcon name='bandwidth' size={16} color={Colors.greyBlue} />
-                  <Label paddingLeft={10}>{tl.t('balance.bandwidth')}</Label>
-                </Utils.Row>
-              </Utils.Column>
-
-              <Utils.Column width='50%' align='flex-end'>
-                <Utils.Row justify='center' align='center'>
-                  <Value paddingRight={20}>
-                    {shortNumberFormat(bandwidth)}
-                  </Value>
-                  {index !== 0 && (
-                    <BtnTrash onPress={() => this._alertHideAccount(item.address)} />
-                  )}
-                </Utils.Row>
-              </Utils.Column>
-            </CardFooter>
-          </React.Fragment>
-        </LinearGradient>
-      </CarouselCard>
+      <Card
+        name={item.name}
+        address={item.address}
+        price={this.price}
+        balance={balance}
+        tronPower={tronPower}
+        bandwidth={bandwidth}
+        currency={currency}
+        showDeleteBtn={index !== 0}
+        onCopy={this._onCopyAddress}
+        onCurrencyPress={() => this.ActionSheet.show()}
+        onDelete={this._alertHideAccount}
+      />
     )
   }
 
@@ -234,19 +158,5 @@ class AccountsCarousel extends React.Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  linearCard: {
-    height: 3,
-    borderRadius: 6,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20
-  },
-  linearCardBody: {
-    flex: 1,
-    alignItems: 'flex-start',
-    borderRadius: 6
-  }
-})
 
 export default withContext(AccountsCarousel)

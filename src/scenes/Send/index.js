@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import {
   ActivityIndicator,
   Clipboard,
@@ -10,10 +9,10 @@ import {
   ScrollView,
   AsyncStorage
 } from 'react-native'
-
 import { Answers } from 'react-native-fabric'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import ActionSheet from 'react-native-actionsheet'
+import MixPanel from 'react-native-mixpanel'
 
 import tl from '../../utils/i18n'
 import ButtonGradient from '../../components/ButtonGradient'
@@ -193,6 +192,7 @@ class SendScene extends Component {
       })
       this._openTransactionDetails(data)
       this.clearInput()
+      MixPanel.trackWithProperties('Send Operation', { type: 'Create Tx', from, to })
     } catch (error) {
       Alert.alert(tl.t('warning'), tl.t('error.default'))
       this.setState({
@@ -212,6 +212,7 @@ class SendScene extends Component {
           tx: transactionSigned
         })
       })
+      MixPanel.trackWithProperties('Send Operation', { type: 'Open Tx' })
     } catch (error) {
       Alert.alert(tl.t('warning'), tl.t('error.default'))
       this.setState({ loadingSign: false })

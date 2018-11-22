@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { Dimensions, Clipboard } from 'react-native'
 import Toast from 'react-native-easy-toast'
 import { Answers } from 'react-native-fabric'
+import MixPanel from 'react-native-mixpanel'
 
 // Design
 import QRCode from '../../components/QRCode'
@@ -39,6 +40,7 @@ class ReceiveScreen extends PureComponent {
     try {
       await Clipboard.setString(this.props.context.publicKey)
       this.refs.toast.show(tl.t('receive.clipboardCopied'))
+      MixPanel.trackWithProperties('Receive Operation', { type: 'Copy publicKey to clipboard' })
     } catch (error) {
       this.refs.toast.show(tl.t('error.clipboardCopied'))
       logSentry(error, 'Receive - Clipboard')

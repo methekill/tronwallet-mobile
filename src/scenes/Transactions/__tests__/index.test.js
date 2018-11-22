@@ -1,7 +1,8 @@
 import React from 'react'
-import { TransactionsSceneWrapper } from '../index'
+import { TransactionsScene } from './../index'
 import { shallow } from 'enzyme'
 import { Answers } from 'react-native-fabric'
+
 import NavigationHeader from '../../../components/Navigation/Header'
 
 import getAssetsStore from '../../../store/assets'
@@ -11,7 +12,8 @@ import getContactsStore from '../../../store/contacts'
 import transactionListMock from '../../../services/__mocks__/transactionList'
 
 jest.mock('react-native-fabric')
-jest.mock('../../../utils/i18n')
+jest.mock('react-native-mixpanel')
+// jest.mock('../../../utils/i18n')
 
 describe('Transaction Scene', () => {
   const defaultProps = {
@@ -22,7 +24,7 @@ describe('Transaction Scene', () => {
     const props = { ...defaultProps, ...propOverrides }
 
     const wrapper = shallow(
-      <TransactionsSceneWrapper {...props} />
+      <TransactionsScene {...props} />
     )
 
     return {
@@ -38,10 +40,10 @@ describe('Transaction Scene', () => {
 
     const { wrapper } = setup(props)
     const instance = wrapper.instance()
-    const spy = jest.spyOn(wrapper.instance(), '_setData')
+
+    const spy = jest.spyOn(instance, '_setData')
 
     instance.componentDidMount()
-
     expect(Answers.logContentView).toBeCalledWith('Tab', 'Transactions')
     expect(addListenerMock).toBeCalledWith('didFocus', instance._didFocus)
     expect(instance._didFocusSubscription).toEqual(addListenerMockResult)

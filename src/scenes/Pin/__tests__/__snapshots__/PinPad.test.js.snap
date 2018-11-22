@@ -1,0 +1,1246 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pin Scene > PinPad Should match snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PinPad
+    onComplete={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            "111111",
+            Array [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+            ],
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "align": "stretch",
+      "children": Array [
+        <Styled(Component)
+          align="center"
+          height={180}
+          justify="center"
+        >
+          <withAnimatable(Component)
+            delay={0}
+            direction="normal"
+            iterationCount={1}
+            iterationDelay={0}
+            onAnimationBegin={[Function]}
+            onAnimationEnd={[Function]}
+            onTransitionBegin={[Function]}
+            onTransitionEnd={[Function]}
+            useNativeDriver={false}
+          >
+            <Styled(Component)
+              align="center"
+              justify="space-between"
+              width={264}
+            >
+              <PinDigit
+                currentState={Array []}
+                digit={0}
+              />
+              <PinDigit
+                currentState={Array []}
+                digit={1}
+              />
+              <PinDigit
+                currentState={Array []}
+                digit={2}
+              />
+              <PinDigit
+                currentState={Array []}
+                digit={3}
+              />
+              <PinDigit
+                currentState={Array []}
+                digit={4}
+              />
+              <PinDigit
+                currentState={Array []}
+                digit={5}
+              />
+            </Styled(Component)>
+          </withAnimatable(Component)>
+        </Styled(Component)>,
+        <Styled(Component)>
+          <Key
+            onPress={[Function]}
+          >
+            1
+          </Key>
+          <Key
+            onPress={[Function]}
+          >
+            2
+          </Key>
+          <Key
+            onPress={[Function]}
+          >
+            3
+          </Key>
+          <Key
+            onPress={[Function]}
+          >
+            4
+          </Key>
+          <Key
+            onPress={[Function]}
+          >
+            5
+          </Key>
+          <Key
+            onPress={[Function]}
+          >
+            6
+          </Key>
+          <Key
+            onPress={[Function]}
+          >
+            7
+          </Key>
+          <Key
+            onPress={[Function]}
+          >
+            8
+          </Key>
+          <Key
+            onPress={[Function]}
+          >
+            9
+          </Key>
+          <Key
+            disabled={true}
+            noBorder={true}
+          />
+          <Key
+            onPress={[Function]}
+          >
+            0
+          </Key>
+          <Key
+            onLongPress={[Function]}
+            onPress={[Function]}
+            pointerEvents="none"
+          >
+            <Icon
+              allowFontScaling={false}
+              color="#66688F"
+              name="ios-backspace"
+              size={24}
+            />
+          </Key>
+        </Styled(Component)>,
+      ],
+      "justify": "flex-start",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "align": "center",
+          "children": <withAnimatable(Component)
+            delay={0}
+            direction="normal"
+            iterationCount={1}
+            iterationDelay={0}
+            onAnimationBegin={[Function]}
+            onAnimationEnd={[Function]}
+            onTransitionBegin={[Function]}
+            onTransitionEnd={[Function]}
+            useNativeDriver={false}
+          >
+            <Styled(Component)
+              align="center"
+              justify="space-between"
+              width={264}
+            >
+              <PinDigit
+                currentState={Array []}
+                digit={0}
+              />
+              <PinDigit
+                currentState={Array []}
+                digit={1}
+              />
+              <PinDigit
+                currentState={Array []}
+                digit={2}
+              />
+              <PinDigit
+                currentState={Array []}
+                digit={3}
+              />
+              <PinDigit
+                currentState={Array []}
+                digit={4}
+              />
+              <PinDigit
+                currentState={Array []}
+                digit={5}
+              />
+            </Styled(Component)>
+          </withAnimatable(Component)>,
+          "height": 180,
+          "justify": "center",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "animation": undefined,
+            "children": <Styled(Component)
+              align="center"
+              justify="space-between"
+              width={264}
+            >
+              <PinDigit
+                currentState={Array []}
+                digit={0}
+              />
+              <PinDigit
+                currentState={Array []}
+                digit={1}
+              />
+              <PinDigit
+                currentState={Array []}
+                digit={2}
+              />
+              <PinDigit
+                currentState={Array []}
+                digit={3}
+              />
+              <PinDigit
+                currentState={Array []}
+                digit={4}
+              />
+              <PinDigit
+                currentState={Array []}
+                digit={5}
+              />
+            </Styled(Component)>,
+            "delay": 0,
+            "direction": "normal",
+            "duration": undefined,
+            "easing": undefined,
+            "iterationCount": 1,
+            "iterationDelay": 0,
+            "onAnimationBegin": [Function],
+            "onAnimationEnd": [Function],
+            "onTransitionBegin": [Function],
+            "onTransitionEnd": [Function],
+            "style": undefined,
+            "transition": undefined,
+            "useNativeDriver": false,
+          },
+          "ref": [Function],
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "align": "center",
+              "children": Array [
+                <PinDigit
+                  currentState={Array []}
+                  digit={0}
+                />,
+                <PinDigit
+                  currentState={Array []}
+                  digit={1}
+                />,
+                <PinDigit
+                  currentState={Array []}
+                  digit={2}
+                />,
+                <PinDigit
+                  currentState={Array []}
+                  digit={3}
+                />,
+                <PinDigit
+                  currentState={Array []}
+                  digit={4}
+                />,
+                <PinDigit
+                  currentState={Array []}
+                  digit={5}
+                />,
+              ],
+              "justify": "space-between",
+              "width": 264,
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "currentState": Array [],
+                  "digit": 0,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "currentState": Array [],
+                  "digit": 1,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "currentState": Array [],
+                  "digit": 2,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "currentState": Array [],
+                  "digit": 3,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "currentState": Array [],
+                  "digit": 4,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "currentState": Array [],
+                  "digit": 5,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Key
+              onPress={[Function]}
+            >
+              1
+            </Key>,
+            <Key
+              onPress={[Function]}
+            >
+              2
+            </Key>,
+            <Key
+              onPress={[Function]}
+            >
+              3
+            </Key>,
+            <Key
+              onPress={[Function]}
+            >
+              4
+            </Key>,
+            <Key
+              onPress={[Function]}
+            >
+              5
+            </Key>,
+            <Key
+              onPress={[Function]}
+            >
+              6
+            </Key>,
+            <Key
+              onPress={[Function]}
+            >
+              7
+            </Key>,
+            <Key
+              onPress={[Function]}
+            >
+              8
+            </Key>,
+            <Key
+              onPress={[Function]}
+            >
+              9
+            </Key>,
+            <Key
+              disabled={true}
+              noBorder={true}
+            />,
+            <Key
+              onPress={[Function]}
+            >
+              0
+            </Key>,
+            <Key
+              onLongPress={[Function]}
+              onPress={[Function]}
+              pointerEvents="none"
+            >
+              <Icon
+                allowFontScaling={false}
+                color="#66688F"
+                name="ios-backspace"
+                size={24}
+              />
+            </Key>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "1",
+              "onPress": [Function],
+            },
+            "ref": null,
+            "rendered": "1",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "2",
+              "onPress": [Function],
+            },
+            "ref": null,
+            "rendered": "2",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "3",
+              "onPress": [Function],
+            },
+            "ref": null,
+            "rendered": "3",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "4",
+              "onPress": [Function],
+            },
+            "ref": null,
+            "rendered": "4",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "5",
+              "onPress": [Function],
+            },
+            "ref": null,
+            "rendered": "5",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "6",
+              "onPress": [Function],
+            },
+            "ref": null,
+            "rendered": "6",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "7",
+              "onPress": [Function],
+            },
+            "ref": null,
+            "rendered": "7",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "8",
+              "onPress": [Function],
+            },
+            "ref": null,
+            "rendered": "8",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "9",
+              "onPress": [Function],
+            },
+            "ref": null,
+            "rendered": "9",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "disabled": true,
+              "noBorder": true,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "0",
+              "onPress": [Function],
+            },
+            "ref": null,
+            "rendered": "0",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <Icon
+                allowFontScaling={false}
+                color="#66688F"
+                name="ios-backspace"
+                size={24}
+              />,
+              "onLongPress": [Function],
+              "onPress": [Function],
+              "pointerEvents": "none",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "allowFontScaling": false,
+                "color": "#66688F",
+                "name": "ios-backspace",
+                "size": 24,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "align": "stretch",
+        "children": Array [
+          <Styled(Component)
+            align="center"
+            height={180}
+            justify="center"
+          >
+            <withAnimatable(Component)
+              delay={0}
+              direction="normal"
+              iterationCount={1}
+              iterationDelay={0}
+              onAnimationBegin={[Function]}
+              onAnimationEnd={[Function]}
+              onTransitionBegin={[Function]}
+              onTransitionEnd={[Function]}
+              useNativeDriver={false}
+            >
+              <Styled(Component)
+                align="center"
+                justify="space-between"
+                width={264}
+              >
+                <PinDigit
+                  currentState={Array []}
+                  digit={0}
+                />
+                <PinDigit
+                  currentState={Array []}
+                  digit={1}
+                />
+                <PinDigit
+                  currentState={Array []}
+                  digit={2}
+                />
+                <PinDigit
+                  currentState={Array []}
+                  digit={3}
+                />
+                <PinDigit
+                  currentState={Array []}
+                  digit={4}
+                />
+                <PinDigit
+                  currentState={Array []}
+                  digit={5}
+                />
+              </Styled(Component)>
+            </withAnimatable(Component)>
+          </Styled(Component)>,
+          <Styled(Component)>
+            <Key
+              onPress={[Function]}
+            >
+              1
+            </Key>
+            <Key
+              onPress={[Function]}
+            >
+              2
+            </Key>
+            <Key
+              onPress={[Function]}
+            >
+              3
+            </Key>
+            <Key
+              onPress={[Function]}
+            >
+              4
+            </Key>
+            <Key
+              onPress={[Function]}
+            >
+              5
+            </Key>
+            <Key
+              onPress={[Function]}
+            >
+              6
+            </Key>
+            <Key
+              onPress={[Function]}
+            >
+              7
+            </Key>
+            <Key
+              onPress={[Function]}
+            >
+              8
+            </Key>
+            <Key
+              onPress={[Function]}
+            >
+              9
+            </Key>
+            <Key
+              disabled={true}
+              noBorder={true}
+            />
+            <Key
+              onPress={[Function]}
+            >
+              0
+            </Key>
+            <Key
+              onLongPress={[Function]}
+              onPress={[Function]}
+              pointerEvents="none"
+            >
+              <Icon
+                allowFontScaling={false}
+                color="#66688F"
+                name="ios-backspace"
+                size={24}
+              />
+            </Key>
+          </Styled(Component)>,
+        ],
+        "justify": "flex-start",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "align": "center",
+            "children": <withAnimatable(Component)
+              delay={0}
+              direction="normal"
+              iterationCount={1}
+              iterationDelay={0}
+              onAnimationBegin={[Function]}
+              onAnimationEnd={[Function]}
+              onTransitionBegin={[Function]}
+              onTransitionEnd={[Function]}
+              useNativeDriver={false}
+            >
+              <Styled(Component)
+                align="center"
+                justify="space-between"
+                width={264}
+              >
+                <PinDigit
+                  currentState={Array []}
+                  digit={0}
+                />
+                <PinDigit
+                  currentState={Array []}
+                  digit={1}
+                />
+                <PinDigit
+                  currentState={Array []}
+                  digit={2}
+                />
+                <PinDigit
+                  currentState={Array []}
+                  digit={3}
+                />
+                <PinDigit
+                  currentState={Array []}
+                  digit={4}
+                />
+                <PinDigit
+                  currentState={Array []}
+                  digit={5}
+                />
+              </Styled(Component)>
+            </withAnimatable(Component)>,
+            "height": 180,
+            "justify": "center",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "animation": undefined,
+              "children": <Styled(Component)
+                align="center"
+                justify="space-between"
+                width={264}
+              >
+                <PinDigit
+                  currentState={Array []}
+                  digit={0}
+                />
+                <PinDigit
+                  currentState={Array []}
+                  digit={1}
+                />
+                <PinDigit
+                  currentState={Array []}
+                  digit={2}
+                />
+                <PinDigit
+                  currentState={Array []}
+                  digit={3}
+                />
+                <PinDigit
+                  currentState={Array []}
+                  digit={4}
+                />
+                <PinDigit
+                  currentState={Array []}
+                  digit={5}
+                />
+              </Styled(Component)>,
+              "delay": 0,
+              "direction": "normal",
+              "duration": undefined,
+              "easing": undefined,
+              "iterationCount": 1,
+              "iterationDelay": 0,
+              "onAnimationBegin": [Function],
+              "onAnimationEnd": [Function],
+              "onTransitionBegin": [Function],
+              "onTransitionEnd": [Function],
+              "style": undefined,
+              "transition": undefined,
+              "useNativeDriver": false,
+            },
+            "ref": [Function],
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "align": "center",
+                "children": Array [
+                  <PinDigit
+                    currentState={Array []}
+                    digit={0}
+                  />,
+                  <PinDigit
+                    currentState={Array []}
+                    digit={1}
+                  />,
+                  <PinDigit
+                    currentState={Array []}
+                    digit={2}
+                  />,
+                  <PinDigit
+                    currentState={Array []}
+                    digit={3}
+                  />,
+                  <PinDigit
+                    currentState={Array []}
+                    digit={4}
+                  />,
+                  <PinDigit
+                    currentState={Array []}
+                    digit={5}
+                  />,
+                ],
+                "justify": "space-between",
+                "width": 264,
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "currentState": Array [],
+                    "digit": 0,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "currentState": Array [],
+                    "digit": 1,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "currentState": Array [],
+                    "digit": 2,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "currentState": Array [],
+                    "digit": 3,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "currentState": Array [],
+                    "digit": 4,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "currentState": Array [],
+                    "digit": 5,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <Key
+                onPress={[Function]}
+              >
+                1
+              </Key>,
+              <Key
+                onPress={[Function]}
+              >
+                2
+              </Key>,
+              <Key
+                onPress={[Function]}
+              >
+                3
+              </Key>,
+              <Key
+                onPress={[Function]}
+              >
+                4
+              </Key>,
+              <Key
+                onPress={[Function]}
+              >
+                5
+              </Key>,
+              <Key
+                onPress={[Function]}
+              >
+                6
+              </Key>,
+              <Key
+                onPress={[Function]}
+              >
+                7
+              </Key>,
+              <Key
+                onPress={[Function]}
+              >
+                8
+              </Key>,
+              <Key
+                onPress={[Function]}
+              >
+                9
+              </Key>,
+              <Key
+                disabled={true}
+                noBorder={true}
+              />,
+              <Key
+                onPress={[Function]}
+              >
+                0
+              </Key>,
+              <Key
+                onLongPress={[Function]}
+                onPress={[Function]}
+                pointerEvents="none"
+              >
+                <Icon
+                  allowFontScaling={false}
+                  color="#66688F"
+                  name="ios-backspace"
+                  size={24}
+                />
+              </Key>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "1",
+                "onPress": [Function],
+              },
+              "ref": null,
+              "rendered": "1",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "2",
+                "onPress": [Function],
+              },
+              "ref": null,
+              "rendered": "2",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "3",
+                "onPress": [Function],
+              },
+              "ref": null,
+              "rendered": "3",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "4",
+                "onPress": [Function],
+              },
+              "ref": null,
+              "rendered": "4",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "5",
+                "onPress": [Function],
+              },
+              "ref": null,
+              "rendered": "5",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "6",
+                "onPress": [Function],
+              },
+              "ref": null,
+              "rendered": "6",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "7",
+                "onPress": [Function],
+              },
+              "ref": null,
+              "rendered": "7",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "8",
+                "onPress": [Function],
+              },
+              "ref": null,
+              "rendered": "8",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "9",
+                "onPress": [Function],
+              },
+              "ref": null,
+              "rendered": "9",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "disabled": true,
+                "noBorder": true,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "0",
+                "onPress": [Function],
+              },
+              "ref": null,
+              "rendered": "0",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <Icon
+                  allowFontScaling={false}
+                  color="#66688F"
+                  name="ios-backspace"
+                  size={24}
+                />,
+                "onLongPress": [Function],
+                "onPress": [Function],
+                "pointerEvents": "none",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "allowFontScaling": false,
+                  "color": "#66688F",
+                  "name": "ios-backspace",
+                  "size": 24,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenThreeAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "disableLifecycleMethods": true,
+  },
+}
+`;

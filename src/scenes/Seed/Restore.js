@@ -3,6 +3,7 @@ import { Alert, Keyboard } from 'react-native'
 import { StackActions, NavigationActions } from 'react-navigation'
 import { Answers } from 'react-native-fabric'
 import RNTron from 'react-native-tron'
+import MixPanel from 'react-native-mixpanel'
 
 import tl from '../../utils/i18n'
 import * as Utils from '../../components/Utils'
@@ -29,7 +30,7 @@ class Restore extends React.Component {
     this.props.navigation.dispatch(resetAction)
   }
 
-  _handleRestore = async () => {
+  _handleRestore = () => {
     Alert.alert(
       tl.t('warning'),
       tl.t('seed.restore.warning'),
@@ -55,10 +56,13 @@ class Restore extends React.Component {
       Alert.alert(tl.t('seed.restore.success'))
       this.setState({ loading: false }, this._navigateToFirstTime)
       Answers.logCustom('Wallet Operation', { type: 'Restore' })
+      MixPanel.trackWithProperties('Wallet Operation', { type: 'Restore' })
     } catch (err) {
       Alert.alert(tl.t('warning'), tl.t('seed.restore.error'))
       this.setState({ loading: false })
-      if (err.code !== 'WordNotFoundExcpetion') logSentry(err, 'Restore Seed')
+      if (err.code !== 'WordNotFoundExcpetion') {
+        logSentry(err, 'Restore Seed')
+      }
     }
   }
 

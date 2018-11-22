@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { RefreshControl, ScrollView, TouchableOpacity } from 'react-native'
 import { Answers } from 'react-native-fabric'
 import Feather from 'react-native-vector-icons/Feather'
+import MixPanel from 'react-native-mixpanel'
 
 import FormModal from '../../components/FormModal'
 import SyncButton from '../../components/SyncButton'
@@ -49,6 +50,7 @@ class BalanceScene extends Component {
     try {
       this.props.context.loadUserData()
       this.props.context.updateSystemStatus()
+      MixPanel.trackWithProperties('Account Operation', { type: 'Balance load' })
     } catch (e) {
       this.setState({ error: tl.t('balance.error.loadingData') })
       logSentry(e, 'Balance - LoadData')
@@ -95,6 +97,7 @@ class BalanceScene extends Component {
       if (createdNewAccount) {
         await loadUserData()
         this.carousel.innerComponent._snapToNewAccount()
+        MixPanel.trackWithProperties('Account Operation', { type: 'Create new account' })
       }
     } catch (error) {
       logSentry(error, 'Error creating new Account')
@@ -152,43 +155,41 @@ class BalanceScene extends Component {
     } = this.state
     return (
       <Utils.SafeAreaView>
-        <React.Fragment>
-          <NavigationHeader
-            title={tl.t('balance.title')}
-            rightButton={this._rightButtonHeader()}
-          />
-          <Utils.Container justify='flex-start' align='stretch'>
-            <ScrollView
-              refreshControl={
-                <RefreshControl
-                  refreshing={refreshing}
-                  onRefresh={this._onRefresh}
-                />
-              }
-            >
-              <AccountsCarousel ref={input => (this.carousel = input)} />
-              <Utils.VerticalSpacer size='medium' />
-              <Utils.Content paddingTop={0}>
-                <BalanceNavigation />
-                <WalletBalances />
-              </Utils.Content>
-            </ScrollView>
-          </Utils.Container>
-          <FormModal
-            title={tl.t('newAccount.title')}
-            error={accountNameError}
-            inputLabel={tl.t('addressBook.form.name')}
-            inputValue={newAccountName}
-            inputPlaceholder={tl.t('newAccount.placeholder')}
-            onChangeText={this._handleAccountNameChange}
-            buttonText={tl.t(`addressBook.shared.add`)}
-            onButtonPress={this._addNewAccount}
-            buttonDisabled={!!accountNameError || !newAccountName}
-            visible={accountModalVisible}
-            closeModal={() => this.setState({ accountModalVisible: false })}
-            animationType='fade'
-          />
-        </React.Fragment>
+        <NavigationHeader
+          title={tl.t('balance.title')}
+          rightButton={this._rightButtonHeader()}
+        />
+        <Utils.Container justify='flex-start' align='stretch'>
+          <ScrollView
+            refreshControl={
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={this._onRefresh}
+              />
+            }
+          >
+            <AccountsCarousel ref={input => (this.carousel = input)} />
+            <Utils.VerticalSpacer size='medium' />
+            <Utils.Content paddingTop={0}>
+              <BalanceNavigation />
+              <WalletBalances />
+            </Utils.Content>
+          </ScrollView>
+        </Utils.Container>
+        <FormModal
+          title={tl.t('newAccount.title')}
+          error={accountNameError}
+          inputLabel={tl.t('addressBook.form.name')}
+          inputValue={newAccountName}
+          inputPlaceholder={tl.t('newAccount.placeholder')}
+          onChangeText={this._handleAccountNameChange}
+          buttonText={tl.t(`addressBook.shared.add`)}
+          onButtonPress={this._addNewAccount}
+          buttonDisabled={!!accountNameError || !newAccountName}
+          visible={accountModalVisible}
+          closeModal={() => this.setState({ accountModalVisible: false })}
+          animationType='fade'
+        />
       </Utils.SafeAreaView>
     )
   }
