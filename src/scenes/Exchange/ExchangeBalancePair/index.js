@@ -5,20 +5,25 @@ import PropTypes from 'prop-types'
 
 import { Colors, Spacing } from '../../../components/DesignSystem'
 import * as Utils from '../../../components/Utils'
-import { formatNumber } from '../../../utils/numberUtils'
 import { withContext } from '../../../store/context'
+import { ExchangeLogo } from '../elements'
+
+import { formatNumber } from '../../../utils/numberUtils'
+
+const ARROW_GRADIENT = require('../../../assets/arrow-right-gradient.png')
 
 class ExchangeBalancePair extends Component {
   render () {
     const { balances, publicKey } = this.props.context
-    const { firstToken, secondToken } = this.props
+    const { firstToken, secondToken, firstTokenImage, secondTokenImage } = this.props
     const {balance: firstTokenBalance} = balances[publicKey].find(bl => bl.name === firstToken) || { balance: 0 }
     const {balance: secondTokenBalance} = balances[publicKey].find(bl => bl.name === secondToken) || { balance: 0 }
 
     return <Utils.View marginX={Spacing.large} paddingY='small'>
       <Utils.Row align='center'>
         <Utils.View flex={0.33} align='center' justify='center'>
-          <Utils.Text size='small'>{firstToken}</Utils.Text>
+          <ExchangeLogo source={firstTokenImage} />
+          <Utils.Text marginTop='small' size='small'>{firstToken}</Utils.Text>
           <Motion
             defaultStyle={{ firstBalance: 0 }}
             style={{firstBalance: spring(firstTokenBalance)}}>
@@ -31,12 +36,13 @@ class ExchangeBalancePair extends Component {
         </Utils.View>
         <Utils.View flex={0.33} align='center' justify='center'>
           <Image
-            source={require('../../../assets/arrow-right-gradient.png')}
+            source={ARROW_GRADIENT}
             style={{height: 12, width: 20}}
           />
         </Utils.View>
         <Utils.View flex={0.33} justify='center' align='center'>
-          <Utils.Text size='small'>{secondToken}</Utils.Text>
+          <ExchangeLogo source={secondTokenImage} />
+          <Utils.Text marginTop='small' size='small'>{secondToken}</Utils.Text>
           <Motion
             defaultStyle={{ secondBalance: 0 }}
             style={{secondBalance: spring(secondTokenBalance)}}>
@@ -53,10 +59,14 @@ class ExchangeBalancePair extends Component {
 }
 ExchangeBalancePair.propTypes = {
   firstToken: PropTypes.string.isRequired,
-  secondToken: PropTypes.string.isRequired
+  secondToken: PropTypes.string.isRequired,
+  firstTokenImage: PropTypes.string,
+  secondTokenImage: PropTypes.string
 }
 ExchangeBalancePair.defaultProps = {
   firstToken: '',
-  secondToken: ''
+  secondToken: '',
+  firstTokenImage: '',
+  secondTokenImage: ''
 }
 export default withContext(ExchangeBalancePair)

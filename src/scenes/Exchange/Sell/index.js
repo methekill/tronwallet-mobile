@@ -15,6 +15,7 @@ import tl from '../../../utils/i18n'
 import { withContext } from '../../../store/context'
 import { estimatedSellCost, expectedSell } from '../../../utils/exchangeUtils'
 import { formatFloat } from '../../../utils/numberUtils'
+import { logSentry } from '../../../utils/sentryUtils'
 
 // Service
 import WalletClient from '../../../services/client'
@@ -30,22 +31,6 @@ class SellScene extends Component {
 
   componentWillUnmount () {
     clearTimeout(this.sellTimeout)
-  }
-
-  _refreshPrice = async () => {
-    const { exData, refreshingPrice } = this.state
-
-    if (refreshingPrice) return
-    this.setState({refreshingPrice: true})
-    console.warn('Refreshing price Sell')
-    try {
-      const exchange = await WalletClient.getExchangeById(exData.exchangeId)
-      this.setState({exData: exchange})
-    } catch (error) {
-      console.warn('Failed to refresh', error.message)
-    } finally {
-      this.setState({refreshingPrice: false})
-    }
   }
 
   _submit = () => {
@@ -108,10 +93,11 @@ class SellScene extends Component {
         this.setState({result: 'success', loading: false})
         loadUserData()
       } else {
-        this.setState({result: 'Coulnd\'t perform exchange'})
+        this.setState({result: 'fail'})
       }
     } catch (error) {
-      this.setState({result: error.message})
+      this.setState({result: 'fail', loading: false})
+      logSentry(error, 'Selling Exchange')
     } finally {
       this.sellTimeout = setTimeout(() => this.setState({sellAmount: '', result: false}), 4000)
     }
@@ -132,8 +118,11 @@ class SellScene extends Component {
       secondTokenId,
       secondTokenBalance,
       firstTokenId,
-      price
+      price,
+      firstTokenImage,
+      secondTokenImage
     } = this.props.exchangeData
+
     const cost = estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount || 0, secondTokenId === 'TRX')
     const minToSell = Math.round((1 / price) * 1.05)
     const isTokenToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
@@ -143,7 +132,9 @@ class SellScene extends Component {
           <Utils.View height={24} />
           <ExchangeBalancePair
             firstToken={firstTokenId}
+            firstTokenImage={firstTokenImage}
             secondToken={secondTokenId}
+            secondTokenImage={secondTokenImage}
           />
           <ExchangePair
             firstToken={firstTokenId}
@@ -164,7 +155,7 @@ class SellScene extends Component {
             />
             {isTokenToken &&
             <Utils.Text size='tiny' font='regular' align='right'>
-             Minimun to sell ≈ {minToSell} {firstTokenId}
+              {tl.t('exchange.minToSell', {min: minToSell, tokenId: firstTokenId})}
             </Utils.Text>}
             <Input
               label='ESTIMATED COST'
@@ -172,9 +163,7 @@ class SellScene extends Component {
               placeholder={formatFloat(cost)}
               editable={false}
             />
-            <ExchangeVariation
-              text='Slightly lower the estimated cost, and the turnover rate will be higher.'
-            />
+            <ExchangeVariation text={tl.t('exchange.variation.sell')} />
             <ExchangeButton
               text={tl.t('sell').toUpperCase()}
               loading={loading}

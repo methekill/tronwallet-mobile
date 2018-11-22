@@ -14,6 +14,7 @@ class ClientWallet {
     this.tronwalletApi = Config.TRONWALLET_API
     this.tronwalletDB = Config.TRONWALLET_DB
     this.tronwalletExApi = Config.TRONWALLET_EX
+    this.apiVersion = 3.0
   }
 
   //* ============TronScan Api============*//
@@ -67,7 +68,7 @@ class ClientWallet {
   }
 
   async getTransactionsList (address) {
-    const reqBody = { '$or': [{ 'toAddress': address }, { 'ownerAddress': address }] }
+    const reqBody = { '$or': [{ 'toAddress': address }, { 'ownerAddress': address }], 'version': this.apiVersion }
     const { data: result } = await axios.post(`${this.tronwalletDB}/transactions/find`, reqBody)
     return result.map(tx =>
       tx.contractType <= 2
@@ -114,6 +115,7 @@ class ClientWallet {
       axios.get(`${this.tronwalletExApi}/list`),
       getExchangesAvailable()
     ])
+
     let { data: exchangeList } = fullExchangeList
     return exchangeList.reduce((filtered, ex) => {
       let avlb = selectedExchangeList.find(aex => aex.exchangeId === ex.exchangeId)

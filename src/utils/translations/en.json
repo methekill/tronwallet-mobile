@@ -20,7 +20,7 @@
   "cancel": "Cancel",
   "address": "Address",
   "message": "Message",
-  "exchange" : "Exchange",
+  "ex" : "Exchange",
   "ok": "OK",
   "actionModalTitle": "Would you like to",
   "account": "Account",
@@ -72,6 +72,14 @@
     "bandwidth": "BANDWIDTH",
     "tokens": "TOKENS",
     "holdings": "HOLDINGS"
+  },
+  "exchange": {
+    "minToSell" : "Minimun to sell ≈ {{min}} {{tokenId}}",
+    "minToBuy" : "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "variation":{
+        "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
+        "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+    }
   },
   "hideAccount": "You are about to remove this account. You can restore it later in the settings",
   "components": {

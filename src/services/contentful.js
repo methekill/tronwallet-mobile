@@ -85,9 +85,13 @@ export const getExchangesAvailable = async () => {
     'fields.isEnabled': true
   }
   const { items: exchangesAvailable } = await contentfulClient.getEntries(queryEntry)
-  return exchangesAvailable.map(({fields: ex}) => ({
-    exchangeId: ex.exchangeId,
-    firstTokenImage: 'test',
-    secondTokenImage: 'Test1'
-  }))
+  return exchangesAvailable.map(({fields: ex}) => {
+    const firstTokenImage = ex.firstTokenImage ? `https:${ex.firstTokenImage.fields.file.url}` : null
+    const secondTokenImage = ex.secondTokenImage ? `https:${ex.secondTokenImage.fields.file.url}` : null
+    return ({
+      exchangeId: ex.exchangeId,
+      firstTokenImage,
+      secondTokenImage
+    })
+  })
 }

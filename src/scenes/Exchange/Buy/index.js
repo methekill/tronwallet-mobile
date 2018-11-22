@@ -14,6 +14,7 @@ import tl from '../../../utils/i18n'
 import { withContext } from '../../../store/context'
 import { expectedBuy, estimatedBuyCost } from '../../../utils/exchangeUtils'
 import { formatFloat } from '../../../utils/numberUtils'
+import { logSentry } from '../../../utils/sentryUtils'
 
 // Service
 import WalletClient from '../../../services/client'
@@ -95,10 +96,11 @@ class BuyScene extends Component {
         this.setState({result: 'success', loading: false})
         loadUserData()
       } else {
-        this.setState({result: 'Coulnd\'t perform exchange'})
+        this.setState({result: 'fail'})
       }
     } catch (error) {
-      this.setState({result: error.message, loading: false})
+      this.setState({result: 'fail', loading: false})
+      logSentry(error, 'Buying Exchange')
     } finally {
       this.buyTimeout = setTimeout(() => this.setState({buyAmount: '', result: false}), 4000)
     }
@@ -118,10 +120,13 @@ class BuyScene extends Component {
     const {
       firstTokenId,
       firstTokenBalance,
+      firstTokenImage,
       secondTokenId,
       secondTokenBalance,
+      secondTokenImage,
       price } = this.props.exchangeData
     const cost = estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount || 0, secondTokenId === 'TRX')
+    const minBuy = Math.floor(cost / price)
     const isTokenToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
     return (
       <Utils.SafeAreaView>
@@ -129,7 +134,9 @@ class BuyScene extends Component {
           <Utils.View height={24} />
           <ExchangeBalancePair
             firstToken={firstTokenId}
+            firstTokenImage={firstTokenImage}
             secondToken={secondTokenId}
+            secondTokenImage={secondTokenImage}
           />
           <ExchangePair
             firstToken={firstTokenId}
@@ -150,7 +157,7 @@ class BuyScene extends Component {
             />
             {isTokenToken &&
             <Utils.Text size='tiny' font='regular' align='right'>
-             Valid trading value ≈ {Math.floor(cost / price)} {firstTokenId}
+              {tl.t('exchange.minToBuy', {min: minBuy, tokenId: firstTokenId})}
             </Utils.Text>}
             <Input
               label='ESTIMATED COST'
@@ -158,9 +165,7 @@ class BuyScene extends Component {
               placeholder={formatFloat(cost)}
               editable={false}
             />
-            <ExchangeVariation
-              text='Slightly higher the estimated cost, and the turnover rate will be higher.'
-            />
+            <ExchangeVariation text={tl.t('exchange.variation.buy')} />
             <ExchangeButton
               text={tl.t('buy').toUpperCase()}
               loading={loading}

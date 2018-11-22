@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
-import { FlatList, Image } from 'react-native'
+import { FlatList } from 'react-native'
 
 // Design
 import * as Utils from '../../components/Utils'
 import NavigationHeader from '../../components/Navigation/Header'
-import { ExchangeRow, Divider, TinyTriangle } from './elements'
+import ExchangeItem from './ExchangeItem'
+import { Divider } from './elements'
 
 // Utils
 import { withContext } from '../../store/context'
-
 import tl from '../../utils/i18n'
-import { Colors } from '../../components/DesignSystem'
 
 // Services
 import WalletClient from '../../services/client'
@@ -43,39 +42,7 @@ class ExchangeScene extends Component {
       }
     }
 
-    _renderPercentageIndicator = id => {
-      const currentPercentage = Math.random() * 200 - 100
-      const color = currentPercentage >= 0 ? Colors.weirdGreen : Colors.unconfirmed
-      const triangle = currentPercentage >= 0
-        ? { color: Colors.weirdGreen, direction: 'up' }
-        : { color: Colors.unconfirmed, direction: 'down' }
-
-      return <Utils.Row align='center'>
-        <Utils.Text size='xsmall' color={color}>{currentPercentage.toFixed(2)}%</Utils.Text>
-        <Utils.View width={16} />
-        <TinyTriangle direction={triangle.direction} color={triangle.color} />
-      </Utils.Row>
-    }
-
-    _renderItem = ({item}) =>
-      <ExchangeRow onPress={() => this.props.navigation.navigate('ExchangeTransaction', { exData: item })}>
-        <Image
-          source={require('../../assets/logo-circle.png')}
-          style={{width: 50, alignSelf: 'center', height: 50}}
-        />
-        <Utils.View flex={1} paddingX='small' justify='center'>
-          <Utils.Text size='small'>
-            {item.firstTokenId} / {item.secondTokenId}
-          </Utils.Text>
-          <Utils.View height={8} />
-          <Utils.Row justify='space-between'>
-            <Utils.Text size='xsmall' color={Colors.greyBlue}>
-              {item.price.toFixed(8)}
-            </Utils.Text>
-            {this._renderPercentageIndicator(item.exchangeId)}
-          </Utils.Row>
-        </Utils.View>
-      </ExchangeRow>
+    _renderItem = ({item}) => <ExchangeItem exchangeData={item} />
 
     _renderSeparator = () => <Divider />
 
@@ -83,9 +50,7 @@ class ExchangeScene extends Component {
       const { exchangeList, loading } = this.state
       return (
         <Utils.SafeAreaView>
-          <NavigationHeader
-            title={tl.t('exchange')}
-          />
+          <NavigationHeader title={tl.t('ex')} />
           {loading
             ? <LoadingScene />
             : <FlatList
