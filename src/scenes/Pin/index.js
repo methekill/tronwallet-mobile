@@ -1,46 +1,26 @@
-import React from 'react'
-import {
-  BackHandler,
-  TouchableOpacity,
-  AsyncStorage,
-  Alert
-} from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import React, { Component } from 'react'
+import { BackHandler, AsyncStorage, Alert } from 'react-native'
 import Biometrics from 'react-native-biometrics'
-import * as Animatable from 'react-native-animatable'
+import RNDevice from 'react-native-device-info'
+
+import { GoBackButton, Label, Text, BiometricButton } from './elements'
+import PinPad from './PinPad'
 
 import tl from '../../utils/i18n'
+import Async from './../../utils/asyncStorageUtils'
 import { decrypt } from '../../utils/encrypt'
 import * as Utils from '../../components/Utils'
-import * as Elements from './elements'
-import { Colors } from '../../components/DesignSystem'
+
 import { USE_BIOMETRY, ENCRYPTED_PIN } from '../../utils/constants'
 
-class PinScene extends React.Component {
+class PinScene extends Component {
   state = {
     isDoubleChecking: false,
-    pin: '',
-    checkPin: '',
+    pin: null,
     biometricsEnabled: false
   }
 
   componentDidMount () {
-    Biometrics.isSensorAvailable()
-      .then(async (biometryType) => {
-        const useBiometrySetting = await AsyncStorage.getItem(USE_BIOMETRY)
-
-        const useBiometry = useBiometrySetting === null ? false : useBiometrySetting === 'true'
-        if ((biometryType === Biometrics.TouchID || biometryType === Biometrics.FaceID) && useBiometry) {
-          this.setState({ biometricsEnabled: true }, () => {
-            setTimeout(() => {
-              if (this.props.navigation.isFocused()) {
-                this._handleBiometrics()
-              }
-            }, 500)
-          })
-        }
-      })
-
     this.backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
       const shouldGoBack = this.props.navigation.getParam('shouldGoBack', false)
       if (shouldGoBack) {
@@ -48,111 +28,79 @@ class PinScene extends React.Component {
       }
       return true
     })
+
+    this.didFocusEvent = this.props.navigation.addListener('didFocus', this._didFocus)
   }
 
   componentWillUnmount () {
     this.backHandler.remove()
+    this.didFocusEvent.remove()
   }
 
-  _resetState = () => {
-    this.setState({
-      isDoubleChecking: false,
-      pin: this.state.pin,
-      checkPin: ''
-    })
-  }
-
-  _handleKeyInput = digit => {
-    if (this.state.isDoubleChecking) {
-      if (this.state.checkPin.length < 6) {
-        this.setState({ checkPin: `${this.state.checkPin}${digit}` }, this._checkInput)
-      }
-    } else {
-      if (this.state.pin.length < 6) {
-        this.setState({ pin: `${this.state.pin}${digit}` }, this._checkInput)
-      }
+  _didFocus = async () => {
+    const useBiometrySetting = await Async.get(USE_BIOMETRY, false)
+    if (useBiometrySetting) {
+      Biometrics.isSensorAvailable()
+        .then(async (biometryType) => {
+          if (biometryType === Biometrics.TouchID || biometryType === Biometrics.FaceID) {
+            this.setState({ biometricsEnabled: true }, this._handleBiometrics)
+          }
+        })
     }
   }
 
-  _doubleCheckPin = () => {
-    this.setState({ isDoubleChecking: true })
-  }
-
-  _checkInput = async () => {
+  _onSubmit = async (currentPin) => {
     const testInput = this.props.navigation.getParam('testInput')
     const onSuccess = this.props.navigation.getParam('onSuccess')
-    const shouldDoubleCheck = this.props.navigation.getParam('shouldDoubleCheck', false)
-    const completeAndNoDoubleCheck = this.state.pin.length === 6 && !shouldDoubleCheck
-    const completeAndDoubleCheck = this.state.checkPin.length === 6
-    if (shouldDoubleCheck && !this.state.isDoubleChecking && this.state.pin.length === 6) {
-      this._doubleCheckPin()
-    }
-    if (completeAndNoDoubleCheck || completeAndDoubleCheck) {
-      if (this.state.isDoubleChecking && this.state.pin === this.state.checkPin) {
+    if (testInput) {
+      const result = await testInput(currentPin)
+      if (result) {
         this.props.navigation.goBack(null)
-        return onSuccess(this.state.pin)
-      }
-      if (!shouldDoubleCheck) {
-        const result = await testInput(this.state.pin)
-        if (result) {
-          this.props.navigation.goBack(null)
-          if (onSuccess) return onSuccess(this.state.pin)
+        if (onSuccess) {
+          this.pinPad.reset()
+          onSuccess(currentPin)
         }
+      } else {
+        this.pinPad.reset()
+        this.pinPad.shake()
       }
-      this.pinView.shake(200)
-      this._handleClear()
-    }
-  }
-
-  _handleDelete = () => {
-    if (this.state.isDoubleChecking) {
-      this.setState({
-        checkPin: this.state.checkPin.substring(
-          0,
-          this.state.checkPin.length - 1
-        )
-      })
-    } else {
-      this.setState({
-        pin: this.state.pin.substring(0, this.state.pin.length - 1)
-      })
-    }
-  }
-
-  _handleClear = () => {
-    if (this.state.isDoubleChecking) {
-      this.setState({ checkPin: '' })
-    } else {
-      this.setState({ pin: '' })
     }
   }
 
   _handleBiometrics = async () => {
     try {
-      const signature = await Biometrics.createSignature(tl.t('biometry.register.title'), '')
-      const pin = decrypt(await AsyncStorage.getItem(ENCRYPTED_PIN), signature)
-
-      this.setState({ pin, checkPin: pin })
-      this._checkInput()
+      const uid = await RNDevice.getUniqueID()
+      const signature = await Biometrics.createSignature(tl.t('biometry.register.title'), uid)
+      const currentPIN = await AsyncStorage.getItem(ENCRYPTED_PIN)
+      const decryptPIN = decrypt(currentPIN, signature)
+      this._onSubmit(decryptPIN)
     } catch (error) {
       Alert.alert(tl.t('biometry.auth.error'))
     }
   }
 
-  _renderBiometrics = () => {
-    const { biometricsEnabled } = this.state
-
-    if (biometricsEnabled) {
-      return (
-        <Utils.View flex={0.4} justify='center' align='center'>
-          <TouchableOpacity onPress={this._handleBiometrics}>
-            <Elements.Text>{tl.t('pin.biometrics')}</Elements.Text>
-          </TouchableOpacity>
-        </Utils.View>
-      )
+  _doubleCheckPin = (currentPin) => {
+    if (this.state.pin === null) {
+      this.setState({ pin: currentPin, isDoubleChecking: true })
+      this.pinPad.reset()
     }
 
-    return null
+    if (this.state.pin && this.state.pin === currentPin) {
+      this._onSubmit(currentPin)
+    }
+  }
+
+  _singleCheckPIN = (currentPin) => {
+    this._onSubmit(currentPin)
+  }
+
+  _checkPIN = (pin) => {
+    const shouldDoubleCheck = this.props.navigation.getParam('shouldDoubleCheck', false)
+    if (shouldDoubleCheck) {
+      this._doubleCheckPin(pin)
+    } else {
+      this._singleCheckPIN(pin)
+    }
   }
 
   _renderTitle = () => {
@@ -168,111 +116,46 @@ class PinScene extends React.Component {
     return tl.t('pin.enter')
   }
 
-  render () {
-    const shouldGoBack = this.props.navigation.getParam('shouldGoBack', false)
-    return (
-      <Utils.SafeAreaView>
-        <Utils.Container>
-          <Utils.Content>
-            {this.state.isDoubleChecking && (
-              <Elements.GoBackButton onPress={this._resetState} />
-            )}
-            {shouldGoBack && (
-              <Elements.GoBackButton
-                onPress={() => this.props.navigation.goBack()}
-              />
-            )}
-            <Utils.View align='center'>
-              <Elements.Label>{tl.t('pin.title')}</Elements.Label>
-              <Utils.VerticalSpacer />
-              <Elements.Text>{this._renderTitle()}</Elements.Text>
-            </Utils.View>
-          </Utils.Content>
-          <Utils.View flex={1} justify='center' align='center'>
-            <Animatable.View
-              ref={ref => {
-                this.pinView = ref
-              }}
-            >
-              <Utils.Row align='center' justify='space-between' width={264}>
-                <Elements.PinDigit
-                  digit={0}
-                  currentState={
-                    this.state.isDoubleChecking
-                      ? this.state.checkPin
-                      : this.state.pin
-                  }
-                />
-                <Elements.PinDigit
-                  digit={1}
-                  currentState={
-                    this.state.isDoubleChecking
-                      ? this.state.checkPin
-                      : this.state.pin
-                  }
-                />
-                <Elements.PinDigit
-                  digit={2}
-                  currentState={
-                    this.state.isDoubleChecking
-                      ? this.state.checkPin
-                      : this.state.pin
-                  }
-                />
-                <Elements.PinDigit
-                  digit={3}
-                  currentState={
-                    this.state.isDoubleChecking
-                      ? this.state.checkPin
-                      : this.state.pin
-                  }
-                />
-                <Elements.PinDigit
-                  digit={4}
-                  currentState={
-                    this.state.isDoubleChecking
-                      ? this.state.checkPin
-                      : this.state.pin
-                  }
-                />
-                <Elements.PinDigit
-                  digit={5}
-                  currentState={
-                    this.state.isDoubleChecking
-                      ? this.state.checkPin
-                      : this.state.pin
-                  }
-                />
-              </Utils.Row>
-            </Animatable.View>
+    _renderBiometrics = () => {
+      const { biometricsEnabled } = this.state
+
+      if (biometricsEnabled) {
+        return (
+          <Utils.View flex={0.4} justify='center' align='center'>
+            <BiometricButton onPress={this._handleBiometrics}>
+              <Text>{tl.t('pin.biometrics')}</Text>
+            </BiometricButton>
           </Utils.View>
+        )
+      }
 
-          <Elements.KeyPad>
-            <Elements.Key onPress={() => this._handleKeyInput(1)}>1</Elements.Key>
-            <Elements.Key onPress={() => this._handleKeyInput(2)}>2</Elements.Key>
-            <Elements.Key onPress={() => this._handleKeyInput(3)}>3</Elements.Key>
-            <Elements.Key onPress={() => this._handleKeyInput(4)}>4</Elements.Key>
-            <Elements.Key onPress={() => this._handleKeyInput(5)}>5</Elements.Key>
-            <Elements.Key onPress={() => this._handleKeyInput(6)}>6</Elements.Key>
-            <Elements.Key onPress={() => this._handleKeyInput(7)}>7</Elements.Key>
-            <Elements.Key onPress={() => this._handleKeyInput(8)}>8</Elements.Key>
-            <Elements.Key onPress={() => this._handleKeyInput(9)}>9</Elements.Key>
-            <Elements.Key disabled noBorder />
-            <Elements.Key onPress={() => this._handleKeyInput(0)}>0</Elements.Key>
-            <Elements.Key onPress={this._handleDelete} onLongPress={this._handleClear} >
-              <Ionicons
-                name='ios-backspace'
-                size={24}
-                color={Colors.secondaryText}
-              />
-            </Elements.Key>
-          </Elements.KeyPad>
+      return null
+    }
 
-          {this._renderBiometrics()}
-        </Utils.Container>
-      </Utils.SafeAreaView>
-    )
-  }
+    render () {
+      const shouldGoBack = this.props.navigation.getParam('shouldGoBack', false)
+      return (
+        <Utils.SafeAreaView>
+          <Utils.Container >
+            <Utils.Content>
+              {this.state.isDoubleChecking && (
+                <GoBackButton onPress={this._resetState} />
+              )}
+              {shouldGoBack && (
+                <GoBackButton onPress={() => this.props.navigation.goBack()} />
+              )}
+              <Utils.View align='center'>
+                <Label>{tl.t('pin.title')}</Label>
+                <Utils.VerticalSpacer />
+                <Text>{this._renderTitle()}</Text>
+              </Utils.View>
+            </Utils.Content>
+            <PinPad ref={ref => { this.pinPad = ref }} onComplete={this._checkPIN} />
+            {this._renderBiometrics()}
+          </Utils.Container>
+        </Utils.SafeAreaView >
+      )
+    }
 }
 
 export default PinScene
