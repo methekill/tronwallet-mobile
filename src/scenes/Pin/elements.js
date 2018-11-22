@@ -35,16 +35,20 @@ export const KeyWrapper = styled.TouchableOpacity`
   flex-grow: 1;
   flex-shrink: 0;
   border-radius: 25px;
-  border-width:${props => props.noBorder ? 0 : 1}px;
-  border-color:${Colors.secondaryText};
+  border-width: ${props => props.noBorder ? 0 : 1}px;
+  border-color: ${Colors.secondaryText};
   margin: 4px;
 `
+
+KeyWrapper.defaultProps = {
+  noBorder: true
+}
 
 export const KeyText = styled.Text`
   font-family: Rubik-Regular;
   font-size: 16px;
   line-height: 24px;
-  color:${Colors.secondaryText};
+  color: ${Colors.secondaryText};
 `
 
 export const Key = ({ children, noBorder, onPress, pointerEvents }) => (
