@@ -563,6 +563,7 @@
       "title": "Controleer uw biometrie"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "Toegang geweigerd"
     }
   },
