@@ -621,12 +621,12 @@
         "body": "TRONWALLET n'approuve AUCUN actif sur le réseau TRON. Les \"annonces\" de biens sur TRONWALLET ne sont PAS des endossements. TRONWALLET est un logiciel client UNIQUEMENT et n’effectue AUCUNE vérification ou vérification indépendante de tout actif. TRON est un système ouvert, ce qui signifie que des escroqueries et des manipulateurs de marché peuvent exister. Les prix indiqués sur TRONWALLET sont à titre informatif et n'impliquent pas qu'ils peuvent être effectivement échangés contre un certain prix.\n"
       },
       "section12": {
-        "title": "12. YOUR OWN RESPONSIBILITIES",
-        "body": "You, the user, are solely responsible for ensuring your own compliance with laws and taxes in your jurisdiction. Cryptocurrencies may be illegal in your area. You, are solely responsible for your own security including keeping your account secret keys safe and backed up.\n"
+        "title": "12. votre propre responsabilité",
+        "body": "Vous, l’utilisateur, êtes seul responsable de votre propre respect des lois et taxes dans votre province ou territoire. Les Cryptomonnaie peuvent être illégal dans votre région. Vous, êtes seul responsable de votre propre sécurité notamment garder votre compte clés secrètes sécurisé et sauvegardé.\n"
       },
       "section13": {
-        "title": "13. DISCLAIMER OF WARRANTY",
-        "body": "TRONWALLET is provided free of charge and on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.\n"
+        "title": "13. LIMITATION DE GARANTIE",
+        "body": "TRONWALLET est fourni gratuitement et \"TEL QUEL\", SANS AUCUNE GARANTIE NI CONDITION.\n"
       }
     }
   }
