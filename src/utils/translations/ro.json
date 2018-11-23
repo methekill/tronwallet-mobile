@@ -108,29 +108,29 @@
     },
     "swiper": {
       "welcome": {
-        "title": "Welcome to \nTRONWALLET",
-        "body": "The most secure wallet for TRON"
+        "title": "Bine ati venit la TRONWALLET",
+        "body": "Cel mai sigur portofel pentru TRON"
       },
       "security": {
-        "title": "SECURITY",
-        "body": "Privacy and security for \n your transactions"
+        "title": "SECURITATE",
+        "body": "Confidenţialitate şi securitate pentru tranzacţiilor tale"
       },
       "votes": {
-        "title": "VOTES",
-        "body": "Freezing and vote for Super \n Representatives"
+        "title": "VOTURI",
+        "body": "Înghețarea și votare pentru Super Reprezentanții"
       },
       "addressbook": {
-        "title": "ADDRESS BOOK",
-        "body": "Save the addresses of your friends \n and contacts."
+        "title": "AGENDĂ",
+        "body": "Salveaza adresele prietenilor si contactelor tale."
       },
       "multipleaccounts": {
-        "title": "MULTIPLE ACCOUNTS",
-        "body": "You can manage multiple accounts \n in your wallet"
+        "title": "CONTURI MULTIPLE",
+        "body": "Poți gestiona mai multe conturi in portofelul tău"
       }
     }
   },
   "addressBook": {
-    "title": "ADDRESS BOOK",
+    "title": "AGENDĂ",
     "shared": {
       "add": "ADĂUGA",
       "edit": "EDITAȚI | ×",
@@ -138,7 +138,7 @@
       "send": "TRIMITE"
     },
     "contacts": {
-      "title": "CONTACTS",
+      "title": "CONTACTE",
       "delete": {
         "title": "Ștergeți persoana de contact",
         "message": "Chiar doriți să ștergeți acest contact?",
@@ -163,7 +163,7 @@
   "importWallet": {
     "title": "PORTOARE DE IMPORT",
     "message": "Dacă aveți cheia privată și adresa portofelului dvs. puteți să o recuperați aici, dar rețineți că TronWallet funcționează în primul rând cu mnemonica. Această metodă de recuperare va dezactiva anumite funcționalități din aplicație.",
-    "button": "IMPORT",
+    "button": "IMPORTA",
     "error": {
       "privateKey": "Cheia privată este nevalidă sau incompletă"
     }
@@ -172,7 +172,7 @@
     "title": "ÎNGHEŢA",
     "unfreeze": {
       "title": "Deblocați",
-      "inXTime": "You can unfreeze your TRX",
+      "inXTime": "Poti dezgheța TRX-ul tău",
       "inThreeDays": "După o perioadă de trei zile puteți dezgheța TRX-ul",
       "inXMinutes": "Puteți dezgheța TRX-ul dvs. în {{minutes}} minute.",
       "inXHours": "Puteți dezgheța TRX-ul dvs. în {{hours}} ore.",
@@ -194,9 +194,9 @@
   "market": {
     "time": {
       "hour": "1H",
-      "day": "1D",
-      "week": "1W",
-      "month": "1M",
+      "day": "1Z",
+      "week": "1S",
+      "month": "1L",
       "all": "TOATE"
     },
     "highest": "CEL MAI INALT",
@@ -219,10 +219,10 @@
         "title": "Trebuie să cumperi cel puțin o valoare TRX de {{token}}.",
         "message": "În prezent, achiziționați numai {{amount}}."
       },
-      "notFound": "Asset(s) not found"
+      "notFound": "Nu s-a găsit niciun asset"
     },
     "warning": "Nu aveți suficient TRX pentru a cumpăra atât de mulți {{token}}",
-    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
+    "enterAmountToBuy": "INTRODU SUMA DE CUMPARAT",
     "amountToBuy": "AMOUNT DE CUMPĂRARE",
     "pricePerToken": "PRET PER PERIOADĂ",
     "tokenDescription": "TOKEN DESCRIERE",
@@ -238,8 +238,8 @@
     "description": "DESCRIERE",
     "transaction": "TRANZACŢIE",
     "ownerAddress": "DREPTUL DE ADMINISTRARE",
-    "trxNum": "TRX NUM",
-    "num": "NUM",
+    "trxNum": "NR. TRX",
+    "num": "NR",
     "block": "BLOC",
     "balance": "BALANCE",
     "searchPreview": "Featured Tokens"
