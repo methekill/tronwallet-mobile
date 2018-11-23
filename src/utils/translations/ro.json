@@ -492,41 +492,41 @@
     "to": "LA",
     "from": "DIN",
     "tokenName": "DENUMIREA TOKEN-ULUI",
-    "unityValue": "UNITATE VALOARE",
-    "totalSupply": "TOTAL FURNIZARE",
-    "startTime": "TIMPUL DE ÎNCEPERE",
+    "unityValue": "VALOARE UNITARĂ",
+    "totalSupply": "CANTITATE TOTALĂ",
+    "startTime": "TIMPUL DE START",
     "endTime": "ORA DE TERMINARE",
     "description": "DESCRIERE",
     "votedAddress": "ADRESA VOTATĂ"
   },
   "transactionSuccess": {
-    "submitted": "TRANZACȚIUNEA TRANSMITATĂ LA REȚEA!",
+    "submitted": "TRANZACȚIE TRIMISĂ CATRE REȚEA!",
     "success": "SUCCES!"
   },
   "votes": {
-    "title": "VOTARE",
-    "totalVotes": "TOTAL VOTĂRI",
+    "title": "VOTURI",
+    "totalVotes": "VOTURI TOTALE",
     "votesAvailable": "VOTURI DISPONIBILE",
     "search": "Căutare",
-    "searchPreview": "Suggestions - Most Voted",
-    "error": "Hopa, ceva nu sa încărcat corect. Încercați să reîncărcați",
+    "searchPreview": "Sugestii - Ultimele mele voturi",
+    "error": "Hopa, ceva nu s-a încărcat corespunzător. Reîncercați",
     "notFound": "Super Reprezentative-ul nu a fost găsit"
   },
   "scanPayment": {
     "scan": "SCANARE",
     "error": {
-      "receiver": "Adresa destinatarului este nevalidă",
-      "token": "Tokenul nu este valabil",
+      "receiver": "Adresa destinatarului nu este corectă",
+      "token": "Token-ul nu este valabil",
       "amount": "Suma nu este validă",
       "description": "Descrierea este prea lungă",
-      "code": "Codul de plată este nevalid. Scanați unul valid"
+      "code": "Codul de plată nu este valid. Scanează unul valid"
     }
   },
   "makePayment": {
-    "pay": "A PLATI",
-    "confirm": "CONFIRMA PLATA",
+    "pay": "PLĂTESTE",
+    "confirm": "CONFIRMĂ PLATA",
     "error": {
-      "receiver": "Receptorul este egal cu solicitantul",
+      "receiver": "Destinatarul este același cu solicitantul",
       "token": "Acest cont nu are jetonul pentru această tranzacție",
       "amount": "Acest cont nu are un echilibru suficient.",
       "description": "fara descriere"
