@@ -108,6 +108,53 @@ describe('Transaction Scene', () => {
     expect(currentAlias).toBe('anotherPK')
   })
 
+  test('Should refreshing is true and contacts equals expected list when data was loaded', async () => {
+    const { wrapper } = transactionScene
+    const instance = wrapper.instance()
+
+    instance._getTransactionsByContactOrRefreshing = jest.fn(() => 'test')
+    instance._updateData = jest.fn()
+
+    await instance._loadData(false)
+
+    const expectedContacts = contactsStore.objects('Contact').map(item => Object.assign({}, item))
+    expect(wrapper.state()).toMatchObject({
+      refreshing: true,
+      contacts: expectedContacts
+    })
+  })
+
+  test('Should contact is null when contact router param doesn\'t exists', async () => {
+    const { wrapper } = transactionScene
+    const instance = wrapper.instance()
+
+    instance._getTransactionsByContactOrRefreshing = jest.fn(() => 'test')
+    instance._updateData = jest.fn()
+
+    await instance._loadData(false)
+
+    expect(wrapper.state()).toMatchObject({
+      contact: null
+    })
+  })
+
+  test('Should contact is equals contact on router param when contact router param exists', async () => {
+    const { wrapper } = transactionScene
+    const instance = wrapper.instance()
+    const CONTACT = { address: 'TEudeMDDqGmtcrzE9NNtnEsemy1CupEBzg' }
+
+    instance.props.navigation.getParam = () => (CONTACT)
+
+    instance._getTransactionsByContactOrRefreshing = jest.fn(() => 'test')
+    instance._updateData = jest.fn()
+
+    await instance._loadData(false)
+
+    expect(wrapper.state()).toMatchObject({
+      contact: CONTACT
+    })
+  })
+
   test('Should load only 10 first transactions when there isn\'t contact and refreshing is false and all transactions is 20', async () => {
     const { wrapper } = transactionScene
     const instance = wrapper.instance()
@@ -124,9 +171,17 @@ describe('Transaction Scene', () => {
     expect(transactions.length).toBe(10)
   })
 
-  test('Should load transactions less than 10 when there isn\'t contact and refreshing is false and all transactions is 8', async () => {
+  test('Should load less than 10 transactions when there isn\'t contact and refreshing is false and all transactions is less than 10', async () => {
     const { wrapper } = transactionScene
     const instance = wrapper.instance()
+
+    const transactionStore = await createNewTransactionStore()
+    transactionStore.write(() => {
+      transactionStore.create('Transaction', { id: 1, address: 'asdf1234' })
+      transactionStore.create('Transaction', { id: 2, address: 'fdsa4321' })
+    })
+
+    wrapper.state().transactionStoreRef = transactionStore
 
     let transactions = null
     instance._updateData = (transactionsRef) => {
