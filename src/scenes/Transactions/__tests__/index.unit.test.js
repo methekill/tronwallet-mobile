@@ -17,12 +17,20 @@ describe('Transaction Scene', () => {
   let addListenerMockResult = null
   let contactsStore = null
   let transactionStore = null
+  let transactionStoreWithTransactionList = null
 
   beforeAll(async () => {
     addListenerMockResult = jest.fn()
 
     transactionStore = await getTransactionStore()
     contactsStore = await getContactsStore()
+    transactionStoreWithTransactionList = await createNewTransactionStore()
+
+    transactionStoreWithTransactionList.write(() => {
+      transactionList.forEach((trx, index) => {
+        transactionStoreWithTransactionList.create('Transaction', Object.assign({ id: index }, trx))
+      })
+    })
 
     contactsStore.write(() => {
       contactsStore.create('Contact', { id: '1', address: 'asdf1234', alias: 'Contact1' })
@@ -103,16 +111,8 @@ describe('Transaction Scene', () => {
   test('Should load only 10 first transactions when there isn\'t contact and refreshing is false and all transactions is 20', async () => {
     const { wrapper } = transactionScene
     const instance = wrapper.instance()
-    instance.props.navigation.getParam = () => {}
 
-    const transactionStore = await createNewTransactionStore()
-    transactionStore.write(() => {
-      transactionList.forEach((trx, index) => {
-        transactionStore.create('Transaction', Object.assign({ id: index }, trx))
-      })
-    })
-
-    wrapper.state().transactionStoreRef = transactionStore
+    wrapper.state().transactionStoreRef = transactionStoreWithTransactionList
 
     let transactions = null
     instance._updateData = (transactionsRef) => {
@@ -128,8 +128,6 @@ describe('Transaction Scene', () => {
     const { wrapper } = transactionScene
     const instance = wrapper.instance()
 
-    instance.props.navigation.getParam = () => {}
-
     let transactions = null
     instance._updateData = (transactionsRef) => {
       transactions = transactionsRef.map(item => Object.assign({}, item))
@@ -138,5 +136,49 @@ describe('Transaction Scene', () => {
     await instance._loadData(false)
 
     expect(transactions.length).toBeLessThan(10)
+  })
+
+  test('Should load 20 transactions when there isn\'t contact and refreshing is true and all transactions is 20', async () => {
+    const { wrapper } = transactionScene
+    const instance = wrapper.instance()
+
+    wrapper.state().transactionStoreRef = transactionStoreWithTransactionList
+
+    let transactions = null
+    instance._updateData = (transactionsRef) => {
+      transactions = transactionsRef.map(item => Object.assign({}, item))
+    }
+
+    await instance._loadData(true)
+
+    expect(transactions.length).toBe(20)
+  })
+
+  test('Should load only expected transactions when there is contact and refreshing is false', async () => {
+    const { wrapper } = transactionScene
+    const instance = wrapper.instance()
+    const CONTACT_ADDRESS = 'TEudeMDDqGmtcrzE9NNtnEsemy1CupEBzg'
+
+    instance.props.navigation.getParam = () => ({ address: CONTACT_ADDRESS })
+
+    const state = wrapper.state()
+    state.transactionStoreRef = transactionStoreWithTransactionList
+
+    let transactions = null
+    instance._updateData = (transactionsRef) => {
+      transactions = transactionsRef.map(item => Object.assign({}, item))
+    }
+
+    state.transactionStoreRef.filtered = (schemaName, query, address) => {
+      const filteredData = transactionList.filter((trx) => trx.toAddress === address)
+      filteredData.sorted = () => filteredData
+
+      return filteredData
+    }
+
+    await instance._loadData(false)
+
+    const expectedTransactions = transactionList.filter((trx) => trx.toAddress === CONTACT_ADDRESS)
+    expect(transactions).toEqual(expectedTransactions)
   })
 })
