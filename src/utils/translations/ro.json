@@ -556,7 +556,7 @@
   },
   "balanceToken": {
     "updating": "Actualizarea informațiilor despre token. Așteptați câteva secunde.",
-    "notAvailable": "Token information not available"
+    "notAvailable": "Informații despre Token indisponibile"
   },
   "biometry": {
     "register": {
