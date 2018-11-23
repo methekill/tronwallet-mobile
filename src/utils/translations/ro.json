@@ -527,9 +527,9 @@
     "confirm": "CONFIRMĂ PLATA",
     "error": {
       "receiver": "Destinatarul este același cu solicitantul",
-      "token": "Acest cont nu are jetonul pentru această tranzacție",
-      "amount": "Acest cont nu are un echilibru suficient.",
-      "description": "fara descriere"
+      "token": "Acest cont nu dispune de token pentru această tranzacție",
+      "amount": "Acest cont nu dispune de o balanța suficientă.",
+      "description": "Fară descriere"
     }
   },
   "buildPayment": {
