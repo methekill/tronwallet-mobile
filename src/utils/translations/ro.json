@@ -23,13 +23,13 @@
   "ok": "Ok",
   "actionModalTitle": "Ați dori să",
   "account": "Cont",
-  "restore": "Restabili",
+  "restore": "Restaurare",
   "error": {
     "default": "Woops ceva nu a mers bine. Reîncercați mai târziu. Dacă eroarea persistă, încercați să actualizați setările de rețea.",
     "buildingTransaction": "Eroare la construirea tranzacției, încercați din nou.",
     "gettingTransaction": "Eroare la obținerea tranzacției.",
     "clipboardCopied": "Ceva nu a mers bine in timpul copierii",
-    "hideAccount": "Sa întâmplat ceva, ștergerea contului, încercați din nou \""
+    "hideAccount": "Ceva a mers greşit cu ştergerea contului, încearcă din nou'"
   },
   "avaliable": "DISPONIBIL",
   "frozen": "ÎNGHEŢAT",
@@ -241,15 +241,15 @@
     "trxNum": "NR. TRX",
     "num": "NR",
     "block": "BLOC",
-    "balance": "BALANCE",
-    "searchPreview": "Featured Tokens"
+    "balance": "BALANȚĂ",
+    "searchPreview": "Token-uri Recomandate"
   },
   "pin": {
     "title": "VERIFICARE DE SECURITATE",
     "enter": "Introduceți codul PIN",
     "new": "Introduceți codul PIN nou",
     "reenter": "Reintroduceți codul PIN",
-    "biometrics": "Biometric Check"
+    "biometrics": "Verificare Biometrică"
   },
   "receive": {
     "title": "A PRIMI",
@@ -291,8 +291,8 @@
         "newSeed": "GET SEMNE NOU",
         "later": "Confirmați mai târziu"
       },
-      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
-      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
+      "backupMessage": "Poți accesa întotdeauna cuvintele Seed accesând copia de rezervă din setările aplicației",
+      "seedExplanation": "Cheia Seed este o reprezentare lizibila, pentru oameni, a portofelului tău. Aceste cuvinte, în acea ordine exactă, pot fi folosite pentru a-ți re-crea portofelul."
     },
     "restore": {
       "title": "RESTAUREAZĂ PORTOFEL",
@@ -626,8 +626,8 @@
         "body": "You, the user, are solely responsible for ensuring your own compliance with laws and taxes in your jurisdiction. Cryptocurrencies may be illegal in your area. You, are solely responsible for your own security including keeping your account secret keys safe and backed up.\n"
       },
       "section13": {
-        "title": "13. DISCLAIMER OF WARRANTY",
-        "body": "TRONWALLET is provided free of charge and on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.\n"
+        "title": "13. DECLINAREA DE GARANȚIEI",
+        "body": "TRONWALLET este oferit gratuit și \"CA ATARE\", FĂRĂ GARANȚII SAU CONDIȚII DE ORICE FEL.\n"
       }
     }
   }
