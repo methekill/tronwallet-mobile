@@ -177,7 +177,7 @@ export default [
     'assetName': 'GEMS',
     'amount': 1000000,
     'contractType': 9,
-    'hash': '550eb30baf1c6cf923e2e91494a263a0636d61b1a1c327f904176c51c5def88a',
+    'hash': '550eb30baf1c6cf0636d61b1a1c327f904176c51c5def88a923e2e91494a263a',
     'time': 562453165472,
     'data': ' Sent with @TronWalletMe',
     'block': {
@@ -197,7 +197,7 @@ export default [
     'toAddress': 'TEudeMDDqGmtcrzE9NNtnEsemy1CupEBzg',
     'amount': 10000000,
     'contractType': 1,
-    'hash': '8b4f3af7616b65e75d555a5615bf97a472d89ac36fe1c891dc191694f8c239ae',
+    'hash': '97a4728b4f3af75d555a5615bfd89ac36fe1c8616b65e791dc191694f8c239ae',
     'time': 1540760147152,
     'data': ' Sent with @TronWalletMe',
     'block': {
@@ -222,7 +222,7 @@ export default [
     ],
     'support': false,
     'contractType': 4,
-    'hash': '66926d060aa3c007fa964f551a4aabac4735fcaf10026f5eb52c3e9353896245',
+    'hash': '66926d060aa351a4aabac4735fcaf10026c007fa964f5f5eb52c3e9353896245',
     'time': 562453267152,
     'data': ' Sent with @TronWalletMe',
     'block': {
@@ -243,7 +243,7 @@ export default [
     'frozenDuration': 3,
     'resource': 0,
     'contractType': 11,
-    'hash': '4b0bedff10c5435d665f61849ed15d7823b77428de16cf1f92865155903d86c4',
+    'hash': '4b0bedff5d665f61849ed15d7823b77428de16cf1f92865155903d86c410c543',
     'time': 562453221703,
     'data': ' Sent with @TronWalletMe',
     'block': {
@@ -264,7 +264,7 @@ export default [
     'toAddress': 'TEudeMDDqGmtcrzE9NNtnEsemy1CupEBzg',
     'amount': 1,
     'contractType': 1,
-    'hash': 'a7e4f1ec64b7919d6bc4a191e9a7d1a94ef12f4ef6a0eba7b7f647ab2e57331f',
+    'hash': 'a7e4f1ec64b791991e9a7d1a94ef12f4ef6a0eba7b7fd6bc4a1647ab2e57331f',
     'time': 1540760406560,
     'data': '',
     'block': {
@@ -285,7 +285,7 @@ export default [
     'toAddress': 'TEudeMDDqGmtcrzE9NNtnEsemy1CupEBzg',
     'amount': 1,
     'contractType': 1,
-    'hash': '585b4eb98558ece358e2674e47eb893e94567022774ede66161213f38261eb9e',
+    'hash': '585ece358e2674e47eb893e94567022774ede66161213f38261eb9eb4eb98558',
     'time': 1540760407098,
     'data': '',
     'block': {
@@ -306,7 +306,7 @@ export default [
     'toAddress': 'TEudeMDDqGmtcrzE9NNtnEsemy1CupEBzg',
     'amount': 1,
     'contractType': 1,
-    'hash': '8dd16e9de9c91c6b9651e8abb98a0ff069932f54b6c6857882ab239e520f4a03',
+    'hash': 'ff069932f58dd16e9de9c91c6b9651e8abb98a04b6c6857882ab239e520f4a03',
     'time': 1540760406794,
     'data': '',
     'block': {
@@ -327,7 +327,7 @@ export default [
     'toAddress': 'TLVbzuu9uAELN8PCCJPiTCFFVPHdXiB3Nj',
     'amount': 1,
     'contractType': 1,
-    'hash': '86d50a6b2bc40ebe63755d77d9cde1b06a6e34f8d563d99151131550422270b1',
+    'hash': '86d58d563d99151131550a6bbe63755d77d9cde1b06a6e34f0422bc40e2270b1',
     'time': 562453191771,
     'data': ' Sent with @TronWalletMe',
     'block': {
@@ -348,7 +348,7 @@ export default [
     'assetName': 'GEMS',
     'amount': 1000000,
     'contractType': 9,
-    'hash': '550eb30baf1c6cf923e2e91494a263a0636d61b1a1c327f904176c51c5def88a',
+    'hash': '1494a263a0636d61b1a1c327f9040baf1c6cf9176c51c5def88550eb323e2e9a',
     'time': 562453165472,
     'data': ' Sent with @TronWalletMe',
     'block': {
@@ -368,7 +368,7 @@ export default [
     'toAddress': 'TEudeMDDqGmtcrzE9NNtnEsemy1CupEBzg',
     'amount': 10000000,
     'contractType': 1,
-    'hash': '8b4f3af7616b65e75d555a5615bf97a472d89ac36fe1c891dc191694f8c239ae',
+    'hash': '7a472d89ac8b4f3af765d555a5615bf936fe1c891dc1916b65e71694f8c239ae',
     'time': 1540760147152,
     'data': ' Sent with @TronWalletMe',
     'block': {
@@ -389,7 +389,7 @@ export default [
     'assetName': 'GEMS',
     'amount': 1000000,
     'contractType': 9,
-    'hash': '550eb30baf1c6cf923e2e91494a263a0636d61b1a1c327f904176c51c5def88a',
+    'hash': '923e2e9550eb30baf1c6cf1494a263c5def88aa0636d61b1a1c327f904176c51',
     'time': 562453165472,
     'data': ' Sent with @TronWalletMe',
     'block': {
@@ -409,7 +409,7 @@ export default [
     'toAddress': 'TEudeMDDqGmtcrzE9NNtnEsemy1CupEBzg',
     'amount': 10000000,
     'contractType': 1,
-    'hash': '8b4f3af7616b65e75d555a5615bf97a472d89ac36fe1c891dc191694f8c239ae',
+    'hash': '8b4f3af7616e1c891dc1a5615bf97a472d89ac36f91694f8b65e75d555c239ae',
     'time': 1540760147152,
     'data': ' Sent with @TronWalletMe',
     'block': {
