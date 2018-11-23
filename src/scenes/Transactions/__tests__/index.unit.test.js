@@ -1,28 +1,48 @@
 import { Answers } from 'react-native-fabric'
 
-import getAssetsStore from '../../../store/assets'
-import getTransactionStore from '../../../store/transactions'
 import getContactsStore from '../../../store/contacts'
+import getTransactionStore, { createNewTransactionStore } from '../../../store/transactions'
 
 import { setupTransactionScene } from './Utils'
+import transactionList from '../../../services/__mocks__/transactionList'
 
 jest.mock('react-native-fabric')
 jest.mock('react-native-mixpanel')
 jest.mock('../../../utils/i18n')
+jest.mock('../../../utils/sentryUtils')
+jest.mock('../../../services/client')
 
 describe('Transaction Scene', () => {
   let transactionScene = null
   let addListenerMockResult = null
+  let contactsStore = null
+  let transactionStore = null
 
-  beforeAll(() => {
+  beforeAll(async () => {
     addListenerMockResult = jest.fn()
-    const addListenerMock = jest.fn(() => (addListenerMockResult))
-    const props = { navigation: { addListener: addListenerMock } }
 
-    transactionScene = setupTransactionScene(props)
+    transactionStore = await getTransactionStore()
+    contactsStore = await getContactsStore()
+
+    contactsStore.write(() => {
+      contactsStore.create('Contact', { id: '1', address: 'asdf1234', alias: 'Contact1' })
+      contactsStore.create('Contact', { id: '2', address: 'fdsa4321', alias: 'Contact2' })
+    })
   })
 
-  test('Should add listener when componentDidMount called', () => {
+  beforeEach(async () => {
+    const addListenerMock = jest.fn(() => (addListenerMockResult))
+    const props = { navigation: { addListener: addListenerMock, getParam: () => null } }
+
+    transactionScene = setupTransactionScene(props)
+
+    const state = transactionScene.wrapper.state()
+
+    state.contactsStoreRef = contactsStore
+    state.transactionStoreRef = transactionStore
+  })
+
+  test('Should add listener when component did mount', () => {
     const { wrapper } = transactionScene
     const instance = wrapper.instance()
 
@@ -32,7 +52,7 @@ describe('Transaction Scene', () => {
     expect(instance._didFocusSubscription).toEqual(addListenerMockResult)
   })
 
-  test('Should remove listener when componentWillUnmount called', () => {
+  test('Should remove listener when component will unmount', () => {
     const removeSubscription = jest.fn()
 
     const { wrapper } = transactionScene
@@ -52,18 +72,71 @@ describe('Transaction Scene', () => {
     expect(spy).toBeCalled()
   })
 
-  test('Should load stores on state when data is set', async () => {
+  test('Should load alias when contacts have publicKey', async () => {
+    const { wrapper } = transactionScene
+    const instance = wrapper.instance()
+    const { context } = instance.props
+
+    context.publicKey = 'asdf1234'
+
+    await instance._loadData()
+
+    const { currentAlias } = wrapper.state()
+
+    expect(currentAlias).toBe('Contact1')
+  })
+
+  test('Should load publicKey when contacts doesn\'t have publicKey', async () => {
+    const { wrapper } = transactionScene
+    const instance = wrapper.instance()
+    const { context } = instance.props
+
+    context.publicKey = 'anotherPK'
+
+    await instance._loadData()
+
+    const { currentAlias } = wrapper.state()
+
+    expect(currentAlias).toBe('anotherPK')
+  })
+
+  test('Should load only 10 first transactions when there isn\'t contact and refreshing is false and all transactions is 20', async () => {
+    const { wrapper } = transactionScene
+    const instance = wrapper.instance()
+    instance.props.navigation.getParam = () => {}
+
+    const transactionStore = await createNewTransactionStore()
+    transactionStore.write(() => {
+      transactionList.forEach((trx, index) => {
+        transactionStore.create('Transaction', Object.assign({ id: index }, trx))
+      })
+    })
+
+    wrapper.state().transactionStoreRef = transactionStore
+
+    let transactions = null
+    instance._updateData = (transactionsRef) => {
+      transactions = transactionsRef.map(item => Object.assign({}, item))
+    }
+
+    await instance._loadData(false)
+
+    expect(transactions.length).toBe(10)
+  })
+
+  test('Should load transactions less than 10 when there isn\'t contact and refreshing is false and all transactions is 8', async () => {
     const { wrapper } = transactionScene
     const instance = wrapper.instance()
 
-    await instance._setData()
+    instance.props.navigation.getParam = () => {}
 
-    const state = wrapper.state()
+    let transactions = null
+    instance._updateData = (transactionsRef) => {
+      transactions = transactionsRef.map(item => Object.assign({}, item))
+    }
 
-    const transactionStoreRef = await getTransactionStore()
-    const contactsStoreRef = await getContactsStore()
-    const assetStore = await getAssetsStore()
+    await instance._loadData(false)
 
-    expect(state).toMatchObject({ transactionStoreRef, contactsStoreRef, assetStore })
+    expect(transactions.length).toBeLessThan(10)
   })
 })
