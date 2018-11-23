@@ -487,11 +487,11 @@
     "block": "BLOC",
     "frozenBalance": "SOLD BALANȚĂ",
     "unfrozenBalance": "BALANȚĂ NEFROZENĂ",
-    "totalVotes": "TOTAL VOTĂRI",
-    "amount": "CANTITATE",
+    "totalVotes": "VOTURI TOTALE",
+    "amount": "SUMA",
     "to": "LA",
     "from": "DIN",
-    "tokenName": "DENUMIREA NUMEI",
+    "tokenName": "DENUMIREA TOKEN-ULUI",
     "unityValue": "UNITATE VALOARE",
     "totalSupply": "TOTAL FURNIZARE",
     "startTime": "TIMPUL DE ÎNCEPERE",
@@ -622,8 +622,8 @@
         "body": "TRONWALLET does NOT endorse ANY asset on the TRON NETWORK. Asset \"listings\" on TRONWALLET are NOT endorsements. TRONWALLET is a software client ONLY and does NOT conduct any independent diligence or review of any asset. TRON is an open system meaning that scams and market manipulators may exist. Prices shown on TRONWALLET are for informational purposes and do not imply that they can actually be redeemed for a certain price.\n"
       },
       "section12": {
-        "title": "12. YOUR OWN RESPONSIBILITIES",
-        "body": "You, the user, are solely responsible for ensuring your own compliance with laws and taxes in your jurisdiction. Cryptocurrencies may be illegal in your area. You, are solely responsible for your own security including keeping your account secret keys safe and backed up.\n"
+        "title": "12. RESPONSABILITĂȚILE DUMNEAVOASTRĂ",
+        "body": "Dvs., utilizatorul, sunteți singurul responsabil pentru a va asigura de respectarea legilor și impozitelor în jurisdicția dumneavoastră. Crypto-monedele pot fi ilegale în zona dumneavoastră. Sunteți singurul responsabil pentru securitatea dvs., inclusiv păstrarea sigură a cheilor dvs. seed și efectuarea copiilor de rezervă.\n"
       },
       "section13": {
         "title": "13. DECLINAREA DE GARANȚIEI",
