@@ -79,7 +79,6 @@ class ClientWallet {
   async getTransactionByHash (hash, address) {
     const reqBody = { hash }
     const { data: result } = await axios.post(`${this.tronwalletDB}/transactions/find/`, reqBody)
-
     if (result.length) {
       const transactionDetail = result[0]
       return transactionDetail.contractType <= 2
