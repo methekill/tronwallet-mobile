@@ -419,8 +419,8 @@
     },
     "partners": "PARTENERI",
     "askPin": "Întrebați întotdeauna codul PIN",
-    "askBiometry": "Activate Biometry",
-    "verifiedTokensOnly": "Verified tokens only"
+    "askBiometry": "Activează Biometria",
+    "verifiedTokensOnly": "Doar Token-uri verificate"
   },
   "submitTransaction": {
     "title": "DETALII TRANZACȚIONALE",
@@ -433,12 +433,12 @@
       "submit": "TRANSMITEȚI TRANSMITEREA"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "Nu s-au putut încărca datele tranzacției"
     },
     "exchange": {
-      "send": "Sending {{sendtoken}}",
-      "receive": "Receiving {{receivetoken}}",
-      "error": "Check your latest transactions to confirm the received amount."
+      "send": "Trimitere {{sendtoken}}",
+      "receive": "Primire {{receivetoken}}",
+      "error": "Verificați cele mai recente tranzacții pentru a confirma suma primită."
     },
     "disconnectedMessage": "Se pare că ești deconectat. Reconectați-vă la internet înainte de a continua tranzacția.",
     "dic": {
@@ -510,10 +510,10 @@
     "search": "Căutare",
     "searchPreview": "Suggestions - Most Voted",
     "error": "Hopa, ceva nu sa încărcat corect. Încercați să reîncărcați",
-    "notFound": "Super Representative not found"
+    "notFound": "Super Reprezentative-ul nu a fost găsit"
   },
   "scanPayment": {
-    "scan": "SCAN",
+    "scan": "SCANARE",
     "error": {
       "receiver": "Adresa destinatarului este nevalidă",
       "token": "Tokenul nu este valabil",
@@ -555,25 +555,25 @@
     }
   },
   "balanceToken": {
-    "updating": "Updating token information. Please wait a few seconds.",
+    "updating": "Actualizarea informațiilor despre token. Așteptați câteva secunde.",
     "notAvailable": "Token information not available"
   },
   "biometry": {
     "register": {
-      "title": "Check your biometry"
+      "title": "Verificati Biometria"
     },
     "auth": {
-      "title": "Save Biometry",
-      "error": "Access denied"
+      "title": "Salveaza Biometria",
+      "error": "Acces Interzis"
     }
   },
   "privacyPolicy": {
-    "title": "PRIVACY POLICY",
-    "subtitle": "You must read and accept our privacy terms to continue.",
-    "error": "You need to accept of privacy terms before to continue. ",
-    "acceptTerms": "I have read and agree to the terms",
-    "continue": "CONTINUE",
-    "docTitle": "Privacy Policy",
+    "title": "POLITICA DE CONFIDENȚIALITATE",
+    "subtitle": "Trebuie să citiți și să acceptați termenii de confidențialitate pentru a continua.",
+    "error": "Trebuie să acceptați termenii de confidențialitate înainte de a continua. ",
+    "acceptTerms": "Am citit și sunt de acord cu termenii",
+    "continue": "CONTINUA",
+    "docTitle": "Politica de confidenţialitate",
     "introduction": "Your privacy is important to us.\nIt is TronWallet's policy to respect your privacy regarding any information we may collect from you across our website, http://tronwallet.me, and other sites we own and operate.\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent.\nWe also let you know why we're collecting it and how it will be used.\nWe only retain collected information for as long as necessary to provide you with your requested service.\nWhat data we store, we'll protect within commercially acceptable means to prevent loss and theft, as well as unauthorised access, disclosure, copying, use or modification.\nWe don't share any personally identifying information publicly or with third-parties, except when required to by law.\nOur website may link to external sites that are not operated by us.\nPlease be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.\nYou are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.\nYour continued use of our website will be regarded as acceptance of our practices around privacy and personal information.\nIf you have any questions about how we handle user data and personal information, feel free to contact us.\nThis policy is effective as of 1 July 2018.",
     "termsOfService": {
       "title": "TronWallet Terms of Service",
