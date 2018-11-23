@@ -534,24 +534,24 @@
   },
   "buildPayment": {
     "generate": "GENERAȚI CEREREA",
-    "selectCurrency": "Selectați moneda de referință",
+    "selectCurrency": "Selectează moneda de referință",
     "error": {
-      "currency": "Nu am putut încărca alte valute. Vă rugăm să folosiți TRX ca referință"
+      "currency": "Nu am putut încărca prețul în altă valută. Te rugăm să folosești TRX ca referință"
     }
   },
   "requestPayment": {
-    "title": "CEREREA PLĂȚII"
+    "title": "CERERE DE PLATĂ"
   },
   "newAccount": {
-    "title": "Crearea contului",
+    "title": "Creare Cont",
     "placeholder": "Contul meu prețios",
     "success": {
-      "title": "Cont nou a fost creat cu succes",
-      "message": "Puteți edita numele în agenda dvs."
+      "title": "Contul nou a fost creat cu succes",
+      "message": "Poți edita numele în agenda ta"
     },
     "failure": {
-      "title": "Notificare de cont nou",
-      "message": "Pentru a adăuga un cont nou, trebuie să aveți cel puțin o tranzacție în ultimul cont."
+      "title": "Cont Nou - Avertizare",
+      "message": "Pentru a adăuga un cont nou, trebuie să ai cel puțin o tranzacție efectuată în ultimul cont."
     }
   },
   "balanceToken": {
