@@ -31,8 +31,8 @@
     "clipboardCopied": "복사 과정 중 문제가 발생했습니다",
     "hideAccount": "계정을 삭제하는 과정에서 문제가 발생했습니다. 다시 시도해보세요"
   },
-  "avaliable": "AVAILABLE",
-  "frozen": "FROZEN",
+  "avaliable": "이용 가능 수량",
+  "frozen": "동결 수량",
   "tronPower": "트론 파워",
   "trxPrice": "TRX 가격",
   "confirmed": "확인됨",
