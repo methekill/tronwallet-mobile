@@ -62,18 +62,18 @@
     "title": "CONTURI",
     "error": {
       "loadingData": "A apărut o eroare la încărcarea datelor.",
-      "savingCurrency": "Error saving preferred currency"
+      "savingCurrency": "Eroare la salvarea monedei preferate"
     },
-    "chooseCurrency": "Please, choose your preferred currency.",
-    "confirmSeed": "Please tap to confirm your 12 seed words",
+    "chooseCurrency": "Te rugam sa alegi moneda preferată.",
+    "confirmSeed": "Te rugam sa atingi pentru a confirma cele 12 cuvinte seed",
     "bandwidth": "BANDA",
-    "tokens": "TOKENS",
+    "tokens": "Token-uri",
     "holdings": "HOLDINGS"
   },
   "hideAccount": "Sunteți pe cale să eliminați acest cont. Puteți să-l restabiliți ulterior în setări",
   "components": {
     "share": {
-      "title": "Share TronWallet address",
+      "title": "Partajare adresă TronWallet",
       "message": "This is my TronWallet address:\n\n {{address}}\n\nTip: Once you have copied it you can paste it in your TronWallet app using the special button on Send screen.",
       "dialogTitle": "Share using:"
     },
