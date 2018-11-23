@@ -44,24 +44,24 @@
     "freeze": "Îngheaţă",
     "unfreeze": "Deblocați",
     "vote": "Votează",
-    "participate": "Participate",
-    "create": "Create",
-    "undefined": "Undefined Type"
+    "participate": "Participă",
+    "create": "Creează",
+    "undefined": "Tip nedefinit"
   },
-  "close": "Close",
-  "ends": "Ends",
-  "clear": "Clear",
-  "allIn": "All In",
-  "skip": "Skip",
+  "close": "Închide",
+  "ends": "Se termină",
+  "clear": "Curăţa",
+  "allIn": "Toate",
+  "skip": "Sari peste",
   "privateKey": "Cheia privată",
-  "results": "Results",
-  "buy": "Buy",
-  "filter": "Filter",
-  "txs": "Transactions",
+  "results": "Rezultate",
+  "buy": "Cumpără",
+  "filter": "Filtrează",
+  "txs": "Tranzacții",
   "balance": {
-    "title": "ACCOUNTS",
+    "title": "CONTURI",
     "error": {
-      "loadingData": "An error occured while loading the data.",
+      "loadingData": "A apărut o eroare la încărcarea datelor.",
       "savingCurrency": "Error saving preferred currency"
     },
     "chooseCurrency": "Please, choose your preferred currency.",
@@ -295,7 +295,7 @@
       "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
-      "title": "RESTORE WALLET",
+      "title": "RESTAUREAZĂ PORTOFEL",
       "explanation": "Pentru a vă restabili portofelul, vă rugăm să furnizați aceleași 12 cuvinte pe care le-ați scris pe hârtie atunci când ați creat portofelul pentru prima dată. Dacă introduceți o altă succesiune de cuvinte, va fi creat un nou portofel gol.",
       "placeholder": "Vă rugăm să introduceți aici cele 12 cuvinte de semințe",
       "success": "Portofelul a fost restaurat cu succes!",
@@ -367,7 +367,7 @@
       }
     },
     "backup": {
-      "title": "Backup Wallet"
+      "title": "Backup Portofel"
     },
     "restore": {
       "title": "Restaurați Wallet"
@@ -395,7 +395,7 @@
       "error": "Eroare în memorarea limbii preferate"
     },
     "token": {
-      "title": "Token Filter",
+      "title": "Filtru Token-i",
       "search": "Jetoane de căutare",
       "confirm": "Salvați",
       "noResult": "Fara rezultate..."
@@ -409,7 +409,7 @@
       "title": "Cine accepta TRX?"
     },
     "helpCenter": {
-      "title": "Help Center"
+      "title": "Serviciul de Asistență"
     },
     "accounts": {
       "title": "Conturi",
