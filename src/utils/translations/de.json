@@ -143,7 +143,7 @@
         "title": "Kontakt löschen",
         "message": "Möchten Sie diesen Kontakt wirklich löschen?",
         "cancelButton": "Abbrechen",
-        "okButton": "OK"
+        "okButton": "Bestätigen"
       },
       "empty": "Ihr Adressbuch ist leer, fügen Sie einen neuen Kontakt über den Button unten hinzu.",
       "loadError": "Es gab ein Problem beim laden Ihrer Kontakte, Bitte versuchen Sie es erneut.",
