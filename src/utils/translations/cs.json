@@ -2,13 +2,13 @@
   "relativeTime": {
     "future": "za %s",
     "past": "před %s",
-    "s": "pár vteřinami",
-    "ss": "%d vteřinami",
-    "m": "minutou",
-    "mm": "%d minutami",
-    "h": "hodinou",
-    "hh": "%d hodinami",
-    "d": "jedním dnem",
+    "s": "pár vteřin.",
+    "ss": "%d vteřin.",
+    "m": "min.",
+    "mm": "%d min.",
+    "h": "hod.",
+    "hh": "%d hod.",
+    "d": "24 hod.",
     "dd": "%d dny",
     "M": "měsícem",
     "MM": "%d měsíci",
@@ -556,7 +556,7 @@
   },
   "balanceToken": {
     "updating": "Aktualizace informací o tokenu. Prosím, počkejte pár vteřin.",
-    "notAvailable": "Informace o tokenu nejsou dostupné"
+    "notAvailable": "Informace není dostupná"
   },
   "biometry": {
     "register": {
