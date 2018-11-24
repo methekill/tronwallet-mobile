@@ -436,8 +436,8 @@
       "noData": "Transaktionsdaten konnten nicht geladen werden"
     },
     "exchange": {
-      "send": "Sending {{sendtoken}}",
-      "receive": "Receiving {{receivetoken}}",
+      "send": "Versenden {{sendtoken}}",
+      "receive": "Erhalten {{receivetoken}}",
       "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "Es scheint, dass Sie keine Internetverbindung haben. Verbinden Sie sich mit dem Internet bevor Sie mit der Transaktion fortfahren.",
