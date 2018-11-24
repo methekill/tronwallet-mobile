@@ -403,7 +403,7 @@
     "about": {
       "title": "O nás",
       "description": "TronWallet je plně decentralizovaná open source P2P Crypto Wallet pro TRON Network postavená na React Native. Můžete s ní posílat a přijímat tokeny, hlasovat pro Super Representative, účastnit se prodeje tokenů, mít přehled o vašich zůstatcích, transakcích a mnoho dalšího. Klikněte na odkaz níže pro detailní návod, jak aplikaci používat.",
-      "tutorial": "TUTORIAL"
+      "tutorial": "TUTORIÁL"
     },
     "accepts": {
       "title": "Kdo přijímá TRX?"
