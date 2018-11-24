@@ -222,7 +222,7 @@
       "notFound": "Aktiva nenalezena"
     },
     "warning": "Nemáte dostatek TRX ke koupi tolika {{token}}",
-    "enterAmountToBuy": "ZADEJTE MNOŽSTVÍ K NÁKUPU",
+    "enterAmountToBuy": "ZADEJTE MNOŽSTVÍ",
     "amountToBuy": "KOUPIT MNOŽSTVÍ",
     "pricePerToken": "CENA ZA TOKEN",
     "tokenDescription": "POPIS TOKENU",
@@ -500,7 +500,7 @@
     "votedAddress": "VOLENÁ ADRESA"
   },
   "transactionSuccess": {
-    "submitted": "TRANSAKCE ODESLÁNA DO SÍTĚ!",
+    "submitted": "TRANSAKCE ODESLÁNA!",
     "success": "ÚSPĚCH!"
   },
   "votes": {
