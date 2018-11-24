@@ -497,7 +497,7 @@
     "startTime": "ČAS ZAHÁJENÍ",
     "endTime": "ČAS UKONČENÍ",
     "description": "POPIS",
-    "votedAddress": "VOLENÁ ADRESA"
+    "votedAddress": "HLASOVANÁ ADRESA"
   },
   "transactionSuccess": {
     "submitted": "TRANSAKCE ODESLÁNA!",
