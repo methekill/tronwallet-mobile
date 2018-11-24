@@ -20,7 +20,7 @@
   "cancel": "Abbrechen",
   "address": "Adresse",
   "message": "Nachricht",
-  "ok": "OK",
+  "ok": "Ok",
   "actionModalTitle": "Würden Sie gerne",
   "account": "Konto",
   "restore": "Wiederherstellen",
@@ -31,8 +31,8 @@
     "clipboardCopied": "Beim Kopieren ist ein Fehler aufgetreten",
     "hideAccount": "Beim Löschen des Kontos ist ein Fehler aufgetreten. Versuche es erneut"
   },
-  "avaliable": "AVAILABLE",
-  "frozen": "FROZEN",
+  "avaliable": "Verfügbar",
+  "frozen": "Eingefroren",
   "tronPower": "TRON-POWER",
   "trxPrice": "TRX PREIS",
   "confirmed": "Bestätigt",
@@ -156,7 +156,7 @@
       "addressError": "Etwas stimmt nicht mit der Adresse. Bitte überprüfen Sie diese auf Tippfehler.",
       "uniqueAddressError": "Der Schlüssel muss einzigartig sein. Bitte wählen Sie eine andere Adresse.",
       "uniqueAliasError": "Namen in Ihrem Adressbuch müssen einzig sein. Bitte wählen Sie einen anderen aus.",
-      "name": "NAME",
+      "name": "Name",
       "address": "ADRESSE"
     }
   },
@@ -172,7 +172,7 @@
     "title": "EINFRIEREN",
     "unfreeze": {
       "title": "FREIGEBEN",
-      "inXTime": "You can unfreeze your TRX",
+      "inXTime": "Die Freigabe Ihrer TRX kann jetzt erfolgen.",
       "inThreeDays": "Nach einem Zeitraum von drei Tagen können Sie Ihre TRX auftauen und freigeben",
       "inXMinutes": "Sie können Ihre TRX in {{minutes}} Minuten freigeben.",
       "inXHours": "Sie können Ihre TRX in {{hours}} Stunden freigeben.",
@@ -193,10 +193,10 @@
   },
   "market": {
     "time": {
-      "hour": "1H",
+      "hour": "Eine Stunde",
       "day": "1T",
-      "week": "1W",
-      "month": "1M",
+      "week": "Eine Woche",
+      "month": "Ein Monat",
       "all": "ALLES"
     },
     "highest": "HÖCHSTEN",
@@ -226,8 +226,8 @@
     "amountToBuy": "BETRAG ZU KAUFEN",
     "pricePerToken": "PREIS PRO TOKEN",
     "tokenDescription": "TOKEN BESCHREIBUNG",
-    "tokenInfo": "TOKEN INFO",
-    "token": "TOKEN",
+    "tokenInfo": "Token Information",
+    "token": "Token",
     "tokens": "DIE TOKEN",
     "frozen": "EINGEFROREN",
     "percentage": "PROZENTSATZ",
