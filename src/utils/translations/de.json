@@ -240,7 +240,7 @@
     "ownerAddress": "INHABER ADRESSE",
     "trxNum": "TRX NUM",
     "num": "NUM",
-    "block": "BLOCK",
+    "block": "Block",
     "balance": "GUTHABEN",
     "searchPreview": "Token in Vordergrund"
   },
@@ -315,7 +315,7 @@
       "invalidAmount": "Ungültige Menge"
     },
     "input": {
-      "token": "TOKEN",
+      "token": "Münze",
       "to": "An",
       "amount": "BETRAG",
       "description": "BESCHREIBUNG (OPTIONAL)"
@@ -363,11 +363,11 @@
         },
         "mainNode": "Hauptknoten",
         "solidityNode": "Stabilität Knoten",
-        "testNet": "TestNet"
+        "testNet": "Test-Netzwerk"
       }
     },
     "backup": {
-      "title": "Backup Wallet"
+      "title": "Sicherheitskopie Portemonnaie"
     },
     "restore": {
       "title": "Wallet Wiederherstellen"
@@ -395,7 +395,7 @@
       "error": "Fehler beim Speichern der bevorzugten Sprache"
     },
     "token": {
-      "title": "Token Filter",
+      "title": "Münzen-Filter",
       "search": "Token-Suche",
       "confirm": "Speichern",
       "noResult": "Keine Ergebnisse..."
@@ -578,7 +578,7 @@
     "termsOfService": {
       "title": "TronWallet Terms of Service",
       "section1": {
-        "title": "1. Terms",
+        "title": "1. Allgemeine Geschäftsbedingungen",
         "body": "By accessing the website at http://tronwallet.me, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law."
       },
       "section2": {
