@@ -436,9 +436,9 @@
       "noData": "Nelze načíst data transakce"
     },
     "exchange": {
-      "send": "Sending {{sendtoken}}",
-      "receive": "Receiving {{receivetoken}}",
-      "error": "Check your latest transactions to confirm the received amount."
+      "send": "Odesílání {{sendtoken}}",
+      "receive": "Příjem {{receivetoken}}",
+      "error": "Podívejte se na nejnovější transakce k potvrzení přijatého množství."
     },
     "disconnectedMessage": "Zdá se, že jste odpojeni. Připojte se k internetu, pak bude možné v transakci pokračovat.",
     "dic": {
