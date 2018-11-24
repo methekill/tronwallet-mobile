@@ -436,7 +436,7 @@
       "noData": "Impossibile caricare i dati della transazione"
     },
     "exchange": {
-      "send": "Sending {{sendtoken}}",
+      "send": "Invio {{sendtoken}}",
       "receive": "Receiving {{receivetoken}}",
       "error": "Check your latest transactions to confirm the received amount."
     },
@@ -563,7 +563,7 @@
       "title": "Controlla la tua biometria"
     },
     "auth": {
-      "title": "Save Biometry",
+      "title": "Salvare riconoscimento facciale ",
       "error": "Accesso negato"
     }
   },
