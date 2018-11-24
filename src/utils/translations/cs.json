@@ -19,7 +19,7 @@
   "warning": "Varování",
   "cancel": "Zrušit",
   "address": "Adresa",
-  "message": "Message",
+  "message": "Zpráva",
   "ok": "OK",
   "actionModalTitle": "Chtěl bys",
   "account": "Účet",
@@ -163,7 +163,7 @@
   "importWallet": {
     "title": "IMPORTOVAT PENĚŽENKU",
     "message": "Máte-li soukromý klíč a adresu peněženky, můžete ji zde obnovit, ale pamatujte na to, že TronWallet pracuje především s mnemonikou. Tato metoda obnovení zakáže některé funkce aplikace.",
-    "button": "IMPORT",
+    "button": "IMPORTOVAT",
     "error": {
       "privateKey": "Neplatný nebo neúplný soukromý klíč"
     }
@@ -172,7 +172,7 @@
     "title": "ZMRAZIT",
     "unfreeze": {
       "title": "ROZMRAZIT",
-      "inXTime": "You can unfreeze your TRX",
+      "inXTime": "Můžete uvolnit TRX",
       "inThreeDays": "TRX můžete rozmrazit po třech dnech",
       "inXMinutes": "TRX můžete rozmrazit za {{minutes}} minut.",
       "inXHours": "TRX můžete rozmrazit za {{hours}} hodin.",
@@ -563,7 +563,7 @@
       "title": "Zkontrolovat biometrii"
     },
     "auth": {
-      "title": "Save Biometry",
+      "title": "Uložit biometrii",
       "error": "Přístup odepřen"
     }
   },
