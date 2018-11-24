@@ -1,107 +1,109 @@
 {
   "relativeTime": {
-    "future": "%s में",
-    "past": "%s पहले",
-    "s": "कुछ सेकंड",
-    "ss": "%d सेकंड",
-    "m": "एक मिनट",
-    "mm": "%d मिनट",
-    "h": "एक घंटा",
-    "hh": "%d घंटे",
-    "d": "एक दिन",
-    "dd": "%d दिन",
-    "M": "एक महीना",
-    "MM": "%d महीने",
-    "y": "एक साल",
-    "yy": "%d साल"
+    "future": "in %s",
+    "past": "%s ago",
+    "s": "a few seconds",
+    "ss": "%d seconds",
+    "m": "a minute",
+    "mm": "%d minutes",
+    "h": "an hour",
+    "hh": "%d hours",
+    "d": "a day",
+    "dd": "%d days",
+    "M": "a month",
+    "MM": "%d months",
+    "y": "a year",
+    "yy": "%d years"
   },
-  "success": "सफलता",
-  "warning": "चेतावनी",
-  "cancel": "रद्द करना",
-  "address": "पता",
+  "success": "Success",
+  "warning": "Warning",
+  "cancel": "Cancel",
+  "address": "Address",
   "message": "Message",
-  "ok": "ठीक",
-  "actionModalTitle": "क्या आप चाहेंगे",
-  "account": "लेखा",
-  "restore": "पुनर्स्थापित",
+  "ok": "OK",
+  "actionModalTitle": "Would you like to",
+  "account": "Account",
+  "restore": "Restore",
   "error": {
-    "default": "Woops कुछ गलत हो गया। बाद में पुनः प्रयास करें, अगर त्रुटि बनी रहती है तो नेटवर्क सेटिंग्स को अद्यतन करने का प्रयास करें।",
-    "buildingTransaction": "लेनदेन के निर्माण में त्रुटि, पुनः प्रयास करें।",
-    "gettingTransaction": "लेनदेन प्राप्त करते समय त्रुटि।",
-    "clipboardCopied": "कॉपी करते समय कुछ गड़बड़ है",
-    "hideAccount": "खाता हटाने में कुछ गड़बड़ हुई, फिर कोशिश करें '"
+    "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
+    "buildingTransaction": "Error while building transaction, try again.",
+    "gettingTransaction": "Error while getting transaction.",
+    "clipboardCopied": "Something wrong while copying",
+    "hideAccount": "Something went wrong deleting account, try again'"
   },
-  "tronPower": "ट्रॉन पावर",
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
+  "tronPower": "TRON POWER",
   "trxPrice": "TRX PRICE",
-  "confirmed": "की पुष्टि",
-  "unconfirmed": "अपुष्ट",
-  "copyAddress": "कॉपी पता",
+  "confirmed": "Confirmed",
+  "unconfirmed": "Unconfirmed",
+  "copyAddress": "COPY ADDRESS",
   "transactionType": {
-    "transfer": "स्थानांतरण",
-    "transferAsset": "संपत्ति हस्तांतरण",
-    "freeze": "फ्रीज",
-    "unfreeze": "नरम कर देना",
-    "vote": "वोट",
-    "participate": "भाग लेना",
-    "create": "सर्जन करना",
-    "undefined": "अपरिभाषित प्रकार"
+    "transfer": "Transfer",
+    "transferAsset": "Transfer Asset",
+    "freeze": "Freeze",
+    "unfreeze": "Unfreeze",
+    "vote": "Vote",
+    "participate": "Participate",
+    "create": "Create",
+    "undefined": "Undefined Type"
   },
-  "close": "बंद करे",
-  "ends": "समाप्त होता है",
-  "clear": "स्पष्ट",
-  "allIn": "सभी में",
-  "skip": "छोड़ें",
-  "privateKey": "निजी चाबी",
+  "close": "Close",
+  "ends": "Ends",
+  "clear": "Clear",
+  "allIn": "All In",
+  "skip": "Skip",
+  "privateKey": "Private Key",
   "results": "Results",
   "buy": "Buy",
   "filter": "Filter",
   "txs": "Transactions",
   "balance": {
-    "title": "हिसाब किताब",
+    "title": "ACCOUNTS",
     "error": {
-      "loadingData": "डेटा लोड करते समय एक त्रुटि हुई।",
-      "savingCurrency": "पसंदीदा मुद्रा को सहेजने में त्रुटि"
+      "loadingData": "An error occured while loading the data.",
+      "savingCurrency": "Error saving preferred currency"
     },
-    "chooseCurrency": "कृपया, अपनी पसंदीदा मुद्रा चुनें।",
-    "confirmSeed": "कृपया अपने 12 बीज शब्दों की पुष्टि करने के लिए टैप करें",
-    "bandwidth": "बैंडविड्थ",
-    "tokens": "टोकन",
-    "holdings": "होल्डिंग्स"
+    "chooseCurrency": "Please, choose your preferred currency.",
+    "confirmSeed": "Please tap to confirm your 12 seed words",
+    "bandwidth": "BANDWIDTH",
+    "tokens": "TOKENS",
+    "holdings": "HOLDINGS"
   },
-  "hideAccount": "आप इस खाते को हटाने वाले हैं। आप बाद में सेटिंग्स में इसे पुनर्स्थापित कर सकते हैं",
+  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
   "components": {
     "share": {
-      "title": "TronWallet पता साझा करें",
-      "message": "यह मेरा ट्रॉनवालेट पता है:\n\n {{address}}\n\nयुक्ति: एक बार जब आप इसे कॉपी कर लेंगे तो आप इसे स्क्रीन पर विशेष बटन का उपयोग करके अपने ट्रॉनवालेट ऐप में पेस्ट कर सकते हैं।",
-      "dialogTitle": "उपयोग करके साझा करें:"
+      "title": "Share TronWallet address",
+      "message": "This is my TronWallet address:\n\n {{address}}\n\nTip: Once you have copied it you can paste it in your TronWallet app using the special button on Send screen.",
+      "dialogTitle": "Share using:"
     },
     "QRScanner": {
-      "title": "पता स्कैनर",
-      "scan": "स्कैन",
-      "explanation": "लक्षित उपयोगकर्ता की पहचान करने के लिए क्यूआरकोड स्कैन करें",
-      "permissionMessage": "सार्वजनिक कुंजी को स्कैन करने के लिए ऐप को कैमरे तक पहुंचने के लिए आपकी अनुमति की आवश्यकता है।"
+      "title": "Address Scanner",
+      "scan": "Scan",
+      "explanation": "Scan the QRCode to identify the target user",
+      "permissionMessage": "To scan the public key the app needs your permission to access the camera."
     },
     "vote": {
-      "enterVote": "वोट मूल्य दर्ज करें",
-      "votesRemaining": "वोटिंग रिमोटिंग",
-      "setVote": "सेट वोट",
-      "moreVotes": "यदि आपको अधिक वोट चाहिए तो आप अधिक टीआरएक्स को फ्रीज कर सकते हैं।",
-      "confirmVotes": "कन्फर्म वोट",
-      "yourVotes": "आपके वोट",
-      "myVotes": "मेरी वोट",
-      "confirm": "की पुष्टि करें",
-      "freeze": "फ्रीज",
-      "totalVotes": "कुल वोट उपलब्ध हैं:",
+      "enterVote": "ENTER THE VOTE VALUE",
+      "votesRemaining": "VOTES REMAINING",
+      "setVote": "SET VOTE",
+      "moreVotes": "If you need more votes you can Freeze more TRX.",
+      "confirmVotes": "CONFIRM VOTES",
+      "yourVotes": "Your Votes",
+      "myVotes": "MY VOTES",
+      "confirm": "CONFIRM",
+      "freeze": "Freeze",
+      "totalVotes": "Total votes available:",
       "delete": "DELETE",
-      "set": "सेट",
-      "freezeOrLower": "आपके पास पर्याप्त जमे हुए टीआरएक्स नहीं है। अधिक टीआरएक्स फ्रीज करें या वोट राशि कम करें",
-      "freezeToContinue": "आपके पास पर्याप्त जमे हुए टीआरएक्स नहीं है। जारी रखने के लिए और अधिक TRX फ्रीज करें"
+      "set": "SET",
+      "freezeOrLower": "You do not have enough frozen TRX. Freeze more TRX or lower the vote amount",
+      "freezeToContinue": "You do not have enough frozen TRX. Freeze more TRX to continue"
     }
   },
   "firstTime": {
     "button": {
-      "create": "वॉलेट बनाएं",
-      "restore": "वॉलेट को पुनर्स्थापित करें",
+      "create": "CREATE WALLET",
+      "restore": "RESTORE WALLET",
       "import": "IMPORT WALLET"
     },
     "swiper": {
@@ -130,436 +132,438 @@
   "addressBook": {
     "title": "ADDRESS BOOK",
     "shared": {
-      "add": "जोड़ें",
-      "edit": "संपादित करें",
+      "add": "ADD",
+      "edit": "EDIT",
       "delete": "DELETE",
-      "send": "भेजें"
+      "send": "SEND"
     },
     "contacts": {
       "title": "CONTACTS",
       "delete": {
-        "title": "संपर्क मिटा दें",
-        "message": "क्या आप वास्तव में इस संपर्क को हटाना चाहते हैं?",
-        "cancelButton": "रद्द करना",
-        "okButton": "ठीक"
+        "title": "Delete Contact",
+        "message": "Do you really want to delete this contact?",
+        "cancelButton": "Cancel",
+        "okButton": "OK"
       },
-      "empty": "आपकी पता पुस्तिका खाली है, नीचे दिए गए बटन का उपयोग करके एक नया संपर्क जोड़ें।",
-      "loadError": "संपर्क लोड करने में एक समस्या थी। कृपया पुन: प्रयास करें।",
-      "addContact": "संपर्क जोड़ें",
-      "addToContacts": "संपर्क के खाते में जोड़ दे"
+      "empty": "Your address book is empty, add a new contact using the button below.",
+      "loadError": "There was a problem loading the contacts. Please try again.",
+      "addContact": "ADD CONTACT",
+      "addToContacts": "ADD TO CONTACTS"
     },
     "form": {
-      "generalError": "इस फॉर्म को सबमिट करने में एक समस्या थी। कृपया एक व्यवस्थापक से संपर्क करें।",
-      "nameError": "नाम फ़ील्ड को एक अक्षर से शुरू होना चाहिए, जिसमें अधिकतम 32 वर्ण हों, और यह केवल अक्षरों, संख्याओं और सफेद रिक्त स्थान स्वीकार करेगा।",
-      "addressError": "पते के साथ कुछ सही नहीं है। टाइपो के लिए कृपया दो बार जांचें।",
-      "uniqueAddressError": "कुंजी अद्वितीय होना चाहिए। कृपया एक अलग पता चुनें।",
-      "uniqueAliasError": "आपकी पता पुस्तिका में नाम अद्वितीय होना चाहिए। कृपया एक अलग चुनें।",
-      "name": "नाम",
+      "generalError": "There was a problem submitting this form. Please contact an administrator.",
+      "nameError": "The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.",
+      "addressError": "Something isn't right with the address. Please double check for typos.",
+      "uniqueAddressError": "The key must be unique. Please choose a different address.",
+      "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
+      "name": "NAME",
       "address": "ADDRESS"
     }
   },
   "importWallet": {
-    "title": "आयात वॉलेट",
-    "message": "अगर आपके पास अपने वॉलेट की निजी कुंजी और पता है तो आप इसे यहां पुनर्प्राप्त कर सकते हैं लेकिन ध्यान रखें कि TronWallet मुख्य रूप से निमोनिक्स के साथ काम करता है। यह पुनर्प्राप्ति विधि ऐप के भीतर कुछ कार्यक्षमताओं को अक्षम कर देगी।",
-    "button": "आयात",
+    "title": "IMPORT WALLET",
+    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
+    "button": "IMPORT",
     "error": {
-      "privateKey": "निजी कुंजी अमान्य या अधूरा"
+      "privateKey": "Private key invalid or incomplete"
     }
   },
   "freeze": {
-    "title": "फ्रीज",
+    "title": "FREEZE",
     "unfreeze": {
-      "title": "नरम कर देना",
-      "inThreeDays": "तीन दिन की अवधि के बाद आप अपने टीआरएक्स को अनफ्रीज़ कर सकते हैं",
-      "inXMinutes": "आप {{minutes}} मिनट में अपने टीआरएक्स को अनफ्रीज़ कर सकते हैं।",
-      "inXHours": "आप {{hours}} घंटे में अपने टीआरएक्स को अनफ्रीज़ कर सकते हैं।",
-      "inXDays": "आप अपने TRX को {{days}} दिनों में अनफ़्रीज़ कर सकते हैं।",
-      "now": "अब आप अपने टीआरएक्स को अनफ्रीज़ कर सकते हैं।"
+      "title": "UNFREEZE",
+      "inXTime": "You can unfreeze your TRX",
+      "inThreeDays": "After a three day period you can unfreeze your TRX",
+      "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
+      "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
+      "inXDays": "You can unfreeze your TRX in {{days}} days.",
+      "now": "You can unfreeze your TRX now."
     },
     "error": {
-      "minimumAmount": "किसी भी फ्रीज लेनदेन के लिए न्यूनतम राशि 1 है।",
-      "insufficientBalance": "अपर्याप्त टीआरएक्स संतुलन",
-      "roundNumbers": "केवल गोल संख्या फ्रीज कर सकते हैं"
+      "minimumAmount": "The minimum amount for any freeze transaction is 1.",
+      "insufficientBalance": "Insufficient TRX balance",
+      "roundNumbers": "Can only freeze round numbers"
     },
-    "amount": "फ्रीज AMOUNT",
-    "balance": "संतुलन"
+    "amount": "FREEZE AMOUNT",
+    "balance": "Balance"
   },
   "getVault": {
-    "notInstalled": "ऐसा लगता है कि आपके लेनदेन के साथ आगे बढ़ने के लिए आपके फोन में ट्रॉन वॉल्ट स्थापित नहीं है।",
-    "downloadHere": "आप द्वारा इसे यहां पर डाउनलोड किया जा सकता है"
+    "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
+    "downloadHere": "You can download it here"
   },
   "market": {
     "time": {
       "hour": "1H",
-      "day": "-1 डी",
+      "day": "1D",
       "week": "1W",
       "month": "1M",
-      "all": "सब"
+      "all": "ALL"
     },
-    "highest": "उच्चतम",
-    "lowest": "सबसे कम",
-    "volume": "वॉल्यूम 24 एच",
-    "cap": "बाज़ार आकार",
-    "supply": "सर्किल आपूर्ति"
+    "highest": "HIGHEST",
+    "lowest": "LOWEST",
+    "volume": "VOLUME 24H",
+    "cap": "MARKET CAP",
+    "supply": "CIRCULATING SUPPLY"
   },
   "participate": {
-    "title": "भाग लेना",
-    "featured": "प्रदर्शित",
+    "title": "PARTICIPATE",
+    "featured": "FEATURED",
     "button": {
-      "confirm": "की पुष्टि करें",
-      "moreInfo": "और जानकारी",
-      "buyNow": "अभी खरीदें"
+      "confirm": "CONFIRM",
+      "moreInfo": "MORE INFO",
+      "buyNow": "BUY NOW"
     },
     "error": {
-      "insufficientBalance": "भाग लेने के लिए पर्याप्त धन (टीआरएक्स) नहीं है।",
+      "insufficientBalance": "Not enough funds (TRX) to participate.",
       "insufficientTrx": {
-        "title": "आपको कम से कम एक टीआरएक्स मूल्य {{token}}खरीदने की जरूरत है।",
-        "message": "वर्तमान में आप केवल {{amount}}खरीद रहे हैं।"
+        "title": "You need to buy at least one TRX worth of {{token}}.",
+        "message": "Currently you are buying only {{amount}}."
       },
       "notFound": "Asset(s) not found"
     },
-    "warning": "आपके पास बहुत से {{token}}खरीदने के लिए पर्याप्त TRX नहीं है",
+    "warning": "You don't have enough TRX to buy that many {{token}}",
     "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
-    "amountToBuy": "खरीदने के लिए राशि",
-    "pricePerToken": "टोकन प्रति टोकन",
-    "tokenDescription": "टोकन विवरण",
-    "tokenInfo": "टोकन जानकारी",
-    "token": "टोकन",
-    "tokens": "टोकन",
-    "frozen": "जमे हुए",
-    "percentage": "को PERCENTAGE",
-    "issued": "जारी किया गया",
-    "totalSupply": "कुल आपूर्ति",
-    "startTime": "समय शुरू",
-    "endTime": "अंतिम समय",
-    "description": "विवरण",
-    "transaction": "लेन-देन",
-    "ownerAddress": "स्वामी का पता",
+    "amountToBuy": "AMOUNT TO BUY",
+    "pricePerToken": "PRICE PER TOKEN",
+    "tokenDescription": "TOKEN DESCRIPTION",
+    "tokenInfo": "TOKEN INFO",
+    "token": "TOKEN",
+    "tokens": "TOKENS",
+    "frozen": "FROZEN",
+    "percentage": "PERCENTAGE",
+    "issued": "ISSUED",
+    "totalSupply": "TOTAL SUPPLY",
+    "startTime": "START TIME",
+    "endTime": "END TIME",
+    "description": "DESCRIPTION",
+    "transaction": "TRANSACTION",
+    "ownerAddress": "OWNER ADDRESS",
     "trxNum": "TRX NUM",
     "num": "NUM",
-    "block": "ब्लॉक",
+    "block": "BLOCK",
     "balance": "BALANCE",
     "searchPreview": "Featured Tokens"
   },
   "pin": {
-    "title": "सुरक्षा जांच",
-    "enter": "पिन दर्ज करें",
-    "new": "नया पिन दर्ज करें",
-    "reenter": "पिन पुनः दर्ज करें",
+    "title": "SECURITY CHECK",
+    "enter": "Enter PIN",
+    "new": "Enter New PIN",
+    "reenter": "Re-Enter PIN",
     "biometrics": "Biometric Check"
   },
   "receive": {
-    "title": "प्राप्त करना",
-    "clipboardCopied": "क्लिपबोर्ड पर नकल",
+    "title": "RECEIVE",
+    "clipboardCopied": "Copied to clipboard",
     "button": {
-      "copy": "प्रतिलिपि",
-      "share": "शेयर"
+      "copy": "Copy",
+      "share": "Share"
     },
     "tabs": {
-      "share": "शेयर",
-      "request": "निवेदन"
+      "share": "SHARE",
+      "request": "REQUEST"
     }
   },
   "rewards": {
-    "title": "पुरस्कार",
-    "earned": "तुमने अर्जित किया"
+    "title": "REWARDS",
+    "earned": "You have earned"
   },
   "seed": {
     "confirm": {
-      "title": "कन्फर्म सीड",
+      "title": "CONFIRM SEED",
       "error": {
-        "title": "गलत संयोजन",
-        "message": "चयनित शब्द मेल नहीं खाते हैं। सुनिश्चित करें कि आपने सही क्रम में शब्दों को लिखा है।"
+        "title": "Wrong Combination",
+        "message": "Selected words don't match. Make sure you wrote the words in the correct order."
       },
-      "success": "वॉलेट सफलतापूर्वक पुष्टि की",
-      "explanation": "अपने गुप्त वाक्यांश की पुष्टि करने के लिए नीचे दिए गए शब्दों का सही क्रम में चयन करें।",
+      "success": "Wallet successfully confirmed",
+      "explanation": "Select the words below in the right order to confirm your secret phrase.",
       "button": {
-        "reset": "रीसेट शब्द",
-        "confirm": "कन्फर्म सीड"
+        "reset": "RESET WORDS",
+        "confirm": "CONFIRM SEED"
       }
     },
     "create": {
-      "title": "बीज बनाएं",
-      "titleConfirm": "CONFIRM वॉलेट सीड",
-      "error": "ओह, हमें एक समस्या है। कृपया एप्लिकेशन को पुनरारंभ करें।",
-      "generateNew": "यह एक पूरी तरह से नया वॉलेट उत्पन्न करेगा।",
+      "title": "CREATE SEED",
+      "titleConfirm": "CONFIRM WALLET SEED",
+      "error": "Oops, we have a problem. Please restart the application.",
+      "generateNew": "This will generate a completely new wallet.",
       "button": {
-        "written": "मैंने इसे नीचे लिखा है",
-        "newSeed": "नई सीड प्राप्त करें",
-        "later": "बाद में पुष्टि करें"
+        "written": "I'VE WRITTEN IT DOWN",
+        "newSeed": "GET NEW SEED",
+        "later": "Confirm later"
       },
       "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
       "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
-      "title": "वॉलेट को पुनर्स्थापित करें",
-      "explanation": "अपने वॉलेट को पुनर्स्थापित करने के लिए, कृपया उसी 12 शब्द प्रदान करें जिन्हें आपने कागज़ पर लिखा था जब आपने पहली बार अपना वॉलेट बनाया था। यदि आप शब्दों का एक अलग अनुक्रम दर्ज करते हैं, तो एक नया खाली वॉलेट बनाया जाएगा।",
-      "placeholder": "कृपया, यहां अपने 12 बीज शब्द टाइप करें",
-      "success": "वॉलेट सफलता के साथ बहाल!",
-      "warning": "बीज को पुनर्स्थापित करें इस डिवाइस पर सभी डेटा मिटा देंगे और पुनर्स्थापित खाते के लिए नेटवर्क से जानकारी खींचेंगे।",
-      "error": "उफ़। ऐसा लगता है कि आपके द्वारा लिखे गए शब्दों को वैध निमोनिक बीज नहीं है। एक टाइपो के लिए जाँच करें और पुनः प्रयास करें।",
-      "button": "पुनर्स्थापित"
+      "title": "RESTORE WALLET",
+      "explanation": "To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
+      "placeholder": "Please, type your 12 seed words here",
+      "success": "Wallet restored with success!",
+      "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
+      "error": "Oops. Looks like the words you typed aren't a valid mnemonic seed. Check for a typo and try again.",
+      "button": "RESTORE"
     }
   },
   "send": {
-    "title": "भेजें",
+    "title": "SEND",
     "error": {
-      "insufficientBalance": "पर्याप्त संतुलन नहीं है।",
-      "gettingBalance": "संतुलन डेटा प्राप्त करते समय त्रुटि",
-      "incompleteAddress": "पता या तो अपूर्ण या अमान्य है।",
-      "invalidReceiver": "अमान्य रिसीवर पता",
-      "selectBalance": "पहले एक संतुलन का चयन करें",
-      "invalidAmount": "अवैध राशि"
+      "insufficientBalance": "Not enough balance.",
+      "gettingBalance": "Error while getting balance data",
+      "incompleteAddress": "Address is either incomplete or invalid.",
+      "invalidReceiver": "Invalid receiver address",
+      "selectBalance": "Select a balance first",
+      "invalidAmount": "Invalid amount"
     },
     "input": {
-      "token": "टोकन",
-      "to": "सेवा मेरे",
-      "amount": "रकम",
-      "description": "विवरण (वैकल्पिक)"
+      "token": "TOKEN",
+      "to": "TO",
+      "amount": "AMOUNT",
+      "description": "DESCRIPTION (OPTIONAL)"
     },
-    "available": "उपलब्ध",
-    "chooseToken": "कृपया, नीचे एक टोकन चुनें।",
-    "minimumAmount": "किसी भी प्रेषण लेनदेन के लिए न्यूनतम राशि 0.000001 है।"
+    "available": "available",
+    "chooseToken": "Please, choose a token below.",
+    "minimumAmount": "The minimum amount for any send transaction is 0.000001."
   },
   "settings": {
-    "title": "सेटिंग्स",
+    "title": "SETTINGS",
     "sectionTitles": {
-      "wallet": "बटुआ",
-      "security": "सुरक्षा",
-      "notification": "अधिसूचनाएं और पहचान",
-      "accounts": "खाता प्रबंधन"
+      "wallet": "WALLET",
+      "security": "SECURITY",
+      "notification": "NOTIFICATIONS AND IDIOM",
+      "accounts": "ACCOUNTS MANAGEMENT"
     },
     "notifications": {
-      "title": "सूचनाएं"
+      "title": "Notifications"
     },
     "network": {
-      "title": "नेटवर्क",
+      "title": "Network",
       "modal": {
-        "title": "नेटवर्क",
-        "explanation": "इस विकल्प के साथ आप नोड का चयन कर सकते हैं जो आपकी आवश्यकताओं और प्राथमिकताओं के अनुरूप बेहतर होगा। कृपया नोड आईपी को अपडेट करते समय सावधान रहें, जबकि गलत आईपी आपके वॉलेट में खराब हो सकता है। उदाहरण: 35.231.121.122:520051",
+        "title": "NETWORK",
+        "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
         "error": {
-          "storage": "स्थानीय भंडारण से नोड आईपी प्राप्त करने में त्रुटि",
-          "invalidIp": "कृपया एक वैध आईपी डालें",
-          "update": "नोड्स आईपी अपडेट करते समय कुछ गड़बड़ हुई",
-          "reset": "नोड आईपी रीसेट करते समय कुछ गड़बड़ है"
+          "storage": "Error getting node ip from local storage",
+          "invalidIp": "Please put a valid IP",
+          "update": "Something went wrong while updating nodes ip",
+          "reset": "Something wrong while reseting node ip"
         },
         "success": {
-          "updated": "अपडेट किया गया",
-          "updatedIp": "नोड्स आईपी अद्यतन!",
-          "switchTest": "टेस्टनेट पर स्विच नोड्स आईपी",
-          "switchMain": "डिफ़ॉल्ट मुख्य पर आईपी स्विच स्विच",
-          "reset": "नोड आईपी रीसेट!"
+          "updated": "Updated",
+          "updatedIp": "Nodes IP updated!",
+          "switchTest": "Switched nodes IP to Testnet",
+          "switchMain": "Switched nodes IP to default main",
+          "reset": "Node IP reseted!"
         },
         "placeholder": {
-          "loadingIp": "आईपी ​​लोड हो रहा है",
-          "loadingPort": "माल बंदरगाह"
+          "loadingIp": "Loading IP",
+          "loadingPort": "Loading Port"
         },
         "button": {
-          "update": "अद्यतन करें और कनेक्ट करें",
-          "reset": "रीसेट"
+          "update": "Update and Connect",
+          "reset": "Reset"
         },
-        "mainNode": "मुख्य नोड",
-        "solidityNode": "सॉलिड नोड",
+        "mainNode": "Main Node",
+        "solidityNode": "Solidity Node",
         "testNet": "TestNet"
       }
     },
     "backup": {
-      "title": "बैकअप वॉलेट"
+      "title": "Backup Wallet"
     },
     "restore": {
-      "title": "वॉलेट पुनर्स्थापित करें"
+      "title": "Restore Wallet"
     },
     "reset": {
-      "title": "वॉलेट रीसेट करें",
-      "warning": "चेतावनी: यह क्रिया आपके सहेजे गए डेटा को आपके 12 गुप्त शब्दों सहित मिटा देगी। अगर आपने अपना रहस्य नहीं बचाया है, तो कृपया जारी रखने से पहले ऐसा करें।",
-      "button": "ठीक है, मैं इसे समझता हूँ"
+      "title": "Reset Wallet",
+      "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
+      "button": "OK, I understand it"
     },
     "pin": {
-      "title": "पिन बदलिए",
-      "success": "पिन सफलतापूर्वक बदल गया!"
+      "title": "Change Pin",
+      "success": "Pin successfully changed!"
     },
     "language": {
-      "title": "भाषा",
-      "choose": "कृपया नीचे दी गई भाषा चुनें:",
+      "title": "Language",
+      "choose": "Please, choose a Language below:",
       "success": {
-        "title": "भाषा बदलकर {{language}}",
-        "description": "हालांकि, आपको अभी भी ऐप को पुनरारंभ करने की आवश्यकता है ताकि परिवर्तन प्रभावी हो सकें। क्या आप इसे अभी करना चाहते हैं?"
+        "title": "Language changed to {{language}}",
+        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
       },
       "button": {
-        "confirm": "हाँ, अभी पुनरारंभ करें!",
-        "cancel": "नहीं, मैं इसे बाद में करूँगा"
+        "confirm": "Yes, restart now!",
+        "cancel": "No, I'll do it later"
       },
-      "error": "पसंदीदा भाषा को सहेजने में त्रुटि"
+      "error": "Error saving preferred language"
     },
     "token": {
-      "title": "टोकन फ़िल्टर",
-      "search": "टोकन खोजें",
-      "confirm": "बचाना",
-      "noResult": "कोई परिणाम नहीं..."
+      "title": "Token Filter",
+      "search": "Search tokens",
+      "confirm": "Save",
+      "noResult": "No results..."
     },
     "about": {
-      "title": "के बारे में",
-      "description": "ट्रॉनवालेट एक वास्तविक स्रोत है जो पूरी तरह से विकेन्द्रीकृत पी 2 पी क्रिप्टो वॉलेट है जो ट्रॉन नेटवर्क के लिए रिएक्ट नेटिव के साथ बनाया गया है। इसके साथ आप टोकन भेज और प्राप्त कर सकते हैं, एक सुपर प्रतिनिधि पर मतदान कर सकते हैं, टोकन बिक्री में भाग ले सकते हैं, अपने शेष और लेन-देन का ट्रैक रख सकते हैं और बहुत कुछ कर सकते हैं। इसका उपयोग कैसे करें इसके बारे में एक विस्तृत ट्यूटोरियल के लिए नीचे दिए गए लिंक पर टैप करें।",
-      "tutorial": "ट्यूटोरियल"
+      "title": "About",
+      "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
+      "tutorial": "TUTORIAL"
     },
     "accepts": {
-      "title": "टीआरएक्स कौन स्वीकार करता है?"
+      "title": "Who accepts TRX?"
     },
     "helpCenter": {
       "title": "Help Center"
     },
     "accounts": {
-      "title": "हिसाब किताब",
-      "search": "खाते खोजें",
-      "restoreAccounts": "खातों को पुनर्स्थापित करें",
-      "noAccounts": "बहाल करने के लिए कोई खाता नहीं है"
+      "title": "Accounts",
+      "search": "Search accounts",
+      "restoreAccounts": "Restore Accounts",
+      "noAccounts": "No accounts to restore"
     },
-    "partners": "भागीदार",
-    "askPin": "हमेशा पिन पूछें",
+    "partners": "PARTNERS",
+    "askPin": "Always ask PIN",
     "askBiometry": "Activate Biometry",
     "verifiedTokensOnly": "Verified tokens only"
   },
   "submitTransaction": {
-    "title": "लेनदेन का विवरण",
-    "notification": "आपको {{address}}से लेनदेन प्राप्त हुआ है",
-    "notificationPayment": "आपको {{address}}से भुगतान प्राप्त हुआ है",
-    "data": "डेटा",
-    "time": "पहर",
+    "title": "TRANSACTION DETAILS",
+    "notification": "You have received a transaction from {{address}}",
+    "notificationPayment": "You have received a payment from {{address}}",
+    "data": "DATA",
+    "time": "TIME",
     "button": {
-      "tryAgain": "पुनः प्रयास करें",
-      "submit": "जमा करें जमा करें"
+      "tryAgain": "Try again",
+      "submit": "SUBMIT TRANSACTION"
     },
     "error": {
-      "noData": "लेनदेन डेटा लोड नहीं कर सकते"
+      "noData": "Couldn't load transaction data"
     },
     "exchange": {
       "send": "Sending {{sendtoken}}",
       "receive": "Receiving {{receivetoken}}",
       "error": "Check your latest transactions to confirm the received amount."
     },
-    "disconnectedMessage": "ऐसा लगता है कि आप डिस्कनेक्ट हैं। लेनदेन के साथ आगे बढ़ने से पहले इंटरनेट से पुनः कनेक्ट करें।",
+    "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
     "dic": {
-      "contractType": "सौदे का प्रकार",
-      "ownerAddress": "से",
-      "toAddress": "सेवा मेरे",
-      "participateAssetIssueContract": "भाग लेना",
-      "transferAssetContract": "स्थानांतरण",
-      "transferContract": "स्थानांतरण",
-      "unfreezeBalanceContract": "नरम कर देना",
-      "freezeBalanceContract": "फ्रीज",
-      "assetIssueContract": "सर्जन करना",
-      "voteWitnessContract": "वोट",
-      "frozenDuration": "अवधि",
-      "frozenBalance": "फ्रीज करने के लिए कुल"
+      "contractType": "Transaction Type",
+      "ownerAddress": "From",
+      "toAddress": "To",
+      "participateAssetIssueContract": "Participate",
+      "transferAssetContract": "Transfer",
+      "transferContract": "Transfer",
+      "unfreezeBalanceContract": "Unfreeze",
+      "freezeBalanceContract": "Freeze",
+      "assetIssueContract": "Create",
+      "voteWitnessContract": "Vote",
+      "frozenDuration": "Duration",
+      "frozenBalance": "Total to Freeze"
     },
     "errorDic": {
-      "contractValidate": "लेनदेन डेटा मान्य नहीं है। बाद में पुन: प्रयास करें।",
-      "signature": "लेनदेन हस्ताक्षर मान्य नहीं है।",
-      "duplicate": "लेनदेन पहले से ही प्रसारित किया गया है।",
-      "contractValidateCee": "लेनदेन डेटा मान्य नहीं है (सीईई)। बाद में पुन: प्रयास करें।",
-      "bandwith": "बैंडविड्थ नहीं पहचाना बाद में पुन: प्रयास करें।",
-      "contractValidateTapos": "लेनदेन डेटा मान्य नहीं है (टीएपीओएस)। बाद में पुन: प्रयास करें।",
-      "tooBig": "जमा करने के लिए लेनदेन बहुत बड़ा है।",
-      "expiration": "लेनदेन समाप्त हो गया। कृपया पुन: प्रयास करें।",
-      "serverBusy": "व्यस्त सर्वर।",
-      "resource": "अपर्याप्त बैंडविड्थ या संतुलन। आपको कुछ जमे हुए टीआरएक्स की आवश्यकता हो सकती है।"
+      "contractValidate": "Transaction data not valid. Please try again later.",
+      "signature": "Transaction signature not valid.",
+      "duplicate": "Transaction already broadcasted.",
+      "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
+      "bandwith": "Not enought bandwidth. Please try again later.",
+      "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
+      "tooBig": "Transaction too big to be submitted.",
+      "expiration": "Transaction expired. Please try again.",
+      "serverBusy": "Server busy.",
+      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
     },
-    "totalVotes": "कुल वोट"
+    "totalVotes": "Total Votes"
   },
   "transactions": {
-    "title": "मेरे लेनदेन",
-    "from": "से",
-    "to": "सेवा मेरे",
-    "notFound": "कोई परिणाम नहीं मिले।"
+    "title": "MY TRANSACTIONS",
+    "from": "From",
+    "to": "To",
+    "notFound": "No transactions found."
   },
   "transactionDetails": {
-    "title": "लेन-देन",
+    "title": "TRANSACTION",
     "clipboard": {
-      "tronscanUrl": "क्लिपबोर्ड पर कॉपी किए गए इस लेनदेन के लिए ट्रॉन्सन यूआरएल",
-      "publicKey": "सार्वजनिक कुंजी क्लिपबोर्ड पर कॉपी की गई"
+      "tronscanUrl": "Tronscan url for this transaction copied to the clipboard",
+      "publicKey": "Public Key copied to the clipboard"
     },
     "hash": "HASH",
-    "status": "स्थिति",
-    "time": "पहर",
-    "block": "ब्लॉक",
-    "frozenBalance": "फ्रोजन संतुलन",
-    "unfrozenBalance": "अनजान संतुलन",
-    "totalVotes": "कुल वोट",
-    "amount": "रकम",
-    "to": "सेवा मेरे",
-    "from": "से",
-    "tokenName": "टोकन नाम",
-    "unityValue": "यूनिटी VALUE",
-    "totalSupply": "कुल आपूर्ति",
-    "startTime": "समय शुरू",
-    "endTime": "अंतिम समय",
-    "description": "विवरण",
-    "votedAddress": "वोट दिया गया पता"
+    "status": "STATUS",
+    "time": "TIME",
+    "block": "BLOCK",
+    "frozenBalance": "FROZEN BALANCE",
+    "unfrozenBalance": "UNFROZEN BALANCE",
+    "totalVotes": "TOTAL VOTES",
+    "amount": "AMOUNT",
+    "to": "TO",
+    "from": "FROM",
+    "tokenName": "TOKEN NAME",
+    "unityValue": "UNITY VALUE",
+    "totalSupply": "TOTAL SUPPLY",
+    "startTime": "START TIME",
+    "endTime": "END TIME",
+    "description": "DESCRIPTION",
+    "votedAddress": "VOTED ADDRESS"
   },
   "transactionSuccess": {
-    "submitted": "हस्तांतरण नेटवर्क के लिए जमा!",
-    "success": "सफलता!"
+    "submitted": "TRANSACTION SUBMITTED TO NETWORK!",
+    "success": "SUCCESS!"
   },
   "votes": {
-    "title": "वोट",
-    "totalVotes": "कुल वोट",
-    "votesAvailable": "वोट उपलब्ध हैं",
-    "search": "खोज",
-    "searchPreview": "Suggestions - Most Voted",
-    "error": "ओह, कुछ ठीक से लोड नहीं हुआ था। पुनः लोड करने का प्रयास करें",
+    "title": "VOTES",
+    "totalVotes": "TOTAL VOTES",
+    "votesAvailable": "VOTES AVAILABLE",
+    "search": "Search",
+    "searchPreview": "Suggestions - My latest votes",
+    "error": "Oops, something didn't load correctly. Try to reload",
     "notFound": "Super Representative not found"
   },
   "scanPayment": {
-    "scan": "स्कैन",
+    "scan": "SCAN",
     "error": {
-      "receiver": "रिसीवर पता अमान्य है",
-      "token": "टोकन मान्य नहीं है",
-      "amount": "राशि वैध नहीं है",
-      "description": "विवरण बहुत लंबा है",
-      "code": "भुगतान कोड अमान्य कृपया, वैध एक स्कैन करें"
+      "receiver": "Receiver address invalid",
+      "token": "Token not valid",
+      "amount": "Amount not valid",
+      "description": "Description too long",
+      "code": "Payment code invalid. Please, scan a valid one"
     }
   },
   "makePayment": {
-    "pay": "वेतन",
-    "confirm": "भुगतान की पुष्टि करें",
+    "pay": "PAY",
+    "confirm": "CONFIRM PAYMENT",
     "error": {
-      "receiver": "रिसीवर अनुरोधकर्ता के बराबर है",
-      "token": "इस खाते में इस लेनदेन के लिए टोकन नहीं है",
-      "amount": "इस खाते में पर्याप्त शेष राशि नहीं है।",
-      "description": "कोई वर्णन उपलब्ध नहीं"
+      "receiver": "Receiver is equal to requester",
+      "token": "This account doesn't have the token for this transaction",
+      "amount": "This account doesn't have enough balance.",
+      "description": "No description available"
     }
   },
   "buildPayment": {
-    "generate": "सामान्य अनुरोध",
-    "selectCurrency": "संदर्भ मुद्रा का चयन करें",
+    "generate": "GENERATE REQUEST",
+    "selectCurrency": "Select the reference currency",
     "error": {
-      "currency": "हम अन्य मुद्रा कीमतों को लोड करने में सक्षम नहीं थे। कृपया संदर्भ के रूप में TRX का उपयोग करें"
+      "currency": "We weren't able to load other currency prices. Please use TRX as reference"
     }
   },
   "requestPayment": {
-    "title": "भुगतान का अनुरोध करें"
+    "title": "REQUEST PAYMENT"
   },
   "newAccount": {
-    "title": "खाता निर्माण",
-    "placeholder": "मेरा बहुमूल्य खाता",
+    "title": "Account Creation",
+    "placeholder": "My precious account",
     "success": {
-      "title": "नया खाता सफलतापूर्वक बनाया गया",
-      "message": "आप अपनी पता पुस्तिका पर नाम संपादित कर सकते हैं"
+      "title": "New account successfully created",
+      "message": "You can edit the name on your address book"
     },
     "failure": {
-      "title": "नया खाता चेतावनी",
-      "message": "नया खाता जोड़ने के लिए आपके पास अपने अंतिम खाते पर कम से कम एक लेनदेन होना चाहिए।"
+      "title": "New account warning",
+      "message": "To add a new account you should have at least one transaction on your last account."
     }
   },
   "balanceToken": {
-    "updating": "टोकन जानकारी अद्यतन कर रहे है। कृपया कुछ सेकंड प्रतीक्षा करें।",
-    "notAvailable": "टोकनकी जानकारी उपलब्ध नहीं है"
+    "updating": "Updating token information. Please wait a few seconds.",
+    "notAvailable": "Token information not available"
   },
   "biometry": {
     "register": {
       "title": "Check your biometry"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "Access denied"
     }
   },
@@ -575,7 +579,7 @@
       "title": "TronWallet Terms of Service",
       "section1": {
         "title": "1. Terms",
-        "body": "By accessing the website at http://tronwallet.me, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law."
+        "body": "By accessing this application, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this app. The materials contained in this website are protected by applicable copyright and trademark law."
       },
       "section2": {
         "title": "2. Use License",
