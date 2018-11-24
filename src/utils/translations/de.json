@@ -438,7 +438,7 @@
     "exchange": {
       "send": "Versenden {{sendtoken}}",
       "receive": "Erhalten {{receivetoken}}",
-      "error": "Check your latest transactions to confirm the received amount."
+      "error": "Überprüfe Deine letzte Transaktion um Deinen erhaltenen Betrag zu bestätigen."
     },
     "disconnectedMessage": "Es scheint, dass Sie keine Internetverbindung haben. Verbinden Sie sich mit dem Internet bevor Sie mit der Transaktion fortfahren.",
     "dic": {
@@ -481,10 +481,10 @@
       "tronscanUrl": "Tronscan Url für diese Transaktion in die Zwischenablage kopiert",
       "publicKey": "Öffentlicher Schlüssel in die Zwischenablage kopiert"
     },
-    "hash": "HASH",
-    "status": "STATUS",
+    "hash": "Rautenzeichen",
+    "status": "Status",
     "time": "ZEIT",
-    "block": "BLOCK",
+    "block": "Block",
     "frozenBalance": "EINGEFRORENES GUTHABEN",
     "unfrozenBalance": "VERFÜGBARES GUTHABEN",
     "totalVotes": "STIMMEN INSGESAMT",
@@ -513,7 +513,7 @@
     "notFound": "Super Repräsentant nich gefunden"
   },
   "scanPayment": {
-    "scan": "SCAN",
+    "scan": "Überprüfen",
     "error": {
       "receiver": "Empfängeradresse ungültig",
       "token": "Token nicht gültig",
@@ -563,12 +563,12 @@
       "title": "Überprüfen Sie Ihren Biometrie"
     },
     "auth": {
-      "title": "Save Biometry",
+      "title": "Biometrie speichern",
       "error": "Zugriff verweigert"
     }
   },
   "privacyPolicy": {
-    "title": "PRIVACY POLICY",
+    "title": "Datenschutzrichtlinie",
     "subtitle": "You must read and accept our privacy terms to continue.",
     "error": "You need to accept of privacy terms before to continue. ",
     "acceptTerms": "I have read and agree to the terms",
