@@ -31,8 +31,8 @@
     "clipboardCopied": "Něco se pokazilo během kopírování",
     "hideAccount": "Při mazání účtu došlo k chybě, zkuste znovu'"
   },
-  "avaliable": "AVAILABLE",
-  "frozen": "FROZEN",
+  "avaliable": "K DISPOZICI",
+  "frozen": "ZMRAZENO",
   "tronPower": "TRON POWER",
   "trxPrice": "CENA TRX",
   "confirmed": "Potvrzeno",
