@@ -31,7 +31,7 @@
     "clipboardCopied": "Něco se pokazilo během kopírování",
     "hideAccount": "Při mazání účtu došlo k chybě, zkuste znovu'"
   },
-  "avaliable": "K DISPOZICI",
+  "avaliable": "DOSTUPNÉ",
   "frozen": "ZMRAZENO",
   "tronPower": "TRON POWER",
   "trxPrice": "CENA TRX",
@@ -93,7 +93,7 @@
       "myVotes": "MÉ HLASY",
       "confirm": "POTVRDIT",
       "freeze": "Zmrazit",
-      "totalVotes": "Počet hlasů k dispozici:",
+      "totalVotes": "Počet dostupných hlasů:",
       "delete": "SMAZAT",
       "set": "NASTAVIT",
       "freezeOrLower": "Nemáte dostatek zmrazených TRX. Zmrazte více TRX nebo snižte počet hlasů",
@@ -320,7 +320,7 @@
       "amount": "MNOŽSTVÍ",
       "description": "POPIS (NEPOVINNÝ)"
     },
-    "available": "k dispozici",
+    "available": "dostupné",
     "chooseToken": "Prosím, vyberte jeden z tokenů.",
     "minimumAmount": "Minimální množství pro poslání transakce je 0.000001."
   },
@@ -506,7 +506,7 @@
   "votes": {
     "title": "HLASY",
     "totalVotes": "POČET HLASŮ",
-    "votesAvailable": "VOLNÉ HLASY",
+    "votesAvailable": "DOSTUPNÉ HLASY",
     "search": "Hledat",
     "searchPreview": "Návrhy - nejčastěji hlasované",
     "error": "Ups, něco se nenačetlo správně. Zkuste znova načíst",
@@ -529,7 +529,7 @@
       "receiver": "Příjemce je stejný jako odesílatel",
       "token": "Účet nemá token pro tuto transakci",
       "amount": "Účet nemá dostatečný zůstatek.",
-      "description": "Popis není k dispozici"
+      "description": "Popis není dostupný"
     }
   },
   "buildPayment": {
@@ -556,7 +556,7 @@
   },
   "balanceToken": {
     "updating": "Aktualizace informací o tokenu. Prosím, počkejte pár vteřin.",
-    "notAvailable": "Informace o tokenu nejsou k dispozici"
+    "notAvailable": "Informace o tokenu nejsou dostupné"
   },
   "biometry": {
     "register": {
