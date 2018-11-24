@@ -19,8 +19,8 @@
   "warning": "Avvertenza",
   "cancel": "Cancellare",
   "address": "Indirizzo",
-  "message": "Message",
-  "ok": "OK",
+  "message": "Messaggio",
+  "ok": "Ok",
   "actionModalTitle": "Ti piacerebbe",
   "account": "Conto",
   "restore": "Ripristinare",
@@ -31,8 +31,8 @@
     "clipboardCopied": "Qualcosa non ha funzionato mentre usi “copia”",
     "hideAccount": "Qualcosa è andato storto durante la cancellazione dell'account, riprova."
   },
-  "avaliable": "AVAILABLE",
-  "frozen": "FROZEN",
+  "avaliable": "Disponibile",
+  "frozen": "Congelato",
   "tronPower": "LA FORZA DI TRON",
   "trxPrice": "Il prezzo TRX",
   "confirmed": "Confermato",
@@ -67,7 +67,7 @@
     "chooseCurrency": "Per favore scegli la tua valuta preferita.",
     "confirmSeed": "Per favore tocca per confermare le tue 12 parole seed",
     "bandwidth": "LARGHEZZA DI BANDA",
-    "tokens": "TOKENS",
+    "tokens": "Token",
     "holdings": "Tenuti in custodia"
   },
   "hideAccount": "Stai per rimuovere questo account. Puoi ripristinarlo più tardi nelle impostazioni",
@@ -143,7 +143,7 @@
         "title": "Elimina contatto",
         "message": "Vuoi davvero eliminare questo contatto?",
         "cancelButton": "Cancella",
-        "okButton": "OK"
+        "okButton": "Ok"
       },
       "empty": "La tua rubrica è vuota, aggiungi un nuovo contatto usando il pulsante qui sotto.",
       "loadError": "Si è verificato un problema durante il caricamento dei contatti. Per favore riprova.",
@@ -172,7 +172,7 @@
     "title": "CONGELA",
     "unfreeze": {
       "title": "SCONGELARE",
-      "inXTime": "You can unfreeze your TRX",
+      "inXTime": "Ora puoi sbloccare i tuoi TRX ",
       "inThreeDays": "Dopo un periodo di tre giorni puoi sbloccare il tuo TRX",
       "inXMinutes": "Puoi sbloccare il tuo TRX in {{minutes}} minuti.",
       "inXHours": "Puoi sbloccare il tuo TRX in {{hours}} ore.",
