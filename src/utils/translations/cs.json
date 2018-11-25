@@ -174,9 +174,9 @@
       "title": "ROZMRAZIT",
       "inXTime": "Můžete uvolnit TRX",
       "inThreeDays": "TRX můžete rozmrazit po třech dnech",
-      "inXMinutes": "TRX můžete rozmrazit za {{minutes}} minut.",
-      "inXHours": "TRX můžete rozmrazit za {{hours}} hodin.",
-      "inXDays": "TRX můžete rozmrazit za {{days}} dní.",
+      "inXMinutes": "TRX můžete rozmrazit za {{minutes}} min.",
+      "inXHours": "TRX můžete rozmrazit za {{hours}} hod.",
+      "inXDays": "TRX můžete rozmrazit za {{days}} d.",
       "now": "Nyní můžete rozmrazit TRX."
     },
     "error": {
