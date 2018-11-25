@@ -25,7 +25,7 @@ class ExchangeItem extends Component {
       const {
         firstTokenId,
         secondTokenId,
-        exchangeId,
+        // exchangeId,
         firstTokenImage,
         price } = this.props.exchangeData
 
@@ -37,7 +37,7 @@ class ExchangeItem extends Component {
           <Utils.View height={8} />
           <Utils.Row justify='space-between'>
             <Utils.Text size='xsmall' color={Colors.greyBlue}>{price.toFixed(8)}</Utils.Text>
-            {this._renderPercentageIndicator(exchangeId)}
+            {/* {this._renderPercentageIndicator(exchangeId)} */}
           </Utils.Row>
         </Utils.View>
       </ExchangeRow>

@@ -102,7 +102,7 @@ class BuyScene extends Component {
       this.setState({result: 'fail', loading: false})
       logSentry(error, 'Buying Exchange')
     } finally {
-      this.buyTimeout = setTimeout(() => this.setState({buyAmount: '', result: false}), 4000)
+      this.buyTimeout = setTimeout(() => this.setState({buyAmount: '', result: false}), 3200)
     }
   }
 
