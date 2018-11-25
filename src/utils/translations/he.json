@@ -32,7 +32,7 @@
     "hideAccount": "משהו השתבש מחיקת החשבון, נסה שוב '"
   },
   "avaliable": "זמין",
-  "frozen": "נעול",
+  "frozen": "קפוא",
   "tronPower": "כוח טרון",
   "trxPrice": "מחיר TRX",
   "confirmed": "מאושרת",
@@ -84,8 +84,8 @@
       "permissionMessage": "To scan the public key the app needs your permission to access the camera."
     },
     "vote": {
-      "enterVote": "ENTER THE VOTE VALUE",
-      "votesRemaining": "VOTES REMAINING",
+      "enterVote": "הכנס את ערך הקולות",
+      "votesRemaining": "קולות שנשארו",
       "setVote": "הגדר את הבחירות",
       "moreVotes": "אם אתה צריך עוד קולות אתה יכול לנעול עוד TRX.",
       "confirmVotes": "אשר את ההצבעות שלך",
@@ -93,7 +93,7 @@
       "myVotes": "ההצבעות שלי",
       "confirm": "אשר",
       "freeze": "נעל",
-      "totalVotes": "Total votes available:",
+      "totalVotes": "סה\"כ כל הקולות הזמינים:",
       "delete": "מחק",
       "set": "הגדר",
       "freezeOrLower": "You do not have enough frozen TRX. Freeze more TRX or lower the vote amount",
@@ -147,8 +147,8 @@
       },
       "empty": "Your address book is empty, add a new contact using the button below.",
       "loadError": "There was a problem loading the contacts. Please try again.",
-      "addContact": "ADD CONTACT",
-      "addToContacts": "ADD TO CONTACTS"
+      "addContact": "הוסף איש קשר",
+      "addToContacts": "הוסף לאנשי הקשר"
     },
     "form": {
       "generalError": "There was a problem submitting this form. Please contact an administrator.",
@@ -156,7 +156,7 @@
       "addressError": "Something isn't right with the address. Please double check for typos.",
       "uniqueAddressError": "The key must be unique. Please choose a different address.",
       "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
-      "name": "NAME",
+      "name": "שם",
       "address": "כתובת"
     }
   },
@@ -199,19 +199,19 @@
       "month": "חודש",
       "all": "הכל"
     },
-    "highest": "HIGHEST",
-    "lowest": "LOWEST",
-    "volume": "VOLUME 24H",
-    "cap": "MARKET CAP",
+    "highest": "הגבוה ביותר",
+    "lowest": "הנמוך ביותר",
+    "volume": "נפח 24 שעות",
+    "cap": "שווי השוק",
     "supply": "CIRCULATING SUPPLY"
   },
   "participate": {
-    "title": "PARTICIPATE",
-    "featured": "FEATURED",
+    "title": "השתתף",
+    "featured": "בהשתתפות",
     "button": {
-      "confirm": "CONFIRM",
-      "moreInfo": "MORE INFO",
-      "buyNow": "BUY NOW"
+      "confirm": "אשר",
+      "moreInfo": "מידע נוסף",
+      "buyNow": "קנה עכשיו"
     },
     "error": {
       "insufficientBalance": "Not enough funds (TRX) to participate.",
@@ -229,34 +229,34 @@
     "tokenInfo": "TOKEN INFO",
     "token": "טוקן",
     "tokens": "טוקנים",
-    "frozen": "FROZEN",
+    "frozen": "קפוא",
     "percentage": "PERCENTAGE",
     "issued": "ISSUED",
     "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "transaction": "TRANSACTION",
+    "startTime": "זמן התחלה",
+    "endTime": "זמן סיום",
+    "description": "תיאור",
+    "transaction": "טרנזקציה",
     "ownerAddress": "OWNER ADDRESS",
     "trxNum": "TRX NUM",
     "num": "NUM",
-    "block": "BLOCK",
+    "block": "בלוק",
     "balance": "BALANCE",
     "searchPreview": "Featured Tokens"
   },
   "pin": {
-    "title": "SECURITY CHECK",
-    "enter": "Enter PIN",
-    "new": "Enter New PIN",
-    "reenter": "Re-Enter PIN",
-    "biometrics": "Biometric Check"
+    "title": "בדיקת אבטחה",
+    "enter": "הכנס את קוד הזיהוי (PIN)",
+    "new": "הכנס קוד זיהוי (PIN) חדש",
+    "reenter": "הזן מחדש את קוד הזיהוי (PIN)",
+    "biometrics": "בדיקה ביומטרית"
   },
   "receive": {
     "title": "RECEIVE",
     "clipboardCopied": "Copied to clipboard",
     "button": {
-      "copy": "Copy",
-      "share": "Share"
+      "copy": "העתק",
+      "share": "שתף"
     },
     "tabs": {
       "share": "לַחֲלוֹק",
@@ -347,7 +347,7 @@
           "reset": "Share"
         },
         "success": {
-          "updated": "Updated",
+          "updated": "עודכן",
           "updatedIp": "Nodes IP updated!",
           "switchTest": "Switched nodes IP to Testnet",
           "switchMain": "Switched nodes IP to default main",
@@ -395,13 +395,13 @@
       "error": "אירעה שגיאה בשמירת השפה המועדפת"
     },
     "token": {
-      "title": "Token Filter",
+      "title": "סינון טוקנים",
       "search": "חפש טוקנים",
       "confirm": "שמור",
       "noResult": "לא נמצאו תוצאות..."
     },
     "about": {
-      "title": "About",
+      "title": "אודות",
       "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
       "tutorial": "TUTORIAL"
     },
@@ -485,8 +485,8 @@
     "status": "סטָטוּס",
     "time": "זְמַן",
     "block": "לַחסוֹם",
-    "frozenBalance": "מאזן קפוא",
-    "unfrozenBalance": "מאזן בלתי מאוזן",
+    "frozenBalance": "יתרה קפואה",
+    "unfrozenBalance": "יתרה ששוחררה",
     "totalVotes": "סך הכל הצבעות",
     "amount": "כמות",
     "to": "ל",
