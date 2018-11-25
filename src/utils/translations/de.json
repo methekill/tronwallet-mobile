@@ -10,7 +10,7 @@
     "hh": "%d Stunden",
     "d": "ein Tag",
     "dd": "%d Tage",
-    "M": "einen Monat",
+    "M": "ein Monat",
     "MM": "%d Monate",
     "y": "ein Jahr",
     "yy": "%d Jahre"
@@ -583,7 +583,7 @@
       },
       "section2": {
         "title": "2. Nutzungslinzenz",
-        "body": "Permission is granted to temporarily download one copy of the materials (information or software) on TronWallet's website for personal, non-commercial transitory viewing only.\nThis is the grant of a license, not a transfer of title, and under this license you may not:\nmodify or copy the materials;\nuse the materials for any commercial purpose, or for any public display (commercial or non-commercial);\nattempt to decompile or reverse engineer any software contained on TronWallet's website;\nremove any copyright or other proprietary notations from the materials;\nor transfer the materials to another person or \"mirror\" the materials on any other server.\nThis license shall automatically terminate if you violate any of these restrictions and may be terminated by TronWallet at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your possession whether in electronic or printed format.\n"
+        "body": "Eine Kopie der Materialien (Informationen oder Software) auf der Webseite von TronWallet herunterzuladen, ist für den persönlichen, nicht kommerziellen Gebrauch vorübergehend gestattet. \nEs handelt sich um die Gewährung einer Lizenz, nicht eine Übertragung des Eigentums. Sie dürfen die Materialien nicht abändern oder vervielfältigen und die Materialien nicht für kommerzielle Zwecke oder für eine öffentliche Darstellung (kommerziell oder nicht kommerziell) verwenden. Sie dürfen die auf der Website von TronWallet angebotene Software, nicht dekompilieren oder durch Reverse-Engineering zurückentwickeln, Urheberrechte oder andere geschützte Bezeichnungen von den Materialien entfernen, die Materialien auf eine andere Person übertragen oder die Materialien auf einem anderen Server \"spiegeln\". Diese Lizenz endet automatisch, wenn Sie gegen eine dieser Einschränkungen verstoßen. Die Lizenzen können durch TronWallet jederzeit gekündigt werden. Nach Nutzungsbeendigung dieser Materialien oder nach Beendigung der Lizenz müssen Sie alle heruntergeladenen Materialien in elektronischer oder gedruckter Form vernichten.\n"
       },
       "section3": {
         "title": "3. Haftungsausschluss",
