@@ -275,14 +275,14 @@
         "message": "Ausgewählte Worte stimmen nicht überein. Stellen Sie sicher, dass Sie die Wörter in der richtigen Reihenfolge geschrieben haben."
       },
       "success": "Wallet erfolgreich bestätigt",
-      "explanation": "Markieren Sie die Wörter unten in der richtigen Reihenfolge, um Ihre geheime Phrase zu bestätigen.",
+      "explanation": "Markieren Sie die Wörter unten in der richtigen Reihenfolge, um Ihre geheime Wortverbindung zu bestätigen.",
       "button": {
-        "reset": "ZURÜCKSETZEN DER WORTE",
+        "reset": "WORTE ZURÜCKSETZEN",
         "confirm": "BESTÄTIGE GEHEIME WÖRTER"
       }
     },
     "create": {
-      "title": "ERSTELLEN DER GEHEIMEN WÖRTER",
+      "title": "GEHEIME WÖRTER ERSTELLEN",
       "titleConfirm": "GEHEIME WÖRTER DER WALLET BESTÄTIGEN",
       "error": "Hoppla, wir haben ein Problem. Bitte starten Sie die Anwendung erneut.",
       "generateNew": "Dies erzeugt eine völlig neue Wallet.",
