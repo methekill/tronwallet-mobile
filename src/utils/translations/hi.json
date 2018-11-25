@@ -31,6 +31,8 @@
     "clipboardCopied": "कॉपी करते समय कुछ गड़बड़ है",
     "hideAccount": "खाता हटाने में कुछ गड़बड़ हुई, फिर कोशिश करें '"
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "ट्रॉन पावर",
   "trxPrice": "TRX PRICE",
   "confirmed": "की पुष्टि",
@@ -170,6 +172,7 @@
     "title": "फ्रीज",
     "unfreeze": {
       "title": "नरम कर देना",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "तीन दिन की अवधि के बाद आप अपने टीआरएक्स को अनफ्रीज़ कर सकते हैं",
       "inXMinutes": "आप {{minutes}} मिनट में अपने टीआरएक्स को अनफ्रीज़ कर सकते हैं।",
       "inXHours": "आप {{hours}} घंटे में अपने टीआरएक्स को अनफ्रीज़ कर सकते हैं।",
@@ -560,6 +563,7 @@
       "title": "Check your biometry"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "Access denied"
     }
   },
