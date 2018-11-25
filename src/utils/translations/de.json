@@ -145,25 +145,25 @@
         "cancelButton": "Abbrechen",
         "okButton": "Bestätigen"
       },
-      "empty": "Ihr Adressbuch ist leer, fügen Sie einen neuen Kontakt über den Button unten hinzu.",
-      "loadError": "Es gab ein Problem beim laden Ihrer Kontakte, Bitte versuchen Sie es erneut.",
+      "empty": "Ihr Adressbuch ist leer, fügen Sie einen neuen Kontakt über den Button folgenden hinzu.",
+      "loadError": "Es gab ein Problem beim Laden Ihrer Kontakte. Bitte versuchen Sie es erneut.",
       "addContact": "KONTAKT HINZUFÜGEN",
       "addToContacts": "ZU KONTAKTEN HINZUFÜGEN"
     },
     "form": {
       "generalError": "Es gab ein Problem bei der Übermittlung des Formulars. Bitte kontaktieren Sie einen Administrator.",
       "nameError": "Das Namensfeld muss mit einem Buchstaben beginnen, darf maximal 32 Zeichen enthalten und akzeptiert nur Buchstaben, Zahlen und Leerzeichen.",
-      "addressError": "Etwas stimmt nicht mit der Adresse. Bitte überprüfen Sie diese auf Tippfehler.",
+      "addressError": "Etwas stimmt nicht mit der Adresse. Bitte kontrollieren Sie diese auf Tippfehler.",
       "uniqueAddressError": "Der Schlüssel muss einzigartig sein. Bitte wählen Sie eine andere Adresse.",
-      "uniqueAliasError": "Namen in Ihrem Adressbuch müssen einzig sein. Bitte wählen Sie einen anderen aus.",
+      "uniqueAliasError": "Namen in Ihrem Adressbuch müssen einzigartig sein. Bitte wählen Sie einen anderen aus.",
       "name": "Name",
       "address": "ADRESSE"
     }
   },
   "importWallet": {
-    "title": "IMPORTIERE WALLET",
-    "message": "Wenn Sie den privaten Schlüssel und die Adresse Ihrer Wallet haben, können Sie sie hier wiederherstellen, bedenken Sie jedoch, dass TronWallet hauptsächlich mit Mnemotechniken arbeitet. Diese Wiederherstellungsmethode wird einige Funktionen innerhalb der App deaktivieren.",
-    "button": "IMPORTIERE",
+    "title": "WALLET IMPORTIEREN",
+    "message": "Wenn Sie den privaten Schlüssel und die Adresse Ihrer Wallet haben, können Sie diese hier wiederherstellen. Bedenken Sie jedoch, dass TronWallet hauptsächlich mit Mnemotechniken arbeitet. Die von Ihnen gewählte Wiederherstellungsmethode wird einige Funktionen innerhalb der App deaktivieren.",
+    "button": "IMPORTIEREN",
     "error": {
       "privateKey": "Privater Schlüssel ist ungültig oder unvollständig"
     }
