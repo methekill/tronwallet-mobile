@@ -4,7 +4,7 @@
     "past": "%s siden",
     "s": "noen få sekunder",
     "ss": "%d sekunder",
-    "m": "ett minutt",
+    "m": "et minutt",
     "mm": "%d minutter",
     "h": "en time",
     "hh": "%d timer",
@@ -419,8 +419,8 @@
     },
     "partners": "PARTNERE",
     "askPin": "Spør alltid PIN-kode",
-    "askBiometry": "Activate Biometry",
-    "verifiedTokensOnly": "Verified tokens only"
+    "askBiometry": "Aktivere Biometri",
+    "verifiedTokensOnly": "Bare bekreftet tokens"
   },
   "submitTransaction": {
     "title": "TRANSAKSJON DETALJER",
@@ -433,11 +433,11 @@
       "submit": "SEND TRANSAKSJON"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "Kunne ikke laste transaksjonsdata"
     },
     "exchange": {
-      "send": "Sending {{sendtoken}}",
-      "receive": "Receiving {{receivetoken}}",
+      "send": "Sende {{sendtoken}}",
+      "receive": "Mottar {{receivetoken}}",
       "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "Det ser ut til at du er koblet fra. Koble til Internett igjen før du fortsetter med transaksjonen.",
