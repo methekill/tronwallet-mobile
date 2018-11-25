@@ -238,8 +238,8 @@
     "description": "BESCHREIBUNG",
     "transaction": "TRANSAKTION",
     "ownerAddress": "INHABER ADRESSE",
-    "trxNum": "TRX NUM",
-    "num": "NUM",
+    "trxNum": "ANZAHL TRX",
+    "num": "ANZAHL",
     "block": "Block",
     "balance": "GUTHABEN",
     "searchPreview": "Token in Vordergrund"
