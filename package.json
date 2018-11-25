@@ -90,7 +90,8 @@
     "moduleNameMapper": {
       "styled-components": "<rootDir>/node_modules/styled-components/dist/styled-components.native.cjs.js"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/setupTest.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/setupTest.js",
+    "testEnvironment": "jsdom"
   },
   "rnpm": {
     "assets": [
