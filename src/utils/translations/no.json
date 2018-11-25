@@ -615,10 +615,10 @@
       },
       "section10": {
         "title": "10. TRON NETTVERK (ATSKILT FRA TRONWALLET)",
-        "body": "TronWallet is only a user interface to TRON and does not operate the TRON NETWORK. TronWallet is unable to control the actions of others on the TRON NETWORK. When using TRONWALLET, you are directly communicating with the TRON PUBLIC API operated by TRON Foundation. Transactions on the TRONWALLET are irreversible.\n"
+        "body": "TronWallet er bare et brukergrensesnitt til TRON og bruker ikke TRON NETWORK. TronWallet kan ikke kontrollere andre handlinger på TRON NETWORK. Når du bruker TRONWALLET, kommuniserer du direkte med TRON PUBLIC API som drives av TRON Foundation. Transaksjoner på TRONWALLET er irreversible.\n"
       },
       "section11": {
-        "title": "11. TRONWALLET DOES NOT ENDORSE ANYTHING",
+        "title": "11. TRONWALLET GJELDER IKKE ANVENDELSE",
         "body": "TRONWALLET does NOT endorse ANY asset on the TRON NETWORK. Asset \"listings\" on TRONWALLET are NOT endorsements. TRONWALLET is a software client ONLY and does NOT conduct any independent diligence or review of any asset. TRON is an open system meaning that scams and market manipulators may exist. Prices shown on TRONWALLET are for informational purposes and do not imply that they can actually be redeemed for a certain price.\n"
       },
       "section12": {
