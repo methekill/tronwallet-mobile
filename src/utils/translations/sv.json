@@ -81,7 +81,7 @@
       "title": "Adress skannare",
       "scan": "Skanna",
       "explanation": "Skanna QR koden för att identifiera målanvandaren",
-      "permissionMessage": "To scan the public key the app needs your permission to access the camera."
+      "permissionMessage": "För att kunna skanna den offentliga nyckeln måste du ge appen tillgång till kameran."
     },
     "vote": {
       "enterVote": "ENTER THE VOTE VALUE",
