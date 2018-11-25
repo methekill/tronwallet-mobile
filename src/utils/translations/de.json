@@ -28,11 +28,11 @@
     "default": "Es tut uns leid, etwas ist schief gelaufen. Bitte versuchen Sie es später noch mal. Wenn der Fehler weiterhin auftrit, versuchen Sie die Netzwerk-Einstellungen zu aktualisieren.",
     "buildingTransaction": "Fehler beim Erstellen der Transaktion, bitte versuchen Sie es erneut.",
     "gettingTransaction": "Fehler beim Abrufen der Transaktion.",
-    "clipboardCopied": "Beim Kopieren ist ein Fehler aufgetreten",
+    "clipboardCopied": "Bei dem Kopiervorgang ist ein Fehler aufgetreten",
     "hideAccount": "Beim Löschen des Kontos ist ein Fehler aufgetreten. Versuche es erneut"
   },
-  "avaliable": "Verfügbar",
-  "frozen": "Eingefroren",
+  "avaliable": "VERFÜGBAR",
+  "frozen": "EINGEFROREN",
   "tronPower": "TRON-POWER",
   "trxPrice": "TRX PREIS",
   "confirmed": "Bestätigt",
@@ -574,7 +574,7 @@
     "acceptTerms": "Ich habe die Bedingungen gelesen und akzeptiere diese.",
     "continue": "Weiter",
     "docTitle": "Datenschutzrichtlinien",
-    "introduction": "Your privacy is important to us.\nIt is TronWallet's policy to respect your privacy regarding any information we may collect from you across our website, http://tronwallet.me, and other sites we own and operate.\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent.\nWe also let you know why we're collecting it and how it will be used.\nWe only retain collected information for as long as necessary to provide you with your requested service.\nWhat data we store, we'll protect within commercially acceptable means to prevent loss and theft, as well as unauthorised access, disclosure, copying, use or modification.\nWe don't share any personally identifying information publicly or with third-parties, except when required to by law.\nOur website may link to external sites that are not operated by us.\nPlease be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.\nYou are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.\nYour continued use of our website will be regarded as acceptance of our practices around privacy and personal information.\nIf you have any questions about how we handle user data and personal information, feel free to contact us.\nThis policy is effective as of 1 July 2018.",
+    "introduction": "Der Schutz Ihrer Privatsphäre ist uns sehr wichtig.\nDer Schutz und das respektieren Ihrer Privatsphäre ist ein Grundsatz von TronWallet. Dies betrifft alle persönlichen Informationen die wir über Sie auf unserer Webseite http://tronwallet.me sowie weiteren von uns betriebenen Seiten sammeln. \nWir bitten Sie nur um persönliche Informationen, wenn wir diese benötigen um Ihnen einen gewünschten Service anzubieten. Wir sammeln Informationen fair und unter Beachtung gültiger Gesetze. \nDas Sammeln von persönlichen Informationen geschieht nicht ohne Ihre Kenntnisnahme und Ihre Zustimmung. Darüber hinaus informieren wir Sie, warum wir Informationen sammeln und für welchen Zweck wir diese verwenden. \nWir speichern Ihre Daten nur für die Zeit, in der Sie den von Ihnen gewünschten Service nutzen. \nUnter Berücksichtigung akzeptabler und wirtschaftlicher Gegebenheiten werden wir Ihr Daten vor Verlust, Diebstahl, unbefugtem Zugriff, Vervielfältigung sowie unsachgemäßer Verwendung und Veränderung schützen. \nWir werden keine personenbezogenen Daten veröffentlichen und mit Dritten teilen. Ausgenommen ist hiervon die durch gesetzliche Verpflichtungen bedingte Weitergabe.\nUnsere Webseite ist ggf. mit externen, nicht von uns betriebenen Webseiten verlinkt. \nBitte beachten Sie, dass wir keinen Einfluss auf die Inhalte und Praktiken dieser Webseiten haben. Wir übernehmen keine Verantwortung und Haftung für deren Datenschutzrichtlinien. \nEs obliegt Ihnen, die Weitergabe Ihrer persönlichen Daten zu verweigern. Einer Verweigerung kann zur Folge haben, dass wir Ihnen unter Umständen nicht den von Ihnen gewünschten Service anbieten können.\nMit der weiteren Nutzung unserer Webseite, akzeptieren Sie unsere Vorgehensweise und unsere Datenschutzrichtlinien rund um Ihre persönlichen Informationen. \nZögern Sie nicht uns zu kontaktieren, wenn Sie weitere Fragen bezüglich dem Umgang mit Daten und persönlichen Informationen haben.\nDiese Richtlinie ist ab dem 01.07.2018 gültig.",
     "termsOfService": {
       "title": "TronWallet Dienstleistungsbedingung",
       "section1": {
