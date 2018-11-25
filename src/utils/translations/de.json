@@ -90,13 +90,13 @@
       "moreVotes": "Wenn Sie mehr Stimmen benötigen, können Sie mehr TRX einfrieren.",
       "confirmVotes": "STIMMEN BESTÄTIGEN",
       "yourVotes": "Deine Stimmen",
-      "myVotes": "Meine Abstimmungen",
+      "myVotes": "Meine Stimmen",
       "confirm": "BESTÄTIGEN",
       "freeze": "Einfrieren",
       "totalVotes": "Anzahl verfügbarer Stimmen:",
       "delete": "Löschen",
       "set": "EINSTELLEN",
-      "freezeOrLower": "Sie haben nicht genug eingefrorene TRX. Frieren Sie mehr TRX ein, oder senken Sie den Stimmenbetrag",
+      "freezeOrLower": "Sie haben nicht genug eingefrorene TRX. Frieren Sie mehr TRX ein, oder reduzieren Sie die Anzahl der Stimmen",
       "freezeToContinue": "Sie haben nicht genug eingefrorene TRX. Um fortzufahren, frieren Sie mehr TRX ein"
     }
   },
@@ -117,15 +117,15 @@
       },
       "votes": {
         "title": "STIMMEN",
-        "body": "Einfrieren und stimmen Sie für Super Repräsentanten"
+        "body": "Frieren Sie ein und stimmen für Super \n Repräsentanten"
       },
       "addressbook": {
         "title": "ADRESSBUCH",
         "body": "Speichern Sie die Adressen Ihrer Freunde \n und Kontakte."
       },
       "multipleaccounts": {
-        "title": "MEHRFACHEN KONTEN",
-        "body": "Sie können mehrfachen Konten in Ihrer Wallet verwalten"
+        "title": "MEHRFACH KONTEN",
+        "body": "Sie können mehrere Konten \n in Ihrer Wallet verwalten"
       }
     }
   },
