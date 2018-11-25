@@ -181,7 +181,7 @@
     },
     "error": {
       "minimumAmount": "The minimum amount for any freeze transaction is 1.",
-      "insufficientBalance": "Insufficient TRX balance",
+      "insufficientBalance": "אין מספיק יתרת TRX",
       "roundNumbers": "Share TronWallet address"
     },
     "amount": "הסכום להקפיא",
@@ -442,7 +442,7 @@
     },
     "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
     "dic": {
-      "contractType": "Transaction Type",
+      "contractType": "סוג טרנזקציה",
       "ownerAddress": "מעת",
       "toAddress": "אל",
       "participateAssetIssueContract": "השתתף",
@@ -452,8 +452,8 @@
       "freezeBalanceContract": "נעל",
       "assetIssueContract": "צור",
       "voteWitnessContract": "בחירה",
-      "frozenDuration": "Duration",
-      "frozenBalance": "Total to Freeze"
+      "frozenDuration": "משך",
+      "frozenBalance": "סה\"כ להקפאה"
     },
     "errorDic": {
       "contractValidate": "Transaction data not valid. Please try again later.",
@@ -464,8 +464,8 @@
       "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
       "tooBig": "Transaction too big to be submitted.",
       "expiration": "Transaction expired. Please try again.",
-      "serverBusy": "Server busy.",
-      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
+      "serverBusy": "השרת עסוק.",
+      "resource": "אין מספיק רוחב פס או יתרה. ייתכן ותצטרך להקפיא TRX."
     },
     "totalVotes": "סה\"כ הצבעות"
   },
@@ -478,7 +478,7 @@
   "transactionDetails": {
     "title": "טרנזקציה",
     "clipboard": {
-      "tronscanUrl": "Tronscan url for this transaction copied to the clipboard",
+      "tronscanUrl": "כתובת Tronscan הועתקה ללוח המקשים",
       "publicKey": "מפתח ציבורי הועתק ללוח"
     },
     "hash": "בְּלִיל",
@@ -491,7 +491,7 @@
     "amount": "כמות",
     "to": "ל",
     "from": "מ",
-    "tokenName": "TOKEN NAME",
+    "tokenName": "שם הטוקן",
     "unityValue": "ערך UNITY",
     "totalSupply": "סך הכל",
     "startTime": "שעת התחלה",
