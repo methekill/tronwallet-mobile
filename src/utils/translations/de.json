@@ -615,7 +615,7 @@
       },
       "section10": {
         "title": "10. Das TRON Netzwerk (getrennt von TronWallet)",
-        "body": "TronWallet ist lediglich eine Benutzeroberfläche zu TRON und betreibt nicht das TRON NETZWERK. TronWallet ist nicht in der Lage die Aktionen von Dritten im TRON NETZWERK zu kontrollieren. Wenn Sie TronWallet verwenden, kommunizieren Sie direkt mit der von der TRON Foundation zur Verfügung gestellten TRON PUBLIC API. Getätigte Transaktionen über TronWallet sind unwiderruflich.\n"
+        "body": "TronWallet ist lediglich eine Benutzeroberfläche zu TRON und betreibt nicht das TRON NETZWERK. TronWallet ist nicht in der Lage die Aktionen von Dritten im TRON NETZWERK zu kontrollieren. Wenn Sie TRONWALLET verwenden, kommunizieren Sie direkt mit der von der TRON Foundation zur Verfügung gestellten TRON PUBLIC API. Getätigte Transaktionen über TRONWALLET sind unwiderruflich.\n"
       },
       "section11": {
         "title": "11. TronWallet befürwortet nichts",
