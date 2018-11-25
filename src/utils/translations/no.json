@@ -27,37 +27,37 @@
   "error": {
     "default": "Woops noe gikk galt. Prøv igjen senere, \nhvis feilen vedvarer, prøv å oppdatere nettverksinnstillingene.",
     "buildingTransaction": "Feil under opprettelse av transaksjon, prøv igjen.",
-    "gettingTransaction": "Error while getting transaction.",
-    "clipboardCopied": "Something wrong while copying",
+    "gettingTransaction": "Feil under henting av transaksjon.",
+    "clipboardCopied": "Noe gikk galt under kopiering",
     "hideAccount": "Noe gikk galt ved å slette konto, prøv igjen '"
   },
   "avaliable": "TILGJENGELIG",
-  "frozen": "FROZEN",
+  "frozen": "FROSSET",
   "tronPower": "TRON MAKT",
-  "trxPrice": "TRX PRICE",
+  "trxPrice": "TRX PRIS",
   "confirmed": "Bekreftet",
   "unconfirmed": "Ubekreftet",
-  "copyAddress": "COPY ADDRESS",
+  "copyAddress": "KOPIER ADRESSEN",
   "transactionType": {
     "transfer": "Overføre",
-    "transferAsset": "Transfer Asset",
-    "freeze": "Freeze",
-    "unfreeze": "Unfreeze",
-    "vote": "Vote",
-    "participate": "Participate",
+    "transferAsset": "Overføre Eiendel",
+    "freeze": "Fryse",
+    "unfreeze": "Frigi",
+    "vote": "Stemme",
+    "participate": "Delta",
     "create": "Opprette",
-    "undefined": "Undefined Type"
+    "undefined": "Udefinert Type"
   },
-  "close": "Close",
-  "ends": "Ends",
-  "clear": "Clear",
-  "allIn": "All In",
-  "skip": "Skip",
+  "close": "Lukk",
+  "ends": "Slutter",
+  "clear": "Klar",
+  "allIn": "Alt I",
+  "skip": "Hopp over",
   "privateKey": "Privat nøkkel",
-  "results": "Results",
-  "buy": "Buy",
+  "results": "Resultater",
+  "buy": "Kjøpe",
   "filter": "Filter",
-  "txs": "Transactions",
+  "txs": "Transaksjoner",
   "balance": {
     "title": "KONTOER",
     "error": {
@@ -104,33 +104,33 @@
     "button": {
       "create": "LAG LOMMEBOK",
       "restore": "GJENOPPRETT LOMMEBOK",
-      "import": "IMPORT WALLET"
+      "import": "IMPORTER LOMMEBOK"
     },
     "swiper": {
       "welcome": {
-        "title": "Welcome to \nTRONWALLET",
-        "body": "The most secure wallet for TRON"
+        "title": "Velkommen til \nTRONWALLET",
+        "body": "Den sikreste lommeboken for TRON"
       },
       "security": {
-        "title": "SECURITY",
-        "body": "Privacy and security for \n your transactions"
+        "title": "SIKKERHET",
+        "body": "Personvern og sikkerhet for\n dine transaksjoner"
       },
       "votes": {
-        "title": "VOTES",
-        "body": "Freezing and vote for Super \n Representatives"
+        "title": "STEMMER",
+        "body": "Frysing og stemme for Super \n representanter"
       },
       "addressbook": {
-        "title": "ADDRESS BOOK",
-        "body": "Save the addresses of your friends \n and contacts."
+        "title": "ADRESSEBOK",
+        "body": "Lagre adresser til dine venner og kontakter."
       },
       "multipleaccounts": {
-        "title": "MULTIPLE ACCOUNTS",
-        "body": "You can manage multiple accounts \n in your wallet"
+        "title": "FLERE KONTOER",
+        "body": "Du kan administrere flere kontoer i lommeboken din"
       }
     }
   },
   "addressBook": {
-    "title": "ADDRESS BOOK",
+    "title": "ADRESSEBOK",
     "shared": {
       "add": "LEGG TIL",
       "edit": "REDIGERE",
@@ -138,7 +138,7 @@
       "send": "SENDE"
     },
     "contacts": {
-      "title": "CONTACTS",
+      "title": "KONTAKTER",
       "delete": {
         "title": "Slett kontakt",
         "message": "Vil du virkelig slette denne kontakten?",
