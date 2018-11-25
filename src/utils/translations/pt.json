@@ -19,7 +19,7 @@
   "warning": "Aviso",
   "cancel": "Cancelar",
   "address": "Endereço",
-  "message": "Message",
+  "message": "Mensagem",
   "ok": "OK",
   "actionModalTitle": "Você gostaria de",
   "account": "Conta",
@@ -31,6 +31,8 @@
     "clipboardCopied": "Algo deu errado ao copiar",
     "hideAccount": "Algo deu errado, por favor tente novamente"
   },
+  "avaliable": "DISPONIVEL",
+  "frozen": "CONGELADO",
   "tronPower": "TRON POWER",
   "trxPrice": "PREÇO TRX",
   "confirmed": "Confirmado",
@@ -65,7 +67,7 @@
     "chooseCurrency": "Por favor, escolha a moeda de sua preferência.",
     "confirmSeed": "Por favor, toque para confirmar suas 12 palavras seed",
     "bandwidth": "BANDA",
-    "tokens": "TOKENS",
+    "tokens": "COINS",
     "holdings": "VALORES"
   },
   "hideAccount": "Esta ação irá remover esta conta, mas você pode recuperar depois no menu de configurações.",
@@ -170,7 +172,7 @@
     "title": "CONGELAR",
     "unfreeze": {
       "title": "DESCONGELAR",
-      "inXTime" : "You can unfreeze your TRX",
+      "inXTime": "Você pode descongelar seu TRX",
       "inThreeDays": "Após um período de três dias você pode descongelar seu TRX",
       "inXMinutes": "Você pode descongelar seu TRX em {{minutes}} minutos.",
       "inXHours": "Você pode descongelar seu TRX em {{hours}} horas.",
@@ -225,7 +227,7 @@
     "pricePerToken": "PREÇO",
     "tokenDescription": "DESCRIÇÃO DO TOKEN",
     "tokenInfo": "INFORMAÇÃO DO TOKEN",
-    "token": "TOKEN",
+    "token": "COIN",
     "tokens": "TOKEN",
     "frozen": "CONGELADO",
     "percentage": "PERCENTUAL",
@@ -313,7 +315,7 @@
       "invalidAmount": "Valor inválido"
     },
     "input": {
-      "token": "TOKEN",
+      "token": "COIN",
       "to": "PARA",
       "amount": "QUANTIDADE",
       "description": "DESCRIÇÃO (OPCIONAL)"
@@ -434,9 +436,9 @@
       "noData": "Não foi possível carregar os dados da transação"
     },
     "exchange": {
-      "send": "Sending {{sendtoken}}",
-      "receive": "Receiving {{receivetoken}}",
-      "error": "Check your latest transactions to confirm the received amount."
+      "send": "Enviando {{sendtoken}}",
+      "receive": "Recebendo {{receivetoken}}",
+      "error": "Verifique suas últimas transações e confirme a quantidade recebida."
     },
     "disconnectedMessage": "Parece que você está desconectado. Reconecte-se à internet antes de prosseguir com a transação.",
     "dic": {
@@ -561,16 +563,17 @@
       "title": "Verifique sua biometria"
     },
     "auth": {
+      "title": "Salvar a biometria",
       "error": "Acesso negado"
     }
   },
   "privacyPolicy": {
-    "title": "PRIVACY POLICY",
-    "subtitle": "You must read and accept our privacy terms to continue.",
-    "error": "You need to accept of privacy terms before to continue. ",
-    "acceptTerms": "I have read and agree to the terms",
-    "continue": "CONTINUE",
-    "docTitle": "Privacy Policy",
+    "title": "POLÍTICA DE PRIVACIDADE",
+    "subtitle": "Você precisa ler e aceitar nossos termos de privacidade para continuar.",
+    "error": "Você precisa aceitar termos de privacidade antes de continuar. ",
+    "acceptTerms": "Eu li e concordo com os termos",
+    "continue": "CONTINUAR",
+    "docTitle": "Política de privacidade",
     "introduction": "Your privacy is important to us.\nIt is TronWallet's policy to respect your privacy regarding any information we may collect from you across our website, http://tronwallet.me, and other sites we own and operate.\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent.\nWe also let you know why we're collecting it and how it will be used.\nWe only retain collected information for as long as necessary to provide you with your requested service.\nWhat data we store, we'll protect within commercially acceptable means to prevent loss and theft, as well as unauthorised access, disclosure, copying, use or modification.\nWe don't share any personally identifying information publicly or with third-parties, except when required to by law.\nOur website may link to external sites that are not operated by us.\nPlease be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.\nYou are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.\nYour continued use of our website will be regarded as acceptance of our practices around privacy and personal information.\nIf you have any questions about how we handle user data and personal information, feel free to contact us.\nThis policy is effective as of 1 July 2018.",
     "termsOfService": {
       "title": "TronWallet Terms of Service",

@@ -31,6 +31,8 @@
     "clipboardCopied": "Something wrong while copying",
     "hideAccount": "Iets het verkeerd geloop, rekening verwyder, probeer weer '"
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRICE",
   "confirmed": "Confirmed",
@@ -170,6 +172,7 @@
     "title": "FREEZE",
     "unfreeze": {
       "title": "UNFREEZE",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "After a three day period you can unfreeze your TRX",
       "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
       "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
@@ -560,6 +563,7 @@
       "title": "Check your biometry"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "Access denied"
     }
   },
