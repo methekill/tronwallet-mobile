@@ -21,7 +21,7 @@
   "address": "כתובת",
   "message": "הודעה",
   "ok": "אוקיי",
-  "actionModalTitle": "Would you like to",
+  "actionModalTitle": "האם תרצה",
   "account": "חֶשְׁבּוֹן",
   "restore": "לשחזר",
   "error": {
@@ -40,26 +40,26 @@
   "copyAddress": "COPY ADDRESS",
   "transactionType": {
     "transfer": "Transfer",
-    "transferAsset": "Transfer Asset",
+    "transferAsset": "העבר נכס",
     "freeze": "להקפיא",
     "unfreeze": "לשחרר",
     "vote": "בחירה",
     "participate": "השתתף",
-    "create": "Create",
-    "undefined": "Undefined Type"
+    "create": "צור",
+    "undefined": "סוג לא מוגדר"
   },
-  "close": "Close",
-  "ends": "Ends",
-  "clear": "Clear",
-  "allIn": "All In",
-  "skip": "Skip",
+  "close": "סגור",
+  "ends": "מסתיים",
+  "clear": "נקה",
+  "allIn": "כל הסכום",
+  "skip": "דלג",
   "privateKey": "מפתח פרטי",
-  "results": "Results",
-  "buy": "Buy",
-  "filter": "Filter",
-  "txs": "Transactions",
+  "results": "תוצאות",
+  "buy": "קנה",
+  "filter": "סינון",
+  "txs": "העברות",
   "balance": {
-    "title": "ACCOUNTS",
+    "title": "חשבונות",
     "error": {
       "loadingData": "An error occured while loading the data.",
       "savingCurrency": "Error saving preferred currency"
