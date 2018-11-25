@@ -86,7 +86,7 @@
     "vote": {
       "enterVote": "ENTER THE VOTE VALUE",
       "votesRemaining": "VOTES REMAINING",
-      "setVote": "SET VOTE",
+      "setVote": "הגדר את הבחירות",
       "moreVotes": "אם אתה צריך עוד קולות אתה יכול לנעול עוד TRX.",
       "confirmVotes": "אשר את ההצבעות שלך",
       "yourVotes": "ההצבעות שלך",
@@ -135,15 +135,15 @@
       "add": "הוסף",
       "edit": "עריכה",
       "delete": "מחק",
-      "send": "SEND"
+      "send": "שלח"
     },
     "contacts": {
-      "title": "CONTACTS",
+      "title": "אנשי קשר",
       "delete": {
-        "title": "Delete Contact",
-        "message": "Do you really want to delete this contact?",
-        "cancelButton": "Cancel",
-        "okButton": "OK"
+        "title": "מחק איש קשר",
+        "message": "האם אתה באמת רוצה למחוק את איש הקשר?",
+        "cancelButton": "ביטול",
+        "okButton": "אוקיי"
       },
       "empty": "Your address book is empty, add a new contact using the button below.",
       "loadError": "There was a problem loading the contacts. Please try again.",
@@ -157,7 +157,7 @@
       "uniqueAddressError": "The key must be unique. Please choose a different address.",
       "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
       "name": "NAME",
-      "address": "ADDRESS"
+      "address": "כתובת"
     }
   },
   "importWallet": {
@@ -169,10 +169,10 @@
     }
   },
   "freeze": {
-    "title": "FREEZE",
+    "title": "הקפא",
     "unfreeze": {
-      "title": "UNFREEZE",
-      "inXTime": "You can unfreeze your TRX",
+      "title": "שחרר",
+      "inXTime": "אתה יכול לשחרר את ה-TRX שלך כעת",
       "inThreeDays": "After a three day period you can unfreeze your TRX",
       "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
       "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
@@ -184,8 +184,8 @@
       "insufficientBalance": "Insufficient TRX balance",
       "roundNumbers": "Share TronWallet address"
     },
-    "amount": "FREEZE AMOUNT",
-    "balance": "Balance"
+    "amount": "הסכום להקפיא",
+    "balance": "יתרה"
   },
   "getVault": {
     "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
@@ -193,11 +193,11 @@
   },
   "market": {
     "time": {
-      "hour": "1H",
-      "day": "1D",
-      "week": "1W",
-      "month": "1M",
-      "all": "ALL"
+      "hour": "שעה",
+      "day": "יום",
+      "week": "שבוע",
+      "month": "חודש",
+      "all": "הכל"
     },
     "highest": "HIGHEST",
     "lowest": "LOWEST",
