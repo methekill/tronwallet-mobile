@@ -31,8 +31,8 @@
     "clipboardCopied": "Något fel med kopiering",
     "hideAccount": "Något gick fel med att ta bort konto, försök igen \""
   },
-  "avaliable": "AVAILABLE",
-  "frozen": "FROZEN",
+  "avaliable": "TILLGÄNGLIG",
+  "frozen": "FRUSNA",
   "tronPower": "TRON KRAFT",
   "trxPrice": "TRX PRIS",
   "confirmed": "Avklarat",
@@ -54,8 +54,8 @@
   "allIn": "Alt In",
   "skip": "Hoppa Över",
   "privateKey": "Privat nyckel",
-  "results": "Results",
-  "buy": "Buy",
+  "results": "Resultat",
+  "buy": "Köp",
   "filter": "Filter",
   "txs": "Transactions",
   "balance": {
