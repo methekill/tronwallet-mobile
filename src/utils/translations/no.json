@@ -222,7 +222,7 @@
       "notFound": "Ressurs(er) ikke funnet"
     },
     "warning": "Du har ikke nok TRX til å kjøpe så mange {{token}}",
-    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
+    "enterAmountToBuy": "SKRIV INN BELØPET SOM SKAL KJØPES",
     "amountToBuy": "BELØP Å KJØPE",
     "pricePerToken": "PRIS PER TOKEN",
     "tokenDescription": "TOKEN BESKRIVELSE",
@@ -232,7 +232,7 @@
     "frozen": "FROSSEN",
     "percentage": "PROSENTDEL",
     "issued": "UTSTEDT",
-    "totalSupply": "TOTAL SUPPLY",
+    "totalSupply": "TOTAL FORSYNING",
     "startTime": "STARTTID",
     "endTime": "SLUTTID",
     "description": "BESKRIVELSE",
@@ -241,15 +241,15 @@
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "BLOKKERE",
-    "balance": "BALANCE",
-    "searchPreview": "Featured Tokens"
+    "balance": "SALDO",
+    "searchPreview": "Utvalgte Tokens"
   },
   "pin": {
     "title": "SIKKERHETSKONTROLL",
     "enter": "Skriv inn PIN-kode",
     "new": "Skriv inn ny PIN-kode",
     "reenter": "Skriv inn PIN-kode på nytt",
-    "biometrics": "Biometric Check"
+    "biometrics": "Biometrisk Kontroll"
   },
   "receive": {
     "title": "MOTTA",
@@ -291,11 +291,11 @@
         "newSeed": "Få nytt frø",
         "later": "Bekreft senere"
       },
-      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
-      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
+      "backupMessage": "Du kan alltid få tilgang til ordene dine ved å få tilgang til sikkerhetskopien på appinnstillingene      ",
+      "seedExplanation": "Frø nøkkelen er en menneskelig lesbar representasjon av lommeboken din. Disse ordene, kan i den eksakte rekkefølgen, brukes til å gjenopprette din lommebok."
     },
     "restore": {
-      "title": "RESTORE WALLET",
+      "title": "GJENOPPRETTE LOMMEBOK",
       "explanation": "For å gjenopprette lommeboken, vennligst oppgi de samme 12 ordene du skrev på papir når du opprettet lommeboken din for første gang. Hvis du skriver inn en annen ordsekvens, vil en ny tom lommebok bli opprettet.",
       "placeholder": "Vennligst skriv inn 12 frøordene dine her",
       "success": "Wallet restaurert med suksess!",
@@ -336,7 +336,7 @@
       "title": "Varsler"
     },
     "network": {
-      "title": "Network",
+      "title": "Nettverk",
       "modal": {
         "title": "NETTVERK",
         "explanation": "Med dette alternativet kan du velge noden som bedre passer dine behov og preferanser. Vær forsiktig når du oppdaterer noden IP mens feil IP kan føre til funksjonsfeil i lommeboken din. Eksempel: 35.231.121.122:50051",
@@ -367,7 +367,7 @@
       }
     },
     "backup": {
-      "title": "Backup Wallet"
+      "title": "Backup Lommebok"
     },
     "restore": {
       "title": "Gjenopprett lommeboken"
@@ -409,7 +409,7 @@
       "title": "Hvem aksepterer TRX?"
     },
     "helpCenter": {
-      "title": "Help Center"
+      "title": "Brukerstøtte"
     },
     "accounts": {
       "title": "kontoer",
@@ -417,7 +417,7 @@
       "restoreAccounts": "Gjenopprett kontoene",
       "noAccounts": "Ingen kontoer for å gjenopprette"
     },
-    "partners": "PARTNERS",
+    "partners": "PARTNERE",
     "askPin": "Spør alltid PIN-kode",
     "askBiometry": "Activate Biometry",
     "verifiedTokensOnly": "Verified tokens only"
