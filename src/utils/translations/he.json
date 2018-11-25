@@ -81,7 +81,7 @@
       "title": "סריקת כתובת",
       "scan": "סרוק",
       "explanation": "לסרוק את קוד ה-QR כדי לזהות את המשתמש היעד",
-      "permissionMessage": "To scan the public key the app needs your permission to access the camera."
+      "permissionMessage": "כדי לסרוק את המפתח הציבורי, האפליקציה זקוקה לאישורך כדי לגשת למצלמה."
     },
     "vote": {
       "enterVote": "הכנס את ערך הקולות",
@@ -96,7 +96,7 @@
       "totalVotes": "סה\"כ כל הקולות הזמינים:",
       "delete": "מחק",
       "set": "הגדר",
-      "freezeOrLower": "You do not have enough frozen TRX. Freeze more TRX or lower the vote amount",
+      "freezeOrLower": "אין לך מספיק TRX קפוא. הקפא TRX נוסף או הפחת את סכום ההצבעה",
       "freezeToContinue": "You do not have enough frozen TRX. Freeze more TRX to continue"
     }
   },
@@ -203,7 +203,7 @@
     "lowest": "הנמוך ביותר",
     "volume": "נפח 24 שעות",
     "cap": "שווי השוק",
-    "supply": "CIRCULATING SUPPLY"
+    "supply": "מחזור ההספקה"
   },
   "participate": {
     "title": "השתתף",
@@ -214,7 +214,7 @@
       "buyNow": "קנה עכשיו"
     },
     "error": {
-      "insufficientBalance": "Not enough funds (TRX) to participate.",
+      "insufficientBalance": "אין מספיק נכסים (TRX) כדי להשתתף.",
       "insufficientTrx": {
         "title": "You need to buy at least one TRX worth of {{token}}.",
         "message": "Currently you are buying only {{amount}}."
@@ -222,27 +222,27 @@
       "notFound": "לא נמצאו הנכסים"
     },
     "warning": "You don't have enough TRX to buy that many {{token}}",
-    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
-    "amountToBuy": "AMOUNT TO BUY",
-    "pricePerToken": "PRICE PER TOKEN",
+    "enterAmountToBuy": "הזן את הכמות לקניה",
+    "amountToBuy": "הכמות לרכישה",
+    "pricePerToken": "המחיר עבור טוקן",
     "tokenDescription": "תיאור הטוקן",
-    "tokenInfo": "TOKEN INFO",
+    "tokenInfo": "מידע על הטוקן",
     "token": "טוקן",
     "tokens": "טוקנים",
     "frozen": "קפוא",
-    "percentage": "PERCENTAGE",
-    "issued": "ISSUED",
-    "totalSupply": "TOTAL SUPPLY",
+    "percentage": "אחוז",
+    "issued": "הוציא",
+    "totalSupply": "סה\"כ האספקה",
     "startTime": "זמן התחלה",
     "endTime": "זמן סיום",
     "description": "תיאור",
     "transaction": "טרנזקציה",
-    "ownerAddress": "OWNER ADDRESS",
-    "trxNum": "TRX NUM",
-    "num": "NUM",
+    "ownerAddress": "בעל הכתובת",
+    "trxNum": "מספר TRX",
+    "num": "מספר",
     "block": "בלוק",
-    "balance": "BALANCE",
-    "searchPreview": "Featured Tokens"
+    "balance": "יתרה",
+    "searchPreview": "טוקנים נבחרים"
   },
   "pin": {
     "title": "בדיקת אבטחה",
@@ -252,8 +252,8 @@
     "biometrics": "בדיקה ביומטרית"
   },
   "receive": {
-    "title": "RECEIVE",
-    "clipboardCopied": "Copied to clipboard",
+    "title": "לקבל",
+    "clipboardCopied": "הועתק ללוח המקשים",
     "button": {
       "copy": "העתק",
       "share": "שתף"
