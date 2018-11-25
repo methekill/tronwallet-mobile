@@ -182,7 +182,7 @@
     "error": {
       "minimumAmount": "Der Mindestbetrag für die Transaktion Einfrieren beträgt 1.",
       "insufficientBalance": "Unzureichendes TRX Guthaben",
-      "roundNumbers": "Sie können nur Runde Zahlen einfrieren"
+      "roundNumbers": "Sie können nur glatte Zahlen einfrieren"
     },
     "amount": "BETRAG EINFRIEREN",
     "balance": "Guthaben"
@@ -193,21 +193,21 @@
   },
   "market": {
     "time": {
-      "hour": "Eine Stunde",
-      "day": "1T",
-      "week": "Eine Woche",
-      "month": "Ein Monat",
+      "hour": "1 Std.",
+      "day": "1T.",
+      "week": "1 WO.",
+      "month": "1 MO.",
       "all": "ALLES"
     },
-    "highest": "HÖCHSTEN",
-    "lowest": "NIEDRIGSTEN",
-    "volume": "VOLUMEN 24H",
+    "highest": "HÖCHSTE",
+    "lowest": "NIEDRIGSTE",
+    "volume": "VOLUMEN 24Std.",
     "cap": "MARKTKAPITALISIERUNG",
-    "supply": "MENGE IM UMLAUF"
+    "supply": "UMLAUFMENGE"
   },
   "participate": {
     "title": "TEILNEHMEN",
-    "featured": "IM VORDERGRUND",
+    "featured": "AUSGEZEICHNET",
     "button": {
       "confirm": "BESTÄTIGEN",
       "moreInfo": "MEHR INFO",
@@ -216,19 +216,19 @@
     "error": {
       "insufficientBalance": "Nicht genügend Guthaben (TRX) verfügbar um teilzunehmen.",
       "insufficientTrx": {
-        "title": "Sie müssen mindestens einen TRX Wert {{token}} kaufen.",
+        "title": "Sie müssen mindestens im Werte von einen TRX {{token}} kaufen.",
         "message": "Derzeit kaufen Sie nur {{amount}}."
       },
-      "notFound": "Asset(s) nicht gefunden"
+      "notFound": "Vermögenswert(e) nicht gefunden"
     },
     "warning": "Sie haben nicht genügend TRX, um diese Menge {{token}} zu kaufen",
     "enterAmountToBuy": "KAUFBETRAG EINFÜGEN",
     "amountToBuy": "BETRAG ZU KAUFEN",
     "pricePerToken": "PREIS PRO TOKEN",
-    "tokenDescription": "TOKEN BESCHREIBUNG",
-    "tokenInfo": "Token Information",
-    "token": "Token",
-    "tokens": "DIE TOKEN",
+    "tokenDescription": "TOKENBESCHREIBUNG",
+    "tokenInfo": "TOKENINFORMATION",
+    "token": "TOKEN",
+    "tokens": "TOKEN",
     "frozen": "EINGEFROREN",
     "percentage": "PROZENTSATZ",
     "issued": "AUSGESTELLT",
@@ -237,12 +237,12 @@
     "endTime": "ENDZEIT",
     "description": "BESCHREIBUNG",
     "transaction": "TRANSAKTION",
-    "ownerAddress": "INHABER ADRESSE",
+    "ownerAddress": "INHABERADRESSE",
     "trxNum": "ANZAHL TRX",
     "num": "ANZAHL",
     "block": "Block",
     "balance": "GUTHABEN",
-    "searchPreview": "Token in Vordergrund"
+    "searchPreview": "Ausgezeichnete Tokens"
   },
   "pin": {
     "title": "SICHERHEITS-CHECK",
