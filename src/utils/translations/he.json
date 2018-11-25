@@ -121,11 +121,11 @@
       },
       "addressbook": {
         "title": "פנקס הכתובות",
-        "body": "Save the addresses of your friends \n and contacts."
+        "body": "שמור את הכתובות של חבריך ואנשי הקשר שלך."
       },
       "multipleaccounts": {
         "title": "חשבונות מרובים",
-        "body": "You can manage multiple accounts \n in your wallet"
+        "body": "באפשרותך לנהל חשבונות מרובים בארנק שלך"
       }
     }
   },
@@ -146,7 +146,7 @@
         "okButton": "אוקיי"
       },
       "empty": "Your address book is empty, add a new contact using the button below.",
-      "loadError": "There was a problem loading the contacts. Please try again.",
+      "loadError": "היתה בעיה בטעינת אנשי הקשר. אנא נסה שוב.",
       "addContact": "הוסף איש קשר",
       "addToContacts": "הוסף לאנשי הקשר"
     },
@@ -358,8 +358,8 @@
           "loadingPort": "Loading Port"
         },
         "button": {
-          "update": "Update and Connect",
-          "reset": "Reset"
+          "update": "עדכן ותתחבר",
+          "reset": "איפוס"
         },
         "mainNode": "Main Node",
         "solidityNode": "Solidity Node",
@@ -379,13 +379,13 @@
     },
     "pin": {
       "title": "שנה קוד",
-      "success": "Pin successfully changed!"
+      "success": "הקוד המזהה (PIN) שונה בהצלחה!"
     },
     "language": {
       "title": "שפה",
-      "choose": "Please, choose a Language below:",
+      "choose": "אנא, בחר שפה:",
       "success": {
-        "title": "Language changed to {{language}}",
+        "title": "השפה השתנתה ל- {{language}}",
         "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
       },
       "button": {
@@ -403,13 +403,13 @@
     "about": {
       "title": "אודות",
       "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
-      "tutorial": "TUTORIAL"
+      "tutorial": "מדריך"
     },
     "accepts": {
-      "title": "Who accepts TRX?"
+      "title": "מי מקבל TRX?"
     },
     "helpCenter": {
-      "title": "Help Center"
+      "title": "מרכז עזרה"
     },
     "accounts": {
       "title": "חשבונות",
@@ -417,10 +417,10 @@
       "restoreAccounts": "שחזר חשבונות",
       "noAccounts": "אין צורך לשחזר חשבונות"
     },
-    "partners": "PARTNERS",
+    "partners": "שותפים",
     "askPin": "תמיד שאל את ה- PIN",
-    "askBiometry": "Activate Biometry",
-    "verifiedTokensOnly": "Verified tokens only"
+    "askBiometry": "הפעל ביומטרי",
+    "verifiedTokensOnly": "טוקנים מאומתים בלבד"
   },
   "submitTransaction": {
     "title": "TRANSACTION DETAILS",
@@ -430,17 +430,17 @@
     "time": "זמן",
     "button": {
       "tryAgain": "נסה שוב",
-      "submit": "SUBMIT TRANSACTION"
+      "submit": "הגש טרנזקציה"
     },
     "error": {
       "noData": "Couldn't load transaction data"
     },
     "exchange": {
-      "send": "Sending {{sendtoken}}",
-      "receive": "Receiving {{receivetoken}}",
-      "error": "Check your latest transactions to confirm the received amount."
+      "send": "שולח {{sendtoken}}",
+      "receive": "קיבלת {{receivetoken}}",
+      "error": "בדוק את הטרנזקציות האחרונות שלך כדי לאשר את הסכום שהתקבל."
     },
-    "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
+    "disconnectedMessage": "נראה כי אתה מנותק. תתחבר לאינטרנט לפני שתמשיך עם הטרנזקציה.",
     "dic": {
       "contractType": "סוג טרנזקציה",
       "ownerAddress": "מעת",
@@ -456,9 +456,9 @@
       "frozenBalance": "סה\"כ להקפאה"
     },
     "errorDic": {
-      "contractValidate": "Transaction data not valid. Please try again later.",
+      "contractValidate": "תוכן הטרנזקציה אינו חוקי. אנה נסה שנית מאוחר יותר.",
       "signature": "חתימת הטרנזקציה אינה חוקית.",
-      "duplicate": "Transaction already broadcasted.",
+      "duplicate": "הטרנזקציה כבר נשלחה.",
       "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
       "bandwith": "Not enought bandwidth. Please try again later.",
       "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
@@ -627,7 +627,7 @@
       },
       "section13": {
         "title": "13. DISCLAIMER OF WARRANTY",
-        "body": "TRONWALLET is provided free of charge and on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.\n"
+        "body": "TRONWALLET הינו ללא תשלום, המוצר הינו \"כמו שהוא\", ללא אחריות או תנאים של מכל סוג.\n"
       }
     }
   }
