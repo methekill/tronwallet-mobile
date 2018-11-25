@@ -80,7 +80,7 @@
     "QRScanner": {
       "title": "Adress skannare",
       "scan": "Skanna",
-      "explanation": "Scan the QRCode to identify the target user",
+      "explanation": "Skanna QR koden för att identifiera målanvandaren",
       "permissionMessage": "To scan the public key the app needs your permission to access the camera."
     },
     "vote": {
