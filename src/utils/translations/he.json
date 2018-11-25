@@ -457,7 +457,7 @@
     },
     "errorDic": {
       "contractValidate": "Transaction data not valid. Please try again later.",
-      "signature": "Transaction signature not valid.",
+      "signature": "חתימת הטרנזקציה אינה חוקית.",
       "duplicate": "Transaction already broadcasted.",
       "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
       "bandwith": "Not enought bandwidth. Please try again later.",
