@@ -19,7 +19,7 @@
   "warning": "УВАГА",
   "cancel": "Скасувати",
   "address": "Адреса",
-  "message": "Message",
+  "message": "Повідомлення",
   "ok": "ОК",
   "actionModalTitle": "Чи хотіли б Ви",
   "account": "Обліковий запис",
@@ -31,8 +31,8 @@
     "clipboardCopied": "Щось пішло не так під час копіювання",
     "hideAccount": "Щось пішло не так під час видалення облікового запису, спробуйте знову"
   },
-  "avaliable": "AVAILABLE",
-  "frozen": "FROZEN",
+  "avaliable": "НАЯВНІ",
+  "frozen": "ЗАМОРОЖЕНІ",
   "tronPower": "TRON POWER",
   "trxPrice": "TRX ЦІНА",
   "confirmed": "Підтверджено",
@@ -55,7 +55,7 @@
   "skip": "Пропустити",
   "privateKey": "Приватний ключ",
   "results": "Результати",
-  "buy": "Buy",
+  "buy": "Купити",
   "filter": "Фільтр",
   "txs": "Транзакції",
   "balance": {
@@ -172,7 +172,7 @@
     "title": "ЗАМОРОЖУВАННЯ",
     "unfreeze": {
       "title": "РОЗМОРОЗИТИ",
-      "inXTime": "You can unfreeze your TRX",
+      "inXTime": "Ви можете розморозити ваші TRX",
       "inThreeDays": "Через три дні ви зможете розморозити свої TRX",
       "inXMinutes": "Ви можете розморозити свої TRX через {{minutes}} хвилин.",
       "inXHours": "Ви можете розморозити свої TRX через {{hours}} годин.",
@@ -222,7 +222,7 @@
       "notFound": "Активи не знайдені"
     },
     "warning": "Вам не вистачає TRX, щоб придбати так багато {{token}}",
-    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
+    "enterAmountToBuy": "ВВЕДІТЬ КІЛЬКІСТЬ",
     "amountToBuy": "СУМА ДО КУПІВЛІ",
     "pricePerToken": "ЦІНА ЗА ТОКЕН",
     "tokenDescription": "ОПИС ТОКЕНУ",
@@ -241,7 +241,7 @@
     "trxNum": "КІЛЬКІСТЬ TRX",
     "num": "КІЛЬКІСТЬ",
     "block": "БЛОК",
-    "balance": "BALANCE",
+    "balance": "БАЛАНС",
     "searchPreview": "Рекомендовані токени"
   },
   "pin": {
@@ -409,7 +409,7 @@
       "title": "Хто приймає TRX?"
     },
     "helpCenter": {
-      "title": "Help Center"
+      "title": "Довідковий центр"
     },
     "accounts": {
       "title": "Обліковий запис",
@@ -420,7 +420,7 @@
     "partners": "ПАРТНЕРИ",
     "askPin": "Завжди запитувати PIN-код",
     "askBiometry": "Активувати біометрію",
-    "verifiedTokensOnly": "Verified tokens only"
+    "verifiedTokensOnly": "Тільки перевірені токени"
   },
   "submitTransaction": {
     "title": "ДЕТАЛІ ТРАНЗАКЦІЇ",
@@ -436,8 +436,8 @@
       "noData": "Не вдалося завантажити дані транзакції"
     },
     "exchange": {
-      "send": "Sending {{sendtoken}}",
-      "receive": "Receiving {{receivetoken}}",
+      "send": "Відправлення {{sendtoken}}",
+      "receive": "Отримання {{receivetoken}}",
       "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "Здається, що ви відключені. Підключіться до Інтернету, перш ніж продовжувати транзакцію.",
