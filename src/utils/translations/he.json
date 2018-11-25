@@ -463,7 +463,7 @@
       "bandwith": "Not enought bandwidth. Please try again later.",
       "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
       "tooBig": "Transaction too big to be submitted.",
-      "expiration": "Transaction expired. Please try again.",
+      "expiration": "הטרנזקציה פגה. נא נסה שוב.",
       "serverBusy": "השרת עסוק.",
       "resource": "אין מספיק רוחב פס או יתרה. ייתכן ותצטרך להקפיא TRX."
     },
@@ -510,7 +510,7 @@
     "search": "לחפש",
     "searchPreview": "Suggestions - Most Voted",
     "error": "אופס, משהו לא נטען כהלכה. נסה לטעון מחדש",
-    "notFound": "Super Representative not found"
+    "notFound": "סופר נציג (SR) לא נמצא"
   },
   "scanPayment": {
     "scan": "לִסְרוֹק",
@@ -555,7 +555,7 @@
     }
   },
   "balanceToken": {
-    "updating": "Updating token information. Please wait a few seconds.",
+    "updating": "מעדכן את פרטי הטוקן. אנא המתן מספר שניות.",
     "notAvailable": "Token information not available"
   },
   "biometry": {
