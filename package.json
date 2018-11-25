@@ -11,8 +11,7 @@
     "lint": "standard \"src/**/*.js\"",
     "lint:fix": "prettier-standard \"src/**/*.js\"",
     "precommit": "yarn lint",
-    "postversion": "react-native-version --never-amend",
-    "postinstall": "cd node_modules/react-native/scripts/ && ./ios-install-third-party.sh && cd third-party/glog-0.3* && ../../../scripts/ios-configure-glog.sh"
+    "postversion": "react-native-version --never-amend"
   },
   "dependencies": {
     "aws-amplify": "0.4.1",
