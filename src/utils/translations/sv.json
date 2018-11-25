@@ -85,7 +85,7 @@
     },
     "vote": {
       "enterVote": "ENTER THE VOTE VALUE",
-      "votesRemaining": "VOTES REMAINING",
+      "votesRemaining": "ÅTERSTÅENDE RÖSTER",
       "setVote": "SET VOTE",
       "moreVotes": "If you need more votes you can Freeze more TRX.",
       "confirmVotes": "CONFIRM VOTES",
