@@ -2,37 +2,37 @@
   "relativeTime": {
     "future": "za %s",
     "past": "před %s",
-    "s": "pár vteřinami",
-    "ss": "%d vteřinami",
-    "m": "minutou",
-    "mm": "%d minutami",
-    "h": "hodinou",
-    "hh": "%d hodinami",
-    "d": "jedním dnem",
-    "dd": "%d dny",
-    "M": "měsícem",
-    "MM": "%d měsíci",
-    "y": "rokem",
-    "yy": "%d lety"
+    "s": "pár vteřin.",
+    "ss": "%d vteřin.",
+    "m": "min.",
+    "mm": "%d min.",
+    "h": "1 hod.",
+    "hh": "%d hod.",
+    "d": "1 d.",
+    "dd": "%d d.",
+    "M": "1 měs.",
+    "MM": "%d měs.",
+    "y": "1 r.",
+    "yy": "%d r."
   },
   "success": "Úspěch",
   "warning": "Varování",
   "cancel": "Zrušit",
   "address": "Adresa",
-  "message": "Message",
+  "message": "Zpráva",
   "ok": "OK",
-  "actionModalTitle": "Chtěl bys",
+  "actionModalTitle": "Zvolte",
   "account": "Účet",
   "restore": "Obnovit",
   "error": {
-    "default": "Ups, něco se pokazilo. Opakujte akci později. Pokud chyba přetrvává, zkuste změnit nastavení sítě.",
+    "default": "Ups, něco se pokazilo. Zkuste to znovu později. Pokud chyba přetrvává, zkuste změnit nastavení sítě.",
     "buildingTransaction": "Chyba při vytváření transakce, zkuste to znovu.",
     "gettingTransaction": "Chyba při získávání transakce.",
     "clipboardCopied": "Něco se pokazilo během kopírování",
     "hideAccount": "Při mazání účtu došlo k chybě, zkuste znovu'"
   },
-  "avaliable": "AVAILABLE",
-  "frozen": "FROZEN",
+  "avaliable": "DOSTUPNÉ",
+  "frozen": "ZMRAZENO",
   "tronPower": "TRON POWER",
   "trxPrice": "CENA TRX",
   "confirmed": "Potvrzeno",
@@ -44,7 +44,7 @@
     "freeze": "Zmražení",
     "unfreeze": "Rozmrazení",
     "vote": "Hlasování",
-    "participate": "Účast",
+    "participate": "Nákup tokenu",
     "create": "Vytvoření",
     "undefined": "Nedefinovaný typ"
   },
@@ -90,10 +90,10 @@
       "moreVotes": "Pokud potřebujete více hlasů, můžete zmrazit více TRX.",
       "confirmVotes": "POTVRDIT",
       "yourVotes": "Vaše hlasy",
-      "myVotes": "MÉ HLASY",
+      "myVotes": "MÉ HLASOVÁNÍ",
       "confirm": "POTVRDIT",
       "freeze": "Zmrazit",
-      "totalVotes": "Počet hlasů k dispozici:",
+      "totalVotes": "Počet dostupných hlasů:",
       "delete": "SMAZAT",
       "set": "NASTAVIT",
       "freezeOrLower": "Nemáte dostatek zmrazených TRX. Zmrazte více TRX nebo snižte počet hlasů",
@@ -163,7 +163,7 @@
   "importWallet": {
     "title": "IMPORTOVAT PENĚŽENKU",
     "message": "Máte-li soukromý klíč a adresu peněženky, můžete ji zde obnovit, ale pamatujte na to, že TronWallet pracuje především s mnemonikou. Tato metoda obnovení zakáže některé funkce aplikace.",
-    "button": "IMPORT",
+    "button": "IMPORTOVAT",
     "error": {
       "privateKey": "Neplatný nebo neúplný soukromý klíč"
     }
@@ -172,11 +172,11 @@
     "title": "ZMRAZIT",
     "unfreeze": {
       "title": "ROZMRAZIT",
-      "inXTime": "You can unfreeze your TRX",
+      "inXTime": "Můžete uvolnit TRX",
       "inThreeDays": "TRX můžete rozmrazit po třech dnech",
-      "inXMinutes": "TRX můžete rozmrazit za {{minutes}} minut.",
-      "inXHours": "TRX můžete rozmrazit za {{hours}} hodin.",
-      "inXDays": "TRX můžete rozmrazit za {{days}} dní.",
+      "inXMinutes": "TRX můžete rozmrazit za {{minutes}} min.",
+      "inXHours": "TRX můžete rozmrazit za {{hours}} hod.",
+      "inXDays": "TRX můžete rozmrazit za {{days}} d.",
       "now": "Nyní můžete rozmrazit TRX."
     },
     "error": {
@@ -206,7 +206,7 @@
     "supply": "MNOŽSTVÍ V OBĚHU"
   },
   "participate": {
-    "title": "ÚČAST",
+    "title": "NÁKUP TOKENŮ",
     "featured": "DOPORUČENÝ",
     "button": {
       "confirm": "POTVRDIT",
@@ -214,7 +214,7 @@
       "buyNow": "KOUPIT"
     },
     "error": {
-      "insufficientBalance": "Není k dispozici dostatek finančních prostředků (TRX) k účasti.",
+      "insufficientBalance": "Nedostatek prostředků (TRX) k nákupu.",
       "insufficientTrx": {
         "title": "Musíte si koupit alespoň jeden TRX v hodnotě {{token}}.",
         "message": "Momentálně kupujete pouze {{amount}}."
@@ -222,7 +222,7 @@
       "notFound": "Aktiva nenalezena"
     },
     "warning": "Nemáte dostatek TRX ke koupi tolika {{token}}",
-    "enterAmountToBuy": "ZADEJTE MNOŽSTVÍ K NÁKUPU",
+    "enterAmountToBuy": "ZADEJTE MNOŽSTVÍ",
     "amountToBuy": "KOUPIT MNOŽSTVÍ",
     "pricePerToken": "CENA ZA TOKEN",
     "tokenDescription": "POPIS TOKENU",
@@ -231,8 +231,8 @@
     "tokens": "TOKENY",
     "frozen": "ZMRAZENO",
     "percentage": "PROCENTNÍ PODÍL",
-    "issued": "VYDÁNO",
-    "totalSupply": "CELKOVĚ V OBĚHU",
+    "issued": "MINCÍ V OBĚHU",
+    "totalSupply": "CELKOVÝ POČET MINCÍ",
     "startTime": "ČAS ZAHÁJENÍ",
     "endTime": "ČAS UKONČENÍ",
     "description": "POPIS",
@@ -320,7 +320,7 @@
       "amount": "MNOŽSTVÍ",
       "description": "POPIS (NEPOVINNÝ)"
     },
-    "available": "k dispozici",
+    "available": "dostupné",
     "chooseToken": "Prosím, vyberte jeden z tokenů.",
     "minimumAmount": "Minimální množství pro poslání transakce je 0.000001."
   },
@@ -402,8 +402,8 @@
     },
     "about": {
       "title": "O nás",
-      "description": "TronWallet je plně decentralizovaná open source P2P Crypto Wallet pro TRON Network postavená na React Native. Můžete s ní posílat a přijímat tokeny, hlasovat pro Super Representative, účastnit se prodeje tokenů, mít přehled o vašich zůstatcích, transakcích a mnoho dalšího. Klikněte na odkaz níže pro detailní návod, jak aplikaci používat.",
-      "tutorial": "TUTORIAL"
+      "description": "TronWallet je plně decentralizovaná open source P2P Crypto Wallet pro TRON Network postavená na React Native. Můžete s ní posílat a přijímat tokeny, hlasovat pro Super Representative, nakupovat tokeny, mít přehled o vašich zůstatcích, transakcích a mnoho dalšího. Klikněte na odkaz níže pro detailní návod, jak aplikaci používat.",
+      "tutorial": "TUTORIÁL"
     },
     "accepts": {
       "title": "Kdo přijímá TRX?"
@@ -436,16 +436,16 @@
       "noData": "Nelze načíst data transakce"
     },
     "exchange": {
-      "send": "Sending {{sendtoken}}",
-      "receive": "Receiving {{receivetoken}}",
-      "error": "Check your latest transactions to confirm the received amount."
+      "send": "Odesílání {{sendtoken}}",
+      "receive": "Příjem {{receivetoken}}",
+      "error": "Podívejte se na nejnovější transakce k potvrzení přijatého množství."
     },
     "disconnectedMessage": "Zdá se, že jste odpojeni. Připojte se k internetu, pak bude možné v transakci pokračovat.",
     "dic": {
       "contractType": "Typ transakce",
       "ownerAddress": "Odesílatel",
       "toAddress": "Příjemce",
-      "participateAssetIssueContract": "Účast",
+      "participateAssetIssueContract": "Nákup tokenu",
       "transferAssetContract": "Převod",
       "transferContract": "Převod",
       "unfreezeBalanceContract": "Rozmrazit",
@@ -487,7 +487,7 @@
     "block": "BLOK",
     "frozenBalance": "ZMRAZENÝ ZŮSTATEK",
     "unfrozenBalance": "NEZMRAZENÝ ZŮSTATEK",
-    "totalVotes": "POČET HLASOVÁNÍ",
+    "totalVotes": "POČET HLASŮ",
     "amount": "MNOŽSTVÍ",
     "to": "PŘÍJEMCE",
     "from": "ODESÍLATEL",
@@ -497,18 +497,18 @@
     "startTime": "ČAS ZAHÁJENÍ",
     "endTime": "ČAS UKONČENÍ",
     "description": "POPIS",
-    "votedAddress": "VOLENÁ ADRESA"
+    "votedAddress": "HLASOVANÁ ADRESA"
   },
   "transactionSuccess": {
-    "submitted": "TRANSAKCE ODESLÁNA DO SÍTĚ!",
+    "submitted": "TRANSAKCE ODESLÁNA!",
     "success": "ÚSPĚCH!"
   },
   "votes": {
     "title": "HLASY",
     "totalVotes": "POČET HLASŮ",
-    "votesAvailable": "VOLNÉ HLASY",
+    "votesAvailable": "DOSTUPNÉ HLASY",
     "search": "Hledat",
-    "searchPreview": "Návrhy - nejčastěji hlasované",
+    "searchPreview": "Návrhy - mé poslední hlasování",
     "error": "Ups, něco se nenačetlo správně. Zkuste znova načíst",
     "notFound": "Super Representative nenalezen"
   },
@@ -529,7 +529,7 @@
       "receiver": "Příjemce je stejný jako odesílatel",
       "token": "Účet nemá token pro tuto transakci",
       "amount": "Účet nemá dostatečný zůstatek.",
-      "description": "Popis není k dispozici"
+      "description": "Popis není dostupný"
     }
   },
   "buildPayment": {
@@ -556,14 +556,14 @@
   },
   "balanceToken": {
     "updating": "Aktualizace informací o tokenu. Prosím, počkejte pár vteřin.",
-    "notAvailable": "Informace o tokenu nejsou k dispozici"
+    "notAvailable": "Informace není dostupná"
   },
   "biometry": {
     "register": {
       "title": "Zkontrolovat biometrii"
     },
     "auth": {
-      "title": "Save Biometry",
+      "title": "Uložit biometrii",
       "error": "Přístup odepřen"
     }
   },
@@ -587,47 +587,47 @@
       },
       "section3": {
         "title": "3. Zřeknutí se odpovědnosti",
-        "body": "The materials on TronWallet's website are provided on an 'as is' basis. TronWallet makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.\nFurther, TronWallet does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its website or otherwise relating to such materials or on any sites linked to this site.n"
+        "body": "Materiály na internetových stránkách společnosti TronWallet jsou poskytovány na základě \"ve stavu v jakém jsou\". Společnost TronWallet neposkytuje žádnou záruku, vyjádřenou nebo předpokládanou, a tímto se zříká a popírá všechny ostatní záruky, včetně, bez omezení, předpokládaných záruk nebo podmínek prodejnosti, vhodnosti pro určitý účel nebo neporušení práv duševního vlastnictví nebo jiného porušování práv.\nTronWallet dále nezaručuje ani neposkytuje žádné prohlášení ohledně přesnosti, pravděpodobných výsledků nebo spolehlivosti používání materiálů na svých internetových stránkách nebo jinak souvisejících s těmito materiály nebo na jakýchkoli stránkách propojených s touto stránkou.n"
       },
       "section4": {
         "title": "4. Omezení",
-        "body": "In no event shall TronWallet or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on TronWallet's website, even if TronWallet or a TronWallet authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.\n"
+        "body": "Společnost TronWallet nebo její dodavatelé nebudou v žádném případě zodpovědni za jakékoli škody (včetně, mimo jiné, škody za ztrátu dat nebo zisku nebo v důsledku přerušení podnikání) vyplývající z použití nebo neschopnosti používat materiály na webových stránkách společnosti TronWallet, a to i v případě, že společnost TronWallet nebo autorizovaný zástupce společnosti TronWallet byla o takovém poškození informována ústně nebo písemně. Vzhledem k tomu, že některé jurisdikce nepovolují omezení předpokládaných záruk nebo omezení odpovědnosti za následné nebo náhodné škody, nemusí se na vás tato omezení vztahovat.\n"
       },
       "section5": {
         "title": "5. Správnost obsahu",
-        "body": "The materials appearing on TronWallet's website could include technical, typographical, or photographic errors. TronWallet does not warrant that any of the materials on its website are accurate, complete or current. TronWallet may make changes to the materials contained on its website at any time without notice. However TronWallet does not make any commitment to update the materials.\n"
+        "body": "Materiály uvedené na webových stránkách TronWallet mohou obsahovat technické, typografické či fotografické chyby. TronWallet nezaručuje, že jsou materiály přesné, úplné nebo aktuální. TronWallet může v materiálech provádět změny kdykoli bez předchozího upozornění. TronWallet nevzniká žádný závazek k aktualizaci materiálů.\n"
       },
       "section6": {
         "title": "6. Odkazy",
-        "body": "TronWallet has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by TronWallet of the site. Use of any such linked website is at the user's own risk.\n"
+        "body": "TronWallet nepřezkoumává všechny stránky prolinkované s jeho internetovými stránkami a nenese odpovědnost za obsah takových odkazovaných stránek. Zahrnutí jakéhokoli odkazu neznamená, že společnost TronWallet souhlasí s obsahem webu. Navštívení prolinkovaných webových stránek je na vlastní nebezpečí uživatele.\n"
       },
       "section7": {
         "title": "7. Změny",
-        "body": "TronWallet may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service.\n"
+        "body": "V zájmu zajištění přesnosti informací může TronWallet kdykoli změnit podmínky užívání těchto webových stránek. Používáním této stránky automaticky souhlasíte s tím, že jste vázáni k aktuální verzi podmínek užívání.\n"
       },
       "section8": {
         "title": "8. Řídící právo",
-        "body": "These terms and conditions are governed by and construed in accordance with the laws of Vancouver, Canada and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.\n"
+        "body": "Tyto smluvní podmínky se řídí a vykládají v souladu s právními předpisy Vancouveru v Kanadě a vy neodvolatelně podstupujete výlučnou příslušnost soudů v tomto státě nebo místě.\n"
       },
       "section9": {
         "title": "9. RIZIKA KRYPTOMĚN",
-        "body": "Cryptocurrency assets are subject to high market risks and volatility. Past performance is not indicative of future results. Investments in blockchain assets may result in loss of part or all of your investment. Please do your own research and use caution. You are solely responsible for your actions on the TRONWALLET. TRONWALLET Team is not responsible for your investment losses.\n"
+        "body": "Kryptoměny podléhají vysokému tržnímu riziku a volatilitě. Výkonnost v minulosti nenaznačuje budoucí výsledky. Investice do blockchainu může vést k částečné nebo celkové ztrátě vaší investice. Nezapomínejte si před investováním udělat vždy vlastní průzkum a ne slepě následovat radu někoho jiného. Za veškeré operace provedené v TRONWALLET jste zodpovědní pouze vy. TRONWALLET tým nenese žádnou zodpovědnost za ztrátu vašich investic.\n"
       },
       "section10": {
-        "title": "10. THE TRON NETWORK (SEPARATE FROM TRONWALLET)",
-        "body": "TronWallet is only a user interface to TRON and does not operate the TRON NETWORK. TronWallet is unable to control the actions of others on the TRON NETWORK. When using TRONWALLET, you are directly communicating with the TRON PUBLIC API operated by TRON Foundation. Transactions on the TRONWALLET are irreversible.\n"
+        "title": "10. THE TRON NETWORK (ODDĚLENĚ OD TRONWALLET)",
+        "body": "TronWallet je pouze uživatelské prostředí pro TRON a neřídí samotnou TRON NETWORK. TronWallet neumí ovládat akce jiných uživatelů TRON NETWORK. Používáním TRONWALLET komunikujete skrze TRON PUBLIC API provozované společností TRON Foundation. Transakce provedené v TRONWALLET jsou nevratné.\n"
       },
       "section11": {
         "title": "11. TRONWALLET NIC NESCHVALUJE",
-        "body": "TRONWALLET does NOT endorse ANY asset on the TRON NETWORK. Asset \"listings\" on TRONWALLET are NOT endorsements. TRONWALLET is a software client ONLY and does NOT conduct any independent diligence or review of any asset. TRON is an open system meaning that scams and market manipulators may exist. Prices shown on TRONWALLET are for informational purposes and do not imply that they can actually be redeemed for a certain price.\n"
+        "body": "TRONWALLET neschvaluje JAKÉKOLIV aktivum na TRON NETWORK. Zalistovaná aktiva v TRONWALLET NEJSOU schválena. TRONWALLET je POUZE softwarový klient a NEZPROSTŘEDKOVÁVÁ žádnou nezávislost nebo revizi jakéhokoli majetku. TRON je otevřený systém, což znamená, že se mohou objevit podvody a manipulátoři trhu. Ceny zobrazené v TRONWALLET slouží pouze k informativnímu účelu a neznamená to, že mohou být skutečně umořeny za tuto cenu.\n"
       },
       "section12": {
         "title": "12. VAŠE ZODPOVĚDNOST",
-        "body": "You, the user, are solely responsible for ensuring your own compliance with laws and taxes in your jurisdiction. Cryptocurrencies may be illegal in your area. You, are solely responsible for your own security including keeping your account secret keys safe and backed up.\n"
+        "body": "Vy, uživatel, jste sám zodpovědný za dodržování zákonů a zdanění ve vaší jurisdikci. Kryptoměny mohou být ve vaší zemi nelegální. Vy sám jste zodpovědný za svou bezpečnost, včetně zálohy a uchovávání vašich privátních klíčů.\n"
       },
       "section13": {
         "title": "13. ODMÍNTUTÍ ZÁRUKY",
-        "body": "TRONWALLET is provided free of charge and on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.\n"
+        "body": "TRONWALLET je dostupný k volnému užití VE STAVU V JAKÉM JE, BEZ ZÁRUK NEBO PODMÍNEK JAKÉHOKOLI CHARAKTERU.\n"
       }
     }
   }
