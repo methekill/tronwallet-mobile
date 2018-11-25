@@ -29,7 +29,7 @@
     "buildingTransaction": "Fehler beim Erstellen der Transaktion, bitte versuchen Sie es erneut.",
     "gettingTransaction": "Fehler beim Abrufen der Transaktion.",
     "clipboardCopied": "Bei dem Kopiervorgang ist ein Fehler aufgetreten",
-    "hideAccount": "Beim Löschen des Kontos ist ein Fehler aufgetreten. Versuche es erneut"
+    "hideAccount": "Beim Löschen des Kontos ist ein Fehler aufgetreten. Versuchen Sie es erneut"
   },
   "avaliable": "VERFÜGBAR",
   "frozen": "EINGEFROREN",
@@ -40,7 +40,7 @@
   "copyAddress": "ADRESSE KOPIEREN",
   "transactionType": {
     "transfer": "Übertragung",
-    "transferAsset": "Asset-Übertragen",
+    "transferAsset": "Vermögenswert übertragen",
     "freeze": "Einfrieren",
     "unfreeze": "Auftauen",
     "vote": "Abstimmen",
@@ -66,29 +66,29 @@
     },
     "chooseCurrency": "Bitte wählen Sie Ihre bevorzugte Währung.",
     "confirmSeed": "Bitte tippen Sie, um Ihre 12 geheimen Wörter zu bestätigen",
-    "bandwidth": "Bandbreite",
+    "bandwidth": "BANDBREITE",
     "tokens": "TOKEN",
-    "holdings": "AUFBEWAHREN"
+    "holdings": "BESTÄNDE"
   },
   "hideAccount": "Sie sind dabei, dieses Konto zu entfernen. Sie können es später in den Einstellungen wiederherstellen",
   "components": {
     "share": {
       "title": "TronWallet Adresse teilen",
-      "message": "Dies ist meine TronWallet Adresse:\n\n {{address}}\n\nTipp: Sobald Sie diese kopiert haben, können Sie sie in Ihrer TronWallet-app, über die spezielle Taste einfügen.",
+      "message": "Dies ist meine TronWallet Adresse:\n\n {{address}}\n\nTipp: Nachdem Sie diese kopiert haben, können Sie diese in Ihrer TronWallet-App, über die Spezial-Taste einfügen.",
       "dialogTitle": "Teilen Sie mit:"
     },
     "QRScanner": {
       "title": "Adressen-Scanner",
       "scan": "Scannen",
-      "explanation": "Scannen Sie den QRCode um den Empfänger zu verifizieren",
+      "explanation": "Scannen Sie den QRCode um den Empfänger zu identifizieren",
       "permissionMessage": "Um den öffentlichen Schlüssel zu scannen benötigt die App Ihre Berechtigung um auf die Kamera zugreifen zu können."
     },
     "vote": {
-      "enterVote": "ABSTIMMUNGWERT EINGEBEN",
+      "enterVote": "STIMMENANZAHL EINGEBEN",
       "votesRemaining": "VERFÜGBARE STIMMEN",
-      "setVote": "STiMMEN EINSTELLEN",
+      "setVote": "STIMMEN ABGEBEN",
       "moreVotes": "Wenn Sie mehr Stimmen benötigen, können Sie mehr TRX einfrieren.",
-      "confirmVotes": "ABSTIMMUNGEN BESTÄTIGEN",
+      "confirmVotes": "STIMMEN BESTÄTIGEN",
       "yourVotes": "Deine Stimmen",
       "myVotes": "Meine Abstimmungen",
       "confirm": "BESTÄTIGEN",
