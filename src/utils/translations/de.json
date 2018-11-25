@@ -339,7 +339,7 @@
       "title": "Netzwerk",
       "modal": {
         "title": "NETZWERK",
-        "explanation": "Mit dieser Option können Sie einen Knoten auswählen, der Ihren Bedürfnissen und Vorlieben besser gerecht wird. Bitte seien Sie vorsichtig beim Aktualisieren der Knoten IP-Adresse. Falsche IP-Adressen können zu Fehlfunktionen innerhalb Ihrer Wallet führen. Beispiel: 35.231.121.122:50051",
+        "explanation": "Mit dieser Option können Sie einen Knoten auswählen, der Ihren Bedürfnissen und Vorlieben besser gerecht wird. Bitte seien Sie vorsichtig beim Aktualisieren der Knoten IP. Falsche IP-Adressen können zu Fehlfunktionen innerhalb Ihrer Wallet führen. Beispiel: 35.231.121.122:50051",
         "error": {
           "storage": "Fehler beim Abrufen der Knoten IP aus dem lokalen Speicher",
           "invalidIp": "Bitte geben Sie eine gültige IP-Adresse an",
@@ -351,7 +351,7 @@
           "updatedIp": "Knoten IP Aderesse aktualisiert!",
           "switchTest": "Knoten IP Adresse auf Testnet umgeschalten",
           "switchMain": "Knoten IP Adresse auf Mainnet umgeschalten",
-          "reset": "Knoten IP Adresse aktualisiert!"
+          "reset": "Knoten IP Adresse zurückgesetzt!"
         },
         "placeholder": {
           "loadingIp": "IP Adresse laden",
@@ -362,20 +362,20 @@
           "reset": "Zurücksetzen"
         },
         "mainNode": "Hauptknoten",
-        "solidityNode": "Stabilität Knoten",
+        "solidityNode": "Stabilitäts Knoten",
         "testNet": "Test-Netzwerk"
       }
     },
     "backup": {
-      "title": "Sicherheitskopie Portemonnaie"
+      "title": "Wallet Sicherheitskopie"
     },
     "restore": {
-      "title": "Wallet Wiederherstellen"
+      "title": "Wallet wiederherstellen"
     },
     "reset": {
-      "title": "Wallet Zurücksetzen",
-      "warning": "Achtung: Diese Aktion löscht alle gespeicherte Daten, einschließlich Ihrer 12 geheimen Wörter. Wenn Sie Ihre geheimen Wörter nicht gespeichert haben, tun Sie dies bitte, bevor Sie fortfahren.",
-      "button": "Ok, Ich habe verstanden"
+      "title": "Wallet zurücksetzen",
+      "warning": "Achtung: Diese Aktion löscht alle gespeicherten Daten, einschließlich Ihrer 12 Geheimwörter. Wenn Sie Ihre geheimen Wörter nicht gespeichert haben, tun Sie dies bitte bevor Sie fortfahren.",
+      "button": "Ok, ich habe verstanden"
     },
     "pin": {
       "title": "Pin ändern",
@@ -383,10 +383,10 @@
     },
     "language": {
       "title": "Sprache",
-      "choose": "Bitte wählen Sie eine Sprache unten aus:",
+      "choose": "Bitte wählen Sie unten eine Sprache aus:",
       "success": {
         "title": "Sprache auf {{language}} geändert",
-        "description": "Sie müssen Ihre App sowieso neu starten das die Änderungen wirksam werden. Wollen Sie dies jetzt tun?"
+        "description": "Sie müssen Ihre App neu starten damit die Änderungen wirksam werden. Wollen Sie dies jetzt tun?"
       },
       "button": {
         "confirm": "Ja, jetzt Neustarten!",
@@ -395,7 +395,7 @@
       "error": "Fehler beim Speichern der bevorzugten Sprache"
     },
     "token": {
-      "title": "Münzen-Filter",
+      "title": "Token-Filter",
       "search": "Token-Suche",
       "confirm": "Speichern",
       "noResult": "Keine Ergebnisse..."
