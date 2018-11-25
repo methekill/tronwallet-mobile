@@ -560,11 +560,11 @@
   },
   "biometry": {
     "register": {
-      "title": "Check your biometry"
+      "title": "בדוק את הביומטרי שלך"
     },
     "auth": {
       "title": "שמור ביומטרי",
-      "error": "Access denied"
+      "error": "הגישה נדחתה"
     }
   },
   "privacyPolicy": {
