@@ -6,14 +6,14 @@
     "ss": "%d vteřin.",
     "m": "min.",
     "mm": "%d min.",
-    "h": "hod.",
+    "h": "1 hod.",
     "hh": "%d hod.",
-    "d": "24 hod.",
-    "dd": "%d dny",
-    "M": "měsícem",
-    "MM": "%d měsíci",
-    "y": "rokem",
-    "yy": "%d lety"
+    "d": "1 d.",
+    "dd": "%d d.",
+    "M": "1 měs.",
+    "MM": "%d měs.",
+    "y": "1 r.",
+    "yy": "%d r."
   },
   "success": "Úspěch",
   "warning": "Varování",
@@ -44,7 +44,7 @@
     "freeze": "Zmražení",
     "unfreeze": "Rozmrazení",
     "vote": "Hlasování",
-    "participate": "Účast",
+    "participate": "Nákup tokenu",
     "create": "Vytvoření",
     "undefined": "Nedefinovaný typ"
   },
@@ -206,7 +206,7 @@
     "supply": "MNOŽSTVÍ V OBĚHU"
   },
   "participate": {
-    "title": "ÚČAST",
+    "title": "NÁKUP TOKENŮ",
     "featured": "DOPORUČENÝ",
     "button": {
       "confirm": "POTVRDIT",
