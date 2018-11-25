@@ -19,7 +19,7 @@
   "warning": "Advarsel",
   "cancel": "Avbryt",
   "address": "Adresse",
-  "message": "Beskjed",
+  "message": "Melding",
   "ok": "OK",
   "actionModalTitle": "Vil du gjerne",
   "account": "Konto",
@@ -574,7 +574,7 @@
     "acceptTerms": "Jeg har lest og godkjent vilkårene",
     "continue": "FORTSETT",
     "docTitle": "Personvern",
-    "introduction": "Your privacy is important to us.\nIt is TronWallet's policy to respect your privacy regarding any information we may collect from you across our website, http://tronwallet.me, and other sites we own and operate.\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent.\nWe also let you know why we're collecting it and how it will be used.\nWe only retain collected information for as long as necessary to provide you with your requested service.\nWhat data we store, we'll protect within commercially acceptable means to prevent loss and theft, as well as unauthorised access, disclosure, copying, use or modification.\nWe don't share any personally identifying information publicly or with third-parties, except when required to by law.\nOur website may link to external sites that are not operated by us.\nPlease be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.\nYou are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.\nYour continued use of our website will be regarded as acceptance of our practices around privacy and personal information.\nIf you have any questions about how we handle user data and personal information, feel free to contact us.\nThis policy is effective as of 1 July 2018.",
+    "introduction": "Ditt privatliv er viktig for oss.\nDet er TronWallets politikk å respektere personvernet ditt om all informasjon vi kan samle inn fra deg på nettstedet vårt, http://tronwallet.me og andre nettsteder vi eier og driver.\nVi ber bare om personlig informasjon når vi virkelig trenger det for å gi deg en tjeneste. Vi samler det på rettferdige og lovlige måter, med din kunnskap og samtykke.\nVi lar deg også få vite hvorfor vi samler det og hvordan det blir brukt.\nVi beholder innhentet informasjon kun så lenge som nødvendig for å gi deg den forespurte tjenesten.\nHvilke data vi lagrer, vil vi beskytte innenfor kommersielt akseptable metoder for å forhindre tap og tyveri, samt uautorisert tilgang, avsløring, kopiering, bruk eller modifikasjon.\nVi deler ikke personlig identifiserende informasjon offentlig eller med tredjeparter, unntatt når det kreves ved lov.\nVår nettside kan koble til eksterne nettsteder som ikke drives av oss.\nVær oppmerksom på at vi ikke har kontroll over innhold og praksis på disse nettstedene, og kan ikke akseptere ansvar eller ansvar for deres respektive retningslinjer.\nDu er fri til å nekte vår forespørsel om dine personlige opplysninger, med forståelse for at vi kanskje ikke kan gi deg noen av dine ønskede tjenester.\nDin fortsatte bruk av nettstedet vårt vil bli ansett som aksept av vår praksis rundt personvern og personlig informasjon.\nHvis du har spørsmål om hvordan vi håndterer brukerdata og personlig informasjon, kan du kontakte oss.\nDenne retningslinjene gjelder fra 1. juli 2018.",
     "termsOfService": {
       "title": "TronWallet Vilkår for bruk",
       "section1": {
