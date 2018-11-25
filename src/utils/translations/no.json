@@ -172,7 +172,7 @@
     "title": "FRYSE",
     "unfreeze": {
       "title": "frigi",
-      "inXTime": "You can unfreeze your TRX",
+      "inXTime": "Du kan frigjøre dine TRX",
       "inThreeDays": "Etter en tre dagers periode kan du fryse din TRX",
       "inXMinutes": "Du kan frigjøre TRX på {{minutes}} minutter.",
       "inXHours": "Du kan frigjøre TRX om {{hours}} timer.",
@@ -182,9 +182,9 @@
     "error": {
       "minimumAmount": "Minimumsbeløpet for enhver fryse-transaksjon er 1.",
       "insufficientBalance": "Mangelfull TRX-balanse",
-      "roundNumbers": "Can only freeze round numbers"
+      "roundNumbers": "Kan bare fryse runde tall"
     },
-    "amount": "FREEZE AMOUNT",
+    "amount": "FRYSE BELØP",
     "balance": "Balansere"
   },
   "getVault": {
@@ -193,15 +193,15 @@
   },
   "market": {
     "time": {
-      "hour": "1H",
+      "hour": "1T",
       "day": "1D",
-      "week": "1W",
+      "week": "1U",
       "month": "1M",
       "all": "ALLE"
     },
     "highest": "HØYESTE",
     "lowest": "LAVEST",
-    "volume": "VOLUME 24H",
+    "volume": "VOLUM 24T",
     "cap": "MARKED CAP",
     "supply": "KIRKULERINGSFORSIKRING"
   },
@@ -219,7 +219,7 @@
         "title": "Du må kjøpe minst en TRX verdi på {{token}}.",
         "message": "For tiden kjøper du bare {{amount}}."
       },
-      "notFound": "Asset(s) not found"
+      "notFound": "Ressurs(er) ikke funnet"
     },
     "warning": "Du har ikke nok TRX til å kjøpe så mange {{token}}",
     "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
