@@ -299,8 +299,8 @@
       "explanation": "Um Ihre Wallet wiederherzustellen, geben Sie bitte die gleichen 12 Wörter, die Sie auf Papier geschrieben haben ein, als Sie ihr Wallet zum ersten Mal erstellt haben. Wenn Sie eine andere Reihenfolge der Wörter eingeben, wird eine neue leere Wallet erstellt.",
       "placeholder": "Bitte schreiben Sie hier Ihre 12 Geheimwörter",
       "success": "Wallet erfolgreich wiederhergestellt!",
-      "warning": "Die geheimen Wörter werden alle Daten auf diesem Gerät löschen und synchronisiert mit die Daten aus dem Internet für das wiederhergestellte Konto.",
-      "error": "Oops. Es scheint, die Worte die Sie eingegeben haben, ergeben kein gültiges mnemonisches geheimes Wort. Überprüfen Sie, ob Sie einen Tippfehler haben und versuchen Sie es bitte erneut.",
+      "warning": "Das Zurücksetzen der Geheimwörter löscht alle Daten von diesem Gerät und synchronisiert das wiederhergestellte Wallet mit Daten aus dem Internet.",
+      "error": "Oops. Es scheint, dass die Worte die Sie eingegeben haben kein gültiges mnemonisches Geheimwort ergeben. Überprüfen Sie ob ein Tippfehler vorliegt und versuchen Sie es bitte erneut.",
       "button": "WIEDERHERSTELLEN"
     }
   },
@@ -315,19 +315,19 @@
       "invalidAmount": "Ungültige Menge"
     },
     "input": {
-      "token": "Münze",
-      "to": "An",
+      "token": "TOKEN",
+      "to": "AN",
       "amount": "BETRAG",
       "description": "BESCHREIBUNG (OPTIONAL)"
     },
-    "available": "zur Verfügung",
-    "chooseToken": "Bitte wählen Sie einen Token von unten.",
-    "minimumAmount": "Der Mindestbetrag für jede Sendetransaktion ist 0,000001."
+    "available": "verfügbar",
+    "chooseToken": "Bitte wählen Sie von unten einen Token.",
+    "minimumAmount": "Der Mindestbetrag für jede Sendetransaktion beträgt 0,000001."
   },
   "settings": {
     "title": "EINSTELLUNGEN",
     "sectionTitles": {
-      "wallet": "Portemonnaie",
+      "wallet": "WALLET",
       "security": "SICHERHEIT",
       "notification": "BENACHRICHTIGUNGEN UND SPRACHE",
       "accounts": "KONTENVERWALTUNG"
@@ -339,9 +339,9 @@
       "title": "Netzwerk",
       "modal": {
         "title": "NETZWERK",
-        "explanation": "Mit dieser Option können Sie einen speziellen Knoten auswählen, der Ihren Bedürfnissen und Vorlieben besser gerecht wird. Bitte seien Sie vorsichtig beim Aktualisieren der Knoten IP-Adresse. Falsche IP-Adressen können zu Fehlfunktionen innerhalb Ihrer Wallet führen. Beispiel: 35.231.121.122:50051",
+        "explanation": "Mit dieser Option können Sie einen Knoten auswählen, der Ihren Bedürfnissen und Vorlieben besser gerecht wird. Bitte seien Sie vorsichtig beim Aktualisieren der Knoten IP-Adresse. Falsche IP-Adressen können zu Fehlfunktionen innerhalb Ihrer Wallet führen. Beispiel: 35.231.121.122:50051",
         "error": {
-          "storage": "Fehler beim Abrufen der Knoten IP-Adresse aus dem lokalen Speicher",
+          "storage": "Fehler beim Abrufen der Knoten IP aus dem lokalen Speicher",
           "invalidIp": "Bitte geben Sie eine gültige IP-Adresse an",
           "update": "Etwas ging schief beim Aktualisieren der Knoten IP-Adresse",
           "reset": "Etwas ging schief beim Zurücksetzen der Knoten IP"
