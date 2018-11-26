@@ -188,7 +188,7 @@
     "balance": "Saldo"
   },
   "getVault": {
-    "notInstalled": "Det ser ut til at du ikke har Tron Vault installert på telefonen din for å fortsette med transaksjonen din.",
+    "notInstalled": "Det ser ut til at du ikke har TronWallet installert på telefonen din for å fortsette med transaksjonen din.",
     "downloadHere": "Du kan laste den ned her"
   },
   "market": {
