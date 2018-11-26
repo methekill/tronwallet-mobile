@@ -152,8 +152,8 @@
     },
     "form": {
       "generalError": "Det oppsto et problem med å sende inn dette skjemaet. Ta kontakt med en administrator.",
-      "nameError": "Navnefeltet må starte med et brev, inneholde maksimalt 32 tegn, og det vil bare akseptere bokstaver, tall og hvite mellomrom.",
-      "addressError": "Noe er ikke riktig med adressen. Vennligst dobbeltklikk for typoer.",
+      "nameError": "Navnefeltet må starte med en bokstav, inneholde maksimalt 32 tegn, og det vil bare akseptere bokstaver, tall og hvite mellomrom.",
+      "addressError": "Noe er ikke riktig med adressen. Vennligst dobbel sjekk for skrivefeil.",
       "uniqueAddressError": "Nøkkelen må være unik. Vennligst velg en annen adresse.",
       "uniqueAliasError": "Navn i adresseboken må være unikt. Vennligst velg en annen.",
       "name": "NAVN",
