@@ -217,7 +217,7 @@
       "insufficientBalance": "אין מספיק נכסים (TRX) כדי להשתתף.",
       "insufficientTrx": {
         "title": "אתה צריך לקנות לפחות שווי של TRX אחד מטוקן {{token}}.",
-        "message": "Currently you are buying only {{amount}}."
+        "message": "כרגע אתה קונה רק {{amount}}."
       },
       "notFound": "לא נמצאו הנכסים"
     },
@@ -423,7 +423,7 @@
     "verifiedTokensOnly": "טוקנים מאומתים בלבד"
   },
   "submitTransaction": {
-    "title": "TRANSACTION DETAILS",
+    "title": "פרטי העסקה",
     "notification": "You have received a transaction from {{address}}",
     "notificationPayment": "You have received a payment from {{address}}",
     "data": "מידע",
