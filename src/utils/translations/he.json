@@ -22,14 +22,14 @@
   "message": "הודעה",
   "ok": "אוקיי",
   "actionModalTitle": "האם תרצה",
-  "account": "חֶשְׁבּוֹן",
-  "restore": "לשחזר",
+  "account": "חשבון",
+  "restore": "שחזר",
   "error": {
     "default": "אופס משהו השתבש, נסה שוב מאוחר יותר. אם השגיאה נמשכת נסה לעדכן את הגדרות הרשת.",
     "buildingTransaction": "קרתה שגיאה בעת בניית הטרנזקציה, נסה שוב.",
     "gettingTransaction": "אירעה שגיאה בעת קבלת טרנזקציה.",
     "clipboardCopied": "משהו השתבש במהלך העתקה",
-    "hideAccount": "משהו השתבש מחיקת החשבון, נסה שוב '"
+    "hideAccount": "משהו השתבש במחיקת החשבון, נסה שוב"
   },
   "avaliable": "זמין",
   "frozen": "קפוא",
@@ -163,7 +163,7 @@
   "importWallet": {
     "title": "ייבוא ​​וואלט",
     "message": "אם יש לך את המפתח הפרטי ואת הכתובת של הארנק שלך אתה יכול לשחזר אותו כאן אבל יש לזכור כי TronWallet פועלת עם mnemonics בעיקר. שיטה זו התאוששות יהיה להשבית כמה פונקציות בתוך App.",
-    "button": "יְבוּא",
+    "button": "ייבא",
     "error": {
       "privateKey": "מפתח פרטי לא חוקי או לא שלם"
     }
@@ -481,8 +481,8 @@
       "tronscanUrl": "כתובת Tronscan הועתקה ללוח המקשים",
       "publicKey": "מפתח ציבורי הועתק ללוח"
     },
-    "hash": "בְּלִיל",
-    "status": "סטָטוּס",
+    "hash": "HASH",
+    "status": "סטטוס",
     "time": "זְמַן",
     "block": "לַחסוֹם",
     "frozenBalance": "יתרה קפואה",
@@ -513,22 +513,22 @@
     "notFound": "סופר נציג (SR) לא נמצא"
   },
   "scanPayment": {
-    "scan": "לִסְרוֹק",
+    "scan": "סרוק",
     "error": {
-      "receiver": "כתובת המקלט אינה חוקית",
-      "token": "האסימון אינו חוקי",
+      "receiver": "כתובת הנמען אינה חוקית",
+      "token": "הטוקן אינו חוקי",
       "amount": "הסכום אינו חוקי",
       "description": "תיאור ארוך מדי",
       "code": "קוד התשלום אינו חוקי. אנא, סרוק אחד חוקי"
     }
   },
   "makePayment": {
-    "pay": "לְשַׁלֵם",
+    "pay": "שלם",
     "confirm": "אשר תשלום",
     "error": {
-      "receiver": "המקלט שווה למבקש",
-      "token": "לחשבון זה אין אסימון עבור עסקה זו",
-      "amount": "לחשבון זה אין מספיק איזון.",
+      "receiver": "הנמען זהה למבקש",
+      "token": "לחשבון זה אין את הטוקנים עבור עסקה זו",
+      "amount": "לחשבון זה אין יתרה מספקת.",
       "description": "אין תיאור זמין"
     }
   },
@@ -603,7 +603,7 @@
       },
       "section7": {
         "title": "7. שינויים",
-        "body": "TronWallet may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service.\n"
+        "body": "TronWallet יכולה לשנות תנאי שירות אלה עבור אתר אינטרנט שלה בלי הודעה מוקדמת. בשימוש באתר אינטרנט זה אתה מסכים להיות כפוף על ידי הגרסה הנוכחית של תנאי שירות אלה.\n"
       },
       "section8": {
         "title": "8. חוק מסדיר",
@@ -611,11 +611,11 @@
       },
       "section9": {
         "title": "9. סיכונים במטבעות קריפטוגרפיים",
-        "body": "Cryptocurrency assets are subject to high market risks and volatility. Past performance is not indicative of future results. Investments in blockchain assets may result in loss of part or all of your investment. Please do your own research and use caution. You are solely responsible for your actions on the TRONWALLET. TRONWALLET Team is not responsible for your investment losses.\n"
+        "body": "נכסים וירטואליים (Cryptocurrency) כפופים לסיכוני שוק ותנודתיות גבוהים. ביצועים קודמים אינם מעידים על תוצאות עתידיות. השקעות בנכסים מסוג Blockchain עלולים לגרום להפסד של חלק או את כל ההשקעה שלך. אנא בצע מחקר משלך והשתמש בזהירות. אתה האחראי הבלעדי לפעולות שלך ב-TRONWALLET. צוות TRONWALLET אינו אחראי להפסדי ההשקעה שלך.\n"
       },
       "section10": {
         "title": "10. רשת טרון (בנפרד מ-TRONWALLET)",
-        "body": "TronWallet is only a user interface to TRON and does not operate the TRON NETWORK. TronWallet is unable to control the actions of others on the TRON NETWORK. When using TRONWALLET, you are directly communicating with the TRON PUBLIC API operated by TRON Foundation. Transactions on the TRONWALLET are irreversible.\n"
+        "body": "TronWallet הוא רק ממשק משתמש ל-TRON ואינו מפעיל את רשת טרון. TronWallet אינה מסוגלת לשלוט בפעולותיהם של אחרים ברשת טרון. בעת שימוש ב-TRONWALLET, אתה מתקשר ישירות עם ה-TRON PUBLIC API המופעל על ידי קרן TRON. עסקאות (טרנזקציות) ב-TRONWALLET הינן בלתי הפיכות.\n"
       },
       "section11": {
         "title": "11. TRONWALLET לא מעודד דבר",
@@ -623,7 +623,7 @@
       },
       "section12": {
         "title": "12. האחראויות שלך",
-        "body": "You, the user, are solely responsible for ensuring your own compliance with laws and taxes in your jurisdiction. Cryptocurrencies may be illegal in your area. You, are solely responsible for your own security including keeping your account secret keys safe and backed up.\n"
+        "body": "אתה, המשתמש, האחראי הבלעדי להבטחת העמידה שלך בחוקים ובמסים בתחום השיפוט שלך. מטבעות וירטואליים (Cryptocurrencies) עשויים להיות בלתי חוקי באזור שלך. אתה, הוא האחראי הבלעדי על האבטחה שלך, כולל שמירה על המפתחות הסודיים של החשבון שלך בטוחים ומגובים.\n"
       },
       "section13": {
         "title": "13. כתב ויתור על אחריות",
