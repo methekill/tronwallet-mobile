@@ -311,24 +311,24 @@
       "gettingBalance": "שגיאה במהלך קבלת נתוני היתרה",
       "incompleteAddress": "הכתובת היא חלקית או לא חוקית.",
       "invalidReceiver": "כתובת הנמען לא חוקית",
-      "selectBalance": "בחר תחילה איזון",
-      "invalidAmount": "סכום לא חוקי"
+      "selectBalance": "ראשית בחר יתרה",
+      "invalidAmount": "כמות לא חוקית"
     },
     "input": {
-      "token": "אֲסִימוֹן",
-      "to": "ל",
+      "token": "טוקן",
+      "to": "אל",
       "amount": "כמות",
       "description": "תיאור (אופציונאלי)"
     },
     "available": "זמין",
-    "chooseToken": "אנא בחר אסימון בהמשך.",
-    "minimumAmount": "הסכום המינימלי לכל עסקה שנשלח הוא 0.000001."
+    "chooseToken": "אנא, בחר טוקן מלמטה.",
+    "minimumAmount": "הסכום המינימלי לשליחת לכל עסקה הוא 0.000001."
   },
   "settings": {
     "title": "הגדרות",
     "sectionTitles": {
       "wallet": "ארנק",
-      "security": "בִּטָחוֹן",
+      "security": "אבטחה",
       "notification": "הודעות והודאה",
       "accounts": "ניהול חשבונות"
     },
@@ -336,15 +336,15 @@
       "title": "התראות"
     },
     "network": {
-      "title": "רֶשֶׁת",
+      "title": "רשת",
       "modal": {
-        "title": "רֶשֶׁת",
+        "title": "רשת",
         "explanation": "עם אפשרות זו אתה יכול לבחור את הצומת כי יהיה מתאים יותר לצרכים שלך ואת ההעדפות. אנא היזהר בעת עדכון IP הצומת בזמן IP טועה יכול להוביל תקלות בתוך הארנק שלך. דוגמה: 35.231.121.122:50051",
         "error": {
           "storage": "שגיאה בקבלת IP הצומת מן האחסון המקומי",
           "invalidIp": "אנא הכנס כתובת IP חוקית",
           "update": "משהו השתבש בזמן עדכון צמתים ip",
-          "reset": "Share"
+          "reset": "משהו השתבש במהלך איפוס כתובת ה-ip של ה-node"
         },
         "success": {
           "updated": "עודכן",
@@ -418,7 +418,7 @@
       "noAccounts": "אין צורך לשחזר חשבונות"
     },
     "partners": "שותפים",
-    "askPin": "תמיד שאל את ה- PIN",
+    "askPin": "בקש תמיד קוד מזהה (PIN)",
     "askBiometry": "הפעל ביומטרי",
     "verifiedTokensOnly": "טוקנים מאומתים בלבד"
   },
@@ -487,27 +487,27 @@
     "block": "לַחסוֹם",
     "frozenBalance": "יתרה קפואה",
     "unfrozenBalance": "יתרה ששוחררה",
-    "totalVotes": "סך הכל הצבעות",
+    "totalVotes": "סך הכל הקולות",
     "amount": "כמות",
-    "to": "ל",
-    "from": "מ",
+    "to": "אל",
+    "from": "מעת",
     "tokenName": "שם הטוקן",
-    "unityValue": "ערך UNITY",
-    "totalSupply": "סך הכל",
-    "startTime": "שעת התחלה",
-    "endTime": "סוף זמן",
+    "unityValue": "ערך יחידה",
+    "totalSupply": "סך הכל ההספקה",
+    "startTime": "זמן התחלה",
+    "endTime": "זמן סיום",
     "description": "תיאור",
-    "votedAddress": "כתובת VOTED"
+    "votedAddress": "הכתובת שהצבעת עליה"
   },
   "transactionSuccess": {
     "submitted": "תובלה שהוגשה לרשת!",
-    "success": "הַצלָחָה!"
+    "success": "הצליחה!"
   },
   "votes": {
     "title": "הצבעות",
-    "totalVotes": "סך הכל הצבעות",
-    "votesAvailable": "הקולות זמינים",
-    "search": "לחפש",
+    "totalVotes": "סך הכל ההצבעות",
+    "votesAvailable": "קולות זמינים",
+    "search": "חיפוש",
     "searchPreview": "Suggestions - Most Voted",
     "error": "אופס, משהו לא נטען כהלכה. נסה לטעון מחדש",
     "notFound": "סופר נציג (SR) לא נמצא"
@@ -540,7 +540,7 @@
     }
   },
   "requestPayment": {
-    "title": "בקשת תשלום"
+    "title": "בקש תשלום"
   },
   "newAccount": {
     "title": "יצירת חשבון",
