@@ -75,26 +75,26 @@
     "share": {
       "title": "Del TronWallet adresse",
       "message": "Dette er min TronWallet-adresse:\n\n {{address}}\n\nTips: Når du har kopiert den, kan du lime den inn i TronWallet-appen din med den spesielle knappen på Sende skjermbildet.",
-      "dialogTitle": "Del med:"
+      "dialogTitle": "Dele med:"
     },
     "QRScanner": {
       "title": "Adresseskanner",
-      "scan": "Skanning",
+      "scan": "Skann",
       "explanation": "Skann QR koden for å identifisere målbrukeren",
       "permissionMessage": "For å skanne offentlig nøkkel trenger appen din tillatelse for å få tilgang til kameraet."
     },
     "vote": {
       "enterVote": "ANGI VERDIEN FOR DIN STEMME",
-      "votesRemaining": "STEMMER IGJEN",
+      "votesRemaining": "GJENVÆRENDE STEMMER",
       "setVote": "ANGI STEMME",
       "moreVotes": "Hvis du trenger flere stemmer, kan du fryse mer TRX.",
       "confirmVotes": "BEKREFT STEMMER",
-      "yourVotes": "Dine stemmer",
-      "myVotes": "MIN STEMMER",
+      "yourVotes": "Dine Stemmer",
+      "myVotes": "MINE STEMMER",
       "confirm": "BEKREFTE",
-      "freeze": "Frys",
+      "freeze": "Fryse",
       "totalVotes": "Totalt antall stemmer tilgjengelig:",
-      "delete": "SLETT",
+      "delete": "SLETTE",
       "set": "SETT",
       "freezeOrLower": "Du har ikke nok frossen TRX. Frys mer TRX eller senk stemmebeløpet",
       "freezeToContinue": "Du har ikke nok fryst TRX. Frys mer TRX for å fortsette"
@@ -102,7 +102,7 @@
   },
   "firstTime": {
     "button": {
-      "create": "LAG LOMMEBOK",
+      "create": "OPPRETTE LOMMEBOK",
       "restore": "GJENOPPRETT LOMMEBOK",
       "import": "IMPORTER LOMMEBOK"
     },
@@ -133,20 +133,20 @@
     "title": "ADRESSEBOK",
     "shared": {
       "add": "LEGG TIL",
-      "edit": "REDIGERE",
+      "edit": "REDIGER",
       "delete": "SLETT",
       "send": "SENDE"
     },
     "contacts": {
       "title": "KONTAKTER",
       "delete": {
-        "title": "Slett kontakt",
+        "title": "Slett Kontakt",
         "message": "Vil du virkelig slette denne kontakten?",
         "cancelButton": "Avbryt",
         "okButton": "OK"
       },
       "empty": "Din adressebok er tom, legg til en ny kontakt ved hjelp av knappen nedenfor.",
-      "loadError": "Det oppstod et problem under innlasting kontaktene. Prøv på nytt.",
+      "loadError": "Det oppstod et problem med å laste inn kontaktene. Vennligst prøv på nytt.",
       "addContact": "LEGG TIL KONTAKT",
       "addToContacts": "LEGG TIL I KONTAKTER"
     },
