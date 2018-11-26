@@ -402,7 +402,7 @@
     },
     "about": {
       "title": "אודות",
-      "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
+      "description": "TronWallet הינו ארנק מבוזר P2P הנכתב בקוד פתוח עבור רשת TRON ונבנה באמצעות React Native. באמצעותו, אתה יכול לשלוח ולקבל טוקנים, להצביע לנבחרי העל (SR), להשתתף במכירת טוקנים, לעקוב אחר היתרות, עסקאות ועוד. לחץ על הקישור למטה למדריך מפרויקט על השימוש בו.",
       "tutorial": "מדריך"
     },
     "accepts": {
@@ -607,7 +607,7 @@
       },
       "section8": {
         "title": "8. חוק מסדיר",
-        "body": "These terms and conditions are governed by and construed in accordance with the laws of Vancouver, Canada and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.\n"
+        "body": "תנאים והתניות אלה כפופים ומתפרשים בהתאם לחוקי ונקובר, קנדה ואתה כפוף באופן בלעדי לסמכות השיפוט של בתי המשפט באותה המדינה או המיקום.\n"
       },
       "section9": {
         "title": "9. סיכונים במטבעות קריפטוגרפיים",
