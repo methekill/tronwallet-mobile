@@ -151,8 +151,8 @@
       "addToContacts": "הוסף לאנשי הקשר"
     },
     "form": {
-      "generalError": "There was a problem submitting this form. Please contact an administrator.",
-      "nameError": "The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.",
+      "generalError": "הייתה בעיה בהגשת הטופס. אנא צור קשר עם האדמינסטרטור.",
+      "nameError": "שדה השם חייב להתחיל עם אות, ולהכיל לכל היותר 32 תווים, והוא יקבל רק אותיות, מספרים ורווחים.",
       "addressError": "משהו לא בסדר בכתובת. אנא וודא כי אין שגיאות הקלדה.",
       "uniqueAddressError": "המפתח חייב להיות ייחודי. אנא בחר כתובת שונה.",
       "uniqueAliasError": "השמות בפנקס הכתובות שלך חייבים להיות ייחודיים. אנא בחר שם אחר.",
@@ -291,8 +291,8 @@
         "newSeed": "קבל חדש SEED",
         "later": "אשר מאוחר יותר"
       },
-      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
-      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
+      "backupMessage": "אתה תמיד יכול לגשת למילות הצופן שלך על ידי השחזור בהגדרות האפליקציה      ",
+      "seedExplanation": "מילות הצופן מהוות יצוג קריא של הארנק שלך. מילים אלו, בסדרן המדויק, יכולות לשמש לשחזור הארנק שלך."
     },
     "restore": {
       "title": "שיחזור",
@@ -386,7 +386,7 @@
       "choose": "אנא, בחר שפה:",
       "success": {
         "title": "השפה השתנתה ל- {{language}}",
-        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
+        "description": "אולם, אתה עדיין צריך לאתחל את האפליקציה כך שהשינויים יכנסו לתוקף. האם תרצה לעשות זאת כעת?"
       },
       "button": {
         "confirm": "כן, התחל עכשיו!",
@@ -462,7 +462,7 @@
       "contractValidateCee": "נתוני הטרנזקציה אינם חוקיים (CEE). אנא נסה שנית מאוחר יותר.",
       "bandwith": "אין לך מספיק רוחב פס. אנא נסה שנית מאוחר יותר.",
       "contractValidateTapos": "נתוני הטרנזקציה אינם חוקיים (TAPOS). אנא נסה שנית מאוחר יותר.",
-      "tooBig": "Transaction too big to be submitted.",
+      "tooBig": "הטרנזקציה יותר מדי גדולה להגשה.",
       "expiration": "הטרנזקציה פגה. נא נסה שוב.",
       "serverBusy": "השרת עסוק.",
       "resource": "אין מספיק רוחב פס או יתרה. ייתכן ותצטרך להקפיא TRX."
@@ -569,8 +569,8 @@
   },
   "privacyPolicy": {
     "title": "מדיניות פרטיות",
-    "subtitle": "You must read and accept our privacy terms to continue.",
-    "error": "You need to accept of privacy terms before to continue. ",
+    "subtitle": "אתה חייב לקרוא ולהסכים על מדיניות הפרטיות שלנו כדי להמשיך.",
+    "error": "אתה חייב להסכים על מדיניות הפרטיות שלנו כדי להמשיך. ",
     "acceptTerms": "קראתי והסכמתי על תנאי השימוש",
     "continue": "המשך",
     "docTitle": "מדיניות פרטיות",
@@ -594,7 +594,7 @@
         "body": "In no event shall TronWallet or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on TronWallet's website, even if TronWallet or a TronWallet authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.\n"
       },
       "section5": {
-        "title": "5. Accuracy of materials",
+        "title": "5. דיוק החומרים",
         "body": "The materials appearing on TronWallet's website could include technical, typographical, or photographic errors. TronWallet does not warrant that any of the materials on its website are accurate, complete or current. TronWallet may make changes to the materials contained on its website at any time without notice. However TronWallet does not make any commitment to update the materials.\n"
       },
       "section6": {
@@ -602,7 +602,7 @@
         "body": "TronWallet has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by TronWallet of the site. Use of any such linked website is at the user's own risk.\n"
       },
       "section7": {
-        "title": "7. Modifications",
+        "title": "7. שינויים",
         "body": "TronWallet may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service.\n"
       },
       "section8": {
@@ -614,15 +614,15 @@
         "body": "Cryptocurrency assets are subject to high market risks and volatility. Past performance is not indicative of future results. Investments in blockchain assets may result in loss of part or all of your investment. Please do your own research and use caution. You are solely responsible for your actions on the TRONWALLET. TRONWALLET Team is not responsible for your investment losses.\n"
       },
       "section10": {
-        "title": "10. THE TRON NETWORK (SEPARATE FROM TRONWALLET)",
+        "title": "10. רשת טרון (בנפרד מ-TRONWALLET)",
         "body": "TronWallet is only a user interface to TRON and does not operate the TRON NETWORK. TronWallet is unable to control the actions of others on the TRON NETWORK. When using TRONWALLET, you are directly communicating with the TRON PUBLIC API operated by TRON Foundation. Transactions on the TRONWALLET are irreversible.\n"
       },
       "section11": {
-        "title": "11. TRONWALLET DOES NOT ENDORSE ANYTHING",
+        "title": "11. TRONWALLET לא מעודד דבר",
         "body": "TRONWALLET does NOT endorse ANY asset on the TRON NETWORK. Asset \"listings\" on TRONWALLET are NOT endorsements. TRONWALLET is a software client ONLY and does NOT conduct any independent diligence or review of any asset. TRON is an open system meaning that scams and market manipulators may exist. Prices shown on TRONWALLET are for informational purposes and do not imply that they can actually be redeemed for a certain price.\n"
       },
       "section12": {
-        "title": "12. YOUR OWN RESPONSIBILITIES",
+        "title": "12. האחראויות שלך",
         "body": "You, the user, are solely responsible for ensuring your own compliance with laws and taxes in your jurisdiction. Cryptocurrencies may be illegal in your area. You, are solely responsible for your own security including keeping your account secret keys safe and backed up.\n"
       },
       "section13": {
