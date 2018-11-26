@@ -583,7 +583,7 @@
       },
       "section2": {
         "title": "2. תנאי שימוש",
-        "body": "Permission is granted to temporarily download one copy of the materials (information or software) on TronWallet's website for personal, non-commercial transitory viewing only.\nThis is the grant of a license, not a transfer of title, and under this license you may not:\nmodify or copy the materials;\nuse the materials for any commercial purpose, or for any public display (commercial or non-commercial);\nattempt to decompile or reverse engineer any software contained on TronWallet's website;\nremove any copyright or other proprietary notations from the materials;\nor transfer the materials to another person or \"mirror\" the materials on any other server.\nThis license shall automatically terminate if you violate any of these restrictions and may be terminated by TronWallet at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your possession whether in electronic or printed format.\n"
+        "body": "הרשאה ניתנת להורדה זמנית של עותק אחד של החומרים (מידע או תוכנה) באתר האינטרנט של TronWallet לצפייה זמנית אישית ולא מסחרית בלבד.\nזהו מתן רישיון, לא העברת בעלות, ועל פי רישיון זה לא תוכל:\nלשנות או להעתיק את החומרים;\nלהשתמש בחומרים לכל מטרה מסחרית, או לכל תצוגה פומבית (מסחרית או לא מסחרית);\nלנסות להדר לאחור (decompile) או להנדס לאחור (reverse engineer) כל תוכנה הכלולה באתר של TronWallet;\nלהסיר כל זכויות יוצרים או רישומים קנייניים אחרים מהחומרים;\nאו להעביר את החומרים לאדם אחר או להציג (mirror) את החומרים על כל שרת אחר.\nרישיון זה יופסק באופן אוטומטי אם תפר אחת מהגבלות אלה ויכול להסתיים על ידי TronWallet בכל עת. עם סיום הצפייה בחומרים אלה או עם סיום רישיון זה, עליך להרוס את כל החומרים שהורדת שברשותך בין אם בפורמט אלקטרוני או מודפס.\n"
       },
       "section3": {
         "title": "3. כתב ויתור",
@@ -599,7 +599,7 @@
       },
       "section6": {
         "title": "6. קישורים",
-        "body": "TronWallet has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by TronWallet of the site. Use of any such linked website is at the user's own risk.\n"
+        "body": "TronWallet לא בדקה לעומק את כל האתרים המקושרים לאתר האינטרנט שלה ואינה אחראית לתכנים של אתר מקושר כזה. ההכלה שכל קישור אינה מעידה על תמיכה של TronWallet באתר. השימוש בכל אתר מקושר כזה הוא על אחריות המשתמש.\n"
       },
       "section7": {
         "title": "7. שינויים",
@@ -619,7 +619,7 @@
       },
       "section11": {
         "title": "11. TRONWALLET לא מעודד דבר",
-        "body": "TRONWALLET does NOT endorse ANY asset on the TRON NETWORK. Asset \"listings\" on TRONWALLET are NOT endorsements. TRONWALLET is a software client ONLY and does NOT conduct any independent diligence or review of any asset. TRON is an open system meaning that scams and market manipulators may exist. Prices shown on TRONWALLET are for informational purposes and do not imply that they can actually be redeemed for a certain price.\n"
+        "body": "TRONWALLET אינה תומכת בכל נכס ברשת TRON. נכסים \"הרשומים\" (listings) ב-TRONWALLET הם מעודדים על ידינו. TRONWALLET היא תוכנת ממשק בלבד ואינה עורכת בדיקות עצמיות או מבקרת נכסים אלו. TRON היא מערכת פתוחה כלומר, הונאות ומניפולטורים בשוק עשויים להתקיים. המחירים המוצגים על TRONWALLET הם למטרות מידע בלבד ולא לשם רמיזה כי ניתן לפדות את הנכסים במחיר מסוים.\n"
       },
       "section12": {
         "title": "12. האחראויות שלך",
