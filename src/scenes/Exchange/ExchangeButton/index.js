@@ -8,11 +8,9 @@ import { Colors } from '../../../components/DesignSystem'
 import FadeIn from '../../../components/Animations/FadeIn'
 
 const ExchangeButton = ({text, loading, result, onSubmit}) => {
-  let element
-
-  if (loading) element = <ActivityIndicator color={Colors.primaryText} />
+  if (loading) return (<ActivityIndicator color={Colors.primaryText} />)
   else if (result) {
-    element = <FadeIn name='result'>
+    return (<FadeIn name='result'>
       <Utils.Text
         size={result === 'success' ? 'medium' : 'small'}
         color={result === 'success' ? Colors.green : Colors.redError}
@@ -21,17 +19,15 @@ const ExchangeButton = ({text, loading, result, onSubmit}) => {
       >
         {result === 'success' ? 'Success ✓' : 'Exchange Failed, please try again'}
       </Utils.Text>
-    </FadeIn>
+    </FadeIn>)
   } else {
-    element = <ButtonGradient
+    return (<ButtonGradient
       font='bold'
       text={text}
       onPress={onSubmit}
       disabled={loading}
-    />
+    />)
   }
-
-  return element
 }
 
 ExchangeButton.propTypes = {

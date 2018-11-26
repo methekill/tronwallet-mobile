@@ -59,7 +59,9 @@ export default class TransferScene extends Component {
 
   _refreshPrice = async () => {
     const { refreshingPrice, exchangeData } = this.state
+
     if (refreshingPrice) return
+
     this.setState({refreshingPrice: true})
     try {
       const updatedExchangeData = await WalletClient.getExchangeById(exchangeData.exchangeId)

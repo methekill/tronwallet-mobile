@@ -13,13 +13,17 @@ import { formatNumber } from '../../../utils/numberUtils'
 const ARROW_GRADIENT = require('../../../assets/arrow-right-gradient.png')
 
 class ExchangeBalancePair extends Component {
-  render () {
+  _findTokenBalance = (tokenName) => {
     const { balances, publicKey } = this.props.context
+    const { balance: tokenBalance } = balances[publicKey].find(bl => bl.name === tokenName) || { balance: 0 }
+    return tokenBalance
+  }
+  render () {
     const { firstToken, secondToken, firstTokenImage, secondTokenImage } = this.props
-    const {balance: firstTokenBalance} = balances[publicKey].find(bl => bl.name === firstToken) || { balance: 0 }
-    const {balance: secondTokenBalance} = balances[publicKey].find(bl => bl.name === secondToken) || { balance: 0 }
+    const firstTokenBalance = this._findTokenBalance(firstToken)
+    const secondTokenBalance = this._findTokenBalance(secondToken)
 
-    return <Utils.View marginX={Spacing.large} paddingY='small'>
+    return (<Utils.View marginX={Spacing.large} paddingY='small'>
       <Utils.Row align='center'>
         <Utils.View flex={0.33} align='center' justify='center'>
           <ExchangeLogo source={firstTokenImage} />
@@ -54,7 +58,7 @@ class ExchangeBalancePair extends Component {
           </Motion>
         </Utils.View>
       </Utils.Row>
-    </Utils.View>
+    </Utils.View>)
   }
 }
 ExchangeBalancePair.propTypes = {
