@@ -329,39 +329,39 @@
     "sectionTitles": {
       "wallet": "کیف پول",
       "security": "امنیت",
-      "notification": "NOTIFICATIONS AND IDIOM",
-      "accounts": "ACCOUNTS MANAGEMENT"
+      "notification": "اطلاعیه ها و اصطلاحات",
+      "accounts": "مدیریت حساب"
     },
     "notifications": {
-      "title": "Notifications"
+      "title": "اطلاعیه ها"
     },
     "network": {
-      "title": "Network",
+      "title": "شبکه",
       "modal": {
-        "title": "NETWORK",
-        "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
+        "title": "شبکه",
+        "explanation": "با این گزینه شما می توانید گرهی را که بهتر با نیازها و تنظیمات شما مطابقت دارد انتخاب کنید. لطفا هنگام ویرایش IP گره دقت کنید زیرا IP اشتباه موجب ناکارآمدی کیف پول شما خواهد شد. مثال: 35.231.121.122:50051",
         "error": {
-          "storage": "Error getting node ip from local storage",
-          "invalidIp": "Please put a valid IP",
-          "update": "Something went wrong while updating nodes ip",
-          "reset": "Something wrong while reseting node ip"
+          "storage": "خطا در گرفتن IP گره از دیسک محلی",
+          "invalidIp": "لطفا یک IP معتبر وارد کنید",
+          "update": "هنگام بروزرسانی IP گره ها خطایی رخ داده است",
+          "reset": "هنگام بازنشانی IP گره ها خطایی رخ داده است"
         },
         "success": {
-          "updated": "Updated",
-          "updatedIp": "Nodes IP updated!",
-          "switchTest": "Switched nodes IP to Testnet",
-          "switchMain": "Switched nodes IP to default main",
-          "reset": "Node IP reseted!"
+          "updated": "به روز شده",
+          "updatedIp": "IP گره ها به روز شد!",
+          "switchTest": "تعویض IP گره ها به شبکه تست",
+          "switchMain": "تعویض IP گره ها به پیش فرض اصلی",
+          "reset": "IP گره ها بازنشانی شد!"
         },
         "placeholder": {
-          "loadingIp": "Loading IP",
-          "loadingPort": "Loading Port"
+          "loadingIp": "بارگذاری IP",
+          "loadingPort": "بارگذاری پورت"
         },
         "button": {
-          "update": "Update and Connect",
-          "reset": "Reset"
+          "update": "به روز رسانی و اتصال",
+          "reset": "تنظیم مجدد"
         },
-        "mainNode": "Main Node",
+        "mainNode": "گره اصلی",
         "solidityNode": "Solidity Node",
         "testNet": "TestNet"
       }
@@ -447,16 +447,16 @@
       "toAddress": "To",
       "participateAssetIssueContract": "Participate",
       "transferAssetContract": "Transfer",
-      "transferContract": "Transfer",
-      "unfreezeBalanceContract": "Unfreeze",
-      "freezeBalanceContract": "Freeze",
-      "assetIssueContract": "Create",
-      "voteWitnessContract": "Vote",
-      "frozenDuration": "Duration",
-      "frozenBalance": "Total to Freeze"
+      "transferContract": "انتقال",
+      "unfreezeBalanceContract": "غیرمسدودسازی",
+      "freezeBalanceContract": "مسدود کردن",
+      "assetIssueContract": "ایجاد",
+      "voteWitnessContract": "رای",
+      "frozenDuration": "مدت زمان",
+      "frozenBalance": "کل مقدار مسدودسازی"
     },
     "errorDic": {
-      "contractValidate": "Transaction data not valid. Please try again later.",
+      "contractValidate": "اطلاعات تراکنش معتبر نیست. لطفا بعدا دوباره سعی کنید.",
       "signature": "Transaction signature not valid.",
       "duplicate": "Transaction already broadcasted.",
       "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
