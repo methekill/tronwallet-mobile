@@ -339,11 +339,11 @@
       "title": "רשת",
       "modal": {
         "title": "רשת",
-        "explanation": "עם אפשרות זו אתה יכול לבחור את הצומת כי יהיה מתאים יותר לצרכים שלך ואת ההעדפות. אנא היזהר בעת עדכון IP הצומת בזמן IP טועה יכול להוביל תקלות בתוך הארנק שלך. דוגמה: 35.231.121.122:50051",
+        "explanation": "באפשרות זו אתה יכול לבחור את ה-node אשר תהיה הכי מתאימה לצרכיך ולההעדפותך. אנא היזהר בעת עדכון IP של ה-node מכיוון ש-IP שגוי עלול להוביל לתקלות בתוך הארנק שלך. דוגמה: 35.231.121.122:50051",
         "error": {
-          "storage": "שגיאה בקבלת IP הצומת מן האחסון המקומי",
+          "storage": "איראה שגיאה בקבלת כתובת ה-ip של ה-node מהאחסון המקומי",
           "invalidIp": "אנא הכנס כתובת IP חוקית",
-          "update": "משהו השתבש בזמן עדכון צמתים ip",
+          "update": "משהו השתבש בזמן עדכון כתובות ה-ip של ה-nodes",
           "reset": "משהו השתבש במהלך איפוס כתובת ה-ip של ה-node"
         },
         "success": {
@@ -413,9 +413,9 @@
     },
     "accounts": {
       "title": "חשבונות",
-      "search": "חפש בחשבונות",
-      "restoreAccounts": "שחזר חשבונות",
-      "noAccounts": "אין צורך לשחזר חשבונות"
+      "search": "חפש חשבונות",
+      "restoreAccounts": "שחזור חשבונות",
+      "noAccounts": "אין חשבונות לשחזור"
     },
     "partners": "שותפים",
     "askPin": "בקש תמיד קוד מזהה (PIN)",
@@ -479,12 +479,12 @@
     "title": "טרנזקציה",
     "clipboard": {
       "tronscanUrl": "כתובת Tronscan הועתקה ללוח המקשים",
-      "publicKey": "מפתח ציבורי הועתק ללוח"
+      "publicKey": "המפתח הציבורי הועתק ללוח המקשים"
     },
     "hash": "HASH",
     "status": "סטטוס",
-    "time": "זְמַן",
-    "block": "לַחסוֹם",
+    "time": "זמן",
+    "block": "בלוק",
     "frozenBalance": "יתרה קפואה",
     "unfrozenBalance": "יתרה ששוחררה",
     "totalVotes": "סך הכל הקולות",
@@ -500,7 +500,7 @@
     "votedAddress": "הכתובת שהצבעת עליה"
   },
   "transactionSuccess": {
-    "submitted": "תובלה שהוגשה לרשת!",
+    "submitted": "העסקה הוגשה לרשת!",
     "success": "הצליחה!"
   },
   "votes": {
@@ -508,7 +508,7 @@
     "totalVotes": "סך הכל ההצבעות",
     "votesAvailable": "קולות זמינים",
     "search": "חיפוש",
-    "searchPreview": "Suggestions - Most Voted",
+    "searchPreview": "הצעות - ההצבעות האחרונות שלי",
     "error": "אופס, משהו לא נטען כהלכה. נסה לטעון מחדש",
     "notFound": "סופר נציג (SR) לא נמצא"
   },
@@ -579,7 +579,7 @@
       "title": "תנאי השימוש של TronWallet",
       "section1": {
         "title": "1. תנאים",
-        "body": "By accessing the website at http://tronwallet.me, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law."
+        "body": "על ידי כניסה ליישום זה, אתה מסכים להיות מחויב לתנאים ולהגבלות אלה, לכל החוקים והתקנות הרלוונטיים, ולהסכים שאתה אחראי לציית לכל החוקים המקומיים הרלוונטיים. אם אינך מסכים לתנאים אלו, אסור לך להשתמש באפליקציה הזו או לגשת אליה. החומרים הכלולים באתר זה מוגנים על ידי חוקי זכויות היוצרים והסימנים המסחריים הרלוונטיים."
       },
       "section2": {
         "title": "2. תנאי שימוש",
