@@ -51,10 +51,10 @@
   "close": "بستن",
   "ends": "به پایان می رسد",
   "clear": "واضح",
-  "allIn": "All In",
-  "skip": "Skip",
-  "privateKey": "Private Key",
-  "results": "Results",
+  "allIn": "استفاده از کل موجودی",
+  "skip": "پرش",
+  "privateKey": "کلید خصوصی",
+  "results": "نتیجه",
   "buy": "Buy",
   "filter": "Filter",
   "txs": "Transactions",
@@ -135,82 +135,82 @@
       "add": "ADD",
       "edit": "EDIT",
       "delete": "DELETE",
-      "send": "SEND"
+      "send": "ارسال"
     },
     "contacts": {
-      "title": "CONTACTS",
+      "title": "مخاطبان",
       "delete": {
-        "title": "Delete Contact",
-        "message": "Do you really want to delete this contact?",
-        "cancelButton": "Cancel",
-        "okButton": "OK"
+        "title": "حذف مخاطب",
+        "message": "شما واقعا می خواهید این مخاطب را حذف کنید؟",
+        "cancelButton": "لغو",
+        "okButton": "تایید"
       },
-      "empty": "Your address book is empty, add a new contact using the button below.",
-      "loadError": "There was a problem loading the contacts. Please try again.",
-      "addContact": "ADD CONTACT",
-      "addToContacts": "ADD TO CONTACTS"
+      "empty": "دفترچه آدرس شما خالی است، با استفاده از دکمه پایین یک مخاطب اضافه کنید.",
+      "loadError": "مشکلی در بارگذاری مخاطبین رخ داده است. لطفا دوباره سعی کنید.",
+      "addContact": "اضافه کردن مخاطب",
+      "addToContacts": "افزودن به تماس ها"
     },
     "form": {
-      "generalError": "There was a problem submitting this form. Please contact an administrator.",
-      "nameError": "The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.",
-      "addressError": "Something isn't right with the address. Please double check for typos.",
-      "uniqueAddressError": "The key must be unique. Please choose a different address.",
-      "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
-      "name": "NAME",
-      "address": "ADDRESS"
+      "generalError": "مشکلی در ثبت این فرم رخ داده است. لطفا با سرپرست تماس بگیرید.",
+      "nameError": "نام باید با یک حرف الفبا آغاز شود، حداکثر 32 حرف باشد، و فقط حروف، اعداد و فاصله خالی مجاز است.",
+      "addressError": "مشکلی در آدرس وجود دارد. لطفا دوباره بررسی کنید.",
+      "uniqueAddressError": "کلید باید منحصر به فرد باشد. لطفا آدرس دیگری انتخاب کنید.",
+      "uniqueAliasError": "نام در دفترچه آدرس باید منحصر به فرد باشد. لطفا نام دیگری انتخاب کنید.",
+      "name": "نام",
+      "address": "آدرس"
     }
   },
   "importWallet": {
-    "title": "IMPORT WALLET",
-    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
-    "button": "IMPORT",
+    "title": "واردکردن کیف پول",
+    "message": "اگر شما آدرس و کلیدخصوصی کیف پول خود را دارید، می توانید آن را اینجا بازیابی کنید. اما بخاطر داشته باشید TronWallet در درجه اول با mnemonics کار می کند. این روش بازیابی برخی از کارایی های داخلی اپ را غیرفعال می کند.",
+    "button": "واردکردن",
     "error": {
-      "privateKey": "Private key invalid or incomplete"
+      "privateKey": "کلید خصوصی نامعتبر یا ناقص است"
     }
   },
   "freeze": {
-    "title": "FREEZE",
+    "title": "مسدود کردن",
     "unfreeze": {
-      "title": "UNFREEZE",
-      "inXTime": "You can unfreeze your TRX",
-      "inThreeDays": "After a three day period you can unfreeze your TRX",
-      "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
-      "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
-      "inXDays": "You can unfreeze your TRX in {{days}} days.",
-      "now": "You can unfreeze your TRX now."
+      "title": "غیرمسدود",
+      "inXTime": "شما می توانید TRX خود را از مسدودی خارج کنید",
+      "inThreeDays": "پس از یک دوره سه روزه شما می توانید TRX خود را از مسدودی خارج کنید",
+      "inXMinutes": "شما می توانید TRX خود را {{minutes}} دقیقه دیگر از مسدودی خارج کنید.",
+      "inXHours": "شما می توانید TRX خود را {{hours}} ساعت دیگر از مسدودی خارج کنید.",
+      "inXDays": "شما می توانید TRX خود را {{days}} روز دیگر از مسدودی خارج کنید.",
+      "now": "شما می توانید TRX خود را هم اکنون از مسدودی خارج کنید."
     },
     "error": {
-      "minimumAmount": "The minimum amount for any freeze transaction is 1.",
-      "insufficientBalance": "Insufficient TRX balance",
-      "roundNumbers": "Can only freeze round numbers"
+      "minimumAmount": "حداقل مقدار برای هر تراکنش مسدودسازی 1 است.",
+      "insufficientBalance": "موجودی TRX ناکافی",
+      "roundNumbers": "تنها مقادیر رند قابل مسدودکردن است"
     },
-    "amount": "FREEZE AMOUNT",
-    "balance": "Balance"
+    "amount": "مقدار مسدودکردن",
+    "balance": "موجودی"
   },
   "getVault": {
-    "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
-    "downloadHere": "You can download it here"
+    "notInstalled": "به نظر می رسد شما برای ادامه تراکنش Tron Vault روی گوشی خود نصب نکرده اید.",
+    "downloadHere": "می توانید از اینجا آن را دانلود کنید"
   },
   "market": {
     "time": {
-      "hour": "1H",
-      "day": "1D",
-      "week": "1W",
-      "month": "1M",
-      "all": "ALL"
+      "hour": "1 ساعت",
+      "day": "1 روز",
+      "week": "1 هفته",
+      "month": "1 ماه",
+      "all": "همه"
     },
-    "highest": "HIGHEST",
-    "lowest": "LOWEST",
-    "volume": "VOLUME 24H",
-    "cap": "MARKET CAP",
-    "supply": "CIRCULATING SUPPLY"
+    "highest": "بالاترین",
+    "lowest": "پایین ترین",
+    "volume": "حجم 24 ساعته",
+    "cap": "سرمایه بازار",
+    "supply": "موجودی در گردش"
   },
   "participate": {
-    "title": "PARTICIPATE",
-    "featured": "FEATURED",
+    "title": "مشارکت",
+    "featured": "ویژه",
     "button": {
-      "confirm": "CONFIRM",
-      "moreInfo": "MORE INFO",
+      "confirm": "تایید",
+      "moreInfo": "اطلاعات بیشتر",
       "buyNow": "BUY NOW"
     },
     "error": {
@@ -285,13 +285,13 @@
       "title": "CREATE SEED",
       "titleConfirm": "CONFIRM WALLET SEED",
       "error": "Oops, we have a problem. Please restart the application.",
-      "generateNew": "This will generate a completely new wallet.",
+      "generateNew": "این بخش یک کیف پول کاملا جدید ایجاد خواهد کرد.",
       "button": {
-        "written": "I'VE WRITTEN IT DOWN",
-        "newSeed": "GET NEW SEED",
-        "later": "Confirm later"
+        "written": "من آن را یادداشت کردم",
+        "newSeed": "دریافت سید جدید",
+        "later": "بعدا تایید کنید"
       },
-      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
+      "backupMessage": "شما همیشه می توانید به کلمات خود در بخش پشتیبان گیری در تنظیمات اپ دسترسی داشته باشید      ",
       "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
