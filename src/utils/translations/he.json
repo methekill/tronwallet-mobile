@@ -153,9 +153,9 @@
     "form": {
       "generalError": "There was a problem submitting this form. Please contact an administrator.",
       "nameError": "The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.",
-      "addressError": "Something isn't right with the address. Please double check for typos.",
+      "addressError": "משהו לא בסדר בכתובת. אנא וודא כי אין שגיאות הקלדה.",
       "uniqueAddressError": "The key must be unique. Please choose a different address.",
-      "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
+      "uniqueAliasError": "השמות בפנקס הכתובות שלך חייבים להיות ייחודיים. אנא בחר שם אחר.",
       "name": "שם",
       "address": "כתובת"
     }
@@ -174,9 +174,9 @@
       "title": "שחרר",
       "inXTime": "אתה יכול לשחרר את ה-TRX שלך כעת",
       "inThreeDays": "אחרי תקופה של שלושה ימים תוכל לשחרר את ה-TRX שלך",
-      "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
-      "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
-      "inXDays": "You can unfreeze your TRX in {{days}} days.",
+      "inXMinutes": "אתה יכול לשחרר את ה-TRX שלך בעוד {{minutes}} דקות.",
+      "inXHours": "אתה יכול לשחרר את ה-TRX שלך בעוד {{hours}} שעות.",
+      "inXDays": "אתה יכול לשחרר את ה-TRX שלך בעוד {{days}} ימים.",
       "now": "אתה יכול לשחרר את ה-TRX שלך כעת."
     },
     "error": {
