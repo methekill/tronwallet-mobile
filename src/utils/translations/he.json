@@ -145,7 +145,7 @@
         "cancelButton": "ביטול",
         "okButton": "אוקיי"
       },
-      "empty": "Your address book is empty, add a new contact using the button below.",
+      "empty": "פנקס הכתובות שלך ריקה, הוסף איש קשר חדש באמצעות הכפתור למטה.",
       "loadError": "היתה בעיה בטעינת אנשי הקשר. אנא נסה שוב.",
       "addContact": "הוסף איש קשר",
       "addToContacts": "הוסף לאנשי הקשר"
@@ -154,7 +154,7 @@
       "generalError": "There was a problem submitting this form. Please contact an administrator.",
       "nameError": "The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.",
       "addressError": "משהו לא בסדר בכתובת. אנא וודא כי אין שגיאות הקלדה.",
-      "uniqueAddressError": "The key must be unique. Please choose a different address.",
+      "uniqueAddressError": "המפתח חייב להיות ייחודי. אנא בחר כתובת שונה.",
       "uniqueAliasError": "השמות בפנקס הכתובות שלך חייבים להיות ייחודיים. אנא בחר שם אחר.",
       "name": "שם",
       "address": "כתובת"
@@ -188,7 +188,7 @@
     "balance": "יתרה"
   },
   "getVault": {
-    "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
+    "notInstalled": "נראה שאין לך Tron Vault מותקנת על הטלפון שלך על מנת שתוכל להמשיך את הטרנזקציה.",
     "downloadHere": "אתה יכול להוריד את זה כאן"
   },
   "market": {
@@ -221,7 +221,7 @@
       },
       "notFound": "לא נמצאו הנכסים"
     },
-    "warning": "You don't have enough TRX to buy that many {{token}}",
+    "warning": "אין לך מספיק TRX כדי לקנות {{token}} טוקנים",
     "enterAmountToBuy": "הזן את הכמות לקניה",
     "amountToBuy": "הכמות לרכישה",
     "pricePerToken": "המחיר עבור טוקן",
@@ -571,7 +571,7 @@
     "title": "מדיניות פרטיות",
     "subtitle": "You must read and accept our privacy terms to continue.",
     "error": "You need to accept of privacy terms before to continue. ",
-    "acceptTerms": "I have read and agree to the terms",
+    "acceptTerms": "קראתי והסכמתי על תנאי השימוש",
     "continue": "המשך",
     "docTitle": "מדיניות פרטיות",
     "introduction": "Your privacy is important to us.\nIt is TronWallet's policy to respect your privacy regarding any information we may collect from you across our website, http://tronwallet.me, and other sites we own and operate.\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent.\nWe also let you know why we're collecting it and how it will be used.\nWe only retain collected information for as long as necessary to provide you with your requested service.\nWhat data we store, we'll protect within commercially acceptable means to prevent loss and theft, as well as unauthorised access, disclosure, copying, use or modification.\nWe don't share any personally identifying information publicly or with third-parties, except when required to by law.\nOur website may link to external sites that are not operated by us.\nPlease be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.\nYou are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.\nYour continued use of our website will be regarded as acceptance of our practices around privacy and personal information.\nIf you have any questions about how we handle user data and personal information, feel free to contact us.\nThis policy is effective as of 1 July 2018.",
