@@ -31,6 +31,8 @@
     "clipboardCopied": "Coś poszło nie tak podczas kopiowania",
     "hideAccount": "Coś poszło nie tak jak usunięcie konta, spróbuj ponownie \""
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "SIŁA TRON",
   "trxPrice": "CENA TRX",
   "confirmed": "Potwierdzone",
@@ -170,6 +172,7 @@
     "title": "ZAMRAŻANIE",
     "unfreeze": {
       "title": "ODMRAŻANIE",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "Po upływie trzech dni możesz odmrozić TRX",
       "inXMinutes": "Możesz odblokować TRX w ciągu {{minutes}} minut.",
       "inXHours": "Możesz odblokować TRX w ciągu {{hours}} godzin.",
@@ -560,6 +563,7 @@
       "title": "Sprawdź swoją biometrię"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "Odmowa dostępu"
     }
   },

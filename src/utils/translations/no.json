@@ -31,6 +31,8 @@
     "clipboardCopied": "Something wrong while copying",
     "hideAccount": "Noe gikk galt ved å slette konto, prøv igjen '"
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRICE",
   "confirmed": "Confirmed",
@@ -170,6 +172,7 @@
     "title": "FRYSE",
     "unfreeze": {
       "title": "frigi",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "Etter en tre dagers periode kan du fryse din TRX",
       "inXMinutes": "Du kan frigjøre TRX på {{minutes}} minutter.",
       "inXHours": "Du kan frigjøre TRX om {{hours}} timer.",
@@ -560,6 +563,7 @@
       "title": "Check your biometry"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "Access denied"
     }
   },

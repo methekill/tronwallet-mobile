@@ -49,7 +49,7 @@ class PinScene extends Component {
     }
   }
 
-  _onSibmit = async (currentPin) => {
+  _onSubmit = async (currentPin) => {
     const testInput = this.props.navigation.getParam('testInput')
     const onSuccess = this.props.navigation.getParam('onSuccess')
     if (testInput) {
@@ -73,7 +73,7 @@ class PinScene extends Component {
       const signature = await Biometrics.createSignature(tl.t('biometry.register.title'), uid)
       const currentPIN = await AsyncStorage.getItem(ENCRYPTED_PIN)
       const decryptPIN = decrypt(currentPIN, signature)
-      this._onSibmit(decryptPIN)
+      this._onSubmit(decryptPIN)
     } catch (error) {
       Alert.alert(tl.t('biometry.auth.error'))
     }
@@ -86,12 +86,12 @@ class PinScene extends Component {
     }
 
     if (this.state.pin && this.state.pin === currentPin) {
-      this._onSibmit(currentPin)
+      this._onSubmit(currentPin)
     }
   }
 
   _singleCheckPIN = (currentPin) => {
-    this._onSibmit(currentPin)
+    this._onSubmit(currentPin)
   }
 
   _checkPIN = (pin) => {

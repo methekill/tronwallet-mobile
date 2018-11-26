@@ -31,6 +31,8 @@
     "clipboardCopied": "Beim Kopieren ist ein Fehler aufgetreten",
     "hideAccount": "Beim Löschen des Kontos ist ein Fehler aufgetreten. Versuche es erneut"
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "TRON-POWER",
   "trxPrice": "TRX PREIS",
   "confirmed": "Bestätigt",
@@ -170,6 +172,7 @@
     "title": "EINFRIEREN",
     "unfreeze": {
       "title": "FREIGEBEN",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "Nach einem Zeitraum von drei Tagen können Sie Ihre TRX auftauen und freigeben",
       "inXMinutes": "Sie können Ihre TRX in {{minutes}} Minuten freigeben.",
       "inXHours": "Sie können Ihre TRX in {{hours}} Stunden freigeben.",
@@ -560,6 +563,7 @@
       "title": "Überprüfen Sie Ihren Biometrie"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "Zugriff verweigert"
     }
   },

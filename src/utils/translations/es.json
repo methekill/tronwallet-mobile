@@ -31,7 +31,9 @@
     "clipboardCopied": "Algo salió mal al copiar",
     "hideAccount": "Se produjo un error al eliminar la cuenta, vuelve a intentarlo."
   },
-  "tronPower": "TRON POWER",
+  "avaliable": "DISPONIBLE",
+  "frozen": "CONGELADO",
+  "tronPower": "PODER DE TRON",
   "trxPrice": "PRECIO DE TRX",
   "confirmed": "Confirmado",
   "unconfirmed": "Sin confirmar",
@@ -170,6 +172,7 @@
     "title": "CONGELAR",
     "unfreeze": {
       "title": "DESCONGELAR",
+      "inXTime": "Puedes descongelar tus TRX ahora",
       "inThreeDays": "Después de un período de tres días puedes descongelar sus TRX",
       "inXMinutes": "Puedes descongelar sus TRX en {{minutes}} minutos.",
       "inXHours": "Puedes descongelar sus TRX en {{hours}} horas.",
@@ -182,7 +185,7 @@
       "roundNumbers": "Puede congelar sólo números enteros"
     },
     "amount": "CONGELAR CANTIDAD",
-    "balance": "Balance"
+    "balance": "Saldo"
   },
   "getVault": {
     "notInstalled": "Parece que no tiene TronVault instalado en su teléfono para continuar con su transacción.",
@@ -192,7 +195,7 @@
     "time": {
       "hour": "1H",
       "day": "1D",
-      "week": "1W",
+      "week": "1S",
       "month": "1M",
       "all": "TODOS"
     },
@@ -560,6 +563,7 @@
       "title": "Compruebe su biometría"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "Acceso denegado"
     }
   },

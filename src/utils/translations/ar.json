@@ -31,6 +31,8 @@
     "clipboardCopied": "حدث خطأ أثناء النسخ",
     "hideAccount": "حدث خطأ ما في حذف الحساب ، حاول مرة أخرى \""
   },
+  "avaliable": "AVAILABLE",
+  "frozen": "FROZEN",
   "tronPower": "قوة تأثير ترون",
   "trxPrice": "سعر ترون",
   "confirmed": "مؤكد",
@@ -170,6 +172,7 @@
     "title": "تجميد",
     "unfreeze": {
       "title": "إلغاء التجميد",
+      "inXTime": "You can unfreeze your TRX",
       "inThreeDays": "بعد مرور 3 أيام يمكنك إلغاء التجميد عن عملتك TRX",
       "inXMinutes": "يمكنك إلغاء تجميد عملتك TRX خلال {{minutes}} دقيقة.",
       "inXHours": "يمكنك إلغاء تجميد عملتك TRX خلال {{hours}} ساعة.",
@@ -560,6 +563,7 @@
       "title": "تحقق من هويتك"
     },
     "auth": {
+      "title": "Save Biometry",
       "error": "الدخول مرفوض"
     }
   },
