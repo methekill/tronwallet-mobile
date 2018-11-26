@@ -23,13 +23,13 @@
   "ok": "OK",
   "actionModalTitle": "Vil du gjerne",
   "account": "Konto",
-  "restore": "Restaurere",
+  "restore": "Gjenopprette",
   "error": {
     "default": "Woops noe gikk galt. Prøv igjen senere, \nhvis feilen vedvarer, prøv å oppdatere nettverksinnstillingene.",
     "buildingTransaction": "Feil under opprettelse av transaksjon, prøv igjen.",
     "gettingTransaction": "Feil under henting av transaksjon.",
     "clipboardCopied": "Noe gikk galt under kopiering",
-    "hideAccount": "Noe gikk galt ved å slette konto, prøv igjen '"
+    "hideAccount": "Noe gikk galt ved å slette konto, prøv igjen'"
   },
   "avaliable": "TILGJENGELIG",
   "frozen": "FROSSET",
@@ -64,8 +64,8 @@
       "loadingData": "Det oppstod en feil under lasting av data.",
       "savingCurrency": "Feil under lagring av foretrukket valuta"
     },
-    "chooseCurrency": "Vennligst velg din foretrukne valuta.",
-    "confirmSeed": "Vennligst Trykk for å bekrefte dine 12 frø ord",
+    "chooseCurrency": "Vennligst, velg din foretrukne valuta.",
+    "confirmSeed": "Vennligst trykk for å bekrefte dine 12 frø ord",
     "bandwidth": "BÅNDBREDDE",
     "tokens": "TOKENS",
     "holdings": "BEHOLDNING"
