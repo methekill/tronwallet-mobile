@@ -292,10 +292,10 @@
         "later": "بعدا تایید کنید"
       },
       "backupMessage": "شما همیشه می توانید به کلمات خود در بخش پشتیبان گیری در تنظیمات اپ دسترسی داشته باشید      ",
-      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
+      "seedExplanation": "کلید اولیه یک نمای قابل خواندن توسط انسان برای کیف پول شماست. آن کلمات، با ترتیب دقیق، می توانند برای ایجاد دوباره کیف پول شما مورد استفاده قرار گیرند."
     },
     "restore": {
-      "title": "RESTORE WALLET",
+      "title": "بازیابی کیف پول",
       "explanation": "To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
       "placeholder": "Please, type your 12 seed words here",
       "success": "Wallet restored with success!",
