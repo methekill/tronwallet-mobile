@@ -200,10 +200,10 @@
       "all": "ALLE"
     },
     "highest": "HØYESTE",
-    "lowest": "LAVEST",
+    "lowest": "LAVESTE",
     "volume": "VOLUM 24T",
-    "cap": "MARKED CAP",
-    "supply": "KIRKULERINGSFORSIKRING"
+    "cap": "MARKEDSVERDI",
+    "supply": "SIRKULERENDE FORSYNING"
   },
   "participate": {
     "title": "DELTA",
