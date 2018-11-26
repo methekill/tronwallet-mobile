@@ -5,15 +5,16 @@ import { FlatList } from 'react-native'
 import * as Utils from '../../components/Utils'
 import NavigationHeader from '../../components/Navigation/Header'
 import ExchangeItem from './ExchangeItem'
-import { Divider } from './elements'
+import { Divider, EmptyList } from './elements'
+import LoadingScene from '../../components/LoadingScene'
 
 // Utils
 import { withContext } from '../../store/context'
 import tl from '../../utils/i18n'
+import { logSentry } from '../../utils/sentryUtils'
 
 // Services
 import WalletClient from '../../services/client'
-import LoadingScene from '../../components/LoadingScene'
 
 class ExchangeScene extends Component {
     static navigationOptions = { header: null }
@@ -38,16 +39,19 @@ class ExchangeScene extends Component {
         let exchangeList = await WalletClient.getExchangesList()
         this.setState({exchangeList, loading: false})
       } catch (error) {
-        console.warn('Error Exchange List', error)
+        logSentry(error, 'Error exchange list')
+        this.setState({exchangeList: [], loading: false})
       }
     }
 
     _renderItem = ({item}) => <ExchangeItem exchangeData={item} />
 
+    _renderEmptyList = () => <EmptyList text={tl.t('exchange.notFound')} />
+
     _renderSeparator = () => <Divider />
 
     render () {
-      const { exchangeList, loading } = this.state
+      const { loading, exchangeList } = this.state
       return (
         <Utils.SafeAreaView>
           <NavigationHeader title={tl.t('ex')} />
@@ -56,6 +60,7 @@ class ExchangeScene extends Component {
             : <FlatList
               data={exchangeList}
               renderItem={this._renderItem}
+              ListEmptyComponent={this._renderEmptyList}
               ItemSeparatorComponent={this._renderSeparator}
               keyExtractor={(item) => item.creatorAddress}
             />}

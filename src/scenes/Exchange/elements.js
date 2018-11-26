@@ -80,3 +80,13 @@ export const ExchangeLogo = ({source}) =>
 ExchangeLogo.propTypes = {
   source: PropTypes.string
 }
+
+export const EmptyList = ({text}) => (
+  <Utils.View flex={1} align='center' justify='center' padding={20}>
+    <Image
+      source={require('../../assets/empty.png')}
+      resizeMode='contain'
+      style={{ width: 200, height: 200 }} />
+    <Utils.Text size='tiny'>{text}</Utils.Text>
+  </Utils.View>
+)
