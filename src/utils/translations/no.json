@@ -70,7 +70,7 @@
     "tokens": "TOKENS",
     "holdings": "BEHOLDNING"
   },
-  "hideAccount": "Du er ferd med å fjerne denne kontoen. Du kan gjenopprette den senere i innstillingene",
+  "hideAccount": "Du er i ferd med å fjerne denne kontoen. Du kan gjenopprette det senere i innstillingene",
   "components": {
     "share": {
       "title": "Del TronWallet adresse",
