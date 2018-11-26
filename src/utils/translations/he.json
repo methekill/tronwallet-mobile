@@ -374,7 +374,7 @@
     },
     "reset": {
       "title": "אפס את הארנק",
-      "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
+      "warning": "אזהרה: פעולה זו תמחק את כל נתונים השמורים כולל 12 מילות הצופן שלך. אם לא שמרת את הצופן שלך, אנא עשה זאת לפני שתמשיך.",
       "button": "אוקיי, אני מבין"
     },
     "pin": {
@@ -424,8 +424,8 @@
   },
   "submitTransaction": {
     "title": "פרטי העסקה",
-    "notification": "You have received a transaction from {{address}}",
-    "notificationPayment": "You have received a payment from {{address}}",
+    "notification": "קיבלת טרנזקציה מ-{{address}}",
+    "notificationPayment": "קיבלת תשלום מ-{{address}}",
     "data": "מידע",
     "time": "זמן",
     "button": {
@@ -433,7 +433,7 @@
       "submit": "הגש טרנזקציה"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "לא ניתן לטעון את נתוני העסקה"
     },
     "exchange": {
       "send": "שולח {{sendtoken}}",
@@ -459,9 +459,9 @@
       "contractValidate": "תוכן הטרנזקציה אינו חוקי. אנה נסה שנית מאוחר יותר.",
       "signature": "חתימת הטרנזקציה אינה חוקית.",
       "duplicate": "הטרנזקציה כבר נשלחה.",
-      "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
-      "bandwith": "Not enought bandwidth. Please try again later.",
-      "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
+      "contractValidateCee": "נתוני הטרנזקציה אינם חוקיים (CEE). אנא נסה שנית מאוחר יותר.",
+      "bandwith": "אין לך מספיק רוחב פס. אנא נסה שנית מאוחר יותר.",
+      "contractValidateTapos": "נתוני הטרנזקציה אינם חוקיים (TAPOS). אנא נסה שנית מאוחר יותר.",
       "tooBig": "Transaction too big to be submitted.",
       "expiration": "הטרנזקציה פגה. נא נסה שוב.",
       "serverBusy": "השרת עסוק.",
@@ -556,7 +556,7 @@
   },
   "balanceToken": {
     "updating": "מעדכן את פרטי הטוקן. אנא המתן מספר שניות.",
-    "notAvailable": "Token information not available"
+    "notAvailable": "המידע על הטוקן לא זמין"
   },
   "biometry": {
     "register": {
@@ -576,7 +576,7 @@
     "docTitle": "מדיניות פרטיות",
     "introduction": "Your privacy is important to us.\nIt is TronWallet's policy to respect your privacy regarding any information we may collect from you across our website, http://tronwallet.me, and other sites we own and operate.\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent.\nWe also let you know why we're collecting it and how it will be used.\nWe only retain collected information for as long as necessary to provide you with your requested service.\nWhat data we store, we'll protect within commercially acceptable means to prevent loss and theft, as well as unauthorised access, disclosure, copying, use or modification.\nWe don't share any personally identifying information publicly or with third-parties, except when required to by law.\nOur website may link to external sites that are not operated by us.\nPlease be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.\nYou are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.\nYour continued use of our website will be regarded as acceptance of our practices around privacy and personal information.\nIf you have any questions about how we handle user data and personal information, feel free to contact us.\nThis policy is effective as of 1 July 2018.",
     "termsOfService": {
-      "title": "TronWallet Terms of Service",
+      "title": "תנאי השימוש של TronWallet",
       "section1": {
         "title": "1. תנאים",
         "body": "By accessing the website at http://tronwallet.me, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law."
