@@ -7,6 +7,8 @@ import {
   SafeAreaView
 } from 'react-navigation'
 
+import Splash from 'react-native-splash-screen'
+
 import { Colors, ScreenSize } from './src/components/DesignSystem'
 import { TWIcon } from './src/components/Utils'
 
@@ -47,9 +49,11 @@ import CreateSeed from './src/scenes/Seed/Create'
 import ImportWallet from './src/scenes/Seed/Import'
 import PrivacyPolicy from './src/scenes/PrivacyPolicy'
 import Notifications from './src/scenes/Notifications'
-import News from './src/scenes/News'
+import Signals from './src/scenes/Signals'
 
 import tl from './src/utils/i18n'
+
+// Splash.hide()
 
 const SettingsStack = createStackNavigator({
   Settings,
@@ -194,23 +198,23 @@ const AppTabs = createBottomTabNavigator({
 })
 
 const RootNavigator = createStackNavigator({
-  // Loading: LoadingScene,
-  // FirstTime: createSwitchNavigator({ PrivacyPolicy, First: FirstTime }, { initialRouteName: 'PrivacyPolicy' }),
-  // Pin,
-  // CreateSeed,
-  // SeedRestore,
-  // ImportWallet,
-  // App: AppTabs,
-  // GetVault: GetVaultScene,
-  // SubmitTransaction: {
-  //   screen: SubmitTransactionScene,
-  //   path: 'transaction/:tx'
-  // },
-  // TransactionSuccess,
-  // Freeze: FreezeVoteScene,
-  // Rewards: RewardsScene,
-  // Notifications,
-  News
+  Loading: LoadingScene,
+  FirstTime: createSwitchNavigator({ PrivacyPolicy, First: FirstTime }, { initialRouteName: 'PrivacyPolicy' }),
+  Pin,
+  CreateSeed,
+  SeedRestore,
+  ImportWallet,
+  App: AppTabs,
+  GetVault: GetVaultScene,
+  SubmitTransaction: {
+    screen: SubmitTransactionScene,
+    path: 'transaction/:tx'
+  },
+  TransactionSuccess,
+  Freeze: FreezeVoteScene,
+  Rewards: RewardsScene,
+  Notifications,
+  Signals
 }, {
   mode: 'modal',
   navigationOptions: {

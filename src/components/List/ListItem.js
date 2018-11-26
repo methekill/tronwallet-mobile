@@ -14,12 +14,6 @@ export default ({ title, subtitle, rightTitle, avatar }) => (
         <Avatar
           rounded
           source={avatar}
-          containerStyle={{
-            width: 90,
-            transform: [{
-              translateY: -20
-            }]
-          }}
           medium
         />
       )
@@ -52,14 +46,6 @@ export default ({ title, subtitle, rightTitle, avatar }) => (
       fontSize: 12,
       color: Colors.greyBlue,
       lineHeight: 20
-    }}
-    avatarStyle={{
-      width: 50,
-      height: 50,
-      borderRadius: 25
-    }}
-    avatarContainerStyle={{
-      backgroundColor: 'yellow'
     }}
   />
 )
