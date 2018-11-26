@@ -457,59 +457,59 @@
     },
     "errorDic": {
       "contractValidate": "اطلاعات تراکنش معتبر نیست. لطفا بعدا دوباره سعی کنید.",
-      "signature": "Transaction signature not valid.",
-      "duplicate": "Transaction already broadcasted.",
-      "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
-      "bandwith": "Not enought bandwidth. Please try again later.",
-      "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
-      "tooBig": "Transaction too big to be submitted.",
-      "expiration": "Transaction expired. Please try again.",
-      "serverBusy": "Server busy.",
-      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
+      "signature": "امضای تراکنش معتبر نیست.",
+      "duplicate": "تراکنش پخش شده است.",
+      "contractValidateCee": "اطلاعات تراکنش معتبر نیست (CEE). لطفا بعدا دوباره سعی کنید.",
+      "bandwith": "پهنای باند کافی نیست. لطفا بعدا دوباره سعی کنید.",
+      "contractValidateTapos": "اطلاعات تراکنش معتبر نیست (TAPOS). لطفا بعدا دوباره سعی کنید.",
+      "tooBig": "تراکنش بیش از حد بزرگ است.",
+      "expiration": "تراکنش منقضی شده است. لطفا دوباره سعی کنید.",
+      "serverBusy": "سرور مشغول است.",
+      "resource": "موجودی یا پهنای باند ناکافی است. احتمالا باید مقداری TRX مسدود کنید."
     },
-    "totalVotes": "Total Votes"
+    "totalVotes": "کل آراء"
   },
   "transactions": {
-    "title": "MY TRANSACTIONS",
-    "from": "From",
-    "to": "To",
-    "notFound": "No transactions found."
+    "title": "تراکنش های من",
+    "from": "از",
+    "to": "به",
+    "notFound": "هیچ تراکنشی یافت نشد."
   },
   "transactionDetails": {
-    "title": "TRANSACTION",
+    "title": "تراکنش",
     "clipboard": {
-      "tronscanUrl": "Tronscan url for this transaction copied to the clipboard",
-      "publicKey": "Public Key copied to the clipboard"
+      "tronscanUrl": "آدرس وب Tronscan برای این تراکنش در حافظه ذخیره شد",
+      "publicKey": "کلید عمومی در حافظه کپی شد"
     },
-    "hash": "HASH",
-    "status": "STATUS",
-    "time": "TIME",
-    "block": "BLOCK",
-    "frozenBalance": "FROZEN BALANCE",
-    "unfrozenBalance": "UNFROZEN BALANCE",
-    "totalVotes": "TOTAL VOTES",
-    "amount": "AMOUNT",
-    "to": "TO",
-    "from": "FROM",
-    "tokenName": "TOKEN NAME",
-    "unityValue": "UNITY VALUE",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "votedAddress": "VOTED ADDRESS"
+    "hash": "هش",
+    "status": "وضعیت",
+    "time": "زمان",
+    "block": "بلوک",
+    "frozenBalance": "موجودی مسدود شده",
+    "unfrozenBalance": "موجودی مسدود نشده",
+    "totalVotes": "کل آراء",
+    "amount": "مقدار",
+    "to": "به",
+    "from": "از",
+    "tokenName": "نام توکن",
+    "unityValue": "ارزش هر واحد",
+    "totalSupply": "کل موجودی",
+    "startTime": "زمان شروع",
+    "endTime": "زمان پایان",
+    "description": "توضیحات",
+    "votedAddress": "آدرس رای داده شده"
   },
   "transactionSuccess": {
-    "submitted": "TRANSACTION SUBMITTED TO NETWORK!",
-    "success": "SUCCESS!"
+    "submitted": "تراکنش در شبکه ثبت شد!",
+    "success": "موفقیت آمیز!"
   },
   "votes": {
-    "title": "VOTES",
-    "totalVotes": "TOTAL VOTES",
-    "votesAvailable": "VOTES AVAILABLE",
-    "search": "Search",
-    "searchPreview": "Suggestions - My latest votes",
-    "error": "Oops, something didn't load correctly. Try to reload",
+    "title": "آراء",
+    "totalVotes": "کل آراء",
+    "votesAvailable": "آراء در دسترس",
+    "search": "جستجو",
+    "searchPreview": "پیشنهادات - آراء اخیر من",
+    "error": "اوه، چیزی به درستی بارگذاری نشده است. سعی کنید دوباره بارگذاری کنید",
     "notFound": "Super Representative not found"
   },
   "scanPayment": {
@@ -606,19 +606,19 @@
         "body": "TronWallet may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service.\n"
       },
       "section8": {
-        "title": "8. Governing Law",
+        "title": "8. قانون حاکم",
         "body": "These terms and conditions are governed by and construed in accordance with the laws of Vancouver, Canada and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.\n"
       },
       "section9": {
-        "title": "9. CRYPTOCURRENCY RISKS",
-        "body": "Cryptocurrency assets are subject to high market risks and volatility. Past performance is not indicative of future results. Investments in blockchain assets may result in loss of part or all of your investment. Please do your own research and use caution. You are solely responsible for your actions on the TRONWALLET. TRONWALLET Team is not responsible for your investment losses.\n"
+        "title": "9. ریسک های ارز دیجیتال",
+        "body": "دارایی های ارز دیجیتال در معرض ریسک و نوسانات بالای بازار هستند. عملکرد گذشته نشان دهنده نتایج آینده نیست. سرمایه گذاری در دارایی های بلاکچین ممکن است منجر به از دست دادن بخشی یا همه سرمایه شما شود. لطفا تحقیقات شخصی خود را انجام داده و جانب احتیاط را رعایت کنید. شما شخصا مسئول اعمال خود در TRONWALLET هستید. تیم TRONWALLET هیچ مسئولیتی در مورد از دست رفتن سرمایه شما ندارد."
       },
       "section10": {
-        "title": "10. THE TRON NETWORK (SEPARATE FROM TRONWALLET)",
-        "body": "TronWallet is only a user interface to TRON and does not operate the TRON NETWORK. TronWallet is unable to control the actions of others on the TRON NETWORK. When using TRONWALLET, you are directly communicating with the TRON PUBLIC API operated by TRON Foundation. Transactions on the TRONWALLET are irreversible.\n"
+        "title": "10- شبکه TRON (جدای از TRONWALLET)",
+        "body": "TronWallet تنها یک رابط کاربری برای TRON است و شبکه TRON را مدیریت نمی کند. TronWallet توانایی کنترل اعمال دیگران روی شبکه TRON را ندارد. وقتی از TRONWALLET استفاده می کنید، شما مستقیما با API عمومی TRON در ارتباط هستید که توسط بنیاد TRON مدیریت می شود. تراکنش ها در TRONWALLET غیرقابل برگشت هستند."
       },
       "section11": {
-        "title": "11. TRONWALLET DOES NOT ENDORSE ANYTHING",
+        "title": "11. TRONWALLET هیچ چیزی را تایید نمی کند",
         "body": "TRONWALLET does NOT endorse ANY asset on the TRON NETWORK. Asset \"listings\" on TRONWALLET are NOT endorsements. TRONWALLET is a software client ONLY and does NOT conduct any independent diligence or review of any asset. TRON is an open system meaning that scams and market manipulators may exist. Prices shown on TRONWALLET are for informational purposes and do not imply that they can actually be redeemed for a certain price.\n"
       },
       "section12": {
