@@ -161,7 +161,7 @@
     }
   },
   "importWallet": {
-    "title": "IMPORTVALLET",
+    "title": "IMPORTER LOMMEBOK",
     "message": "Hvis du har den private nøkkelen og adressen til lommeboken, kan du gjenopprette den her, men husk at TronWallet opererer med mnemonics først og fremst. Denne gjenopprettingsmetoden deaktiverer noen funksjoner i App.",
     "button": "IMPORT",
     "error": {
@@ -171,21 +171,21 @@
   "freeze": {
     "title": "FRYSE",
     "unfreeze": {
-      "title": "frigi",
+      "title": "FRIGI",
       "inXTime": "Du kan frigjøre dine TRX",
-      "inThreeDays": "Etter en tre dagers periode kan du fryse din TRX",
-      "inXMinutes": "Du kan frigjøre TRX på {{minutes}} minutter.",
+      "inThreeDays": "Etter en tre dagers periode kan du frigi dine TRX",
+      "inXMinutes": "Du kan frigjøre dine TRX om {{minutes}} minutter.",
       "inXHours": "Du kan frigjøre TRX om {{hours}} timer.",
-      "inXDays": "Du kan frigjøre TRX på {{days}} dager.",
-      "now": "Du kan frigjøre din TRX nå."
+      "inXDays": "Du kan frigjøre dine TRX om {{days}} dager.",
+      "now": "Du kan frigjøre dine TRX nå."
     },
     "error": {
       "minimumAmount": "Minimumsbeløpet for enhver fryse-transaksjon er 1.",
-      "insufficientBalance": "Mangelfull TRX-balanse",
+      "insufficientBalance": "Utilstrekkelig TRX saldo",
       "roundNumbers": "Kan bare fryse runde tall"
     },
     "amount": "FRYSE BELØP",
-    "balance": "Balansere"
+    "balance": "Saldo"
   },
   "getVault": {
     "notInstalled": "Det ser ut til at du ikke har Tron Vault installert på telefonen din for å fortsette med transaksjonen din.",
