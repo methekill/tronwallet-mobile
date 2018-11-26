@@ -45,12 +45,12 @@
     "unfreeze": "غیرمسدود",
     "vote": "رای",
     "participate": "مشارکت",
-    "create": "Create",
-    "undefined": "Undefined Type"
+    "create": "ایجاد",
+    "undefined": "نوع تعریف نشده"
   },
-  "close": "Close",
-  "ends": "Ends",
-  "clear": "Clear",
+  "close": "بستن",
+  "ends": "به پایان می رسد",
+  "clear": "واضح",
   "allIn": "All In",
   "skip": "Skip",
   "privateKey": "Private Key",
