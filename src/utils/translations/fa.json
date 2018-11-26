@@ -296,39 +296,39 @@
     },
     "restore": {
       "title": "بازیابی کیف پول",
-      "explanation": "To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
-      "placeholder": "Please, type your 12 seed words here",
-      "success": "Wallet restored with success!",
-      "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
-      "error": "Oops. Looks like the words you typed aren't a valid mnemonic seed. Check for a typo and try again.",
-      "button": "RESTORE"
+      "explanation": "برای بازیابی کیف پول خود، لطفا 12 کلمه ای که وقتی برای اولین بار کیف پول را ساختید به شما داده شد و یادداشت کردید را دقیقا وارد کنید. اگر ترتیب متفاوتی از کلمات را وارد کنید، یک کیف پول خالی ساخته خواهد شد.",
+      "placeholder": "لطفا، 12 کلمه اولیه خود را اینجا تایپ کنید",
+      "success": "کیف پول با موفقیت بازیابی شد!",
+      "warning": "بازیابی کلمات اولیه همه اطلاعات روی این دستگاه را حذف کرده و اطلاعات اکانت جدید بازیابی شده را از شبکه جایگزین خواهد کرد.",
+      "error": "اوه. به نظر می رسد کلماتی که وارد کرده اید معتبر نیستند. غلط های املایی را بررسی کرده و دوباره سعی کنید.",
+      "button": "بازیابی"
     }
   },
   "send": {
-    "title": "SEND",
+    "title": "ارسال",
     "error": {
-      "insufficientBalance": "Not enough balance.",
-      "gettingBalance": "Error while getting balance data",
-      "incompleteAddress": "Address is either incomplete or invalid.",
-      "invalidReceiver": "Invalid receiver address",
-      "selectBalance": "Select a balance first",
-      "invalidAmount": "Invalid amount"
+      "insufficientBalance": "موجودی کافی نیست.",
+      "gettingBalance": "خطا در هنگام گرفتن اطلاعات موجودی",
+      "incompleteAddress": "آدرس ناقص و یا غیرمعتبر است.",
+      "invalidReceiver": "آدرس گیرنده نامعتبر",
+      "selectBalance": "ابتدا موجودی را انتخاب کنید",
+      "invalidAmount": "مقدار نامعتبر"
     },
     "input": {
-      "token": "TOKEN",
-      "to": "TO",
-      "amount": "AMOUNT",
-      "description": "DESCRIPTION (OPTIONAL)"
+      "token": "توکن",
+      "to": "به",
+      "amount": "مقدار",
+      "description": "توضیحات (اختیاری)"
     },
-    "available": "available",
-    "chooseToken": "Please, choose a token below.",
-    "minimumAmount": "The minimum amount for any send transaction is 0.000001."
+    "available": "در دسترس",
+    "chooseToken": "لطفا، یک توکن را انتخاب کنید.",
+    "minimumAmount": "حداقل مقدار برای هر تراکنش ارسال 0.000001 است."
   },
   "settings": {
-    "title": "SETTINGS",
+    "title": "تنظیمات",
     "sectionTitles": {
-      "wallet": "WALLET",
-      "security": "SECURITY",
+      "wallet": "کیف پول",
+      "security": "امنیت",
       "notification": "NOTIFICATIONS AND IDIOM",
       "accounts": "ACCOUNTS MANAGEMENT"
     },
