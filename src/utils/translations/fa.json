@@ -116,25 +116,25 @@
         "body": "حریم خصوصی و امنیت برای \n تراکنش های شما"
       },
       "votes": {
-        "title": "VOTES",
-        "body": "Freezing and vote for Super \n Representatives"
+        "title": "رای ها",
+        "body": "مسدودسازی و رای برای \n نمایندگان ویژه"
       },
       "addressbook": {
-        "title": "ADDRESS BOOK",
-        "body": "Save the addresses of your friends \n and contacts."
+        "title": "کتابچه آدرس",
+        "body": "آدرس دوستان \n و مخاطبین خود را ذخیره کنید."
       },
       "multipleaccounts": {
-        "title": "MULTIPLE ACCOUNTS",
-        "body": "You can manage multiple accounts \n in your wallet"
+        "title": "حساب های چندگانه",
+        "body": "شما می توانید چندین حساب \n را در کیف پول خود مدیریت کنید"
       }
     }
   },
   "addressBook": {
-    "title": "ADDRESS BOOK",
+    "title": "کتابچه آدرس",
     "shared": {
-      "add": "ADD",
-      "edit": "EDIT",
-      "delete": "DELETE",
+      "add": "اضافه کردن",
+      "edit": "ویرایش",
+      "delete": "حذف",
       "send": "ارسال"
     },
     "contacts": {
@@ -211,12 +211,12 @@
     "button": {
       "confirm": "تایید",
       "moreInfo": "اطلاعات بیشتر",
-      "buyNow": "BUY NOW"
+      "buyNow": "الان بخر"
     },
     "error": {
-      "insufficientBalance": "Not enough funds (TRX) to participate.",
+      "insufficientBalance": "بودجه کافی (TRX) برای مشارکت وجود ندارد.",
       "insufficientTrx": {
-        "title": "You need to buy at least one TRX worth of {{token}}.",
+        "title": "لازم است حداقل به اندازه یک TRX از {{token}} خرید کنید.",
         "message": "Currently you are buying only {{amount}}."
       },
       "notFound": "Asset(s) not found"
@@ -370,83 +370,83 @@
       "title": "Backup Wallet"
     },
     "restore": {
-      "title": "Restore Wallet"
+      "title": "بازیابی کیف پول"
     },
     "reset": {
-      "title": "Reset Wallet",
-      "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
-      "button": "OK, I understand it"
+      "title": "تنظیم مجدد کیف پول",
+      "warning": "اخطار: این عمل همه داده های ذخیره شده از جمله 12 کلمه مخفی شما را حذف می کند. اگر شما کلمات را ذخیره نکرده اید، لطفا قبل از ادامه آن ها را ذخیره کنید.",
+      "button": "بله، فهمیدم"
     },
     "pin": {
-      "title": "Change Pin",
-      "success": "Pin successfully changed!"
+      "title": "تغییر پین",
+      "success": "تغییر پین با موفقیت انجام شد!"
     },
     "language": {
-      "title": "Language",
-      "choose": "Please, choose a Language below:",
+      "title": "زبان",
+      "choose": "لطفا، یک زبان را انتخاب کنید:",
       "success": {
-        "title": "Language changed to {{language}}",
-        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
+        "title": "زبان به {{language}} تغییر کرد",
+        "description": "با این حال، هنوز لازم است اپ را دوباره راه اندازی کنید تا تغییرات اعمال شوند. می خواهید الان انجام شود؟"
       },
       "button": {
-        "confirm": "Yes, restart now!",
-        "cancel": "No, I'll do it later"
+        "confirm": "بله، مجدد راه اندازی کن!",
+        "cancel": "خیر، بعدا این کار را انجام می دهم"
       },
-      "error": "Error saving preferred language"
+      "error": "خطا در ذخیره زبان مورد نظر"
     },
     "token": {
-      "title": "Token Filter",
-      "search": "Search tokens",
-      "confirm": "Save",
-      "noResult": "No results..."
+      "title": "فیلتر توکن",
+      "search": "جستجوی توکن ها",
+      "confirm": "ذخیره",
+      "noResult": "بدون نتیجه..."
     },
     "about": {
-      "title": "About",
-      "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
-      "tutorial": "TUTORIAL"
+      "title": "درباره",
+      "description": "TronWallet یک کیف پول کاملا غیرمتمرکز نظیر به نظیر برای شبکه TRON است که با واکنش بومی ساخته شده است. با استفاده از آن شما می توانید توکن ها را ارسال و دریافت کنید، برای نمایندگان ویژه رای دهید، در فروش توکن ها مشارکت کنید، موجودی و تراکنش های خود را بررسی کنید و بسیاری عملیات دیگر. روی لینک زیر برای آموزش جزییات روش استفاده از آن کلیک کنید.",
+      "tutorial": "آموزش"
     },
     "accepts": {
-      "title": "Who accepts TRX?"
+      "title": "چه کسی TRX می پذیرد؟"
     },
     "helpCenter": {
-      "title": "Help Center"
+      "title": "مرکز راهنمایی"
     },
     "accounts": {
-      "title": "Accounts",
-      "search": "Search accounts",
-      "restoreAccounts": "Restore Accounts",
-      "noAccounts": "No accounts to restore"
+      "title": "حساب ها",
+      "search": "جستجوی حساب ها",
+      "restoreAccounts": "بازیابی حساب ها",
+      "noAccounts": "هیچ حسابی برای بازیابی نیست"
     },
-    "partners": "PARTNERS",
-    "askPin": "Always ask PIN",
-    "askBiometry": "Activate Biometry",
-    "verifiedTokensOnly": "Verified tokens only"
+    "partners": "همکاران",
+    "askPin": "همیشه پین را درخواست کن",
+    "askBiometry": "فعال سازی بیومتریک",
+    "verifiedTokensOnly": "تنها توکن های تایید شده"
   },
   "submitTransaction": {
-    "title": "TRANSACTION DETAILS",
-    "notification": "You have received a transaction from {{address}}",
-    "notificationPayment": "You have received a payment from {{address}}",
-    "data": "DATA",
-    "time": "TIME",
+    "title": "جزئیات تراکنش",
+    "notification": "شما یک تراکنش از {{address}} دریافت کرده اید",
+    "notificationPayment": "شما یک پرداخت از {{address}} دریافت کرده اید",
+    "data": "داده ها",
+    "time": "زمان",
     "button": {
-      "tryAgain": "Try again",
-      "submit": "SUBMIT TRANSACTION"
+      "tryAgain": "دوباره سعی کن",
+      "submit": "ثبت تراکنش"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "قادر به بارگیری داده های تراکنش نیست"
     },
     "exchange": {
-      "send": "Sending {{sendtoken}}",
-      "receive": "Receiving {{receivetoken}}",
-      "error": "Check your latest transactions to confirm the received amount."
+      "send": "ارسال {{sendtoken}}",
+      "receive": "دریافت {{receivetoken}}",
+      "error": "آخرین تراکنش خود را برای تایید مقدار دریافتی بررسی کنید."
     },
-    "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
+    "disconnectedMessage": "به نظر می رسد اتصال شما قطع شده است. برای ادامه تراکنش دوباره به اینترنت متصل شوید.",
     "dic": {
-      "contractType": "Transaction Type",
-      "ownerAddress": "From",
-      "toAddress": "To",
-      "participateAssetIssueContract": "Participate",
-      "transferAssetContract": "Transfer",
+      "contractType": "نوع تراکنش",
+      "ownerAddress": "از",
+      "toAddress": "به",
+      "participateAssetIssueContract": "مشارکت",
+      "transferAssetContract": "انتقال",
       "transferContract": "انتقال",
       "unfreezeBalanceContract": "غیرمسدودسازی",
       "freezeBalanceContract": "مسدود کردن",
@@ -510,14 +510,14 @@
     "search": "جستجو",
     "searchPreview": "پیشنهادات - آراء اخیر من",
     "error": "اوه، چیزی به درستی بارگذاری نشده است. سعی کنید دوباره بارگذاری کنید",
-    "notFound": "Super Representative not found"
+    "notFound": "نماینده ویژه یافت نشد"
   },
   "scanPayment": {
-    "scan": "SCAN",
+    "scan": "اسکن",
     "error": {
-      "receiver": "Receiver address invalid",
-      "token": "Token not valid",
-      "amount": "Amount not valid",
+      "receiver": "آدرس گیرنده نامعتبر",
+      "token": "توکن معتبر نیست",
+      "amount": "مقدار معتبر نیست",
       "description": "Description too long",
       "code": "Payment code invalid. Please, scan a valid one"
     }
