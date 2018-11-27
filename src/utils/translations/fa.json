@@ -518,22 +518,22 @@
       "receiver": "آدرس گیرنده نامعتبر",
       "token": "توکن معتبر نیست",
       "amount": "مقدار معتبر نیست",
-      "description": "Description too long",
-      "code": "Payment code invalid. Please, scan a valid one"
+      "description": "توضیحات بیش از حد طولانی",
+      "code": "کد پرداخت معتبر نیست. لطفا یک کد معتبر اسکن کنید"
     }
   },
   "makePayment": {
-    "pay": "PAY",
-    "confirm": "CONFIRM PAYMENT",
+    "pay": "پرداخت",
+    "confirm": "تایید پرداخت",
     "error": {
-      "receiver": "Receiver is equal to requester",
-      "token": "This account doesn't have the token for this transaction",
-      "amount": "This account doesn't have enough balance.",
-      "description": "No description available"
+      "receiver": "گیرنده و فرستند یکی هستند",
+      "token": "این حساب توکن مورد نظر برای این تراکنش را ندارد",
+      "amount": "این حساب موجودی کافی ندارد.",
+      "description": "شرحی موجود نیست"
     }
   },
   "buildPayment": {
-    "generate": "GENERATE REQUEST",
+    "generate": "ایجاد درخواست",
     "selectCurrency": "Select the reference currency",
     "error": {
       "currency": "We weren't able to load other currency prices. Please use TRX as reference"
