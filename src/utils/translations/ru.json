@@ -32,7 +32,7 @@
     "hideAccount": "Что то пошло не так во время удаления аккаунта, попробуйте выполнить запрос позже."
   },
   "avaliable": "ДОСТУПНО",
-  "frozen": "FROZEN",
+  "frozen": "Заморожено\n",
   "tronPower": "TRON POWER\n",
   "trxPrice": "СТОИМОСТЬ TRX",
   "confirmed": "Подтверждено",
@@ -54,10 +54,10 @@
   "allIn": "Все в",
   "skip": "Пропустить",
   "privateKey": "Закрытый ключ",
-  "results": "Results",
-  "buy": "Buy",
-  "filter": "Filter",
-  "txs": "Transactions",
+  "results": "Результаты",
+  "buy": "Купить",
+  "filter": "Фильтр",
+  "txs": "Транзакции",
   "balance": {
     "title": "УЧЕТНЫЕ ЗАПИСИ",
     "error": {
@@ -130,7 +130,7 @@
     }
   },
   "addressBook": {
-    "title": "ADDRESS BOOK",
+    "title": "АДРЕСНАЯ КНИГА",
     "shared": {
       "add": "ДОБАВИТЬ",
       "edit": "РЕДАКТИРОВАТЬ",
@@ -138,7 +138,7 @@
       "send": "ОТПРАВИТЬ"
     },
     "contacts": {
-      "title": "CONTACTS",
+      "title": "Адреса",
       "delete": {
         "title": "Удалить Контакт",
         "message": "Вы действительно хотите удалить этот контакт?",
