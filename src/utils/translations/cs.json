@@ -20,7 +20,7 @@
   "cancel": "Zrušit",
   "address": "Adresa",
   "message": "Zpráva",
-  "ex": "Burza",
+  "ex": "Exchange",
   "ok": "OK",
   "actionModalTitle": "Zvolte",
   "account": "Účet",
@@ -47,7 +47,7 @@
     "vote": "Hlasování",
     "participate": "Nákup tokenu",
     "create": "Vytvoření",
-    "exchange": "Výměna",
+    "exchange": "Exchange",
     "undefined": "Nedefinovaný typ"
   },
   "close": "Zavřít",
@@ -80,7 +80,7 @@
       "buy": "Mírně vyšší odhadované náklady zvýší míru obratu.",
       "sell": "Mírně nížší odhadované náklady zvýší míru obratu."
     },
-    "notFound": "Burzy nenalezeny"
+    "notFound": "Exchanges nenalezeny"
   },
   "hideAccount": "Chystáte se odstranit tento účet. Později jej můžete obnovit v nastavení",
   "components": {
