@@ -24,11 +24,11 @@
   "ok": "אוקיי",
   "actionModalTitle": "האם תרצה",
   "account": "חשבון",
-  "restore": "שחזר",
+  "restore": "שחזור",
   "error": {
     "default": "אופס משהו השתבש, נסה שוב מאוחר יותר. אם השגיאה נמשכת נסה לעדכן את הגדרות הרשת.",
-    "buildingTransaction": "קרתה שגיאה בעת בניית הטרנזקציה, נסה שוב.",
-    "gettingTransaction": "אירעה שגיאה בעת קבלת טרנזקציה.",
+    "buildingTransaction": "קרתה שגיאה בעת בניית העסקה, נסה שוב.",
+    "gettingTransaction": "אירעה שגיאה בעת קבלת העסקה.",
     "clipboardCopied": "משהו השתבש במהלך העתקה",
     "hideAccount": "משהו השתבש במחיקת החשבון, נסה שוב"
   },
@@ -78,9 +78,9 @@
     "minToBuy": "כמות מינימלית לקניה ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "מעט גבוה מידי מהעלות המוערכת, קצב החלופה יהיה גבוה יותר.",
-      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+      "sell": "מעט נמוך מידי מהעלות המוערכת, קצב החלופה יהיה גבוה יותר."
     },
-    "notFound": "Exchanges not found"
+    "notFound": "הבורסה לא נמצאת"
   },
   "hideAccount": "אתה עומד להסיר את החשבון הזה. ניתן לשחזר אותו מאוחר יותר בהגדרות",
   "components": {
@@ -644,9 +644,9 @@
     }
   },
   "notifications": {
-    "title": "NOTIFICATIONS"
+    "title": "התראות"
   },
   "news": {
-    "title": "NEWS"
+    "title": "חדשות"
   }
 }
