@@ -1,6 +1,6 @@
 {
   "name": "tronwallet2",
-  "version": "1.3.7",
+  "version": "1.3.8",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
@@ -94,7 +94,13 @@
       "styled-components": "<rootDir>/node_modules/styled-components/dist/styled-components.native.cjs.js"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/setupTest.js",
-    "coverageReporters": ["json", "html", "lcov", "text", "text-summary"],
+    "coverageReporters": [
+      "json",
+      "html",
+      "lcov",
+      "text",
+      "text-summary"
+    ],
     "testPathIgnorePatterns": [
       "__tests__/Utils.js",
       "e2e/",
