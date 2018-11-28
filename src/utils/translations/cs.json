@@ -438,7 +438,7 @@
     "exchange": {
       "send": "Odesílání {{sendtoken}}",
       "receive": "Příjem {{receivetoken}}",
-      "error": "Podívejte se na nejnovější transakce k potvrzení přijatého množství."
+      "error": "Podívejte se na nejnovější transakce k ověření přijatého množství."
     },
     "disconnectedMessage": "Zdá se, že jste odpojeni. Připojte se k internetu, pak bude možné v transakci pokračovat.",
     "dic": {
