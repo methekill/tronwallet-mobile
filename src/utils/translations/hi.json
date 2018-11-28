@@ -113,18 +113,18 @@
       },
       "security": {
         "title": "सुरक्षा",
-        "body": "Privacy and security for \n your transactions"
+        "body": "आपके लेनदेन के लिए गोपनीयता और सुरक्षा"
       },
       "votes": {
-        "title": "VOTES",
-        "body": "Freezing and vote for Super \n Representatives"
+        "title": "वोट",
+        "body": "जमा कीजिए और सुपर प्रतिनिधियों के लिए वोट कीजिए"
       },
       "addressbook": {
-        "title": "ADDRESS BOOK",
-        "body": "Save the addresses of your friends \n and contacts."
+        "title": "पता पुस्तिका",
+        "body": "अपने दोस्तों और संपर्कों के पते को सहेजें।"
       },
       "multipleaccounts": {
-        "title": "MULTIPLE ACCOUNTS",
+        "title": "विभिन्न खाते",
         "body": "You can manage multiple accounts \n in your wallet"
       }
     }
