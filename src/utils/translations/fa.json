@@ -235,56 +235,56 @@
     "totalSupply": "موجودی کل",
     "startTime": "زمان شروع",
     "endTime": "زمان پایان",
-    "description": "DESCRIPTION",
-    "transaction": "TRANSACTION",
-    "ownerAddress": "OWNER ADDRESS",
+    "description": "توضیحات",
+    "transaction": "تراکنش",
+    "ownerAddress": "آدرس مالک",
     "trxNum": "TRX NUM",
-    "num": "NUM",
-    "block": "BLOCK",
-    "balance": "BALANCE",
-    "searchPreview": "Featured Tokens"
+    "num": "تعداد",
+    "block": "بلوک",
+    "balance": "موجودی",
+    "searchPreview": "توکن های ویژه"
   },
   "pin": {
-    "title": "SECURITY CHECK",
-    "enter": "Enter PIN",
-    "new": "Enter New PIN",
-    "reenter": "Re-Enter PIN",
-    "biometrics": "Biometric Check"
+    "title": "بررسی امنیتی",
+    "enter": "کد PIN را وارد کنید",
+    "new": "پین جدید را وارد کنید",
+    "reenter": "PIN را مجدداً وارد کنید",
+    "biometrics": "بررسی های بیومتریک"
   },
   "receive": {
-    "title": "RECEIVE",
-    "clipboardCopied": "Copied to clipboard",
+    "title": "دریافت",
+    "clipboardCopied": "در حافظه کپی شد",
     "button": {
-      "copy": "Copy",
-      "share": "Share"
+      "copy": "کپی",
+      "share": "اشتراک گذاری"
     },
     "tabs": {
-      "share": "SHARE",
-      "request": "REQUEST"
+      "share": "اشتراک گذاری",
+      "request": "درخواست"
     }
   },
   "rewards": {
-    "title": "REWARDS",
-    "earned": "You have earned"
+    "title": "پاداش",
+    "earned": "شما به دست آورده اید"
   },
   "seed": {
     "confirm": {
-      "title": "CONFIRM SEED",
+      "title": "تایید سید",
       "error": {
-        "title": "Wrong Combination",
-        "message": "Selected words don't match. Make sure you wrote the words in the correct order."
+        "title": "ترکیب اشتباه",
+        "message": "کلمات انتخاب شده مطابقت ندارند. مطمئن شوید کلمات را به ترتیب درست نوشته اید."
       },
-      "success": "Wallet successfully confirmed",
-      "explanation": "Select the words below in the right order to confirm your secret phrase.",
+      "success": "کیف پول با موفقیت تایید شد",
+      "explanation": "کلمات زیر را به ترتیب درست انتخاب کنید تا عبارت امنیتی تایید شود.",
       "button": {
-        "reset": "RESET WORDS",
-        "confirm": "CONFIRM SEED"
+        "reset": "تنظیم مجدد کلمات",
+        "confirm": "تایید کلمات اولیه"
       }
     },
     "create": {
-      "title": "CREATE SEED",
-      "titleConfirm": "CONFIRM WALLET SEED",
-      "error": "Oops, we have a problem. Please restart the application.",
+      "title": "ایجاد کلمات اولیه",
+      "titleConfirm": "تایید کلمات اولیه کیف پول",
+      "error": "اوه، ما مشکل داریم. لطفاً برنامه را مجددا راه اندازی کنید.",
       "generateNew": "این بخش یک کیف پول کاملا جدید ایجاد خواهد کرد.",
       "button": {
         "written": "من آن را یادداشت کردم",
@@ -362,12 +362,12 @@
           "reset": "تنظیم مجدد"
         },
         "mainNode": "گره اصلی",
-        "solidityNode": "Solidity Node",
-        "testNet": "TestNet"
+        "solidityNode": "گره مستحکم",
+        "testNet": "شبکه تست"
       }
     },
     "backup": {
-      "title": "Backup Wallet"
+      "title": "پشتیبان گیری کیف پول"
     },
     "restore": {
       "title": "بازیابی کیف پول"
