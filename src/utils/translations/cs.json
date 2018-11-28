@@ -20,6 +20,7 @@
   "cancel": "Zrušit",
   "address": "Adresa",
   "message": "Zpráva",
+  "ex": "Exchange",
   "ok": "OK",
   "actionModalTitle": "Zvolte",
   "account": "Účet",
@@ -46,6 +47,7 @@
     "vote": "Hlasování",
     "participate": "Nákup tokenu",
     "create": "Vytvoření",
+    "exchange": "Exchange",
     "undefined": "Nedefinovaný typ"
   },
   "close": "Zavřít",
@@ -56,6 +58,7 @@
   "privateKey": "Soukromý klíč",
   "results": "Výsledky",
   "buy": "Koupit",
+  "sell": "Sell",
   "filter": "Filtr",
   "txs": "Transakce",
   "balance": {
@@ -69,6 +72,15 @@
     "bandwidth": "ŠÍŘKA PÁSMA",
     "tokens": "TOKENY",
     "holdings": "MNOŽSTVÍ"
+  },
+  "exchange": {
+    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "variation": {
+      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
+      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+    },
+    "notFound": "Exchanges not found"
   },
   "hideAccount": "Chystáte se odstranit tento účet. Později jej můžete obnovit v nastavení",
   "components": {
@@ -630,5 +642,11 @@
         "body": "TRONWALLET je dostupný k volnému užití VE STAVU V JAKÉM JE, BEZ ZÁRUK NEBO PODMÍNEK JAKÉHOKOLI CHARAKTERU.\n"
       }
     }
+  },
+  "notifications": {
+    "title": "NOTIFICATIONS"
+  },
+  "news": {
+    "title": "NEWS"
   }
 }
