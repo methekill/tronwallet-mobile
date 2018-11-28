@@ -18,7 +18,6 @@ describe('Balance <Card>', () => {
     onDelete: jest.fn(),
     onCurrencyPress: jest.fn()
   }
-
   const setup = (propOverrides = {}) => {
     const props = { ...defaultProps, ...propOverrides }
 
