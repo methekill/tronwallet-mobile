@@ -20,7 +20,7 @@
   "cancel": "Annuler",
   "address": "Adresse",
   "message": "Message",
-  "ex": "Exchange",
+  "ex": "Échange",
   "ok": "Ok",
   "actionModalTitle": "Souhaitez-vous",
   "account": "Compte",
@@ -47,7 +47,7 @@
     "vote": "Voter",
     "participate": "Participer",
     "create": "Créer",
-    "exchange": "Exchange",
+    "exchange": "Échange",
     "undefined": "Type non défini"
   },
   "close": "Fermer",
@@ -58,7 +58,7 @@
   "privateKey": "Clé privée",
   "results": "Résultats",
   "buy": "Acheter",
-  "sell": "Sell",
+  "sell": "Vendre",
   "filter": "Filtre",
   "txs": "Transactions",
   "balance": {
@@ -74,8 +74,8 @@
     "holdings": "ACTIFS"
   },
   "exchange": {
-    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum pour vendre ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimun pour acheter ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
       "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
