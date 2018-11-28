@@ -47,7 +47,7 @@
     "vote": "Hlasování",
     "participate": "Nákup tokenu",
     "create": "Vytvoření",
-    "exchange": "Exchange",
+    "exchange": "Výměna",
     "undefined": "Nedefinovaný typ"
   },
   "close": "Zavřít",
@@ -74,11 +74,11 @@
     "holdings": "MNOŽSTVÍ"
   },
   "exchange": {
-    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum k prodeji ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum k nákupu ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
-      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+      "buy": "Mírně vyšší odhadované náklady zvýší míru obratu.",
+      "sell": "Mírně nížší odhadované náklady zvýší míru obratu."
     },
     "notFound": "Burzy nenalezeny"
   },
