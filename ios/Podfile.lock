@@ -45,7 +45,7 @@ PODS:
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
   - lottie-ios (2.5.0)
-  - lottie-react-native (2.5.9):
+  - lottie-react-native (2.5.6):
     - lottie-ios
     - React
   - Mixpanel (3.3.7)
@@ -55,23 +55,23 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - "NSData+FastHex (1.0.1)"
-  - OneSignal (2.8.8)
+  - OneSignal (2.8.5)
   - Protobuf (3.6.1)
   - React (0.55.4):
     - React/Core (= 0.55.4)
-  - react-native-camera (1.3.0):
+  - react-native-camera (1.1.4):
     - React
-    - react-native-camera/RCT (= 1.3.0)
-    - react-native-camera/RN (= 1.3.0)
-  - react-native-camera/RCT (1.3.0):
+    - react-native-camera/RCT (= 1.1.4)
+    - react-native-camera/RN (= 1.1.4)
+  - react-native-camera/RCT (1.1.4):
     - React
-  - react-native-camera/RN (1.3.0):
+  - react-native-camera/RN (1.1.4):
     - React
   - react-native-mixpanel (0.0.6):
     - Mixpanel
     - React
-  - react-native-onesignal (3.2.7):
-    - OneSignal (= 2.8.8)
+  - react-native-onesignal (3.2.5):
+    - OneSignal (= 2.8.5)
     - React
   - React/ART (0.55.4):
     - React/Core
@@ -119,7 +119,7 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
-  - ReactNativeFabric (0.5.2):
+  - ReactNativeFabric (0.5.1):
     - Crashlytics
     - Fabric
     - React
@@ -260,13 +260,13 @@ SPEC CHECKSUMS:
   Mixpanel: 1e94d1d29dfc3d3c66f734d10e29ad86420889fe
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   "NSData+FastHex": a22ad031ee10a4297d0bf4d20cf03406a4476169
-  OneSignal: 7d2571e9fce1d961b882e1bd9f1f242802e9c8b1
+  OneSignal: 42dae269c7eca517aee34963820e1eb922390031
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   React: aa2040dbb6f317b95314968021bd2888816e03d5
-  react-native-camera: ec435a5b2498faa288b4574e005d5c1021f18608
+  react-native-camera: ab22041dcf0403d88f2ae4b9ea3ed2644e680423
   react-native-mixpanel: 0683bc3f3f8db8f9d79a8ba8584ee51030338a2f
-  react-native-onesignal: f4300ef8272ef1d8d81b00f0207335f305bcaadb
-  ReactNativeFabric: 01c1333f76fd4708a5833d71f0a4832a9266bf0f
+  react-native-onesignal: 4f425b36d3edf595c93c1a8d3618a93b71a85a51
+  ReactNativeFabric: 3912bf9c714d7cc98110eadf06ca6dedef219322
   RNBackgroundFetch: 8c4f77f83c398c659bce82af2f0a885079417b9e
   RNDeviceInfo: 568c5641057313b4912d08a7742ff0b2f753ed5c
   RNI18n: 46b8694063fbd699f2c06a4dc8e835b3176763b1
