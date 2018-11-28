@@ -20,7 +20,7 @@
   "cancel": "Zrušit",
   "address": "Adresa",
   "message": "Zpráva",
-  "ex": "Exchange",
+  "ex": "Burza",
   "ok": "OK",
   "actionModalTitle": "Zvolte",
   "account": "Účet",
@@ -58,7 +58,7 @@
   "privateKey": "Soukromý klíč",
   "results": "Výsledky",
   "buy": "Koupit",
-  "sell": "Sell",
+  "sell": "Prodat",
   "filter": "Filtr",
   "txs": "Transakce",
   "balance": {
@@ -80,7 +80,7 @@
       "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
       "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
     },
-    "notFound": "Exchanges not found"
+    "notFound": "Burzy nenalezeny"
   },
   "hideAccount": "Chystáte se odstranit tento účet. Později jej můžete obnovit v nastavení",
   "components": {
@@ -644,9 +644,9 @@
     }
   },
   "notifications": {
-    "title": "NOTIFICATIONS"
+    "title": "NOTIFIKACE"
   },
   "news": {
-    "title": "NEWS"
+    "title": "NOVINKY"
   }
 }
