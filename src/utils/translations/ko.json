@@ -20,6 +20,7 @@
   "cancel": "취소",
   "address": "주소",
   "message": "메시지",
+  "ex": "Exchange",
   "ok": "확인",
   "actionModalTitle": "원하는 항목을 선택하세요",
   "account": "계정",
@@ -46,6 +47,7 @@
     "vote": "투표",
     "participate": "토큰판매참여",
     "create": "생성",
+    "exchange": "Exchange",
     "undefined": "알 수 없는 유형"
   },
   "close": "닫기",
@@ -56,6 +58,7 @@
   "privateKey": "개인키",
   "results": "결과",
   "buy": "구매하기",
+  "sell": "Sell",
   "filter": "필터",
   "txs": "트랜잭션",
   "balance": {
@@ -69,6 +72,15 @@
     "bandwidth": "대역폭",
     "tokens": "토큰",
     "holdings": "보유량"
+  },
+  "exchange": {
+    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "variation": {
+      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
+      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+    },
+    "notFound": "Exchanges not found"
   },
   "hideAccount": "이 계정을 제거하려고합니다. 나중에 설정 메뉴에서 복원할 수 있습니다.",
   "components": {
@@ -630,5 +642,11 @@
         "body": "TRONWALLET is provided free of charge and on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.\n"
       }
     }
+  },
+  "notifications": {
+    "title": "NOTIFICATIONS"
+  },
+  "news": {
+    "title": "NEWS"
   }
 }
