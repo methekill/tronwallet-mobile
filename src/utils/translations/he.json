@@ -20,6 +20,7 @@
   "cancel": "ביטול",
   "address": "כתובת",
   "message": "הודעה",
+  "ex": "בורסה",
   "ok": "אוקיי",
   "actionModalTitle": "האם תרצה",
   "account": "חשבון",
@@ -46,6 +47,7 @@
     "vote": "בחירה",
     "participate": "השתתף",
     "create": "צור",
+    "exchange": "מסחר",
     "undefined": "סוג לא מוגדר"
   },
   "close": "סגור",
@@ -56,6 +58,7 @@
   "privateKey": "מפתח פרטי",
   "results": "תוצאות",
   "buy": "קנה",
+  "sell": "מכירה",
   "filter": "סינון",
   "txs": "טרנזקציות",
   "balance": {
@@ -69,6 +72,15 @@
     "bandwidth": "רוחב פס",
     "tokens": "טוקנים",
     "holdings": "אחזקות"
+  },
+  "exchange": {
+    "minToSell": "כמות מינימלית למכירה ≈ {{min}} {{tokenId}}",
+    "minToBuy": "כמות מינימלית לקניה ≈ {{min}} {{tokenId}}",
+    "variation": {
+      "buy": "מעט גבוה מידי מהעלות המוערכת, קצב החלופה יהיה גבוה יותר.",
+      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+    },
+    "notFound": "Exchanges not found"
   },
   "hideAccount": "אתה עומד להסיר את החשבון הזה. ניתן לשחזר אותו מאוחר יותר בהגדרות",
   "components": {
@@ -630,5 +642,11 @@
         "body": "TRONWALLET הינו ללא תשלום, המוצר הינו \"כמו שהוא\", ללא אחריות או תנאים של מכל סוג.\n"
       }
     }
+  },
+  "notifications": {
+    "title": "NOTIFICATIONS"
+  },
+  "news": {
+    "title": "NEWS"
   }
 }
