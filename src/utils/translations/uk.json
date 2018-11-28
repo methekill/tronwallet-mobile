@@ -20,6 +20,7 @@
   "cancel": "Скасувати",
   "address": "Адреса",
   "message": "Повідомлення",
+  "ex": "Exchange",
   "ok": "ОК",
   "actionModalTitle": "Чи хотіли б Ви",
   "account": "Обліковий запис",
@@ -46,6 +47,7 @@
     "vote": "Голосувати",
     "participate": "Брати участь",
     "create": "Створити",
+    "exchange": "Exchange",
     "undefined": "Невизначений тип"
   },
   "close": "Закрити",
@@ -56,6 +58,7 @@
   "privateKey": "Приватний ключ",
   "results": "Результати",
   "buy": "Купити",
+  "sell": "Sell",
   "filter": "Фільтр",
   "txs": "Транзакції",
   "balance": {
@@ -69,6 +72,15 @@
     "bandwidth": "ПРОПУСКНА ЗДАТНІСТЬ",
     "tokens": "ТОКЕНИ",
     "holdings": "КІЛЬКІСТЬ"
+  },
+  "exchange": {
+    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "variation": {
+      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
+      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+    },
+    "notFound": "Exchanges not found"
   },
   "hideAccount": "Ви збираєтеся видалити цей обліковий запис. Ви можете відновити його пізніше в налаштуваннях",
   "components": {
@@ -630,5 +642,11 @@
         "body": "TRONWALLET is provided free of charge and on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.\n"
       }
     }
+  },
+  "notifications": {
+    "title": "NOTIFICATIONS"
+  },
+  "news": {
+    "title": "NEWS"
   }
 }
