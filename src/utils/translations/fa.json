@@ -20,6 +20,7 @@
   "cancel": "لغو",
   "address": "آدرس",
   "message": "پیام",
+  "ex": "Exchange",
   "ok": "تایید",
   "actionModalTitle": "آیا میخواهید",
   "account": "حساب کاربری",
@@ -46,6 +47,7 @@
     "vote": "رای",
     "participate": "مشارکت",
     "create": "ایجاد",
+    "exchange": "Exchange",
     "undefined": "نوع تعریف نشده"
   },
   "close": "بستن",
@@ -56,6 +58,7 @@
   "privateKey": "کلید خصوصی",
   "results": "نتیجه",
   "buy": "خرید",
+  "sell": "Sell",
   "filter": "فیلتر",
   "txs": "تراکنش ها",
   "balance": {
@@ -69,6 +72,15 @@
     "bandwidth": "پهنای باند",
     "tokens": "توکن ها",
     "holdings": "موجودی ها"
+  },
+  "exchange": {
+    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "variation": {
+      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
+      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+    },
+    "notFound": "Exchanges not found"
   },
   "hideAccount": "شما در حال حذف این حساب هستید. شما می توانید بعدا آن را در تنظیمات بازیابی کنید",
   "components": {
@@ -630,5 +642,11 @@
         "body": "TRONWALLET is provided free of charge and on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.\n"
       }
     }
+  },
+  "notifications": {
+    "title": "NOTIFICATIONS"
+  },
+  "news": {
+    "title": "NEWS"
   }
 }
