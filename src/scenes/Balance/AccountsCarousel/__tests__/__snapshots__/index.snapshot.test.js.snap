@@ -40,18 +40,7 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
-        <Carousel
-          activeAnimationOptions={null}
-          activeAnimationType="timing"
-          activeSlideAlignment="center"
-          activeSlideOffset={20}
-          apparitionDelay={0}
-          autoplay={false}
-          autoplayDelay={5000}
-          autoplayInterval={3000}
-          callbackOffsetMargin={5}
-          containerCustomStyle={Object {}}
-          contentContainerCustomStyle={Object {}}
+        <carousel
           data={
             Array [
               Object {
@@ -63,32 +52,18 @@ ShallowWrapper {
           }
           decelerationRate={0.9}
           enableMomentum={true}
-          enableSnap={true}
-          firstItem={0}
-          hasParallaxImages={false}
-          inactiveSlideOpacity={0.7}
-          inactiveSlideScale={0.9}
-          inactiveSlideShift={0}
           itemWidth={300}
           layout="default"
-          lockScrollTimeoutDuration={1000}
-          lockScrollWhileSnapping={false}
-          loop={false}
-          loopClonesPerSide={3}
           onSnapToItem={[Function]}
           renderItem={[Function]}
-          shouldOptimizeUpdates={true}
           slideStyle={
             Object {
               "paddingHorizontal": 6,
             }
           }
           sliderWidth={750}
-          swipeThreshold={20}
-          useScrollView={false}
-          vertical={false}
         />,
-        <ActionSheet
+        <hairlineWidth
           cancelButtonIndex={0}
           onPress={[Function]}
           options={
@@ -124,19 +99,8 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
-          "activeAnimationOptions": null,
-          "activeAnimationType": "timing",
-          "activeSlideAlignment": "center",
-          "activeSlideOffset": 20,
-          "apparitionDelay": 0,
-          "autoplay": false,
-          "autoplayDelay": 5000,
-          "autoplayInterval": 3000,
-          "callbackOffsetMargin": 5,
-          "containerCustomStyle": Object {},
-          "contentContainerCustomStyle": Object {},
           "data": Array [
             Object {
               "balance": 150,
@@ -146,28 +110,14 @@ ShallowWrapper {
           ],
           "decelerationRate": 0.9,
           "enableMomentum": true,
-          "enableSnap": true,
-          "firstItem": 0,
-          "hasParallaxImages": false,
-          "inactiveSlideOpacity": 0.7,
-          "inactiveSlideScale": 0.9,
-          "inactiveSlideShift": 0,
           "itemWidth": 300,
           "layout": "default",
-          "lockScrollTimeoutDuration": 1000,
-          "lockScrollWhileSnapping": false,
-          "loop": false,
-          "loopClonesPerSide": 3,
           "onSnapToItem": [Function],
           "renderItem": [Function],
-          "shouldOptimizeUpdates": true,
           "slideStyle": Object {
             "paddingHorizontal": 6,
           },
           "sliderWidth": 750,
-          "swipeThreshold": 20,
-          "useScrollView": false,
-          "vertical": false,
         },
         "ref": [Function],
         "rendered": null,
@@ -176,7 +126,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
           "cancelButtonIndex": 0,
           "onPress": [Function],
@@ -224,18 +174,7 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
-          <Carousel
-            activeAnimationOptions={null}
-            activeAnimationType="timing"
-            activeSlideAlignment="center"
-            activeSlideOffset={20}
-            apparitionDelay={0}
-            autoplay={false}
-            autoplayDelay={5000}
-            autoplayInterval={3000}
-            callbackOffsetMargin={5}
-            containerCustomStyle={Object {}}
-            contentContainerCustomStyle={Object {}}
+          <carousel
             data={
               Array [
                 Object {
@@ -247,32 +186,18 @@ ShallowWrapper {
             }
             decelerationRate={0.9}
             enableMomentum={true}
-            enableSnap={true}
-            firstItem={0}
-            hasParallaxImages={false}
-            inactiveSlideOpacity={0.7}
-            inactiveSlideScale={0.9}
-            inactiveSlideShift={0}
             itemWidth={300}
             layout="default"
-            lockScrollTimeoutDuration={1000}
-            lockScrollWhileSnapping={false}
-            loop={false}
-            loopClonesPerSide={3}
             onSnapToItem={[Function]}
             renderItem={[Function]}
-            shouldOptimizeUpdates={true}
             slideStyle={
               Object {
                 "paddingHorizontal": 6,
               }
             }
             sliderWidth={750}
-            swipeThreshold={20}
-            useScrollView={false}
-            vertical={false}
           />,
-          <ActionSheet
+          <hairlineWidth
             cancelButtonIndex={0}
             onPress={[Function]}
             options={
@@ -308,19 +233,8 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
-            "activeAnimationOptions": null,
-            "activeAnimationType": "timing",
-            "activeSlideAlignment": "center",
-            "activeSlideOffset": 20,
-            "apparitionDelay": 0,
-            "autoplay": false,
-            "autoplayDelay": 5000,
-            "autoplayInterval": 3000,
-            "callbackOffsetMargin": 5,
-            "containerCustomStyle": Object {},
-            "contentContainerCustomStyle": Object {},
             "data": Array [
               Object {
                 "balance": 150,
@@ -330,28 +244,14 @@ ShallowWrapper {
             ],
             "decelerationRate": 0.9,
             "enableMomentum": true,
-            "enableSnap": true,
-            "firstItem": 0,
-            "hasParallaxImages": false,
-            "inactiveSlideOpacity": 0.7,
-            "inactiveSlideScale": 0.9,
-            "inactiveSlideShift": 0,
             "itemWidth": 300,
             "layout": "default",
-            "lockScrollTimeoutDuration": 1000,
-            "lockScrollWhileSnapping": false,
-            "loop": false,
-            "loopClonesPerSide": 3,
             "onSnapToItem": [Function],
             "renderItem": [Function],
-            "shouldOptimizeUpdates": true,
             "slideStyle": Object {
               "paddingHorizontal": 6,
             },
             "sliderWidth": 750,
-            "swipeThreshold": 20,
-            "useScrollView": false,
-            "vertical": false,
           },
           "ref": [Function],
           "rendered": null,
@@ -360,7 +260,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "cancelButtonIndex": 0,
             "onPress": [Function],

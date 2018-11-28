@@ -1,5 +1,4 @@
 import React from 'react'
-import 'react-native'
 import { shallow } from 'enzyme'
 import AccountsCarousel from './../index'
 
@@ -7,12 +6,6 @@ jest.mock('./../../../../utils/i18n')
 jest.mock('./../../../../utils/secretsUtils')
 jest.mock('./../../../../utils/sentryUtils')
 jest.mock('./../../../../store/context')
-
-jest.mock('react-native', () => ({
-  Clipboard: {
-    setString: jest.fn()
-  }
-}))
 
 const { Clipboard } = require('react-native')
 
