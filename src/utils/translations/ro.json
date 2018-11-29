@@ -20,7 +20,7 @@
   "cancel": "Revocare",
   "address": "Adresa",
   "message": "Mesaj",
-  "ex": "Exchange",
+  "ex": "Schimb",
   "ok": "Ok",
   "actionModalTitle": "Ați dori să",
   "account": "Cont",
@@ -47,7 +47,7 @@
     "vote": "Votează",
     "participate": "Participă",
     "create": "Creează",
-    "exchange": "Exchange",
+    "exchange": "Schimb",
     "undefined": "Tip nedefinit"
   },
   "close": "Închide",
