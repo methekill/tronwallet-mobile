@@ -20,7 +20,7 @@
   "cancel": "Cancellare",
   "address": "Indirizzo",
   "message": "Messaggio",
-  "ex": "Exchange",
+  "ex": "Cambio",
   "ok": "Ok",
   "actionModalTitle": "Ti piacerebbe",
   "account": "Conto",
@@ -47,7 +47,7 @@
     "vote": "Vota",
     "participate": "Partecipare",
     "create": "Crea",
-    "exchange": "Exchange",
+    "exchange": "Cambio",
     "undefined": "Tipo indefinito"
   },
   "close": "Chiudi",
@@ -58,7 +58,7 @@
   "privateKey": "Chiave privata",
   "results": "Risultati",
   "buy": "Compra",
-  "sell": "Sell",
+  "sell": "Vendi",
   "filter": "Filtro",
   "txs": "Transizioni",
   "balance": {
@@ -74,13 +74,13 @@
     "holdings": "Tenuti in custodia"
   },
   "exchange": {
-    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimo da vendere ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimo da comprare ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
-      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+      "buy": "Lievemente maggiore del costo stimato e il tasso di cambio sarà maggiore.",
+      "sell": "Lievemente minore del costo stimato e il tasso di cambio sarà maggiore."
     },
-    "notFound": "Exchanges not found"
+    "notFound": "Cambi non trovati"
   },
   "hideAccount": "Stai per rimuovere questo account. Puoi ripristinarlo più tardi nelle impostazioni",
   "components": {
@@ -644,9 +644,9 @@
     }
   },
   "notifications": {
-    "title": "NOTIFICATIONS"
+    "title": "NOTIFICHE"
   },
   "news": {
-    "title": "NEWS"
+    "title": "NOTIZIE"
   }
 }
