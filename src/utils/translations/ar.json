@@ -80,7 +80,7 @@
       "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
       "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
     },
-    "notFound": "Exchanges not found"
+    "notFound": "لم يتم العثور على المبادلة"
   },
   "hideAccount": "أنت على وشك إزالة هذا الحساب. يمكنك استعادتها لاحقًا في الإعدادات",
   "components": {
