@@ -20,13 +20,13 @@
   "cancel": "Abbrechen",
   "address": "Adresse",
   "message": "Nachricht",
-  "ex": "Exchange",
+  "ex": "Börse",
   "ok": "Ok",
   "actionModalTitle": "Würden Sie gerne",
   "account": "Konto",
   "restore": "Wiederherstellen",
   "error": {
-    "default": "Es tut uns leid, etwas ist schief gelaufen. Bitte versuchen Sie es später noch mal. Wenn der Fehler weiterhin auftrit, versuchen Sie die Netzwerk-Einstellungen zu aktualisieren.",
+    "default": "Es tut uns leid, etwas ist schiefgelaufen. Bitte versuchen Sie es später noch mal. Wenn der Fehler weiterhin auftritt, versuchen Sie die Netzwerk-Einstellungen zu aktualisieren.",
     "buildingTransaction": "Fehler beim Erstellen der Transaktion, bitte versuchen Sie es erneut.",
     "gettingTransaction": "Fehler beim Abrufen der Transaktion.",
     "clipboardCopied": "Bei dem Kopiervorgang ist ein Fehler aufgetreten",
@@ -47,7 +47,7 @@
     "vote": "Abstimmen",
     "participate": "Teilnehmen",
     "create": "Erstellen",
-    "exchange": "Exchange",
+    "exchange": "Börse",
     "undefined": "Undefinierter Typ"
   },
   "close": "Schließen",
@@ -58,7 +58,7 @@
   "privateKey": "Privater Schlüssel",
   "results": "Ergebnisse",
   "buy": "Kaufen",
-  "sell": "Sell",
+  "sell": "Verkaufen",
   "filter": "Filter",
   "txs": "Transaktionen",
   "balance": {
@@ -74,13 +74,13 @@
     "holdings": "BESTÄNDE"
   },
   "exchange": {
-    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum zu verkaufen ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum zu kaufen ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
-      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+      "buy": "Erhöhe die geschätzten Kosten leicht und die Umschlaghäufigkeit wird höher sein.",
+      "sell": "Senke die geschätzten Kosten leicht und die Umschlaghäufigkeit wird höher sein."
     },
-    "notFound": "Exchanges not found"
+    "notFound": "Börse nicht gefunden"
   },
   "hideAccount": "Sie sind dabei, dieses Konto zu entfernen. Sie können es später in den Einstellungen wiederherstellen",
   "components": {
@@ -644,9 +644,9 @@
     }
   },
   "notifications": {
-    "title": "NOTIFICATIONS"
+    "title": "BENACHRICHTIGUNGEN"
   },
   "news": {
-    "title": "NEWS"
+    "title": "NEUIGKEITEN"
   }
 }
