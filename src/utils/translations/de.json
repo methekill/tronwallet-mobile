@@ -304,11 +304,11 @@
         "later": "Später bestätigen"
       },
       "backupMessage": "Sie habe jederzeit Zugriff auf Ihre Wörter, indem Sie in den App-Einstellungen auf das Backup zugreifen      ",
-      "seedExplanation": "Die Schlüsselwörter sind eine lesbare Darstellung Ihrer Wallet. Diese Worte können in exakt dieser Reihenfolge verwendet werden, um Ihre Wallet wiederherzustellen."
+      "seedExplanation": "Die Geheimwörter sind eine lesbare Darstellung Ihrer Wallet. Diese Worte können in exakt dieser Reihenfolge verwendet werden, um Ihre Wallet wiederherzustellen."
     },
     "restore": {
       "title": "WALLET WIEDERHERSTELLEN",
-      "explanation": "Um Ihre Wallet wiederherzustellen, geben Sie bitte die gleichen 12 Wörter, die Sie auf Papier geschrieben haben ein, als Sie ihr Wallet zum ersten Mal erstellt haben. Wenn Sie eine andere Reihenfolge der Wörter eingeben, wird eine neue leere Wallet erstellt.",
+      "explanation": "Um Ihre Wallet wiederherzustellen, geben Sie bitte die gleichen 12 Wörter ein, die Sie auf Papier geschrieben haben, als Sie Ihr Wallet zum ersten Mal erstellt haben. Wenn Sie eine andere Reihenfolge der Wörter eingeben, wird eine neue leere Wallet erstellt.",
       "placeholder": "Bitte schreiben Sie hier Ihre 12 Geheimwörter",
       "success": "Wallet erfolgreich wiederhergestellt!",
       "warning": "Das Zurücksetzen der Geheimwörter löscht alle Daten von diesem Gerät und synchronisiert das wiederhergestellte Wallet mit Daten aus dem Netzwerk.",
@@ -351,7 +351,7 @@
       "title": "Netzwerk",
       "modal": {
         "title": "NETZWERK",
-        "explanation": "Mit dieser Option können Sie einen Knoten auswählen, der Ihren Bedürfnissen und Vorlieben besser gerecht wird. Bitte seien Sie vorsichtig beim Aktualisieren der Knoten IP. Falsche IP-Adressen können zu Fehlfunktionen innerhalb Ihrer Wallet führen. Beispiel: 35.231.121.122:50051",
+        "explanation": "Mit dieser Option können Sie einen Knoten auswählen der Ihren Bedürfnissen und Vorlieben besser gerecht wird. Bitte seien Sie vorsichtig beim Aktualisieren der Knoten IP. Falsche IP-Adressen können zu Fehlfunktionen innerhalb Ihrer Wallet führen. Beispiel: 35.231.121.122:50051",
         "error": {
           "storage": "Fehler beim Abrufen der Knoten IP aus dem lokalen Speicher",
           "invalidIp": "Bitte geben Sie eine gültige IP-Adresse an",
@@ -360,13 +360,13 @@
         },
         "success": {
           "updated": "Aktualisiert",
-          "updatedIp": "Knoten IP Aderesse aktualisiert!",
-          "switchTest": "Knoten IP Adresse auf Testnet umgeschalten",
-          "switchMain": "Knoten IP Adresse auf Mainnet umgeschalten",
-          "reset": "Knoten IP Adresse zurückgesetzt!"
+          "updatedIp": "Knoten IP aktualisiert!",
+          "switchTest": "Knoten IP auf Testnet umgeschaltet",
+          "switchMain": "Knoten IP auf Mainnet umgeschaltet",
+          "reset": "Knoten IP zurückgesetzt!"
         },
         "placeholder": {
-          "loadingIp": "IP Adresse laden",
+          "loadingIp": "IP laden",
           "loadingPort": "Lade Portadresse"
         },
         "button": {
@@ -386,7 +386,7 @@
     },
     "reset": {
       "title": "Wallet zurücksetzen",
-      "warning": "Achtung: Diese Aktion löscht alle gespeicherten Daten, einschließlich Ihrer 12 Geheimwörter. Wenn Sie Ihre geheimen Wörter nicht gespeichert haben, tun Sie dies bitte bevor Sie fortfahren.",
+      "warning": "Achtung: Diese Aktion löscht alle gespeicherten Daten, einschließlich Ihrer 12 Geheimwörter. Wenn Sie Ihre Geheimwörter nicht gespeichert haben, tun Sie dies bitte bevor Sie fortfahren.",
       "button": "Ok, ich habe verstanden"
     },
     "pin": {
