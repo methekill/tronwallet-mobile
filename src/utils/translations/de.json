@@ -213,7 +213,7 @@
     },
     "highest": "HÖCHSTE",
     "lowest": "NIEDRIGSTE",
-    "volume": "VOLUMEN 24Std.",
+    "volume": "24 STD. VOLUMEN",
     "cap": "MARKTKAPITALISIERUNG",
     "supply": "UMLAUFMENGE"
   },
@@ -222,14 +222,14 @@
     "featured": "AUSGEZEICHNET",
     "button": {
       "confirm": "BESTÄTIGEN",
-      "moreInfo": "MEHR INFO",
+      "moreInfo": "MEHR INFORMATION",
       "buyNow": "JETZT KAUFEN"
     },
     "error": {
       "insufficientBalance": "Nicht genügend Guthaben (TRX) verfügbar um teilzunehmen.",
       "insufficientTrx": {
         "title": "Sie müssen mindestens im Werte von einen TRX {{token}} kaufen.",
-        "message": "Derzeit kaufen Sie nur {{amount}}."
+        "message": "Momentan kaufen Sie nur {{amount}}."
       },
       "notFound": "Vermögenswert(e) nicht gefunden"
     },
@@ -244,7 +244,7 @@
     "frozen": "EINGEFROREN",
     "percentage": "PROZENTSATZ",
     "issued": "AUSGESTELLT",
-    "totalSupply": "GESAMTMENGE",
+    "totalSupply": "GESAMTVOLUMEN",
     "startTime": "STARTZEIT",
     "endTime": "ENDZEIT",
     "description": "BESCHREIBUNG",
@@ -254,10 +254,10 @@
     "num": "ANZAHL",
     "block": "Block",
     "balance": "GUTHABEN",
-    "searchPreview": "Ausgezeichnete Tokens"
+    "searchPreview": "Ausgezeichnete Token"
   },
   "pin": {
-    "title": "SICHERHEITS-CHECK",
+    "title": "SICHERHEITSÜBERPRÜFUNG",
     "enter": "PIN eingeben",
     "new": "Neue PIN eingeben",
     "reenter": "PIN erneut eingeben",
@@ -281,7 +281,7 @@
   },
   "seed": {
     "confirm": {
-      "title": "BESTÄTIGE GEHEIME WÖRTER",
+      "title": "BESTÄTIGE GEHEIMWÖRTER",
       "error": {
         "title": "Falsche Kombination",
         "message": "Ausgewählte Worte stimmen nicht überein. Stellen Sie sicher, dass Sie die Wörter in der richtigen Reihenfolge geschrieben haben."
