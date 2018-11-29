@@ -58,7 +58,7 @@
   "privateKey": "Cheia privată",
   "results": "Rezultate",
   "buy": "Cumpără",
-  "sell": "Sell",
+  "sell": "Vinde",
   "filter": "Filtrează",
   "txs": "Tranzacții",
   "balance": {
@@ -647,6 +647,6 @@
     "title": "NOTIFICATIONS"
   },
   "news": {
-    "title": "NEWS"
+    "title": "STIRI"
   }
 }
