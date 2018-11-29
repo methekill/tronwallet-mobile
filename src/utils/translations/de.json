@@ -68,7 +68,7 @@
       "savingCurrency": "Fehler beim Speichern der bevorzugten Währung"
     },
     "chooseCurrency": "Bitte wählen Sie Ihre bevorzugte Währung.",
-    "confirmSeed": "Bitte tippen Sie, um Ihre 12 geheimen Wörter zu bestätigen",
+    "confirmSeed": "Bitte tippen Sie, um Ihre 12 Geheimwörter zu bestätigen",
     "bandwidth": "BANDBREITE",
     "tokens": "TOKEN",
     "holdings": "BESTÄNDE"
@@ -82,11 +82,11 @@
     },
     "notFound": "Börse nicht gefunden"
   },
-  "hideAccount": "Sie sind dabei, dieses Konto zu entfernen. Sie können es später in den Einstellungen wiederherstellen",
+  "hideAccount": "Sie sind dabei dieses Konto zu entfernen. Sie können es später in den Einstellungen wiederherstellen",
   "components": {
     "share": {
       "title": "TronWallet Adresse teilen",
-      "message": "Dies ist meine TronWallet Adresse:\n\n {{address}}\n\nTipp: Nachdem Sie diese kopiert haben, können Sie diese in Ihrer TronWallet-App, über die Spezial-Taste einfügen.",
+      "message": "Dies ist meine TronWallet Adresse:\n\n {{address}}\n\nTipp: Nachdem Sie diese kopiert haben, können Sie diese in Ihrer TronWallet-App über die Spezial-Taste einfügen.",
       "dialogTitle": "Teilen Sie mit:"
     },
     "QRScanner": {
@@ -157,7 +157,7 @@
         "cancelButton": "Abbrechen",
         "okButton": "Bestätigen"
       },
-      "empty": "Ihr Adressbuch ist leer, fügen Sie einen neuen Kontakt über den Button folgenden hinzu.",
+      "empty": "Ihr Adressbuch ist leer, fügen Sie einen neuen Kontakt über den folgenden Button hinzu.",
       "loadError": "Es gab ein Problem beim Laden Ihrer Kontakte. Bitte versuchen Sie es erneut.",
       "addContact": "KONTAKT HINZUFÜGEN",
       "addToContacts": "ZU KONTAKTEN HINZUFÜGEN"
