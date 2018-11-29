@@ -20,7 +20,7 @@
   "cancel": "إلغاء",
   "address": "عنوان",
   "message": "رسالة",
-  "ex": "Exchange",
+  "ex": "صرف",
   "ok": "تم",
   "actionModalTitle": "هل ترغب في",
   "account": "الحساب",
@@ -47,7 +47,7 @@
     "vote": "تصويت",
     "participate": "شارك",
     "create": "إنشاء",
-    "exchange": "Exchange",
+    "exchange": "صرف",
     "undefined": "نوع غير محدد"
   },
   "close": "إغلاق",
@@ -74,8 +74,8 @@
     "holdings": "الممتلكات"
   },
   "exchange": {
-    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "minToSell": "الحد الأدنى للبيع ≈ {{min}} {{tokenId}}",
+    "minToBuy": "الحد الأدنى للشراء ≈ {{min}}{{tokenId}}",
     "variation": {
       "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
       "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
