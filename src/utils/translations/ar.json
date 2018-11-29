@@ -20,6 +20,7 @@
   "cancel": "إلغاء",
   "address": "عنوان",
   "message": "رسالة",
+  "ex": "Exchange",
   "ok": "تم",
   "actionModalTitle": "هل ترغب في",
   "account": "الحساب",
@@ -46,6 +47,7 @@
     "vote": "تصويت",
     "participate": "شارك",
     "create": "إنشاء",
+    "exchange": "Exchange",
     "undefined": "نوع غير محدد"
   },
   "close": "إغلاق",
@@ -56,6 +58,7 @@
   "privateKey": "مفتاح سري",
   "results": "النتائج",
   "buy": "شراء",
+  "sell": "Sell",
   "filter": "تصفية",
   "txs": "الصفقات",
   "balance": {
@@ -69,6 +72,15 @@
     "bandwidth": "عرض النطاق",
     "tokens": "توكن",
     "holdings": "الممتلكات"
+  },
+  "exchange": {
+    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "variation": {
+      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
+      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+    },
+    "notFound": "Exchanges not found"
   },
   "hideAccount": "أنت على وشك إزالة هذا الحساب. يمكنك استعادتها لاحقًا في الإعدادات",
   "components": {
@@ -630,5 +642,11 @@
         "body": "يتم توفيرمحفظة الترون \"كما هي\" مجانا وعلى أساس، دون ضمانات أو شروط من أي نوع.\n"
       }
     }
+  },
+  "notifications": {
+    "title": "NOTIFICATIONS"
+  },
+  "news": {
+    "title": "NEWS"
   }
 }
