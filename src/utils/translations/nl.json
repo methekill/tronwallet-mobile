@@ -58,7 +58,7 @@
   "privateKey": "Prive sleutel",
   "results": "Resultaten",
   "buy": "Koop",
-  "sell": "Sell",
+  "sell": "Verkoop",
   "filter": "Filter",
   "txs": "Transacties",
   "balance": {
@@ -74,13 +74,13 @@
     "holdings": "BEZITTINGEN"
   },
   "exchange": {
-    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum te verkopen ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum te kopen ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
-      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+      "buy": "Verhoog de geschatte kosten en het percentage van de ratio zal hoger zijn.",
+      "sell": "Verlaag de geschatte kosten en het percentage van de ratio zal hoger zijn."
     },
-    "notFound": "Exchanges not found"
+    "notFound": "Exchange niet gevonden"
   },
   "hideAccount": "U staat op het punt dit account te verwijderen. U kunt het later in de instellingen herstellen",
   "components": {
@@ -644,9 +644,9 @@
     }
   },
   "notifications": {
-    "title": "NOTIFICATIONS"
+    "title": "MELDINGEN"
   },
   "news": {
-    "title": "NEWS"
+    "title": "NIEUWS"
   }
 }
