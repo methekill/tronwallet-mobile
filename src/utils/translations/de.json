@@ -192,9 +192,9 @@
       "now": "Sie können Ihre TRX jetzt freigeben."
     },
     "error": {
-      "minimumAmount": "Der Mindestbetrag für die Transaktion Einfrieren beträgt 1.",
+      "minimumAmount": "Der Mindestbetrag für die Einfrier-Transaktion beträgt 1.",
       "insufficientBalance": "Unzureichendes TRX Guthaben",
-      "roundNumbers": "Sie können nur glatte Zahlen einfrieren"
+      "roundNumbers": "Sie können nur glatte Beträge einfrieren"
     },
     "amount": "BETRAG EINFRIEREN",
     "balance": "Guthaben"
@@ -205,10 +205,10 @@
   },
   "market": {
     "time": {
-      "hour": "1 Std.",
+      "hour": "1 STD.",
       "day": "1T.",
-      "week": "1 WO.",
-      "month": "1 MO.",
+      "week": "1 W.",
+      "month": "1 M.",
       "all": "ALLES"
     },
     "highest": "HÖCHSTE",
