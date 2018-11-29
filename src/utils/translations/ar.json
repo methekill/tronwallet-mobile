@@ -58,7 +58,7 @@
   "privateKey": "مفتاح سري",
   "results": "النتائج",
   "buy": "شراء",
-  "sell": "Sell",
+  "sell": "بع",
   "filter": "تصفية",
   "txs": "الصفقات",
   "balance": {
@@ -77,8 +77,8 @@
     "minToSell": "الحد الأدنى للبيع ≈ {{min}} {{tokenId}}",
     "minToBuy": "الحد الأدنى للشراء ≈ {{min}}{{tokenId}}",
     "variation": {
-      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
-      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+      "buy": "قم بزيادة خفيفة على التكلفة التقديرية، و نسبة إجمالي المبيعات ستكون أعلى.",
+      "sell": "قم بتخفيض التكلفة التقديرية قليلا، و نسبة إجمالي المبيعات ستكون أعلى."
     },
     "notFound": "لم يتم العثور على المبادلة"
   },
