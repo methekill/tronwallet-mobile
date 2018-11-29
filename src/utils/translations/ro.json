@@ -74,13 +74,13 @@
     "holdings": "HOLDINGS"
   },
   "exchange": {
-    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "minToSell": "Suma minimă de vândut ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Suma minimă de cumpărat ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
-      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+      "buy": "Costul estimativ este puțin mai mare, și rata de schimb va fi mai mare.",
+      "sell": "Costul estimativ este puțin mai mic, și rata de schimb va fi mai mare."
     },
-    "notFound": "Exchanges not found"
+    "notFound": "Nu au fost găsite Schimburi"
   },
   "hideAccount": "Sunteți pe cale să eliminați acest cont. Puteți să-l restabiliți ulterior în setări",
   "components": {
@@ -644,7 +644,7 @@
     }
   },
   "notifications": {
-    "title": "NOTIFICATIONS"
+    "title": "NOTIFICĂRI"
   },
   "news": {
     "title": "STIRI"
