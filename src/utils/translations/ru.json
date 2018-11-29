@@ -20,7 +20,7 @@
   "cancel": "Отменить",
   "address": "Адрес",
   "message": "Сообщение",
-  "ex": "Exchange",
+  "ex": "Обмен",
   "ok": "ОК",
   "actionModalTitle": "Не хотите ли вы",
   "account": "Учетная запись",
@@ -47,7 +47,7 @@
     "vote": "Голосование",
     "participate": "Участвовать",
     "create": "Создать",
-    "exchange": "Exchange",
+    "exchange": "Обмен",
     "undefined": "Неопределенный тип"
   },
   "close": "Закрыть",
