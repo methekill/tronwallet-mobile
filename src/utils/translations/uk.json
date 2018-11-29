@@ -20,13 +20,13 @@
   "cancel": "Скасувати",
   "address": "Адреса",
   "message": "Повідомлення",
-  "ex": "Exchange",
+  "ex": "Обмін",
   "ok": "ОК",
   "actionModalTitle": "Чи хотіли б Ви",
   "account": "Обліковий запис",
   "restore": "Відновлення",
   "error": {
-    "default": "Woops щось пішло не так. Спробуйте пізніше, якщо помилка не зникає, спробуйте оновити налаштування мережі.",
+    "default": "Woops щось пішло не так. Спробуйте пізніше, якщо помилка не зникне, спробуйте оновити налаштування мережі.",
     "buildingTransaction": "Помилка під час створення транзакції, спробуйте ще раз.",
     "gettingTransaction": "Помилка під час отримання транзакції.",
     "clipboardCopied": "Щось пішло не так під час копіювання",
@@ -62,7 +62,7 @@
   "filter": "Фільтр",
   "txs": "Транзакції",
   "balance": {
-    "title": "СКИДКИ",
+    "title": "ОБЛІКОВІ ЗАПИСИ",
     "error": {
       "loadingData": "Під час завантаження даних сталася помилка.",
       "savingCurrency": "Помилка збереження бажаної валюти"
@@ -77,10 +77,10 @@
     "minToSell": "Мін. на продаж ≈ {{min}} {{tokenId}}",
     "minToBuy": "Мін. Покупки ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
-      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+      "buy": "Дещо вища початкова вартість з більшим рейтингом обігу.",
+      "sell": "Дещо нижча початкова вартість з більшим рейтингом обігу."
     },
-    "notFound": "Exchanges not found"
+    "notFound": "Обмінів не знайдено"
   },
   "hideAccount": "Ви збираєтеся видалити цей обліковий запис. Ви можете відновити його пізніше в налаштуваннях",
   "components": {
@@ -137,7 +137,7 @@
       },
       "multipleaccounts": {
         "title": "ДЕКІЛЬКА ОБЛІКОВИХ ЗАПИСІВ",
-        "body": "Ви можете керувати декількома обліковими записами \n у вашому гаманці"
+        "body": "Ви можете керувати декількома обліковими записами у вашому гаманці"
       }
     }
   },
@@ -644,9 +644,9 @@
     }
   },
   "notifications": {
-    "title": "NOTIFICATIONS"
+    "title": "СПОВІЩЕННЯ"
   },
   "news": {
-    "title": "NEWS"
+    "title": "НОВИНИ"
   }
 }
