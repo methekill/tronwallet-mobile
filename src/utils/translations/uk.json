@@ -503,7 +503,7 @@
     "amount": "КІЛЬКІСТЬ",
     "to": "ДО",
     "from": "ВІД",
-    "tokenName": "ІМʼЯ ТОКЕНУ",
+    "tokenName": "НАЗВА ТОКЕНУ",
     "unityValue": "ЄДИНОСТІ",
     "totalSupply": "ЗАГАЛЬНІЙ ЗАПАС",
     "startTime": "ЧАС ПОЧАТКУ",
@@ -512,7 +512,7 @@
     "votedAddress": "АДРЕСА ГОЛОСУВАННЯ"
   },
   "transactionSuccess": {
-    "submitted": "ОПЕРАЦІЯ, ПРЕДСТАВЛЕНА ДО МЕРЕЖІ!",
+    "submitted": "ТРАНЗАКЦІЯ ВІДПРАВЛЕНА В МЕРЕЖУ!",
     "success": "УСПІХ!"
   },
   "votes": {
