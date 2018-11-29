@@ -57,7 +57,7 @@
   "skip": "건너뛰기",
   "privateKey": "개인키",
   "results": "결과",
-  "buy": "구매하기",
+  "buy": "구매",
   "sell": "매도",
   "filter": "필터",
   "txs": "트랜잭션",
@@ -74,8 +74,8 @@
     "holdings": "보유량"
   },
   "exchange": {
-    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "minToSell": "최소 주문 수량 ≈ {{min}} {{tokenId}}",
+    "minToBuy": "최소 주문 수량 ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
       "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
@@ -414,7 +414,7 @@
     },
     "about": {
       "title": "소개",
-      "description": "TronWallet은 Reactive Native를 이용해 만든 TRON 네트워크용 분권형 P2P 암호화폐 지갑이며 오픈 소스입니다.  TronWallet을 이용해 토큰 송수신, 슈퍼 후보 투표와 토큰 판매 참여, 잔액 및 트랜잭션 확인 등을 할 수 있습니다. 아래 링크를 클릭하면 사용방법을 자세히 다룬 튜토리얼을 확인하실 수 있습니다.",
+      "description": "TronWallet은 Reactive Native를 이용해 만든 TRON 네트워크용 분권형 P2P 암호화폐 지갑이며 오픈 소스입니다. TronWallet을 이용해 토큰 송수신, 슈퍼 대표 투표와 토큰 판매 참여, 잔액 및 트랜잭션 확인 등을 할 수 있습니다. 아래 링크를 클릭하면 사용방법을 자세히 다룬 튜토리얼을 확인하실 수 있습니다.",
       "tutorial": "튜토리얼"
     },
     "accepts": {
