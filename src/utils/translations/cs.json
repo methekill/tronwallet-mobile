@@ -87,12 +87,12 @@
     "share": {
       "title": "Sdílet TronWallet adresu",
       "message": "Toto je moje TronWallet adresa:\n\n {{address}}\n\nTip: Po zkopírování ji můžete vložit do TronWallet aplikace pomocí speciálního tlačítka na obrazovce pro odeslání.",
-      "dialogTitle": "Sdílejte pomocí:"
+      "dialogTitle": "Sdílet pomocí:"
     },
     "QRScanner": {
       "title": "Skener adresy",
       "scan": "Skenovat",
-      "explanation": "Skenujte QR kód pro identifikaci příjemce",
+      "explanation": "Skenovat QR kód pro identifikaci příjemce",
       "permissionMessage": "Pro naskenování veřejného klíče je potřeba aplikaci povolit oprávnění ke kameře."
     },
     "vote": {
