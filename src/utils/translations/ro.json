@@ -258,16 +258,16 @@
   },
   "pin": {
     "title": "VERIFICARE DE SECURITATE",
-    "enter": "Introduceți codul PIN",
-    "new": "Introduceți codul PIN nou",
-    "reenter": "Reintroduceți codul PIN",
+    "enter": "Introdu codul PIN",
+    "new": "Introdu noul cod PIN",
+    "reenter": "Re-introdu codul PIN",
     "biometrics": "Verificare Biometrică"
   },
   "receive": {
-    "title": "A PRIMI",
+    "title": "PRIMEȘTE",
     "clipboardCopied": "Copiat în clipboard",
     "button": {
-      "copy": "Copiaza",
+      "copy": "Copiază",
       "share": "Partajare"
     },
     "tabs": {
@@ -284,7 +284,7 @@
       "title": "CONFIRMĂ SEED",
       "error": {
         "title": "Combinație Greșită",
-        "message": "Cuvintele selectate nu se potrivesc. Asigurați-vă că le-ați scris cuvintele în ordinea corectă."
+        "message": "Cuvintele selectate nu se potrivesc. Asigură-te că le-ai scris în ordinea corectă."
       },
       "success": "Portofelul a fost confirmat cu succes",
       "explanation": "Selectează cuvintele de mai jos în ordinea corectă pentru a-ți confirma fraza secretă.",
@@ -296,7 +296,7 @@
     "create": {
       "title": "CREEAZĂ SEED",
       "titleConfirm": "CONFIRMĂ SEED PORTOFEL",
-      "error": "Oops, avem o problemă. Te rugăm să reporneşti aplicaţia.",
+      "error": "Hopa, avem o problemă. Te rugăm să reporneşti aplicaţia.",
       "generateNew": "Acest lucru va genera un portofel complet nou.",
       "button": {
         "written": "AM SCRIS-O",
@@ -308,10 +308,10 @@
     },
     "restore": {
       "title": "RESTAUREAZĂ PORTOFEL",
-      "explanation": "Pentru a vă restabili portofelul, vă rugăm să furnizați aceleași 12 cuvinte pe care le-ați scris pe hârtie atunci când ați creat portofelul pentru prima dată. Dacă introduceți o altă succesiune de cuvinte, va fi creat un nou portofel gol.",
-      "placeholder": "Vă rugăm să introduceți aici cele 12 cuvinte de semințe",
+      "explanation": "Pentru a restaura portofelul, te rugăm să introduci cele 12 cuvinte pe care le-ai scris pe hârtie atunci cand ai creat portofelul pentru prima dată. Dacă introduci o altă succesiune de cuvinte, va fi creat un portofel nou gol.",
+      "placeholder": "Te rugăm să introduci aici cele 12 cuvinte seed",
       "success": "Portofelul a fost restaurat cu succes!",
-      "warning": "Restaurarea semințelor va șterge toate datele de pe acest dispozitiv și va atrage informații din rețea pentru contul restabilit.",
+      "warning": "Restaurarea unui seed va șterge toate datele de pe acest dispozitiv și va importa informații de pe rețea pentru contul restabilit.",
       "error": "Hopa. Se pare că cuvintele pe care le-ați scris nu sunt o sămânță mnemonică valabilă. Verificați o greșeală și încercați din nou.",
       "button": "RESTABILI"
     }
