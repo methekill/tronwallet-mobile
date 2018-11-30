@@ -572,19 +572,19 @@
   },
   "biometry": {
     "register": {
-      "title": "Check your biometry"
+      "title": "Verifică-ți Biometria"
     },
     "auth": {
-      "title": "Salveaza Biometria",
+      "title": "Salvează Biometrie",
       "error": "Acces Interzis"
     }
   },
   "privacyPolicy": {
     "title": "POLITICA DE CONFIDENȚIALITATE",
-    "subtitle": "Trebuie să citiți și să acceptați termenii de confidențialitate pentru a continua.",
-    "error": "Trebuie să acceptați termenii de confidențialitate înainte de a continua. ",
+    "subtitle": "Trebuie să citești și să accepți termenii de confidențialitate pentru a continua.",
+    "error": "Trebuie să accepți termenii de confidențialitate înainte de a continua. ",
     "acceptTerms": "Am citit și sunt de acord cu termenii",
-    "continue": "CONTINUA",
+    "continue": "CONTINUARE",
     "docTitle": "Politica de confidenţialitate",
     "introduction": "Confidențialitatea Dvs. este importantă pentru noi. \nPolitica TronWallet este aceea de a vă respecta confidențialitatea cu privire la informațiile pe care le putem colecta de la Dvs. pe site-ul nostru web, http://tronwallet.me, și pe alte site-uri pe care le deținem și le operăm. \nVă vom solicita informații personale doar atunci cand avem nevoie pentru a vă oferi un serviciu. Vom colecta informațiile doar dupa insțiintarea si consimțământul dvs. si prin mijloace corecte și legale.\nDe asemenea, vă vom furniza si motivul pentru care colectăm aceste informații și cum vor fi folosite.\nInformațiile personale colecate vor fi retinute atâta timp cât este necesar pentru a vă oferi serviciul solicitat de dvs.\nDatele pe care le stocam, le vom proteja prin mijloace acceptabile din punct de vedere comercial pentru a preveni pierderile și furtul, precum și accesul, dezvăluirea, copierea, utilizarea sau modificarea neautorizată.\nNu împărtășim în mod public, sau cu terțe părți, informații cu privire la identificarea personală cu excepția cazului în care acest lucru este impus de lege.\nSite-ul nostru poate avea legături cu site-uri externe care nu sunt operate de noi. \nVa rugam sa rețineți că nu avem control asupra conținutului și practicilor ale acestor site-uri și nu putem fi responsabili sau răspunzători pentru politicile lor de confidențialitate.\nAveti liberatate deplina de a refuza cererea noastră pentru informații personale, totodată, înțelegându-ne că nu vă vom putea oferi anumite servicii dorite.\nUtilizarea continuă a site-ului nostru va fi considerata acceptare a practicilor noastre cu privire la confidențialitate și informații personale.\nDacă aveți întrebări cu privire la modul în care gestionăm datele utilizatorilor și informațiile personale, nu ezitați să ne contactați.\nAceastă politică este în vigoare de la 1 iulie 2018.",
     "termsOfService": {
