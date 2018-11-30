@@ -312,14 +312,14 @@
       "placeholder": "Te rugăm să introduci aici cele 12 cuvinte seed",
       "success": "Portofelul a fost restaurat cu succes!",
       "warning": "Restaurarea unui seed va șterge toate datele de pe acest dispozitiv și va importa informații de pe rețea pentru contul restabilit.",
-      "error": "Hopa. Se pare că cuvintele pe care le-ați scris nu sunt o sămânță mnemonică valabilă. Verificați o greșeală și încercați din nou.",
-      "button": "RESTABILI"
+      "error": "Hopa. Cuvintele pe care le-ai introdus nu sunt un seed mnemonic valabil. Verifică greșelile și încercă din nou.",
+      "button": "RESTAUREAZĂ"
     }
   },
   "send": {
     "title": "TRIMITE",
     "error": {
-      "insufficientBalance": "Nu există un echilibru suficient.",
+      "insufficientBalance": "Balanță Insuficientă.",
       "gettingBalance": "Eroare la obținerea datelor privind soldul",
       "incompleteAddress": "Adresa este incompletă sau nevalidă.",
       "invalidReceiver": "Adresă nevalidă a receptorului",
