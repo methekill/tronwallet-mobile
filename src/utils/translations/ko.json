@@ -77,10 +77,10 @@
     "minToSell": "최소 주문 수량 ≈ {{min}} {{tokenId}}",
     "minToBuy": "최소 주문 수량 ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
-      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+      "buy": "예상 비용이 증가할수록 교환 비율도 높아질 것입니다.",
+      "sell": "예상 비용이 낮아질수록 교환 비율도 높아질 것입니다."
     },
-    "notFound": "Exchanges not found"
+    "notFound": "거래 조건을 찾을 수 없습니다"
   },
   "hideAccount": "이 계정을 제거하려고합니다. 나중에 설정 메뉴에서 복원할 수 있습니다.",
   "components": {
