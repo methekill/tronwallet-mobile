@@ -75,7 +75,7 @@ jobs:
 
   android_upgrade:
     docker:
-      - image: marlonbrgomes/circleci-fastlane:latest
+      - image: gettyio/circleci-fastlane:node-8
 
     working_directory: ~/repo
 
