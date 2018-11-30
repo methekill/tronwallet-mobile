@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { ScrollView, Alert } from 'react-native'
 import RNTron from 'react-native-tron'
+import MixPanel from 'react-native-mixpanel'
 
 // Design
 import Input from '../../../components/Input'
@@ -82,6 +83,7 @@ class SellScene extends Component {
         exchangeId,
         expected
       }
+      MixPanel.trackWithProperties('Exchange', { type: 'Selling', params: exParams })
 
       const transactionUnsigned = await WalletClient.getExchangeTransaction(exParams)
       const userKey = accounts.find(acc => acc.address === publicKey).privateKey

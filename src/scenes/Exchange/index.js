@@ -55,11 +55,9 @@ class ExchangeScene extends Component {
         regex.test(ast.secondTokenId.toUpperCase()))
 
       this.setState({ searchName: name }, () => {
-        MixPanel.trackWithProperties('Exchange', { type: 'Search Exchange', name })
-        if (resultList.length) {
-          const searchedList = name ? resultList : []
-          this.setState({ currentList: searchedList })
-        }
+        MixPanel.trackWithProperties('Exchange', { type: 'Searching Exchange', name })
+        const searchedList = name ? resultList : []
+        this.setState({ currentList: searchedList })
       })
     }
 
@@ -76,11 +74,10 @@ class ExchangeScene extends Component {
 
     _renderItem = ({item}) => <ExchangeItem exchangeData={item} />
 
-    _renderEmptyList = () => {
-      return this.state.isSearching
+    _renderEmptyList = () =>
+      this.state.isSearching && !this.state.searchName
         ? <Utils.View />
         : <EmptyList text={tl.t('exchange.notFound')} />
-    }
 
     _renderSeparator = () => <Divider />
 
@@ -103,6 +100,8 @@ class ExchangeScene extends Component {
               ListEmptyComponent={this._renderEmptyList}
               ItemSeparatorComponent={this._renderSeparator}
               keyExtractor={(item) => item.exchangeId.toString()}
+              initialNumToRender={10}
+              onEndReachedThreshold={0.75}
             />}
         </Utils.SafeAreaView>
       )

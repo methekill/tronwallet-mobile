@@ -116,12 +116,12 @@ class ClientWallet {
     ])
 
     let { data: exchangeList } = fullExchangeList
-
     return exchangeList
       .reduce((filtered, ex) => {
-        const avlb = selectedExchangeList.find(selectedEx => selectedEx.exchangeId === ex.exchangeId)
-        if (avlb) {
-          if (avlb.isEnabled) filtered.push({...ex, ...avlb})
+        const exAvailable = selectedExchangeList.find(selectedEx => selectedEx.exchangeId === ex.exchangeId)
+
+        if (exAvailable) {
+          if (exAvailable.isEnabled) filtered.push({...ex, ...exAvailable})
           else return filtered
         } else {
           filtered.push(ex)
@@ -132,7 +132,7 @@ class ClientWallet {
         if (exB.firstTokenId === 'TWX' || exA.firstTokenId === 'TWX') {
           return exB.firstTokenId === 'TWX' - exA.firstTokenId === 'TWX'
         }
-        return (exB.variation || -99999) - (exA.variation || -9999)
+        return (exB.variation || -100) - (exA.variation || -100)
       })
   }
 
