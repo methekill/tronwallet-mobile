@@ -180,35 +180,35 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "background": "#191A2A",
-      "children": <Styled(Component)
+      "children": <Styled(View)
         align="stretch"
         justify="flex-start"
       >
-        <Styled(Styled(Component))
+        <Styled(Styled(View))
           paddingSize="large"
         >
           <GoBackButton
             onPress={[Function]}
           />
-          <Styled(Component)
+          <Styled(View)
             align="center"
             justify="flex-start"
           >
             <Styled(Text)>
               pin.title
             </Styled(Text)>
-            <Styled(Component)
+            <Styled(View)
               size="small"
             />
             <Styled(Text)>
               pin.new
             </Styled(Text)>
-          </Styled(Component)>
-        </Styled(Styled(Component))>
+          </Styled(View)>
+        </Styled(Styled(View))>
         <PinPad
           onComplete={[Function]}
         />
-      </Styled(Component)>,
+      </Styled(View)>,
     },
     "ref": null,
     "rendered": Object {
@@ -218,27 +218,27 @@ ShallowWrapper {
       "props": Object {
         "align": "stretch",
         "children": Array [
-          <Styled(Styled(Component))
+          <Styled(Styled(View))
             paddingSize="large"
           >
             <GoBackButton
               onPress={[Function]}
             />
-            <Styled(Component)
+            <Styled(View)
               align="center"
               justify="flex-start"
             >
               <Styled(Text)>
                 pin.title
               </Styled(Text)>
-              <Styled(Component)
+              <Styled(View)
                 size="small"
               />
               <Styled(Text)>
                 pin.new
               </Styled(Text)>
-            </Styled(Component)>
-          </Styled(Styled(Component))>,
+            </Styled(View)>
+          </Styled(Styled(View))>,
           <PinPad
             onComplete={[Function]}
           />,
@@ -258,20 +258,20 @@ ShallowWrapper {
               <GoBackButton
                 onPress={[Function]}
               />,
-              <Styled(Component)
+              <Styled(View)
                 align="center"
                 justify="flex-start"
               >
                 <Styled(Text)>
                   pin.title
                 </Styled(Text)>
-                <Styled(Component)
+                <Styled(View)
                   size="small"
                 />
                 <Styled(Text)>
                   pin.new
                 </Styled(Text)>
-              </Styled(Component)>,
+              </Styled(View)>,
             ],
             "paddingSize": "large",
           },
@@ -299,7 +299,7 @@ ShallowWrapper {
                   <Styled(Text)>
                     pin.title
                   </Styled(Text)>,
-                  <Styled(Component)
+                  <Styled(View)
                     size="small"
                   />,
                   <Styled(Text)>
@@ -373,35 +373,35 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "background": "#191A2A",
-        "children": <Styled(Component)
+        "children": <Styled(View)
           align="stretch"
           justify="flex-start"
         >
-          <Styled(Styled(Component))
+          <Styled(Styled(View))
             paddingSize="large"
           >
             <GoBackButton
               onPress={[Function]}
             />
-            <Styled(Component)
+            <Styled(View)
               align="center"
               justify="flex-start"
             >
               <Styled(Text)>
                 pin.title
               </Styled(Text)>
-              <Styled(Component)
+              <Styled(View)
                 size="small"
               />
               <Styled(Text)>
                 pin.new
               </Styled(Text)>
-            </Styled(Component)>
-          </Styled(Styled(Component))>
+            </Styled(View)>
+          </Styled(Styled(View))>
           <PinPad
             onComplete={[Function]}
           />
-        </Styled(Component)>,
+        </Styled(View)>,
       },
       "ref": null,
       "rendered": Object {
@@ -411,27 +411,27 @@ ShallowWrapper {
         "props": Object {
           "align": "stretch",
           "children": Array [
-            <Styled(Styled(Component))
+            <Styled(Styled(View))
               paddingSize="large"
             >
               <GoBackButton
                 onPress={[Function]}
               />
-              <Styled(Component)
+              <Styled(View)
                 align="center"
                 justify="flex-start"
               >
                 <Styled(Text)>
                   pin.title
                 </Styled(Text)>
-                <Styled(Component)
+                <Styled(View)
                   size="small"
                 />
                 <Styled(Text)>
                   pin.new
                 </Styled(Text)>
-              </Styled(Component)>
-            </Styled(Styled(Component))>,
+              </Styled(View)>
+            </Styled(Styled(View))>,
             <PinPad
               onComplete={[Function]}
             />,
@@ -451,20 +451,20 @@ ShallowWrapper {
                 <GoBackButton
                   onPress={[Function]}
                 />,
-                <Styled(Component)
+                <Styled(View)
                   align="center"
                   justify="flex-start"
                 >
                   <Styled(Text)>
                     pin.title
                   </Styled(Text)>
-                  <Styled(Component)
+                  <Styled(View)
                     size="small"
                   />
                   <Styled(Text)>
                     pin.new
                   </Styled(Text)>
-                </Styled(Component)>,
+                </Styled(View)>,
               ],
               "paddingSize": "large",
             },
@@ -492,7 +492,7 @@ ShallowWrapper {
                     <Styled(Text)>
                       pin.title
                     </Styled(Text)>,
-                    <Styled(Component)
+                    <Styled(View)
                       size="small"
                     />,
                     <Styled(Text)>
