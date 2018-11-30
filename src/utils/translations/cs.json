@@ -223,7 +223,7 @@
     "button": {
       "confirm": "POTVRDIT",
       "moreInfo": "VÍCE INFORMACÍ",
-      "buyNow": "KOUPIT IHNED"
+      "buyNow": "KOUPIT"
     },
     "error": {
       "insufficientBalance": "Nedostatek prostředků (TRX) k nákupu.",
