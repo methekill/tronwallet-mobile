@@ -366,7 +366,7 @@
           "reset": "Node IP reseted!"
         },
         "placeholder": {
-          "loadingIp": "Loading IP",
+          "loadingIp": "טוען כתובת IP",
           "loadingPort": "Loading Port"
         },
         "button": {
@@ -442,7 +442,7 @@
     "time": "זמן",
     "button": {
       "tryAgain": "נסה שוב",
-      "submit": "הגש טרנזקציה"
+      "submit": "הגש עסקה"
     },
     "error": {
       "noData": "לא ניתן לטעון את נתוני העסקה"
