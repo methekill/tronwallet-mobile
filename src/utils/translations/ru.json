@@ -78,7 +78,7 @@
     "minToBuy": "Минимум для покупки ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Чем выше оценочная стоимость, тем выше вероятность успешной покупки.",
-      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+      "sell": "Чем ниже оценочная стоимость, тем выше вероятность успешной покупки."
     },
     "notFound": "Exchanges not found"
   },
