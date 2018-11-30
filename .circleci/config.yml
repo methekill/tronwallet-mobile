@@ -124,7 +124,11 @@ jobs:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
           - 1-gems-{{ checksum "Gemfile.lock" }}
-      
+      - run: export NVM_DIR="$HOME/.nvm"
+      - run: [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+      - run: [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
+      - run: nvm install 8.11           
+      - run: nvm use 8.11
       - run: bundle check || bundle install --path vendor/bundle
       - run: yarn install --skip-integrity-check
       - run: echo $DEPLOY_OBJECT | base64 --decode > api-8054606568639612055-951116-e8a064391f73.json
