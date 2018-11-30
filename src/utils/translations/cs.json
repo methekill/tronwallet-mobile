@@ -184,7 +184,7 @@
     "title": "ZMRAZIT",
     "unfreeze": {
       "title": "ROZMRAZIT",
-      "inXTime": "Můžete uvolnit TRX",
+      "inXTime": "Můžete rozmrazit TRX",
       "inThreeDays": "TRX můžete rozmrazit po třech dnech",
       "inXMinutes": "TRX můžete rozmrazit za {{minutes}} min.",
       "inXHours": "TRX můžete rozmrazit za {{hours}} hod.",
