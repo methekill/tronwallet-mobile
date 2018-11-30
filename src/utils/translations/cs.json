@@ -80,7 +80,7 @@
       "buy": "Mírně vyšší odhadované náklady zvýší míru obratu.",
       "sell": "Mírně nížší odhadované náklady zvýší míru obratu."
     },
-    "notFound": "Transakce nenalezeny"
+    "notFound": "Obchody nenalezeny"
   },
   "hideAccount": "Chystáte se odstranit tento účet. Později jej můžete obnovit v nastavení",
   "components": {
