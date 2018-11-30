@@ -436,7 +436,7 @@
   },
   "submitTransaction": {
     "title": "ДЕТАЛІ ТРАНЗАКЦІЇ",
-    "notification": "Ви отримали транзакцію з {{address}}",
+    "notification": "Ви отримали транзакцію від {{address}}",
     "notificationPayment": "Ви отримали платіж від {{address}}",
     "data": "ДАТА",
     "time": "ЧАС",
