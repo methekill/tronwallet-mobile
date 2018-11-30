@@ -72,7 +72,7 @@ class ExchangeScene extends Component {
       this.setState({isSearching: !isSearching, currentList})
     }
 
-    _renderItem = ({item}) => <ExchangeItem exchangeData={item} />
+    _renderItem = ({item}) => (<ExchangeItem exchangeData={item} />)
 
     _renderEmptyList = () =>
       this.state.isSearching && !this.state.searchName

@@ -125,10 +125,11 @@ class SellScene extends Component {
     this.setState({sellAmount, estimatedRevenue})
   }
 
-  _renderRightContent = text =>
+  _renderRightContent = text => (
     <Utils.Text size='small' color={Colors.greyBlue}>
       {text}
     </Utils.Text>
+  )
 
   render () {
     const {
