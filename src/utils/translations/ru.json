@@ -80,7 +80,7 @@
       "buy": "Чем выше оценочная стоимость, тем выше вероятность успешной покупки.",
       "sell": "Чем ниже оценочная стоимость, тем выше вероятность успешной покупки."
     },
-    "notFound": "Exchanges not found"
+    "notFound": "Недостаточно предложений"
   },
   "hideAccount": "Вы собираетесь удалить эту учетную запись. Вы можете восстановить её в настройках позже.",
   "components": {
@@ -163,7 +163,7 @@
       "addToContacts": "ДОБАВИТЬ В КОНТАКТЫ"
     },
     "form": {
-      "generalError": "Существует проблема, подтвеждения этой формы. Пожалуйста, обратитесь к администратору.",
+      "generalError": "Существует проблема, подтверждения этой формы. Пожалуйста, обратитесь к администратору.",
       "nameError": "Поле «Имя» должно начинаться с буквы и содержать не более 32 символов. Поддерживаются только буквы, цифры и пробелы.",
       "addressError": "Что-то не так с адресом. Пожалуйста, дважды проверьте введенный адрес.",
       "uniqueAddressError": "Ключ должен быть уникальным. Пожалуйста, выберите другой адрес.",
@@ -602,7 +602,7 @@
         "body": "The materials on TronWallet's website are provided on an 'as is' basis. TronWallet makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.\nFurther, TronWallet does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its website or otherwise relating to such materials or on any sites linked to this site.n"
       },
       "section4": {
-        "title": "4. Limitations",
+        "title": "Ограничения",
         "body": "In no event shall TronWallet or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on TronWallet's website, even if TronWallet or a TronWallet authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.\n"
       },
       "section5": {
@@ -644,9 +644,9 @@
     }
   },
   "notifications": {
-    "title": "NOTIFICATIONS"
+    "title": "УВЕДОМЛЕНИЯ"
   },
   "news": {
-    "title": "NEWS"
+    "title": "НОВОСТИ"
   }
 }
