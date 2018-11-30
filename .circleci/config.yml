@@ -111,7 +111,7 @@ jobs:
 
   android_deploy:
     docker:
-      - image: gettyio/circleci-fastlane:node-8
+      - image: circleci/android:api-28-node8-alpha
 
     working_directory: ~/repo
 
