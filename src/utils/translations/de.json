@@ -414,7 +414,7 @@
     },
     "about": {
       "title": "Über",
-      "description": "TronWallet ist eine open-Source, vollständig dezentrale P2P Crypto Wallet für das TRON Netzwerk geschaffen mit React Native. Mit dieser können Sie Token senden und empfangen, einen Super Repräsentant wählen, an einem Token Verkauf teilnehmen, einbehalten, den Überblick über Ihr Guthaben und Transaktionen und vieles mehr. Um zu erfahren wie man diese benutzt, tippen Sie auf den unten stehenden Link für eine detaillierte Anleitung.",
+      "description": "Die mit React Native erstellte TronWallet ist sowohl eine Open-Source- als auch eine vollständig dezentrale P2P Crypto Wallet für das TRON Netzwerk. Mit dieser Wallet können Sie Tokens senden und empfangen, einen Super-Repräsentanten wählen, an einem Token-Verkauf teilnehmen, den Überblick über Ihr Guthaben und Ihre Transaktionen behalten sowie vieles mehr. Um zu erfahren wie man die Wallet benutzt, tippen Sie für eine detaillierte Anleitung auf den unten stehenden Link.",
       "tutorial": "ANLEITUNG"
     },
     "accepts": {
@@ -432,17 +432,17 @@
     "partners": "PARTNER",
     "askPin": "Immer nach der PIN fragen",
     "askBiometry": "Aktivieren Sie Biometrie",
-    "verifiedTokensOnly": "Nur verifizierten Tokens"
+    "verifiedTokensOnly": "Nur verifizierte Tokens"
   },
   "submitTransaction": {
-    "title": "EINZELHEITEN DER TRANSAKTION",
+    "title": "DETAILS DER TRANSAKTION",
     "notification": "Sie haben eine Transaktion von {{address}} erhalten",
     "notificationPayment": "Sie haben eine Zahlung von {{address}} erhalten",
     "data": "DATEN",
     "time": "ZEIT",
     "button": {
       "tryAgain": "Versuchen Sie es erneut",
-      "submit": "TRANSAKTION ABSENDEN"
+      "submit": "TRANSAKTION EINREICHEN"
     },
     "error": {
       "noData": "Transaktionsdaten konnten nicht geladen werden"
@@ -450,7 +450,7 @@
     "exchange": {
       "send": "Versenden {{sendtoken}}",
       "receive": "Erhalten {{receivetoken}}",
-      "error": "Überprüfe Deine letzte Transaktion um Deinen erhaltenen Betrag zu bestätigen."
+      "error": "Überprüfen Sie die letzte Transaktion um Ihren erhaltenen Betrag zu bestätigen."
     },
     "disconnectedMessage": "Es scheint, dass Sie keine Internetverbindung haben. Verbinden Sie sich mit dem Internet bevor Sie mit der Transaktion fortfahren.",
     "dic": {
@@ -465,7 +465,7 @@
       "assetIssueContract": "Erstellen",
       "voteWitnessContract": "Abstimmen",
       "frozenDuration": "Dauer",
-      "frozenBalance": "Insgesamt einfrieren"
+      "frozenBalance": "Insgesamt zum Einfrieren"
     },
     "errorDic": {
       "contractValidate": "Transaktionsdaten nicht gültig. Bitte versuchen Sie es später erneut.",
@@ -474,12 +474,12 @@
       "contractValidateCee": "Transaktionsdaten nicht gültig (CEE). Bitte versuchen Sie es später erneut.",
       "bandwith": "Nicht genügend Bandbreite. Bitte versuchen Sie es später erneut.",
       "contractValidateTapos": "Transaktionsdaten nicht gültig (TAPOS). Bitte versuchen Sie es später erneut.",
-      "tooBig": "Transaktion zu groß, um abzusenden.",
+      "tooBig": "Transaktion zu groß um diese einzureichen.",
       "expiration": "Transaktion ist abgelaufen. Bitte versuchen Sie es erneut.",
       "serverBusy": "Der Server ist ausgelastet.",
-      "resource": "Unzureichende Bandbreite oder Guthaben. Möglicherweise benötigen Sie einige gefrorene TRX."
+      "resource": "Unzureichende Bandbreite oder Guthaben. Möglicherweise benötigen Sie einige eigefrorene TRX."
     },
-    "totalVotes": "Stimmen Insgesamt"
+    "totalVotes": "Gesamtstimmen"
   },
   "transactions": {
     "title": "MEINE BUCHUNGEN",
@@ -490,13 +490,13 @@
   "transactionDetails": {
     "title": "TRANSAKTION",
     "clipboard": {
-      "tronscanUrl": "Tronscan Url für diese Transaktion in die Zwischenablage kopiert",
+      "tronscanUrl": "Tronscan URL für diese Transaktion in die Zwischenablage kopiert",
       "publicKey": "Öffentlicher Schlüssel in die Zwischenablage kopiert"
     },
     "hash": "Rautenzeichen",
     "status": "Status",
     "time": "ZEIT",
-    "block": "Block",
+    "block": "BLOCK",
     "frozenBalance": "EINGEFRORENES GUTHABEN",
     "unfrozenBalance": "VERFÜGBARES GUTHABEN",
     "totalVotes": "STIMMEN INSGESAMT",
