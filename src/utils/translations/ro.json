@@ -267,11 +267,11 @@
     "title": "A PRIMI",
     "clipboardCopied": "Copiat în clipboard",
     "button": {
-      "copy": "Copie",
-      "share": "Acțiune"
+      "copy": "Copiaza",
+      "share": "Partajare"
     },
     "tabs": {
-      "share": "ACȚIUNE",
+      "share": "PARTAJARE",
       "request": "CERERE"
     }
   },
@@ -281,20 +281,20 @@
   },
   "seed": {
     "confirm": {
-      "title": "CONFIRMA SEMNĂ",
+      "title": "CONFIRMA SEED",
       "error": {
-        "title": "Combinație greșită",
-        "message": "Cuvintele selectate nu se potrivesc. Asigurați-vă că ați scris cuvintele în ordinea corectă."
+        "title": "Combinație Greșită",
+        "message": "Cuvintele selectate nu se potrivesc. Asigurați-vă că le-ați scris cuvintele în ordinea corectă."
       },
       "success": "Portofelul a fost confirmat cu succes",
-      "explanation": "Selectați cuvintele de mai jos în ordinea corectă pentru a vă confirma expresia secretă.",
+      "explanation": "Selectați cuvintele de mai jos în ordinea corectă pentru a vă confirma fraza secretă.",
       "button": {
-        "reset": "RESETE CU CUVINTE",
+        "reset": "RESETARE CUVINTE",
         "confirm": "CONFIRMA SEMNĂ"
       }
     },
     "create": {
-      "title": "CREAȚI SEMINȚELE",
+      "title": "CREEAZĂ SEED",
       "titleConfirm": "CONFIRMAȚI SEMINȚELE DE PLAJ",
       "error": "Hopa, avem o problemă. Reporniți aplicația.",
       "generateNew": "Acest lucru va genera un portofel complet nou.",
