@@ -295,7 +295,7 @@
     },
     "create": {
       "title": "CREEAZĂ SEED",
-      "titleConfirm": "CONFIRMAȚI SEMINȚELE DE PLAJ",
+      "titleConfirm": "CONFIRMĂ SEED PORTOFEL",
       "error": "Hopa, avem o problemă. Reporniți aplicația.",
       "generateNew": "Acest lucru va genera un portofel complet nou.",
       "button": {
