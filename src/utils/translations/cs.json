@@ -20,7 +20,7 @@
   "cancel": "Zrušit",
   "address": "Adresa",
   "message": "Zpráva",
-  "ex": "Exchange",
+  "ex": "Burza",
   "ok": "OK",
   "actionModalTitle": "Zvolte",
   "account": "Účet",
@@ -47,7 +47,7 @@
     "vote": "Hlasování",
     "participate": "Nákup tokenu",
     "create": "Vytvoření",
-    "exchange": "Exchange",
+    "exchange": "Obchod",
     "undefined": "Nedefinovaný typ"
   },
   "close": "Zavřít",
