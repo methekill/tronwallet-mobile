@@ -157,14 +157,14 @@
         "cancelButton": "Revocare",
         "okButton": "OK"
       },
-      "empty": "Agenda dvs. de adrese este goală, adăugați o nouă persoană de contact utilizând butonul de mai jos.",
-      "loadError": "A apărut o problemă la încărcarea contactelor. Vă rugăm să încercați din nou.",
+      "empty": "Agenda ta este goală, adaugă o nouă persoană de contact utilizând butonul de mai jos.",
+      "loadError": "A apărut o problemă la încărcarea contactelor. Te rugăm să încerci din nou.",
       "addContact": "ADAUGĂ CONTACT",
       "addToContacts": "ADAUGĂ LA CONTACTE"
     },
     "form": {
-      "generalError": "A apărut o problemă la trimiterea acestui formular. Contactați un administrator.",
-      "nameError": "Câmpul de nume trebuie să înceapă cu o literă, să conțină maximum 32 de caractere și să accepte doar litere, numere și spații albe.",
+      "generalError": "A apărut o problemă la trimiterea acestui formular. Contactează un administrator.",
+      "nameError": "Numele trebuie să înceapă cu o literă, să conțină maxim 32 de caractere și acceptă doar litere, numere și spații.",
       "addressError": "Ceva nu are dreptate cu adresa. Vă rugăm să faceți dublu verificarea pentru greșeli.",
       "uniqueAddressError": "Cheia trebuie să fie unică. Alegeți o altă adresă.",
       "uniqueAliasError": "Numele din agenda dvs. trebuie să fie unice. Alegeți altul.",
