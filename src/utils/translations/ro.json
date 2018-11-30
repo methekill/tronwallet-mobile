@@ -20,14 +20,14 @@
   "cancel": "Revocare",
   "address": "Adresa",
   "message": "Mesaj",
-  "ex": "Schimb",
+  "ex": "Exchange",
   "ok": "Ok",
-  "actionModalTitle": "Ați dori să",
+  "actionModalTitle": "Ai dori să",
   "account": "Cont",
   "restore": "Restaurare",
   "error": {
-    "default": "Woops ceva nu a mers bine. Reîncercați mai târziu. Dacă eroarea persistă, încercați să actualizați setările de rețea.",
-    "buildingTransaction": "Eroare la construirea tranzacției, încercați din nou.",
+    "default": "Hopa, ceva nu a mers bine. Reîncercă mai târziu. Dacă eroarea persistă, încercă să actualizezi setările de rețea.",
+    "buildingTransaction": "Eroare la construirea tranzacției, încercă din nou.",
     "gettingTransaction": "Eroare la obținerea tranzacției.",
     "clipboardCopied": "Ceva nu a mers bine in timpul copierii",
     "hideAccount": "Ceva a mers greşit cu ştergerea contului, încearcă din nou'"
