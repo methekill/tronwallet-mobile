@@ -452,56 +452,56 @@
       "receive": "Primire {{receivetoken}}",
       "error": "Verificați cele mai recente tranzacții pentru a confirma suma primită."
     },
-    "disconnectedMessage": "Se pare că ești deconectat. Reconectați-vă la internet înainte de a continua tranzacția.",
+    "disconnectedMessage": "Se pare că te-ai deconectat. Verifică conexiunea la internet înainte de a continua tranzacția.",
     "dic": {
-      "contractType": "tipul tranzacției",
+      "contractType": "Tipul Tranzacției",
       "ownerAddress": "Din",
-      "toAddress": "La",
-      "participateAssetIssueContract": "Participa",
+      "toAddress": "Către",
+      "participateAssetIssueContract": "Participă",
       "transferAssetContract": "Transfer",
       "transferContract": "Transfer",
-      "unfreezeBalanceContract": "Deblocați",
-      "freezeBalanceContract": "Îngheţa",
-      "assetIssueContract": "Crea",
-      "voteWitnessContract": "Vot",
+      "unfreezeBalanceContract": "Deblochează",
+      "freezeBalanceContract": "Îngheaţă",
+      "assetIssueContract": "Creează",
+      "voteWitnessContract": "Votează",
       "frozenDuration": "Durată",
-      "frozenBalance": "Total pentru a îngheța"
+      "frozenBalance": "Suma totală de înghețat"
     },
     "errorDic": {
-      "contractValidate": "Datele tranzacției nu sunt valide. Vă rugăm să încercați din nou mai târziu.",
+      "contractValidate": "Detaliile tranzacției nu sunt valide. Te rugăm să încerci din nou mai târziu.",
       "signature": "Semnătura tranzacției nu este validă.",
-      "duplicate": "Tranzacție deja difuzată.",
-      "contractValidateCee": "Datele tranzacției nu sunt valabile (CEE). Vă rugăm să încercați din nou mai târziu.",
-      "bandwith": "Lățimea de bandă nu a fost atinsă. Vă rugăm să încercați din nou mai târziu.",
-      "contractValidateTapos": "Datele tranzacției nu sunt valide (TAPOS). Vă rugăm să încercați din nou mai târziu.",
+      "duplicate": "Tranzacție deja trimisă către rețea.",
+      "contractValidateCee": "Detaliile tranzacției nu sunt valide (CEE). Te rugăm să încerci din nou mai târziu.",
+      "bandwith": "Bandwidth insuficient. Te rugăm să încerci din nou mai târziu.",
+      "contractValidateTapos": "Detaliile tranzacției nu sunt valide (TAPOS). Te rugăm să încerci din nou mai târziu.",
       "tooBig": "Tranzacție prea mare pentru a fi trimisă.",
-      "expiration": "Tranzacția a expirat. Vă rugăm să încercați din nou.",
+      "expiration": "Tranzacția a expirat. Te rugăm să încerci din nou.",
       "serverBusy": "Server ocupat.",
-      "resource": "Lățime de bandă sau balanță insuficientă. S-ar putea să aveți nevoie de TRX înghețat."
+      "resource": "Bandwidth sau balanță insuficientă. S-ar putea să ai nevoie de TRX înghețat."
     },
     "totalVotes": "Voturi totale"
   },
   "transactions": {
-    "title": "TRANZACȚIILE MEA",
+    "title": "TRANZACȚIILE MELE",
     "from": "Din",
-    "to": "La",
+    "to": "Către",
     "notFound": "Nu au fost găsite tranzacții."
   },
   "transactionDetails": {
     "title": "TRANZACŢIE",
     "clipboard": {
-      "tronscanUrl": "Tronscan url pentru această copie copie în clipboard",
-      "publicKey": "Cheia publică copiată în clipboard"
+      "tronscanUrl": "Url-ul Tronscan pentru această tranzacție a fost copiat în clipboard",
+      "publicKey": "Cheie publică copiată în clipboard"
     },
     "hash": "HASH",
-    "status": "STARE",
+    "status": "STATUS",
     "time": "TIMP",
     "block": "BLOC",
-    "frozenBalance": "SOLD BALANȚĂ",
-    "unfrozenBalance": "BALANȚĂ NEFROZENĂ",
+    "frozenBalance": "BALANȚĂ ÎNGHETATĂ",
+    "unfrozenBalance": "BALANȚĂ DEBLOCATĂ",
     "totalVotes": "VOTURI TOTALE",
     "amount": "SUMA",
-    "to": "LA",
+    "to": "CĂTRE",
     "from": "DIN",
     "tokenName": "DENUMIREA TOKEN-ULUI",
     "unityValue": "VALOARE UNITARĂ",
@@ -522,7 +522,7 @@
     "search": "Căutare",
     "searchPreview": "Sugestii - Ultimele mele voturi",
     "error": "Hopa, ceva nu s-a încărcat corespunzător. Reîncercați",
-    "notFound": "Super Reprezentative-ul nu a fost găsit"
+    "notFound": "Super Reprezentativul nu a fost găsit"
   },
   "scanPayment": {
     "scan": "SCANARE",
@@ -567,12 +567,12 @@
     }
   },
   "balanceToken": {
-    "updating": "Actualizarea informațiilor despre token. Așteptați câteva secunde.",
+    "updating": "Actualizarea informațiilor despre token. Aștepă câteva secunde.",
     "notAvailable": "Informații despre Token indisponibile"
   },
   "biometry": {
     "register": {
-      "title": "Verificati Biometria"
+      "title": "Check your biometry"
     },
     "auth": {
       "title": "Salveaza Biometria",
