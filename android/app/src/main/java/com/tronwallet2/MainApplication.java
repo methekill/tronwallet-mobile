@@ -15,7 +15,6 @@ import com.smixx.fabric.FabricPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import io.getty.rntron.RNTronPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
-import org.reactnative.camera.RNCameraPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import io.realm.react.RealmReactPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -41,7 +40,6 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNCameraPackage(),
           new RNMixpanel(),
           new ReactNativeBiometricsPackage(),
           new LottiePackage(),
