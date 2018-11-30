@@ -75,7 +75,7 @@ jobs:
 
   android_upgrade:
     docker:
-      - image: marlonbrgomes/circleci-fastlane:latest
+      - image: gettyio/circleci-fastlane:node-8
 
     working_directory: ~/repo
 
@@ -111,7 +111,7 @@ jobs:
 
   android_deploy:
     docker:
-      - image: circleci/android:api-28-node8-alpha
+      - image: gettyio/circleci-fastlane:node-8
 
     working_directory: ~/repo
 
