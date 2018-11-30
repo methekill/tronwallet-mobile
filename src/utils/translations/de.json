@@ -77,8 +77,8 @@
     "minToSell": "Minimum zu verkaufen ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimum zu kaufen ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Erhöhe die geschätzten Kosten leicht und die Umschlaghäufigkeit wird höher sein.",
-      "sell": "Senke die geschätzten Kosten leicht und die Umschlaghäufigkeit wird höher sein."
+      "buy": "Erhöhe die Kostenschätzung leicht und die Kaufwahrscheinlichkeit wird höher sein.",
+      "sell": "Senke den zu erwartenden Ertrag leicht um die Verkaufswahrscheinlicheit zu erhöhen."
     },
     "notFound": "Börse nicht gefunden"
   },
