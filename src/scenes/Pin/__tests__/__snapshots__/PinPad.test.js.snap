@@ -43,12 +43,12 @@ ShallowWrapper {
     "props": Object {
       "align": "stretch",
       "children": Array [
-        <Styled(Component)
+        <Styled(View)
           align="center"
           height={180}
           justify="center"
         >
-          <withAnimatable(Component)
+          <withAnimatable(View)
             delay={0}
             direction="normal"
             iterationCount={1}
@@ -59,7 +59,7 @@ ShallowWrapper {
             onTransitionEnd={[Function]}
             useNativeDriver={false}
           >
-            <Styled(Component)
+            <Styled(View)
               align="center"
               justify="space-between"
               width={264}
@@ -88,10 +88,10 @@ ShallowWrapper {
                 currentState={Array []}
                 digit={5}
               />
-            </Styled(Component)>
-          </withAnimatable(Component)>
-        </Styled(Component)>,
-        <Styled(Component)>
+            </Styled(View)>
+          </withAnimatable(View)>
+        </Styled(View)>,
+        <Styled(View)>
           <Key
             onPress={[Function]}
           >
@@ -158,7 +158,7 @@ ShallowWrapper {
               size={24}
             />
           </Key>
-        </Styled(Component)>,
+        </Styled(View)>,
       ],
       "justify": "flex-start",
     },
@@ -170,7 +170,7 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "align": "center",
-          "children": <withAnimatable(Component)
+          "children": <withAnimatable(View)
             delay={0}
             direction="normal"
             iterationCount={1}
@@ -181,7 +181,7 @@ ShallowWrapper {
             onTransitionEnd={[Function]}
             useNativeDriver={false}
           >
-            <Styled(Component)
+            <Styled(View)
               align="center"
               justify="space-between"
               width={264}
@@ -210,8 +210,8 @@ ShallowWrapper {
                 currentState={Array []}
                 digit={5}
               />
-            </Styled(Component)>
-          </withAnimatable(Component)>,
+            </Styled(View)>
+          </withAnimatable(View)>,
           "height": 180,
           "justify": "center",
         },
@@ -222,7 +222,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "animation": undefined,
-            "children": <Styled(Component)
+            "children": <Styled(View)
               align="center"
               justify="space-between"
               width={264}
@@ -251,7 +251,7 @@ ShallowWrapper {
                 currentState={Array []}
                 digit={5}
               />
-            </Styled(Component)>,
+            </Styled(View)>,
             "delay": 0,
             "direction": "normal",
             "duration": undefined,
@@ -637,12 +637,12 @@ ShallowWrapper {
       "props": Object {
         "align": "stretch",
         "children": Array [
-          <Styled(Component)
+          <Styled(View)
             align="center"
             height={180}
             justify="center"
           >
-            <withAnimatable(Component)
+            <withAnimatable(View)
               delay={0}
               direction="normal"
               iterationCount={1}
@@ -653,7 +653,7 @@ ShallowWrapper {
               onTransitionEnd={[Function]}
               useNativeDriver={false}
             >
-              <Styled(Component)
+              <Styled(View)
                 align="center"
                 justify="space-between"
                 width={264}
@@ -682,10 +682,10 @@ ShallowWrapper {
                   currentState={Array []}
                   digit={5}
                 />
-              </Styled(Component)>
-            </withAnimatable(Component)>
-          </Styled(Component)>,
-          <Styled(Component)>
+              </Styled(View)>
+            </withAnimatable(View)>
+          </Styled(View)>,
+          <Styled(View)>
             <Key
               onPress={[Function]}
             >
@@ -752,7 +752,7 @@ ShallowWrapper {
                 size={24}
               />
             </Key>
-          </Styled(Component)>,
+          </Styled(View)>,
         ],
         "justify": "flex-start",
       },
@@ -764,7 +764,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "align": "center",
-            "children": <withAnimatable(Component)
+            "children": <withAnimatable(View)
               delay={0}
               direction="normal"
               iterationCount={1}
@@ -775,7 +775,7 @@ ShallowWrapper {
               onTransitionEnd={[Function]}
               useNativeDriver={false}
             >
-              <Styled(Component)
+              <Styled(View)
                 align="center"
                 justify="space-between"
                 width={264}
@@ -804,8 +804,8 @@ ShallowWrapper {
                   currentState={Array []}
                   digit={5}
                 />
-              </Styled(Component)>
-            </withAnimatable(Component)>,
+              </Styled(View)>
+            </withAnimatable(View)>,
             "height": 180,
             "justify": "center",
           },
@@ -816,7 +816,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "animation": undefined,
-              "children": <Styled(Component)
+              "children": <Styled(View)
                 align="center"
                 justify="space-between"
                 width={264}
@@ -845,7 +845,7 @@ ShallowWrapper {
                   currentState={Array []}
                   digit={5}
                 />
-              </Styled(Component)>,
+              </Styled(View)>,
               "delay": 0,
               "direction": "normal",
               "duration": undefined,
