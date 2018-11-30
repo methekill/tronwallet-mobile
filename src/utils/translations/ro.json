@@ -2,15 +2,15 @@
   "relativeTime": {
     "future": "în %s",
     "past": "%s în urmă",
-    "s": "cateva secunde",
+    "s": "câteva secunde",
     "ss": "%d secunde",
     "m": "un minut",
     "mm": "%d minute",
-    "h": "o ora",
+    "h": "o oră",
     "hh": "%d ore",
     "d": "o zi",
     "dd": "%d zile",
-    "M": "o luna",
+    "M": "o lună",
     "MM": "%d luni",
     "y": "un an",
     "yy": "%d ani"
@@ -229,7 +229,7 @@
       "insufficientBalance": "Nu există suficiente fonduri (TRX) pentru a participa.",
       "insufficientTrx": {
         "title": "Trebuie să cumperi cel puțin echivalentul unui TRX de {{token}}.",
-        "message": "În prezent, achiziționați doar {{amount}}."
+        "message": "În prezent, achiziționezi doar {{amount}}."
       },
       "notFound": "Nu s-a găsit niciun asset"
     },
@@ -281,13 +281,13 @@
   },
   "seed": {
     "confirm": {
-      "title": "CONFIRMA SEED",
+      "title": "CONFIRMĂ SEED",
       "error": {
         "title": "Combinație Greșită",
         "message": "Cuvintele selectate nu se potrivesc. Asigurați-vă că le-ați scris cuvintele în ordinea corectă."
       },
       "success": "Portofelul a fost confirmat cu succes",
-      "explanation": "Selectați cuvintele de mai jos în ordinea corectă pentru a vă confirma fraza secretă.",
+      "explanation": "Selectează cuvintele de mai jos în ordinea corectă pentru a-ți confirma fraza secretă.",
       "button": {
         "reset": "RESETARE CUVINTE",
         "confirm": "CONFIRMA SEMNĂ"
@@ -296,12 +296,12 @@
     "create": {
       "title": "CREEAZĂ SEED",
       "titleConfirm": "CONFIRMĂ SEED PORTOFEL",
-      "error": "Hopa, avem o problemă. Reporniți aplicația.",
+      "error": "Oops, avem o problemă. Te rugăm să reporneşti aplicaţia.",
       "generateNew": "Acest lucru va genera un portofel complet nou.",
       "button": {
-        "written": "Am scris-o",
-        "newSeed": "GET SEMNE NOU",
-        "later": "Confirmați mai târziu"
+        "written": "AM SCRIS-O",
+        "newSeed": "OBŢINE SEED NOU",
+        "later": "Confirmă mai târziu"
       },
       "backupMessage": "Poți accesa întotdeauna cuvintele Seed accesând copia de rezervă din setările aplicației",
       "seedExplanation": "Cheia Seed este o reprezentare lizibila, pentru oameni, a portofelului tău. Aceste cuvinte, în acea ordine exactă, pot fi folosite pentru a-ți re-crea portofelul."
