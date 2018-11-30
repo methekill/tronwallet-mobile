@@ -165,42 +165,42 @@
     "form": {
       "generalError": "A apărut o problemă la trimiterea acestui formular. Contactează un administrator.",
       "nameError": "Numele trebuie să înceapă cu o literă, să conțină maxim 32 de caractere și acceptă doar litere, numere și spații.",
-      "addressError": "Ceva nu are dreptate cu adresa. Vă rugăm să faceți dublu verificarea pentru greșeli.",
-      "uniqueAddressError": "Cheia trebuie să fie unică. Alegeți o altă adresă.",
-      "uniqueAliasError": "Numele din agenda dvs. trebuie să fie unice. Alegeți altul.",
+      "addressError": "Ceva nu este in regulă cu această adresă. Te rugăm sa o verifici pentru eventuale erori.",
+      "uniqueAddressError": "Cheia trebuie să fie unică. Te rugăm sa alegi o altă adresă.",
+      "uniqueAliasError": "Numele din agenda ta trebuie să fie unic. Te rugăm sa alegi unul diferit.",
       "name": "NUME",
-      "address": "ADRESA"
+      "address": "ADRESĂ"
     }
   },
   "importWallet": {
-    "title": "PORTOARE DE IMPORT",
-    "message": "Dacă aveți cheia privată și adresa portofelului dvs. puteți să o recuperați aici, dar rețineți că TronWallet funcționează în primul rând cu mnemonica. Această metodă de recuperare va dezactiva anumite funcționalități din aplicație.",
-    "button": "IMPORTA",
+    "title": "IMPORTĂ PORTOFEL",
+    "message": "Dacă ai cheia privată și adresa portofelului tău îl poți recupera aici, însă rețineți că TronWallet funcționează în primul rând pe bază mnemonică. Această metodă de recuperare va dezactiva anumite funcționalități din aplicație.",
+    "button": "IMPORTĂ",
     "error": {
-      "privateKey": "Cheia privată este nevalidă sau incompletă"
+      "privateKey": "Cheia privată nu este validă sau este incompletă"
     }
   },
   "freeze": {
-    "title": "ÎNGHEŢA",
+    "title": "ÎNGHEŢĂ",
     "unfreeze": {
-      "title": "Deblocați",
-      "inXTime": "Poti dezgheța TRX-ul tău",
-      "inThreeDays": "După o perioadă de trei zile puteți dezgheța TRX-ul",
-      "inXMinutes": "Puteți dezgheța TRX-ul dvs. în {{minutes}} minute.",
-      "inXHours": "Puteți dezgheța TRX-ul dvs. în {{hours}} ore.",
-      "inXDays": "Puteți dezgheța TRX-ul dvs. în decurs de {{days}} zile.",
-      "now": "Acum puteți dezgheța TRX-ul."
+      "title": "DEBLOCHEAZĂ",
+      "inXTime": "Poți dezgheța TRX-ul tău",
+      "inThreeDays": "După o perioadă de trei zile poți dezgheța TRX-ul",
+      "inXMinutes": "Poți dezgheța TRX-ul tău în {{minutes}} minute.",
+      "inXHours": "Poți dezgheța TRX-ul tău în {{hours}} ore.",
+      "inXDays": "Poți dezgheța TRX-ul tău în {{days}} zile.",
+      "now": "Acum poți dezgheța TRX-ul tău."
     },
     "error": {
-      "minimumAmount": "Suma minimă pentru orice tranzacție de îngheț este de 1.",
-      "insufficientBalance": "TRX echilibru insuficient",
-      "roundNumbers": "Poate îngheța numai cifrele rotunde"
+      "minimumAmount": "Suma minimă pentru orice tranzacție de înghețare este de 1.",
+      "insufficientBalance": "Balanța TRX insuficientă",
+      "roundNumbers": "Poți îngheța doar cifre rotunde"
     },
-    "amount": "GREUTATE AMOUNT",
-    "balance": "Echilibru"
+    "amount": "CONGELEAZĂ SUMA",
+    "balance": "Balanță"
   },
   "getVault": {
-    "notInstalled": "Se pare că nu aveți instalat Tron Vault în telefon pentru a continua tranzacția.",
+    "notInstalled": "Se pare că nu ai instalat Tron Vault în telefon pentru a continua tranzacția.",
     "downloadHere": "Îl poţi descărca de aici"
   },
   "market": {
@@ -211,10 +211,10 @@
       "month": "1L",
       "all": "TOATE"
     },
-    "highest": "CEL MAI INALT",
+    "highest": "CEL MAI MARE",
     "lowest": "CEL MAI MIC",
     "volume": "VOLUM 24H",
-    "cap": "CAP CAPITAL",
+    "cap": "CAPITAL DE PIAȚA",
     "supply": "CANTITATE IN CIRCULAȚIE"
   },
   "participate": {
@@ -233,8 +233,8 @@
       },
       "notFound": "Nu s-a găsit niciun asset"
     },
-    "warning": "Nu aveți suficient TRX pentru a cumpăra atât de mulți {{token}}",
-    "enterAmountToBuy": "INTRODU SUMA DE CUMPARAT",
+    "warning": "Nu ai suficient TRX pentru a cumpăra această suma{{token}}",
+    "enterAmountToBuy": "INTRODU SUMA DE CUMPĂRAT",
     "amountToBuy": "SUMA DE CUMPĂRARE",
     "pricePerToken": "PREȚ PER TOKEN",
     "tokenDescription": "DESCRIERE TOKEN",
