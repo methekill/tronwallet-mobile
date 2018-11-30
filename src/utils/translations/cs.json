@@ -223,19 +223,19 @@
     "button": {
       "confirm": "POTVRDIT",
       "moreInfo": "VÍCE INFORMACÍ",
-      "buyNow": "KOUPIT"
+      "buyNow": "KOUPIT IHNED"
     },
     "error": {
       "insufficientBalance": "Nedostatek prostředků (TRX) k nákupu.",
       "insufficientTrx": {
-        "title": "Musíte si koupit alespoň jeden TRX v hodnotě {{token}}.",
+        "title": "Musíte koupit {{token}} alespoň v hodnotě jeden TRX.",
         "message": "Momentálně kupujete pouze {{amount}}."
       },
       "notFound": "Aktiva nenalezena"
     },
     "warning": "Nemáte dostatek TRX ke koupi tolika {{token}}",
     "enterAmountToBuy": "ZADEJTE MNOŽSTVÍ",
-    "amountToBuy": "KOUPIT MNOŽSTVÍ",
+    "amountToBuy": "MNOŽSTVÍ KE KOUPI",
     "pricePerToken": "CENA ZA TOKEN",
     "tokenDescription": "POPIS TOKENU",
     "tokenInfo": "INFORMACE O TOKENU",
@@ -323,7 +323,7 @@
       "gettingBalance": "Chyba během získávání zůstatku",
       "incompleteAddress": "Adresa je neúplná nebo neplatná.",
       "invalidReceiver": "Neplatná adresa příjemce",
-      "selectBalance": "Vyberte nejprve zůstatek",
+      "selectBalance": "Nejdříve vyberte množství",
       "invalidAmount": "Neplatné množství"
     },
     "input": {
@@ -333,19 +333,19 @@
       "description": "POPIS (NEPOVINNÝ)"
     },
     "available": "dostupné",
-    "chooseToken": "Prosím, vyberte jeden z tokenů.",
+    "chooseToken": "Prosím, vyberte z tokenů níže.",
     "minimumAmount": "Minimální množství pro poslání transakce je 0.000001."
   },
   "settings": {
     "title": "NASTAVENÍ",
     "sectionTitles": {
       "wallet": "PENĚŽENKA",
-      "security": "BEZPEČNOST",
-      "notification": "NOTIFIKACE A JAZYKY",
+      "security": "ZABEZPEČENÍ",
+      "notification": "OZNÁMENÍ A JAZYKY",
       "accounts": "ŘÍZENÍ ÚČTŮ"
     },
     "notifications": {
-      "title": "Notifikace"
+      "title": "Oznámení"
     },
     "network": {
       "title": "Síť",
@@ -362,7 +362,7 @@
           "updated": "Aktualizováno",
           "updatedIp": "IP nodů aktualizovány!",
           "switchTest": "IP nodů změněny na TestNet",
-          "switchMain": "IP nodů změněny na defaultní nastavení",
+          "switchMain": "IP nodů změněny na výchozí nastavení",
           "reset": "IP nodu resetována!"
         },
         "placeholder": {
@@ -386,7 +386,7 @@
     },
     "reset": {
       "title": "Vymazat peněženku",
-      "warning": "Upozornění: Tato akce smaže všechna uložená data včetně 12 tajných slov. Pokud jste si neuložili váš seed, učiňte tak prosím dříve než budete pokračovat.",
+      "warning": "Upozornění: Tato akce smaže všechna uložená data včetně 12 tajných slov. Pokud jste si neuložili váš klíč, učiňte tak prosím dříve než budete pokračovat.",
       "button": "OK, rozumím tomu"
     },
     "pin": {
@@ -556,10 +556,10 @@
   },
   "newAccount": {
     "title": "Vytvoření účtu",
-    "placeholder": "Můj drahocenný účet",
+    "placeholder": "Můj řádný účet",
     "success": {
       "title": "Nový účet byl úspěšně vytvořen",
-      "message": "Můžete upravit název ve svém adresáři"
+      "message": "Ve svém adresáři můžete upravit název"
     },
     "failure": {
       "title": "Upozornění na nový účet",
