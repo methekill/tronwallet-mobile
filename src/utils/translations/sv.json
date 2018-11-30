@@ -19,7 +19,8 @@
   "warning": "Varning",
   "cancel": "Avbryt",
   "address": "Adress",
-  "message": "Message",
+  "message": "Meddelande",
+  "ex": "Exchange",
   "ok": "Ok",
   "actionModalTitle": "Skulle du vilja",
   "account": "konto",
@@ -31,8 +32,8 @@
     "clipboardCopied": "Något fel med kopiering",
     "hideAccount": "Något gick fel med att ta bort konto, försök igen \""
   },
-  "avaliable": "AVAILABLE",
-  "frozen": "FROZEN",
+  "avaliable": "TILLGÄNGLIG",
+  "frozen": "FRUSNA",
   "tronPower": "TRON KRAFT",
   "trxPrice": "TRX PRIS",
   "confirmed": "Avklarat",
@@ -46,6 +47,7 @@
     "vote": "Rösta",
     "participate": "Delta",
     "create": "Skapa",
+    "exchange": "Exchange",
     "undefined": "Odentifierad Typ"
   },
   "close": "Stängt",
@@ -54,10 +56,11 @@
   "allIn": "Alt In",
   "skip": "Hoppa Över",
   "privateKey": "Privat nyckel",
-  "results": "Results",
-  "buy": "Buy",
+  "results": "Resultat",
+  "buy": "Köp",
+  "sell": "Sell",
   "filter": "Filter",
-  "txs": "Transactions",
+  "txs": "Transaktioner",
   "balance": {
     "title": "Konton",
     "error": {
@@ -70,6 +73,15 @@
     "tokens": "Valuta",
     "holdings": "Besparingar"
   },
+  "exchange": {
+    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "variation": {
+      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
+      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+    },
+    "notFound": "Exchanges not found"
+  },
   "hideAccount": "Du håller på att ta bort det här kontot. Du kan återställa det senare i inställningarna",
   "components": {
     "share": {
@@ -80,12 +92,12 @@
     "QRScanner": {
       "title": "Adress skannare",
       "scan": "Skanna",
-      "explanation": "Scan the QRCode to identify the target user",
-      "permissionMessage": "To scan the public key the app needs your permission to access the camera."
+      "explanation": "Skanna QR koden för att identifiera målanvandaren",
+      "permissionMessage": "För att kunna skanna den offentliga nyckeln måste du ge appen tillgång till kameran."
     },
     "vote": {
       "enterVote": "ENTER THE VOTE VALUE",
-      "votesRemaining": "VOTES REMAINING",
+      "votesRemaining": "ÅTERSTÅENDE RÖSTER",
       "setVote": "SET VOTE",
       "moreVotes": "If you need more votes you can Freeze more TRX.",
       "confirmVotes": "CONFIRM VOTES",
@@ -630,5 +642,11 @@
         "body": "TRONWALLET is provided free of charge and on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.\n"
       }
     }
+  },
+  "notifications": {
+    "title": "NOTIFICATIONS"
+  },
+  "news": {
+    "title": "NEWS"
   }
 }
