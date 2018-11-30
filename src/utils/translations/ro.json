@@ -35,7 +35,7 @@
   "avaliable": "DISPONIBIL",
   "frozen": "ÎNGHEŢAT",
   "tronPower": "PUTERE TRON",
-  "trxPrice": "PRET TRX",
+  "trxPrice": "PREȚ TRX",
   "confirmed": "Confirmat",
   "unconfirmed": "Neconfirmat",
   "copyAddress": "COPIAZĂ ADRESA",
@@ -55,7 +55,7 @@
   "clear": "Curăţa",
   "allIn": "Toate",
   "skip": "Sari peste",
-  "privateKey": "Cheia privată",
+  "privateKey": "Cheie Privată",
   "results": "Rezultate",
   "buy": "Cumpără",
   "sell": "Vinde",
@@ -69,7 +69,7 @@
     },
     "chooseCurrency": "Te rugam sa alegi moneda preferată.",
     "confirmSeed": "Te rugam sa atingi pentru a confirma cele 12 cuvinte seed",
-    "bandwidth": "BANDA",
+    "bandwidth": "BANDĂ",
     "tokens": "Token-uri",
     "holdings": "HOLDINGS"
   },
@@ -82,7 +82,7 @@
     },
     "notFound": "Nu au fost găsite Schimburi"
   },
-  "hideAccount": "Sunteți pe cale să eliminați acest cont. Puteți să-l restabiliți ulterior în setări",
+  "hideAccount": "Ești pe cale să elimini acest cont. Îl vei putea restabili ulterior în setări",
   "components": {
     "share": {
       "title": "Partajare adresă TronWallet",
@@ -92,7 +92,7 @@
     "QRScanner": {
       "title": "Scaner de adrese",
       "scan": "Scanare",
-      "explanation": "Scanaza codul QR pentru a identifica utilizatorul dorit",
+      "explanation": "Scanază codul QR pentru a identifica utilizatorul dorit",
       "permissionMessage": "Pentru a scana cheia publică, aplicația are nevoie de permisiunea ta pentru a accesa camera."
     },
     "vote": {
@@ -104,23 +104,23 @@
       "yourVotes": "Voturile Tale",
       "myVotes": "VOTURILE MELE",
       "confirm": "CONFIRMARE",
-      "freeze": "Îngheţa",
-      "totalVotes": "Total voturi disponibile:",
+      "freeze": "Îngheaţă",
+      "totalVotes": "Voturi totale disponibile:",
       "delete": "ȘTERGE",
-      "set": "A STABILIT",
-      "freezeOrLower": "Nu aveți destul TRX înghețat. Înghetați mai mult TRX sau reduceți valoarea votului",
-      "freezeToContinue": "Nu aveți destul TRX înghețat. Înghetați mai mult TRX pentru a continua"
+      "set": "SETEAZĂ",
+      "freezeOrLower": "Nu ai destul TRX înghețat. Îngheță mai mult TRX sau redu valoarea votului",
+      "freezeToContinue": "Nu ai destul TRX înghețat. Îngheță mai mult TRX pentru a continua"
     }
   },
   "firstTime": {
     "button": {
       "create": "CREEAZĂ PORTOFEL",
       "restore": "RESTAUREAZĂ PORTOFEL",
-      "import": "IMPORTA PORTOFEL"
+      "import": "IMPORTĂ PORTOFEL"
     },
     "swiper": {
       "welcome": {
-        "title": "Bine ati venit la TRONWALLET",
+        "title": "Bine ați venit la TRONWALLET",
         "body": "Cel mai sigur portofel pentru TRON"
       },
       "security": {
@@ -129,33 +129,33 @@
       },
       "votes": {
         "title": "VOTURI",
-        "body": "Înghețarea și votare pentru Super Reprezentanții"
+        "body": "Înghețare și votare pentru Super Reprezentanții"
       },
       "addressbook": {
         "title": "AGENDĂ",
-        "body": "Salveaza adresele prietenilor si contactelor tale."
+        "body": "Salvează adresele prietenilor si contactelor tale."
       },
       "multipleaccounts": {
         "title": "CONTURI MULTIPLE",
-        "body": "Poți gestiona mai multe conturi in portofelul tău"
+        "body": "Poți gestiona mai multe conturi în portofelul tău"
       }
     }
   },
   "addressBook": {
     "title": "AGENDĂ",
     "shared": {
-      "add": "ADĂUGA",
-      "edit": "EDITAȚI | ×",
+      "add": "ADAUGĂ",
+      "edit": "EDITEAZĂ | ×",
       "delete": "ȘTERGE",
       "send": "TRIMITE"
     },
     "contacts": {
       "title": "CONTACTE",
       "delete": {
-        "title": "Ștergeți persoana de contact",
-        "message": "Chiar doriți să ștergeți acest contact?",
-        "cancelButton": "Anulare",
-        "okButton": "O.K"
+        "title": "Șterge persoana de contact",
+        "message": "Chiar doresti să ștergi acest contact?",
+        "cancelButton": "Revocare",
+        "okButton": "OK"
       },
       "empty": "Agenda dvs. de adrese este goală, adăugați o nouă persoană de contact utilizând butonul de mai jos.",
       "loadError": "A apărut o problemă la încărcarea contactelor. Vă rugăm să încercați din nou.",
