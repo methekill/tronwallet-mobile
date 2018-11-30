@@ -42,8 +42,8 @@
   "transactionType": {
     "transfer": "Převod",
     "transferAsset": "Převod aktiva",
-    "freeze": "Zmražení",
-    "unfreeze": "Rozmrazení",
+    "freeze": "Zmrazit",
+    "unfreeze": "Rozmrazit",
     "vote": "Hlasování",
     "participate": "Nákup tokenu",
     "create": "Vytvoření",
