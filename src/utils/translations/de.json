@@ -408,7 +408,7 @@
     },
     "token": {
       "title": "Token-Filter",
-      "search": "Token-Suche",
+      "search": "Suche Token",
       "confirm": "Speichern",
       "noResult": "Keine Ergebnisse..."
     },
