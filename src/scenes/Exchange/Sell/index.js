@@ -158,7 +158,7 @@ class SellScene extends Component {
               {tl.t('exchange.minToSell', {min: minToSell, tokenId: firstTokenId})}
             </Utils.Text>}
             <Input
-              label='ESTIMATED COST'
+              label={tl.t('exchange.estimatedReceive')}
               rightContent={() => this._renderRightContent(secondTokenId)}
               placeholder={formatFloat(cost)}
               editable={false}

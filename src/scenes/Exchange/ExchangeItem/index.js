@@ -7,15 +7,16 @@ import { ExchangeRow, TinyTriangle, ExchangeLogo } from '../elements'
 import * as Utils from '../../../components/Utils'
 
 class ExchangeItem extends Component {
-    _renderPercentageIndicator = () => {
-      const currentPercentage = Math.random() * 200 - 100
-      const color = currentPercentage >= 0 ? Colors.weirdGreen : Colors.unconfirmed
-      const triangle = currentPercentage >= 0
+    _renderPercentageIndicator = variation => {
+      if (!variation) return null
+
+      const color = variation >= 0 ? Colors.weirdGreen : Colors.unconfirmed
+      const triangle = variation >= 0
         ? { color: Colors.weirdGreen, direction: 'up' }
         : { color: Colors.unconfirmed, direction: 'down' }
 
       return <Utils.Row align='center'>
-        <Utils.Text size='xsmall' color={color}>{currentPercentage.toFixed(2)}%</Utils.Text>
+        <Utils.Text size='xsmall' color={color}>{parseFloat(variation).toFixed(2)}%</Utils.Text>
         <Utils.View width={16} />
         <TinyTriangle direction={triangle.direction} color={triangle.color} />
       </Utils.Row>
@@ -25,8 +26,8 @@ class ExchangeItem extends Component {
       const {
         firstTokenId,
         secondTokenId,
-        // exchangeId,
         firstTokenImage,
+        variation,
         price } = this.props.exchangeData
 
       return <ExchangeRow onPress={() =>
@@ -37,7 +38,7 @@ class ExchangeItem extends Component {
           <Utils.View height={8} />
           <Utils.Row justify='space-between'>
             <Utils.Text size='xsmall' color={Colors.greyBlue}>{price.toFixed(8)}</Utils.Text>
-            {/* {this._renderPercentageIndicator(exchangeId)} */}
+            {this._renderPercentageIndicator(variation)}
           </Utils.Row>
         </Utils.View>
       </ExchangeRow>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { FlatList } from 'react-native'
+import MixPanel from 'react-native-mixpanel'
 
 // Design
 import * as Utils from '../../components/Utils'
@@ -21,8 +22,10 @@ class ExchangeScene extends Component {
 
     state = {
       exchangeList: [],
-      exchangePrices: {},
-      loading: true
+      loading: true,
+      isSearching: false,
+      searchName: '',
+      currentList: []
     }
 
     componentDidMount () {
@@ -36,33 +39,70 @@ class ExchangeScene extends Component {
 
     _loadData = async () => {
       try {
-        let exchangeList = await WalletClient.getExchangesList()
-        this.setState({exchangeList, loading: false})
+        const exchangeList = await WalletClient.getExchangesList()
+        this.setState({exchangeList, currentList: exchangeList, loading: false})
       } catch (error) {
         logSentry(error, 'Error exchange list')
         this.setState({exchangeList: [], loading: false})
       }
     }
 
+    _onSearching = name => {
+      const { exchangeList } = this.state
+      const searchValue = name.replace(/^[^a-zA-Z]/g, '')
+      const regex = new RegExp(searchValue.toUpperCase(), 'i')
+      const resultList = exchangeList.filter(ast => regex.test(ast.firstTokenId.toUpperCase()) ||
+        regex.test(ast.secondTokenId.toUpperCase()))
+
+      this.setState({ searchName: name }, () => {
+        MixPanel.trackWithProperties('Exchange', { type: 'Search Exchange', name })
+        if (resultList.length) {
+          const searchedList = name ? resultList : []
+          this.setState({ currentList: searchedList })
+        }
+      })
+    }
+
+    _onSearchPressed = () => {
+      const { isSearching, exchangeList } = this.state
+      let currentList = []
+      if (isSearching) {
+        currentList = exchangeList
+      } else {
+        currentList = []
+      }
+      this.setState({isSearching: !isSearching, currentList})
+    }
+
     _renderItem = ({item}) => <ExchangeItem exchangeData={item} />
 
-    _renderEmptyList = () => <EmptyList text={tl.t('exchange.notFound')} />
+    _renderEmptyList = () => {
+      return this.state.isSearching
+        ? <Utils.View />
+        : <EmptyList text={tl.t('exchange.notFound')} />
+    }
 
     _renderSeparator = () => <Divider />
 
     render () {
-      const { loading, exchangeList } = this.state
+      const { loading, currentList, isSearching } = this.state
       return (
         <Utils.SafeAreaView>
-          <NavigationHeader title={tl.t('ex')} />
+          <NavigationHeader
+            title={tl.t('ex')}
+            isSearching={isSearching}
+            onSearch={name => this._onSearching(name)}
+            onSearchPressed={() => this._onSearchPressed()}
+            searchPreview={tl.t('exchange.preview')}
+          />
           {loading
             ? <LoadingScene />
             : <FlatList
-              data={exchangeList}
+              data={currentList}
               renderItem={this._renderItem}
               ListEmptyComponent={this._renderEmptyList}
               ItemSeparatorComponent={this._renderSeparator}
-              keyExtractor={(item) => item.creatorAddress}
+              keyExtractor={(item) => item.exchangeId.toString()}
             />}
         </Utils.SafeAreaView>
       )
