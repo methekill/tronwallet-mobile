@@ -354,27 +354,27 @@
         "explanation": "Cu această opțiune poți selecta nodul care se va potrivi mai bine nevoilor și preferințelor tale. Te rugăm să reții că actualizarea IP nodului cu un IP greșit poate duce la defecțiuni ale portofelului. Exemplu: 35.231.121.122:50051",
         "error": {
           "storage": "Eroare la obținerea nodului ip din spațiul de stocare local",
-          "invalidIp": "Introduceți un IP valid",
-          "update": "Sa întâmplat ceva în timpul actualizării nodurilor ip",
-          "reset": "Se întâmplă ceva în timp ce resetați nodul ip"
+          "invalidIp": "Introdu un IP valid",
+          "update": "S-a întâmplat ceva în timpul actualizării nodurilor ip",
+          "reset": "S-a întâmplat ceva în timpul resetării nodul ip"
         },
         "success": {
           "updated": "Actualizat",
           "updatedIp": "Nodurile IP actualizate!",
-          "switchTest": "Nodurile conectate IP la Testnet",
-          "switchMain": "Comutarea nodurilor IP la principiul principal",
+          "switchTest": "Schimbă Nodurile IP cu Testnet",
+          "switchMain": "Schimbă Nodurile IP la opțiunea principală",
           "reset": "Nod IP resetat!"
         },
         "placeholder": {
           "loadingIp": "Se încarcă IP",
-          "loadingPort": "Portul de încărcare"
+          "loadingPort": "Încărcare Port"
         },
         "button": {
-          "update": "Actualizați și conectați",
-          "reset": "restabili"
+          "update": "Actualizare și conectare",
+          "reset": "Resetare"
         },
-        "mainNode": "Nodul principal",
-        "solidityNode": "Nodul de soliditate",
+        "mainNode": "Nodul Principal",
+        "solidityNode": "Nodul de Soliditate",
         "testNet": "TestNet"
       }
     },
@@ -382,35 +382,35 @@
       "title": "Backup Portofel"
     },
     "restore": {
-      "title": "Restaurați Wallet"
+      "title": "Restaurează Portofel"
     },
     "reset": {
-      "title": "Resetați Wallet",
-      "warning": "Avertisment: Această acțiune va șterge toate datele salvate, inclusiv cele 12 cuvinte secrete. Dacă nu v-ați salvat secretul, vă rugăm să faceți acest lucru înainte de a continua.",
+      "title": "Resetează Portofel",
+      "warning": "Avertizare: Această acțiune va șterge toate datele salvate, inclusiv cele 12 cuvinte seed. Dacă nu ai salvat seed-ul tău, te rugăm să o faci înainte de a continua.",
       "button": "OK, înțeleg"
     },
     "pin": {
-      "title": "Schimba pin-ul",
+      "title": "Schimbă Pin",
       "success": "Pin-ul a fost schimbat cu succes!"
     },
     "language": {
-      "title": "Limba",
-      "choose": "Vă rugăm să alegeți o limbă de mai jos:",
+      "title": "Limbă",
+      "choose": "Te rugăm să alegi o limbă de mai jos:",
       "success": {
         "title": "Limba a fost modificată la {{language}}",
-        "description": "Totuși, trebuie să reporniți aplicația, astfel încât modificările să poată intra în vigoare. Vrei să o faci acum?"
+        "description": "Totuși, aplicația va trebui repornită pentru a salva modificările. Dorești să o faci acum?"
       },
       "button": {
-        "confirm": "Da, reporniți acum!",
+        "confirm": "Da, reporniește acum!",
         "cancel": "Nu, o voi face mai târziu"
       },
-      "error": "Eroare în memorarea limbii preferate"
+      "error": "Eroare în timpul salvarii limbii preferate"
     },
     "token": {
-      "title": "Filtru Token-i",
-      "search": "Jetoane de căutare",
-      "confirm": "Salvați",
-      "noResult": "Fara rezultate..."
+      "title": "Filtru Token-uri",
+      "search": "Caută Token-uri",
+      "confirm": "Salvează",
+      "noResult": "Fară rezultate..."
     },
     "about": {
       "title": "Despre",
