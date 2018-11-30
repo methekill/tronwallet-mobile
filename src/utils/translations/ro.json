@@ -414,38 +414,38 @@
     },
     "about": {
       "title": "Despre",
-      "description": "TronWallet este un portofoliu P2P Crypto Wallet complet descentralizat pentru rețeaua TRON, construit cu React Native. Cu ajutorul acestuia puteți trimite și primi jetoane, puteți vota un Super Reprezentant, puteți participa la o vânzare simbolică, puteți urmări bilanțurile și tranzacțiile dvs. și multe altele. Atingeți link-ul de mai jos pentru un tutorial detaliat cu privire la modul de utilizare a acestuia.",
+      "description": "TronWallet este un portofel Crypto P2P complet descentralizat pentru rețeaua TRON, construit cu React Native. Cu ajutorul acestuia poți trimite și primi token-uri, poți vota un Super Reprezentant, poți participa la o vânzare de token-uri, poți ține evidența balanțelor și tranzacțiilor tale și multe altele. Atinge link-ul de mai jos pentru un tutorial detaliat cu privire la modul de utilizare al portofelului.",
       "tutorial": "TUTORIAL"
     },
     "accepts": {
-      "title": "Cine accepta TRX?"
+      "title": "Cine acceptă TRX?"
     },
     "helpCenter": {
       "title": "Serviciul de Asistență"
     },
     "accounts": {
       "title": "Conturi",
-      "search": "Conturi de căutare",
-      "restoreAccounts": "Restaurați conturile",
-      "noAccounts": "Nu există conturi pentru restabilire"
+      "search": "Caută conturi",
+      "restoreAccounts": "Restaurează conturi",
+      "noAccounts": "Nu există conturi de restaurat"
     },
     "partners": "PARTENERI",
-    "askPin": "Întrebați întotdeauna codul PIN",
+    "askPin": "Cere codul PIN întotdeauna",
     "askBiometry": "Activează Biometria",
     "verifiedTokensOnly": "Doar Token-uri verificate"
   },
   "submitTransaction": {
-    "title": "DETALII TRANZACȚIONALE",
-    "notification": "Ați primit o tranzacție de la {{address}}",
-    "notificationPayment": "Ați primit o plată de la {{address}}",
+    "title": "DETALIILE TRANZACȚIEI",
+    "notification": "Ai primit o tranzacție de la {{address}}",
+    "notificationPayment": "Ai primit o plată de la {{address}}",
     "data": "DATE",
     "time": "TIMP",
     "button": {
-      "tryAgain": "Încearcă din nou",
-      "submit": "TRANSMITEȚI TRANSMITEREA"
+      "tryAgain": "Re-încearcă",
+      "submit": "TRIMITE TRANZACȚIA"
     },
     "error": {
-      "noData": "Nu s-au putut încărca datele tranzacției"
+      "noData": "Nu s-au putut încărca detaliile tranzacției"
     },
     "exchange": {
       "send": "Trimitere {{sendtoken}}",
