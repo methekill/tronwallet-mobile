@@ -47,8 +47,8 @@
     "vote": "Votează",
     "participate": "Participă",
     "create": "Creează",
-    "exchange": "Schimb",
-    "undefined": "Tip nedefinit"
+    "exchange": "Exchange",
+    "undefined": "Tip Nedefinit"
   },
   "close": "Închide",
   "ends": "Se termină",
@@ -201,7 +201,7 @@
   },
   "getVault": {
     "notInstalled": "Se pare că nu aveți instalat Tron Vault în telefon pentru a continua tranzacția.",
-    "downloadHere": "Puteți descărca aici"
+    "downloadHere": "Îl poţi descărca de aici"
   },
   "market": {
     "time": {
@@ -215,14 +215,14 @@
     "lowest": "CEL MAI MIC",
     "volume": "VOLUM 24H",
     "cap": "CAP CAPITAL",
-    "supply": "CIRCULAȚIE DE FURNIZARE"
+    "supply": "CANTITATE IN CIRCULAȚIE"
   },
   "participate": {
-    "title": "PARTICIPA",
+    "title": "PARTICIPĂ",
     "featured": "RECOMANDATE",
     "button": {
-      "confirm": "A CONFIRMA",
-      "moreInfo": "MAI MULTE INFORMATII",
+      "confirm": "CONFIRMĂ",
+      "moreInfo": "MAI MULTE INFORMAȚII",
       "buyNow": "CUMPARĂ ACUM"
     },
     "error": {
