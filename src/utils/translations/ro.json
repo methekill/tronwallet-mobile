@@ -77,8 +77,8 @@
     "minToSell": "Suma minimă de vândut ≈ {{min}} {{tokenId}}",
     "minToBuy": "Suma minimă de cumpărat ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Costul estimativ este puțin mai mare, și rata de schimb va fi mai mare.",
-      "sell": "Costul estimativ este puțin mai mic, și rata de schimb va fi mai mare."
+      "buy": "Costul estimativ este puțin mai mare, și probabilitatea de a executa tranzacţia va fi mai mare.",
+      "sell": "Costul estimativ este puțin mai mic, și probabilitatea de a executa tranzacţia va fi mai mare."
     },
     "notFound": "Nu au fost găsite Schimburi"
   },
