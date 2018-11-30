@@ -195,13 +195,13 @@ ShallowWrapper {
             justify="flex-start"
           >
             <Styled(Text)>
-              pin.title
+              SECURITY CHECK
             </Styled(Text)>
             <Styled(View)
               size="small"
             />
             <Styled(Text)>
-              pin.new
+              Enter New PIN
             </Styled(Text)>
           </Styled(View)>
         </Styled(Styled(View))>
@@ -229,13 +229,13 @@ ShallowWrapper {
               justify="flex-start"
             >
               <Styled(Text)>
-                pin.title
+                SECURITY CHECK
               </Styled(Text)>
               <Styled(View)
                 size="small"
               />
               <Styled(Text)>
-                pin.new
+                Enter New PIN
               </Styled(Text)>
             </Styled(View)>
           </Styled(Styled(View))>,
@@ -263,13 +263,13 @@ ShallowWrapper {
                 justify="flex-start"
               >
                 <Styled(Text)>
-                  pin.title
+                  SECURITY CHECK
                 </Styled(Text)>
                 <Styled(View)
                   size="small"
                 />
                 <Styled(Text)>
-                  pin.new
+                  Enter New PIN
                 </Styled(Text)>
               </Styled(View)>,
             ],
@@ -297,13 +297,13 @@ ShallowWrapper {
                 "align": "center",
                 "children": Array [
                   <Styled(Text)>
-                    pin.title
+                    SECURITY CHECK
                   </Styled(Text)>,
                   <Styled(View)
                     size="small"
                   />,
                   <Styled(Text)>
-                    pin.new
+                    Enter New PIN
                   </Styled(Text)>,
                 ],
                 "justify": "flex-start",
@@ -315,10 +315,10 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": "pin.title",
+                    "children": "SECURITY CHECK",
                   },
                   "ref": null,
-                  "rendered": "pin.title",
+                  "rendered": "SECURITY CHECK",
                   "type": [Function],
                 },
                 Object {
@@ -337,10 +337,10 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": "pin.new",
+                    "children": "Enter New PIN",
                   },
                   "ref": null,
-                  "rendered": "pin.new",
+                  "rendered": "Enter New PIN",
                   "type": [Function],
                 },
               ],
@@ -388,13 +388,13 @@ ShallowWrapper {
               justify="flex-start"
             >
               <Styled(Text)>
-                pin.title
+                SECURITY CHECK
               </Styled(Text)>
               <Styled(View)
                 size="small"
               />
               <Styled(Text)>
-                pin.new
+                Enter New PIN
               </Styled(Text)>
             </Styled(View)>
           </Styled(Styled(View))>
@@ -422,13 +422,13 @@ ShallowWrapper {
                 justify="flex-start"
               >
                 <Styled(Text)>
-                  pin.title
+                  SECURITY CHECK
                 </Styled(Text)>
                 <Styled(View)
                   size="small"
                 />
                 <Styled(Text)>
-                  pin.new
+                  Enter New PIN
                 </Styled(Text)>
               </Styled(View)>
             </Styled(Styled(View))>,
@@ -456,13 +456,13 @@ ShallowWrapper {
                   justify="flex-start"
                 >
                   <Styled(Text)>
-                    pin.title
+                    SECURITY CHECK
                   </Styled(Text)>
                   <Styled(View)
                     size="small"
                   />
                   <Styled(Text)>
-                    pin.new
+                    Enter New PIN
                   </Styled(Text)>
                 </Styled(View)>,
               ],
@@ -490,13 +490,13 @@ ShallowWrapper {
                   "align": "center",
                   "children": Array [
                     <Styled(Text)>
-                      pin.title
+                      SECURITY CHECK
                     </Styled(Text)>,
                     <Styled(View)
                       size="small"
                     />,
                     <Styled(Text)>
-                      pin.new
+                      Enter New PIN
                     </Styled(Text)>,
                   ],
                   "justify": "flex-start",
@@ -508,10 +508,10 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "class",
                     "props": Object {
-                      "children": "pin.title",
+                      "children": "SECURITY CHECK",
                     },
                     "ref": null,
-                    "rendered": "pin.title",
+                    "rendered": "SECURITY CHECK",
                     "type": [Function],
                   },
                   Object {
@@ -530,10 +530,10 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "class",
                     "props": Object {
-                      "children": "pin.new",
+                      "children": "Enter New PIN",
                     },
                     "ref": null,
-                    "rendered": "pin.new",
+                    "rendered": "Enter New PIN",
                     "type": [Function],
                   },
                 ],

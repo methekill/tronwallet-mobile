@@ -20,7 +20,7 @@
   "cancel": "Cancel",
   "address": "Address",
   "message": "Message",
-  "ex" : "Exchange",
+  "ex": "Exchange",
   "ok": "OK",
   "actionModalTitle": "Would you like to",
   "account": "Account",
@@ -47,7 +47,7 @@
     "vote": "Vote",
     "participate": "Participate",
     "create": "Create",
-    "exchange" : "Exchange",
+    "exchange": "Exchange",
     "undefined": "Undefined Type"
   },
   "close": "Close",
@@ -74,11 +74,11 @@
     "holdings": "HOLDINGS"
   },
   "exchange": {
-    "minToSell" : "Minimun to sell ≈ {{min}} {{tokenId}}",
-    "minToBuy" : "Minimun to buy ≈ {{min}} {{tokenId}}",
-    "variation":{
-        "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
-        "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "variation": {
+      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
+      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
     },
     "notFound": "Exchanges not found"
   },
@@ -219,7 +219,7 @@
   },
   "participate": {
     "title": "PARTICIPATE",
-    "featured": "FEATURED",
+    "featured": "SPONSORED",
     "button": {
       "confirm": "CONFIRM",
       "moreInfo": "MORE INFO",
