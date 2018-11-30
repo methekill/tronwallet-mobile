@@ -363,14 +363,14 @@
           "updatedIp": "IP вузлів оновлено!",
           "switchTest": "Переключені вузли IP до Testnet",
           "switchMain": "Переключені вузли IP до основної мережі",
-          "reset": "Node IP відновлено!"
+          "reset": "IP вузлів оновлено!"
         },
         "placeholder": {
-          "loadingIp": "Завантаження IP-адрес",
+          "loadingIp": "Завантаження IP",
           "loadingPort": "Завантаження порту"
         },
         "button": {
-          "update": "Оновити та підключитися",
+          "update": "Оновлення та підключення",
           "reset": "Скинути"
         },
         "mainNode": "Головний вузол",
