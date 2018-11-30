@@ -17,7 +17,7 @@ const ExchangeButton = ({text, loading, result, onSubmit}) => {
         align='center'
         font='regular'
       >
-        {result === 'success' ? 'Success ✓' : 'Exchange Failed, please try again'}
+        {result === 'success' ? 'Success ✓' : 'Exchange Failed, please try again or review the values.'}
       </Utils.Text>
     </FadeIn>)
   } else {

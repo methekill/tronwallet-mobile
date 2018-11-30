@@ -80,7 +80,8 @@
         "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
         "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
     },
-    "estimatedReceive": "ESTIMATED TO RECEIVE",
+    "estimatedRevenue": "ESTIMATED TO RECEIVE",
+    "estimatedCost": "ESTIMATED COST",
     "preview": "Search by the Token name",
     "notFound": "Exchanges not found"
   },

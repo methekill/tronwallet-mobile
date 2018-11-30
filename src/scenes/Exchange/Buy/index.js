@@ -13,7 +13,7 @@ import ExchangeBalancePair from '../ExchangeBalancePair'
 // Utils
 import tl from '../../../utils/i18n'
 import { withContext } from '../../../store/context'
-import { expectedBuy, estimatedBuyCost } from '../../../utils/exchangeUtils'
+import { trxValueParse, estimatedBuyCost } from '../../../utils/exchangeUtils'
 import { formatFloat } from '../../../utils/numberUtils'
 import { logSentry } from '../../../utils/sentryUtils'
 
@@ -26,6 +26,7 @@ class BuyScene extends Component {
 
   state = {
     buyAmount: '',
+    estimatedCost: '',
     loading: false,
     refreshingPrice: false,
     result: false
@@ -36,7 +37,7 @@ class BuyScene extends Component {
   }
 
   _submit = () => {
-    const { buyAmount } = this.state
+    const { buyAmount, estimatedCost } = this.state
     const { balances, publicKey } = this.props.context
     const { firstTokenBalance, secondTokenBalance, firstTokenId, secondTokenId } = this.props.exchangeData
 
@@ -45,9 +46,15 @@ class BuyScene extends Component {
       return
     }
 
-    const estimatedCost = estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount, secondTokenId === 'TRX')
+    const expecBuy = estimatedCost || estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount, secondTokenId === 'TRX')
 
-    if (secondTokenBalance < estimatedCost) {
+    if (expecBuy <= 0) {
+      Alert.alert(tl.t('warning'), `Not enough cost `)
+      this.buyAmount.focus()
+      return
+    }
+
+    if (secondTokenBalance < expecBuy) {
       Alert.alert(tl.t('warning'),
         `Not enough trading balance. Currently at ${secondTokenBalance} ${secondTokenId}`)
       this.buyAmount.focus()
@@ -57,7 +64,7 @@ class BuyScene extends Component {
     const { balance: userSecondTokenBalance } =
       balances[publicKey].find(bl => bl.name === secondTokenId) || { balance: 0 }
 
-    if (userSecondTokenBalance <= 0 || userSecondTokenBalance < estimatedCost) {
+    if (userSecondTokenBalance <= 0 || userSecondTokenBalance < expecBuy) {
       Alert.alert(tl.t('warning'), `You don't have enough ${secondTokenId} to buy ${firstTokenId}`)
       return
     }
@@ -70,12 +77,15 @@ class BuyScene extends Component {
   }
 
   _exchangeToken = async () => {
-    const { buyAmount } = this.state
+    const { buyAmount, estimatedCost } = this.state
     const { publicKey, accounts, loadUserData } = this.props.context
     const { exchangeId, firstTokenBalance, secondTokenBalance, secondTokenId, firstTokenId } = this.props.exchangeData
 
-    const quant = estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount)
-    const expected = expectedBuy(buyAmount, firstTokenId === 'TRX')
+    const quant = estimatedCost
+      ? trxValueParse(estimatedCost, secondTokenId === 'TRX')
+      : estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount)
+
+    const expected = trxValueParse(buyAmount, firstTokenId === 'TRX')
 
     this.setState({loading: true})
     try {
@@ -99,14 +109,31 @@ class BuyScene extends Component {
         this.setState({result: 'success', loading: false})
         loadUserData()
       } else {
-        this.setState({result: 'fail'})
+        this.setState({result: 'fail', loading: false})
       }
     } catch (error) {
       this.setState({result: 'fail', loading: false})
       logSentry(error, 'Buying Exchange')
     } finally {
-      this.buyTimeout = setTimeout(() => this.setState({buyAmount: '', result: false}), 3200)
+      this.buyTimeout = setTimeout(() =>
+        this.setState({
+          buyAmount: '',
+          result: false,
+          estimatedCost: ''
+        }), 3200)
     }
+  }
+
+  _changeBuyAmount = buyAmount => {
+    const {
+      firstTokenBalance,
+      secondTokenId,
+      secondTokenBalance
+    } = this.props.exchangeData
+
+    const estimatedCost = estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount || 0, secondTokenId === 'TRX')
+
+    this.setState({buyAmount, estimatedCost})
   }
 
   _renderRightContent = token =>
@@ -117,6 +144,7 @@ class BuyScene extends Component {
   render () {
     const {
       buyAmount,
+      estimatedCost,
       loading,
       result
     } = this.state
@@ -128,6 +156,7 @@ class BuyScene extends Component {
       secondTokenBalance,
       secondTokenImage,
       price } = this.props.exchangeData
+
     const cost = estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount || 0, secondTokenId === 'TRX')
     const minBuy = Math.floor(cost / price)
     const isTokenToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
@@ -136,10 +165,10 @@ class BuyScene extends Component {
         <ScrollView>
           <Utils.View height={24} />
           <ExchangeBalancePair
-            firstToken={firstTokenId}
-            firstTokenImage={firstTokenImage}
-            secondToken={secondTokenId}
-            secondTokenImage={secondTokenImage}
+            firstToken={secondTokenId}
+            firstTokenImage={secondTokenImage}
+            secondToken={firstTokenId}
+            secondTokenImage={firstTokenImage}
           />
           <ExchangePair
             firstToken={firstTokenId}
@@ -150,7 +179,7 @@ class BuyScene extends Component {
             <Input
               label={tl.t('buy').toUpperCase()}
               innerRef={input => { this.buyAmount = input }}
-              onChangeText={buyAmount => this.setState({buyAmount})}
+              onChangeText={this._changeBuyAmount}
               rightContent={() => this._renderRightContent(firstTokenId)}
               placeholder='0'
               keyboardType='numeric'
@@ -163,10 +192,14 @@ class BuyScene extends Component {
               {tl.t('exchange.minToBuy', {min: minBuy, tokenId: firstTokenId})}
             </Utils.Text>}
             <Input
-              label={tl.t('exchange.estimatedReceive')}
+              label={tl.t('exchange.estimatedCost')}
               rightContent={() => this._renderRightContent(secondTokenId)}
+              onChangeText={estimatedCost => this.setState({estimatedCost})}
               placeholder={formatFloat(cost)}
-              editable={false}
+              keyboardType='numeric'
+              type='float'
+              numbersOnly
+              value={estimatedCost}
             />
             <ExchangeVariation text={tl.t('exchange.variation.buy')} />
             <ExchangeButton

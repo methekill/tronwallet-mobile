@@ -14,7 +14,7 @@ import { Colors } from '../../../components/DesignSystem'
 // Utils
 import tl from '../../../utils/i18n'
 import { withContext } from '../../../store/context'
-import { estimatedSellCost, expectedSell } from '../../../utils/exchangeUtils'
+import { estimatedSellCost, trxValueParse } from '../../../utils/exchangeUtils'
 import { formatFloat } from '../../../utils/numberUtils'
 import { logSentry } from '../../../utils/sentryUtils'
 
@@ -26,6 +26,7 @@ class SellScene extends Component {
 
   state = {
     sellAmount: '',
+    estimatedRevenue: '',
     loading: false,
     result: false
   }
@@ -35,7 +36,7 @@ class SellScene extends Component {
   }
 
   _submit = () => {
-    const { sellAmount } = this.state
+    const { sellAmount, estimatedRevenue } = this.state
     const { balances, publicKey } = this.props.context
     const { firstTokenBalance, secondTokenBalance, firstTokenId, secondTokenId } = this.props.exchangeData
 
@@ -44,10 +45,9 @@ class SellScene extends Component {
       return
     }
 
-    const estimatedCost = estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount, secondTokenId === 'TRX')
-
-    if (estimatedCost <= 0) {
-      Alert.alert(tl.t('warning'), `Can\t trade ${estimatedCost} ${secondTokenId}`)
+    const expecSell = estimatedRevenue || estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount, secondTokenId === 'TRX')
+    if (expecSell <= 0) {
+      Alert.alert(tl.t('warning'), `Can't trade ${estimatedRevenue} ${secondTokenId}`)
       this.sellAmount.focus()
       return
     }
@@ -59,6 +59,7 @@ class SellScene extends Component {
       Alert.alert(tl.t('warning'), `You don't have enough ${firstTokenId} to sell`)
       return
     }
+
     this.props.navigation.navigate('Pin', {
       shouldGoBack: true,
       testInput: pin => pin === this.props.context.pin,
@@ -67,12 +68,15 @@ class SellScene extends Component {
   }
 
   _exchangeToken = async () => {
-    const { sellAmount } = this.state
-    const { exchangeId, firstTokenId, firstTokenBalance, secondTokenBalance } = this.props.exchangeData
+    const { sellAmount, estimatedRevenue } = this.state
+    const { exchangeId, firstTokenId, secondTokenId, firstTokenBalance, secondTokenBalance } = this.props.exchangeData
     const { publicKey, accounts, loadUserData } = this.props.context
 
-    const quant = expectedSell(sellAmount, firstTokenId === 'TRX')
-    const expected = estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount)
+    const quant = trxValueParse(sellAmount, firstTokenId === 'TRX')
+
+    const expected = estimatedRevenue
+      ? trxValueParse(estimatedRevenue, secondTokenId === 'TRX')
+      : estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount)
 
     this.setState({loading: true})
     try {
@@ -95,14 +99,30 @@ class SellScene extends Component {
         this.setState({result: 'success', loading: false})
         loadUserData()
       } else {
-        this.setState({result: 'fail'})
+        this.setState({result: 'fail', loading: false})
       }
     } catch (error) {
       this.setState({result: 'fail', loading: false})
       logSentry(error, 'Selling Exchange')
     } finally {
-      this.sellTimeout = setTimeout(() => this.setState({sellAmount: '', result: false}), 3200)
+      this.sellTimeout = setTimeout(() =>
+        this.setState({
+          sellAmount: '',
+          estimatedRevenue: '',
+          result: false
+        }), 3200)
     }
+  }
+
+  _changeSellAmount = sellAmount => {
+    const {
+      firstTokenBalance,
+      secondTokenId,
+      secondTokenBalance
+    } = this.props.exchangeData
+    const estimatedRevenue = estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount || 0, secondTokenId === 'TRX')
+
+    this.setState({sellAmount, estimatedRevenue})
   }
 
   _renderRightContent = text =>
@@ -114,6 +134,7 @@ class SellScene extends Component {
     const {
       sellAmount,
       loading,
+      estimatedRevenue,
       result } = this.state
     const {
       firstTokenBalance,
@@ -147,7 +168,7 @@ class SellScene extends Component {
             <Input
               label={tl.t('sell').toUpperCase()}
               innerRef={input => { this.sellAmount = input }}
-              onChangeText={sellAmount => this.setState({sellAmount})}
+              onChangeText={this._changeSellAmount}
               rightContent={() => this._renderRightContent(firstTokenId)}
               placeholder='0'
               keyboardType='numeric'
@@ -160,10 +181,14 @@ class SellScene extends Component {
               {tl.t('exchange.minToSell', {min: minToSell, tokenId: firstTokenId})}
             </Utils.Text>}
             <Input
-              label={tl.t('exchange.estimatedReceive')}
+              label={tl.t('exchange.estimatedRevenue')}
               rightContent={() => this._renderRightContent(secondTokenId)}
+              onChangeText={estimatedRevenue => this.setState({estimatedRevenue})}
               placeholder={formatFloat(cost)}
-              editable={false}
+              keyboardType='numeric'
+              type='float'
+              numbersOnly
+              value={estimatedRevenue}
             />
             <ExchangeVariation text={tl.t('exchange.variation.sell')} />
             <ExchangeButton
