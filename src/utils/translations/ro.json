@@ -320,38 +320,38 @@
     "title": "TRIMITE",
     "error": {
       "insufficientBalance": "Balanță Insuficientă.",
-      "gettingBalance": "Eroare la obținerea datelor privind soldul",
-      "incompleteAddress": "Adresa este incompletă sau nevalidă.",
-      "invalidReceiver": "Adresă nevalidă a receptorului",
-      "selectBalance": "Selectați mai întâi un sold",
-      "invalidAmount": "Sumă nevalidă"
+      "gettingBalance": "Eroare la obținerea balanței",
+      "incompleteAddress": "Adresa este incompletă sau nu este validă.",
+      "invalidReceiver": "Adresa destinatarului nu este validă",
+      "selectBalance": "Selecteaza mai întâi o balanța",
+      "invalidAmount": "Suma nu este validă"
     },
     "input": {
-      "token": "JETON",
-      "to": "LA",
-      "amount": "CANTITATE",
-      "description": "DESCRIERE (OPTIONAL)"
+      "token": "TOKEN",
+      "to": "CĂTRE",
+      "amount": "SUMA",
+      "description": "DESCRIERE (OPȚIONAL)"
     },
     "available": "disponibil",
-    "chooseToken": "Vă rugăm să alegeți un jeton de mai jos.",
-    "minimumAmount": "Suma minimă pentru orice tranzacție trimisă este 0.000001."
+    "chooseToken": "Te rugăm să alegi un token de mai jos.",
+    "minimumAmount": "Suma minimă pentru orice tranzacție trimisă este de 0.000001."
   },
   "settings": {
     "title": "SETĂRI",
     "sectionTitles": {
       "wallet": "PORTOFEL",
       "security": "SECURITATE",
-      "notification": "NOTIFICĂRI ȘI IDIOM",
-      "accounts": "MANAGEMENTUL CONTABILILOR"
+      "notification": "NOTIFICĂRI ȘI IDIOMURI",
+      "accounts": "ADMINISTRAREA CONTURILOR"
     },
     "notifications": {
-      "title": "notificări"
+      "title": "Notificări"
     },
     "network": {
       "title": "Reţea",
       "modal": {
         "title": "REŢEA",
-        "explanation": "Cu această opțiune puteți selecta nodul care se va potrivi mai bine nevoilor și preferințelor dvs. Fiți atenți în timp ce actualizați IP-ul nodului, în timp ce IP greșit poate duce la defecțiuni în portofel. Exemplu: 35.231.121.122:50051",
+        "explanation": "Cu această opțiune poți selecta nodul care se va potrivi mai bine nevoilor și preferințelor tale. Te rugăm să reții că actualizarea IP nodului cu un IP greșit poate duce la defecțiuni ale portofelului. Exemplu: 35.231.121.122:50051",
         "error": {
           "storage": "Eroare la obținerea nodului ip din spațiul de stocare local",
           "invalidIp": "Introduceți un IP valid",
