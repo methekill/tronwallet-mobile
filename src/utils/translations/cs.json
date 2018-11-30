@@ -78,7 +78,7 @@
     "minToBuy": "Minimum k nákupu ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Mírně vyšší odhadované náklady zvýší míru obratu.",
-      "sell": "Mírně nížší odhadované náklady zvýší míru obratu."
+      "sell": "Mírně nižší odhadované náklady zvýší míru obratu."
     },
     "notFound": "Obchody nenalezeny"
   },
@@ -136,7 +136,7 @@
         "body": "Uložení adres vašich přátel \n a kontaktů."
       },
       "multipleaccounts": {
-        "title": "VÍCE ÚČTŮ",
+        "title": "VÍCENÁSOBNÉ ÚČTY",
         "body": "V peněžence můžete spravovat \n více účtů"
       }
     }
@@ -245,8 +245,8 @@
     "percentage": "PROCENTNÍ PODÍL",
     "issued": "MINCÍ V OBĚHU",
     "totalSupply": "CELKOVÝ POČET MINCÍ",
-    "startTime": "ČAS ZAHÁJENÍ",
-    "endTime": "ČAS UKONČENÍ",
+    "startTime": "ZAČÁTEK",
+    "endTime": "KONEC",
     "description": "POPIS",
     "transaction": "TRANSAKCE",
     "ownerAddress": "ADRESA VLASTNÍKA",
@@ -260,7 +260,7 @@
     "title": "BEZPEČNOSTNÍ KONTROLA",
     "enter": "Zadejte PIN kód",
     "new": "Zadejte nový PIN kód",
-    "reenter": "Zadejte znovu PIN kód",
+    "reenter": "Potvrďte PIN kód",
     "biometrics": "Biometrická kontrola"
   },
   "receive": {
@@ -430,7 +430,7 @@
       "noAccounts": "Žádné účty k obnovení"
     },
     "partners": "PARTNEŘI",
-    "askPin": "Vždy se zeptat na PIN kód",
+    "askPin": "Vždy požadovat PIN kód",
     "askBiometry": "Aktivovat biometrii",
     "verifiedTokensOnly": "Pouze ověřené tokeny"
   },
