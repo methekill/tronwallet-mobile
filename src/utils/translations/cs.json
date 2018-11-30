@@ -41,9 +41,9 @@
   "copyAddress": "KOPÍROVAT ADRESU",
   "transactionType": {
     "transfer": "Převod",
-    "transferAsset": "Převod aktiva",
-    "freeze": "Zmrazit",
-    "unfreeze": "Rozmrazit",
+    "transferAsset": "Převod aktiv",
+    "freeze": "Zmražení",
+    "unfreeze": "Rozmrazení",
     "vote": "Hlasování",
     "participate": "Nákup tokenu",
     "create": "Vytvoření",
@@ -68,7 +68,7 @@
       "savingCurrency": "Chyba při ukládání preferované měny"
     },
     "chooseCurrency": "Prosím, vyberte vaši preferovanou měnu.",
-    "confirmSeed": "Klepnutím potvrdíte vašich 12 seed slov",
+    "confirmSeed": "Klepnutím potvrdíte vašich 12 klíčových slov",
     "bandwidth": "ŠÍŘKA PÁSMA",
     "tokens": "TOKENY",
     "holdings": "MNOŽSTVÍ"
@@ -167,7 +167,7 @@
       "nameError": "Pole název musí začínat písmenem, obsahovat maximálně 32 znaků a skládat se pouze z písmen, číslic a mezery.",
       "addressError": "Adresa není správná. Prosím zkontrolujte, zda nedošlo k překlepu.",
       "uniqueAddressError": "Klíč musí být unikátní. Prosím zadejte jinou adresu.",
-      "uniqueAliasError": "Názvy ve vašem adresáři musí být unikátní. Prosím vyberte jiné.",
+      "uniqueAliasError": "Názvy ve vašem adresáři musí být unikátní. Prosím vyberte jiný.",
       "name": "NÁZEV",
       "address": "ADRESA"
     }
