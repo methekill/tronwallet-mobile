@@ -499,12 +499,12 @@
     "block": "BLOCK",
     "frozenBalance": "EINGEFRORENES GUTHABEN",
     "unfrozenBalance": "VERFÜGBARES GUTHABEN",
-    "totalVotes": "STIMMEN INSGESAMT",
+    "totalVotes": "GESAMTSTIMMEN",
     "amount": "BETRAG",
     "to": "AN",
     "from": "VON",
     "tokenName": "TOKENNAME",
-    "unityValue": "EINHEITS WERT",
+    "unityValue": "EINHEITSWERT",
     "totalSupply": "GESAMTMENGE",
     "startTime": "STARTZEIT",
     "endTime": "ENDZEIT",
@@ -517,21 +517,21 @@
   },
   "votes": {
     "title": "STIMMEN",
-    "totalVotes": "STIMMEN INSGESAMT",
-    "votesAvailable": "STIMMEN ZUR VERFÜGUNG",
+    "totalVotes": "GESAMTSTIMMEN",
+    "votesAvailable": "VERFÜGBARE STIMMEN",
     "search": "Suche",
-    "searchPreview": "Vorschläge - Meist gewählt",
+    "searchPreview": "Vorschläge - Meine letzten Stimmen",
     "error": "Hoppla, etwas wurde nicht korrekt geladen. Versuchen Sie erneut zu laden",
-    "notFound": "Super Repräsentant nich gefunden"
+    "notFound": "Super-Repräsentant nicht gefunden"
   },
   "scanPayment": {
-    "scan": "Überprüfen",
+    "scan": "ÜBERPRÜFEN",
     "error": {
       "receiver": "Empfängeradresse ungültig",
       "token": "Token nicht gültig",
       "amount": "Betrag nicht gültig",
       "description": "Beschreibung zu lang",
-      "code": "Zahlungscode ungültig. Bitte Scannen Sie einen gültigen"
+      "code": "Zahlungscode ungültig. Bitte scannen Sie einen gültigen"
     }
   },
   "makePayment": {
@@ -540,7 +540,7 @@
     "error": {
       "receiver": "Empfänger ist gleich Antragsteller",
       "token": "Dieses Konto besitzt nicht genügend Token für diese Transaktion",
-      "amount": "Dieses Konto hat nicht genügend Guthaben.",
+      "amount": "Dieses Konto hat kein ausreichendes Guthaben.",
       "description": "Keine Beschreibung verfügbar"
     }
   },
@@ -548,14 +548,14 @@
     "generate": "ANFRAGE GENERIEREN",
     "selectCurrency": "Wählen Sie die Referenzwährung",
     "error": {
-      "currency": "Wir waren nicht in der Lage, andere Währungspreise zu laden. Bitte verwenden Sie TRX als Referenz"
+      "currency": "Wir waren nicht in der Lage andere Währungspreise zu laden. Bitte verwenden Sie TRX als Referenz"
     }
   },
   "requestPayment": {
     "title": "ZAHLUNG ANFORDERN"
   },
   "newAccount": {
-    "title": "Konto-Erstellung",
+    "title": "Kontoerstellung",
     "placeholder": "Mein wertvolles Konto",
     "success": {
       "title": "Neues Konto erfolgreich erstellt",
@@ -563,7 +563,7 @@
     },
     "failure": {
       "title": "Neue Konto-Warnung",
-      "message": "Um ein neues Konto hinzuzufügen, sollten Sie mindestens eine Transaktion auf Ihrem letzten Konto haben."
+      "message": "Um ein neues Konto hinzuzufügen, sollten Sie mindestens eine Transaktion auf Ihrem letzten Konto durchgeführt haben."
     }
   },
   "balanceToken": {
@@ -572,7 +572,7 @@
   },
   "biometry": {
     "register": {
-      "title": "Überprüfen Sie Ihren Biometrie"
+      "title": "Überprüfen Sie Ihre Biometrie"
     },
     "auth": {
       "title": "Biometrie speichern",
