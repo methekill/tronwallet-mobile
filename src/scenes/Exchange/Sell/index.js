@@ -44,9 +44,15 @@ class SellScene extends Component {
       this.sellAmount.focus()
       return
     }
+    const expecRev = estimatedRevenue || estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount, secondTokenId === 'TRX')
 
-    const expecSell = estimatedRevenue || estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount, secondTokenId === 'TRX')
-    if (expecSell <= 0) {
+    if ((firstTokenId !== 'TRX' && parseInt(sellAmount) !== Number(sellAmount)) ||
+        (secondTokenId !== 'TRX' && parseInt(expecRev) !== Number(expecRev))) {
+      Alert.alert(tl.t('warning'), `Can only trade whole Assets amount`)
+      return
+    }
+
+    if (expecRev <= 0) {
       Alert.alert(tl.t('warning'), `Can't trade ${estimatedRevenue} ${secondTokenId}`)
       this.sellAmount.focus()
       return

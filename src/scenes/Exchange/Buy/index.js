@@ -49,7 +49,7 @@ class BuyScene extends Component {
     const expecBuy = estimatedCost || estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount, secondTokenId === 'TRX')
 
     if (expecBuy <= 0) {
-      Alert.alert(tl.t('warning'), `Not enough cost `)
+      Alert.alert(tl.t('warning'), `Not enough estimated cost `)
       this.buyAmount.focus()
       return
     }
