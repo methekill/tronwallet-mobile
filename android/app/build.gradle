@@ -124,6 +124,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-gesture-handler')
     compile project(':react-native-mixpanel')
     compile project(':react-native-biometrics')
     compile project(':lottie-react-native')

@@ -7,7 +7,6 @@ import {
   createAppContainer
 } from 'react-navigation'
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
-import { Easing, Animated } from 'react-native'
 
 import { Colors, ScreenSize } from './src/components/DesignSystem'
 import { TWIcon } from './src/components/Utils'
@@ -165,7 +164,7 @@ const AppTabs = createMaterialBottomTabNavigator({
     tabBarIcon: ({ focused, tintColor }) => {
       const { routeName } = navigation.state
       let iconName
-      let iconSize = 26
+      let iconSize = 25
       if (routeName === 'Market') {
         iconName = `graph,-bar,-chart,-statistics,-analytics`
       } else if (routeName === 'Balance') {
