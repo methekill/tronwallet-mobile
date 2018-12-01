@@ -1,7 +1,7 @@
 {
   "relativeTime": {
-    "future": "in %s percentuale",
-    "past": "%s percentuale passata",
+    "future": "in %s",
+    "past": "%s fa",
     "s": "pochi secondi",
     "ss": "%d secondi",
     "m": "un minuto",
@@ -80,9 +80,9 @@
       "buy": "Lievemente maggiore del costo stimato e il tasso di cambio sarà maggiore.",
       "sell": "Lievemente minore del costo stimato e il tasso di cambio sarà maggiore."
     },
-    "estimatedRevenue": "ESTIMATED TO RECEIVE",
-    "estimatedCost": "ESTIMATED COST",
-    "preview": "Search by the Token name",
+    "estimatedRevenue": "STIMATO DA RICEVERE",
+    "estimatedCost": "COSTO STIMATO",
+    "preview": "Ricerca del token attraverso nome",
     "notFound": "Cambi non trovati"
   },
   "hideAccount": "Stai per rimuovere questo account. Puoi ripristinarlo più tardi nelle impostazioni",
