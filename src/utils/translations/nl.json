@@ -80,6 +80,9 @@
       "buy": "Verhoog de geschatte kosten en het percentage van de ratio zal hoger zijn.",
       "sell": "Verlaag de geschatte kosten en het percentage van de ratio zal hoger zijn."
     },
+    "estimatedRevenue": "ESTIMATED TO RECEIVE",
+    "estimatedCost": "ESTIMATED COST",
+    "preview": "Search by the Token name",
     "notFound": "Exchange niet gevonden"
   },
   "hideAccount": "U staat op het punt dit account te verwijderen. U kunt het later in de instellingen herstellen",

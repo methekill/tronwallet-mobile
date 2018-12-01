@@ -80,6 +80,9 @@
       "buy": "Litt høyere estimert kostnad, og omsetningsats vil bli høyere.",
       "sell": "Litt lavere estimert kostnad, og omsetningsats vil bli høyere."
     },
+    "estimatedRevenue": "ESTIMATED TO RECEIVE",
+    "estimatedCost": "ESTIMATED COST",
+    "preview": "Search by the Token name",
     "notFound": "Børser ikke funnet"
   },
   "hideAccount": "Du er i ferd med å fjerne denne kontoen. Du kan gjenopprette det senere i innstillingene",
