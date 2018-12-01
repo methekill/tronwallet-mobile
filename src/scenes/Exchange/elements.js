@@ -17,9 +17,9 @@ export const Divider = styled.View`
   width: 95%;
   padding-right: ${Spacing.medium};
   background-color: ${Colors.greyBlue};
-  height: 0.6;
+  height: 0.5;
 `
-export const ExchangePair = ({firstToken, secondToken, price}) =>
+export const ExchangePair = ({firstToken, secondToken, price}) => (
   <Utils.View paddingX='medium' marginY={18} flex={1} justify='center' align='center'>
     <Utils.View height={0.6} background={Colors.greyBlue} width='100%' />
     <Utils.Text marginY={8} size='smaller' color={Colors.greyBlue}>
@@ -27,6 +27,7 @@ export const ExchangePair = ({firstToken, secondToken, price}) =>
     </Utils.Text>
     <Utils.View height={0.6} background={Colors.greyBlue} width='100%' />
   </Utils.View>
+)
 
 ExchangePair.propTypes = {
   firstToken: PropTypes.string.isRequired,
@@ -34,16 +35,17 @@ ExchangePair.propTypes = {
   price: PropTypes.number.isRequired
 }
 
-export const ExchangeVariation = ({text}) =>
+export const ExchangeVariation = ({text}) => (
   <Utils.Text padding={15} font='regular' size='tiny' align='center'>
     {text}
   </Utils.Text>
+)
 
 ExchangeVariation.propTypes = {
   text: PropTypes.string.isRequired
 }
 
-export const TinyTriangle = ({color, direction}) =>
+export const TinyTriangle = ({color, direction}) => (
   <Utils.View style={{
     width: 0,
     height: 0,
@@ -57,26 +59,27 @@ export const TinyTriangle = ({color, direction}) =>
     borderBottomColor: color,
     transform: [
       {rotate: direction === 'up' ? '0deg' : '180deg'}
-    ]
-  }} />
-
+    ]}}
+  />
+)
 TinyTriangle.propTypes = {
   color: PropTypes.string.isRequired,
   direction: PropTypes.oneOf(['up', 'down']).isRequired
 }
 
-export const ExchangeLogo = ({source}) =>
+export const ExchangeLogo = ({source}) => (
   <Image
     source={source ? {uri: source} : DEFAULT_LOGO}
     style={{
       width: 50,
-      borderRadius: 99,
+      height: 50,
+      borderRadius: 25,
       borderWidth: 1,
       borderColor: Colors.greyBlue,
-      alignSelf: 'center',
-      height: 50
+      alignSelf: 'center'
     }}
   />
+)
 ExchangeLogo.propTypes = {
   source: PropTypes.string
 }
@@ -90,3 +93,7 @@ export const EmptyList = ({text}) => (
     <Utils.Text size='tiny'>{text}</Utils.Text>
   </Utils.View>
 )
+
+EmptyList.propTypes = {
+  text: PropTypes.string
+}

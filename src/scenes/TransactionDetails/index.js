@@ -28,7 +28,7 @@ import { rgb } from '../../../node_modules/polished'
 import ActionModal from '../../components/ActionModal'
 import FontelloIcon from '../../components/FontelloIcon'
 
-import { formatFloat } from '../../utils/numberUtils'
+import { formatFloat, formatNumber } from '../../utils/numberUtils'
 import getAssetsStore from '../../store/assets'
 import { logSentry } from '../../utils/sentryUtils'
 import onBackgroundHandler from '../../utils/onBackgroundHandler'
@@ -318,10 +318,12 @@ class TransactionDetails extends React.Component {
       amount = amountValue / ONE_TRX
     } else if (type === 'Participate') {
       amount = amountValue / ONE_TRX / (tokenPrice / ONE_TRX)
+    } else if (type === 'Exchange') {
+      amount = amountValue / (tokenName === 'TRX' ? ONE_TRX : 1)
     } else {
       amount = amountValue
     }
-
+    amount = formatNumber(amount)
     return (
       <View style={{ alignItems: 'center' }} >
         <View

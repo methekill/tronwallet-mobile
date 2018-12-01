@@ -65,10 +65,8 @@ export default class TransferScene extends Component {
     this.setState({refreshingPrice: true})
     try {
       const updatedExchangeData = await WalletClient.getExchangeById(exchangeData.exchangeId)
-      this.setState({exchangeData: {...exchangeData, ...updatedExchangeData}})
+      this.setState({refreshingPrice: false, exchangeData: {...exchangeData, ...updatedExchangeData}})
     } catch (error) {
-      console.warn('Failed to refresh', error.message)
-    } finally {
       this.setState({refreshingPrice: false})
     }
   }
