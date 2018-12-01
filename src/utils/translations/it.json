@@ -204,7 +204,7 @@
   },
   "getVault": {
     "notInstalled": "Sembra che tu non abbia installato Tron Vault nel tuo telefono per poter procedere con la tua transazione.",
-    "downloadHere": "Potete scaricarlo qui"
+    "downloadHere": "È possibile scaricarlo qui"
   },
   "market": {
     "time": {
@@ -251,7 +251,7 @@
     "startTime": "ORA DI INIZIO",
     "endTime": "FINE DEL TEMPO",
     "description": "DESCRIZIONE",
-    "transaction": "TRANSAZIONE",
+    "transaction": "LE MIE TRANSAZIONI",
     "ownerAddress": "INDIRIZZO DEL PROPRIETARIO",
     "trxNum": "NUMERO TRX",
     "num": "NUMERO",
@@ -290,23 +290,23 @@
         "message": "Le parole selezionate non corrispondono. Assicurati di aver scritto le parole nell'ordine corretto."
       },
       "success": "Portafoglio confermato con successo",
-      "explanation": "Seleziona le parole qui sotto nel giusto ordine per confermare la tua frase segreta.",
+      "explanation": "Seleziona le parole qui sotto nell'ordine giusto per confermare la tua frase segreta.",
       "button": {
         "reset": "REIMPOSTARE PAROLE",
-        "confirm": "CONFERMA PAROLA SGRETA"
+        "confirm": "CONFERMA PAROLA SEGRETA"
       }
     },
     "create": {
-      "title": "CREA PAROLE SGRETE",
+      "title": "CREA PAROLE SEGRETE",
       "titleConfirm": "CONFERMA LE PAROLE SEGRETE DEL PORTAFOGLIO",
-      "error": "Oops, abbiamo un problema Si prega di riavviare l'applicazione.",
+      "error": "Oops, abbiamo un problema. Si prega di riavviare l'applicazione.",
       "generateNew": "Questo genererà un portafoglio completamente nuovo.",
       "button": {
         "written": "L'HO RISCRITTO SU CARTA",
         "newSeed": "OTTIENI NUOVE PAROLE SEGRETE",
         "later": "Conferma più tardi"
       },
-      "backupMessage": "Puoi sempre accedere alle tue parole entrando nel backup nelle impostazioni dell’applicazione",
+      "backupMessage": "Puoi sempre accedere alle tue parole entrando nel backup dalle impostazioni dell’applicazione      ",
       "seedExplanation": "Il codice con parole segrete è una rappresentazione leggibile dal tuo portafoglio. Quelle parole, in quell'ordine esatto, possono essere utilizzate per ricreare il tuo portafoglio."
     },
     "restore": {
@@ -327,10 +327,10 @@
       "incompleteAddress": "L'indirizzo è incompleto o non valido.",
       "invalidReceiver": "Indirizzo del destinatario non valido",
       "selectBalance": "Seleziona prima un saldo",
-      "invalidAmount": "importo non valido"
+      "invalidAmount": "Importo non valido"
     },
     "input": {
-      "token": "GETTONE",
+      "token": "TOKEN",
       "to": "A",
       "amount": "IMPORTO",
       "description": "DESCRIZIONE (FACOLTATIVA)"
