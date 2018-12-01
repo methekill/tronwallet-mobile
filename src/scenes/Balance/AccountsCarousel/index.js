@@ -24,7 +24,7 @@ const CURRENCIES = [
   'ETH'
 ]
 
-class AccountsCarousel extends React.Component {
+export class AccountsCarousel extends React.Component {
   get price () {
     const { price, currency } = this.props.context
     return get(price, [currency, 'price'], 0)

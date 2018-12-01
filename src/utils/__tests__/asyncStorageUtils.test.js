@@ -1,24 +1,24 @@
 import Async from './../asyncStorageUtils'
 
-jest.mock('react-native', () => {
-  let items = {}
+jest.mock('AsyncStorage', () => {
+  let items = {
+    key2: 'element2'
+  }
 
   return {
-    AsyncStorage: {
-      setItem: jest.fn((item, value) => {
-        items[item] = value
-        return Promise.resolve(value)
-      }),
-      multiSet: jest.fn((item, value) => {
-        item.forEach(([key, value]) => {
-          items[key] = value
-        })
-        return Promise.resolve(value)
-      }),
-      getItem: jest.fn((item, value) => {
-        return Promise.resolve(items[item])
+    setItem: jest.fn((item, value) => {
+      items[item] = value
+      return Promise.resolve(value)
+    }),
+    multiSet: jest.fn((item, value) => {
+      item.forEach(([key, value]) => {
+        items[key] = value
       })
-    }
+      return Promise.resolve(value)
+    }),
+    getItem: jest.fn((item, value) => {
+      return Promise.resolve(items[item])
+    })
   }
 })
 
@@ -35,8 +35,8 @@ describe('AsyncStorage Utils', () => {
 
   describe('#get', async () => {
     test('should return the value', async () => {
-      const currentData = await Async.get(key)
-      expect(currentData).toBe(data)
+      const currentData = await Async.get('key2')
+      expect(currentData).toBe('element2')
     })
   })
 })

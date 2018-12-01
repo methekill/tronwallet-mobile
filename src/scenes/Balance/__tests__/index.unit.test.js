@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import BalanceScene from './../index'
+import { BalanceScene } from './../index'
 
 jest.mock('react-native-fabric')
 jest.mock('react-navigation')
@@ -11,7 +11,7 @@ jest.mock('../../../services/contentful')
 jest.mock('../../../utils/sentryUtils')
 jest.mock('../../../utils/hocs/withContext')
 
-const { logSentry } = require('../../../utils/sentryUtils')
+const logSentry = jest.fn()
 
 describe('Balance Scene', () => {
   let balanceSceneWrapper = null
