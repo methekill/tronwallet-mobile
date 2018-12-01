@@ -158,17 +158,17 @@
         "title": "Elimina contatto",
         "message": "Vuoi davvero eliminare questo contatto?",
         "cancelButton": "Cancella",
-        "okButton": "Ok"
+        "okButton": "OK"
       },
       "empty": "La tua rubrica è vuota, aggiungi un nuovo contatto usando il pulsante qui sotto.",
       "loadError": "Si è verificato un problema durante il caricamento dei contatti. Per favore riprova.",
-      "addContact": "Aggiungi un contatto",
+      "addContact": "AGGIUNGI UN CONTATTO",
       "addToContacts": "AGGIUNGI AI CONTATTI"
     },
     "form": {
       "generalError": "Si è verificato un problema durante il caricamento di questo modulo. Si prega di contattare un amministratore.",
       "nameError": "Lo spazio per il nome deve iniziare con una lettera, contenere al massimo 32 caratteri e accetta solo lettere, numeri e spazi vuoti.",
-      "addressError": "C’è aualcosa di sbagliato con l'indirizzo. Si prega di ricontrollare per correggere errori di digitazione.",
+      "addressError": "C’è qualcosa di sbagliato con l'indirizzo. Si prega di ricontrollare per correggere errori di digitazione.",
       "uniqueAddressError": "La chiave deve essere unica. Si prega di scegliere un indirizzo differente.",
       "uniqueAliasError": "I nomi nella tua rubrica devono essere unici. \nSi prega di sceglierne uno differente.",
       "name": "NOME",
@@ -188,11 +188,11 @@
     "unfreeze": {
       "title": "SCONGELARE",
       "inXTime": "Ora puoi sbloccare i tuoi TRX ",
-      "inThreeDays": "Dopo un periodo di tre giorni puoi sbloccare il tuo TRX",
-      "inXMinutes": "Puoi sbloccare il tuo TRX in {{minutes}} minuti.",
-      "inXHours": "Puoi sbloccare il tuo TRX in {{hours}} ore.",
-      "inXDays": "Puoi sbloccare il tuo TRX in {{days}} giorni.",
-      "now": "Puoi sbloccare il tuo TRX ora."
+      "inThreeDays": "Dopo un periodo di tre giorni puoi sbloccare i tuoi TRX",
+      "inXMinutes": "Puoi sbloccare i tuoi TRX in {{minutes}} minuti.",
+      "inXHours": "Puoi sbloccare i tuoi TRX in {{hours}} ore.",
+      "inXDays": "Puoi sbloccare i tuoi TRX in {{days}} giorni.",
+      "now": "Puoi sbloccare i tuoi TRX ora."
     },
     "error": {
       "minimumAmount": "L'importo minimo per qualsiasi operazione di congelamento è 1.",
