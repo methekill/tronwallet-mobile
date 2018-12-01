@@ -363,21 +363,21 @@
         },
         "success": {
           "updated": "Aggiornato",
-          "updatedIp": "IP dei nodi aggiornati !",
+          "updatedIp": "IP dei nodi aggiornati!",
           "switchTest": "Passaggio dai nodi IP a Testnet",
           "switchMain": "Passaggio dai nodi IP a rete principale",
           "reset": "Nodo IP ripristinato!"
         },
         "placeholder": {
           "loadingIp": "Caricare IP",
-          "loadingPort": "Caricare Porta"
+          "loadingPort": "Caricamento Porta"
         },
         "button": {
           "update": "Aggiorna e Connetti",
           "reset": "Ripristinare"
         },
         "mainNode": "Nodo principale",
-        "solidityNode": "Nodo di solidità",
+        "solidityNode": "Nodo di Solidity",
         "testNet": "TestNet"
       }
     },
@@ -385,7 +385,7 @@
       "title": "Backup del Portafoglio"
     },
     "restore": {
-      "title": "Ristabilire Portafoglio"
+      "title": "Ripristina Portafoglio"
     },
     "reset": {
       "title": "Ripristina Portafoglio",
@@ -412,12 +412,12 @@
     "token": {
       "title": "Filtro token",
       "search": "Cerca token",
-      "confirm": "Salvare",
+      "confirm": "Salva",
       "noResult": "Nessun risultato..."
     },
     "about": {
       "title": "A proposito di",
-      "description": "TronWallet è un portafoglio Crypto P2P completamente decentralizzato open source per TRON Network realizzato con React Native. Con esso è possibile inviare e ricevere token, votare un Super Rappresentante, partecipare a una vendita di token, tenere traccia dei propri saldi e transazioni e molto altro ancora. Toccare il link sottostante per un tutorial dettagliato su come usarlo.",
+      "description": "TronWallet è un portafoglio Crypto P2P completamente decentralizzato e open source per TRON Network realizzato con React Native. Con esso è possibile inviare e ricevere token, votare un Super Rappresentante, partecipare a una vendita di token, tenere traccia dei propri saldi e transazioni e molto altro ancora. Toccare il link sottostante per un tutorial dettagliato su come usarlo.",
       "tutorial": "TUTORIAL"
     },
     "accepts": {
@@ -432,7 +432,7 @@
       "restoreAccounts": "Ristabilire conto",
       "noAccounts": "Nessun conto da ristabilire"
     },
-    "partners": "Soci",
+    "partners": "SOCI",
     "askPin": "Chiedi sempre il PIN",
     "askBiometry": "Attiva la Biometria",
     "verifiedTokensOnly": "Solo tokens verificati"
@@ -475,7 +475,7 @@
       "signature": "Firma della transazione non valida.",
       "duplicate": "Transazione già trasmessa.",
       "contractValidateCee": "Dati transazione non validi (CEE). Per favore riprova più tardi.",
-      "bandwith": "La larghezza di banda non è sufficente. Per favore riprova più tardi.",
+      "bandwith": "La larghezza di banda non è sufficiente. Per favore riprova più tardi.",
       "contractValidateTapos": "Dati transazione non validi (TAPOS). Per favore riprova più tardi.",
       "tooBig": "Transazione troppo grande per essere trasmessa.",
       "expiration": "Transazione scaduta. Per favore riprova.",
@@ -493,7 +493,7 @@
   "transactionDetails": {
     "title": "TRANSAZIONE",
     "clipboard": {
-      "tronscanUrl": "L'url di Tronscan per questa transazione è stata copiata negli appunti",
+      "tronscanUrl": "L'url di Tronscan per questa transazione è stato copiato negli appunti",
       "publicKey": "Chiave pubblica copiata negli appunti"
     },
     "hash": "HASH",
@@ -543,7 +543,7 @@
     "error": {
       "receiver": "Il destinatario è uguale al richiedente",
       "token": "Questo account non ha il token per questa transazione",
-      "amount": "Questo account non ha un saldo sufficente.",
+      "amount": "Questo account non ha un saldo sufficiente.",
       "description": "Descrizione non disponibile"
     }
   },
