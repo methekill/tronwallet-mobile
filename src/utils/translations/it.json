@@ -34,14 +34,14 @@
   },
   "avaliable": "DISPONIBILE",
   "frozen": "CONGELATO",
-  "tronPower": "LA FORZA DI TRON",
-  "trxPrice": "Il prezzo TRX",
+  "tronPower": "FORZA DI TRON",
+  "trxPrice": "PREZZO DI TRX",
   "confirmed": "Confermato",
   "unconfirmed": "Non confermato",
   "copyAddress": "COPIA INDIRIZZO",
   "transactionType": {
     "transfer": "Trasferimento",
-    "transferAsset": "Trasferisci risorse",
+    "transferAsset": "Trasferisci Asset",
     "freeze": "Congelare",
     "unfreeze": "Scongelare",
     "vote": "Vota",
@@ -68,7 +68,7 @@
       "savingCurrency": "Errore durante il salvataggio della valuta preferita"
     },
     "chooseCurrency": "Per favore scegli la tua valuta preferita.",
-    "confirmSeed": "Per favore tocca per confermare le tue 12 parole seed",
+    "confirmSeed": "Per favore tocca per confermare il tuo seed da 12 parole",
     "bandwidth": "LARGHEZZA DI BANDA",
     "tokens": "Token",
     "holdings": "Tenuti in custodia"
@@ -85,7 +85,7 @@
     "preview": "Ricerca del token attraverso nome",
     "notFound": "Cambi non trovati"
   },
-  "hideAccount": "Stai per rimuovere questo account. Puoi ripristinarlo più tardi nelle impostazioni",
+  "hideAccount": "Stai per rimuovere questo account. Puoi ripristinarlo più tardi dalle impostazioni",
   "components": {
     "share": {
       "title": "Condividi l'indirizzo TronWallet",
@@ -99,7 +99,7 @@
       "permissionMessage": "Per eseguire la scansione della chiave pubblica, l’applicazione richiede il tuo permesso per accedere alla videocamera."
     },
     "vote": {
-      "enterVote": "INSERISCI IL VALORE DEL VOTO",
+      "enterVote": "INSERISCI IL QUANTITATIVO DI VOTI",
       "votesRemaining": "VOTI RIMANENTI",
       "setVote": "IMPOSTA I VOTI",
       "moreVotes": "Se hai bisogno di più voti puoi congelare più TRX.",
