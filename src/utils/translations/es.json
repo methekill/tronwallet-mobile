@@ -80,6 +80,9 @@
       "buy": "si se incrementa el costo estimado,  la tasa de rotación será mayor.",
       "sell": "Si se reduce ligeramente el costo estimado, la tasa de rotación será mayor."
     },
+    "estimatedRevenue": "ESTIMATED TO RECEIVE",
+    "estimatedCost": "ESTIMATED COST",
+    "preview": "Search by the Token name",
     "notFound": "Intercambios no encontrados"
   },
   "hideAccount": "Estás a punto de eliminar esta cuenta. Puedes restaurarla más tarde en la configuración",
