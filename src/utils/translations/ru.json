@@ -81,8 +81,8 @@
       "sell": "Чем ниже оценочная стоимость, тем выше вероятность успешной сделки."
     },
     "estimatedRevenue": "ESTIMATED TO RECEIVE",
-    "estimatedCost": "ESTIMATED COST",
-    "preview": "Search by the Token name",
+    "estimatedCost": "ОРИЕНТИРОВОЧНАЯ СТОИМОСТЬ",
+    "preview": "Поиск по имени Токена",
     "notFound": "Недостаточно предложений"
   },
   "hideAccount": "Вы собираетесь удалить эту учетную запись. Вы можете восстановить её в настройках позже.",
