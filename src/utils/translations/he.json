@@ -80,9 +80,9 @@
       "buy": "מעט גבוה מידי מהעלות המוערכת, קצב החלופה יהיה גבוה יותר.",
       "sell": "מעט נמוך מידי מהעלות המוערכת, קצב החלופה יהיה גבוה יותר."
     },
-    "estimatedRevenue": "ESTIMATED TO RECEIVE",
-    "estimatedCost": "ESTIMATED COST",
-    "preview": "Search by the Token name",
+    "estimatedRevenue": "הערך המשוערך לקבלה",
+    "estimatedCost": "העלות המשוערכת",
+    "preview": "חפש לפי שם הטוקן",
     "notFound": "הבורסאות לא זמינות"
   },
   "hideAccount": "אתה עומד להסיר את החשבון הזה. ניתן לשחזר אותו מאוחר יותר בהגדרות",
