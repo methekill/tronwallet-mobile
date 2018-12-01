@@ -77,8 +77,8 @@
     "minToSell": "Minimo de orden para vender ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimo de orden para comprar ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
-      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+      "buy": "si se incrementa el costo estimado,  la tasa de rotación será mayor.",
+      "sell": "Si se reduce ligeramente el costo estimado, la tasa de rotación será mayor."
     },
     "notFound": "Intercambios no encontrados"
   },

@@ -2,6 +2,7 @@ package com.tronwallet2;
 
 import android.app.Application;
 import com.facebook.react.ReactApplication;
+import org.reactnative.camera.RNCameraPackage;
 import com.kevinejohn.RNMixpanel.RNMixpanel;
 import com.rnbiometrics.ReactNativeBiometricsPackage;
 import com.airbnb.android.react.lottie.LottiePackage;
@@ -14,7 +15,6 @@ import com.smixx.fabric.FabricPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import io.getty.rntron.RNTronPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
-import org.reactnative.camera.RNCameraPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import io.realm.react.RealmReactPackage;
 import com.oblador.vectoricons.VectorIconsPackage;

@@ -361,20 +361,20 @@
         "success": {
           "updated": "עודכן",
           "updatedIp": "Nodes IP updated!",
-          "switchTest": "Switched nodes IP to Testnet",
-          "switchMain": "Switched nodes IP to default main",
-          "reset": "Node IP reseted!"
+          "switchTest": "כתובות ה-IP של הצמתים הוחלפו ל-Testnet",
+          "switchMain": "כתובות ה-IP של הצמתים הוחלפו לברירת המחדל הראשית",
+          "reset": "כתובת ה-IP של הצומת אופסה!"
         },
         "placeholder": {
-          "loadingIp": "Loading IP",
-          "loadingPort": "Loading Port"
+          "loadingIp": "טוען כתובת IP",
+          "loadingPort": "טוען כתובת"
         },
         "button": {
           "update": "עדכן ותתחבר",
           "reset": "איפוס"
         },
-        "mainNode": "Main Node",
-        "solidityNode": "Solidity Node",
+        "mainNode": "צומת Main",
+        "solidityNode": "צומת Solidity",
         "testNet": "TestNet"
       }
     },
@@ -442,7 +442,7 @@
     "time": "זמן",
     "button": {
       "tryAgain": "נסה שוב",
-      "submit": "הגש טרנזקציה"
+      "submit": "הגש עסקה"
     },
     "error": {
       "noData": "לא ניתן לטעון את נתוני העסקה"

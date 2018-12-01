@@ -77,8 +77,8 @@
     "minToSell": "Minimum zu verkaufen ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimum zu kaufen ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Erhöhe die geschätzten Kosten leicht und die Umschlaghäufigkeit wird höher sein.",
-      "sell": "Senke die geschätzten Kosten leicht und die Umschlaghäufigkeit wird höher sein."
+      "buy": "Erhöhe die Kostenschätzung leicht und die Kaufwahrscheinlichkeit wird höher sein.",
+      "sell": "Senke den zu erwartenden Ertrag leicht um die Verkaufswahrscheinlicheit zu erhöhen."
     },
     "notFound": "Börse nicht gefunden"
   },
@@ -408,13 +408,13 @@
     },
     "token": {
       "title": "Token-Filter",
-      "search": "Token-Suche",
+      "search": "Suche Token",
       "confirm": "Speichern",
       "noResult": "Keine Ergebnisse..."
     },
     "about": {
       "title": "Über",
-      "description": "TronWallet ist eine open-Source, vollständig dezentrale P2P Crypto Wallet für das TRON Netzwerk geschaffen mit React Native. Mit dieser können Sie Token senden und empfangen, einen Super Repräsentant wählen, an einem Token Verkauf teilnehmen, einbehalten, den Überblick über Ihr Guthaben und Transaktionen und vieles mehr. Um zu erfahren wie man diese benutzt, tippen Sie auf den unten stehenden Link für eine detaillierte Anleitung.",
+      "description": "Die mit React Native erstellte TronWallet ist sowohl eine Open-Source- als auch eine vollständig dezentrale P2P Crypto Wallet für das TRON Netzwerk. Mit dieser Wallet können Sie Tokens senden und empfangen, einen Super-Repräsentanten wählen, an einem Token-Verkauf teilnehmen, den Überblick über Ihr Guthaben und Ihre Transaktionen behalten sowie vieles mehr. Um zu erfahren wie man die Wallet benutzt, tippen Sie für eine detaillierte Anleitung auf den unten stehenden Link.",
       "tutorial": "ANLEITUNG"
     },
     "accepts": {
@@ -432,17 +432,17 @@
     "partners": "PARTNER",
     "askPin": "Immer nach der PIN fragen",
     "askBiometry": "Aktivieren Sie Biometrie",
-    "verifiedTokensOnly": "Nur verifizierten Tokens"
+    "verifiedTokensOnly": "Nur verifizierte Tokens"
   },
   "submitTransaction": {
-    "title": "EINZELHEITEN DER TRANSAKTION",
+    "title": "DETAILS DER TRANSAKTION",
     "notification": "Sie haben eine Transaktion von {{address}} erhalten",
     "notificationPayment": "Sie haben eine Zahlung von {{address}} erhalten",
     "data": "DATEN",
     "time": "ZEIT",
     "button": {
       "tryAgain": "Versuchen Sie es erneut",
-      "submit": "TRANSAKTION ABSENDEN"
+      "submit": "TRANSAKTION EINREICHEN"
     },
     "error": {
       "noData": "Transaktionsdaten konnten nicht geladen werden"
@@ -450,7 +450,7 @@
     "exchange": {
       "send": "Versenden {{sendtoken}}",
       "receive": "Erhalten {{receivetoken}}",
-      "error": "Überprüfe Deine letzte Transaktion um Deinen erhaltenen Betrag zu bestätigen."
+      "error": "Überprüfen Sie die letzte Transaktion um Ihren erhaltenen Betrag zu bestätigen."
     },
     "disconnectedMessage": "Es scheint, dass Sie keine Internetverbindung haben. Verbinden Sie sich mit dem Internet bevor Sie mit der Transaktion fortfahren.",
     "dic": {
@@ -465,7 +465,7 @@
       "assetIssueContract": "Erstellen",
       "voteWitnessContract": "Abstimmen",
       "frozenDuration": "Dauer",
-      "frozenBalance": "Insgesamt einfrieren"
+      "frozenBalance": "Insgesamt zum Einfrieren"
     },
     "errorDic": {
       "contractValidate": "Transaktionsdaten nicht gültig. Bitte versuchen Sie es später erneut.",
@@ -474,12 +474,12 @@
       "contractValidateCee": "Transaktionsdaten nicht gültig (CEE). Bitte versuchen Sie es später erneut.",
       "bandwith": "Nicht genügend Bandbreite. Bitte versuchen Sie es später erneut.",
       "contractValidateTapos": "Transaktionsdaten nicht gültig (TAPOS). Bitte versuchen Sie es später erneut.",
-      "tooBig": "Transaktion zu groß, um abzusenden.",
+      "tooBig": "Transaktion zu groß um diese einzureichen.",
       "expiration": "Transaktion ist abgelaufen. Bitte versuchen Sie es erneut.",
       "serverBusy": "Der Server ist ausgelastet.",
-      "resource": "Unzureichende Bandbreite oder Guthaben. Möglicherweise benötigen Sie einige gefrorene TRX."
+      "resource": "Unzureichende Bandbreite oder Guthaben. Möglicherweise benötigen Sie einige eigefrorene TRX."
     },
-    "totalVotes": "Stimmen Insgesamt"
+    "totalVotes": "Gesamtstimmen"
   },
   "transactions": {
     "title": "MEINE BUCHUNGEN",
@@ -490,21 +490,21 @@
   "transactionDetails": {
     "title": "TRANSAKTION",
     "clipboard": {
-      "tronscanUrl": "Tronscan Url für diese Transaktion in die Zwischenablage kopiert",
+      "tronscanUrl": "Tronscan URL für diese Transaktion in die Zwischenablage kopiert",
       "publicKey": "Öffentlicher Schlüssel in die Zwischenablage kopiert"
     },
     "hash": "Rautenzeichen",
     "status": "Status",
     "time": "ZEIT",
-    "block": "Block",
+    "block": "BLOCK",
     "frozenBalance": "EINGEFRORENES GUTHABEN",
     "unfrozenBalance": "VERFÜGBARES GUTHABEN",
-    "totalVotes": "STIMMEN INSGESAMT",
+    "totalVotes": "GESAMTSTIMMEN",
     "amount": "BETRAG",
     "to": "AN",
     "from": "VON",
     "tokenName": "TOKENNAME",
-    "unityValue": "EINHEITS WERT",
+    "unityValue": "EINHEITSWERT",
     "totalSupply": "GESAMTMENGE",
     "startTime": "STARTZEIT",
     "endTime": "ENDZEIT",
@@ -517,21 +517,21 @@
   },
   "votes": {
     "title": "STIMMEN",
-    "totalVotes": "STIMMEN INSGESAMT",
-    "votesAvailable": "STIMMEN ZUR VERFÜGUNG",
+    "totalVotes": "GESAMTSTIMMEN",
+    "votesAvailable": "VERFÜGBARE STIMMEN",
     "search": "Suche",
-    "searchPreview": "Vorschläge - Meist gewählt",
+    "searchPreview": "Vorschläge - Meine letzten Stimmen",
     "error": "Hoppla, etwas wurde nicht korrekt geladen. Versuchen Sie erneut zu laden",
-    "notFound": "Super Repräsentant nich gefunden"
+    "notFound": "Super-Repräsentant nicht gefunden"
   },
   "scanPayment": {
-    "scan": "Überprüfen",
+    "scan": "ÜBERPRÜFEN",
     "error": {
       "receiver": "Empfängeradresse ungültig",
       "token": "Token nicht gültig",
       "amount": "Betrag nicht gültig",
       "description": "Beschreibung zu lang",
-      "code": "Zahlungscode ungültig. Bitte Scannen Sie einen gültigen"
+      "code": "Zahlungscode ungültig. Bitte scannen Sie einen gültigen"
     }
   },
   "makePayment": {
@@ -540,7 +540,7 @@
     "error": {
       "receiver": "Empfänger ist gleich Antragsteller",
       "token": "Dieses Konto besitzt nicht genügend Token für diese Transaktion",
-      "amount": "Dieses Konto hat nicht genügend Guthaben.",
+      "amount": "Dieses Konto hat kein ausreichendes Guthaben.",
       "description": "Keine Beschreibung verfügbar"
     }
   },
@@ -548,14 +548,14 @@
     "generate": "ANFRAGE GENERIEREN",
     "selectCurrency": "Wählen Sie die Referenzwährung",
     "error": {
-      "currency": "Wir waren nicht in der Lage, andere Währungspreise zu laden. Bitte verwenden Sie TRX als Referenz"
+      "currency": "Wir waren nicht in der Lage andere Währungspreise zu laden. Bitte verwenden Sie TRX als Referenz"
     }
   },
   "requestPayment": {
     "title": "ZAHLUNG ANFORDERN"
   },
   "newAccount": {
-    "title": "Konto-Erstellung",
+    "title": "Kontoerstellung",
     "placeholder": "Mein wertvolles Konto",
     "success": {
       "title": "Neues Konto erfolgreich erstellt",
@@ -563,7 +563,7 @@
     },
     "failure": {
       "title": "Neue Konto-Warnung",
-      "message": "Um ein neues Konto hinzuzufügen, sollten Sie mindestens eine Transaktion auf Ihrem letzten Konto haben."
+      "message": "Um ein neues Konto hinzuzufügen, sollten Sie mindestens eine Transaktion auf Ihrem letzten Konto durchgeführt haben."
     }
   },
   "balanceToken": {
@@ -572,7 +572,7 @@
   },
   "biometry": {
     "register": {
-      "title": "Überprüfen Sie Ihren Biometrie"
+      "title": "Überprüfen Sie Ihre Biometrie"
     },
     "auth": {
       "title": "Biometrie speichern",
