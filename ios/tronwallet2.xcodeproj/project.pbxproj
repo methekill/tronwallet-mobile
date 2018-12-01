@@ -1935,7 +1935,7 @@
 				CODE_SIGN_ENTITLEMENTS = tronwallet2/tronwallet2.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 179;
+				CURRENT_PROJECT_VERSION = 181;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = SGP85Y6RSS;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1984,7 +1984,7 @@
 				CODE_SIGN_ENTITLEMENTS = tronwallet2/tronwallet2.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 179;
+				CURRENT_PROJECT_VERSION = 181;
 				DEVELOPMENT_TEAM = SGP85Y6RSS;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/../node_modules/react-native-background-fetch/ios/**",
