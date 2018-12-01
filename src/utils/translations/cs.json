@@ -80,9 +80,9 @@
       "buy": "Mírně vyšší odhadované náklady zvýší míru obratu.",
       "sell": "Mírně nižší odhadované náklady zvýší míru obratu."
     },
-    "estimatedRevenue": "ESTIMATED TO RECEIVE",
-    "estimatedCost": "ESTIMATED COST",
-    "preview": "Search by the Token name",
+    "estimatedRevenue": "ODHADOVANÝ PŘÍJEM",
+    "estimatedCost": "ODHADOVANÉ NÁKLADY",
+    "preview": "Hledat podle názvu tokenu",
     "notFound": "Obchody nenalezeny"
   },
   "hideAccount": "Chystáte se odstranit tento účet. Později jej můžete obnovit v nastavení",
