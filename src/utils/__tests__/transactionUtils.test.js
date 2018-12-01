@@ -7,12 +7,15 @@ import getAssetsStore from '../../store/assets'
 jest.mock('realm')
 jest.mock('react-native-tron')
 jest.mock('../i18n')
-jest.mock('../sentryUtils')
+jest.mock('../sentryUtils', () => ({
+  logSentry: jest.fn()
+}))
 jest.mock('../../services/client')
 jest.mock('../deeplinkUtils', () => ({
   TronVaultURL: 'testurl'
 }))
 
+// const logSentry = jest.fn()
 describe('Transaction Utils', () => {
   describe('#signTransaction', async () => {
     test('should return the signed transaction when valid key and transaction', async () => {
