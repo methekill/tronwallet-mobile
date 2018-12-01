@@ -80,9 +80,9 @@
       "buy": "Costul estimativ este puțin mai mare, și probabilitatea de a executa tranzacţia va fi mai mare.",
       "sell": "Costul estimativ este puțin mai mic, și probabilitatea de a executa tranzacţia va fi mai mare."
     },
-    "estimatedRevenue": "ESTIMATED TO RECEIVE",
-    "estimatedCost": "ESTIMATED COST",
-    "preview": "Search by the Token name",
+    "estimatedRevenue": "SUMĂ ESTIMATIVĂ DE PRIMIT",
+    "estimatedCost": "COST ESTIMATIV",
+    "preview": "Căutare dupa numele Token-ului",
     "notFound": "Nu au fost găsite Schimburi"
   },
   "hideAccount": "Ești pe cale să elimini acest cont. Îl vei putea restabili ulterior în setări",
