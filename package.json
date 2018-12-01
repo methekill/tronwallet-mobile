@@ -78,13 +78,13 @@
     "babel-eslint": "^8.2.5",
     "babel-jest": "23.6.0",
     "babel-plugin-transform-remove-console": "6.9.4",
+    "babel-preset-react-native": "5.0.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16.3": "^1.3.0",
     "eslint-plugin-detox": "^1.0.0",
     "husky": "^0.14.3",
     "jest": "23.6.0",
     "jest-styled-components": "^6.3.1",
-    "metro-react-native-babel-preset": "0.50.0",
     "prettier-standard": "^8.0.1",
     "react-native-version": "^2.6.5",
     "react-test-renderer": "16.6.1",
@@ -111,6 +111,9 @@
     ],
     "transform": {
       "^.+\\.(js)$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+    },
+    "globals": {
+      "window": true
     }
   },
   "rnpm": {

@@ -4,29 +4,7 @@ exports[`Pin Scene > PinPad Should match snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <PinPad
-    onComplete={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            "111111",
-            Array [
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-            ],
-          ],
-        ],
-        "results": Array [
-          Object {
-            "isThrow": false,
-            "value": undefined,
-          },
-        ],
-      }
-    }
+    onComplete={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -161,6 +139,7 @@ ShallowWrapper {
         </Styled(View)>,
       ],
       "justify": "flex-start",
+      "marginBottom": 40,
     },
     "ref": null,
     "rendered": Array [
@@ -755,6 +734,7 @@ ShallowWrapper {
           </Styled(View)>,
         ],
         "justify": "flex-start",
+        "marginBottom": 40,
       },
       "ref": null,
       "rendered": Array [

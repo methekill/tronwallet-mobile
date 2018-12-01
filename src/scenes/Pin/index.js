@@ -119,11 +119,11 @@ class PinScene extends Component {
 
       if (biometricsEnabled) {
         return (
-          <Utils.View flex={0.4} justify='center' align='center'>
-            <BiometricButton onPress={this._handleBiometrics}>
-              <Text>{tl.t('pin.biometrics')}</Text>
-            </BiometricButton>
-          </Utils.View>
+
+          <BiometricButton onPress={this._handleBiometrics}>
+            <Text>{tl.t('pin.biometrics')}</Text>
+          </BiometricButton>
+
         )
       }
 
@@ -149,7 +149,9 @@ class PinScene extends Component {
               </Utils.View>
             </Utils.Content>
             <PinPad ref={ref => { this.pinPad = ref }} onComplete={this._checkPIN} />
-            {this._renderBiometrics()}
+            <Utils.View flex={0.4} justify='center' align='center'>
+              {this._renderBiometrics()}
+            </Utils.View>
           </Utils.Container>
         </Utils.SafeAreaView >
       )

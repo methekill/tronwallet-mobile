@@ -22,7 +22,7 @@ class PinPad extends PureComponent {
   }
 
   componentDidUpdate (_, prevState) {
-    if (this.state.pin.length === 6 && prevState.pin.length === 5) {
+    if (this.state.pin.length > prevState.pin.length && this.state.pin.length === 6) {
       setTimeout(() => {
         this.props.onComplete(this.state.pin.join(''), this.state.pin)
       }, 500)
@@ -79,7 +79,7 @@ class PinPad extends PureComponent {
   render () {
     const { pin } = this.state
     return (
-      <Utils.View >
+      <Utils.View marginBottom={40}>
         <Utils.View height={180} justify='center' align='center'>
           <Animatable.View ref={ref => { this.pinView = ref }} >
             <Utils.Row align='center' justify='space-between' width={264}>
