@@ -1,7 +1,4 @@
-import { createClient } from 'contentful/dist/contentful.browser.min.js'
-import { CONTENTFUL_TOKEN, CONTENTFUL_SPACE } from '../../config.js'
-
-const contentfulClient = createClient({accessToken: CONTENTFUL_TOKEN, space: CONTENTFUL_SPACE})
+import contentfulClient from './contentfulClient'
 
 const SYSTEM_CONTENT = '11bJZFl0J6CMEwoMi20sqC'
 
@@ -86,6 +83,7 @@ export const getExchangesAvailable = async () => {
     const secondTokenImage = ex.secondTokenImage ? `https:${ex.secondTokenImage.fields.file.url}` : null
     return ({
       exchangeId: ex.exchangeId,
+      isEnabled: ex.isEnabled,
       firstTokenImage,
       secondTokenImage
     })
