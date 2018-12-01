@@ -5,7 +5,6 @@
 [![GitHub stars](https://img.shields.io/github/stars/gettyio/tronwallet-mobile.svg)](https://github.com/gettyio/tronwallet-mobile/stargazers)
 [![GitHub license](https://img.shields.io/github/license/gettyio/tronwallet-mobile.svg)](https://github.com/gettyio/tronwallet-mobile/blob/development/LICENSE)
 
-
 TronWallet is an open source fully decentralized p2p crypto wallet and exchange for TRON Network built with React Native.
 
 ## Creating a new wallet
