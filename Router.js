@@ -54,6 +54,11 @@ import ExchangeTransaction from './src/scenes/Exchange/Transaction'
 
 import tl from './src/utils/i18n'
 
+const defaultCardStyle = {
+  shadowColor: 'transparent',
+  backgroundColor: Colors.background
+}
+
 const SettingsStack = createStackNavigator({
   Settings,
   About,
@@ -61,18 +66,12 @@ const SettingsStack = createStackNavigator({
   SeedConfirm,
   NetworkConnection
 }, {
+  mode: 'modal',
+  headerMode: 'none',
   navigationOptions: {
-    headerStyle: {
-      backgroundColor: Colors.background,
-      elevation: 0,
-      borderColor: Colors.background
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontFamily: 'rubik-medium'
-    },
     gesturesEnabled: false
-  }
+  },
+  cardStyle: defaultCardStyle
 })
 
 const tabWidth = ScreenSize.width / 2
@@ -117,7 +116,7 @@ const AddressBookStack = createStackNavigator({
   AddContact: AddContactScene
 }, {
   mode: 'modal',
-  cardStyle: { shadowColor: 'transparent' }
+  cardStyle: defaultCardStyle
 })
 
 const BalanceStack = createStackNavigator({
@@ -130,21 +129,33 @@ const BalanceStack = createStackNavigator({
   ScanPayScene,
   TokenDetailScene: TokenInfoScene
 }, {
-  mode: 'modal'
+  mode: 'modal',
+  cardStyle: defaultCardStyle
 })
+
 const ExchangeStack = createStackNavigator({
   ExchangeList,
   ExchangeTransaction
+}, {
+  mode: 'modal',
+  cardStyle: defaultCardStyle
 })
+
 const TransactionList = createStackNavigator({
   TransactionListScene,
   TransactionDetails
+}, {
+  mode: 'modal',
+  cardStyle: defaultCardStyle
 })
 
 const ParticipateStack = createStackNavigator({
   ParticipateHome,
   TokenInfo: TokenInfoScene,
   Buy: BuyScene
+}, {
+  mode: 'modal',
+  cardStyle: defaultCardStyle
 })
 
 const AppTabs = createMaterialBottomTabNavigator({
@@ -227,7 +238,7 @@ const RootNavigator = createStackNavigator({
     gesturesEnabled: false,
     header: null
   },
-  cardStyle: { shadowColor: 'transparent' }
+  cardStyle: defaultCardStyle
 })
 
 export default createAppContainer(RootNavigator)

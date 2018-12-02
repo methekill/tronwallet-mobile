@@ -328,7 +328,6 @@ class Settings extends Component {
             title: tl.t('settings.helpCenter.title'),
             icon: 'message,-chat,-bubble,-text,-rounded',
             onPress: () => {
-              // this._openLink('https://help.tronwallet.me/')
               this.helpView.open('https://help.tronwallet.me/')
             }
           },
@@ -409,16 +408,7 @@ class Settings extends Component {
                     backgroundActive={Colors.yellow}
                     backgroundInactive={Colors.secondaryText}
                     value={this.props.context.useBiometry}
-                    onAsyncPress={(callback) => {
-                      // if (!this.props.context.useBiometry) {
-                      //   Biometrics.createKeys(tl.t('biometry.register.title'));
-                      // }
-
-                      // this.props.navigation.navigate('Pin', {
-                      //   shouldGoBack: true,
-                      //   testInput: pin => pin === this.props.context.pin,
-                      //   onSuccess: this._saveBiometry
-                      // })
+                    onAsyncPress={(callback) => {        
                       this._getPinCallback((pin) => {
                         this._saveBiometry(pin)
                       })
