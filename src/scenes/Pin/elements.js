@@ -59,6 +59,10 @@ export const Key = ({ children, noBorder, onPress, pointerEvents }) => (
   </KeyWrapper>
 )
 
+Key.defaultProps = {
+  onPress: () => null
+}
+
 export const Wrapper = styled.View`
   width: 36px;
   height: 36px;
