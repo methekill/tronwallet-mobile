@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { RefreshControl, ScrollView, TouchableOpacity } from 'react-native'
 import { Answers } from 'react-native-fabric'
 import Feather from 'react-native-vector-icons/Feather'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import MixPanel from 'react-native-mixpanel'
 
 import FormModal from '../../components/FormModal'
@@ -11,6 +12,7 @@ import * as Utils from '../../components/Utils'
 import WalletBalances from './WalletBalances'
 import BalanceNavigation from './BalanceNavigation'
 import AccountsCarousel from './AccountsCarousel'
+import { ButtonHeader } from './../../components/Navigation/elements'
 
 import tl from '../../utils/i18n'
 import { isNameValid, isAliasUnique } from '../../utils/validations'
@@ -19,6 +21,7 @@ import { createNewAccount } from '../../utils/secretsUtils'
 import withContext from '../../utils/hocs/withContext'
 import { logSentry } from '../../utils/sentryUtils'
 import onBackgroundHandler from '../../utils/onBackgroundHandler'
+import { Colors } from './../../components/DesignSystem'
 
 export class BalanceScene extends Component {
   static navigationOptions = {
@@ -130,6 +133,18 @@ export class BalanceScene extends Component {
     }
   }
 
+  _leftButtonHeader = () => {
+    return (
+      <ButtonHeader onPress={() => this.props.navigation.navigate('NotificationsTabs')}>
+        <Ionicons
+          name='ios-notifications-outline'
+          size={28}
+          color={Colors.primaryText}
+        />
+      </ButtonHeader>
+    )
+  }
+
   _rightButtonHeader = () => {
     const { secretMode } = this.props.context
     const { creatingNewAccount } = this.state
@@ -156,6 +171,7 @@ export class BalanceScene extends Component {
     return (
       <Utils.SafeAreaView>
         <NavigationHeader
+          leftButton={this._leftButtonHeader()}
           title={tl.t('balance.title')}
           rightButton={this._rightButtonHeader()}
         />

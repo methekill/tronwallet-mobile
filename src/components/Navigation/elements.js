@@ -7,11 +7,13 @@ import LinearGradient from 'react-native-linear-gradient'
 import { Colors, Spacing } from '../DesignSystem'
 import { Text } from '../Utils'
 
+export const HEADER_HEIGHT = 64
+
 export const HeaderWrapper = styled.View`
-  background-color:${Colors.background}
+  background-color:${Colors.background};
 `
 export const Header = styled.View`
-  height: 64px;
+  height: ${HEADER_HEIGHT}px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -35,21 +37,32 @@ export const SearchBar = styled.TextInput`
   width: 100%;
   padding: 8px;
 `
-export const SearchPreview = props =>
+export const SearchPreview = props => (
   <LinearGradient
     start={{ x: 0, y: 0.4 }}
     end={{ x: 0, y: 1 }}
     colors={[Colors.primaryGradient[0], Colors.primaryGradient[1]]}
-    style={{width: '100%', alignItems: 'center', justifyContent: 'flex-start', marginBottom: 8}}
+    style={{ width: '100%', alignItems: 'center', justifyContent: 'flex-start', marginBottom: 8 }}
   >
     <View style={{width: '100%', paddingLeft: 16, paddingVertical: 10, justifyContent: 'center', marginLeft: 8, backgroundColor: Colors.background}}>
       <Text letterSpacing={0.8} size='xsmall' color={Colors.greyBlue}>{props.preview}</Text>
     </View>
   </LinearGradient>
+)
 
 SearchPreview.propTypes = {
   preview: PropTypes.string.isRequired
 }
+
 SearchPreview.defaultProps = {
   preview: 'Put some preview title of the list here'
 }
+
+export const ButtonHeader = styled.TouchableOpacity`
+  width: 50px;
+  height: ${HEADER_HEIGHT}px;
+  padding: 0px 10px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+`
