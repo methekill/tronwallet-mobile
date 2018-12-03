@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { FlatList, Platform, StyleSheet } from 'react-native'
 
-import NavigationHeader from './../../components/Navigation/Header'
 import * as Utils from './../../components/Utils'
-import tl from '../../utils/i18n'
+
 import ListItem from './../../components/List/ListItem'
 
 class Notifications extends Component {
@@ -36,7 +35,6 @@ class Notifications extends Component {
     const { list } = this.state
     return (
       <Utils.SafeAreaView>
-        <NavigationHeader title={tl.t('notifications.title')} />
         <FlatList
           contentContainerStyle={list.length === 0 ? styles.emptyList : {}}
           data={list}
