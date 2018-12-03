@@ -7,6 +7,7 @@ import {
   createAppContainer
 } from 'react-navigation'
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
+import createCustomTopTabNavigator from './src/components/Navigation/createCustomTopTabNavigator'
 
 import { Colors, ScreenSize } from './src/components/DesignSystem'
 import { TWIcon } from './src/components/Utils'
@@ -110,40 +111,13 @@ const AddressBookTabs = createMaterialTopTabNavigator({
   }
 })
 
-const NotificationsTabs = createMaterialTopTabNavigator({
+const NotificationsTabs = createCustomTopTabNavigator({
   Notifications,
   Signals
 }, {
-  navigationOptions: {
-    header: (
-      <SafeAreaView style={{ backgroundColor: Colors.background }}>
-        <NavigationHeader title={tl.t('notifications.title')} />
-      </SafeAreaView>
-    ),
-    gesturesEnabled: false
-  },
   tabBarOptions: {
-    activeTintColor: Colors.primaryText,
-    inactiveTintColor: '#66688f',
-    style: {
-      paddingTop: 10,
-      backgroundColor: Colors.background,
-      elevation: 0
-    },
-    labelStyle: {
-      fontSize: 12,
-      lineHeight: 12,
-      letterSpacing: 0.6,
-      fontFamily: 'Rubik-Medium'
-    },
-    indicatorStyle: {
-      width: indicatorWidth,
-      height: 1.2,
-      marginLeft: tabWidth / 2 - indicatorWidth / 2
-    }
-  },
-  mode: 'modal',
-  cardStyle: defaultCardStyle
+    title: tl.t('notifications.title')
+  }
 })
 
 const AddressBookStack = createStackNavigator({
