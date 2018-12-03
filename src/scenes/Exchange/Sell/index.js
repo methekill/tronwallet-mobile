@@ -85,6 +85,7 @@ class SellScene extends Component {
       : estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount)
 
     this.setState({loading: true})
+
     try {
       const exParams = {
         address: publicKey,
@@ -107,17 +108,18 @@ class SellScene extends Component {
       } else {
         this.setState({result: 'fail', loading: false})
       }
+
+      this._setResultTimeout(code === 'SUCCESS')
     } catch (error) {
       this.setState({result: 'fail', loading: false})
       logSentry(error, 'Selling Exchange')
-    } finally {
-      this.sellTimeout = setTimeout(() =>
-        this.setState({
-          sellAmount: '',
-          estimatedRevenue: '',
-          result: false
-        }), 3200)
+      this._setResultTimeout(false)
     }
+  }
+
+  _setResultTimeout = result => {
+    let nexState = result ? { sellAmount: '', estimatedRevenue: '', result: false } : { result: false }
+    this.sellTimeout = setTimeout(() => this.setState(nexState), 3200)
   }
 
   _changeSellAmount = sellAmount => {

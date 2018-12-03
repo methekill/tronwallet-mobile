@@ -111,17 +111,17 @@ class BuyScene extends Component {
       } else {
         this.setState({result: 'fail', loading: false})
       }
+      this._setResultTimeout(code === 'SUCCESS')
     } catch (error) {
       this.setState({result: 'fail', loading: false})
       logSentry(error, 'Buying Exchange')
-    } finally {
-      this.buyTimeout = setTimeout(() =>
-        this.setState({
-          buyAmount: '',
-          result: false,
-          estimatedCost: ''
-        }), 3200)
+      this._setResultTimeout(false)
     }
+  }
+
+  _setResultTimeout = result => {
+    let nexState = result ? { sellAmount: '', estimatedCost: '', result: false } : { result: false }
+    this.sellTimeout = setTimeout(() => this.setState(nexState), 3200)
   }
 
   _changeBuyAmount = buyAmount => {
