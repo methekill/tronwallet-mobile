@@ -187,7 +187,7 @@
     "title": "הקפא",
     "unfreeze": {
       "title": "הפשר",
-      "inXTime": "אתה יכול להפשיר את ה-TRX שלך כעת",
+      "inXTime": "אתה יכול להפשיר את ה-TRX שלך",
       "inThreeDays": "אחרי תקופה של שלושה ימים תוכל להפשיר את ה-TRX שלך",
       "inXMinutes": "אתה יכול להפשיר את ה-TRX שלך בעוד {{minutes}} דקות.",
       "inXHours": "אתה יכול להפשיר את ה-TRX שלך בעוד {{hours}} שעות.",
@@ -199,7 +199,7 @@
       "insufficientBalance": "יתרת TRX אינה מספיקה",
       "roundNumbers": "ניתן להקפיא רק מספרים עגולים"
     },
-    "amount": "הסכום להקפיא",
+    "amount": "הסכום להקפאה",
     "balance": "יתרה"
   },
   "getVault": {
