@@ -20,12 +20,13 @@
   "cancel": "रद्द करना",
   "address": "पता",
   "message": "संदेश",
+  "ex": "Exchange",
   "ok": "ठीक",
   "actionModalTitle": "क्या आप चाहेंगे",
   "account": "लेखा",
   "restore": "पुनर्स्थापित",
   "error": {
-    "default": "Woops कुछ गलत हो गया। बाद में पुनः प्रयास करें, अगर त्रुटि बनी रहती है तो नेटवर्क सेटिंग्स को अद्यतन करने का प्रयास करें।",
+    "default": "कुछ गलत हो गया। बाद में पुनः प्रयास करें, अगर त्रुटि बनी रहती है तो नेटवर्क सेटिंग्स को अद्यतन करने का प्रयास करें।",
     "buildingTransaction": "लेनदेन के निर्माण में त्रुटि, पुनः प्रयास करें।",
     "gettingTransaction": "लेनदेन प्राप्त करते समय त्रुटि।",
     "clipboardCopied": "कॉपी करते समय कुछ गड़बड़ है",
@@ -46,6 +47,7 @@
     "vote": "वोट",
     "participate": "भाग लेना",
     "create": "सर्जन करना",
+    "exchange": "Exchange",
     "undefined": "अपरिभाषित प्रकार"
   },
   "close": "बंद करे",
@@ -56,6 +58,7 @@
   "privateKey": "निजी चाबी",
   "results": "परिणाम",
   "buy": "खरीदें",
+  "sell": "Sell",
   "filter": "Filter",
   "txs": "लेन-देन",
   "balance": {
@@ -69,6 +72,18 @@
     "bandwidth": "बैंडविड्थ",
     "tokens": "टोकन",
     "holdings": "होल्डिंग्स"
+  },
+  "exchange": {
+    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "variation": {
+      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
+      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+    },
+    "estimatedRevenue": "ESTIMATED TO RECEIVE",
+    "estimatedCost": "ESTIMATED COST",
+    "preview": "Search by the Token name",
+    "notFound": "Exchanges not found"
   },
   "hideAccount": "आप इस खाते को हटाने वाले हैं। आप बाद में सेटिंग्स में इसे पुनर्स्थापित कर सकते हैं",
   "components": {
@@ -630,5 +645,11 @@
         "body": "TRONWALLET is provided free of charge and on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND.\n"
       }
     }
+  },
+  "notifications": {
+    "title": "NOTIFICATIONS"
+  },
+  "news": {
+    "title": "NEWS"
   }
 }

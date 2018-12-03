@@ -15,7 +15,7 @@ jest.mock('Vibration', () => ({
 }))
 
 const getRandom = (limit = 10) => Math.floor((Math.random() * limit))
-
+jest.useFakeTimers()
 describe('Pin Scene > PinPad', () => {
   const defaultProps = {
     onComplete: jest.fn()
@@ -89,7 +89,9 @@ describe('Pin Scene > PinPad', () => {
     test('test submit value when #onComplete is called', () => {
       const onComplete = jest.fn(pin => pin)
       const { wrapper } = setup({ onComplete })
+      const instance = wrapper.instance()
       let inputValue = []
+      const prevState = wrapper.state()
       for (let cont = 0; cont < 6; cont++) {
         const key = getRandom(9)
         const btnKey = wrapper.find(Key).at(key)
@@ -100,8 +102,11 @@ describe('Pin Scene > PinPad', () => {
           btnKey.props().children
         )
       }
-
+      const prevProp = wrapper.props()
+      instance.forceUpdate()
+      instance.componentDidUpdate(prevProp, prevState)
       expect(wrapper.state('pin').length).toEqual(6)
+      jest.advanceTimersByTime(500)
       expect(onComplete.mock.results[0].value).toEqual(inputValue.join(''))
     })
   })

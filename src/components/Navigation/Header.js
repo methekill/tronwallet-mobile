@@ -8,6 +8,7 @@ import * as Utils from '../Utils'
 import { Header, HeaderWrapper, SearchPreview } from './elements'
 import NavigationSearchBar from './SearchBar'
 import FontelloButton from '../FontelloButton'
+
 class NavigationHeader extends React.Component {
   /*
      onClose = Right Button with X
@@ -35,7 +36,7 @@ class NavigationHeader extends React.Component {
 
     if (onBack && !leftButton) {
       element = (
-        <TouchableOpacity style={{padding: 12}} onPress={onBack} testID='HeaderBack'>
+        <TouchableOpacity style={{ padding: 12 }} onPress={onBack} testID='HeaderBack'>
           <Ionicons
             name='ios-arrow-round-back'
             size={36}
@@ -60,7 +61,7 @@ class NavigationHeader extends React.Component {
     } else if (onSearch) {
       element = (
         <TouchableOpacity
-          style={{padding: 10}}
+          style={{ padding: 10 }}
           onPress={() => {
             if (onSearchPressed) onSearchPressed()
           }}>
@@ -86,7 +87,7 @@ class NavigationHeader extends React.Component {
         {this._renderLeftElement(onBack, leftButton)}
         <Utils.View justify='center' align='center'>
           {title && (
-            <Utils.Text lineHeight={36} size='average' font='medium'>{title.toUpperCase()}</Utils.Text>
+            <Utils.Text lineHeight={36} size='average' font='medium' >{title.toUpperCase()}</Utils.Text>
           )}
         </Utils.View >
         {this._renderRightElement(onClose, onSearch, onSearchPressed, rightButton)}

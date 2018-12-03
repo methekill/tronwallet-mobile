@@ -20,32 +20,34 @@
   "cancel": "ביטול",
   "address": "כתובת",
   "message": "הודעה",
+  "ex": "בורסה",
   "ok": "אוקיי",
   "actionModalTitle": "האם תרצה",
   "account": "חשבון",
-  "restore": "שחזר",
+  "restore": "שחזור",
   "error": {
     "default": "אופס משהו השתבש, נסה שוב מאוחר יותר. אם השגיאה נמשכת נסה לעדכן את הגדרות הרשת.",
-    "buildingTransaction": "קרתה שגיאה בעת בניית הטרנזקציה, נסה שוב.",
-    "gettingTransaction": "אירעה שגיאה בעת קבלת טרנזקציה.",
+    "buildingTransaction": "קרתה שגיאה בעת בניית העסקה, נסה שוב.",
+    "gettingTransaction": "אירעה שגיאה בעת קבלת העסקה.",
     "clipboardCopied": "משהו השתבש במהלך העתקה",
     "hideAccount": "משהו השתבש במחיקת החשבון, נסה שוב"
   },
   "avaliable": "זמין",
   "frozen": "קפוא",
-  "tronPower": "TRON POWER",
+  "tronPower": "כוח טרון",
   "trxPrice": "מחיר TRX",
-  "confirmed": "מאושרת",
-  "unconfirmed": "לא מאושרת",
+  "confirmed": "מאושר",
+  "unconfirmed": "לא מאושר",
   "copyAddress": "העתק כתובת",
   "transactionType": {
     "transfer": "העבר",
     "transferAsset": "העבר נכס",
-    "freeze": "נעל",
-    "unfreeze": "לשחרר",
-    "vote": "בחירה",
+    "freeze": "הקפא",
+    "unfreeze": "הפשר",
+    "vote": "הצבעה",
     "participate": "השתתף",
     "create": "צור",
+    "exchange": "מסחר",
     "undefined": "סוג לא מוגדר"
   },
   "close": "סגור",
@@ -55,9 +57,10 @@
   "skip": "דלג",
   "privateKey": "מפתח פרטי",
   "results": "תוצאות",
-  "buy": "קנה",
+  "buy": "קניה",
+  "sell": "מכירה",
   "filter": "סינון",
-  "txs": "טרנזקציות",
+  "txs": "תנועות",
   "balance": {
     "title": "חשבונות",
     "error": {
@@ -70,24 +73,36 @@
     "tokens": "טוקנים",
     "holdings": "אחזקות"
   },
+  "exchange": {
+    "minToSell": "כמות מינימלית למכירה ≈ {{min}} {{tokenId}}",
+    "minToBuy": "כמות מינימלית לקניה ≈ {{min}} {{tokenId}}",
+    "variation": {
+      "buy": "מעט גבוה מידי מהעלות המוערכת, קצב החלופה יהיה גבוה יותר.",
+      "sell": "מעט נמוך מידי מהעלות המוערכת, קצב החלופה יהיה גבוה יותר."
+    },
+    "estimatedRevenue": "ESTIMATED TO RECEIVE",
+    "estimatedCost": "ESTIMATED COST",
+    "preview": "Search by the Token name",
+    "notFound": "הבורסאות לא זמינות"
+  },
   "hideAccount": "אתה עומד להסיר את החשבון הזה. ניתן לשחזר אותו מאוחר יותר בהגדרות",
   "components": {
     "share": {
       "title": "שתף את כתובת TronWallet",
-      "message": "זוהי כתובת ה-TronWallet שלי:\n\n {{address}}\n\nטיפ: לאחר שהעתקת הכתובת, באפשרותך להדביק אותה באפליקציית TronWallet שברשותך, באמצעות כפתור מיוחד במסך שליחה.",
+      "message": "זוהי כתובת ה-TronWallet שלי:\n\n {{address}}\n\nטיפ: לאחר שהעתקת הכתובת, באפשרותך להדביק אותה באפליקציית TronWallet שברשותך, באמצעות כפתור מיוחד במסך השליחה.",
       "dialogTitle": "שתף באמצעות:"
     },
     "QRScanner": {
       "title": "סריקת כתובת",
       "scan": "סרוק",
-      "explanation": "לסרוק את קוד ה-QR כדי לזהות את המשתמש היעד",
+      "explanation": "סרוק את קוד ה-QR כדי לזהות את המשתמש היעד",
       "permissionMessage": "כדי לסרוק את המפתח הציבורי, האפליקציה זקוקה לאישורך כדי לגשת למצלמה."
     },
     "vote": {
-      "enterVote": "הכנס את ערך הקולות",
-      "votesRemaining": "קולות שנשארו",
-      "setVote": "הגדר את הבחירות",
-      "moreVotes": "אם אתה צריך עוד קולות אתה יכול לנעול עוד TRX.",
+      "enterVote": "הזן ערך הצבעה",
+      "votesRemaining": "קולות נותרים",
+      "setVote": "הגדר הצבעה",
+      "moreVotes": "אם אתה צריך עוד קולות אתה יכול לקפיא עוד TRX.",
       "confirmVotes": "אשר את ההצבעות שלך",
       "yourVotes": "ההצבעות שלך",
       "myVotes": "ההצבעות שלי",
@@ -108,24 +123,24 @@
     },
     "swiper": {
       "welcome": {
-        "title": "ברוכים הבאים ל-TRONWALLET",
+        "title": "ברוכים הבאים ל-\nTRONWALLET",
         "body": "הארנק הבטוח ביותר עבור טרון"
       },
       "security": {
         "title": "אבטחה",
-        "body": "פרטיות ואבטחה בשביל\nהטרנזקציות שלך"
+        "body": "פרטיות ואבטחה עבור \n העסקאות שלך"
       },
       "votes": {
         "title": "הצבעות",
-        "body": "הקפאה והצבעה לנבחרי על (SR)"
+        "body": "הקפאה והצבעה לסופר \n נציגים"
       },
       "addressbook": {
         "title": "פנקס הכתובות",
-        "body": "שמור את הכתובות של חבריך ואנשי הקשר שלך."
+        "body": "שמור את הכתובות של החברים \n ואנשי הקשר שלך."
       },
       "multipleaccounts": {
         "title": "חשבונות מרובים",
-        "body": "באפשרותך לנהל חשבונות מרובים בארנק שלך"
+        "body": "באפשרותך לנהל חשבונות מרובים \n בארנק שלך"
       }
     }
   },
@@ -145,7 +160,7 @@
         "cancelButton": "ביטול",
         "okButton": "אוקיי"
       },
-      "empty": "פנקס הכתובות שלך ריקה, הוסף איש קשר חדש באמצעות הכפתור למטה.",
+      "empty": "פנקס הכתובות שלך ריק, הוסף איש קשר חדש באמצעות הכפתור למטה.",
       "loadError": "היתה בעיה בטעינת אנשי הקשר. אנא נסה שוב.",
       "addContact": "הוסף איש קשר",
       "addToContacts": "הוסף לאנשי הקשר"
@@ -171,24 +186,24 @@
   "freeze": {
     "title": "הקפא",
     "unfreeze": {
-      "title": "שחרר",
-      "inXTime": "אתה יכול לשחרר את ה-TRX שלך כעת",
-      "inThreeDays": "אחרי תקופה של שלושה ימים תוכל לשחרר את ה-TRX שלך",
-      "inXMinutes": "אתה יכול לשחרר את ה-TRX שלך בעוד {{minutes}} דקות.",
-      "inXHours": "אתה יכול לשחרר את ה-TRX שלך בעוד {{hours}} שעות.",
-      "inXDays": "אתה יכול לשחרר את ה-TRX שלך בעוד {{days}} ימים.",
-      "now": "אתה יכול לשחרר את ה-TRX שלך כעת."
+      "title": "הפשר",
+      "inXTime": "אתה יכול להפשיר את ה-TRX שלך כעת",
+      "inThreeDays": "אחרי תקופה של שלושה ימים תוכל להפשיר את ה-TRX שלך",
+      "inXMinutes": "אתה יכול להפשיר את ה-TRX שלך בעוד {{minutes}} דקות.",
+      "inXHours": "אתה יכול להפשיר את ה-TRX שלך בעוד {{hours}} שעות.",
+      "inXDays": "אתה יכול להפשיר את ה-TRX שלך בעוד {{days}} ימים.",
+      "now": "אתה יכול להפשיר את ה-TRX שלך כעת."
     },
     "error": {
-      "minimumAmount": "הסכום המינימלי לכל טרנזקצית הקפאה הוא 1.",
-      "insufficientBalance": "אין מספיק יתרת TRX",
+      "minimumAmount": "הסכום המינימלי לכל עסקת הקפאה הוא 1.",
+      "insufficientBalance": "יתרת TRX אינה מספיקה",
       "roundNumbers": "ניתן להקפיא רק מספרים עגולים"
     },
     "amount": "הסכום להקפיא",
     "balance": "יתרה"
   },
   "getVault": {
-    "notInstalled": "נראה שאין לך Tron Vault מותקנת על הטלפון שלך על מנת שתוכל להמשיך את הטרנזקציה.",
+    "notInstalled": "נראה שאין לך Tron Vault מותקנת על הטלפון שלך על מנת שתוכל להמשיך את העסקה.",
     "downloadHere": "אתה יכול להוריד את זה כאן"
   },
   "market": {
@@ -207,7 +222,7 @@
   },
   "participate": {
     "title": "השתתף",
-    "featured": "בהשתתפות",
+    "featured": "SPONSORED",
     "button": {
       "confirm": "אשר",
       "moreInfo": "מידע נוסף",
@@ -236,8 +251,8 @@
     "startTime": "זמן התחלה",
     "endTime": "זמן סיום",
     "description": "תיאור",
-    "transaction": "טרנזקציה",
-    "ownerAddress": "בעל הכתובת",
+    "transaction": "עסקה",
+    "ownerAddress": "הבעלים של הכתובת",
     "trxNum": "מספר TRX",
     "num": "מספר",
     "block": "בלוק",
@@ -349,20 +364,20 @@
         "success": {
           "updated": "עודכן",
           "updatedIp": "Nodes IP updated!",
-          "switchTest": "Switched nodes IP to Testnet",
-          "switchMain": "Switched nodes IP to default main",
-          "reset": "Node IP reseted!"
+          "switchTest": "כתובות ה-IP של הצמתים הוחלפו ל-Testnet",
+          "switchMain": "כתובות ה-IP של הצמתים הוחלפו לברירת המחדל הראשית",
+          "reset": "כתובת ה-IP של הצומת אופסה!"
         },
         "placeholder": {
-          "loadingIp": "Loading IP",
-          "loadingPort": "Loading Port"
+          "loadingIp": "טוען כתובת IP",
+          "loadingPort": "טוען כתובת"
         },
         "button": {
           "update": "עדכן ותתחבר",
           "reset": "איפוס"
         },
-        "mainNode": "Main Node",
-        "solidityNode": "Solidity Node",
+        "mainNode": "צומת Main",
+        "solidityNode": "צומת Solidity",
         "testNet": "TestNet"
       }
     },
@@ -430,7 +445,7 @@
     "time": "זמן",
     "button": {
       "tryAgain": "נסה שוב",
-      "submit": "הגש טרנזקציה"
+      "submit": "הגש עסקה"
     },
     "error": {
       "noData": "לא ניתן לטעון את נתוני העסקה"
@@ -630,5 +645,11 @@
         "body": "TRONWALLET הינו ללא תשלום, המוצר הינו \"כמו שהוא\", ללא אחריות או תנאים של מכל סוג.\n"
       }
     }
+  },
+  "notifications": {
+    "title": "התראות"
+  },
+  "news": {
+    "title": "חדשות"
   }
 }

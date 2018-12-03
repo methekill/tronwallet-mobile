@@ -4,29 +4,7 @@ exports[`Pin Scene > PinPad Should match snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <PinPad
-    onComplete={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            "111111",
-            Array [
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-            ],
-          ],
-        ],
-        "results": Array [
-          Object {
-            "isThrow": false,
-            "value": undefined,
-          },
-        ],
-      }
-    }
+    onComplete={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -43,12 +21,12 @@ ShallowWrapper {
     "props": Object {
       "align": "stretch",
       "children": Array [
-        <Styled(Component)
+        <Styled(View)
           align="center"
           height={180}
           justify="center"
         >
-          <withAnimatable(Component)
+          <withAnimatable(View)
             delay={0}
             direction="normal"
             iterationCount={1}
@@ -59,7 +37,7 @@ ShallowWrapper {
             onTransitionEnd={[Function]}
             useNativeDriver={false}
           >
-            <Styled(Component)
+            <Styled(View)
               align="center"
               justify="space-between"
               width={264}
@@ -88,10 +66,10 @@ ShallowWrapper {
                 currentState={Array []}
                 digit={5}
               />
-            </Styled(Component)>
-          </withAnimatable(Component)>
-        </Styled(Component)>,
-        <Styled(Component)>
+            </Styled(View)>
+          </withAnimatable(View)>
+        </Styled(View)>,
+        <Styled(View)>
           <Key
             onPress={[Function]}
           >
@@ -140,6 +118,7 @@ ShallowWrapper {
           <Key
             disabled={true}
             noBorder={true}
+            onPress={[Function]}
           />
           <Key
             onPress={[Function]}
@@ -158,9 +137,10 @@ ShallowWrapper {
               size={24}
             />
           </Key>
-        </Styled(Component)>,
+        </Styled(View)>,
       ],
       "justify": "flex-start",
+      "marginBottom": 40,
     },
     "ref": null,
     "rendered": Array [
@@ -170,7 +150,7 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "align": "center",
-          "children": <withAnimatable(Component)
+          "children": <withAnimatable(View)
             delay={0}
             direction="normal"
             iterationCount={1}
@@ -181,7 +161,7 @@ ShallowWrapper {
             onTransitionEnd={[Function]}
             useNativeDriver={false}
           >
-            <Styled(Component)
+            <Styled(View)
               align="center"
               justify="space-between"
               width={264}
@@ -210,8 +190,8 @@ ShallowWrapper {
                 currentState={Array []}
                 digit={5}
               />
-            </Styled(Component)>
-          </withAnimatable(Component)>,
+            </Styled(View)>
+          </withAnimatable(View)>,
           "height": 180,
           "justify": "center",
         },
@@ -222,7 +202,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "animation": undefined,
-            "children": <Styled(Component)
+            "children": <Styled(View)
               align="center"
               justify="space-between"
               width={264}
@@ -251,7 +231,7 @@ ShallowWrapper {
                 currentState={Array []}
                 digit={5}
               />
-            </Styled(Component)>,
+            </Styled(View)>,
             "delay": 0,
             "direction": "normal",
             "duration": undefined,
@@ -437,6 +417,7 @@ ShallowWrapper {
             <Key
               disabled={true}
               noBorder={true}
+              onPress={[Function]}
             />,
             <Key
               onPress={[Function]}
@@ -574,6 +555,7 @@ ShallowWrapper {
             "props": Object {
               "disabled": true,
               "noBorder": true,
+              "onPress": [Function],
             },
             "ref": null,
             "rendered": null,
@@ -637,12 +619,12 @@ ShallowWrapper {
       "props": Object {
         "align": "stretch",
         "children": Array [
-          <Styled(Component)
+          <Styled(View)
             align="center"
             height={180}
             justify="center"
           >
-            <withAnimatable(Component)
+            <withAnimatable(View)
               delay={0}
               direction="normal"
               iterationCount={1}
@@ -653,7 +635,7 @@ ShallowWrapper {
               onTransitionEnd={[Function]}
               useNativeDriver={false}
             >
-              <Styled(Component)
+              <Styled(View)
                 align="center"
                 justify="space-between"
                 width={264}
@@ -682,10 +664,10 @@ ShallowWrapper {
                   currentState={Array []}
                   digit={5}
                 />
-              </Styled(Component)>
-            </withAnimatable(Component)>
-          </Styled(Component)>,
-          <Styled(Component)>
+              </Styled(View)>
+            </withAnimatable(View)>
+          </Styled(View)>,
+          <Styled(View)>
             <Key
               onPress={[Function]}
             >
@@ -734,6 +716,7 @@ ShallowWrapper {
             <Key
               disabled={true}
               noBorder={true}
+              onPress={[Function]}
             />
             <Key
               onPress={[Function]}
@@ -752,9 +735,10 @@ ShallowWrapper {
                 size={24}
               />
             </Key>
-          </Styled(Component)>,
+          </Styled(View)>,
         ],
         "justify": "flex-start",
+        "marginBottom": 40,
       },
       "ref": null,
       "rendered": Array [
@@ -764,7 +748,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "align": "center",
-            "children": <withAnimatable(Component)
+            "children": <withAnimatable(View)
               delay={0}
               direction="normal"
               iterationCount={1}
@@ -775,7 +759,7 @@ ShallowWrapper {
               onTransitionEnd={[Function]}
               useNativeDriver={false}
             >
-              <Styled(Component)
+              <Styled(View)
                 align="center"
                 justify="space-between"
                 width={264}
@@ -804,8 +788,8 @@ ShallowWrapper {
                   currentState={Array []}
                   digit={5}
                 />
-              </Styled(Component)>
-            </withAnimatable(Component)>,
+              </Styled(View)>
+            </withAnimatable(View)>,
             "height": 180,
             "justify": "center",
           },
@@ -816,7 +800,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "animation": undefined,
-              "children": <Styled(Component)
+              "children": <Styled(View)
                 align="center"
                 justify="space-between"
                 width={264}
@@ -845,7 +829,7 @@ ShallowWrapper {
                   currentState={Array []}
                   digit={5}
                 />
-              </Styled(Component)>,
+              </Styled(View)>,
               "delay": 0,
               "direction": "normal",
               "duration": undefined,
@@ -1031,6 +1015,7 @@ ShallowWrapper {
               <Key
                 disabled={true}
                 noBorder={true}
+                onPress={[Function]}
               />,
               <Key
                 onPress={[Function]}
@@ -1168,6 +1153,7 @@ ShallowWrapper {
               "props": Object {
                 "disabled": true,
                 "noBorder": true,
+                "onPress": [Function],
               },
               "ref": null,
               "rendered": null,

@@ -53,7 +53,6 @@ const createTransaction = (item, address) => {
     timestamp: new Date(item.createdAt).getTime()
   }
   if (item.type === 'Transfer') {
-    transaction.id = item.hash
     transaction.contractData = {
       transferFromAddress: item.ownerAddress,
       transferToAddress: item.toAddress,
@@ -90,7 +89,7 @@ const createTransaction = (item, address) => {
   }
   if (item.type === 'Exchange') {
     transaction.contractData = {
-      amount: item.quant / (item.tokenId === '_' ? ONE_TRX : 1),
+      amount: item.quant,
       tokenName: item.tokenId === '_' ? 'TRX' : item.tokenId
     }
   }

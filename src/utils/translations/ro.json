@@ -2,15 +2,15 @@
   "relativeTime": {
     "future": "în %s",
     "past": "%s în urmă",
-    "s": "cateva secunde",
+    "s": "câteva secunde",
     "ss": "%d secunde",
     "m": "un minut",
     "mm": "%d minute",
-    "h": "o ora",
+    "h": "o oră",
     "hh": "%d ore",
     "d": "o zi",
     "dd": "%d zile",
-    "M": "o luna",
+    "M": "o lună",
     "MM": "%d luni",
     "y": "un an",
     "yy": "%d ani"
@@ -20,13 +20,14 @@
   "cancel": "Revocare",
   "address": "Adresa",
   "message": "Mesaj",
+  "ex": "Exchange",
   "ok": "Ok",
-  "actionModalTitle": "Ați dori să",
+  "actionModalTitle": "Ai dori să",
   "account": "Cont",
   "restore": "Restaurare",
   "error": {
-    "default": "Woops ceva nu a mers bine. Reîncercați mai târziu. Dacă eroarea persistă, încercați să actualizați setările de rețea.",
-    "buildingTransaction": "Eroare la construirea tranzacției, încercați din nou.",
+    "default": "Hopa, ceva nu a mers bine. Reîncercă mai târziu. Dacă eroarea persistă, încercă să actualizezi setările de rețea.",
+    "buildingTransaction": "Eroare la construirea tranzacției, încercă din nou.",
     "gettingTransaction": "Eroare la obținerea tranzacției.",
     "clipboardCopied": "Ceva nu a mers bine in timpul copierii",
     "hideAccount": "Ceva a mers greşit cu ştergerea contului, încearcă din nou'"
@@ -34,7 +35,7 @@
   "avaliable": "DISPONIBIL",
   "frozen": "ÎNGHEŢAT",
   "tronPower": "PUTERE TRON",
-  "trxPrice": "PRET TRX",
+  "trxPrice": "PREȚ TRX",
   "confirmed": "Confirmat",
   "unconfirmed": "Neconfirmat",
   "copyAddress": "COPIAZĂ ADRESA",
@@ -46,16 +47,18 @@
     "vote": "Votează",
     "participate": "Participă",
     "create": "Creează",
-    "undefined": "Tip nedefinit"
+    "exchange": "Exchange",
+    "undefined": "Tip Nedefinit"
   },
   "close": "Închide",
   "ends": "Se termină",
   "clear": "Curăţa",
   "allIn": "Toate",
   "skip": "Sari peste",
-  "privateKey": "Cheia privată",
+  "privateKey": "Cheie Privată",
   "results": "Rezultate",
   "buy": "Cumpără",
+  "sell": "Vinde",
   "filter": "Filtrează",
   "txs": "Tranzacții",
   "balance": {
@@ -66,11 +69,23 @@
     },
     "chooseCurrency": "Te rugam sa alegi moneda preferată.",
     "confirmSeed": "Te rugam sa atingi pentru a confirma cele 12 cuvinte seed",
-    "bandwidth": "BANDA",
+    "bandwidth": "BANDĂ",
     "tokens": "Token-uri",
     "holdings": "HOLDINGS"
   },
-  "hideAccount": "Sunteți pe cale să eliminați acest cont. Puteți să-l restabiliți ulterior în setări",
+  "exchange": {
+    "minToSell": "Suma minimă de vândut ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Suma minimă de cumpărat ≈ {{min}} {{tokenId}}",
+    "variation": {
+      "buy": "Costul estimativ este puțin mai mare, și probabilitatea de a executa tranzacţia va fi mai mare.",
+      "sell": "Costul estimativ este puțin mai mic, și probabilitatea de a executa tranzacţia va fi mai mare."
+    },
+    "estimatedRevenue": "ESTIMATED TO RECEIVE",
+    "estimatedCost": "ESTIMATED COST",
+    "preview": "Search by the Token name",
+    "notFound": "Nu au fost găsite Schimburi"
+  },
+  "hideAccount": "Ești pe cale să elimini acest cont. Îl vei putea restabili ulterior în setări",
   "components": {
     "share": {
       "title": "Partajare adresă TronWallet",
@@ -80,7 +95,7 @@
     "QRScanner": {
       "title": "Scaner de adrese",
       "scan": "Scanare",
-      "explanation": "Scanaza codul QR pentru a identifica utilizatorul dorit",
+      "explanation": "Scanază codul QR pentru a identifica utilizatorul dorit",
       "permissionMessage": "Pentru a scana cheia publică, aplicația are nevoie de permisiunea ta pentru a accesa camera."
     },
     "vote": {
@@ -92,23 +107,23 @@
       "yourVotes": "Voturile Tale",
       "myVotes": "VOTURILE MELE",
       "confirm": "CONFIRMARE",
-      "freeze": "Îngheţa",
-      "totalVotes": "Total voturi disponibile:",
+      "freeze": "Îngheaţă",
+      "totalVotes": "Voturi totale disponibile:",
       "delete": "ȘTERGE",
-      "set": "A STABILIT",
-      "freezeOrLower": "Nu aveți destul TRX înghețat. Înghetați mai mult TRX sau reduceți valoarea votului",
-      "freezeToContinue": "Nu aveți destul TRX înghețat. Înghetați mai mult TRX pentru a continua"
+      "set": "SETEAZĂ",
+      "freezeOrLower": "Nu ai destul TRX înghețat. Îngheță mai mult TRX sau redu valoarea votului",
+      "freezeToContinue": "Nu ai destul TRX înghețat. Îngheță mai mult TRX pentru a continua"
     }
   },
   "firstTime": {
     "button": {
       "create": "CREEAZĂ PORTOFEL",
       "restore": "RESTAUREAZĂ PORTOFEL",
-      "import": "IMPORTA PORTOFEL"
+      "import": "IMPORTĂ PORTOFEL"
     },
     "swiper": {
       "welcome": {
-        "title": "Bine ati venit la TRONWALLET",
+        "title": "Bine ați venit la TRONWALLET",
         "body": "Cel mai sigur portofel pentru TRON"
       },
       "security": {
@@ -117,79 +132,79 @@
       },
       "votes": {
         "title": "VOTURI",
-        "body": "Înghețarea și votare pentru Super Reprezentanții"
+        "body": "Înghețare și votare pentru Super Reprezentanții"
       },
       "addressbook": {
         "title": "AGENDĂ",
-        "body": "Salveaza adresele prietenilor si contactelor tale."
+        "body": "Salvează adresele prietenilor si contactelor tale."
       },
       "multipleaccounts": {
         "title": "CONTURI MULTIPLE",
-        "body": "Poți gestiona mai multe conturi in portofelul tău"
+        "body": "Poți gestiona mai multe conturi în portofelul tău"
       }
     }
   },
   "addressBook": {
     "title": "AGENDĂ",
     "shared": {
-      "add": "ADĂUGA",
-      "edit": "EDITAȚI | ×",
+      "add": "ADAUGĂ",
+      "edit": "EDITEAZĂ | ×",
       "delete": "ȘTERGE",
       "send": "TRIMITE"
     },
     "contacts": {
       "title": "CONTACTE",
       "delete": {
-        "title": "Ștergeți persoana de contact",
-        "message": "Chiar doriți să ștergeți acest contact?",
-        "cancelButton": "Anulare",
-        "okButton": "O.K"
+        "title": "Șterge persoana de contact",
+        "message": "Chiar doresti să ștergi acest contact?",
+        "cancelButton": "Revocare",
+        "okButton": "OK"
       },
-      "empty": "Agenda dvs. de adrese este goală, adăugați o nouă persoană de contact utilizând butonul de mai jos.",
-      "loadError": "A apărut o problemă la încărcarea contactelor. Vă rugăm să încercați din nou.",
+      "empty": "Agenda ta este goală, adaugă o nouă persoană de contact utilizând butonul de mai jos.",
+      "loadError": "A apărut o problemă la încărcarea contactelor. Te rugăm să încerci din nou.",
       "addContact": "ADAUGĂ CONTACT",
       "addToContacts": "ADAUGĂ LA CONTACTE"
     },
     "form": {
-      "generalError": "A apărut o problemă la trimiterea acestui formular. Contactați un administrator.",
-      "nameError": "Câmpul de nume trebuie să înceapă cu o literă, să conțină maximum 32 de caractere și să accepte doar litere, numere și spații albe.",
-      "addressError": "Ceva nu are dreptate cu adresa. Vă rugăm să faceți dublu verificarea pentru greșeli.",
-      "uniqueAddressError": "Cheia trebuie să fie unică. Alegeți o altă adresă.",
-      "uniqueAliasError": "Numele din agenda dvs. trebuie să fie unice. Alegeți altul.",
+      "generalError": "A apărut o problemă la trimiterea acestui formular. Contactează un administrator.",
+      "nameError": "Numele trebuie să înceapă cu o literă, să conțină maxim 32 de caractere și acceptă doar litere, numere și spații.",
+      "addressError": "Ceva nu este in regulă cu această adresă. Te rugăm sa o verifici pentru eventuale erori.",
+      "uniqueAddressError": "Cheia trebuie să fie unică. Te rugăm sa alegi o altă adresă.",
+      "uniqueAliasError": "Numele din agenda ta trebuie să fie unic. Te rugăm sa alegi unul diferit.",
       "name": "NUME",
-      "address": "ADRESA"
+      "address": "ADRESĂ"
     }
   },
   "importWallet": {
-    "title": "PORTOARE DE IMPORT",
-    "message": "Dacă aveți cheia privată și adresa portofelului dvs. puteți să o recuperați aici, dar rețineți că TronWallet funcționează în primul rând cu mnemonica. Această metodă de recuperare va dezactiva anumite funcționalități din aplicație.",
-    "button": "IMPORTA",
+    "title": "IMPORTĂ PORTOFEL",
+    "message": "Dacă ai cheia privată și adresa portofelului tău îl poți recupera aici, însă rețineți că TronWallet funcționează în primul rând pe bază mnemonică. Această metodă de recuperare va dezactiva anumite funcționalități din aplicație.",
+    "button": "IMPORTĂ",
     "error": {
-      "privateKey": "Cheia privată este nevalidă sau incompletă"
+      "privateKey": "Cheia privată nu este validă sau este incompletă"
     }
   },
   "freeze": {
-    "title": "ÎNGHEŢA",
+    "title": "ÎNGHEŢĂ",
     "unfreeze": {
-      "title": "Deblocați",
-      "inXTime": "Poti dezgheța TRX-ul tău",
-      "inThreeDays": "După o perioadă de trei zile puteți dezgheța TRX-ul",
-      "inXMinutes": "Puteți dezgheța TRX-ul dvs. în {{minutes}} minute.",
-      "inXHours": "Puteți dezgheța TRX-ul dvs. în {{hours}} ore.",
-      "inXDays": "Puteți dezgheța TRX-ul dvs. în decurs de {{days}} zile.",
-      "now": "Acum puteți dezgheța TRX-ul."
+      "title": "DEBLOCHEAZĂ",
+      "inXTime": "Poți dezgheța TRX-ul tău",
+      "inThreeDays": "După o perioadă de trei zile poți dezgheța TRX-ul",
+      "inXMinutes": "Poți dezgheța TRX-ul tău în {{minutes}} minute.",
+      "inXHours": "Poți dezgheța TRX-ul tău în {{hours}} ore.",
+      "inXDays": "Poți dezgheța TRX-ul tău în {{days}} zile.",
+      "now": "Acum poți dezgheța TRX-ul tău."
     },
     "error": {
-      "minimumAmount": "Suma minimă pentru orice tranzacție de îngheț este de 1.",
-      "insufficientBalance": "TRX echilibru insuficient",
-      "roundNumbers": "Poate îngheța numai cifrele rotunde"
+      "minimumAmount": "Suma minimă pentru orice tranzacție de înghețare este de 1.",
+      "insufficientBalance": "Balanța TRX insuficientă",
+      "roundNumbers": "Poți îngheța doar cifre rotunde"
     },
-    "amount": "GREUTATE AMOUNT",
-    "balance": "Echilibru"
+    "amount": "CONGELEAZĂ SUMA",
+    "balance": "Balanță"
   },
   "getVault": {
-    "notInstalled": "Se pare că nu aveți instalat Tron Vault în telefon pentru a continua tranzacția.",
-    "downloadHere": "Puteți descărca aici"
+    "notInstalled": "Se pare că nu ai instalat Tron Vault în telefon pentru a continua tranzacția.",
+    "downloadHere": "Îl poţi descărca de aici"
   },
   "market": {
     "time": {
@@ -199,45 +214,45 @@
       "month": "1L",
       "all": "TOATE"
     },
-    "highest": "CEL MAI INALT",
+    "highest": "CEL MAI MARE",
     "lowest": "CEL MAI MIC",
     "volume": "VOLUM 24H",
-    "cap": "CAP CAPITAL",
-    "supply": "CIRCULAȚIE DE FURNIZARE"
+    "cap": "CAPITAL DE PIAȚA",
+    "supply": "CANTITATE IN CIRCULAȚIE"
   },
   "participate": {
-    "title": "PARTICIPA",
+    "title": "PARTICIPĂ",
     "featured": "RECOMANDATE",
     "button": {
-      "confirm": "A CONFIRMA",
-      "moreInfo": "MAI MULTE INFORMATII",
+      "confirm": "CONFIRMĂ",
+      "moreInfo": "MAI MULTE INFORMAȚII",
       "buyNow": "CUMPARĂ ACUM"
     },
     "error": {
       "insufficientBalance": "Nu există suficiente fonduri (TRX) pentru a participa.",
       "insufficientTrx": {
-        "title": "Trebuie să cumperi cel puțin o valoare TRX de {{token}}.",
-        "message": "În prezent, achiziționați numai {{amount}}."
+        "title": "Trebuie să cumperi cel puțin echivalentul unui TRX de {{token}}.",
+        "message": "În prezent, achiziționezi doar {{amount}}."
       },
       "notFound": "Nu s-a găsit niciun asset"
     },
-    "warning": "Nu aveți suficient TRX pentru a cumpăra atât de mulți {{token}}",
-    "enterAmountToBuy": "INTRODU SUMA DE CUMPARAT",
-    "amountToBuy": "AMOUNT DE CUMPĂRARE",
-    "pricePerToken": "PRET PER PERIOADĂ",
-    "tokenDescription": "TOKEN DESCRIERE",
-    "tokenInfo": "INFORMAȚI TOKEN",
-    "token": "JETON",
-    "tokens": "indicativele",
+    "warning": "Nu ai suficient TRX pentru a cumpăra această suma{{token}}",
+    "enterAmountToBuy": "INTRODU SUMA DE CUMPĂRAT",
+    "amountToBuy": "SUMA DE CUMPĂRARE",
+    "pricePerToken": "PREȚ PER TOKEN",
+    "tokenDescription": "DESCRIERE TOKEN",
+    "tokenInfo": "INFORMAȚII TOKEN",
+    "token": "TOKEN",
+    "tokens": "TOKEN-URI",
     "frozen": "ÎNGHEŢAT",
     "percentage": "PROCENT",
     "issued": "EMIS",
-    "totalSupply": "TOTAL FURNIZARE",
-    "startTime": "TIMPUL DE ÎNCEPERE",
+    "totalSupply": "CANTITATE TOTALĂ",
+    "startTime": "TIMPUL DE START",
     "endTime": "ORA DE TERMINARE",
     "description": "DESCRIERE",
     "transaction": "TRANZACŢIE",
-    "ownerAddress": "DREPTUL DE ADMINISTRARE",
+    "ownerAddress": "ADRESA PROPRIETARULUI",
     "trxNum": "NR. TRX",
     "num": "NR",
     "block": "BLOC",
@@ -246,20 +261,20 @@
   },
   "pin": {
     "title": "VERIFICARE DE SECURITATE",
-    "enter": "Introduceți codul PIN",
-    "new": "Introduceți codul PIN nou",
-    "reenter": "Reintroduceți codul PIN",
+    "enter": "Introdu codul PIN",
+    "new": "Introdu noul cod PIN",
+    "reenter": "Re-introdu codul PIN",
     "biometrics": "Verificare Biometrică"
   },
   "receive": {
-    "title": "A PRIMI",
+    "title": "PRIMEȘTE",
     "clipboardCopied": "Copiat în clipboard",
     "button": {
-      "copy": "Copie",
-      "share": "Acțiune"
+      "copy": "Copiază",
+      "share": "Partajare"
     },
     "tabs": {
-      "share": "ACȚIUNE",
+      "share": "PARTAJARE",
       "request": "CERERE"
     }
   },
@@ -269,100 +284,100 @@
   },
   "seed": {
     "confirm": {
-      "title": "CONFIRMA SEMNĂ",
+      "title": "CONFIRMĂ SEED",
       "error": {
-        "title": "Combinație greșită",
-        "message": "Cuvintele selectate nu se potrivesc. Asigurați-vă că ați scris cuvintele în ordinea corectă."
+        "title": "Combinație Greșită",
+        "message": "Cuvintele selectate nu se potrivesc. Asigură-te că le-ai scris în ordinea corectă."
       },
       "success": "Portofelul a fost confirmat cu succes",
-      "explanation": "Selectați cuvintele de mai jos în ordinea corectă pentru a vă confirma expresia secretă.",
+      "explanation": "Selectează cuvintele de mai jos în ordinea corectă pentru a-ți confirma fraza secretă.",
       "button": {
-        "reset": "RESETE CU CUVINTE",
-        "confirm": "CONFIRMA SEMNĂ"
+        "reset": "RESETARE CUVINTE",
+        "confirm": "CONFIRMĂ SEED"
       }
     },
     "create": {
-      "title": "CREAȚI SEMINȚELE",
-      "titleConfirm": "CONFIRMAȚI SEMINȚELE DE PLAJ",
-      "error": "Hopa, avem o problemă. Reporniți aplicația.",
+      "title": "CREEAZĂ SEED",
+      "titleConfirm": "CONFIRMĂ SEED PORTOFEL",
+      "error": "Hopa, avem o problemă. Te rugăm să reporneşti aplicaţia.",
       "generateNew": "Acest lucru va genera un portofel complet nou.",
       "button": {
-        "written": "Am scris-o",
-        "newSeed": "GET SEMNE NOU",
-        "later": "Confirmați mai târziu"
+        "written": "AM SCRIS-O",
+        "newSeed": "OBŢINE SEED NOU",
+        "later": "Confirmă mai târziu"
       },
       "backupMessage": "Poți accesa întotdeauna cuvintele Seed accesând copia de rezervă din setările aplicației",
       "seedExplanation": "Cheia Seed este o reprezentare lizibila, pentru oameni, a portofelului tău. Aceste cuvinte, în acea ordine exactă, pot fi folosite pentru a-ți re-crea portofelul."
     },
     "restore": {
       "title": "RESTAUREAZĂ PORTOFEL",
-      "explanation": "Pentru a vă restabili portofelul, vă rugăm să furnizați aceleași 12 cuvinte pe care le-ați scris pe hârtie atunci când ați creat portofelul pentru prima dată. Dacă introduceți o altă succesiune de cuvinte, va fi creat un nou portofel gol.",
-      "placeholder": "Vă rugăm să introduceți aici cele 12 cuvinte de semințe",
+      "explanation": "Pentru a restaura portofelul, te rugăm să introduci cele 12 cuvinte pe care le-ai scris pe hârtie atunci cand ai creat portofelul pentru prima dată. Dacă introduci o altă succesiune de cuvinte, va fi creat un portofel nou gol.",
+      "placeholder": "Te rugăm să introduci aici cele 12 cuvinte seed",
       "success": "Portofelul a fost restaurat cu succes!",
-      "warning": "Restaurarea semințelor va șterge toate datele de pe acest dispozitiv și va atrage informații din rețea pentru contul restabilit.",
-      "error": "Hopa. Se pare că cuvintele pe care le-ați scris nu sunt o sămânță mnemonică valabilă. Verificați o greșeală și încercați din nou.",
-      "button": "RESTABILI"
+      "warning": "Restaurarea unui seed va șterge toate datele de pe acest dispozitiv și va importa informații de pe rețea pentru contul restabilit.",
+      "error": "Hopa. Cuvintele pe care le-ai introdus nu sunt un seed mnemonic valabil. Verifică greșelile și încercă din nou.",
+      "button": "RESTAUREAZĂ"
     }
   },
   "send": {
     "title": "TRIMITE",
     "error": {
-      "insufficientBalance": "Nu există un echilibru suficient.",
-      "gettingBalance": "Eroare la obținerea datelor privind soldul",
-      "incompleteAddress": "Adresa este incompletă sau nevalidă.",
-      "invalidReceiver": "Adresă nevalidă a receptorului",
-      "selectBalance": "Selectați mai întâi un sold",
-      "invalidAmount": "Sumă nevalidă"
+      "insufficientBalance": "Balanță Insuficientă.",
+      "gettingBalance": "Eroare la obținerea balanței",
+      "incompleteAddress": "Adresa este incompletă sau nu este validă.",
+      "invalidReceiver": "Adresa destinatarului nu este validă",
+      "selectBalance": "Selecteaza mai întâi o balanța",
+      "invalidAmount": "Suma nu este validă"
     },
     "input": {
-      "token": "JETON",
-      "to": "LA",
-      "amount": "CANTITATE",
-      "description": "DESCRIERE (OPTIONAL)"
+      "token": "TOKEN",
+      "to": "CĂTRE",
+      "amount": "SUMA",
+      "description": "DESCRIERE (OPȚIONAL)"
     },
     "available": "disponibil",
-    "chooseToken": "Vă rugăm să alegeți un jeton de mai jos.",
-    "minimumAmount": "Suma minimă pentru orice tranzacție trimisă este 0.000001."
+    "chooseToken": "Te rugăm să alegi un token de mai jos.",
+    "minimumAmount": "Suma minimă pentru orice tranzacție trimisă este de 0.000001."
   },
   "settings": {
     "title": "SETĂRI",
     "sectionTitles": {
       "wallet": "PORTOFEL",
       "security": "SECURITATE",
-      "notification": "NOTIFICĂRI ȘI IDIOM",
-      "accounts": "MANAGEMENTUL CONTABILILOR"
+      "notification": "NOTIFICĂRI ȘI IDIOMURI",
+      "accounts": "ADMINISTRAREA CONTURILOR"
     },
     "notifications": {
-      "title": "notificări"
+      "title": "Notificări"
     },
     "network": {
       "title": "Reţea",
       "modal": {
         "title": "REŢEA",
-        "explanation": "Cu această opțiune puteți selecta nodul care se va potrivi mai bine nevoilor și preferințelor dvs. Fiți atenți în timp ce actualizați IP-ul nodului, în timp ce IP greșit poate duce la defecțiuni în portofel. Exemplu: 35.231.121.122:50051",
+        "explanation": "Cu această opțiune poți selecta nodul care se va potrivi mai bine nevoilor și preferințelor tale. Te rugăm să reții că actualizarea IP nodului cu un IP greșit poate duce la defecțiuni ale portofelului. Exemplu: 35.231.121.122:50051",
         "error": {
           "storage": "Eroare la obținerea nodului ip din spațiul de stocare local",
-          "invalidIp": "Introduceți un IP valid",
-          "update": "Sa întâmplat ceva în timpul actualizării nodurilor ip",
-          "reset": "Se întâmplă ceva în timp ce resetați nodul ip"
+          "invalidIp": "Introdu un IP valid",
+          "update": "S-a întâmplat ceva în timpul actualizării nodurilor ip",
+          "reset": "S-a întâmplat ceva în timpul resetării nodul ip"
         },
         "success": {
           "updated": "Actualizat",
           "updatedIp": "Nodurile IP actualizate!",
-          "switchTest": "Nodurile conectate IP la Testnet",
-          "switchMain": "Comutarea nodurilor IP la principiul principal",
+          "switchTest": "Schimbă Nodurile IP cu Testnet",
+          "switchMain": "Schimbă Nodurile IP la opțiunea principală",
           "reset": "Nod IP resetat!"
         },
         "placeholder": {
           "loadingIp": "Se încarcă IP",
-          "loadingPort": "Portul de încărcare"
+          "loadingPort": "Încărcare Port"
         },
         "button": {
-          "update": "Actualizați și conectați",
-          "reset": "restabili"
+          "update": "Actualizare și conectare",
+          "reset": "Resetare"
         },
-        "mainNode": "Nodul principal",
-        "solidityNode": "Nodul de soliditate",
+        "mainNode": "Nodul Principal",
+        "solidityNode": "Nodul de Soliditate",
         "testNet": "TestNet"
       }
     },
@@ -370,126 +385,126 @@
       "title": "Backup Portofel"
     },
     "restore": {
-      "title": "Restaurați Wallet"
+      "title": "Restaurează Portofel"
     },
     "reset": {
-      "title": "Resetați Wallet",
-      "warning": "Avertisment: Această acțiune va șterge toate datele salvate, inclusiv cele 12 cuvinte secrete. Dacă nu v-ați salvat secretul, vă rugăm să faceți acest lucru înainte de a continua.",
+      "title": "Resetează Portofel",
+      "warning": "Avertizare: Această acțiune va șterge toate datele salvate, inclusiv cele 12 cuvinte seed. Dacă nu ai salvat seed-ul tău, te rugăm să o faci înainte de a continua.",
       "button": "OK, înțeleg"
     },
     "pin": {
-      "title": "Schimba pin-ul",
+      "title": "Schimbă Pin",
       "success": "Pin-ul a fost schimbat cu succes!"
     },
     "language": {
-      "title": "Limba",
-      "choose": "Vă rugăm să alegeți o limbă de mai jos:",
+      "title": "Limbă",
+      "choose": "Te rugăm să alegi o limbă de mai jos:",
       "success": {
         "title": "Limba a fost modificată la {{language}}",
-        "description": "Totuși, trebuie să reporniți aplicația, astfel încât modificările să poată intra în vigoare. Vrei să o faci acum?"
+        "description": "Totuși, aplicația va trebui repornită pentru a salva modificările. Dorești să o faci acum?"
       },
       "button": {
-        "confirm": "Da, reporniți acum!",
+        "confirm": "Da, reporniește acum!",
         "cancel": "Nu, o voi face mai târziu"
       },
-      "error": "Eroare în memorarea limbii preferate"
+      "error": "Eroare în timpul salvarii limbii preferate"
     },
     "token": {
-      "title": "Filtru Token-i",
-      "search": "Jetoane de căutare",
-      "confirm": "Salvați",
-      "noResult": "Fara rezultate..."
+      "title": "Filtru Token-uri",
+      "search": "Caută Token-uri",
+      "confirm": "Salvează",
+      "noResult": "Fară rezultate..."
     },
     "about": {
       "title": "Despre",
-      "description": "TronWallet este un portofoliu P2P Crypto Wallet complet descentralizat pentru rețeaua TRON, construit cu React Native. Cu ajutorul acestuia puteți trimite și primi jetoane, puteți vota un Super Reprezentant, puteți participa la o vânzare simbolică, puteți urmări bilanțurile și tranzacțiile dvs. și multe altele. Atingeți link-ul de mai jos pentru un tutorial detaliat cu privire la modul de utilizare a acestuia.",
+      "description": "TronWallet este un portofel Crypto P2P complet descentralizat pentru rețeaua TRON, construit cu React Native. Cu ajutorul acestuia poți trimite și primi token-uri, poți vota un Super Reprezentant, poți participa la o vânzare de token-uri, poți ține evidența balanțelor și tranzacțiilor tale și multe altele. Atinge link-ul de mai jos pentru un tutorial detaliat cu privire la modul de utilizare al portofelului.",
       "tutorial": "TUTORIAL"
     },
     "accepts": {
-      "title": "Cine accepta TRX?"
+      "title": "Cine acceptă TRX?"
     },
     "helpCenter": {
       "title": "Serviciul de Asistență"
     },
     "accounts": {
       "title": "Conturi",
-      "search": "Conturi de căutare",
-      "restoreAccounts": "Restaurați conturile",
-      "noAccounts": "Nu există conturi pentru restabilire"
+      "search": "Caută conturi",
+      "restoreAccounts": "Restaurează conturi",
+      "noAccounts": "Nu există conturi de restaurat"
     },
     "partners": "PARTENERI",
-    "askPin": "Întrebați întotdeauna codul PIN",
+    "askPin": "Cere codul PIN întotdeauna",
     "askBiometry": "Activează Biometria",
     "verifiedTokensOnly": "Doar Token-uri verificate"
   },
   "submitTransaction": {
-    "title": "DETALII TRANZACȚIONALE",
-    "notification": "Ați primit o tranzacție de la {{address}}",
-    "notificationPayment": "Ați primit o plată de la {{address}}",
+    "title": "DETALIILE TRANZACȚIEI",
+    "notification": "Ai primit o tranzacție de la {{address}}",
+    "notificationPayment": "Ai primit o plată de la {{address}}",
     "data": "DATE",
     "time": "TIMP",
     "button": {
-      "tryAgain": "Încearcă din nou",
-      "submit": "TRANSMITEȚI TRANSMITEREA"
+      "tryAgain": "Re-încearcă",
+      "submit": "TRIMITE TRANZACȚIA"
     },
     "error": {
-      "noData": "Nu s-au putut încărca datele tranzacției"
+      "noData": "Nu s-au putut încărca detaliile tranzacției"
     },
     "exchange": {
       "send": "Trimitere {{sendtoken}}",
       "receive": "Primire {{receivetoken}}",
       "error": "Verificați cele mai recente tranzacții pentru a confirma suma primită."
     },
-    "disconnectedMessage": "Se pare că ești deconectat. Reconectați-vă la internet înainte de a continua tranzacția.",
+    "disconnectedMessage": "Se pare că te-ai deconectat. Verifică conexiunea la internet înainte de a continua tranzacția.",
     "dic": {
-      "contractType": "tipul tranzacției",
+      "contractType": "Tipul Tranzacției",
       "ownerAddress": "Din",
-      "toAddress": "La",
-      "participateAssetIssueContract": "Participa",
+      "toAddress": "Către",
+      "participateAssetIssueContract": "Participă",
       "transferAssetContract": "Transfer",
       "transferContract": "Transfer",
-      "unfreezeBalanceContract": "Deblocați",
-      "freezeBalanceContract": "Îngheţa",
-      "assetIssueContract": "Crea",
-      "voteWitnessContract": "Vot",
+      "unfreezeBalanceContract": "Deblochează",
+      "freezeBalanceContract": "Îngheaţă",
+      "assetIssueContract": "Creează",
+      "voteWitnessContract": "Votează",
       "frozenDuration": "Durată",
-      "frozenBalance": "Total pentru a îngheța"
+      "frozenBalance": "Suma totală de înghețat"
     },
     "errorDic": {
-      "contractValidate": "Datele tranzacției nu sunt valide. Vă rugăm să încercați din nou mai târziu.",
+      "contractValidate": "Detaliile tranzacției nu sunt valide. Te rugăm să încerci din nou mai târziu.",
       "signature": "Semnătura tranzacției nu este validă.",
-      "duplicate": "Tranzacție deja difuzată.",
-      "contractValidateCee": "Datele tranzacției nu sunt valabile (CEE). Vă rugăm să încercați din nou mai târziu.",
-      "bandwith": "Lățimea de bandă nu a fost atinsă. Vă rugăm să încercați din nou mai târziu.",
-      "contractValidateTapos": "Datele tranzacției nu sunt valide (TAPOS). Vă rugăm să încercați din nou mai târziu.",
+      "duplicate": "Tranzacție deja trimisă către rețea.",
+      "contractValidateCee": "Detaliile tranzacției nu sunt valide (CEE). Te rugăm să încerci din nou mai târziu.",
+      "bandwith": "Bandwidth insuficient. Te rugăm să încerci din nou mai târziu.",
+      "contractValidateTapos": "Detaliile tranzacției nu sunt valide (TAPOS). Te rugăm să încerci din nou mai târziu.",
       "tooBig": "Tranzacție prea mare pentru a fi trimisă.",
-      "expiration": "Tranzacția a expirat. Vă rugăm să încercați din nou.",
+      "expiration": "Tranzacția a expirat. Te rugăm să încerci din nou.",
       "serverBusy": "Server ocupat.",
-      "resource": "Lățime de bandă sau balanță insuficientă. S-ar putea să aveți nevoie de TRX înghețat."
+      "resource": "Bandwidth sau balanță insuficientă. S-ar putea să ai nevoie de TRX înghețat."
     },
     "totalVotes": "Voturi totale"
   },
   "transactions": {
-    "title": "TRANZACȚIILE MEA",
+    "title": "TRANZACȚIILE MELE",
     "from": "Din",
-    "to": "La",
+    "to": "Către",
     "notFound": "Nu au fost găsite tranzacții."
   },
   "transactionDetails": {
     "title": "TRANZACŢIE",
     "clipboard": {
-      "tronscanUrl": "Tronscan url pentru această copie copie în clipboard",
-      "publicKey": "Cheia publică copiată în clipboard"
+      "tronscanUrl": "Url-ul Tronscan pentru această tranzacție a fost copiat în clipboard",
+      "publicKey": "Cheie publică copiată în clipboard"
     },
     "hash": "HASH",
-    "status": "STARE",
+    "status": "STATUS",
     "time": "TIMP",
     "block": "BLOC",
-    "frozenBalance": "SOLD BALANȚĂ",
-    "unfrozenBalance": "BALANȚĂ NEFROZENĂ",
+    "frozenBalance": "BALANȚĂ ÎNGHETATĂ",
+    "unfrozenBalance": "BALANȚĂ DEBLOCATĂ",
     "totalVotes": "VOTURI TOTALE",
     "amount": "SUMA",
-    "to": "LA",
+    "to": "CĂTRE",
     "from": "DIN",
     "tokenName": "DENUMIREA TOKEN-ULUI",
     "unityValue": "VALOARE UNITARĂ",
@@ -510,7 +525,7 @@
     "search": "Căutare",
     "searchPreview": "Sugestii - Ultimele mele voturi",
     "error": "Hopa, ceva nu s-a încărcat corespunzător. Reîncercați",
-    "notFound": "Super Reprezentative-ul nu a fost găsit"
+    "notFound": "Super Reprezentativul nu a fost găsit"
   },
   "scanPayment": {
     "scan": "SCANARE",
@@ -555,24 +570,24 @@
     }
   },
   "balanceToken": {
-    "updating": "Actualizarea informațiilor despre token. Așteptați câteva secunde.",
+    "updating": "Actualizarea informațiilor despre token. Aștepă câteva secunde.",
     "notAvailable": "Informații despre Token indisponibile"
   },
   "biometry": {
     "register": {
-      "title": "Verificati Biometria"
+      "title": "Verifică-ți Biometria"
     },
     "auth": {
-      "title": "Salveaza Biometria",
+      "title": "Salvează Biometrie",
       "error": "Acces Interzis"
     }
   },
   "privacyPolicy": {
     "title": "POLITICA DE CONFIDENȚIALITATE",
-    "subtitle": "Trebuie să citiți și să acceptați termenii de confidențialitate pentru a continua.",
-    "error": "Trebuie să acceptați termenii de confidențialitate înainte de a continua. ",
+    "subtitle": "Trebuie să citești și să accepți termenii de confidențialitate pentru a continua.",
+    "error": "Trebuie să accepți termenii de confidențialitate înainte de a continua. ",
     "acceptTerms": "Am citit și sunt de acord cu termenii",
-    "continue": "CONTINUA",
+    "continue": "CONTINUARE",
     "docTitle": "Politica de confidenţialitate",
     "introduction": "Confidențialitatea Dvs. este importantă pentru noi. \nPolitica TronWallet este aceea de a vă respecta confidențialitatea cu privire la informațiile pe care le putem colecta de la Dvs. pe site-ul nostru web, http://tronwallet.me, și pe alte site-uri pe care le deținem și le operăm. \nVă vom solicita informații personale doar atunci cand avem nevoie pentru a vă oferi un serviciu. Vom colecta informațiile doar dupa insțiintarea si consimțământul dvs. si prin mijloace corecte și legale.\nDe asemenea, vă vom furniza si motivul pentru care colectăm aceste informații și cum vor fi folosite.\nInformațiile personale colecate vor fi retinute atâta timp cât este necesar pentru a vă oferi serviciul solicitat de dvs.\nDatele pe care le stocam, le vom proteja prin mijloace acceptabile din punct de vedere comercial pentru a preveni pierderile și furtul, precum și accesul, dezvăluirea, copierea, utilizarea sau modificarea neautorizată.\nNu împărtășim în mod public, sau cu terțe părți, informații cu privire la identificarea personală cu excepția cazului în care acest lucru este impus de lege.\nSite-ul nostru poate avea legături cu site-uri externe care nu sunt operate de noi. \nVa rugam sa rețineți că nu avem control asupra conținutului și practicilor ale acestor site-uri și nu putem fi responsabili sau răspunzători pentru politicile lor de confidențialitate.\nAveti liberatate deplina de a refuza cererea noastră pentru informații personale, totodată, înțelegându-ne că nu vă vom putea oferi anumite servicii dorite.\nUtilizarea continuă a site-ului nostru va fi considerata acceptare a practicilor noastre cu privire la confidențialitate și informații personale.\nDacă aveți întrebări cu privire la modul în care gestionăm datele utilizatorilor și informațiile personale, nu ezitați să ne contactați.\nAceastă politică este în vigoare de la 1 iulie 2018.",
     "termsOfService": {
@@ -630,5 +645,11 @@
         "body": "TRONWALLET este oferit gratuit și \"CA ATARE\", FĂRĂ GARANȚII SAU CONDIȚII DE ORICE FEL.\n"
       }
     }
+  },
+  "notifications": {
+    "title": "NOTIFICĂRI"
+  },
+  "news": {
+    "title": "STIRI"
   }
 }
