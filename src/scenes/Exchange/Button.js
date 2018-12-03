@@ -2,10 +2,10 @@ import React from 'react'
 import { ActivityIndicator } from 'react-native'
 import PropTypes from 'prop-types'
 
-import ButtonGradient from '../../../components/ButtonGradient'
-import * as Utils from '../../../components/Utils'
-import { Colors } from '../../../components/DesignSystem'
-import FadeIn from '../../../components/Animations/FadeIn'
+import ButtonGradient from '../../components/ButtonGradient'
+import * as Utils from '../../components/Utils'
+import { Colors } from '../../components/DesignSystem'
+import FadeIn from '../../components/Animations/FadeIn'
 
 const ExchangeButton = ({text, loading, result, onSubmit}) => {
   if (loading) return (<ActivityIndicator color={Colors.primaryText} />)

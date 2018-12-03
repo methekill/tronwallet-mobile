@@ -7,8 +7,8 @@ import MixPanel from 'react-native-mixpanel'
 import Input from '../../../components/Input'
 import * as Utils from '../../../components/Utils'
 import { ExchangePair, ExchangeVariation } from '../elements'
-import ExchangeBalancePair from '../ExchangeBalancePair'
-import ExchangeButton from '../ExchangeButton'
+import ExchangeBalancePair from '../BalancePair'
+import ExchangeButton from '../Button'
 import { Colors } from '../../../components/DesignSystem'
 
 // Utils
