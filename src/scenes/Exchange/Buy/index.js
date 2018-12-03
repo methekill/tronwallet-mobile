@@ -9,6 +9,7 @@ import * as Utils from '../../../components/Utils'
 import { Colors } from '../../../components/DesignSystem'
 import { ExchangePair, ExchangeVariation } from '../elements'
 import ExchangeBalancePair from '../BalancePair'
+import ExchangeButton from '../Button'
 
 // Utils
 import tl from '../../../utils/i18n'
@@ -19,7 +20,6 @@ import { logSentry } from '../../../utils/sentryUtils'
 
 // Service
 import WalletClient from '../../../services/client'
-import ExchangeButton from '../Button'
 
 class BuyScene extends Component {
   static navigationOptions = { header: null }
