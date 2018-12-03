@@ -1,13 +1,12 @@
 import React from 'react'
 import {
-  createBottomTabNavigator,
   createStackNavigator,
   createMaterialTopTabNavigator,
   createSwitchNavigator,
-  SafeAreaView
+  SafeAreaView,
+  createAppContainer
 } from 'react-navigation'
-
-import Splash from 'react-native-splash-screen'
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
 
 import { Colors, ScreenSize } from './src/components/DesignSystem'
 import { TWIcon } from './src/components/Utils'
@@ -55,7 +54,10 @@ import ExchangeTransaction from './src/scenes/Exchange/Transaction'
 
 import tl from './src/utils/i18n'
 
-// Splash.hide()
+const defaultCardStyle = {
+  shadowColor: 'transparent',
+  backgroundColor: Colors.background
+}
 
 const SettingsStack = createStackNavigator({
   Settings,
@@ -64,18 +66,12 @@ const SettingsStack = createStackNavigator({
   SeedConfirm,
   NetworkConnection
 }, {
+  mode: 'modal',
+  headerMode: 'none',
   navigationOptions: {
-    headerStyle: {
-      backgroundColor: Colors.background,
-      elevation: 0,
-      borderColor: Colors.background
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontFamily: 'rubik-medium'
-    },
     gesturesEnabled: false
-  }
+  },
+  cardStyle: defaultCardStyle
 })
 
 const tabWidth = ScreenSize.width / 2
@@ -84,7 +80,14 @@ const AddressBookTabs = createMaterialTopTabNavigator({
   Contacts: ContactsScene,
   Accounts: AccountsScene
 }, {
-  navigationOptions: { header: null },
+  navigationOptions: {
+    header: (
+      <SafeAreaView style={{ backgroundColor: Colors.background }}>
+        <NavigationHeader title={tl.t('addressBook.title')} />
+      </SafeAreaView>
+    ),
+    gesturesEnabled: false
+  },
   tabBarOptions: {
     activeTintColor: Colors.primaryText,
     inactiveTintColor: '#66688f',
@@ -112,16 +115,8 @@ const AddressBookStack = createStackNavigator({
   EditAddressBookItem,
   AddContact: AddContactScene
 }, {
-  navigationOptions: {
-    header: (
-      <SafeAreaView style={{ backgroundColor: Colors.background }}>
-        <NavigationHeader title={tl.t('addressBook.title')} />
-      </SafeAreaView>
-    ),
-    gesturesEnabled: false
-  },
   mode: 'modal',
-  cardStyle: { shadowColor: 'transparent' }
+  cardStyle: defaultCardStyle
 })
 
 const BalanceStack = createStackNavigator({
@@ -134,24 +129,36 @@ const BalanceStack = createStackNavigator({
   ScanPayScene,
   TokenDetailScene: TokenInfoScene
 }, {
-  mode: 'modal'
+  mode: 'modal',
+  cardStyle: defaultCardStyle
 })
+
 const ExchangeStack = createStackNavigator({
   ExchangeList,
   ExchangeTransaction
+}, {
+  mode: 'modal',
+  cardStyle: defaultCardStyle
 })
+
 const TransactionList = createStackNavigator({
   TransactionListScene,
   TransactionDetails
+}, {
+  mode: 'modal',
+  cardStyle: defaultCardStyle
 })
 
 const ParticipateStack = createStackNavigator({
   ParticipateHome,
   TokenInfo: TokenInfoScene,
   Buy: BuyScene
+}, {
+  mode: 'modal',
+  cardStyle: defaultCardStyle
 })
 
-const AppTabs = createBottomTabNavigator({
+const AppTabs = createMaterialBottomTabNavigator({
   Market: MarketScene,
   Vote: {
     screen: VoteScene,
@@ -164,11 +171,11 @@ const AppTabs = createBottomTabNavigator({
   Exchange: ExchangeStack,
   Settings: SettingsStack
 }, {
-  navigationOptions: ({ navigation }) => ({
+  defaultNavigationOptions: ({ navigation }) => ({
     tabBarIcon: ({ focused, tintColor }) => {
       const { routeName } = navigation.state
       let iconName
-      let iconSize = 26
+      let iconSize = 25
       if (routeName === 'Market') {
         iconName = `graph,-bar,-chart,-statistics,-analytics`
       } else if (routeName === 'Balance') {
@@ -195,15 +202,14 @@ const AppTabs = createBottomTabNavigator({
       return (<TWIcon name={iconName} size={iconSize} color={tintColor} />)
     }
   }),
-  tabBarOptions: {
-    activeTintColor: Colors.primaryText,
-    inactiveTintColor: Colors.secondaryText,
-    style: {
-      backgroundColor: 'black'
-    },
-    showLabel: false,
-    animationEnabled: true
+  labeled: false,
+  activeTintColor: Colors.primaryText,
+  inactiveTintColor: Colors.secondaryText,
+  barStyle: {
+    backgroundColor: 'black'
   },
+  showLabel: false,
+  animationEnabled: true,
   initialRouteName: 'Balance'
 })
 
@@ -227,11 +233,12 @@ const RootNavigator = createStackNavigator({
   Signals
 }, {
   mode: 'modal',
+  headerMode: 'none',
   navigationOptions: {
     gesturesEnabled: false,
     header: null
   },
-  cardStyle: { shadowColor: 'transparent' }
+  cardStyle: defaultCardStyle
 })
 
-export default RootNavigator
+export default createAppContainer(RootNavigator)

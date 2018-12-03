@@ -11,7 +11,6 @@ import OneSignal from 'react-native-onesignal'
 import Switch from 'react-native-switch-pro'
 import Biometrics from 'react-native-biometrics'
 import MixPanel from 'react-native-mixpanel'
-import RNDevice from 'react-native-device-info'
 
 // Design
 import * as Utils from '../../components/Utils'
@@ -276,12 +275,10 @@ class Settings extends Component {
 
   _saveBiometry = async (pin) => {
     const { useBiometry } = this.props.context
-    console.log()
     try {
       if (!useBiometry) {
         await Biometrics.createKeys(tl.t('biometry.register.title'))
-        const uid = await RNDevice.getUniqueID()
-        const signature = await Biometrics.createSignature(tl.t('biometry.register.title'), uid)
+        const signature = await Biometrics.createSignature(tl.t('biometry.register.title'), ' ')
         await AsyncStorage.setItem(ENCRYPTED_PIN, encrypt(pin, signature))
       }
       await AsyncStorage.setItem(USE_BIOMETRY, `${!useBiometry}`)
@@ -331,7 +328,6 @@ class Settings extends Component {
             title: tl.t('settings.helpCenter.title'),
             icon: 'message,-chat,-bubble,-text,-rounded',
             onPress: () => {
-              // this._openLink('https://help.tronwallet.me/')
               this.helpView.open('https://help.tronwallet.me/')
             }
           },
@@ -412,16 +408,7 @@ class Settings extends Component {
                     backgroundActive={Colors.yellow}
                     backgroundInactive={Colors.secondaryText}
                     value={this.props.context.useBiometry}
-                    onAsyncPress={(callback) => {
-                      // if (!this.props.context.useBiometry) {
-                      //   Biometrics.createKeys(tl.t('biometry.register.title'));
-                      // }
-
-                      // this.props.navigation.navigate('Pin', {
-                      //   shouldGoBack: true,
-                      //   testInput: pin => pin === this.props.context.pin,
-                      //   onSuccess: this._saveBiometry
-                      // })
+                    onAsyncPress={(callback) => {        
                       this._getPinCallback((pin) => {
                         this._saveBiometry(pin)
                       })
