@@ -20,7 +20,7 @@ import withContext from '../../utils/hocs/withContext'
 import { logSentry } from '../../utils/sentryUtils'
 import onBackgroundHandler from '../../utils/onBackgroundHandler'
 
-class BalanceScene extends Component {
+export class BalanceScene extends Component {
   static navigationOptions = {
     header: null
   }

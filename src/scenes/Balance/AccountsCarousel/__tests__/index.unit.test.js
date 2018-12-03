@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import AccountsCarousel from './../index'
+import { AccountsCarousel } from './../index'
 
 jest.mock('./../../../../utils/i18n')
 jest.mock('./../../../../utils/secretsUtils')

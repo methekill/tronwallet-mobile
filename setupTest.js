@@ -3,3 +3,8 @@ const EnzymeAdapter = require('enzyme-adapter-react-16.3')
 
 // Setup enzyme's react adapter
 Enzyme.configure({ adapter: new EnzymeAdapter(), disableLifecycleMethods: true })
+
+if (typeof window !== 'object') {
+  global.window = global
+  global.window.navigator = {}
+}

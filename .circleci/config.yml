@@ -1,5 +1,14 @@
 
-version: 2
+version: 2.1
+references:
+  config_setup: &config_setup
+    run:
+      name: Setting
+      command: |
+        echo $DEPLOY_OBJECT | base64 --decode > api-8054606568639612055-951116-e8a064391f73.json
+        echo $CONFIG_OBJECT | base64 --decode > config.js
+        echo $KEYSTORE_OBJECT | base64 --decode > android/app/tronwallet.keystore
+
 jobs:
   test:
     docker:
@@ -35,9 +44,8 @@ jobs:
           name: fastlane test
           command: bundle exec fastlane test
 
-      - run:
-          name: config
-          command: touch config.js
+      - *config_setup
+
       - run:
           name: jest test
           command: yarn test-all
@@ -127,9 +135,7 @@ jobs:
       
       - run: bundle check || bundle install --path vendor/bundle
       - run: yarn install --skip-integrity-check
-      - run: echo $DEPLOY_OBJECT | base64 --decode > api-8054606568639612055-951116-e8a064391f73.json
-      - run: echo $CONFIG_OBJECT | base64 --decode > config.js
-      - run: echo $KEYSTORE_OBJECT | base64 --decode > android/app/tronwallet.keystore
+      - *config_setup
 
       - save_cache:
           paths:
