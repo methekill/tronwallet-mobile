@@ -2,6 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { BalanceScene } from './../index'
 import * as sentryUtils from './../../../utils/sentryUtils'
+import * as secretsUtils from './../../../utils/secretsUtils'
 
 jest.mock('react-native-fabric')
 jest.mock('react-navigation')
@@ -9,11 +10,12 @@ jest.mock('react-native-mixpanel')
 jest.mock('react-native-device-info')
 jest.mock('../../../utils/i18n')
 jest.mock('../../../utils/secretsUtils')
-// jest.mock('./../../../utils/sentryUtils')
+jest.mock('../../../utils/sentryUtils')
 jest.mock('../../../services/contentful')
 jest.mock('../../../utils/hocs/withContext')
 
 sentryUtils.logSentry = jest.fn()
+secretsUtils.createNewAccount = jest.fn(() => Promise.resolve(true))
 
 describe('Balance Scene', () => {
   let balanceSceneWrapper = null
@@ -24,7 +26,7 @@ describe('Balance Scene', () => {
       context: {
         secretMode: '',
         pin: '12345',
-        oneSignalId: '',
+        oneSignalId: '123456789',
         loadUserData: jest.fn()
       }
     }
@@ -57,7 +59,7 @@ describe('Balance Scene', () => {
     expect(creatingNewAccount).toBeTruthy()
   })
 
-  test('Should creatingNewAccount state is FALSE when new account WAS created', async () => {
+  test('Should creatingNewAccount state is FALSE, when new account WAS created', async () => {
     // Arrange
     const instance = balanceSceneWrapper.instance()
 
