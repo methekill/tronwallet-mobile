@@ -45,7 +45,7 @@ export default function createCustomTopTabNavigator (routeConfigMap, tabConfig =
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: Colors.background }} forceInset={{ top: 'always', bottom: 'always' }} >
         <NavigationHeader
-          title={get(tabConfig, 'tabBarOptions.title', '')}
+          title={get(tabConfig, 'tabBarOptions.header.title', '')}
           onBack={() => navigation.goBack()}
         />
         <NotificationsTabs navigation={navigation} />

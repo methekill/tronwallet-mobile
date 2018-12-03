@@ -116,7 +116,9 @@ const NotificationsTabs = createCustomTopTabNavigator({
   Signals
 }, {
   tabBarOptions: {
-    title: tl.t('notifications.title')
+    header: {
+      title: tl.t('notifications.title')
+    }
   }
 })
 
