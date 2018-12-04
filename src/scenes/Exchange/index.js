@@ -17,7 +17,7 @@ import { logSentry } from '../../utils/sentryUtils'
 // Services
 import WalletClient from '../../services/client'
 
-class ExchangeScene extends Component {
+export class ExchangeScene extends Component {
     static navigationOptions = { header: null }
 
     state = {
@@ -30,12 +30,12 @@ class ExchangeScene extends Component {
     }
 
     componentDidMount () {
-      this.didFocusSubscription = this.props.navigation.addListener('didFocus', this._loadData)
+      this._didFocusSubscription = this.props.navigation.addListener('didFocus', this._loadData)
       this._loadData()
     }
 
     componentWillUnmount () {
-      this.didFocusSubscription.remove()
+      this._didFocusSubscription.remove()
     }
 
     _loadData = async () => {
@@ -99,7 +99,7 @@ class ExchangeScene extends Component {
         ? <Utils.View />
         : <EmptyList text={tl.t('exchange.notFound')} />
 
-    _renderSeparator = () => <Divider />
+    _renderSeparator = () => (<Divider />)
 
     render () {
       const { loading, currentList, isSearching, refreshing } = this.state
