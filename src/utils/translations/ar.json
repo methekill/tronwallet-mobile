@@ -80,9 +80,9 @@
       "buy": "قم بزيادة خفيفة على التكلفة التقديرية، و نسبة إجمالي المبيعات ستكون أعلى.",
       "sell": "قم بتخفيض التكلفة التقديرية قليلا، و نسبة إجمالي المبيعات ستكون أعلى."
     },
-    "estimatedRevenue": "ESTIMATED TO RECEIVE",
-    "estimatedCost": "ESTIMATED COST",
-    "preview": "Search by the Token name",
+    "estimatedRevenue": "المتوقع للاستلام",
+    "estimatedCost": "التكلفة المتوقعة",
+    "preview": "البحث باسم العملة",
     "notFound": "لم يتم العثور على المبادلة"
   },
   "hideAccount": "أنت على وشك إزالة هذا الحساب. يمكنك استعادتها لاحقًا في الإعدادات",
@@ -222,7 +222,7 @@
   },
   "participate": {
     "title": "شارك",
-    "featured": "مدعوم",
+    "featured": "SPONSORED",
     "button": {
       "confirm": "تأكيد",
       "moreInfo": "مزيد من المعلومات",
