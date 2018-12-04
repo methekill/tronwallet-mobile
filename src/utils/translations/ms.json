@@ -26,14 +26,14 @@
   "account": "Akaun",
   "restore": "Memulihkan",
   "error": {
-    "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
-    "buildingTransaction": "Error while building transaction, try again.",
-    "gettingTransaction": "Error while getting transaction.",
-    "clipboardCopied": "Something wrong while copying",
-    "hideAccount": "Something went wrong deleting account, try again'"
+    "default": "Woops terdapat sesuatu kesalahan. Sila cuba lagi nanti. Kalau masih ada masalah, cuba kemaskini tetapan rangkaian.",
+    "buildingTransaction": "Kesilapan semasa membina transaksi, sila cuba lagi.",
+    "gettingTransaction": "Kesilapan semasa mendapat transaksi.",
+    "clipboardCopied": "Sesuatu kesalahan semasa menyalin",
+    "hideAccount": "Sesuatu kesalahan semasa memadam akaun, sila cuba lagi"
   },
-  "avaliable": "AVAILABLE",
-  "frozen": "FROZEN",
+  "avaliable": "YANG ADA",
+  "frozen": "DIBEKU",
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRICE",
   "confirmed": "Confirmed",
