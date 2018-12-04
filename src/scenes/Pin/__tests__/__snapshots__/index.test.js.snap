@@ -180,35 +180,41 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "background": "#191A2A",
-      "children": <Styled(Component)
+      "children": <Styled(View)
         align="stretch"
         justify="flex-start"
       >
-        <Styled(Styled(Component))
+        <Styled(Styled(View))
+          flex={1}
           paddingSize="large"
         >
           <GoBackButton
             onPress={[Function]}
           />
-          <Styled(Component)
+          <Styled(View)
             align="center"
             justify="flex-start"
           >
             <Styled(Text)>
-              pin.title
+              SECURITY CHECK
             </Styled(Text)>
-            <Styled(Component)
+            <Styled(View)
               size="small"
             />
             <Styled(Text)>
-              pin.new
+              Enter New PIN
             </Styled(Text)>
-          </Styled(Component)>
-        </Styled(Styled(Component))>
+          </Styled(View)>
+        </Styled(Styled(View))>
         <PinPad
           onComplete={[Function]}
         />
-      </Styled(Component)>,
+        <Styled(View)
+          align="center"
+          flex={0.4}
+          justify="center"
+        />
+      </Styled(View)>,
     },
     "ref": null,
     "rendered": Object {
@@ -218,31 +224,36 @@ ShallowWrapper {
       "props": Object {
         "align": "stretch",
         "children": Array [
-          <Styled(Styled(Component))
+          <Styled(Styled(View))
+            flex={1}
             paddingSize="large"
           >
             <GoBackButton
               onPress={[Function]}
             />
-            <Styled(Component)
+            <Styled(View)
               align="center"
               justify="flex-start"
             >
               <Styled(Text)>
-                pin.title
+                SECURITY CHECK
               </Styled(Text)>
-              <Styled(Component)
+              <Styled(View)
                 size="small"
               />
               <Styled(Text)>
-                pin.new
+                Enter New PIN
               </Styled(Text)>
-            </Styled(Component)>
-          </Styled(Styled(Component))>,
+            </Styled(View)>
+          </Styled(Styled(View))>,
           <PinPad
             onComplete={[Function]}
           />,
-          null,
+          <Styled(View)
+            align="center"
+            flex={0.4}
+            justify="center"
+          />,
         ],
         "justify": "flex-start",
       },
@@ -258,21 +269,22 @@ ShallowWrapper {
               <GoBackButton
                 onPress={[Function]}
               />,
-              <Styled(Component)
+              <Styled(View)
                 align="center"
                 justify="flex-start"
               >
                 <Styled(Text)>
-                  pin.title
+                  SECURITY CHECK
                 </Styled(Text)>
-                <Styled(Component)
+                <Styled(View)
                   size="small"
                 />
                 <Styled(Text)>
-                  pin.new
+                  Enter New PIN
                 </Styled(Text)>
-              </Styled(Component)>,
+              </Styled(View)>,
             ],
+            "flex": 1,
             "paddingSize": "large",
           },
           "ref": null,
@@ -297,13 +309,13 @@ ShallowWrapper {
                 "align": "center",
                 "children": Array [
                   <Styled(Text)>
-                    pin.title
+                    SECURITY CHECK
                   </Styled(Text)>,
-                  <Styled(Component)
+                  <Styled(View)
                     size="small"
                   />,
                   <Styled(Text)>
-                    pin.new
+                    Enter New PIN
                   </Styled(Text)>,
                 ],
                 "justify": "flex-start",
@@ -315,10 +327,10 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": "pin.title",
+                    "children": "SECURITY CHECK",
                   },
                   "ref": null,
-                  "rendered": "pin.title",
+                  "rendered": "SECURITY CHECK",
                   "type": [Function],
                 },
                 Object {
@@ -337,10 +349,10 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": "pin.new",
+                    "children": "Enter New PIN",
                   },
                   "ref": null,
-                  "rendered": "pin.new",
+                  "rendered": "Enter New PIN",
                   "type": [Function],
                 },
               ],
@@ -360,7 +372,20 @@ ShallowWrapper {
           "rendered": null,
           "type": [Function],
         },
-        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "align": "center",
+            "children": null,
+            "flex": 0.4,
+            "justify": "center",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
       ],
       "type": [Function],
     },
@@ -373,35 +398,41 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "background": "#191A2A",
-        "children": <Styled(Component)
+        "children": <Styled(View)
           align="stretch"
           justify="flex-start"
         >
-          <Styled(Styled(Component))
+          <Styled(Styled(View))
+            flex={1}
             paddingSize="large"
           >
             <GoBackButton
               onPress={[Function]}
             />
-            <Styled(Component)
+            <Styled(View)
               align="center"
               justify="flex-start"
             >
               <Styled(Text)>
-                pin.title
+                SECURITY CHECK
               </Styled(Text)>
-              <Styled(Component)
+              <Styled(View)
                 size="small"
               />
               <Styled(Text)>
-                pin.new
+                Enter New PIN
               </Styled(Text)>
-            </Styled(Component)>
-          </Styled(Styled(Component))>
+            </Styled(View)>
+          </Styled(Styled(View))>
           <PinPad
             onComplete={[Function]}
           />
-        </Styled(Component)>,
+          <Styled(View)
+            align="center"
+            flex={0.4}
+            justify="center"
+          />
+        </Styled(View)>,
       },
       "ref": null,
       "rendered": Object {
@@ -411,31 +442,36 @@ ShallowWrapper {
         "props": Object {
           "align": "stretch",
           "children": Array [
-            <Styled(Styled(Component))
+            <Styled(Styled(View))
+              flex={1}
               paddingSize="large"
             >
               <GoBackButton
                 onPress={[Function]}
               />
-              <Styled(Component)
+              <Styled(View)
                 align="center"
                 justify="flex-start"
               >
                 <Styled(Text)>
-                  pin.title
+                  SECURITY CHECK
                 </Styled(Text)>
-                <Styled(Component)
+                <Styled(View)
                   size="small"
                 />
                 <Styled(Text)>
-                  pin.new
+                  Enter New PIN
                 </Styled(Text)>
-              </Styled(Component)>
-            </Styled(Styled(Component))>,
+              </Styled(View)>
+            </Styled(Styled(View))>,
             <PinPad
               onComplete={[Function]}
             />,
-            null,
+            <Styled(View)
+              align="center"
+              flex={0.4}
+              justify="center"
+            />,
           ],
           "justify": "flex-start",
         },
@@ -451,21 +487,22 @@ ShallowWrapper {
                 <GoBackButton
                   onPress={[Function]}
                 />,
-                <Styled(Component)
+                <Styled(View)
                   align="center"
                   justify="flex-start"
                 >
                   <Styled(Text)>
-                    pin.title
+                    SECURITY CHECK
                   </Styled(Text)>
-                  <Styled(Component)
+                  <Styled(View)
                     size="small"
                   />
                   <Styled(Text)>
-                    pin.new
+                    Enter New PIN
                   </Styled(Text)>
-                </Styled(Component)>,
+                </Styled(View)>,
               ],
+              "flex": 1,
               "paddingSize": "large",
             },
             "ref": null,
@@ -490,13 +527,13 @@ ShallowWrapper {
                   "align": "center",
                   "children": Array [
                     <Styled(Text)>
-                      pin.title
+                      SECURITY CHECK
                     </Styled(Text)>,
-                    <Styled(Component)
+                    <Styled(View)
                       size="small"
                     />,
                     <Styled(Text)>
-                      pin.new
+                      Enter New PIN
                     </Styled(Text)>,
                   ],
                   "justify": "flex-start",
@@ -508,10 +545,10 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "class",
                     "props": Object {
-                      "children": "pin.title",
+                      "children": "SECURITY CHECK",
                     },
                     "ref": null,
-                    "rendered": "pin.title",
+                    "rendered": "SECURITY CHECK",
                     "type": [Function],
                   },
                   Object {
@@ -530,10 +567,10 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "class",
                     "props": Object {
-                      "children": "pin.new",
+                      "children": "Enter New PIN",
                     },
                     "ref": null,
-                    "rendered": "pin.new",
+                    "rendered": "Enter New PIN",
                     "type": [Function],
                   },
                 ],
@@ -553,7 +590,20 @@ ShallowWrapper {
             "rendered": null,
             "type": [Function],
           },
-          null,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "align": "center",
+              "children": null,
+              "flex": 0.4,
+              "justify": "center",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
         ],
         "type": [Function],
       },

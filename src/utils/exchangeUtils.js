@@ -42,5 +42,4 @@ export const estimatedSellCost = (firstBalance, secondBalance, quant, parseTrx =
     : Math.floor(cost * SELL_VARIATION)
 }
 
-export const expectedSell = (value, isTrx) => Math.round((isTrx ? ONE_TRX : 1) * value)
-export const expectedBuy = (value, isTrx) => Math.round((isTrx ? ONE_TRX : 1) * value)
+export const trxValueParse = (value, isTrx) => Math.round((isTrx ? ONE_TRX : 1) * value)

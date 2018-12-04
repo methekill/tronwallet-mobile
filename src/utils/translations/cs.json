@@ -20,6 +20,7 @@
   "cancel": "Zrušit",
   "address": "Adresa",
   "message": "Zpráva",
+  "ex": "Burza",
   "ok": "OK",
   "actionModalTitle": "Zvolte",
   "account": "Účet",
@@ -40,12 +41,13 @@
   "copyAddress": "KOPÍROVAT ADRESU",
   "transactionType": {
     "transfer": "Převod",
-    "transferAsset": "Převod aktiva",
+    "transferAsset": "Převod aktiv",
     "freeze": "Zmražení",
     "unfreeze": "Rozmrazení",
     "vote": "Hlasování",
     "participate": "Nákup tokenu",
     "create": "Vytvoření",
+    "exchange": "Obchod",
     "undefined": "Nedefinovaný typ"
   },
   "close": "Zavřít",
@@ -56,6 +58,7 @@
   "privateKey": "Soukromý klíč",
   "results": "Výsledky",
   "buy": "Koupit",
+  "sell": "Prodat",
   "filter": "Filtr",
   "txs": "Transakce",
   "balance": {
@@ -65,22 +68,34 @@
       "savingCurrency": "Chyba při ukládání preferované měny"
     },
     "chooseCurrency": "Prosím, vyberte vaši preferovanou měnu.",
-    "confirmSeed": "Klepnutím potvrdíte vašich 12 seed slov",
+    "confirmSeed": "Klepnutím potvrdíte vašich 12 klíčových slov",
     "bandwidth": "ŠÍŘKA PÁSMA",
     "tokens": "TOKENY",
     "holdings": "MNOŽSTVÍ"
+  },
+  "exchange": {
+    "minToSell": "Minimum k prodeji ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum k nákupu ≈ {{min}} {{tokenId}}",
+    "variation": {
+      "buy": "Mírně vyšší odhadované náklady zvýší míru obratu.",
+      "sell": "Mírně nižší odhadované náklady zvýší míru obratu."
+    },
+    "estimatedRevenue": "ODHADOVANÝ PŘÍJEM",
+    "estimatedCost": "ODHADOVANÉ NÁKLADY",
+    "preview": "Hledat podle názvu tokenu",
+    "notFound": "Obchody nenalezeny"
   },
   "hideAccount": "Chystáte se odstranit tento účet. Později jej můžete obnovit v nastavení",
   "components": {
     "share": {
       "title": "Sdílet TronWallet adresu",
       "message": "Toto je moje TronWallet adresa:\n\n {{address}}\n\nTip: Po zkopírování ji můžete vložit do TronWallet aplikace pomocí speciálního tlačítka na obrazovce pro odeslání.",
-      "dialogTitle": "Sdílejte pomocí:"
+      "dialogTitle": "Sdílet pomocí:"
     },
     "QRScanner": {
       "title": "Skener adresy",
       "scan": "Skenovat",
-      "explanation": "Skenujte QR kód pro identifikaci příjemce",
+      "explanation": "Skenovat QR kód pro identifikaci příjemce",
       "permissionMessage": "Pro naskenování veřejného klíče je potřeba aplikaci povolit oprávnění ke kameře."
     },
     "vote": {
@@ -124,7 +139,7 @@
         "body": "Uložení adres vašich přátel \n a kontaktů."
       },
       "multipleaccounts": {
-        "title": "VÍCE ÚČTŮ",
+        "title": "VÍCENÁSOBNÉ ÚČTY",
         "body": "V peněžence můžete spravovat \n více účtů"
       }
     }
@@ -155,7 +170,7 @@
       "nameError": "Pole název musí začínat písmenem, obsahovat maximálně 32 znaků a skládat se pouze z písmen, číslic a mezery.",
       "addressError": "Adresa není správná. Prosím zkontrolujte, zda nedošlo k překlepu.",
       "uniqueAddressError": "Klíč musí být unikátní. Prosím zadejte jinou adresu.",
-      "uniqueAliasError": "Názvy ve vašem adresáři musí být unikátní. Prosím vyberte jiné.",
+      "uniqueAliasError": "Názvy ve vašem adresáři musí být unikátní. Prosím vyberte jiný.",
       "name": "NÁZEV",
       "address": "ADRESA"
     }
@@ -172,7 +187,7 @@
     "title": "ZMRAZIT",
     "unfreeze": {
       "title": "ROZMRAZIT",
-      "inXTime": "Můžete uvolnit TRX",
+      "inXTime": "Můžete rozmrazit TRX",
       "inThreeDays": "TRX můžete rozmrazit po třech dnech",
       "inXMinutes": "TRX můžete rozmrazit za {{minutes}} min.",
       "inXHours": "TRX můžete rozmrazit za {{hours}} hod.",
@@ -207,7 +222,7 @@
   },
   "participate": {
     "title": "NÁKUP TOKENŮ",
-    "featured": "DOPORUČENÝ",
+    "featured": "SPONSORED",
     "button": {
       "confirm": "POTVRDIT",
       "moreInfo": "VÍCE INFORMACÍ",
@@ -216,14 +231,14 @@
     "error": {
       "insufficientBalance": "Nedostatek prostředků (TRX) k nákupu.",
       "insufficientTrx": {
-        "title": "Musíte si koupit alespoň jeden TRX v hodnotě {{token}}.",
+        "title": "Musíte koupit {{token}} alespoň v hodnotě jeden TRX.",
         "message": "Momentálně kupujete pouze {{amount}}."
       },
       "notFound": "Aktiva nenalezena"
     },
     "warning": "Nemáte dostatek TRX ke koupi tolika {{token}}",
     "enterAmountToBuy": "ZADEJTE MNOŽSTVÍ",
-    "amountToBuy": "KOUPIT MNOŽSTVÍ",
+    "amountToBuy": "MNOŽSTVÍ KE KOUPI",
     "pricePerToken": "CENA ZA TOKEN",
     "tokenDescription": "POPIS TOKENU",
     "tokenInfo": "INFORMACE O TOKENU",
@@ -233,8 +248,8 @@
     "percentage": "PROCENTNÍ PODÍL",
     "issued": "MINCÍ V OBĚHU",
     "totalSupply": "CELKOVÝ POČET MINCÍ",
-    "startTime": "ČAS ZAHÁJENÍ",
-    "endTime": "ČAS UKONČENÍ",
+    "startTime": "ZAČÁTEK",
+    "endTime": "KONEC",
     "description": "POPIS",
     "transaction": "TRANSAKCE",
     "ownerAddress": "ADRESA VLASTNÍKA",
@@ -248,7 +263,7 @@
     "title": "BEZPEČNOSTNÍ KONTROLA",
     "enter": "Zadejte PIN kód",
     "new": "Zadejte nový PIN kód",
-    "reenter": "Zadejte znovu PIN kód",
+    "reenter": "Potvrďte PIN kód",
     "biometrics": "Biometrická kontrola"
   },
   "receive": {
@@ -311,7 +326,7 @@
       "gettingBalance": "Chyba během získávání zůstatku",
       "incompleteAddress": "Adresa je neúplná nebo neplatná.",
       "invalidReceiver": "Neplatná adresa příjemce",
-      "selectBalance": "Vyberte nejprve zůstatek",
+      "selectBalance": "Nejdříve vyberte množství",
       "invalidAmount": "Neplatné množství"
     },
     "input": {
@@ -321,19 +336,19 @@
       "description": "POPIS (NEPOVINNÝ)"
     },
     "available": "dostupné",
-    "chooseToken": "Prosím, vyberte jeden z tokenů.",
+    "chooseToken": "Prosím, vyberte z tokenů níže.",
     "minimumAmount": "Minimální množství pro poslání transakce je 0.000001."
   },
   "settings": {
     "title": "NASTAVENÍ",
     "sectionTitles": {
       "wallet": "PENĚŽENKA",
-      "security": "BEZPEČNOST",
-      "notification": "NOTIFIKACE A JAZYKY",
+      "security": "ZABEZPEČENÍ",
+      "notification": "OZNÁMENÍ A JAZYKY",
       "accounts": "ŘÍZENÍ ÚČTŮ"
     },
     "notifications": {
-      "title": "Notifikace"
+      "title": "Oznámení"
     },
     "network": {
       "title": "Síť",
@@ -350,7 +365,7 @@
           "updated": "Aktualizováno",
           "updatedIp": "IP nodů aktualizovány!",
           "switchTest": "IP nodů změněny na TestNet",
-          "switchMain": "IP nodů změněny na defaultní nastavení",
+          "switchMain": "IP nodů změněny na výchozí nastavení",
           "reset": "IP nodu resetována!"
         },
         "placeholder": {
@@ -374,7 +389,7 @@
     },
     "reset": {
       "title": "Vymazat peněženku",
-      "warning": "Upozornění: Tato akce smaže všechna uložená data včetně 12 tajných slov. Pokud jste si neuložili váš seed, učiňte tak prosím dříve než budete pokračovat.",
+      "warning": "Upozornění: Tato akce smaže všechna uložená data včetně 12 tajných slov. Pokud jste si neuložili váš klíč, učiňte tak prosím dříve než budete pokračovat.",
       "button": "OK, rozumím tomu"
     },
     "pin": {
@@ -418,7 +433,7 @@
       "noAccounts": "Žádné účty k obnovení"
     },
     "partners": "PARTNEŘI",
-    "askPin": "Vždy se zeptat na PIN kód",
+    "askPin": "Vždy požadovat PIN kód",
     "askBiometry": "Aktivovat biometrii",
     "verifiedTokensOnly": "Pouze ověřené tokeny"
   },
@@ -544,10 +559,10 @@
   },
   "newAccount": {
     "title": "Vytvoření účtu",
-    "placeholder": "Můj drahocenný účet",
+    "placeholder": "Můj řádný účet",
     "success": {
       "title": "Nový účet byl úspěšně vytvořen",
-      "message": "Můžete upravit název ve svém adresáři"
+      "message": "Ve svém adresáři můžete upravit název"
     },
     "failure": {
       "title": "Upozornění na nový účet",
@@ -630,5 +645,11 @@
         "body": "TRONWALLET je dostupný k volnému užití VE STAVU V JAKÉM JE, BEZ ZÁRUK NEBO PODMÍNEK JAKÉHOKOLI CHARAKTERU.\n"
       }
     }
+  },
+  "notifications": {
+    "title": "NOTIFIKACE"
+  },
+  "news": {
+    "title": "NOVINKY"
   }
 }

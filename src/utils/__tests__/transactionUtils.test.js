@@ -1,13 +1,17 @@
 import { signTransaction, updateTransactions, getTokenPriceFromStore } from '../transactionUtils'
-import { logSentry } from '../sentryUtils'
+import * as sentryUtils from '../sentryUtils'
 import getTransactionStore from '../../store/transactions'
 import transactionList from '../../services/__mocks__/transactionList'
 import getAssetsStore from '../../store/assets'
+import axios from 'axios'
 
+jest.mock('axios')
 jest.mock('realm')
 jest.mock('react-native-tron')
 jest.mock('../i18n')
 jest.mock('../sentryUtils')
+sentryUtils.logSentry = jest.fn()
+
 jest.mock('../../services/client')
 jest.mock('../deeplinkUtils', () => ({
   TronVaultURL: 'testurl'
@@ -28,13 +32,15 @@ describe('Transaction Utils', () => {
       const transactionUnsigned = 'transaction'
 
       await signTransaction(privateKey, transactionUnsigned)
-      expect(logSentry).toBeCalledWith('signTransaction error', 'Signing Transaction')
+      expect(sentryUtils.logSentry).toBeCalledWith('signTransaction error', 'Signing Transaction')
     })
   })
 
   describe('#updateTransactions', () => {
     test('update realm transactions', async () => {
-      await updateTransactions('any address')
+      const resp = { data: transactionList }
+      axios.post = jest.fn(() => Promise.resolve(resp))
+      await updateTransactions('12345678945454544')
       const transactionStoreRef = await getTransactionStore()
       expect(transactionStoreRef.objects('Transaction').length).toBe(transactionList.length)
     })

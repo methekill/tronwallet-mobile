@@ -1,7 +1,7 @@
 {
   "relativeTime": {
-    "future": "in %s percentuale",
-    "past": "%s percentuale passata",
+    "future": "in %s",
+    "past": "%s fa",
     "s": "pochi secondi",
     "ss": "%d secondi",
     "m": "un minuto",
@@ -17,35 +17,37 @@
   },
   "success": "Successo",
   "warning": "Avvertenza",
-  "cancel": "Cancellare",
+  "cancel": "Annulla",
   "address": "Indirizzo",
   "message": "Messaggio",
+  "ex": "Cambio",
   "ok": "Ok",
   "actionModalTitle": "Ti piacerebbe",
   "account": "Conto",
   "restore": "Ripristinare",
   "error": {
     "default": "Woops qualcosa è andato storto. Riprovate più tardi e se l'errore persiste provate ad aggiornare le impostazioni di rete.",
-    "buildingTransaction": "Si è verificato un errore durante \nla creazione della transazione. \nRiprovate di nuovo.",
+    "buildingTransaction": "Si è verificato un errore durante la creazione della transazione. Riprovate di nuovo.",
     "gettingTransaction": "Errore durante la ricezione della transazione.",
-    "clipboardCopied": "Qualcosa non ha funzionato mentre usi “copia”",
+    "clipboardCopied": "Qualcosa non ha funzionato durante la fase di copia",
     "hideAccount": "Qualcosa è andato storto durante la cancellazione dell'account, riprova."
   },
-  "avaliable": "Disponibile",
-  "frozen": "Congelato",
-  "tronPower": "LA FORZA DI TRON",
-  "trxPrice": "Il prezzo TRX",
+  "avaliable": "DISPONIBILE",
+  "frozen": "CONGELATO",
+  "tronPower": "FORZA DI TRON",
+  "trxPrice": "PREZZO DI TRX",
   "confirmed": "Confermato",
   "unconfirmed": "Non confermato",
   "copyAddress": "COPIA INDIRIZZO",
   "transactionType": {
     "transfer": "Trasferimento",
-    "transferAsset": "Trasferisci risorse",
+    "transferAsset": "Trasferisci Asset",
     "freeze": "Congelare",
     "unfreeze": "Scongelare",
     "vote": "Vota",
     "participate": "Partecipare",
     "create": "Crea",
+    "exchange": "Cambio",
     "undefined": "Tipo indefinito"
   },
   "close": "Chiudi",
@@ -56,6 +58,7 @@
   "privateKey": "Chiave privata",
   "results": "Risultati",
   "buy": "Compra",
+  "sell": "Vendi",
   "filter": "Filtro",
   "txs": "Transizioni",
   "balance": {
@@ -65,12 +68,24 @@
       "savingCurrency": "Errore durante il salvataggio della valuta preferita"
     },
     "chooseCurrency": "Per favore scegli la tua valuta preferita.",
-    "confirmSeed": "Per favore tocca per confermare le tue 12 parole seed",
+    "confirmSeed": "Per favore tocca per confermare il tuo seed da 12 parole",
     "bandwidth": "LARGHEZZA DI BANDA",
     "tokens": "Token",
     "holdings": "Tenuti in custodia"
   },
-  "hideAccount": "Stai per rimuovere questo account. Puoi ripristinarlo più tardi nelle impostazioni",
+  "exchange": {
+    "minToSell": "Minimo da vendere ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimo da comprare ≈ {{min}} {{tokenId}}",
+    "variation": {
+      "buy": "Lievemente maggiore del costo stimato e il tasso di cambio sarà maggiore.",
+      "sell": "Lievemente minore del costo stimato e il tasso di cambio sarà maggiore."
+    },
+    "estimatedRevenue": "STIMATO DA RICEVERE",
+    "estimatedCost": "COSTO STIMATO",
+    "preview": "Ricerca del token attraverso nome",
+    "notFound": "Cambi non trovati"
+  },
+  "hideAccount": "Stai per rimuovere questo account. Puoi ripristinarlo più tardi dalle impostazioni",
   "components": {
     "share": {
       "title": "Condividi l'indirizzo TronWallet",
@@ -84,7 +99,7 @@
       "permissionMessage": "Per eseguire la scansione della chiave pubblica, l’applicazione richiede il tuo permesso per accedere alla videocamera."
     },
     "vote": {
-      "enterVote": "INSERISCI IL VALORE DEL VOTO",
+      "enterVote": "INSERISCI IL QUANTITATIVO DI VOTI",
       "votesRemaining": "VOTI RIMANENTI",
       "setVote": "IMPOSTA I VOTI",
       "moreVotes": "Se hai bisogno di più voti puoi congelare più TRX.",
@@ -143,17 +158,17 @@
         "title": "Elimina contatto",
         "message": "Vuoi davvero eliminare questo contatto?",
         "cancelButton": "Cancella",
-        "okButton": "Ok"
+        "okButton": "OK"
       },
       "empty": "La tua rubrica è vuota, aggiungi un nuovo contatto usando il pulsante qui sotto.",
       "loadError": "Si è verificato un problema durante il caricamento dei contatti. Per favore riprova.",
-      "addContact": "Aggiungi un contatto",
+      "addContact": "AGGIUNGI UN CONTATTO",
       "addToContacts": "AGGIUNGI AI CONTATTI"
     },
     "form": {
       "generalError": "Si è verificato un problema durante il caricamento di questo modulo. Si prega di contattare un amministratore.",
       "nameError": "Lo spazio per il nome deve iniziare con una lettera, contenere al massimo 32 caratteri e accetta solo lettere, numeri e spazi vuoti.",
-      "addressError": "C’è aualcosa di sbagliato con l'indirizzo. Si prega di ricontrollare per correggere errori di digitazione.",
+      "addressError": "C’è qualcosa di sbagliato con l'indirizzo. Si prega di ricontrollare per correggere errori di digitazione.",
       "uniqueAddressError": "La chiave deve essere unica. Si prega di scegliere un indirizzo differente.",
       "uniqueAliasError": "I nomi nella tua rubrica devono essere unici. \nSi prega di sceglierne uno differente.",
       "name": "NOME",
@@ -173,11 +188,11 @@
     "unfreeze": {
       "title": "SCONGELARE",
       "inXTime": "Ora puoi sbloccare i tuoi TRX ",
-      "inThreeDays": "Dopo un periodo di tre giorni puoi sbloccare il tuo TRX",
-      "inXMinutes": "Puoi sbloccare il tuo TRX in {{minutes}} minuti.",
-      "inXHours": "Puoi sbloccare il tuo TRX in {{hours}} ore.",
-      "inXDays": "Puoi sbloccare il tuo TRX in {{days}} giorni.",
-      "now": "Puoi sbloccare il tuo TRX ora."
+      "inThreeDays": "Dopo un periodo di tre giorni puoi sbloccare i tuoi TRX",
+      "inXMinutes": "Puoi sbloccare i tuoi TRX in {{minutes}} minuti.",
+      "inXHours": "Puoi sbloccare i tuoi TRX in {{hours}} ore.",
+      "inXDays": "Puoi sbloccare i tuoi TRX in {{days}} giorni.",
+      "now": "Puoi sbloccare i tuoi TRX ora."
     },
     "error": {
       "minimumAmount": "L'importo minimo per qualsiasi operazione di congelamento è 1.",
@@ -189,7 +204,7 @@
   },
   "getVault": {
     "notInstalled": "Sembra che tu non abbia installato Tron Vault nel tuo telefono per poter procedere con la tua transazione.",
-    "downloadHere": "Potete scaricarlo qui"
+    "downloadHere": "È possibile scaricarlo qui"
   },
   "market": {
     "time": {
@@ -207,7 +222,7 @@
   },
   "participate": {
     "title": "PARTECIPARE",
-    "featured": "IN PRIMO PIANO",
+    "featured": "SPONSORED",
     "button": {
       "confirm": "CONFERMA",
       "moreInfo": "PIU' INFORMAZIONI",
@@ -236,7 +251,7 @@
     "startTime": "ORA DI INIZIO",
     "endTime": "FINE DEL TEMPO",
     "description": "DESCRIZIONE",
-    "transaction": "TRANSAZIONE",
+    "transaction": "LE MIE TRANSAZIONI",
     "ownerAddress": "INDIRIZZO DEL PROPRIETARIO",
     "trxNum": "NUMERO TRX",
     "num": "NUMERO",
@@ -275,23 +290,23 @@
         "message": "Le parole selezionate non corrispondono. Assicurati di aver scritto le parole nell'ordine corretto."
       },
       "success": "Portafoglio confermato con successo",
-      "explanation": "Seleziona le parole qui sotto nel giusto ordine per confermare la tua frase segreta.",
+      "explanation": "Seleziona le parole qui sotto nell'ordine giusto per confermare la tua frase segreta.",
       "button": {
         "reset": "REIMPOSTARE PAROLE",
-        "confirm": "CONFERMA PAROLA SGRETA"
+        "confirm": "CONFERMA PAROLA SEGRETA"
       }
     },
     "create": {
-      "title": "CREA PAROLE SGRETE",
+      "title": "CREA PAROLE SEGRETE",
       "titleConfirm": "CONFERMA LE PAROLE SEGRETE DEL PORTAFOGLIO",
-      "error": "Oops, abbiamo un problema Si prega di riavviare l'applicazione.",
+      "error": "Oops, abbiamo un problema. Si prega di riavviare l'applicazione.",
       "generateNew": "Questo genererà un portafoglio completamente nuovo.",
       "button": {
         "written": "L'HO RISCRITTO SU CARTA",
         "newSeed": "OTTIENI NUOVE PAROLE SEGRETE",
         "later": "Conferma più tardi"
       },
-      "backupMessage": "Puoi sempre accedere alle tue parole entrando nel backup nelle impostazioni dell’applicazione",
+      "backupMessage": "Puoi sempre accedere alle tue parole entrando nel backup dalle impostazioni dell’applicazione      ",
       "seedExplanation": "Il codice con parole segrete è una rappresentazione leggibile dal tuo portafoglio. Quelle parole, in quell'ordine esatto, possono essere utilizzate per ricreare il tuo portafoglio."
     },
     "restore": {
@@ -312,10 +327,10 @@
       "incompleteAddress": "L'indirizzo è incompleto o non valido.",
       "invalidReceiver": "Indirizzo del destinatario non valido",
       "selectBalance": "Seleziona prima un saldo",
-      "invalidAmount": "importo non valido"
+      "invalidAmount": "Importo non valido"
     },
     "input": {
-      "token": "GETTONE",
+      "token": "TOKEN",
       "to": "A",
       "amount": "IMPORTO",
       "description": "DESCRIZIONE (FACOLTATIVA)"
@@ -348,21 +363,21 @@
         },
         "success": {
           "updated": "Aggiornato",
-          "updatedIp": "IP dei nodi aggiornati !",
+          "updatedIp": "IP dei nodi aggiornati!",
           "switchTest": "Passaggio dai nodi IP a Testnet",
           "switchMain": "Passaggio dai nodi IP a rete principale",
           "reset": "Nodo IP ripristinato!"
         },
         "placeholder": {
           "loadingIp": "Caricare IP",
-          "loadingPort": "Caricare Porta"
+          "loadingPort": "Caricamento Porta"
         },
         "button": {
           "update": "Aggiorna e Connetti",
           "reset": "Ripristinare"
         },
         "mainNode": "Nodo principale",
-        "solidityNode": "Nodo di solidità",
+        "solidityNode": "Nodo di Solidity",
         "testNet": "TestNet"
       }
     },
@@ -370,7 +385,7 @@
       "title": "Backup del Portafoglio"
     },
     "restore": {
-      "title": "Ristabilire Portafoglio"
+      "title": "Ripristina Portafoglio"
     },
     "reset": {
       "title": "Ripristina Portafoglio",
@@ -397,12 +412,12 @@
     "token": {
       "title": "Filtro token",
       "search": "Cerca token",
-      "confirm": "Salvare",
+      "confirm": "Salva",
       "noResult": "Nessun risultato..."
     },
     "about": {
       "title": "A proposito di",
-      "description": "TronWallet è un portafoglio Crypto P2P completamente decentralizzato open source per TRON Network realizzato con React Native. Con esso è possibile inviare e ricevere token, votare un Super Rappresentante, partecipare a una vendita di token, tenere traccia dei propri saldi e transazioni e molto altro ancora. Toccare il link sottostante per un tutorial dettagliato su come usarlo.",
+      "description": "TronWallet è un portafoglio Crypto P2P completamente decentralizzato e open source per TRON Network realizzato con React Native. Con esso è possibile inviare e ricevere token, votare un Super Rappresentante, partecipare a una vendita di token, tenere traccia dei propri saldi e transazioni e molto altro ancora. Toccare il link sottostante per un tutorial dettagliato su come usarlo.",
       "tutorial": "TUTORIAL"
     },
     "accepts": {
@@ -417,7 +432,7 @@
       "restoreAccounts": "Ristabilire conto",
       "noAccounts": "Nessun conto da ristabilire"
     },
-    "partners": "Soci",
+    "partners": "SOCI",
     "askPin": "Chiedi sempre il PIN",
     "askBiometry": "Attiva la Biometria",
     "verifiedTokensOnly": "Solo tokens verificati"
@@ -460,7 +475,7 @@
       "signature": "Firma della transazione non valida.",
       "duplicate": "Transazione già trasmessa.",
       "contractValidateCee": "Dati transazione non validi (CEE). Per favore riprova più tardi.",
-      "bandwith": "La larghezza di banda non è sufficente. Per favore riprova più tardi.",
+      "bandwith": "La larghezza di banda non è sufficiente. Per favore riprova più tardi.",
       "contractValidateTapos": "Dati transazione non validi (TAPOS). Per favore riprova più tardi.",
       "tooBig": "Transazione troppo grande per essere trasmessa.",
       "expiration": "Transazione scaduta. Per favore riprova.",
@@ -478,7 +493,7 @@
   "transactionDetails": {
     "title": "TRANSAZIONE",
     "clipboard": {
-      "tronscanUrl": "L'url di Tronscan per questa transazione è stata copiata negli appunti",
+      "tronscanUrl": "L'url di Tronscan per questa transazione è stato copiato negli appunti",
       "publicKey": "Chiave pubblica copiata negli appunti"
     },
     "hash": "HASH",
@@ -528,7 +543,7 @@
     "error": {
       "receiver": "Il destinatario è uguale al richiedente",
       "token": "Questo account non ha il token per questa transazione",
-      "amount": "Questo account non ha un saldo sufficente.",
+      "amount": "Questo account non ha un saldo sufficiente.",
       "description": "Descrizione non disponibile"
     }
   },
@@ -630,5 +645,11 @@
         "body": "TRONWALLET è fornito gratuitamente e su \"COSÌ COM'È\", SENZA GARANZIE O CONDIZIONI DI ALCUN TIPO.\n"
       }
     }
+  },
+  "notifications": {
+    "title": "NOTIFICHE"
+  },
+  "news": {
+    "title": "NOTIZIE"
   }
 }
