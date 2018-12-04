@@ -51,7 +51,7 @@
     "undefined": "Undefined Type"
   },
   "close": "Tutup",
-  "ends": "Ends",
+  "ends": "Tamat",
   "clear": "Jelas",
   "allIn": "All In",
   "skip": "Skip",
@@ -59,7 +59,7 @@
   "results": "Keputusan",
   "buy": "Beli",
   "sell": "Jual",
-  "filter": "Filter",
+  "filter": "Tapis",
   "txs": "Transaksi",
   "balance": {
     "title": "AKAUN",
@@ -85,7 +85,7 @@
     "preview": "Search by the Token name",
     "notFound": "Exchanges not found"
   },
-  "hideAccount": "You are about to remove this account. You can restore it later in the settings",
+  "hideAccount": "Anda akan memadamkan akaun ini. Anda boleh memulihkan ia di dalam tetapan nanti",
   "components": {
     "share": {
       "title": "Share TronWallet address",
@@ -107,18 +107,18 @@
       "yourVotes": "Undian Anda",
       "myVotes": "UNDIAN SAYA",
       "confirm": "CONFIRM",
-      "freeze": "Freeze",
-      "totalVotes": "Total votes available:",
-      "delete": "DELETE",
-      "set": "SET",
+      "freeze": "Beku",
+      "totalVotes": "Jumlah undi yang ada:",
+      "delete": "PADAM",
+      "set": "TETAPKAN",
       "freezeOrLower": "You do not have enough frozen TRX. Freeze more TRX or lower the vote amount",
       "freezeToContinue": "You do not have enough frozen TRX. Freeze more TRX to continue"
     }
   },
   "firstTime": {
     "button": {
-      "create": "CREATE WALLET",
-      "restore": "RESTORE WALLET",
+      "create": "MENCIPTA DOMPET",
+      "restore": "MEMULIHKAN DOMPET",
       "import": "IMPORT WALLET"
     },
     "swiper": {
@@ -131,8 +131,8 @@
         "body": "Privacy and security for \n your transactions"
       },
       "votes": {
-        "title": "VOTES",
-        "body": "Freezing and vote for Super \n Representatives"
+        "title": "UNDIAN",
+        "body": "Beku dan undi untuk Super Representatives"
       },
       "addressbook": {
         "title": "ADDRESS BOOK",
@@ -147,13 +147,13 @@
   "addressBook": {
     "title": "ADDRESS BOOK",
     "shared": {
-      "add": "ADD",
+      "add": "TAMBAH",
       "edit": "EDIT",
-      "delete": "DELETE",
-      "send": "SEND"
+      "delete": "PADAM",
+      "send": "HANTAR"
     },
     "contacts": {
-      "title": "CONTACTS",
+      "title": "KENALAN",
       "delete": {
         "title": "Padam Kenalan",
         "message": "Adakah anda pasti mahu memadamkam kenalan ini?",
@@ -310,13 +310,13 @@
       "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
-      "title": "RESTORE WALLET",
+      "title": "MEMULIHKAN DOMPET",
       "explanation": "To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
-      "placeholder": "Please, type your 12 seed words here",
-      "success": "Wallet restored with success!",
+      "placeholder": "Sila taip 12 perkataan seed anda di sini",
+      "success": "Dompet berjaya dipulihkan!",
       "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
-      "error": "Oops. Looks like the words you typed aren't a valid mnemonic seed. Check for a typo and try again.",
-      "button": "RESTORE"
+      "error": "Oops. Perkataan seed yang anda taip tidak sah. Semak semula untuk kesilapan menaip dan cuba lagi.",
+      "button": "MEMULIHKAN"
     }
   },
   "send": {
@@ -430,7 +430,7 @@
       "title": "Accounts",
       "search": "Search accounts",
       "restoreAccounts": "Restore Accounts",
-      "noAccounts": "No accounts to restore"
+      "noAccounts": "Tiada akaun untuk dipulihkan"
     },
     "partners": "PARTNERS",
     "askPin": "Always ask PIN",
