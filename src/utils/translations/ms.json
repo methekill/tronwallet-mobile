@@ -89,8 +89,8 @@
   "components": {
     "share": {
       "title": "Kongsi alamat TronWallet",
-      "message": "This is my TronWallet address:\n\n {{address}}\n\nTip: Once you have copied it you can paste it in your TronWallet app using the special button on Send screen.",
-      "dialogTitle": "Share using:"
+      "message": "Ini alamat TronWallet saya:\n\n{{address}}\n\nPetua: Selepas alamat disalin, anda boleh tampal ia di dalam aplikasi TronWallet menggunakan butang istimewa pada skrin Hantar.",
+      "dialogTitle": "Kongsi menggunakan:"
     },
     "QRScanner": {
       "title": "Pengimbas Alamat",
@@ -106,7 +106,7 @@
       "confirmVotes": "MENGESAHKAN UNDIAN",
       "yourVotes": "Undian Anda",
       "myVotes": "UNDIAN SAYA",
-      "confirm": "CONFIRM",
+      "confirm": "MENGESAHKAN",
       "freeze": "Beku",
       "totalVotes": "Jumlah undi yang ada:",
       "delete": "PADAM",
@@ -119,11 +119,11 @@
     "button": {
       "create": "MENCIPTA DOMPET",
       "restore": "MEMULIHKAN DOMPET",
-      "import": "IMPORT WALLET"
+      "import": "IMPORT DOMPET"
     },
     "swiper": {
       "welcome": {
-        "title": "Welcome to \nTRONWALLET",
+        "title": "Selamat datang ke TRONWALLET",
         "body": "Dompet yang paling selamat untuk TRON"
       },
       "security": {
@@ -217,16 +217,16 @@
     "highest": "TERTINGGI",
     "lowest": "TERENDAH",
     "volume": "VOLUME 24H",
-    "cap": "MARKET CAP",
-    "supply": "CIRCULATING SUPPLY"
+    "cap": "PERMODALAN PASARAN",
+    "supply": "BEKALAN BEREDAR"
   },
   "participate": {
-    "title": "PARTICIPATE",
-    "featured": "SPONSORED",
+    "title": "MENGAMBIL BAHAGIAN",
+    "featured": "DITAJA",
     "button": {
-      "confirm": "CONFIRM",
-      "moreInfo": "MORE INFO",
-      "buyNow": "BUY NOW"
+      "confirm": "MENGESAHKAN",
+      "moreInfo": "MAKLUMAT LEBIH",
+      "buyNow": "BELI SEKARANG"
     },
     "error": {
       "insufficientBalance": "Tidak cukup dana (TRX) untuk mengambil bahagian.",
