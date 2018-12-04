@@ -1,10 +1,10 @@
 {
   "relativeTime": {
-    "future": "in %s",
-    "past": "%s ago",
-    "s": "a few seconds",
-    "ss": "%d seconds",
-    "m": "a minute",
+    "future": "dalam %s",
+    "past": "%s yang lalu",
+    "s": "beberapa saat",
+    "ss": "%d saat",
+    "m": "seminit",
     "mm": "%d minutes",
     "h": "an hour",
     "hh": "%d hours",
