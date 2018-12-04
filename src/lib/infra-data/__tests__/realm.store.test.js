@@ -1,10 +1,10 @@
-import RealmStore from '../basic.repository'
+import RealmStore from '../realm.store'
 import RealmMock from '../__mocks__/realm-data.mock'
 
 describe('Basic repository', () => {
   let store, db
 
-  beforeAll(() => {
+  beforeEach(() => {
     db = new RealmMock('key', [
       { key: 1, value: 'a' },
       { key: 2, value: 'b' }
