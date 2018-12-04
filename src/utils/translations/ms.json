@@ -24,7 +24,7 @@
   "ok": "OK",
   "actionModalTitle": "Adakah anda mahu",
   "account": "Akaun",
-  "restore": "Restore",
+  "restore": "Memulihkan",
   "error": {
     "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
     "buildingTransaction": "Error while building transaction, try again.",
