@@ -121,7 +121,7 @@ class BuyScene extends Component {
   }
 
   _setResultTimeout = result => {
-    let nexState = result ? { sellAmount: '', estimatedCost: '', result: false } : { result: false }
+    let nexState = result ? { buyAmount: '', estimatedCost: '', result: false } : { result: false }
     this.sellTimeout = setTimeout(() => this.setState(nexState), 3200)
   }
 
