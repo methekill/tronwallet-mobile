@@ -24,6 +24,8 @@ class ExchangeItem extends Component {
 
     render () {
       const {
+        onItemPress } = this.props
+      const {
         firstTokenId,
         secondTokenId,
         firstTokenImage,
@@ -31,8 +33,7 @@ class ExchangeItem extends Component {
         price } = this.props.exchangeData
 
       return (
-        <ExchangeRow onPress={() =>
-          this.props.navigation.navigate('ExchangeTransaction', { exData: this.props.exchangeData })}>
+        <ExchangeRow onPress={() => onItemPress(this.props.exchangeData)}>
           <ExchangeLogo source={firstTokenImage} />
           <Utils.View flex={1} paddingLeft='medium' justify='center'>
             <Utils.Text size='small'>{firstTokenId} / {secondTokenId}</Utils.Text>
@@ -48,6 +49,7 @@ class ExchangeItem extends Component {
 }
 
 ExchangeItem.propTypes = {
+  onItemPress: PropTypes.func.isRequired,
   exchangeData: PropTypes.shape({
     firstTokenId: PropTypes.string,
     secondTokenId: PropTypes.string,

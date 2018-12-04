@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Dimensions } from 'react-native'
 import { TabViewAnimated, TabBar } from 'react-native-tab-view'
+import find from 'lodash/find'
 
 // Design
 import { Colors } from '../../../components/DesignSystem'
@@ -13,7 +14,7 @@ import { SafeAreaView } from '../../../components/Utils'
 import tl from '../../../utils/i18n'
 
 // Service
-import WalletClient from '../../../services/client'
+import TronStreamSocket from '../../../services/socket'
 
 const initialLayout = {
   height: 0,
@@ -50,26 +51,25 @@ export default class TransferScene extends Component {
   }
 
   componentDidMount () {
-    this.refreshInterval = setInterval(this._refreshPrice, 10000)
+    this._setExchangeSocket()
   }
 
   componentWillUnmount () {
-    clearInterval(this.refreshInterval)
+    this.exchangeSocket.close()
   }
 
-  _refreshPrice = async () => {
-    const { refreshingPrice, exchangeData } = this.state
+  _setExchangeSocket = () => {
+    this.exchangeSocket = TronStreamSocket()
 
-    if (refreshingPrice) return
-
-    this.setState({refreshingPrice: true})
-    try {
-      const updatedExchangeData = await WalletClient.getExchangeById(exchangeData.exchangeId)
-      this.setState({refreshingPrice: false, exchangeData: {...exchangeData, ...updatedExchangeData}})
-    } catch (error) {
-      this.setState({refreshingPrice: false})
-    }
+    this.exchangeSocket.on('exchange-list', exchangeList => {
+      const { exchangeId, price: oldPrice } = this.state.exchangeData
+      const { price: newPrice } = find(exchangeList, {exchangeId}) || { price: null }
+      if (newPrice && (oldPrice !== newPrice)) {
+        this.setState({exchangeData: {...this.state.exchangeData, price: newPrice}})
+      }
+    })
   }
+
   _handleIndexChange = index => this.setState({ index })
 
   _renderHeader = props => (
@@ -100,13 +100,14 @@ export default class TransferScene extends Component {
   _renderScene = ({ route }) => {
     switch (route.key) {
       case 'sell':
-        return <SellScene {...this.props} exchangeData={this.state.exchangeData} />
+        return (<SellScene {...this.props} exchangeData={this.state.exchangeData} />)
       case 'buy':
-        return <BuyScene {...this.props} exchangeData={this.state.exchangeData} />
+        return (<BuyScene {...this.props} exchangeData={this.state.exchangeData} />)
       default:
         return null
     }
   }
+
   render () {
     return (
       <SafeAreaView>
