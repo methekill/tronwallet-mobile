@@ -167,10 +167,10 @@
     },
     "form": {
       "generalError": "Ada masalah untuk mengemukakan borang ini. Sila hubungi pentadbir.",
-      "nameError": "The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.",
-      "addressError": "Something isn't right with the address. Please double check for typos.",
-      "uniqueAddressError": "The key must be unique. Please choose a different address.",
-      "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
+      "nameError": "Nama mesti dimulakan dengan huruf, tidak melebihi 32 aksara, dan ia hanya boleh menerima huruf, nombor atau ruang kosong.",
+      "addressError": "Ada yang tidak kena dengan alamat. Sila semak untuk kesalahan menaip.",
+      "uniqueAddressError": "Kunci mestilah unik. Sila pilih alamat yang berbeza.",
+      "uniqueAliasError": "Nama-nama dalam buku alamat anda mestilah unik. Sila pilih yang lain.",
       "name": "NAMA",
       "address": "ALAMAT"
     }
@@ -180,7 +180,7 @@
     "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
     "button": "IMPORT",
     "error": {
-      "privateKey": "Private key invalid or incomplete"
+      "privateKey": "Kunci peribadi tidak sah atau tidak lengkap"
     }
   },
   "freeze": {
@@ -196,7 +196,7 @@
     },
     "error": {
       "minimumAmount": "The minimum amount for any freeze transaction is 1.",
-      "insufficientBalance": "Insufficient TRX balance",
+      "insufficientBalance": "Baki TRX tidak cukup",
       "roundNumbers": "Can only freeze round numbers"
     },
     "amount": "AMAUN BEKU",
@@ -229,12 +229,12 @@
       "buyNow": "BUY NOW"
     },
     "error": {
-      "insufficientBalance": "Not enough funds (TRX) to participate.",
+      "insufficientBalance": "Tidak cukup dana (TRX) untuk mengambil bahagian.",
       "insufficientTrx": {
-        "title": "You need to buy at least one TRX worth of {{token}}.",
-        "message": "Currently you are buying only {{amount}}."
+        "title": "Anda perlu membeli sekurang-kurangnya {{token}} yang bernilai bersamaan satu TRX.",
+        "message": "Anda sedang membeli hanya {{amount}}."
       },
-      "notFound": "Asset(s) not found"
+      "notFound": "Aset tidak dijumpai"
     },
     "warning": "You don't have enough TRX to buy that many {{token}}",
     "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
@@ -286,7 +286,7 @@
     "confirm": {
       "title": "CONFIRM SEED",
       "error": {
-        "title": "Wrong Combination",
+        "title": "Gabungan Salah",
         "message": "Selected words don't match. Make sure you wrote the words in the correct order."
       },
       "success": "Wallet successfully confirmed",
