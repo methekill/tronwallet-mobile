@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withNavigation } from 'react-navigation'
 
-import { Colors } from '../../../components/DesignSystem'
-import { ExchangeRow, TinyTriangle, ExchangeLogo } from '../elements'
-import * as Utils from '../../../components/Utils'
+import { Colors } from '../../components/DesignSystem'
+import { ExchangeRow, TinyTriangle, ExchangeLogo } from './elements'
+import * as Utils from '../../components/Utils'
 
 class ExchangeItem extends Component {
     _renderPercentageIndicator = variation => {
