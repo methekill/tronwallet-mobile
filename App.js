@@ -5,7 +5,6 @@ import Config from 'react-native-config'
 import OneSignal from 'react-native-onesignal'
 import Mixpanel from 'react-native-mixpanel'
 import { Sentry } from 'react-native-sentry'
-import has from 'lodash/has'
 
 import { logSentry } from './src/utils/sentryUtils'
 import RootNavigator from './Router'
@@ -22,6 +21,7 @@ import { ONE_SIGNAL_KEY, MIXPANEL_TOKEN } from './config'
 import ConfigJson from './package.json'
 
 import { getFixedTokens, getSystemStatus } from './src/services/contentful'
+import NavigationService from './src/utils/hocs/NavigationServices'
 // import './ReactotronConfig'
 
 if (!__DEV__) {
@@ -289,7 +289,12 @@ class App extends Component {
           {this.state.systemStatus.showStatus && (
             <StatusMessage systemStatus={this.state.systemStatus} />
           )}
-          <RootNavigator uriPrefix={prefix} />
+          <RootNavigator
+            uriPrefix={prefix}
+            ref={navigatorRef => {
+              NavigationService.setTopLevelNavigator(navigatorRef)
+            }}
+          />
         </Context.Provider>
       </View>
     )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { FlatList, Platform, StyleSheet } from 'react-native'
+import { FlatList, Platform, StyleSheet, RefreshControl } from 'react-native'
+import HTMLView from 'react-native-htmlview'
 
 import * as Utils from './../../components/Utils'
 
@@ -7,6 +8,7 @@ import ListItem from './../../components/List/ListItem'
 import { getAllNotifications } from './../../services/contentful/notifications'
 import { postFormat } from './../../utils/dateUtils'
 import tl from './../../utils/i18n'
+import { Colors } from './../../components/DesignSystem'
 
 class Notifications extends Component {
   static navigationOptions = {
@@ -14,14 +16,30 @@ class Notifications extends Component {
   }
 
   state = {
-    list: [ ]
+    list: [ ],
+    refreshing: false
   }
 
-  componentDidMount = () => {
-    getAllNotifications().then(data => {
-      this.setState({
-        list: data
-      })
+  componentDidMount () {
+    this._fetchData()
+  }
+
+  _fetchData = () => {
+    this.setState({
+      refreshing: true
+    }, () => {
+      getAllNotifications(1, 100)
+        .then(list => {
+          this.setState({
+            list,
+            refreshing: false
+          })
+        })
+        .catch(() => {
+          this.setState({
+            refreshing: false
+          })
+        })
     })
   }
 
@@ -29,7 +47,13 @@ class Notifications extends Component {
     return (
       <ListItem
         title={item.title}
-        subtitle={item.description}
+        subtitle={
+          <HTMLView
+            style={styles.html}
+            value={`<span>${item.description || ' '}</span>`}
+            stylesheet={styles}
+          />
+        }
         rightTitle={postFormat(item.updatedAt)}
       />
     )
@@ -40,14 +64,20 @@ class Notifications extends Component {
     return (
       <Utils.SafeAreaView>
         <FlatList
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this._fetchData}
+            />
+          }
           contentContainerStyle={list.length === 0 ? styles.emptyList : {}}
           data={list}
-          // ListEmptyComponent={<Empty loading={refreshing} />}
           keyExtractor={item => item.id}
           renderItem={this._renderItem}
           initialNumToRender={10}
           onEndReachedThreshold={0.75}
           removeClippedSubviews={Platform.OS === 'android'}
+          ListEmptyComponent={<Utils.Empty />}
         />
       </Utils.SafeAreaView>
     )
@@ -59,6 +89,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%'
+  },
+  html: {
+    padding: 10
+  },
+  span: {
+    color: Colors.greyBlue
   }
 })
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { FlatList, Platform, StyleSheet } from 'react-native'
+import { FlatList, Platform, StyleSheet, RefreshControl } from 'react-native'
+import HTMLView from 'react-native-htmlview'
 
 import * as Utils from './../../components/Utils'
 
@@ -10,6 +11,7 @@ import { getAllSignals } from './../../services/contentful/notifications'
 import { postFormat } from './../../utils/dateUtils'
 import { withContext } from './../../store/context'
 import tl from './../../utils/i18n'
+import { Colors } from './../../components/DesignSystem'
 
 class Signals extends Component {
   static navigationOptions = {
@@ -18,23 +20,44 @@ class Signals extends Component {
   static displayName = 'Signals Screen'
 
   state = {
-    list: []
+    list: [],
+    refreshing: false
   }
 
-  componentDidMount = () => {
-    getAllSignals(1, 100)
-      .then(list => {
-        this.setState({
-          list
+  componentDidMount () {
+    this._fetchData()
+  }
+
+  _fetchData = () => {
+    this.setState({
+      refreshing: true
+    }, () => {
+      getAllSignals(1, 100)
+        .then(list => {
+          this.setState({
+            list,
+            refreshing: false
+          })
         })
-      })
+        .catch(() => {
+          this.setState({
+            refreshing: false
+          })
+        })
+    })
   }
 
   _renderItem = ({ item }) => {
     return (
       <ListItem
         title={item.title}
-        subtitle={item.message}
+        subtitle={
+          <HTMLView
+            style={styles.html}
+            value={`<span>${item.message || ' '}</span>`}
+            stylesheet={styles}
+          />
+        }
         rightTitle={postFormat(item.updatedAt)}
         avatar={{ uri: item.tokenLogo }}
       />
@@ -46,14 +69,20 @@ class Signals extends Component {
     return (
       <Utils.SafeAreaView>
         <FlatList
-          contentContainerStyle={list.length === 0 ? styles.emptyList : {}}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this._fetchData}
+            />
+          }
+          contentContainerStyle={list.length === 0 ? styles.emptyList : styles.list}
           data={list}
-          // ListEmptyComponent={<Empty loading={refreshing} />}
           keyExtractor={item => item.id}
           renderItem={this._renderItem}
           initialNumToRender={10}
           onEndReachedThreshold={0.75}
           removeClippedSubviews={Platform.OS === 'android'}
+          ListEmptyComponent={<Utils.Empty />}
         />
       </Utils.SafeAreaView>
     )
@@ -65,6 +94,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%'
+  },
+  list: {
+    paddingTop: 10
+  },
+  html: {
+    padding: 10
+  },
+  span: {
+    color: Colors.greyBlue
   }
 })
 

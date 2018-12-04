@@ -7,7 +7,7 @@ export default ({ title, subtitle, rightTitle, avatar }) => (
     title={title}
     subtitle={subtitle}
     hideChevron
-    subtitleNumberOfLines={3}
+    // subtitleNumberOfLines={3}
     rightTitle={rightTitle}
     avatar={
       avatar && (
@@ -45,7 +45,8 @@ export default ({ title, subtitle, rightTitle, avatar }) => (
       fontFamily: 'Rubik-Regular',
       fontSize: 12,
       color: Colors.greyBlue,
-      lineHeight: 20
+      lineHeight: 20,
+      height: '100%'
     }}
   />
 )
