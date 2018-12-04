@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image } from 'react-native'
+import { Image, ScrollView } from 'react-native'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
@@ -7,6 +7,13 @@ import { Colors, Spacing } from '../../components/DesignSystem'
 import * as Utils from '../../components/Utils'
 
 const DEFAULT_LOGO = require('../../assets/tron-logo-small.png')
+
+export const PERCENTAGE_OPTIONS = [
+  {label: '25%', value: 0.25},
+  {label: '50%', value: 0.5},
+  {label: '75%', value: 0.75},
+  {label: 'ALL', value: 1.00}
+]
 
 export const ExchangeRow = styled.TouchableOpacity`
   flex-direction: row;
@@ -20,7 +27,7 @@ export const Divider = styled.View`
   height: 0.5;
 `
 export const ExchangePair = ({firstToken, secondToken, price}) => (
-  <Utils.View paddingX='medium' marginY={18} flex={1} justify='center' align='center'>
+  <Utils.View marginY={Spacing.small} flex={1} justify='center' align='center'>
     <Utils.View height={0.6} background={Colors.greyBlue} width='100%' />
     <Utils.Text marginY={8} size='smaller' color={Colors.greyBlue}>
       {`${firstToken}/${secondToken} ≈ ${price.toFixed(4)}`}
@@ -36,7 +43,7 @@ ExchangePair.propTypes = {
 }
 
 export const ExchangeVariation = ({text}) => (
-  <Utils.Text padding={15} font='regular' size='tiny' align='center'>
+  <Utils.Text marginY={10} marginX={15} font='regular' size='tiny' align='center'>
     {text}
   </Utils.Text>
 )
@@ -97,3 +104,10 @@ export const EmptyList = ({text}) => (
 EmptyList.propTypes = {
   text: PropTypes.string
 }
+
+export const ScrollWrapper = (props) => (
+  <ScrollView
+    contentContainerStyle={{paddingHorizontal: Spacing.medium, paddingVertical: Spacing.medium}}>
+    {props.children}
+  </ScrollView>
+)

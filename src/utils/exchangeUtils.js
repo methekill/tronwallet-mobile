@@ -1,7 +1,7 @@
 import { ONE_TRX } from '../services/client'
 
-export const SELL_VARIATION = 0.99
-export const BUY_VARIATION = 1.01
+export const LOW_VARIATION = 0.99
+export const HIGH_VARIATION = 1.01
 
 /* GOTRON FORMULA */
 const exchangeToSupply = (supply, balance, quant) => {
@@ -31,15 +31,15 @@ const exchangePrice = (firstBalance, secondBalance, quant, parseTrx = false) => 
 export const estimatedBuyCost = (firstBalance, secondBalance, quant, parseTrx = false) => {
   const cost = exchangePrice(firstBalance, secondBalance, quant, parseTrx)
   return parseTrx
-    ? cost * BUY_VARIATION
-    : Math.ceil(cost * BUY_VARIATION)
+    ? cost * HIGH_VARIATION
+    : Math.ceil(cost * HIGH_VARIATION)
 }
 
 export const estimatedSellCost = (firstBalance, secondBalance, quant, parseTrx = false) => {
   const cost = exchangePrice(firstBalance, secondBalance, quant, parseTrx)
   return parseTrx
-    ? cost * SELL_VARIATION
-    : Math.floor(cost * SELL_VARIATION)
+    ? cost * LOW_VARIATION
+    : Math.floor(cost * LOW_VARIATION)
 }
 
 export const trxValueParse = (value, isTrx) => Math.round((isTrx ? ONE_TRX : 1) * value)

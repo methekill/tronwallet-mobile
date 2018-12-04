@@ -1,20 +1,21 @@
 import React, { Component } from 'react'
-import { ScrollView, Alert } from 'react-native'
+import { Alert } from 'react-native'
 import RNTron from 'react-native-tron'
 import MixPanel from 'react-native-mixpanel'
 
 // Design
 import Input from '../../../components/Input'
 import * as Utils from '../../../components/Utils'
-import { ExchangePair, ExchangeVariation } from '../elements'
+import { ExchangePair, ExchangeVariation, ScrollWrapper, PERCENTAGE_OPTIONS } from '../elements'
 import ExchangeBalancePair from '../BalancePair'
 import ExchangeButton from '../Button'
 import { Colors } from '../../../components/DesignSystem'
+import PercentageSelector from '../../../components/SelectorTile'
 
 // Utils
 import tl from '../../../utils/i18n'
 import { withContext } from '../../../store/context'
-import { estimatedSellCost, trxValueParse } from '../../../utils/exchangeUtils'
+import { estimatedSellCost, trxValueParse, HIGH_VARIATION } from '../../../utils/exchangeUtils'
 import { formatFloat } from '../../../utils/numberUtils'
 import { logSentry } from '../../../utils/sentryUtils'
 
@@ -122,6 +123,16 @@ class SellScene extends Component {
     this.sellTimeout = setTimeout(() => this.setState(nexState), 3200)
   }
 
+  _setPercentage = percentage => {
+    const { balances, publicKey } = this.props.context
+    const { firstTokenId } = this.props.exchangeData
+
+    const { balance } = balances[publicKey].find(bl => bl.name === firstTokenId) || { balance: 0 }
+    const amountWanted = balance * percentage
+    const sellAmount = firstTokenId === 'TRX' ? amountWanted * HIGH_VARIATION : Math.floor(amountWanted)
+    this._changeSellAmount(sellAmount)
+  }
+
   _changeSellAmount = sellAmount => {
     const {
       firstTokenBalance,
@@ -160,8 +171,8 @@ class SellScene extends Component {
     const isTokenToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
     return (
       <Utils.SafeAreaView>
-        <ScrollView>
-          <Utils.View height={24} />
+        <ScrollWrapper>
+          <Utils.View height={12} />
           <ExchangeBalancePair
             firstToken={firstTokenId}
             firstTokenImage={firstTokenImage}
@@ -173,7 +184,13 @@ class SellScene extends Component {
             secondToken={secondTokenId}
             price={price}
           />
-          <Utils.View flex={1} justify='center' paddingX='medium' paddingY='small'>
+          <Utils.View paddingY='small'>
+            <PercentageSelector
+              options={PERCENTAGE_OPTIONS}
+              onItemPress={this._setPercentage}
+            />
+          </Utils.View>
+          <Utils.View flex={1} justify='center'>
             <Input
               label={tl.t('sell').toUpperCase()}
               innerRef={input => { this.sellAmount = input }}
@@ -199,15 +216,15 @@ class SellScene extends Component {
               numbersOnly
               value={estimatedRevenue}
             />
-            <ExchangeVariation text={tl.t('exchange.variation.sell')} />
             <ExchangeButton
               text={tl.t('sell').toUpperCase()}
               loading={loading}
               result={result}
               onSubmit={this._submit}
             />
+            <ExchangeVariation text={tl.t('exchange.variation.sell')} />
           </Utils.View>
-        </ScrollView>
+        </ScrollWrapper>
       </Utils.SafeAreaView>
     )
   }
