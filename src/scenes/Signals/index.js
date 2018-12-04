@@ -9,13 +9,15 @@ import { getAllSignals } from './../../services/contentful/notifications'
 
 import { postFormat } from './../../utils/dateUtils'
 import { withContext } from './../../store/context'
+import tl from './../../utils/i18n'
 
 class Signals extends Component {
+  static navigationOptions = {
+    title: tl.t('notifications.signals.title')
+  }
   static displayName = 'Signals Screen'
 
   state = {
-    limit: 10,
-    page: 1,
     list: []
   }
 

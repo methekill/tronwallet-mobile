@@ -4,29 +4,33 @@ import { FlatList, Platform, StyleSheet } from 'react-native'
 import * as Utils from './../../components/Utils'
 
 import ListItem from './../../components/List/ListItem'
+import { getAllNotifications } from './../../services/contentful/notifications'
+import { postFormat } from './../../utils/dateUtils'
+import tl from './../../utils/i18n'
 
 class Notifications extends Component {
+  static navigationOptions = {
+    title: tl.t('notifications.notifications.title')
+  }
+
   state = {
-    list: [
-      {
-        id: '1',
-        name: 'New transfer received',
-        subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet suscipit odio non finibus. Curabitur efficitur euismod porta. '
-      },
-      {
-        id: '2',
-        name: 'New transfer received',
-        subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet suscipit odio non finibus. Curabitur efficitur euismod porta. '
-      }
-    ]
+    list: [ ]
+  }
+
+  componentDidMount = () => {
+    getAllNotifications().then(data => {
+      this.setState({
+        list: data
+      })
+    })
   }
 
   _renderItem = ({ item }) => {
     return (
       <ListItem
-        title={item.name}
-        subtitle={item.subtitle}
-        rightTitle='16 hours ago'
+        title={item.title}
+        subtitle={item.description}
+        rightTitle={postFormat(item.updatedAt)}
       />
     )
   }
@@ -43,7 +47,6 @@ class Notifications extends Component {
           renderItem={this._renderItem}
           initialNumToRender={10}
           onEndReachedThreshold={0.75}
-          // onEndReached={this._loadRemainingTransactions}
           removeClippedSubviews={Platform.OS === 'android'}
         />
       </Utils.SafeAreaView>

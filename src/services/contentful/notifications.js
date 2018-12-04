@@ -51,3 +51,20 @@ export const getAllSignals = (skip = 1, limit = 10) => {
       return []
     })
 }
+
+export const getAllNotifications = () => {
+  const queryEntry = {
+    content_type: 'notification',
+    select: 'sys.id,sys.updatedAt,fields.description,fields.title',
+    order: '-sys.updatedAt'
+  }
+  return contentfulClient.getEntries(queryEntry)
+    .then(data => {
+      return data.items
+    })
+    .then(parseResults)
+    .catch(err => {
+      console.log(err)
+      return []
+    })
+}
