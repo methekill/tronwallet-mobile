@@ -80,9 +80,9 @@
       "buy": "Légèrement supérieur au coût estimé, et le taux de renouvellement sera plus élevé.",
       "sell": "Légèrement inférieur au coût estimé, et le taux de renouvellement sera plus élevé."
     },
-    "estimatedRevenue": "ESTIMATED TO RECEIVE",
-    "estimatedCost": "ESTIMATED COST",
-    "preview": "Search by the Token name",
+    "estimatedRevenue": "ESTIMÉ À RECEVOIR",
+    "estimatedCost": "Coût estimé",
+    "preview": "Recherche par nom de jeton",
     "notFound": "Échange non trouvé"
   },
   "hideAccount": "Vous êtes sur le point de supprimer ce compte. Vous pouvez le restaurer plus tard dans les paramètres",
@@ -222,7 +222,7 @@
   },
   "participate": {
     "title": "PARTICIPER",
-    "featured": "CONFIGURE",
+    "featured": "Sponsorisé",
     "button": {
       "confirm": "CONFIRMER",
       "moreInfo": "PLUS D’INFORMATIONS",
