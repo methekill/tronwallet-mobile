@@ -1,6 +1,7 @@
 import openSocket from 'socket.io-client'
+import Config from 'react-native-config'
 
-export default (url = 'http://192.168.0.14:3030', options = {reconnectionAttempts: 200}) => {
+export default (url = Config.TRONWALLET_STREAM, options = {reconnectionAttempts: 200}) => {
   const socket = openSocket(url, options)
 
   if (__DEV__) {

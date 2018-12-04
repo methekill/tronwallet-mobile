@@ -172,7 +172,7 @@ class SellScene extends Component {
     return (
       <Utils.SafeAreaView>
         <ScrollWrapper>
-          <Utils.View height={12} />
+          <Utils.View height={8} />
           <ExchangeBalancePair
             firstToken={firstTokenId}
             firstTokenImage={firstTokenImage}
