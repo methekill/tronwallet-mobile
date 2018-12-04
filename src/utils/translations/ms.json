@@ -124,18 +124,18 @@
     "swiper": {
       "welcome": {
         "title": "Welcome to \nTRONWALLET",
-        "body": "The most secure wallet for TRON"
+        "body": "Dompet yang paling selamat untuk TRON"
       },
       "security": {
-        "title": "SECURITY",
-        "body": "Privacy and security for \n your transactions"
+        "title": "KESELAMATAN",
+        "body": "Privasi dan keselamatan untuk transaksi anda"
       },
       "votes": {
         "title": "UNDIAN",
         "body": "Beku dan undi untuk Super Representatives"
       },
       "addressbook": {
-        "title": "ADDRESS BOOK",
+        "title": "BUKU ALAMAT",
         "body": "Save the addresses of your friends \n and contacts."
       },
       "multipleaccounts": {
@@ -145,7 +145,7 @@
     }
   },
   "addressBook": {
-    "title": "ADDRESS BOOK",
+    "title": "BUKU ALAMAT",
     "shared": {
       "add": "TAMBAH",
       "edit": "EDIT",
@@ -176,7 +176,7 @@
     }
   },
   "importWallet": {
-    "title": "IMPORT WALLET",
+    "title": "IMPORT DOMPET",
     "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
     "button": "IMPORT",
     "error": {
@@ -204,7 +204,7 @@
   },
   "getVault": {
     "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
-    "downloadHere": "You can download it here"
+    "downloadHere": "Anda boleh memuat turun di sini"
   },
   "market": {
     "time": {
@@ -214,8 +214,8 @@
       "month": "1M",
       "all": "SEMUA"
     },
-    "highest": "HIGHEST",
-    "lowest": "LOWEST",
+    "highest": "TERTINGGI",
+    "lowest": "TERENDAH",
     "volume": "VOLUME 24H",
     "cap": "MARKET CAP",
     "supply": "CIRCULATING SUPPLY"
@@ -240,54 +240,54 @@
     "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
     "amountToBuy": "AMOUNT TO BUY",
     "pricePerToken": "PRICE PER TOKEN",
-    "tokenDescription": "TOKEN DESCRIPTION",
-    "tokenInfo": "TOKEN INFO",
+    "tokenDescription": "PENERANGAN TOKEN",
+    "tokenInfo": "MAKLUMAT TOKEN",
     "token": "TOKEN",
     "tokens": "TOKENS",
-    "frozen": "FROZEN",
-    "percentage": "PERCENTAGE",
-    "issued": "ISSUED",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "transaction": "TRANSACTION",
-    "ownerAddress": "OWNER ADDRESS",
+    "frozen": "DIBEKU",
+    "percentage": "PERATUSAN",
+    "issued": "DIKELUARKAN",
+    "totalSupply": "JUMLAH BEKALAN",
+    "startTime": "MASA MULA",
+    "endTime": "MASA TAMAT",
+    "description": "PENERANGAN",
+    "transaction": "TRANSAKSI",
+    "ownerAddress": "ALAMAT PEMILIK",
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "BLOCK",
-    "balance": "BALANCE",
+    "balance": "BAKI",
     "searchPreview": "Featured Tokens"
   },
   "pin": {
-    "title": "SECURITY CHECK",
-    "enter": "Enter PIN",
-    "new": "Enter New PIN",
-    "reenter": "Re-Enter PIN",
-    "biometrics": "Biometric Check"
+    "title": "PEMERIKSAAN KESELAMATAN",
+    "enter": "Masukkan PIN",
+    "new": "Masukkan PIN Baru",
+    "reenter": "Masukkan PIN semula",
+    "biometrics": "Pemeriksaan Biometrik"
   },
   "receive": {
-    "title": "RECEIVE",
-    "clipboardCopied": "Copied to clipboard",
+    "title": "TERIMA",
+    "clipboardCopied": "Disalin ke papan klip",
     "button": {
-      "copy": "Copy",
-      "share": "Share"
+      "copy": "Salin",
+      "share": "Kongsi"
     },
     "tabs": {
-      "share": "SHARE",
+      "share": "KONGSI",
       "request": "REQUEST"
     }
   },
   "rewards": {
-    "title": "REWARDS",
+    "title": "GANJARAN",
     "earned": "You have earned"
   },
   "seed": {
     "confirm": {
-      "title": "CONFIRM SEED",
+      "title": "SAHKAN SEED",
       "error": {
         "title": "Gabungan Salah",
-        "message": "Selected words don't match. Make sure you wrote the words in the correct order."
+        "message": "Perkataan yang dipilih tidak sepadan. Pastikan susunan betul untuk perkataan yang ditulis."
       },
       "success": "Wallet successfully confirmed",
       "explanation": "Select the words below in the right order to confirm your secret phrase.",
@@ -299,7 +299,7 @@
     "create": {
       "title": "CREATE SEED",
       "titleConfirm": "CONFIRM WALLET SEED",
-      "error": "Oops, we have a problem. Please restart the application.",
+      "error": "Oops, kita ada masalah. Sila mulakan semula aplikasi.",
       "generateNew": "This will generate a completely new wallet.",
       "button": {
         "written": "I'VE WRITTEN IT DOWN",
@@ -322,7 +322,7 @@
   "send": {
     "title": "SEND",
     "error": {
-      "insufficientBalance": "Not enough balance.",
+      "insufficientBalance": "Tidak cukup baki.",
       "gettingBalance": "Masalah semasa mendapatkan data baki",
       "incompleteAddress": "Address is either incomplete or invalid.",
       "invalidReceiver": "Invalid receiver address",
