@@ -80,9 +80,9 @@
       "buy": "Erhöhe die Kostenschätzung leicht und die Kaufwahrscheinlichkeit wird höher sein.",
       "sell": "Senke den zu erwartenden Ertrag leicht um die Verkaufswahrscheinlicheit zu erhöhen."
     },
-    "estimatedRevenue": "ESTIMATED TO RECEIVE",
-    "estimatedCost": "ESTIMATED COST",
-    "preview": "Search by the Token name",
+    "estimatedRevenue": "GESCHÄTZTER ERTRAG",
+    "estimatedCost": "GESCHÄTZTE KOSTEN",
+    "preview": "Mit dem Tokennamen suchen",
     "notFound": "Börse nicht gefunden"
   },
   "hideAccount": "Sie sind dabei dieses Konto zu entfernen. Sie können es später in den Einstellungen wiederherstellen",
@@ -222,7 +222,7 @@
   },
   "participate": {
     "title": "TEILNEHMEN",
-    "featured": "AUSGEZEICHNET",
+    "featured": "SPONSORED",
     "button": {
       "confirm": "BESTÄTIGEN",
       "moreInfo": "MEHR INFORMATION",
