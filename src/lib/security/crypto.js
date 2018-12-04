@@ -8,6 +8,10 @@ import base64js from 'base64-js'
 let _encryptionKey = null
 
 export const setPin = (pin) => {
+  if (!pin) {
+    return
+  }
+
   const idHex = hex.stringify(sha256(DeviceInfo.getDeviceId()))
   const pwdHex = hex.stringify(sha256(pin))
 
@@ -23,4 +27,8 @@ export const getEncryptionKey = () => {
   }
 
   return _encryptionKey
+}
+
+export const clear = () => {
+  _encryptionKey = null
 }
