@@ -54,7 +54,7 @@
   "ends": "Tamat",
   "clear": "Jelas",
   "allIn": "All In",
-  "skip": "Skip",
+  "skip": "Langkau",
   "privateKey": "Kunci Peribadi",
   "results": "Keputusan",
   "buy": "Beli",
@@ -64,8 +64,8 @@
   "balance": {
     "title": "AKAUN",
     "error": {
-      "loadingData": "An error occured while loading the data.",
-      "savingCurrency": "Error saving preferred currency"
+      "loadingData": "Masalah semasa memuatkan data.",
+      "savingCurrency": "Masalah menyimpan mata wang terpilih"
     },
     "chooseCurrency": "Please, choose your preferred currency.",
     "confirmSeed": "Please tap to confirm your 12 seed words",
@@ -161,12 +161,12 @@
         "okButton": "OK"
       },
       "empty": "Your address book is empty, add a new contact using the button below.",
-      "loadError": "There was a problem loading the contacts. Please try again.",
+      "loadError": "Ada masalah untuk memuatkan kenalan. Sila cuba lagi.",
       "addContact": "TAMBAH KENALAN",
       "addToContacts": "TAMBAH KEPADA KENALAN"
     },
     "form": {
-      "generalError": "There was a problem submitting this form. Please contact an administrator.",
+      "generalError": "Ada masalah untuk mengemukakan borang ini. Sila hubungi pentadbir.",
       "nameError": "The name field must start with a letter, contain a maximum of 32 characters, and it will accept only letters, numbers and white spaces.",
       "addressError": "Something isn't right with the address. Please double check for typos.",
       "uniqueAddressError": "The key must be unique. Please choose a different address.",
@@ -323,7 +323,7 @@
     "title": "SEND",
     "error": {
       "insufficientBalance": "Not enough balance.",
-      "gettingBalance": "Error while getting balance data",
+      "gettingBalance": "Masalah semasa mendapatkan data baki",
       "incompleteAddress": "Address is either incomplete or invalid.",
       "invalidReceiver": "Invalid receiver address",
       "selectBalance": "Select a balance first",
@@ -356,7 +356,7 @@
         "title": "NETWORK",
         "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
         "error": {
-          "storage": "Error getting node ip from local storage",
+          "storage": "Masalah mendapatkan nod IP dari storan tempatan",
           "invalidIp": "Please put a valid IP",
           "update": "Something went wrong while updating nodes ip",
           "reset": "Something wrong while reseting node ip"
@@ -407,7 +407,7 @@
         "confirm": "Yes, restart now!",
         "cancel": "No, I'll do it later"
       },
-      "error": "Error saving preferred language"
+      "error": "Masalah menyimpan bahasa terpilih"
     },
     "token": {
       "title": "Token Filter",
