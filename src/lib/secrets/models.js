@@ -14,6 +14,10 @@ UserSecret.schema = {
     publicKey: 'string',
     name: 'string',
     alias: 'string',
-    hide: 'bool'
+    hide: 'bool',
+    order: 'number',
+    type: 'string',
+    coin: 'string',
+    meta: 'string'
   }
 }
