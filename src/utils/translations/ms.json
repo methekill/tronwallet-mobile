@@ -74,8 +74,8 @@
     "holdings": "HOLDINGS"
   },
   "exchange": {
-    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum untuk jual ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum untuk beli ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
       "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
@@ -93,19 +93,19 @@
       "dialogTitle": "Share using:"
     },
     "QRScanner": {
-      "title": "Address Scanner",
-      "scan": "Scan",
+      "title": "Pengimbas Alamat",
+      "scan": "Imbas",
       "explanation": "Scan the QRCode to identify the target user",
       "permissionMessage": "To scan the public key the app needs your permission to access the camera."
     },
     "vote": {
-      "enterVote": "ENTER THE VOTE VALUE",
-      "votesRemaining": "VOTES REMAINING",
+      "enterVote": "MASUKKAN NILAI UNDI",
+      "votesRemaining": "UNDI YANG TINGGAL",
       "setVote": "SET VOTE",
       "moreVotes": "If you need more votes you can Freeze more TRX.",
-      "confirmVotes": "CONFIRM VOTES",
-      "yourVotes": "Your Votes",
-      "myVotes": "MY VOTES",
+      "confirmVotes": "MENGESAHKAN UNDIAN",
+      "yourVotes": "Undian Anda",
+      "myVotes": "UNDIAN SAYA",
       "confirm": "CONFIRM",
       "freeze": "Freeze",
       "totalVotes": "Total votes available:",
@@ -155,15 +155,15 @@
     "contacts": {
       "title": "CONTACTS",
       "delete": {
-        "title": "Delete Contact",
-        "message": "Do you really want to delete this contact?",
-        "cancelButton": "Cancel",
+        "title": "Padam Kenalan",
+        "message": "Adakah anda pasti mahu memadamkam kenalan ini?",
+        "cancelButton": "Batal",
         "okButton": "OK"
       },
       "empty": "Your address book is empty, add a new contact using the button below.",
       "loadError": "There was a problem loading the contacts. Please try again.",
-      "addContact": "ADD CONTACT",
-      "addToContacts": "ADD TO CONTACTS"
+      "addContact": "TAMBAH KENALAN",
+      "addToContacts": "TAMBAH KEPADA KENALAN"
     },
     "form": {
       "generalError": "There was a problem submitting this form. Please contact an administrator.",
@@ -171,8 +171,8 @@
       "addressError": "Something isn't right with the address. Please double check for typos.",
       "uniqueAddressError": "The key must be unique. Please choose a different address.",
       "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
-      "name": "NAME",
-      "address": "ADDRESS"
+      "name": "NAMA",
+      "address": "ALAMAT"
     }
   },
   "importWallet": {
@@ -184,10 +184,10 @@
     }
   },
   "freeze": {
-    "title": "FREEZE",
+    "title": "BEKU",
     "unfreeze": {
-      "title": "UNFREEZE",
-      "inXTime": "You can unfreeze your TRX",
+      "title": "MENCAIRKAN",
+      "inXTime": "Anda boleh mencairkan TRX anda",
       "inThreeDays": "After a three day period you can unfreeze your TRX",
       "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
       "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
@@ -199,8 +199,8 @@
       "insufficientBalance": "Insufficient TRX balance",
       "roundNumbers": "Can only freeze round numbers"
     },
-    "amount": "FREEZE AMOUNT",
-    "balance": "Balance"
+    "amount": "AMAUN BEKU",
+    "balance": "Baki"
   },
   "getVault": {
     "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
@@ -212,7 +212,7 @@
       "day": "1D",
       "week": "1W",
       "month": "1M",
-      "all": "ALL"
+      "all": "SEMUA"
     },
     "highest": "HIGHEST",
     "lowest": "LOWEST",
