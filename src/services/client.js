@@ -1,6 +1,7 @@
 import axios from 'axios'
 import Config from 'react-native-config'
 import NodesIp from '../utils/nodeIp'
+import sortBy from 'lodash/sortBy'
 import { AUTH_ID } from './../../config'
 import { getExchangesAvailable } from './contentful'
 
@@ -116,7 +117,7 @@ class ClientWallet {
     ])
 
     let { data: exchangeList } = fullExchangeList
-    return exchangeList
+    const filteredExchangeList = exchangeList
       .reduce((filtered, ex) => {
         const exAvailable = selectedExchangeList.find(selectedEx => selectedEx.exchangeId === ex.exchangeId)
 
@@ -128,12 +129,8 @@ class ClientWallet {
         }
         return filtered
       }, [])
-      .sort((exA, exB) => {
-        if (exB.firstTokenId === 'TWX' || exA.firstTokenId === 'TWX') {
-          return exB.firstTokenId === 'TWX' - exA.firstTokenId === 'TWX'
-        }
-        return (exB.variation || -100) - (exA.variation || -100)
-      })
+
+    return sortBy(filteredExchangeList, [(ex) => ex.firstTokenId !== 'TWX', (ex) => -(ex.variation || -999)])
   }
 
   async getExchangeById (id) {

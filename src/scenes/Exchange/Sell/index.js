@@ -7,8 +7,8 @@ import MixPanel from 'react-native-mixpanel'
 import Input from '../../../components/Input'
 import * as Utils from '../../../components/Utils'
 import { ExchangePair, ExchangeVariation } from '../elements'
-import ExchangeBalancePair from '../ExchangeBalancePair'
-import ExchangeButton from '../ExchangeButton'
+import ExchangeBalancePair from '../BalancePair'
+import ExchangeButton from '../Button'
 import { Colors } from '../../../components/DesignSystem'
 
 // Utils
@@ -44,9 +44,15 @@ class SellScene extends Component {
       this.sellAmount.focus()
       return
     }
+    const expecRev = estimatedRevenue || estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount, secondTokenId === 'TRX')
 
-    const expecSell = estimatedRevenue || estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount, secondTokenId === 'TRX')
-    if (expecSell <= 0) {
+    if ((firstTokenId !== 'TRX' && parseInt(sellAmount) !== Number(sellAmount)) ||
+        (secondTokenId !== 'TRX' && parseInt(expecRev) !== Number(expecRev))) {
+      Alert.alert(tl.t('warning'), `Can only trade whole Assets amount`)
+      return
+    }
+
+    if (expecRev <= 0) {
       Alert.alert(tl.t('warning'), `Can't trade ${estimatedRevenue} ${secondTokenId}`)
       this.sellAmount.focus()
       return
@@ -79,6 +85,7 @@ class SellScene extends Component {
       : estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount)
 
     this.setState({loading: true})
+
     try {
       const exParams = {
         address: publicKey,
@@ -101,17 +108,18 @@ class SellScene extends Component {
       } else {
         this.setState({result: 'fail', loading: false})
       }
+
+      this._setResultTimeout(code === 'SUCCESS')
     } catch (error) {
       this.setState({result: 'fail', loading: false})
       logSentry(error, 'Selling Exchange')
-    } finally {
-      this.sellTimeout = setTimeout(() =>
-        this.setState({
-          sellAmount: '',
-          estimatedRevenue: '',
-          result: false
-        }), 3200)
+      this._setResultTimeout(false)
     }
+  }
+
+  _setResultTimeout = result => {
+    let nexState = result ? { sellAmount: '', estimatedRevenue: '', result: false } : { result: false }
+    this.sellTimeout = setTimeout(() => this.setState(nexState), 3200)
   }
 
   _changeSellAmount = sellAmount => {

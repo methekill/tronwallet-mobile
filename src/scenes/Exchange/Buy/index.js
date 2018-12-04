@@ -8,7 +8,8 @@ import Input from '../../../components/Input'
 import * as Utils from '../../../components/Utils'
 import { Colors } from '../../../components/DesignSystem'
 import { ExchangePair, ExchangeVariation } from '../elements'
-import ExchangeBalancePair from '../ExchangeBalancePair'
+import ExchangeBalancePair from '../BalancePair'
+import ExchangeButton from '../Button'
 
 // Utils
 import tl from '../../../utils/i18n'
@@ -19,7 +20,6 @@ import { logSentry } from '../../../utils/sentryUtils'
 
 // Service
 import WalletClient from '../../../services/client'
-import ExchangeButton from '../ExchangeButton'
 
 class BuyScene extends Component {
   static navigationOptions = { header: null }
@@ -49,7 +49,7 @@ class BuyScene extends Component {
     const expecBuy = estimatedCost || estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount, secondTokenId === 'TRX')
 
     if (expecBuy <= 0) {
-      Alert.alert(tl.t('warning'), `Not enough cost `)
+      Alert.alert(tl.t('warning'), `Not enough estimated cost `)
       this.buyAmount.focus()
       return
     }
@@ -111,17 +111,17 @@ class BuyScene extends Component {
       } else {
         this.setState({result: 'fail', loading: false})
       }
+      this._setResultTimeout(code === 'SUCCESS')
     } catch (error) {
       this.setState({result: 'fail', loading: false})
       logSentry(error, 'Buying Exchange')
-    } finally {
-      this.buyTimeout = setTimeout(() =>
-        this.setState({
-          buyAmount: '',
-          result: false,
-          estimatedCost: ''
-        }), 3200)
+      this._setResultTimeout(false)
     }
+  }
+
+  _setResultTimeout = result => {
+    let nexState = result ? { buyAmount: '', estimatedCost: '', result: false } : { result: false }
+    this.sellTimeout = setTimeout(() => this.setState(nexState), 3200)
   }
 
   _changeBuyAmount = buyAmount => {
