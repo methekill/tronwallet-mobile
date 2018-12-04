@@ -5,7 +5,7 @@ import MixPanel from 'react-native-mixpanel'
 // Design
 import * as Utils from '../../components/Utils'
 import NavigationHeader from '../../components/Navigation/Header'
-import ExchangeItem from './ExchangeItem'
+import ExchangeItem from './Item'
 import { Divider, EmptyList } from './elements'
 import LoadingScene from '../../components/LoadingScene'
 
