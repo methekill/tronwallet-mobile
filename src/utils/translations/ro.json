@@ -548,7 +548,7 @@
     }
   },
   "buildPayment": {
-    "generate": "GENERAȚI CEREREA",
+    "generate": "GENEREAZĂ CEREREA",
     "selectCurrency": "Selectează moneda de referință",
     "error": {
       "currency": "Nu am putut încărca prețul în altă valută. Te rugăm să folosești TRX ca referință"
