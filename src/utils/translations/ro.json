@@ -18,7 +18,7 @@
   "success": "Succes",
   "warning": "Avertizare",
   "cancel": "Revocare",
-  "address": "Adresa",
+  "address": "Adresă",
   "message": "Mesaj",
   "ex": "Exchange",
   "ok": "Ok",
@@ -26,7 +26,7 @@
   "account": "Cont",
   "restore": "Restaurare",
   "error": {
-    "default": "Hopa, ceva nu a mers bine. Reîncercă mai târziu. Dacă eroarea persistă, încercă să actualizezi setările de rețea.",
+    "default": "Ups, ceva nu a mers bine. Reincerca mai tarziu. Dacă eroarea persista, incerca să updatezi setarile de retea.",
     "buildingTransaction": "Eroare la construirea tranzacției, încercă din nou.",
     "gettingTransaction": "Eroare la obținerea tranzacției.",
     "clipboardCopied": "Ceva nu a mers bine in timpul copierii",
@@ -89,7 +89,7 @@
   "components": {
     "share": {
       "title": "Partajare adresă TronWallet",
-      "message": "Aceasta este adresa mea TronWallet:{{address}}\n\nSfat: O data ce ai copiat-o, o poți lipi în aplicația ta TronWallet utilizând butonul special din ecranul Trimitere.",
+      "message": "Aceasta este adresa mea TronWallet:\n\n{{address}}\n\nSfat: O data ce ai copiat-o, o poți lipi în aplicația ta TronWallet utilizând butonul special din ecranul Trimitere.",
       "dialogTitle": "Partajare utilizând:"
     },
     "QRScanner": {
@@ -222,7 +222,7 @@
   },
   "participate": {
     "title": "PARTICIPĂ",
-    "featured": "SPONSORED",
+    "featured": "SPONSORIZAT",
     "button": {
       "confirm": "CONFIRMĂ",
       "moreInfo": "MAI MULTE INFORMAȚII",
@@ -236,7 +236,7 @@
       },
       "notFound": "Nu s-a găsit niciun asset"
     },
-    "warning": "Nu ai suficient TRX pentru a cumpăra această suma{{token}}",
+    "warning": "Nu ai suficient TRX pentru a cumpăra această suma {{token}}",
     "enterAmountToBuy": "INTRODU SUMA DE CUMPĂRAT",
     "amountToBuy": "SUMA DE CUMPĂRARE",
     "pricePerToken": "PREȚ PER TOKEN",
@@ -248,7 +248,7 @@
     "percentage": "PROCENT",
     "issued": "EMIS",
     "totalSupply": "CANTITATE TOTALĂ",
-    "startTime": "TIMPUL DE START",
+    "startTime": "TIMPUL DE ÎNCEPERE",
     "endTime": "ORA DE TERMINARE",
     "description": "DESCRIERE",
     "transaction": "TRANZACŢIE",
@@ -512,7 +512,7 @@
     "startTime": "TIMPUL DE START",
     "endTime": "ORA DE TERMINARE",
     "description": "DESCRIERE",
-    "votedAddress": "ADRESA VOTATĂ"
+    "votedAddress": "ADRESĂ VOTATĂ"
   },
   "transactionSuccess": {
     "submitted": "TRANZACȚIE TRIMISĂ CATRE REȚEA!",
@@ -548,7 +548,7 @@
     }
   },
   "buildPayment": {
-    "generate": "GENERAȚI CEREREA",
+    "generate": "GENEREAZĂ CEREREA",
     "selectCurrency": "Selectează moneda de referință",
     "error": {
       "currency": "Nu am putut încărca prețul în altă valută. Te rugăm să folosești TRX ca referință"
