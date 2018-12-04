@@ -53,7 +53,7 @@
   "close": "Tutup",
   "ends": "Tamat",
   "clear": "Jelas",
-  "allIn": "All In",
+  "allIn": "Semua Sekali",
   "skip": "Langkau",
   "privateKey": "Kunci Peribadi",
   "results": "Keputusan",
@@ -67,11 +67,11 @@
       "loadingData": "Masalah semasa memuatkan data.",
       "savingCurrency": "Masalah menyimpan mata wang terpilih"
     },
-    "chooseCurrency": "Please, choose your preferred currency.",
+    "chooseCurrency": "Sila pilih mata wang pilihan anda.",
     "confirmSeed": "Please tap to confirm your 12 seed words",
     "bandwidth": "BANDWIDTH",
     "tokens": "TOKENS",
-    "holdings": "HOLDINGS"
+    "holdings": "PEGANGAN"
   },
   "exchange": {
     "minToSell": "Minimum untuk jual ≈ {{min}} {{tokenId}}",
@@ -80,15 +80,15 @@
       "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
       "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
     },
-    "estimatedRevenue": "ESTIMATED TO RECEIVE",
-    "estimatedCost": "ESTIMATED COST",
-    "preview": "Search by the Token name",
+    "estimatedRevenue": "ANGGARAN PENDAPATAN",
+    "estimatedCost": "ANGGARAN KOS",
+    "preview": "Cari dengan nama token",
     "notFound": "Exchanges not found"
   },
   "hideAccount": "Anda akan memadamkan akaun ini. Anda boleh memulihkan ia di dalam tetapan nanti",
   "components": {
     "share": {
-      "title": "Share TronWallet address",
+      "title": "Kongsi alamat TronWallet",
       "message": "This is my TronWallet address:\n\n {{address}}\n\nTip: Once you have copied it you can paste it in your TronWallet app using the special button on Send screen.",
       "dialogTitle": "Share using:"
     },
@@ -289,22 +289,22 @@
         "title": "Gabungan Salah",
         "message": "Perkataan yang dipilih tidak sepadan. Pastikan susunan betul untuk perkataan yang ditulis."
       },
-      "success": "Wallet successfully confirmed",
+      "success": "Dompet berjaya disahkan",
       "explanation": "Select the words below in the right order to confirm your secret phrase.",
       "button": {
-        "reset": "RESET WORDS",
-        "confirm": "CONFIRM SEED"
+        "reset": "MENETAP SEMULA PERKATAAN",
+        "confirm": "SAHKAN SEED"
       }
     },
     "create": {
-      "title": "CREATE SEED",
-      "titleConfirm": "CONFIRM WALLET SEED",
+      "title": "MENCIPTA SEED",
+      "titleConfirm": "SAHKAN DOMPET SEED",
       "error": "Oops, kita ada masalah. Sila mulakan semula aplikasi.",
-      "generateNew": "This will generate a completely new wallet.",
+      "generateNew": "Ini akan mencipta dompet yang baru.",
       "button": {
-        "written": "I'VE WRITTEN IT DOWN",
-        "newSeed": "GET NEW SEED",
-        "later": "Confirm later"
+        "written": "SAYA SUDAH MENULISNYA",
+        "newSeed": "DAPATKAN SEED BARU",
+        "later": "Sahkan kemudian"
       },
       "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
       "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
@@ -320,7 +320,7 @@
     }
   },
   "send": {
-    "title": "SEND",
+    "title": "HANTAR",
     "error": {
       "insufficientBalance": "Tidak cukup baki.",
       "gettingBalance": "Masalah semasa mendapatkan data baki",
