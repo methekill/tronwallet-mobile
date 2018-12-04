@@ -116,11 +116,24 @@ class ClientWallet {
     ])
 
     let { data: exchangeList } = fullExchangeList
-    return exchangeList.reduce((filtered, ex) => {
-      let avlb = selectedExchangeList.find(aex => aex.exchangeId === ex.exchangeId)
-      if (avlb) filtered.push({...ex, ...avlb})
-      return filtered
-    }, [])
+    return exchangeList
+      .reduce((filtered, ex) => {
+        const exAvailable = selectedExchangeList.find(selectedEx => selectedEx.exchangeId === ex.exchangeId)
+
+        if (exAvailable) {
+          if (exAvailable.isEnabled) filtered.push({...ex, ...exAvailable})
+          else return filtered
+        } else {
+          filtered.push(ex)
+        }
+        return filtered
+      }, [])
+      .sort((exA, exB) => {
+        if (exB.firstTokenId === 'TWX' || exA.firstTokenId === 'TWX') {
+          return exB.firstTokenId === 'TWX' - exA.firstTokenId === 'TWX'
+        }
+        return (exB.variation || -100) - (exA.variation || -100)
+      })
   }
 
   async getExchangeById (id) {

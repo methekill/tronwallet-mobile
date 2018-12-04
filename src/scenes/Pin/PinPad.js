@@ -21,6 +21,14 @@ class PinPad extends PureComponent {
     pin: []
   }
 
+  componentDidUpdate (_, prevState) {
+    if (this.state.pin.length > prevState.pin.length && this.state.pin.length === 6) {
+      setTimeout(() => {
+        this.props.onComplete(this.state.pin.join(''), this.state.pin)
+      }, 500)
+    }
+  }
+
   reset = () => this._handleClear()
 
   shake = () => {
@@ -31,8 +39,8 @@ class PinPad extends PureComponent {
           Vibration.cancel()
         }
       })
-      .catch(err => {
-        console.error(err)
+      .catch(() => {
+        Vibration.cancel()
       })
   }
 
@@ -49,7 +57,6 @@ class PinPad extends PureComponent {
       this.setState({
         pin: pin.concat(parseInt(digit))
       }, () => {
-        this._checkPin()
         if (Platform.OS === 'ios') {
           Vibration.cancel()
         }
@@ -72,7 +79,7 @@ class PinPad extends PureComponent {
   render () {
     const { pin } = this.state
     return (
-      <Utils.View >
+      <Utils.View marginBottom={40}>
         <Utils.View height={180} justify='center' align='center'>
           <Animatable.View ref={ref => { this.pinView = ref }} >
             <Utils.Row align='center' justify='space-between' width={264}>

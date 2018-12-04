@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { BackHandler, AsyncStorage, Alert } from 'react-native'
 import Biometrics from 'react-native-biometrics'
-import RNDevice from 'react-native-device-info'
 
 import { GoBackButton, Label, Text, BiometricButton } from './elements'
 import PinPad from './PinPad'
@@ -69,8 +68,7 @@ class PinScene extends Component {
 
   _handleBiometrics = async () => {
     try {
-      const uid = await RNDevice.getUniqueID()
-      const signature = await Biometrics.createSignature(tl.t('biometry.register.title'), uid)
+      const signature = await Biometrics.createSignature(tl.t('biometry.register.title'), ' ')
       const currentPIN = await AsyncStorage.getItem(ENCRYPTED_PIN)
       const decryptPIN = decrypt(currentPIN, signature)
       this._onSubmit(decryptPIN)
@@ -121,11 +119,11 @@ class PinScene extends Component {
 
       if (biometricsEnabled) {
         return (
-          <Utils.View flex={0.4} justify='center' align='center'>
-            <BiometricButton onPress={this._handleBiometrics}>
-              <Text>{tl.t('pin.biometrics')}</Text>
-            </BiometricButton>
-          </Utils.View>
+
+          <BiometricButton onPress={this._handleBiometrics}>
+            <Text>{tl.t('pin.biometrics')}</Text>
+          </BiometricButton>
+
         )
       }
 
@@ -137,7 +135,7 @@ class PinScene extends Component {
       return (
         <Utils.SafeAreaView>
           <Utils.Container >
-            <Utils.Content>
+            <Utils.Content flex={1}>
               {this.state.isDoubleChecking && (
                 <GoBackButton onPress={this._resetState} />
               )}
@@ -151,7 +149,9 @@ class PinScene extends Component {
               </Utils.View>
             </Utils.Content>
             <PinPad ref={ref => { this.pinPad = ref }} onComplete={this._checkPIN} />
-            {this._renderBiometrics()}
+            <Utils.View flex={0.4} justify='center' align='center'>
+              {this._renderBiometrics()}
+            </Utils.View>
           </Utils.Container>
         </Utils.SafeAreaView >
       )
