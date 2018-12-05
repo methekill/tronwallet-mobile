@@ -74,8 +74,8 @@
     "holdings": "Tenuti in custodia"
   },
   "exchange": {
-    "minToSell": "Minimo da vendere ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimo da comprare ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Lievemente maggiore del costo stimato e il tasso di cambio sarà maggiore.",
       "sell": "Lievemente minore del costo stimato e il tasso di cambio sarà maggiore."
