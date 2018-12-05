@@ -60,7 +60,7 @@
   "buy": "קניה",
   "sell": "מכירה",
   "filter": "סינון",
-  "txs": "תנועות",
+  "txs": "עסקאות",
   "balance": {
     "title": "חשבונות",
     "error": {
@@ -71,7 +71,7 @@
     "confirmSeed": "הקש כדי לאשר את 12 מילות הצופן שלך",
     "bandwidth": "רוחב פס",
     "tokens": "טוקנים",
-    "holdings": "אחזקות"
+    "holdings": "החזקות"
   },
   "exchange": {
     "minToSell": "כמות מינימלית למכירה ≈ {{min}} {{tokenId}}",
