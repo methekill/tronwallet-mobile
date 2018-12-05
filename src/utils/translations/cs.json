@@ -74,8 +74,8 @@
     "holdings": "MNOŽSTVÍ"
   },
   "exchange": {
-    "minToSell": "Minimum k prodeji ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimum k nákupu ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Mírně vyšší odhadované náklady zvýší míru obratu.",
       "sell": "Mírně nižší odhadované náklady zvýší míru obratu."
