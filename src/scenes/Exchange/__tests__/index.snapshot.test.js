@@ -9,10 +9,8 @@ jest.mock('./../../../store/context')
 
 describe('Exchange List Snapshot', () => {
   let exchangeSceneWrapper = null
-  let navigation = null
   beforeEach(() => {
-    navigation = { navigation: { addListener: jest.fn(), getParam: () => null } }
-    const props = { navigation }
+    const props = { }
 
     exchangeSceneWrapper = shallow(<ExchangeScene {...props} />)
   })

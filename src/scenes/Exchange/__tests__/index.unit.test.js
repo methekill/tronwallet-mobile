@@ -7,7 +7,7 @@ jest.mock('./../../../utils/i18n')
 jest.mock('./../../../utils/sentryUtils')
 jest.mock('./../../../store/context')
 
-describe('wExchange - List', () => {
+describe('Exchange - List', () => {
   let wrapper = null
   let navigation = null
 

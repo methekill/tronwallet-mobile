@@ -25,7 +25,7 @@ const SCREENSIZE = Dimensions.get('window')
 const TAB_WIDTH = SCREENSIZE.width / 2
 const INDICATOR_WIDTH = 13
 
-export default class TransferScene extends Component {
+export class ExchangeTransaction extends Component {
   static navigationOptions = {
     header: null
   }
@@ -113,7 +113,7 @@ export default class TransferScene extends Component {
       <SafeAreaView>
         <React.Fragment>
           <NavigationHeader
-            title='EXCHANGE'
+            title={tl.t('ex')}
             onBack={() => this.props.navigation.goBack()}
           />
           <TabViewAnimated
@@ -128,3 +128,4 @@ export default class TransferScene extends Component {
     )
   }
 }
+export default ExchangeTransaction
