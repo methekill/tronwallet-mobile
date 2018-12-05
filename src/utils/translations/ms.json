@@ -342,8 +342,8 @@
   "settings": {
     "title": "PENETAPAN",
     "sectionTitles": {
-      "wallet": "WALLET",
-      "security": "SECURITY",
+      "wallet": "DOMPET",
+      "security": "KESELAMATAN",
       "notification": "NOTIFICATIONS AND IDIOM",
       "accounts": "ACCOUNTS MANAGEMENT"
     },
