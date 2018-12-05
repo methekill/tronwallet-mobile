@@ -397,10 +397,10 @@
       "success": "Pin successfully changed!"
     },
     "language": {
-      "title": "Language",
-      "choose": "Please, choose a Language below:",
+      "title": "Bahasa",
+      "choose": "Sila pilih satu bahasa di bawah:",
       "success": {
-        "title": "Language changed to {{language}}",
+        "title": "Bahasa ditukar kepada {{language}}",
         "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
       },
       "button": {
