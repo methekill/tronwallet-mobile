@@ -74,8 +74,8 @@
     "holdings": "החזקות"
   },
   "exchange": {
-    "minToSell": "כמות מינימלית למכירה ≈ {{min}} {{tokenId}}",
-    "minToBuy": "כמות מינימלית לקניה ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "מעט גבוה מידי מהעלות המוערכת, קצב החלופה יהיה גבוה יותר.",
       "sell": "מעט נמוך מידי מהעלות המוערכת, קצב החלופה יהיה גבוה יותר."
