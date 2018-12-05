@@ -74,8 +74,8 @@
     "holdings": "ACTIFS"
   },
   "exchange": {
-    "minToSell": "Minimum pour vendre ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimun pour acheter ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Légèrement supérieur au coût estimé, et le taux de renouvellement sera plus élevé.",
       "sell": "Légèrement inférieur au coût estimé, et le taux de renouvellement sera plus élevé."
