@@ -32,7 +32,9 @@ class WalletBalances extends Component {
 
   async componentDidUpdate (prevProps) {
     const { balances, publicKey, fixedTokens } = this.props.context
-    if (balances[publicKey] !== prevProps.context.balances[prevProps.context.publicKey]) {
+    const { context: prevContext } = prevProps
+
+    if (balances[publicKey] && (balances[publicKey] !== prevContext.balances[prevContext.publicKey])) {
       try {
         const parsedTokens = parseFixedTokens(WALLET_TOKENS)
         const selectedBalances = this._updateTRXBalance(balances[publicKey].slice(0))
