@@ -15,14 +15,18 @@ class ExchangeItem extends Component {
         ? { color: Colors.weirdGreen, direction: 'up' }
         : { color: Colors.unconfirmed, direction: 'down' }
 
-      return <Utils.Row align='center'>
-        <Utils.Text size='xsmall' color={color}>{parseFloat(variation).toFixed(2)}%</Utils.Text>
-        <Utils.View width={16} />
-        <TinyTriangle direction={triangle.direction} color={triangle.color} />
-      </Utils.Row>
+      return (
+        <Utils.Row align='center'>
+          <Utils.Text size='xsmall' color={color}>{parseFloat(variation).toFixed(2)}%</Utils.Text>
+          <Utils.View width={16} />
+          <TinyTriangle direction={triangle.direction} color={triangle.color} />
+        </Utils.Row>
+      )
     }
 
     render () {
+      const {
+        onItemPress } = this.props
       const {
         firstTokenId,
         secondTokenId,
@@ -31,8 +35,7 @@ class ExchangeItem extends Component {
         price } = this.props.exchangeData
 
       return (
-        <ExchangeRow onPress={() =>
-          this.props.navigation.navigate('ExchangeTransaction', { exData: this.props.exchangeData })}>
+        <ExchangeRow onPress={() => onItemPress(this.props.exchangeData)}>
           <ExchangeLogo source={firstTokenImage} />
           <Utils.View flex={1} paddingLeft='medium' justify='center'>
             <Utils.Text size='small'>{firstTokenId} / {secondTokenId}</Utils.Text>
@@ -48,6 +51,7 @@ class ExchangeItem extends Component {
 }
 
 ExchangeItem.propTypes = {
+  onItemPress: PropTypes.func.isRequired,
   exchangeData: PropTypes.shape({
     firstTokenId: PropTypes.string,
     secondTokenId: PropTypes.string,
