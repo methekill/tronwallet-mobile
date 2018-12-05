@@ -30,7 +30,7 @@ class RealmMock {
       return
     }
 
-    const value = this.objectForPrimaryKey('', object[this._key])
+    const value = this.objectForPrimaryKey(schema, object[this._key])
 
     if (value) {
       Object.keys(value).forEach((k) => {

@@ -23,7 +23,7 @@ class RealmStore {
   }
 
   write (callbackFn) {
-    return _db.write(callbackFn)
+    _db.write(callbackFn)
   }
 
   save (object) {

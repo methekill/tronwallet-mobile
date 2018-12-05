@@ -13,6 +13,7 @@ const migration = (oldRealm, newRealm) => {
     newObjects[0].name = 'Main Account'
     newObjects[0].alias = '@main_account'
   }
+
   if (oldRealm.schemaVersion < 2) {
     newObjects.forEach(object => {
       object.hide = false
@@ -28,11 +29,13 @@ export const openRealmConnection = () => Realm.open({
   migration
 })
 
+let _instance = null
+
 export default async () => {
-  if (!this.instance) {
+  if (!_instance) {
     const connection = await openRealmConnection()
-    this.instance = new RealmStore(connection, 'UserSecrets')
+    _instance = new RealmStore(connection, 'UserSecrets')
   }
 
-  return this.instance
+  return _instance
 }
