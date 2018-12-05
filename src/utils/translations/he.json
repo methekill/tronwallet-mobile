@@ -83,7 +83,7 @@
     "estimatedRevenue": "הערך המשוערך לקבלה",
     "estimatedCost": "העלות המשוערכת",
     "preview": "חפש לפי שם הטוקן",
-    "notFound": "הבורסאות לא זמינות"
+    "notFound": "המסחר אינו זמין"
   },
   "hideAccount": "אתה עומד להסיר את החשבון הזה. ניתן לשחזר אותו מאוחר יותר בהגדרות",
   "components": {
@@ -107,7 +107,7 @@
       "yourVotes": "ההצבעות שלך",
       "myVotes": "ההצבעות שלי",
       "confirm": "אשר",
-      "freeze": "נעל",
+      "freeze": "הקפא",
       "totalVotes": "סה\"כ כל הקולות הזמינים:",
       "delete": "מחק",
       "set": "הגדר",
@@ -246,7 +246,7 @@
     "tokens": "טוקנים",
     "frozen": "קפוא",
     "percentage": "אחוז",
-    "issued": "הוציא",
+    "issued": "הונפק",
     "totalSupply": "סה\"כ האספקה",
     "startTime": "זמן התחלה",
     "endTime": "זמן סיום",
