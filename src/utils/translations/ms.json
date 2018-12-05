@@ -101,7 +101,7 @@
     "vote": {
       "enterVote": "MASUKKAN NILAI UNDI",
       "votesRemaining": "UNDI YANG TINGGAL",
-      "setVote": "SET VOTE",
+      "setVote": "TETAPKAN UNDI",
       "moreVotes": "If you need more votes you can Freeze more TRX.",
       "confirmVotes": "MENGESAHKAN UNDIAN",
       "yourVotes": "Undian Anda",
@@ -237,9 +237,9 @@
       "notFound": "Aset tidak dijumpai"
     },
     "warning": "You don't have enough TRX to buy that many {{token}}",
-    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
-    "amountToBuy": "AMOUNT TO BUY",
-    "pricePerToken": "PRICE PER TOKEN",
+    "enterAmountToBuy": "MASUKKAN AMAUN UNTUK BELI",
+    "amountToBuy": "AMAUN UNTUK BELI",
+    "pricePerToken": "HARGA SETIAP TOKEN",
     "tokenDescription": "PENERANGAN TOKEN",
     "tokenInfo": "MAKLUMAT TOKEN",
     "token": "TOKEN",
@@ -325,22 +325,22 @@
       "insufficientBalance": "Tidak cukup baki.",
       "gettingBalance": "Masalah semasa mendapatkan data baki",
       "incompleteAddress": "Address is either incomplete or invalid.",
-      "invalidReceiver": "Invalid receiver address",
+      "invalidReceiver": "Alamat penerima tidak sah",
       "selectBalance": "Select a balance first",
       "invalidAmount": "Invalid amount"
     },
     "input": {
       "token": "TOKEN",
-      "to": "TO",
-      "amount": "AMOUNT",
+      "to": "KEPADA",
+      "amount": "AMAUN",
       "description": "DESCRIPTION (OPTIONAL)"
     },
     "available": "available",
-    "chooseToken": "Please, choose a token below.",
+    "chooseToken": "Sila pilih satu token di bawah.",
     "minimumAmount": "The minimum amount for any send transaction is 0.000001."
   },
   "settings": {
-    "title": "SETTINGS",
+    "title": "PENETAPAN",
     "sectionTitles": {
       "wallet": "WALLET",
       "security": "SECURITY",
@@ -390,10 +390,10 @@
     "reset": {
       "title": "Reset Wallet",
       "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
-      "button": "OK, I understand it"
+      "button": "OK, saya faham"
     },
     "pin": {
-      "title": "Change Pin",
+      "title": "Tukar Pin",
       "success": "Pin successfully changed!"
     },
     "language": {
