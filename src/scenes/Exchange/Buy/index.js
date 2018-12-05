@@ -15,7 +15,7 @@ import PercentageSelector from '../../../components/SelectorTile'
 // Utils
 import tl from '../../../utils/i18n'
 import { withContext } from '../../../store/context'
-import { trxValueParse, estimatedBuyCost, LOW_VARIATION } from '../../../utils/exchangeUtils'
+import { trxValueParse, estimatedBuyCost, LOW_VARIATION, estimatedBuyWanted } from '../../../utils/exchangeUtils'
 import { formatFloat } from '../../../utils/numberUtils'
 import { logSentry } from '../../../utils/sentryUtils'
 
@@ -127,12 +127,15 @@ class BuyScene extends Component {
 
   _setPercentage = percentage => {
     const { balances, publicKey } = this.props.context
-    const { secondTokenId, price } = this.props.exchangeData
+    const { secondTokenId, price, secondTokenBalance, firstTokenBalance } = this.props.exchangeData
 
     const { balance } = balances[publicKey].find(bl => bl.name === secondTokenId) || { balance: 0 }
 
-    const amountWanted = balance * percentage / price
-    const buyAmount = secondTokenId === 'TRX' ? amountWanted * LOW_VARIATION : Math.floor(amountWanted)
+    const amountWanted = balance * percentage
+
+    const buyAmount = secondTokenId === 'TRX'
+      ? amountWanted * LOW_VARIATION / price
+      : estimatedBuyWanted(firstTokenBalance, secondTokenBalance, amountWanted)
 
     this._changeBuyAmount(buyAmount)
   }

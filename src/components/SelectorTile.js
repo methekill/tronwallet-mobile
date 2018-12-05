@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, TouchableOpacity } from 'react-native'
+import PropTypes from 'prop-types'
 
 import { Colors } from './DesignSystem'
 import * as Utils from './Utils'
@@ -23,6 +24,15 @@ const SelectorTile = ({options, onItemPress, itemSelected}) => (
     </Utils.Row>
   </View>
 )
+
+SelectorTile.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    value: PropTypes.any.isRequired
+  })).isRequired,
+  onItemPress: PropTypes.func.isRequired,
+  itemSelected: PropTypes.string
+}
 
 export default SelectorTile
 
