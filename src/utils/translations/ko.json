@@ -74,8 +74,8 @@
     "holdings": "보유량"
   },
   "exchange": {
-    "minToSell": "최소 주문 수량 ≈ {{min}} {{tokenId}}",
-    "minToBuy": "최소 주문 수량 ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "예상비용을 소폭 높게 설정하면 체결 가능성이 높아질 것입니다.",
       "sell": "예상비용을 소폭 낮게 설정하면 체결 가능성이 높아질 것입니다."
