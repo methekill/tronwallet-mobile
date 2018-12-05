@@ -78,7 +78,7 @@ export class ExchangeScene extends Component {
       const { navigation } = this.props
 
       navigation.navigate('ExchangeTransaction', { exData: item })
-      this.setState({isSearching: false, currentList: exchangeList, searchName: ''})
+      this.setState({ isSearching: false, currentList: exchangeList, searchName: '' })
 
       MixPanel.trackWithProperties('Exchange', {
         type: 'Entering Exchange',

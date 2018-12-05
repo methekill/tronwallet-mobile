@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { Colors } from './DesignSystem'
 import * as Utils from './Utils'
 
-const SelectorTile = ({options, onItemPress, itemSelected}) => (
+const SelectorTile = ({ options, onItemPress, itemSelected }) => (
   <View style={styles.wrapper}>
     <Utils.Row align='center'>
       {options.map(({label, value}) => (
