@@ -47,6 +47,7 @@ import ScanPayScene from './src/scenes/Payments/Scan'
 import CreateSeed from './src/scenes/Seed/Create'
 import ImportWallet from './src/scenes/Seed/Import'
 import PrivacyPolicy from './src/scenes/PrivacyPolicy'
+import ContractPreview from './src/scenes/ContractPreview'
 import Notifications from './src/scenes/Notifications'
 import Signals from './src/scenes/Signals'
 import ExchangeList from './src/scenes/Exchange'
@@ -220,6 +221,7 @@ const RootNavigator = createStackNavigator({
   CreateSeed,
   SeedRestore,
   ImportWallet,
+  ContractPreview,
   App: AppTabs,
   GetVault: GetVaultScene,
   SubmitTransaction: {
