@@ -74,8 +74,8 @@
     "holdings": "BEHOLDNING"
   },
   "exchange": {
-    "minToSell": "Minimum å selge ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimum å kjøpe ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Litt høyere estimert kostnad, og omsetningsats vil bli høyere.",
       "sell": "Litt lavere estimert kostnad, og omsetningsats vil bli høyere."
