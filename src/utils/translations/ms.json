@@ -275,12 +275,12 @@
     },
     "tabs": {
       "share": "KONGSI",
-      "request": "REQUEST"
+      "request": "PERMINTAAN"
     }
   },
   "rewards": {
     "title": "GANJARAN",
-    "earned": "You have earned"
+    "earned": "Anda telah memperoleh"
   },
   "seed": {
     "confirm": {
@@ -326,8 +326,8 @@
       "gettingBalance": "Masalah semasa mendapatkan data baki",
       "incompleteAddress": "Address is either incomplete or invalid.",
       "invalidReceiver": "Alamat penerima tidak sah",
-      "selectBalance": "Select a balance first",
-      "invalidAmount": "Invalid amount"
+      "selectBalance": "Pilih satu baki dulu",
+      "invalidAmount": "Amaun tidak sah"
     },
     "input": {
       "token": "TOKEN",
