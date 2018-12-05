@@ -11,7 +11,7 @@ import KeyboardScreen from '../../components/KeyboardScreen'
 import Input from '../../components/Input'
 import ButtonGradient from '../../components/ButtonGradient'
 import RequestModal from './RequestModal'
-import { SelecterWrapper, SelecterOption } from './elements'
+import SelectorTile from '../../components/SelectorTile'
 
 // Utils
 import tl from '../../utils/i18n'
@@ -20,7 +20,11 @@ import { formatNumber } from '../../utils/numberUtils'
 import { logSentry } from '../../utils/sentryUtils'
 import onBackgroundHandler from '../../utils/onBackgroundHandler'
 
-const CURRENCY_OPTIONS = ['USD', 'EUR', 'TRX']
+const SELECTOR_OPTIONS = [
+  {label: 'USD', value: 'USD'},
+  {label: 'EUR', value: 'EUR'},
+  {label: 'TRX', value: 'TRX'}
+]
 
 class RequestPayment extends Component {
   state = {
@@ -103,21 +107,6 @@ class RequestPayment extends Component {
     return JSON.stringify({amount: amountTrx, data: description, token, address})
   }
 
-  _renderCurrencySelecter = () => {
-    const { currencySelected } = this.state
-    return (
-      <SelecterWrapper>
-        <Utils.Row align='center'>
-          {CURRENCY_OPTIONS.map(currency => (
-            <SelecterOption onPress={() => this._changeCurrency(currency)} key={currency} disabled={currency === currencySelected}>
-              <Utils.Text size='tiny'>{currency}</Utils.Text>
-            </SelecterOption>
-          ))}
-        </Utils.Row>
-      </SelecterWrapper>
-    )
-  }
-
   _renderInputCurreny = () => (
     <Utils.Text size='smaller' secondary>
       {this.state.currencySelected}
@@ -139,7 +128,11 @@ class RequestPayment extends Component {
           <Utils.StatusBar />
           <Utils.Content>
             <Utils.Text marginBottom={15} size={'tiny'} align='center' secondary>{tl.t('buildPayment.selectCurrency')}</Utils.Text>
-            {this._renderCurrencySelecter()}
+            <SelectorTile
+              options={SELECTOR_OPTIONS}
+              onItemPress={this._changeCurrency}
+              itemSelected={currencySelected}
+            />
             <Utils.VerticalSpacer />
             <Input
               innerRef={(input) => { this.amount = input }}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FlatList } from 'react-native'
+import { FlatList, RefreshControl } from 'react-native'
 import MixPanel from 'react-native-mixpanel'
 
 // Design
@@ -17,30 +17,31 @@ import { logSentry } from '../../utils/sentryUtils'
 // Services
 import WalletClient from '../../services/client'
 
-class ExchangeScene extends Component {
+export class ExchangeScene extends Component {
     static navigationOptions = { header: null }
 
     state = {
       exchangeList: [],
       loading: true,
+      refreshing: false,
       isSearching: false,
       searchName: '',
       currentList: []
     }
 
     componentDidMount () {
-      this._navListener = this.props.navigation.addListener('didFocus', this._loadData)
+      this._didFocusSubscription = this.props.navigation.addListener('didFocus', this._loadData)
       this._loadData()
     }
 
     componentWillUnmount () {
-      this._navListener.remove()
+      this._didFocusSubscription.remove()
     }
 
     _loadData = async () => {
       try {
         const exchangeList = await WalletClient.getExchangesList()
-        this.setState({exchangeList, currentList: exchangeList, loading: false})
+        this.setState({ exchangeList, currentList: exchangeList, loading: false })
       } catch (error) {
         logSentry(error, 'Error exchange list')
         this.setState({exchangeList: [], loading: false})
@@ -72,17 +73,42 @@ class ExchangeScene extends Component {
       this.setState({isSearching: !isSearching, currentList})
     }
 
-    _renderItem = ({item}) => (<ExchangeItem exchangeData={item} />)
+    _onItemPressed = item => {
+      const { exchangeList } = this.state
+      const { navigation } = this.props
 
-    _renderEmptyList = () =>
+      navigation.navigate('ExchangeTransaction', { exData: item })
+      this.setState({ isSearching: false, currentList: exchangeList, searchName: '' })
+
+      MixPanel.trackWithProperties('Exchange', {
+        type: 'Entering Exchange',
+        name: `${item.firstTokenId}/${item.secondTokenId}`
+      })
+    }
+
+    _onRefreshing = async () => {
+      this.setState({refreshing: true})
+      await this._loadData()
+      this.setState({refreshing: false})
+    }
+
+    _renderItem = ({item}) => (
+      <ExchangeItem
+        exchangeData={item}
+        onItemPress={this._onItemPressed}
+      />
+    )
+
+    _renderEmptyList = () => (
       this.state.isSearching && !this.state.searchName
         ? <Utils.View />
         : <EmptyList text={tl.t('exchange.notFound')} />
+    )
 
-    _renderSeparator = () => <Divider />
+    _renderSeparator = () => (<Divider />)
 
     render () {
-      const { loading, currentList, isSearching } = this.state
+      const { loading, currentList, isSearching, refreshing } = this.state
       return (
         <Utils.SafeAreaView>
           <NavigationHeader
@@ -102,6 +128,10 @@ class ExchangeScene extends Component {
               keyExtractor={(item) => item.exchangeId.toString()}
               initialNumToRender={10}
               onEndReachedThreshold={0.75}
+              refreshControl={<RefreshControl
+                refreshing={refreshing}
+                onRefresh={this._onRefreshing}
+              />}
             />}
         </Utils.SafeAreaView>
       )
