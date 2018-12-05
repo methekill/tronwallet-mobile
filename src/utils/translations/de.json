@@ -74,8 +74,8 @@
     "holdings": "BESTÄNDE"
   },
   "exchange": {
-    "minToSell": "Minimum zu verkaufen ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimum zu kaufen ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Erhöhe die Kostenschätzung leicht und die Kaufwahrscheinlichkeit wird höher sein.",
       "sell": "Senke den zu erwartenden Ertrag leicht um die Verkaufswahrscheinlicheit zu erhöhen."
