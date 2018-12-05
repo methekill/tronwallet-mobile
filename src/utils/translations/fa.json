@@ -74,8 +74,8 @@
     "holdings": "موجودی ها"
   },
   "exchange": {
-    "minToSell": "حداقل فروش ≈ {{min}} {{tokenId}}",
-    "minToBuy": "حداقل خرید ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "هرچه ارزش تخمین زده شده بالاتر رود، میزان گردش مالی نیز بالاتر خواهد رفت.",
       "sell": "هرچه ارزش تخمین زده شده پایین تر رود، میزان گردش مالی نیز پایین تر خواهد رفت."
