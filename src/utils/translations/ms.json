@@ -357,7 +357,7 @@
         "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
         "error": {
           "storage": "Masalah mendapatkan nod IP dari storan tempatan",
-          "invalidIp": "Please put a valid IP",
+          "invalidIp": "Sila masukkan IP yang sah",
           "update": "Something went wrong while updating nodes ip",
           "reset": "Something wrong while reseting node ip"
         },
