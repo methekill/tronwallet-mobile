@@ -92,12 +92,18 @@ export class ExchangeScene extends Component {
       this.setState({refreshing: false})
     }
 
-    _renderItem = ({item}) => (<ExchangeItem exchangeData={item} onItemPress={this._onItemPressed} />)
+    _renderItem = ({item}) => (
+      <ExchangeItem
+        exchangeData={item}
+        onItemPress={this._onItemPressed}
+      />
+    )
 
-    _renderEmptyList = () =>
+    _renderEmptyList = () => (
       this.state.isSearching && !this.state.searchName
         ? <Utils.View />
         : <EmptyList text={tl.t('exchange.notFound')} />
+    )
 
     _renderSeparator = () => (<Divider />)
 

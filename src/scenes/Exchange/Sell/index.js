@@ -167,8 +167,11 @@ class SellScene extends Component {
     } = this.props.exchangeData
 
     const cost = estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount || 0, secondTokenId === 'TRX')
-    const minToSell = Math.round((1 / price) * 1.05)
-    const isTokenToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
+    const formattedCost = formatFloat(cost)
+
+    const isTokenToToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
+    const minToSell = Math.round((1 / price) * 1.05) /* Used in Token To Token transaction, it needs to have a hihger variation when selling */
+
     return (
       <Utils.SafeAreaView>
         <ScrollWrapper>
@@ -202,7 +205,7 @@ class SellScene extends Component {
               numbersOnly
               value={sellAmount}
             />
-            {isTokenToken &&
+            {isTokenToToken &&
             <Utils.Text size='tiny' font='regular' align='right'>
               {tl.t('exchange.minToSell', {min: minToSell, tokenId: firstTokenId})}
             </Utils.Text>}
@@ -210,7 +213,7 @@ class SellScene extends Component {
               label={tl.t('exchange.estimatedRevenue')}
               rightContent={() => this._renderRightContent(secondTokenId)}
               onChangeText={estimatedRevenue => this.setState({estimatedRevenue})}
-              placeholder={formatFloat(cost)}
+              placeholder={formattedCost}
               keyboardType='numeric'
               type='float'
               numbersOnly

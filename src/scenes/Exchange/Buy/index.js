@@ -148,10 +148,11 @@ class BuyScene extends Component {
     this.setState({buyAmount, estimatedCost})
   }
 
-  _renderRightContent = token =>
+  _renderRightContent = token => (
     <Utils.Text size='small' color={Colors.greyBlue}>
       {token}
     </Utils.Text>
+  )
 
   render () {
     const {
@@ -170,8 +171,11 @@ class BuyScene extends Component {
       price } = this.props.exchangeData
 
     const cost = estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount || 0, secondTokenId === 'TRX')
+    const formattedCost = formatFloat(cost)
+
+    const isTokenToToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
     const minBuy = Math.floor(cost / price)
-    const isTokenToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
+
     return (
       <Utils.SafeAreaView>
         <ScrollWrapper>
@@ -205,7 +209,7 @@ class BuyScene extends Component {
               numbersOnly
               value={buyAmount}
             />
-            {isTokenToken &&
+            {isTokenToToken &&
             <Utils.Text size='tiny' font='regular' align='right'>
               {tl.t('exchange.minToBuy', {min: minBuy, tokenId: firstTokenId})}
             </Utils.Text>}
@@ -213,7 +217,7 @@ class BuyScene extends Component {
               label={tl.t('exchange.estimatedCost')}
               rightContent={() => this._renderRightContent(secondTokenId)}
               onChangeText={estimatedCost => this.setState({estimatedCost})}
-              placeholder={formatFloat(cost)}
+              placeholder={formattedCost}
               keyboardType='numeric'
               type='float'
               numbersOnly

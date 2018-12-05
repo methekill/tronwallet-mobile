@@ -15,11 +15,13 @@ class ExchangeItem extends Component {
         ? { color: Colors.weirdGreen, direction: 'up' }
         : { color: Colors.unconfirmed, direction: 'down' }
 
-      return <Utils.Row align='center'>
-        <Utils.Text size='xsmall' color={color}>{parseFloat(variation).toFixed(2)}%</Utils.Text>
-        <Utils.View width={16} />
-        <TinyTriangle direction={triangle.direction} color={triangle.color} />
-      </Utils.Row>
+      return (
+        <Utils.Row align='center'>
+          <Utils.Text size='xsmall' color={color}>{parseFloat(variation).toFixed(2)}%</Utils.Text>
+          <Utils.View width={16} />
+          <TinyTriangle direction={triangle.direction} color={triangle.color} />
+        </Utils.Row>
+      )
     }
 
     render () {
