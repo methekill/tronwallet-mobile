@@ -339,12 +339,16 @@
     "chooseToken": "Vui lòng chọn một mã thông báo bên dưới.",
     "minimumAmount": "Số tiền tối thiểu cho bất kỳ giao dịch gửi nào là 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "CÀI ĐẶT",
     "sectionTitles": {
       "wallet": "WALLET",
       "security": "BẢO VỆ",
-      "notification": "THÔNG BÁO VÀ IDIOM",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "QUẢN LÝ TÀI KHOẢN"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Ai chấp nhận TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Help Center"
