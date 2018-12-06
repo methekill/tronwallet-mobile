@@ -339,12 +339,16 @@
     "chooseToken": "Te rugăm să alegi un token de mai jos.",
     "minimumAmount": "Suma minimă pentru orice tranzacție trimisă este de 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "SETĂRI",
     "sectionTitles": {
       "wallet": "PORTOFEL",
       "security": "SECURITATE",
-      "notification": "NOTIFICĂRI ȘI IDIOMURI",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "ADMINISTRAREA CONTURILOR"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Cine acceptă TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Serviciul de Asistență"
