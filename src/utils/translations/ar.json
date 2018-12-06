@@ -339,12 +339,16 @@
     "chooseToken": "الرجاء اختيار عملة من الأسفل.",
     "minimumAmount": "الحد الأدنى لمبلغ عملية الإرسال هو 0.000001 ."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "إعدادات",
     "sectionTitles": {
       "wallet": "محفظة",
       "security": "الأمان",
-      "notification": "الإشعارات والاختصارات",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "إدارة الحسابات"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "من يقبل عملة TRX؟"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "مركز المساعدة"
