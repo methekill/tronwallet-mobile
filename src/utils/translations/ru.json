@@ -339,12 +339,16 @@
     "chooseToken": "Пожалуйста, выберите токен ниже.",
     "minimumAmount": "Минимальная сумма для любой операции отправки — 0,000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "ПАРАМЕТРЫ",
     "sectionTitles": {
       "wallet": "КОШЕЛЁК",
       "security": "БЕЗОПАСНОСТЬ",
-      "notification": "УВЕДОМЛЕНИЯ И ЯЗЫКИ",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "УПРАВЛЕНИЕ УЧЕТНЫМИ ЗАПИСЯМИ"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Кто принимает TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Справочный центр"
