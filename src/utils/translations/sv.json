@@ -20,7 +20,7 @@
   "cancel": "Avbryt",
   "address": "Adress",
   "message": "Meddelande",
-  "ex": "Exchange",
+  "ex": "Börs",
   "ok": "Ok",
   "actionModalTitle": "Skulle du vilja",
   "account": "konto",
@@ -47,7 +47,7 @@
     "vote": "Rösta",
     "participate": "Delta",
     "create": "Skapa",
-    "exchange": "Exchange",
+    "exchange": "Börs",
     "undefined": "Odentifierad Typ"
   },
   "close": "Stängt",
@@ -58,7 +58,7 @@
   "privateKey": "Privat nyckel",
   "results": "Resultat",
   "buy": "Köp",
-  "sell": "Sell",
+  "sell": "Sälj",
   "filter": "Filter",
   "txs": "Transaktioner",
   "balance": {
@@ -74,8 +74,8 @@
     "holdings": "Besparingar"
   },
   "exchange": {
-    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum för att skicka ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum för att ta emot ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
       "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
