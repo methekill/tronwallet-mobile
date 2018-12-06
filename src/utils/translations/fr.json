@@ -339,12 +339,16 @@
     "chooseToken": "Veuillez choisir un jeton ci-dessous.",
     "minimumAmount": "Le montant minimal pour n'importe qu'elle transaction d’envoi est de 0,000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "Paramètres",
     "sectionTitles": {
       "wallet": "PORTEFEUILLE",
       "security": "SÉCURITÉ",
-      "notification": "NOTIFICATIONS ET IDIOME",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "GESTION DES COMPTES"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Qui accepte les TRX ?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Centre d'aide"
