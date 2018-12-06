@@ -339,12 +339,16 @@
     "chooseToken": "Wybierz token poniżej.",
     "minimumAmount": "Minimalna kwota dla każdej transakcji wysyłkowej to 0,000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "USTAWIENIA",
     "sectionTitles": {
       "wallet": "PORTFEL",
       "security": "BEZPIECZEŃSTWO",
-      "notification": "POWIADOMIENIA I IDIOM",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "ZARZĄDZANIE KONTAMI"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Kto akceptuje TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Help Center"
