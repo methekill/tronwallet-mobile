@@ -74,8 +74,8 @@
     "holdings": "Tenuti in custodia"
   },
   "exchange": {
-    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimo da inviare ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimo da ricevere ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Lievemente maggiore del costo stimato e il tasso di cambio sarà maggiore.",
       "sell": "Lievemente minore del costo stimato e il tasso di cambio sarà maggiore."
@@ -222,7 +222,7 @@
   },
   "participate": {
     "title": "PARTECIPARE",
-    "featured": "SPONSORED",
+    "featured": "SPONSORIZZATO",
     "button": {
       "confirm": "CONFERMA",
       "moreInfo": "PIU' INFORMAZIONI",
