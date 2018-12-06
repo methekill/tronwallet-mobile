@@ -74,8 +74,8 @@
     "holdings": "الممتلكات"
   },
   "exchange": {
-    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
+    "minToSell": "الحد الأدنى للإرسال ≈ {{min}}{{tokenId}}",
+    "minToBuy": "الحد الأدنى للإستلام ≈ {{min}}{{tokenId}}",
     "variation": {
       "buy": "قم بزيادة خفيفة على التكلفة التقديرية، و نسبة إجمالي المبيعات ستكون أعلى.",
       "sell": "قم بتخفيض التكلفة التقديرية قليلا، و نسبة إجمالي المبيعات ستكون أعلى."
