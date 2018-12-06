@@ -339,12 +339,16 @@
     "chooseToken": "Будь ласка, виберіть токен нижче.",
     "minimumAmount": "Мінімальна сума для будь-якої транзакції відправлення становить 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "НАЛАШТУВАННЯ",
     "sectionTitles": {
       "wallet": "ГАМАНЕЦЬ",
       "security": "БЕЗПЕКА",
-      "notification": "СПОВІЩЕННЯ ТА ІДІОМИ",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "УПРАВЛІННЯ РАХУНКАМИ"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Хто приймає TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Довідковий центр"
