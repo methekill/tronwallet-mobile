@@ -1,20 +1,21 @@
 import React, { Component } from 'react'
-import { ScrollView, Alert } from 'react-native'
+import { Alert } from 'react-native'
 import RNTron from 'react-native-tron'
 import MixPanel from 'react-native-mixpanel'
 
 // Design
 import Input from '../../../components/Input'
 import * as Utils from '../../../components/Utils'
-import { ExchangePair, ExchangeVariation } from '../elements'
-import ExchangeBalancePair from '../ExchangeBalancePair'
-import ExchangeButton from '../ExchangeButton'
+import { ExchangePair, ExchangeVariation, ScrollWrapper, PERCENTAGE_OPTIONS } from '../elements'
+import ExchangeBalancePair from '../BalancePair'
+import ExchangeButton from '../Button'
 import { Colors } from '../../../components/DesignSystem'
+import PercentageSelector from '../../../components/SelectorTile'
 
 // Utils
 import tl from '../../../utils/i18n'
 import { withContext } from '../../../store/context'
-import { estimatedSellCost, trxValueParse } from '../../../utils/exchangeUtils'
+import { estimatedSellCost, trxValueParse, HIGH_VARIATION } from '../../../utils/exchangeUtils'
 import { formatFloat } from '../../../utils/numberUtils'
 import { logSentry } from '../../../utils/sentryUtils'
 
@@ -44,9 +45,15 @@ class SellScene extends Component {
       this.sellAmount.focus()
       return
     }
+    const expecRev = estimatedRevenue || estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount, secondTokenId === 'TRX')
 
-    const expecSell = estimatedRevenue || estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount, secondTokenId === 'TRX')
-    if (expecSell <= 0) {
+    if ((firstTokenId !== 'TRX' && parseInt(sellAmount) !== Number(sellAmount)) ||
+        (secondTokenId !== 'TRX' && parseInt(expecRev) !== Number(expecRev))) {
+      Alert.alert(tl.t('warning'), `Can only trade whole Assets amount`)
+      return
+    }
+
+    if (expecRev <= 0) {
       Alert.alert(tl.t('warning'), `Can't trade ${estimatedRevenue} ${secondTokenId}`)
       this.sellAmount.focus()
       return
@@ -79,6 +86,7 @@ class SellScene extends Component {
       : estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount)
 
     this.setState({loading: true})
+
     try {
       const exParams = {
         address: publicKey,
@@ -101,17 +109,28 @@ class SellScene extends Component {
       } else {
         this.setState({result: 'fail', loading: false})
       }
+
+      this._setResultTimeout(code === 'SUCCESS')
     } catch (error) {
       this.setState({result: 'fail', loading: false})
       logSentry(error, 'Selling Exchange')
-    } finally {
-      this.sellTimeout = setTimeout(() =>
-        this.setState({
-          sellAmount: '',
-          estimatedRevenue: '',
-          result: false
-        }), 3200)
+      this._setResultTimeout(false)
     }
+  }
+
+  _setResultTimeout = result => {
+    let nexState = result ? { sellAmount: '', estimatedRevenue: '', result: false } : { result: false }
+    this.sellTimeout = setTimeout(() => this.setState(nexState), 3200)
+  }
+
+  _setPercentage = percentage => {
+    const { balances, publicKey } = this.props.context
+    const { firstTokenId } = this.props.exchangeData
+
+    const { balance } = balances[publicKey].find(bl => bl.name === firstTokenId) || { balance: 0 }
+    const amountWanted = balance * percentage
+    const sellAmount = firstTokenId === 'TRX' ? amountWanted * HIGH_VARIATION : Math.floor(amountWanted)
+    this._changeSellAmount(sellAmount)
   }
 
   _changeSellAmount = sellAmount => {
@@ -148,12 +167,15 @@ class SellScene extends Component {
     } = this.props.exchangeData
 
     const cost = estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount || 0, secondTokenId === 'TRX')
-    const minToSell = Math.round((1 / price) * 1.05)
-    const isTokenToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
+    const formattedCost = formatFloat(cost)
+
+    const isTokenToToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
+    const minToSell = Math.round((1 / price) * 1.05) /* Used in Token To Token transaction, it needs to have a hihger variation when selling */
+
     return (
       <Utils.SafeAreaView>
-        <ScrollView>
-          <Utils.View height={24} />
+        <ScrollWrapper>
+          <Utils.View height={8} />
           <ExchangeBalancePair
             firstToken={firstTokenId}
             firstTokenImage={firstTokenImage}
@@ -165,7 +187,13 @@ class SellScene extends Component {
             secondToken={secondTokenId}
             price={price}
           />
-          <Utils.View flex={1} justify='center' paddingX='medium' paddingY='small'>
+          <Utils.View paddingY='small'>
+            <PercentageSelector
+              options={PERCENTAGE_OPTIONS}
+              onItemPress={this._setPercentage}
+            />
+          </Utils.View>
+          <Utils.View flex={1} justify='center'>
             <Input
               label={tl.t('sell').toUpperCase()}
               innerRef={input => { this.sellAmount = input }}
@@ -177,7 +205,7 @@ class SellScene extends Component {
               numbersOnly
               value={sellAmount}
             />
-            {isTokenToken &&
+            {isTokenToToken &&
             <Utils.Text size='tiny' font='regular' align='right'>
               {tl.t('exchange.minToSell', {min: minToSell, tokenId: firstTokenId})}
             </Utils.Text>}
@@ -185,21 +213,21 @@ class SellScene extends Component {
               label={tl.t('exchange.estimatedRevenue')}
               rightContent={() => this._renderRightContent(secondTokenId)}
               onChangeText={estimatedRevenue => this.setState({estimatedRevenue})}
-              placeholder={formatFloat(cost)}
+              placeholder={formattedCost}
               keyboardType='numeric'
               type='float'
               numbersOnly
               value={estimatedRevenue}
             />
-            <ExchangeVariation text={tl.t('exchange.variation.sell')} />
             <ExchangeButton
               text={tl.t('sell').toUpperCase()}
               loading={loading}
               result={result}
               onSubmit={this._submit}
             />
+            <ExchangeVariation text={tl.t('exchange.variation.sell')} />
           </Utils.View>
-        </ScrollView>
+        </ScrollWrapper>
       </Utils.SafeAreaView>
     )
   }

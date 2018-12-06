@@ -118,6 +118,7 @@ ShallowWrapper {
           <Key
             disabled={true}
             noBorder={true}
+            onPress={[Function]}
           />
           <Key
             onPress={[Function]}
@@ -416,6 +417,7 @@ ShallowWrapper {
             <Key
               disabled={true}
               noBorder={true}
+              onPress={[Function]}
             />,
             <Key
               onPress={[Function]}
@@ -553,6 +555,7 @@ ShallowWrapper {
             "props": Object {
               "disabled": true,
               "noBorder": true,
+              "onPress": [Function],
             },
             "ref": null,
             "rendered": null,
@@ -713,6 +716,7 @@ ShallowWrapper {
             <Key
               disabled={true}
               noBorder={true}
+              onPress={[Function]}
             />
             <Key
               onPress={[Function]}
@@ -1011,6 +1015,7 @@ ShallowWrapper {
               <Key
                 disabled={true}
                 noBorder={true}
+                onPress={[Function]}
               />,
               <Key
                 onPress={[Function]}
@@ -1148,6 +1153,7 @@ ShallowWrapper {
               "props": Object {
                 "disabled": true,
                 "noBorder": true,
+                "onPress": [Function],
               },
               "ref": null,
               "rendered": null,
