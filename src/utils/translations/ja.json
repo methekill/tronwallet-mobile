@@ -339,12 +339,16 @@
     "chooseToken": "下のトークンを選択してください。",
     "minimumAmount": "送信トランザクションの最小金額は0.000001です。"
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "設定",
     "sectionTitles": {
       "wallet": "財布",
       "security": "セキュリティ",
-      "notification": "通知とIDIOM",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "会計管理"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "誰がTRXを受け入れますか？"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Help Center"
