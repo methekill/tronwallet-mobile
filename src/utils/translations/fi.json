@@ -339,12 +339,16 @@
     "chooseToken": "Valitse alla oleva merkki.",
     "minimumAmount": "Minkä tahansa lähetystapahtuman vähimmäismäärä on 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "ASETUKSET",
     "sectionTitles": {
       "wallet": "LOMPAKKO",
       "security": "TURVALLISUUS",
-      "notification": "ILMOITUKSET JA IDIOM",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "TILINPÄÄTÖS"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Kuka hyväksyy TRX: n?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Help Center"
