@@ -339,12 +339,16 @@
     "chooseToken": "Vennligst velg et token nedenfor.",
     "minimumAmount": "Minimumsbeløpet for enhver send transaksjon er 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "INNSTILLINGER",
     "sectionTitles": {
       "wallet": "LOMMEBOK",
       "security": "SIKKERHET",
-      "notification": "MELDINGER OG IDIOM",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "REGNSKAPSSTYRING"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Hvem aksepterer TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Brukerstøtte"
