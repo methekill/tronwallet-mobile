@@ -14,6 +14,7 @@ import tl from '../../utils/i18n'
 import * as Utils from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
 import FadeIn from '../../components/Animations/FadeIn'
+import LeftBackButton from '../../components/Navigation/LeftBackButton'
 import { formatNumber } from '../../utils/numberUtils'
 import { USER_PREFERRED_CURRENCY } from '../../utils/constants'
 import withContext from '../../utils/hocs/withContext'
@@ -155,6 +156,7 @@ class MarketScene extends Component {
         source={require('../../assets/market-header.png')}
         resizeMode='stretch'
       >
+        <LeftBackButton onBack={() => this.props.navigation.goBack()} />
         <Utils.StatusBar transparent />
         <Utils.View align='center'>
           <Image
