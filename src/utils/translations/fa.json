@@ -339,12 +339,16 @@
     "chooseToken": "لطفا، یک توکن را انتخاب کنید.",
     "minimumAmount": "حداقل مقدار برای هر تراکنش ارسال 0.000001 است."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "تنظیمات",
     "sectionTitles": {
       "wallet": "کیف پول",
       "security": "امنیت",
-      "notification": "اطلاعیه ها و اصطلاحات",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "مدیریت حساب"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "چه کسی TRX می پذیرد؟"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "مرکز راهنمایی"
