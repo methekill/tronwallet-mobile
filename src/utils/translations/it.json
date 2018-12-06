@@ -339,12 +339,16 @@
     "chooseToken": "Per favore, scegli un token qui sotto.",
     "minimumAmount": "L'importo minimo per qualsiasi transazione di invio è 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "IMPOSTAZIONI",
     "sectionTitles": {
       "wallet": "PORTAFOGLIO",
       "security": "SICUREZZA",
-      "notification": "NOTIFICHE E LINGUE",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "GESTIONE DEI CONTI"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Chi accetta TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Centro assistenza"
