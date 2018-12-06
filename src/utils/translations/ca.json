@@ -339,12 +339,16 @@
     "chooseToken": "Seleccioneu un testimoni a sota.",
     "minimumAmount": "L'import mínim per a qualsevol transacció d'enviament és 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "CONFIGURACIÓ",
     "sectionTitles": {
       "wallet": "CARREIRA",
       "security": "SEGURETAT",
-      "notification": "NOTIFICACIONS I IDIOM",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "GESTIÓ DE COMPTES"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Qui accepta TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Help Center"
