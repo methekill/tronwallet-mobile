@@ -339,12 +339,16 @@
     "chooseToken": "Kies hieronder een token.",
     "minimumAmount": "Het minimum aantal voor elke verzendtransactie is 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "INSTELLINGEN",
     "sectionTitles": {
       "wallet": "PORTEMONNEE",
       "security": "BEVEILIGING",
-      "notification": "MELDINGEN EN IDIOM",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "BEHEER VAN DE REKENINGEN"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Wie accepteert TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Helpcentrum"
