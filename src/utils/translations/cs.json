@@ -339,12 +339,16 @@
     "chooseToken": "Prosím, vyberte z tokenů níže.",
     "minimumAmount": "Minimální množství pro poslání transakce je 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "NASTAVENÍ",
     "sectionTitles": {
       "wallet": "PENĚŽENKA",
       "security": "ZABEZPEČENÍ",
-      "notification": "OZNÁMENÍ A JAZYKY",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "ŘÍZENÍ ÚČTŮ"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Kdo přijímá TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Centrum nápovědy"
