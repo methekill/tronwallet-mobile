@@ -339,12 +339,16 @@
     "chooseToken": "Bitte wählen Sie von unten einen Token.",
     "minimumAmount": "Der Mindestbetrag für jede Sendetransaktion beträgt 0,000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "EINSTELLUNGEN",
     "sectionTitles": {
       "wallet": "WALLET",
       "security": "SICHERHEIT",
-      "notification": "BENACHRICHTIGUNGEN UND SPRACHE",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "KONTENVERWALTUNG"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Wer akzeptiert TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Hilfezentrum"
