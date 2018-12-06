@@ -339,12 +339,16 @@
     "chooseToken": "Please, choose a token below.",
     "minimumAmount": "The minimum amount for any send transaction is 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "SETTINGS",
     "sectionTitles": {
       "wallet": "WALLET",
       "security": "SECURITY",
-      "notification": "NOTIFICATIONS AND IDIOM",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "SZÁMVITELI GAZDÁLKODÁS"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Ki fogadja el a TRX-t?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Help Center"
