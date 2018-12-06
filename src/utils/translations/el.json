@@ -339,12 +339,16 @@
     "chooseToken": "Παρακαλώ επιλέξτε ένα κουπόνι παρακάτω.",
     "minimumAmount": "Το ελάχιστο ποσό για οποιαδήποτε συναλλαγή αποστολής είναι 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "ΡΥΘΜΙΣΕΙΣ",
     "sectionTitles": {
       "wallet": "ΠΟΡΤΟΦΟΛΙ",
       "security": "ΑΣΦΑΛΕΙΑ",
-      "notification": "ΚΟΙΝΟΠΟΙΗΣΕΙΣ ΚΑΙ ΙΔΙΟΜ",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "ΔΙΑΧΕΙΡΙΣΗ ΛΟΓΑΡΙΑΣΜΩΝ"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Who accepts TRX;"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Help Center"
