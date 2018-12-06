@@ -339,12 +339,16 @@
     "chooseToken": "कृपया, नीचे एक टोकन चुनें।",
     "minimumAmount": "किसी भी प्रेषण लेनदेन के लिए न्यूनतम राशि 0.000001 है।"
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "सेटिंग्स",
     "sectionTitles": {
       "wallet": "बटुआ",
       "security": "सुरक्षा",
-      "notification": "अधिसूचनाएं और पहचान",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "खाता प्रबंधन"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "टीआरएक्स कौन स्वीकार करता है?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Help Center"
