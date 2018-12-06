@@ -74,8 +74,8 @@
     "holdings": "ЗАПАСЫ"
   },
   "exchange": {
-    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
+    "minToSell": "Минимум для отправки ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Минимум для получения ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Чем выше оценочная стоимость, тем выше вероятность успешной сделки.",
       "sell": "Чем ниже оценочная стоимость, тем выше вероятность успешной сделки."
