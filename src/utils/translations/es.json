@@ -339,12 +339,16 @@
     "chooseToken": "Por favor, elija un token a continuación.",
     "minimumAmount": "La cantidad mínima para enviar cualquier transacción es de 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "AJUSTES",
     "sectionTitles": {
       "wallet": "BILLETERA",
       "security": "SEGURIDAD",
-      "notification": "NOTIFICACIONES E IDIOMA",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "GESTIÓN DE CUENTAS"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "¿Quién acepta TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Centro de asistencia"
