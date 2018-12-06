@@ -190,7 +190,8 @@ const AppTabs = createMaterialBottomTabNavigator({
       } else if (routeName === 'Receive') {
         iconName = `scan,-bar-code,-qr-code,-barcode,-scanner`
       } else if (routeName === 'Settings') {
-        iconName = `gear,-settings,-update,-setup,-config`
+        iconName = `menu`
+        iconSize = 23
       } else if (routeName === 'Participate') {
         iconName = `dollar,-currency,-money,-cash,-coin`
       } else if (routeName === 'Exchange') {
