@@ -339,12 +339,16 @@
     "chooseToken": "אנא, בחר טוקן מלמטה.",
     "minimumAmount": "הסכום המינימלי לשליחת כל עסקה הוא 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "הגדרות",
     "sectionTitles": {
       "wallet": "ארנק",
       "security": "אבטחה",
-      "notification": "הודעות והודאה",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "ניהול חשבונות"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "מי מקבל TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "מרכז עזרה"
