@@ -339,12 +339,16 @@
     "chooseToken": "Silakan, pilih token di bawah ini.",
     "minimumAmount": "Jumlah minimum untuk setiap transaksi pengiriman adalah 0,000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "SETELAN",
     "sectionTitles": {
       "wallet": "DOMPET",
       "security": "KEAMANAN",
-      "notification": "NOTIFIKASI DAN IDIOM",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "MANAJEMEN AKUN"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Siapa yang menerima TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Help Center"
