@@ -339,12 +339,16 @@
     "chooseToken": "Vänligen, Välj en token nedan.",
     "minimumAmount": "Minsta belopp för någon skicka transaktion är marginal på 0,000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "INSTÄLLNINGAR",
     "sectionTitles": {
       "wallet": "PLÅNBOK",
       "security": "SÄKERHET",
-      "notification": "ANMÄLAN OCH IDIOM",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "REDOVISNINGSREDOVISNING"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Vem accepterar TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Help Center"
