@@ -340,14 +340,14 @@
     "minimumAmount": "Der Mindestbetrag für jede Sendetransaktion beträgt 0,000001."
   },
   "menu": {
-    "title": "MENU"
+    "title": "MENÜ"
   },
   "settings": {
     "title": "EINSTELLUNGEN",
     "sectionTitles": {
       "wallet": "WALLET",
       "security": "SICHERHEIT",
-      "notification": "NOTIFICATIONS",
+      "notification": "BENACHRICHTIGUNG",
       "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "KONTENVERWALTUNG"
     },
@@ -428,7 +428,7 @@
       "title": "Wer akzeptiert TRX?"
     },
     "market": {
-      "title": "Market"
+      "title": "Markt"
     },
     "helpCenter": {
       "title": "Hilfezentrum"
