@@ -13,89 +13,138 @@ describe('Basic repository', () => {
     store = new RealmStore(db, '')
   })
 
-  test('should find object when key exist', () => {
-    const key = 1
-    const object = store.findByKey(key)
+  describe('Find objects', () => {
+    test('should find object when key exist', () => {
+      const key = 1
+      const object = store.findByKey(key)
 
-    expect(object).toMatchObject({ key: 1, value: 'a' })
-  })
-
-  test('should be undefined object when key doesn\'t exist', () => {
-    const key = 3
-    const object = store.findByKey(key)
-
-    expect(object).toBeUndefined()
-  })
-
-  test('should return all objects when has data on list', () => {
-    const objects = store.findAll()
-    expect(objects).toHaveLength(2)
-  })
-
-  test('should return empty list when hasn\'t data on list', () => {
-    const db = new RealmMock('key', [])
-    const repo = new RealmStore(db, '')
-
-    const objects = repo.findAll()
-    expect(objects).toHaveLength(0)
-  })
-
-  test('should find object when filter matched', () => {
-    db.setFiltered((v) => v.value === 'b')
-
-    const objects = store.findBy('filter')
-    expect(objects).toMatchObject([{ key: 2, value: 'b' }])
-  })
-
-  test('should return empty list when filter doesn\'t matched', () => {
-    db.setFiltered((v) => v.value === 'c')
-
-    const objects = store.findBy('filter')
-    expect(objects.length).toBe(0)
-  })
-
-  test('should return ordered list when filter doesn\'t matched', () => {
-    db.setSorted((v1, v2) => v2.key - v1.key)
-
-    const objects = store.sort('sort')
-
-    const expected = [
-      { key: 2, value: 'b' },
-      { key: 1, value: 'a' }
-    ]
-
-    expect(JSON.stringify(objects)).toEqual(JSON.stringify(expected))
-  })
-
-  test('should increase list length when new object is added', async () => {
-    await store.save({ key: 3, value: 'c' })
-
-    const objects = store.findAll()
-    expect(objects).toHaveLength(3)
-  })
-
-  test('should update object when value from object is updated', async () => {
-    await store.save({ key: 1, value: 'h' })
-
-    const object = store.findByKey(1)
-    expect(object).toMatchObject({ key: 1, value: 'h' })
-  })
-
-  test('should increase list length when new object is added by write action', async () => {
-    await store.write(() => {
-      store.save({ key: 3, value: 'c' })
+      expect(object).toMatchObject({ key: 1, value: 'a' })
     })
 
-    const objects = store.findAll()
-    expect(objects).toHaveLength(3)
-  })
+    test('should be undefined object when key doesn\'t exist', () => {
+      const key = 3
+      const object = store.findByKey(key)
 
-  test('should update object when value from object is updated by write action', async () => {
-    await store.write(() => {
-      store.save({ key: 1, value: 'h' })
+      expect(object).toBeUndefined()
     })
 
-    const object = store.findByKey(1)
-    expect(object).toMatchObject({ key: 1, value: 'h' })
+    test('should return all objects when has data on list', () => {
+      const objects = store.findAll()
+      expect(objects).toHaveLength(2)
+    })
+
+    test('should return empty list when hasn\'t data on list', () => {
+      const db = new RealmMock('key', [])
+      const repo = new RealmStore(db, '')
+
+      const objects = repo.findAll()
+      expect(objects).toHaveLength(0)
+    })
+  })
+
+  describe('Filter/Sort actions', () => {
+    test('should find object when filter matched', () => {
+      db.setFiltered((v) => v.value === 'b')
+
+      const objects = store.findBy('filter')
+      expect(objects).toMatchObject([{ key: 2, value: 'b' }])
+    })
+
+    test('should return empty list when filter doesn\'t matched', () => {
+      db.setFiltered((v) => v.value === 'c')
+
+      const objects = store.findBy('filter')
+      expect(objects.length).toBe(0)
+    })
+
+    test('should return ordered list when filter doesn\'t matched', () => {
+      db.setSorted((v1, v2) => v2.key - v1.key)
+
+      const objects = store.sort('sort')
+
+      const expected = [
+        { key: 2, value: 'b' },
+        { key: 1, value: 'a' }
+      ]
+
+      expect(JSON.stringify(objects)).toEqual(JSON.stringify(expected))
+    })
+  })
+
+  describe('Save object on list', () => {
+    test('should increase list length when new object is added', async () => {
+      await store.save({ key: 3, value: 'c' })
+
+      const objects = store.findAll()
+      expect(objects).toHaveLength(3)
+    })
+
+    test('should update object when value from object is updated', async () => {
+      await store.save({ key: 1, value: 'h' })
+
+      const object = store.findByKey(1)
+      expect(object).toMatchObject({ key: 1, value: 'h' })
+    })
+
+    test('should increase list length when new object is added by write action', async () => {
+      await store.write(() => {
+        store.save({ key: 3, value: 'c' })
+      })
+
+      const objects = store.findAll()
+      expect(objects).toHaveLength(3)
+    })
+
+    test('should update object when value from object is updated by write action', async () => {
+      await store.write(() => {
+        store.save({ key: 1, value: 'h' })
+      })
+
+      const object = store.findByKey(1)
+      expect(object).toMatchObject({ key: 1, value: 'h' })
+    })
+  })
+
+  // describe('Delete objects', () => {
+  //   test('should decrease list length when delete object by key', async () => {
+  //     await store.deleteByKey(2)
+
+  //     const objects = store.findAll()
+  //     expect(objects).toHaveLength(1)
+  //   })
+
+  //   test('should keep list length when key doesn\'t exists for delete', async () => {
+  //     await store.deleteByKey(5)
+
+  //     const objects = store.findAll()
+  //     expect(objects).toHaveLength(2)
+  //   })
+
+  //   test('should decrease list length when delete object by instance', async () => {
+  //     const object = store.findByKey(2)
+  //     await store.delete(object)
+
+  //     const objects = store.findAll()
+  //     expect(objects).toHaveLength(1)
+  //   })
+
+  //   test('should list length empty when reset data', async () => {
+  //     await store.resetData()
+
+  //     const objects = store.findAll()
+  //     expect(objects).toHaveLength(0)
+  //   })
+  // })
+
+  describe('Get db instance', () => {
+    test('should return db instance when db exists', () => {
+      const dbInstance = store.db
+      expect(dbInstance).toEqual(db)
+    })
+
+    test('should not permit set new value when db property is readonly', () => {
+      const onSet = () => { store.db = new RealmMock('', []) }
+      expect(onSet).toThrow()
+    })
   })
 })

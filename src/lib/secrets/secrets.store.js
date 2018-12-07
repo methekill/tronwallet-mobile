@@ -1,7 +1,8 @@
 class SecretsStore {
-  constructor (store, tron) {
-    this._store = store
+  constructor (tron, store, contactStore) {
     this._tron = tron
+    this._store = store
+    this._contactStore = contactStore
   }
 
   createMnemonic () {}
@@ -27,7 +28,7 @@ class SecretsStore {
     userSecret.confirmed = true
     userSecret.hide = false
 
-    this._store.save(userSecret)
+    await this._store.save(userSecret)
 
     return userSecret
   }
@@ -48,6 +49,26 @@ class SecretsStore {
     }
 
     return this.create(accountName, firstAccount.mnemonic)
+  }
+
+  getStoreByAccountType (accountType) {
+    switch (accountType) {
+      case 'User':
+        return this._store
+      case 'Contact':
+        return this._contactStore
+      default:
+        return null
+    }
+  }
+
+  async removeByAccountType (address, accountType) {
+    const store = this.getStoreByAccountType(accountType)
+    await store.deleteByKey(address)
+  }
+
+  async resetSecretData () {
+    await this._store.resetData()
   }
 
   formatAlias (name) {

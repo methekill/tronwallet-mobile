@@ -40,6 +40,14 @@ class RealmMock {
       this.data.push(object)
     }
   }
+
+  delete (schema, object) {
+    const list = Array.isArray(object) ? object : [object]
+    list.forEach((item) => {
+      const arr = this.data
+      arr.splice(arr.indexOf(item), 1)
+    })
+  }
 }
 
 export default RealmMock

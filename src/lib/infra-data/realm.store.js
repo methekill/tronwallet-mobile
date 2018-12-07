@@ -11,7 +11,7 @@ class RealmStore {
   }
 
   findAll () {
-    return _db.objects(this.schema).map(item => Object.assign({}, item))
+    return _db.objects(this.schema)
   }
 
   findBy (filter) {
@@ -33,12 +33,10 @@ class RealmStore {
   }
 
   async deleteByKey (key) {
-    await this.write(() => {
-      const object = this.findByKey(key)
-      if (object) {
-        _db.delete(this.schema, object)
-      }
-    })
+    const object = this.findByKey(key)
+    if (object) {
+      await this.delete(object)
+    }
   }
 
   async delete (object) {
