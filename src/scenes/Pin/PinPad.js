@@ -1,10 +1,9 @@
 import React, { PureComponent } from 'react'
-import { Vibration, Platform } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import * as Animatable from 'react-native-animatable'
 import PropTypes from 'prop-types'
 
-import { PinDigit, KeyPad, Key } from './elements'
+import { PinDigit, KeyPad, Key, PinWrapper } from './elements'
 import * as Utils from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
 
@@ -32,16 +31,7 @@ class PinPad extends PureComponent {
   reset = () => this._handleClear()
 
   shake = () => {
-    Vibration.vibrate(500)
     this.pinView.shake(1000)
-      .then(endState => {
-        if (endState.finished) {
-          Vibration.cancel()
-        }
-      })
-      .catch(() => {
-        Vibration.cancel()
-      })
   }
 
   _checkPin = () => {
@@ -52,14 +42,9 @@ class PinPad extends PureComponent {
 
   _handleKeyInput = digit => {
     const { pin } = this.state
-    Vibration.vibrate(30)
     if (pin.length < 6) {
       this.setState({
         pin: pin.concat(parseInt(digit))
-      }, () => {
-        if (Platform.OS === 'ios') {
-          Vibration.cancel()
-        }
       })
     }
   }
@@ -79,8 +64,8 @@ class PinPad extends PureComponent {
   render () {
     const { pin } = this.state
     return (
-      <Utils.View marginBottom={40}>
-        <Utils.View height={180} justify='center' align='center'>
+      <Utils.View marginBottom={10}>
+        <PinWrapper>
           <Animatable.View ref={ref => { this.pinView = ref }} >
             <Utils.Row align='center' justify='space-between' width={264}>
               <PinDigit digit={0} currentState={pin} />
@@ -91,7 +76,7 @@ class PinPad extends PureComponent {
               <PinDigit digit={5} currentState={pin} />
             </Utils.Row>
           </Animatable.View>
-        </Utils.View>
+        </PinWrapper>
 
         <KeyPad>
           <Key onPress={this._handleKeyInput}>1</Key>

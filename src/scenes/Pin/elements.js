@@ -128,6 +128,11 @@ export const GoBackButton = props => (
   </GoBackBtn>
 )
 
-export const BiometricButton = styled.TouchableOpacity`
-  padding: ${Spacing.medium}px;
+export const BiometricButton = styled.TouchableOpacity``
+
+export const PinWrapper = styled.View`
+  max-height: 180;
+  min-height: 160;
+  justify-content: center;
+  align-items: center;
 `
