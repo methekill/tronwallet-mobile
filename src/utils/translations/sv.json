@@ -81,7 +81,7 @@
       "sell": "Slightly reduce the estimated revenue, and success rate will be higher.."
     },
     "estimatedRevenue": "ESTIMATED TO RECEIVE",
-    "estimatedCost": "ESTIMATED COST",
+    "estimatedCost": "BERÄKNAD KOSTNAD",
     "preview": "Search by the Token name",
     "notFound": "Exchanges not found"
   },
