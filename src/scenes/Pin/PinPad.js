@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react'
-import { Vibration, Platform } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import * as Animatable from 'react-native-animatable'
 import PropTypes from 'prop-types'
@@ -32,16 +31,7 @@ class PinPad extends PureComponent {
   reset = () => this._handleClear()
 
   shake = () => {
-    Vibration.vibrate(500)
     this.pinView.shake(1000)
-      .then(endState => {
-        if (endState.finished) {
-          Vibration.cancel()
-        }
-      })
-      .catch(() => {
-        Vibration.cancel()
-      })
   }
 
   _checkPin = () => {
@@ -52,14 +42,9 @@ class PinPad extends PureComponent {
 
   _handleKeyInput = digit => {
     const { pin } = this.state
-    Vibration.vibrate(30)
     if (pin.length < 6) {
       this.setState({
         pin: pin.concat(parseInt(digit))
-      }, () => {
-        if (Platform.OS === 'ios') {
-          Vibration.cancel()
-        }
       })
     }
   }
