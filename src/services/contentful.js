@@ -75,17 +75,20 @@ export const getSystemStatus = async () => {
   }
 }
 
-export const getExchangesAvailable = async () => {
+export const getExchangesImagesAvailable = async () => {
   const queryEntry = { content_type: 'exchange' }
   const { items: exchangesAvailable } = await contentfulClient.getEntries(queryEntry)
-  return exchangesAvailable.map(({fields: ex}) => {
-    const firstTokenImage = ex.firstTokenImage ? `https:${ex.firstTokenImage.fields.file.url}` : null
-    const secondTokenImage = ex.secondTokenImage ? `https:${ex.secondTokenImage.fields.file.url}` : null
-    return ({
-      exchangeId: ex.exchangeId,
-      isEnabled: ex.isEnabled,
-      firstTokenImage,
-      secondTokenImage
-    })
-  })
+  return exchangesAvailable.reduce((list, {fields: ex}) => {
+    if (ex.isEnabled) {
+      const firstTokenImage = ex.firstTokenImage ? `https:${ex.firstTokenImage.fields.file.url}` : null
+      const secondTokenImage = ex.secondTokenImage ? `https:${ex.secondTokenImage.fields.file.url}` : null
+      list.push({
+        exchangeId: ex.exchangeId,
+        isEnabled: ex.isEnabled,
+        firstTokenImage,
+        secondTokenImage
+      })
+    }
+    return list
+  }, [])
 }

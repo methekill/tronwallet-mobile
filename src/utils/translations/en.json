@@ -77,8 +77,8 @@
     "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
-      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher.."
     },
     "estimatedRevenue": "ESTIMATED TO RECEIVE",
     "estimatedCost": "ESTIMATED COST",
@@ -339,12 +339,16 @@
     "chooseToken": "Please, choose a token below.",
     "minimumAmount": "The minimum amount for any send transaction is 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "SETTINGS",
     "sectionTitles": {
       "wallet": "WALLET",
       "security": "SECURITY",
-      "notification": "NOTIFICATIONS AND IDIOM",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "ACCOUNTS MANAGEMENT"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Who accepts TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Help Center"
