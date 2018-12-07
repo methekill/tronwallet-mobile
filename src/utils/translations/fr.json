@@ -77,8 +77,8 @@
     "minToSell": "Minimum pour envoyer ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimum pour recevoir ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Légèrement supérieur au coût estimé, et le taux de renouvellement sera plus élevé.",
-      "sell": "Légèrement inférieur au coût estimé, et le taux de renouvellement sera plus élevé."
+      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher.."
     },
     "estimatedRevenue": "ESTIMÉ À RECEVOIR",
     "estimatedCost": "Coût estimé",
