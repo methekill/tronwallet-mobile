@@ -74,11 +74,11 @@
     "holdings": "КІЛЬКІСТЬ"
   },
   "exchange": {
-    "minToSell": "Мін. на продаж ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Мін. Покупки ≈ {{min}} {{tokenId}}",
+    "minToSell": "Мін. для передачі ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Мін. для отримання ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Дещо вища початкова вартість з більшим рейтингом обігу.",
-      "sell": "Дещо нижча початкова вартість з більшим рейтингом обігу."
+      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher.."
     },
     "estimatedRevenue": "Очікується отримати",
     "estimatedCost": "Орієнтовна вартість",
@@ -339,12 +339,16 @@
     "chooseToken": "Будь ласка, виберіть токен нижче.",
     "minimumAmount": "Мінімальна сума для будь-якої транзакції відправлення становить 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "НАЛАШТУВАННЯ",
     "sectionTitles": {
       "wallet": "ГАМАНЕЦЬ",
       "security": "БЕЗПЕКА",
-      "notification": "СПОВІЩЕННЯ ТА ІДІОМИ",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "УПРАВЛІННЯ РАХУНКАМИ"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Хто приймає TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Довідковий центр"

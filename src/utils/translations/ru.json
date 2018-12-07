@@ -74,8 +74,8 @@
     "holdings": "ЗАПАСЫ"
   },
   "exchange": {
-    "minToSell": "Минимум для продажи ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Минимум для покупки ≈ {{min}} {{tokenId}}",
+    "minToSell": "Минимум для отправки ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Минимум для получения ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Чем выше оценочная стоимость, тем выше вероятность успешной сделки.",
       "sell": "Чем ниже оценочная стоимость, тем выше вероятность успешной сделки."
@@ -222,7 +222,7 @@
   },
   "participate": {
     "title": "УЧАСТВОВАТЬ",
-    "featured": "РЕКОМЕНДУЕМЫЙ",
+    "featured": "РЕКЛАМИРУЕМЫЙ",
     "button": {
       "confirm": "ПОДТВЕРДИТЬ",
       "moreInfo": "ПОДРОБНЕЕ",
@@ -339,12 +339,16 @@
     "chooseToken": "Пожалуйста, выберите токен ниже.",
     "minimumAmount": "Минимальная сумма для любой операции отправки — 0,000001."
   },
+  "menu": {
+    "title": "МЕНЮ"
+  },
   "settings": {
     "title": "ПАРАМЕТРЫ",
     "sectionTitles": {
       "wallet": "КОШЕЛЁК",
       "security": "БЕЗОПАСНОСТЬ",
-      "notification": "УВЕДОМЛЕНИЯ И ЯЗЫКИ",
+      "notification": "УВЕДОМЛЕНИЯ",
+      "idiomAndLocalization": "ПОНЯТИЯ И ЛОКАЛИЗАЦИЯ",
       "accounts": "УПРАВЛЕНИЕ УЧЕТНЫМИ ЗАПИСЯМИ"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Кто принимает TRX?"
+    },
+    "market": {
+      "title": "Рынок"
     },
     "helpCenter": {
       "title": "Справочный центр"

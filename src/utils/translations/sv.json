@@ -58,7 +58,7 @@
   "privateKey": "Privat nyckel",
   "results": "Resultat",
   "buy": "Köp",
-  "sell": "Sell",
+  "sell": "Sälj",
   "filter": "Filter",
   "txs": "Transaktioner",
   "balance": {
@@ -74,16 +74,16 @@
     "holdings": "Besparingar"
   },
   "exchange": {
-    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum för att skicka ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum för att ta emot ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
-      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+      "buy": "Minska beräknad kostnad något för att öka chansen att lyckas.",
+      "sell": "Minska beräknad intäkt något för att öka chansen att lyckas.."
     },
-    "estimatedRevenue": "ESTIMATED TO RECEIVE",
-    "estimatedCost": "ESTIMATED COST",
-    "preview": "Search by the Token name",
-    "notFound": "Exchanges not found"
+    "estimatedRevenue": "BERÄKNAS ATT MOTTA",
+    "estimatedCost": "BERÄKNAD KOSTNAD",
+    "preview": "Sök efter namn på Token",
+    "notFound": "Ingen exchange hittades"
   },
   "hideAccount": "Du håller på att ta bort det här kontot. Du kan återställa det senare i inställningarna",
   "components": {
@@ -99,61 +99,61 @@
       "permissionMessage": "För att kunna skanna den offentliga nyckeln måste du ge appen tillgång till kameran."
     },
     "vote": {
-      "enterVote": "ENTER THE VOTE VALUE",
+      "enterVote": "ANGE RÖSTENS VÄRDE",
       "votesRemaining": "ÅTERSTÅENDE RÖSTER",
-      "setVote": "SET VOTE",
-      "moreVotes": "If you need more votes you can Freeze more TRX.",
-      "confirmVotes": "CONFIRM VOTES",
-      "yourVotes": "Your Votes",
-      "myVotes": "MY VOTES",
-      "confirm": "CONFIRM",
-      "freeze": "Freeze",
-      "totalVotes": "Total votes available:",
-      "delete": "DELETE",
-      "set": "SET",
-      "freezeOrLower": "You do not have enough frozen TRX. Freeze more TRX or lower the vote amount",
-      "freezeToContinue": "You do not have enough frozen TRX. Freeze more TRX to continue"
+      "setVote": "ANGE RÖST",
+      "moreVotes": "Om du behöver fler röster kan du Frysa mer TRX.",
+      "confirmVotes": "BEKRÄFTA RÖSTER",
+      "yourVotes": "Dina Röster",
+      "myVotes": "MINA RÖSTER",
+      "confirm": "BEKRÄFTA",
+      "freeze": "Frys",
+      "totalVotes": "Totala röster tillgängliga:",
+      "delete": "TA BORT",
+      "set": "ANGE",
+      "freezeOrLower": "Du har inte tillräckligt med frysta TRX. Frys mer TRX eller sänk röstvärdet",
+      "freezeToContinue": "Du har inte tillräckligt med frysta TRX. Frys mer TRX för att fortsätta"
     }
   },
   "firstTime": {
     "button": {
-      "create": "CREATE WALLET",
-      "restore": "RESTORE WALLET",
-      "import": "IMPORT WALLET"
+      "create": "SKAPA PLÅNBOK",
+      "restore": "ÅTERSKAPA PLÅNBOK",
+      "import": "IMPORTERA PLÅNBOK"
     },
     "swiper": {
       "welcome": {
-        "title": "Welcome to \nTRONWALLET",
-        "body": "The most secure wallet for TRON"
+        "title": "Välkommen till \nTRONWALLET",
+        "body": "Den säkraste plånboken för TRON"
       },
       "security": {
-        "title": "SECURITY",
-        "body": "Privacy and security for \n your transactions"
+        "title": "SÄKERHET",
+        "body": "Sekretess och säkerhet för \n dina transaktioner"
       },
       "votes": {
-        "title": "VOTES",
-        "body": "Freezing and vote for Super \n Representatives"
+        "title": "RÖSTER",
+        "body": "Frys och rösta för Super \n Representanter"
       },
       "addressbook": {
-        "title": "ADDRESS BOOK",
-        "body": "Save the addresses of your friends \n and contacts."
+        "title": "ADRESSBOK",
+        "body": "Spara adressen från dina kompisar \n och kontakter."
       },
       "multipleaccounts": {
         "title": "MULTIPLE ACCOUNTS",
-        "body": "You can manage multiple accounts \n in your wallet"
+        "body": "Du kan hantera flera konton \n i din plånbok"
       }
     }
   },
   "addressBook": {
-    "title": "ADDRESS BOOK",
+    "title": "ADRESSBOK",
     "shared": {
-      "add": "ADD",
-      "edit": "EDIT",
-      "delete": "DELETE",
-      "send": "SEND"
+      "add": "LÄGG TILL",
+      "edit": "REDIGERA",
+      "delete": "TA BORT",
+      "send": "SKICKA"
     },
     "contacts": {
-      "title": "CONTACTS",
+      "title": "KONTAKTER",
       "delete": {
         "title": "Ta bort kontakt",
         "message": "Är du verkligen säker på att du vill ta bort den här kontakten?",
@@ -187,7 +187,7 @@
     "title": "FRYSA",
     "unfreeze": {
       "title": "LÅS UPP",
-      "inXTime": "You can unfreeze your TRX",
+      "inXTime": "Du kan låsa upp din TRX",
       "inThreeDays": "Efter en tre dagars period kan du låsa upp din TRX",
       "inXMinutes": "Du kan frigöra din TRX på {{minutes}} minuter.",
       "inXHours": "Du kan frigöra din TRX i {{hours}} timmar.",
@@ -208,9 +208,9 @@
   },
   "market": {
     "time": {
-      "hour": "1H",
+      "hour": "1T",
       "day": "1D",
-      "week": "1W",
+      "week": "1V",
       "month": "1M",
       "all": "ALLA"
     },
@@ -222,7 +222,7 @@
   },
   "participate": {
     "title": "DELTA",
-    "featured": "SPONSORED",
+    "featured": "SPONSRADE",
     "button": {
       "confirm": "BEKRÄFTA",
       "moreInfo": "MER INFORMATION",
@@ -339,12 +339,16 @@
     "chooseToken": "Vänligen, Välj en token nedan.",
     "minimumAmount": "Minsta belopp för någon skicka transaktion är marginal på 0,000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "INSTÄLLNINGAR",
     "sectionTitles": {
       "wallet": "PLÅNBOK",
       "security": "SÄKERHET",
-      "notification": "ANMÄLAN OCH IDIOM",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "REDOVISNINGSREDOVISNING"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Vem accepterar TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Help Center"
