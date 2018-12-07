@@ -78,7 +78,7 @@
     "minToBuy": "Мін. для отримання ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Трохи збільшіть прогнозований прибуток і успіх ставки буде вище...",
-      "sell": "Злегка знизити прогнозований прибуток і успіх ставки буде вище..."
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
     "estimatedRevenue": "Очікується отримати",
     "estimatedCost": "Орієнтовна вартість",
