@@ -78,7 +78,7 @@
     "minToBuy": "Minimo da ricevere ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Slightly increase the estimated cost, and success rate will be higher.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher.."
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
     "estimatedRevenue": "STIMATO DA RICEVERE",
     "estimatedCost": "COSTO STIMATO",
