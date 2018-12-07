@@ -22,14 +22,34 @@ class RealmStore {
     return _db.objects(this.schema).sorted(sortCriteria)
   }
 
-  write (callbackFn) {
-    _db.write(callbackFn)
+  async write (callbackFn) {
+    await _db.write(callbackFn)
   }
 
-  save (object) {
-    this.write(() => {
+  async save (object) {
+    await this.write(() => {
       _db.create(this.schema, object, true)
     })
+  }
+
+  async deleteByKey (key) {
+    await this.write(() => {
+      const object = this.findByKey(key)
+      if (object) {
+        _db.delete(this.schema, object)
+      }
+    })
+  }
+
+  async delete (object) {
+    await this.write(() => {
+      _db.delete(this.schema, object)
+    })
+  }
+
+  async resetData () {
+    const allObjects = this.findAll()
+    await this.delete(allObjects)
   }
 
   get db () {

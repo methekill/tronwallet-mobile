@@ -67,22 +67,22 @@ describe('Basic repository', () => {
     expect(JSON.stringify(objects)).toEqual(JSON.stringify(expected))
   })
 
-  test('should increase list length when new object is added', () => {
-    store.save({ key: 3, value: 'c' })
+  test('should increase list length when new object is added', async () => {
+    await store.save({ key: 3, value: 'c' })
 
     const objects = store.findAll()
     expect(objects).toHaveLength(3)
   })
 
-  test('should update object when value from object is updated', () => {
-    store.save({ key: 1, value: 'h' })
+  test('should update object when value from object is updated', async () => {
+    await store.save({ key: 1, value: 'h' })
 
     const object = store.findByKey(1)
     expect(object).toMatchObject({ key: 1, value: 'h' })
   })
 
-  test('should increase list length when new object is added by write action', () => {
-    store.write(() => {
+  test('should increase list length when new object is added by write action', async () => {
+    await store.write(() => {
       store.save({ key: 3, value: 'c' })
     })
 
@@ -90,8 +90,8 @@ describe('Basic repository', () => {
     expect(objects).toHaveLength(3)
   })
 
-  test('should update object when value from object is updated by write action', () => {
-    store.write(() => {
+  test('should update object when value from object is updated by write action', async () => {
+    await store.write(() => {
       store.save({ key: 1, value: 'h' })
     })
 
