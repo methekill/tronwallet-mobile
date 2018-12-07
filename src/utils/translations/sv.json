@@ -83,7 +83,7 @@
     "estimatedRevenue": "BERÄKNAS ATT MOTTA",
     "estimatedCost": "BERÄKNAD KOSTNAD",
     "preview": "Search by the Token name",
-    "notFound": "Exchanges not found"
+    "notFound": "Ingen exchange hittades"
   },
   "hideAccount": "Du håller på att ta bort det här kontot. Du kan återställa det senare i inställningarna",
   "components": {
