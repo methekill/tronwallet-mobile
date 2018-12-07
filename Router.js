@@ -13,7 +13,7 @@ import { TWIcon } from './src/components/Utils'
 
 import LoadingScene from './src/scenes/Loading'
 import SendScene from './src/scenes/Send'
-import MarketScene from './src/scenes/Market'
+import Market from './src/scenes/Market'
 import BalanceScene from './src/scenes/Balance'
 import VoteScene from './src/scenes/Vote'
 import ReceiveScene from './src/scenes/Receive'
@@ -47,6 +47,7 @@ import ScanPayScene from './src/scenes/Payments/Scan'
 import CreateSeed from './src/scenes/Seed/Create'
 import ImportWallet from './src/scenes/Seed/Import'
 import PrivacyPolicy from './src/scenes/PrivacyPolicy'
+import ContractPreview from './src/scenes/ContractPreview'
 import Notifications from './src/scenes/Notifications'
 import Signals from './src/scenes/Signals'
 import ExchangeList from './src/scenes/Exchange'
@@ -61,6 +62,7 @@ const defaultCardStyle = {
 
 const SettingsStack = createStackNavigator({
   Settings,
+  Market,
   About,
   SeedSave,
   SeedConfirm,
@@ -159,7 +161,7 @@ const ParticipateStack = createStackNavigator({
 })
 
 const AppTabs = createMaterialBottomTabNavigator({
-  Market: MarketScene,
+  Exchange: ExchangeStack,
   Vote: {
     screen: VoteScene,
     path: 'vote'
@@ -168,7 +170,6 @@ const AppTabs = createMaterialBottomTabNavigator({
   Balance: BalanceStack,
   Transactions: TransactionList,
   Participate: ParticipateStack,
-  Exchange: ExchangeStack,
   Settings: SettingsStack
 }, {
   defaultNavigationOptions: ({ navigation }) => ({
@@ -176,9 +177,7 @@ const AppTabs = createMaterialBottomTabNavigator({
       const { routeName } = navigation.state
       let iconName
       let iconSize = 25
-      if (routeName === 'Market') {
-        iconName = `graph,-bar,-chart,-statistics,-analytics`
-      } else if (routeName === 'Balance') {
+      if (routeName === 'Balance') {
         iconName = `wallet,-money,-cash,-balance,-purse`
       } else if (routeName === 'Transfer') {
         iconName = `fly,-send,-paper,-submit,-plane`
@@ -191,7 +190,8 @@ const AppTabs = createMaterialBottomTabNavigator({
       } else if (routeName === 'Receive') {
         iconName = `scan,-bar-code,-qr-code,-barcode,-scanner`
       } else if (routeName === 'Settings') {
-        iconName = `gear,-settings,-update,-setup,-config`
+        iconName = `menu`
+        iconSize = 23
       } else if (routeName === 'Participate') {
         iconName = `dollar,-currency,-money,-cash,-coin`
       } else if (routeName === 'Exchange') {
@@ -220,6 +220,7 @@ const RootNavigator = createStackNavigator({
   CreateSeed,
   SeedRestore,
   ImportWallet,
+  ContractPreview,
   App: AppTabs,
   GetVault: GetVaultScene,
   SubmitTransaction: {

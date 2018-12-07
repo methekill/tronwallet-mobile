@@ -314,6 +314,11 @@ class Settings extends Component {
         title: tl.t('settings.sectionTitles.wallet'),
         data: [
           {
+            title: tl.t('settings.market.title'),
+            icon: 'graph,-bar,-chart,-statistics,-analytics',
+            onPress: () => this.props.navigation.navigate('Market')
+          },
+          {
             title: tl.t('settings.token.title'),
             icon: 'sort,-filter,-arrange,-funnel,-filter',
             hide: userTokens.length === 0,
@@ -432,11 +437,6 @@ class Settings extends Component {
         title: tl.t('settings.sectionTitles.notification'),
         data: [
           {
-            title: tl.t('settings.language.title'),
-            icon: 'earth,-globe,-planet,-world,-universe',
-            onPress: () => this.ActionSheet.show()
-          },
-          {
             title: tl.t('settings.notifications.title'),
             icon: 'user,-person,-avtar,-profile-picture,-dp',
             right: () => {
@@ -453,6 +453,16 @@ class Settings extends Component {
                 />
               )
             }
+          }
+        ]
+      },
+      {
+        title: tl.t('settings.sectionTitles.idiomAndLocalization'),
+        data: [
+          {
+            title: tl.t('settings.language.title'),
+            icon: 'earth,-globe,-planet,-world,-universe',
+            onPress: () => this.ActionSheet.show()
           },
           {
             title: tl.t('settings.network.title'),
@@ -503,7 +513,7 @@ class Settings extends Component {
 
     return (
       <Utils.SafeAreaView>
-        <NavigationHeader title={tl.t('settings.title')} />
+        <NavigationHeader title={tl.t('menu.title')} />
         <Utils.Container keyboardShouldPersistTaps='always' keyboardDismissMode='interactive'> 
           <SectionedMultiSelect
             ref={ref => { this.SectionedMultiSelect = ref }}

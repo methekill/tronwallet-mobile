@@ -7,7 +7,8 @@ export const Wrapper = styled.View`
 `
 
 export const InputWrapper = styled.View`
-  padding: 8px;
+  padding-horizontal: 8px;
+  padding-vertical: 5.5px;
   border-radius: 4px;
   border-width: 1px;
   border-color: #51526B;
