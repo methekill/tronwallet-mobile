@@ -340,15 +340,15 @@
     "minimumAmount": "자금 전송을 위한 트랜잭션 최소 수량은 0.000001입니다."
   },
   "menu": {
-    "title": "MENU"
+    "title": "메뉴"
   },
   "settings": {
     "title": "설정",
     "sectionTitles": {
       "wallet": "지갑",
       "security": "보안",
-      "notification": "NOTIFICATIONS",
-      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
+      "notification": "알림",
+      "idiomAndLocalization": "언어 및 단위 설정",
       "accounts": "계정 관리"
     },
     "notifications": {
@@ -428,7 +428,7 @@
       "title": "TRX를 사용할 수 있는 곳은?"
     },
     "market": {
-      "title": "Market"
+      "title": "시장 현황"
     },
     "helpCenter": {
       "title": "도움말 센터"
