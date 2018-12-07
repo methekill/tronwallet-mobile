@@ -77,8 +77,8 @@
     "minToSell": "Мін. для передачі ≈ {{min}} {{tokenId}}",
     "minToBuy": "Мін. для отримання ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Дещо вища початкова вартість з більшим рейтингом обігу.",
-      "sell": "Дещо нижча початкова вартість з більшим рейтингом обігу."
+      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher.."
     },
     "estimatedRevenue": "Очікується отримати",
     "estimatedCost": "Орієнтовна вартість",
