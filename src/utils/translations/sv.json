@@ -111,27 +111,27 @@
       "totalVotes": "Totala röster tillgängliga:",
       "delete": "TA BORT",
       "set": "ANGE",
-      "freezeOrLower": "You do not have enough frozen TRX. Freeze more TRX or lower the vote amount",
-      "freezeToContinue": "You do not have enough frozen TRX. Freeze more TRX to continue"
+      "freezeOrLower": "Du har inte tillräckligt med frysta TRX. Frys mer TRX eller sänk röstvärdet",
+      "freezeToContinue": "Du har inte tillräckligt med frysta TRX. Frys mer TRX för att fortsätta"
     }
   },
   "firstTime": {
     "button": {
-      "create": "CREATE WALLET",
-      "restore": "RESTORE WALLET",
-      "import": "IMPORT WALLET"
+      "create": "SKAPA PLÅNBOK",
+      "restore": "ÅTERSKAPA PLÅNBOK",
+      "import": "IMPORTERA PLÅNBOK"
     },
     "swiper": {
       "welcome": {
-        "title": "Welcome to \nTRONWALLET",
-        "body": "The most secure wallet for TRON"
+        "title": "Välkommen till \nTRONWALLET",
+        "body": "Den säkraste plånboken för TRON"
       },
       "security": {
-        "title": "SECURITY",
-        "body": "Privacy and security for \n your transactions"
+        "title": "SÄKERHET",
+        "body": "Sekretess och säkerhet för \n dina transaktioner"
       },
       "votes": {
-        "title": "VOTES",
+        "title": "RÖSTER",
         "body": "Freezing and vote for Super \n Representatives"
       },
       "addressbook": {
