@@ -74,11 +74,11 @@
     "holdings": "HOLDINGS"
   },
   "exchange": {
-    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minim de trimis{{min}}{{tokenId}}",
+    "minToBuy": "Minim de primit{{min}}{{tokenId}}",
     "variation": {
-      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher.."
+      "buy": "Costul estimativ este puțin mai mare, și probabilitatea de a executa tranzacţia va fi mai mare.",
+      "sell": "Costul estimativ este puțin mai mare, și probabilitatea de a executa tranzacţia va fi mai mare.."
     },
     "estimatedRevenue": "SUMĂ ESTIMATIVĂ DE PRIMIT",
     "estimatedCost": "COST ESTIMATIV",
@@ -340,15 +340,15 @@
     "minimumAmount": "Suma minimă pentru orice tranzacție trimisă este de 0.000001."
   },
   "menu": {
-    "title": "MENU"
+    "title": "MENIU"
   },
   "settings": {
     "title": "SETĂRI",
     "sectionTitles": {
       "wallet": "PORTOFEL",
       "security": "SECURITATE",
-      "notification": "NOTIFICATIONS",
-      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
+      "notification": "NOTIFICĂRI",
+      "idiomAndLocalization": "IDIOM ŞI LOCALIZARE",
       "accounts": "ADMINISTRAREA CONTURILOR"
     },
     "notifications": {
