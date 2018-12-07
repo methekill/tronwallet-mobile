@@ -77,8 +77,8 @@
     "minToSell": "Мін. для передачі ≈ {{min}} {{tokenId}}",
     "minToBuy": "Мін. для отримання ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher.."
+      "buy": "Трохи збільшіть прогнозований прибуток і успіх ставки будуть вище...",
+      "sell": "Злегка знизити прогнозований прибуток і успіх ставки будуть вище..."
     },
     "estimatedRevenue": "Очікується отримати",
     "estimatedCost": "Орієнтовна вартість",
@@ -340,14 +340,14 @@
     "minimumAmount": "Мінімальна сума для будь-якої транзакції відправлення становить 0.000001."
   },
   "menu": {
-    "title": "MENU"
+    "title": "МЕНЮ"
   },
   "settings": {
     "title": "НАЛАШТУВАННЯ",
     "sectionTitles": {
       "wallet": "ГАМАНЕЦЬ",
       "security": "БЕЗПЕКА",
-      "notification": "NOTIFICATIONS",
+      "notification": "СПОВІЩЕННЯ",
       "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "УПРАВЛІННЯ РАХУНКАМИ"
     },
@@ -428,7 +428,7 @@
       "title": "Хто приймає TRX?"
     },
     "market": {
-      "title": "Market"
+      "title": "Ринок"
     },
     "helpCenter": {
       "title": "Довідковий центр"
