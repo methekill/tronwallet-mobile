@@ -348,7 +348,7 @@
       "wallet": "КОШЕЛЁК",
       "security": "БЕЗОПАСНОСТЬ",
       "notification": "УВЕДОМЛЕНИЯ",
-      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
+      "idiomAndLocalization": "ПОНЯТИЯ И ЛОКАЛИЗАЦИЯ",
       "accounts": "УПРАВЛЕНИЕ УЧЕТНЫМИ ЗАПИСЯМИ"
     },
     "notifications": {
@@ -428,7 +428,7 @@
       "title": "Кто принимает TRX?"
     },
     "market": {
-      "title": "Market"
+      "title": "Рынок"
     },
     "helpCenter": {
       "title": "Справочный центр"
