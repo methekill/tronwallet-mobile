@@ -20,7 +20,7 @@
   "cancel": "Avbryt",
   "address": "Adress",
   "message": "Meddelande",
-  "ex": "Börs",
+  "ex": "Exchange",
   "ok": "Ok",
   "actionModalTitle": "Skulle du vilja",
   "account": "konto",
@@ -47,7 +47,7 @@
     "vote": "Rösta",
     "participate": "Delta",
     "create": "Skapa",
-    "exchange": "Börs",
+    "exchange": "Exchange",
     "undefined": "Odentifierad Typ"
   },
   "close": "Stängt",
