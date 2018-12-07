@@ -139,7 +139,7 @@
         "body": "Spara adressen från dina kompisar \n och kontakter."
       },
       "multipleaccounts": {
-        "title": "MULTIPLE ACCOUNTS",
+        "title": "FLERA KONTON",
         "body": "Du kan hantera flera konton \n i din plånbok"
       }
     }
@@ -234,7 +234,7 @@
         "title": "Du måste köpa minst en TRX värt {{token}}.",
         "message": "För närvarande köper du endast {{amount}}."
       },
-      "notFound": "Asset(s) not found"
+      "notFound": "Tillgång(ar) hittades inte"
     },
     "warning": "Du har inte tillräckligt TRX att köpa att många {{token}}",
     "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",

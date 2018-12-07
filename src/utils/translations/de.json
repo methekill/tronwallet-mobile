@@ -77,8 +77,8 @@
     "minToSell": "Minimum zu verkaufen ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimum zu kaufen ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher.."
+      "buy": "Steigere die Kosten leicht, um damit die Kaufwahrscheinlichkeit zu erhöhen.",
+      "sell": "Senke den zu erwartenden Ertrag leicht, um damit die Verkaufswahrscheinlichkeit zu erhöhen."
     },
     "estimatedRevenue": "GESCHÄTZTER ERTRAG",
     "estimatedCost": "GESCHÄTZTE KOSTEN",
@@ -348,7 +348,7 @@
       "wallet": "WALLET",
       "security": "SICHERHEIT",
       "notification": "BENACHRICHTIGUNG",
-      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
+      "idiomAndLocalization": "IDIOM UND LOKALISIERUNG",
       "accounts": "KONTENVERWALTUNG"
     },
     "notifications": {

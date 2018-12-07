@@ -77,8 +77,8 @@
     "minToSell": "Minimum te verkopen ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimum te ontvangen ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher.."
+      "buy": "Verhoog de geschatte kosten, en het succespercentage zal hoger zijn.",
+      "sell": "Verlaag de geschatte opbrengst, en het succespercentage zal hoger zijn."
     },
     "estimatedRevenue": "VERWACHT TE ONTVANGEN",
     "estimatedCost": "GESCHATTE KOSTEN",
@@ -347,8 +347,8 @@
     "sectionTitles": {
       "wallet": "PORTEMONNEE",
       "security": "BEVEILIGING",
-      "notification": "NOTIFICATIONS",
-      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
+      "notification": "MELDINGEN",
+      "idiomAndLocalization": "IDIOOM EN LOCALISATIE",
       "accounts": "BEHEER VAN DE REKENINGEN"
     },
     "notifications": {
@@ -428,7 +428,7 @@
       "title": "Wie accepteert TRX?"
     },
     "market": {
-      "title": "Market"
+      "title": "Markt"
     },
     "helpCenter": {
       "title": "Helpcentrum"

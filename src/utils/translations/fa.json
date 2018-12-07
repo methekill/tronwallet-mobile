@@ -77,8 +77,8 @@
     "minToSell": "حداقل ارسال ≈ {{min}} {{tokenId}}",
     "minToBuy": "حداقل دریافت ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher.."
+      "buy": "اندکی افزایش در هزینه تخمینی، میزان موفقیت را بالاتر خواهد برد.",
+      "sell": "اندکی کاهش در درآمد تخمینی، میزان موفقیت را بالاتر خواهد برد."
     },
     "estimatedRevenue": "برآورد دریافت",
     "estimatedCost": "هزینه تخمینی",
