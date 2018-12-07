@@ -75,14 +75,6 @@ describe('Secret store', () => {
       expect(newUser).toEqual(expected)
     })
 
-    test('should not create when mnemonic wasn\'t filled and accounts isn\'t empty', async () => {
-      const mnemonic = ''
-
-      const newUser = await _secretStore.createFirstAccount(mnemonic)
-
-      expect(newUser).toBeNull()
-    })
-
     test('should not create when mnemonic wasn\'t filled', async () => {
       const mnemonic = ''
 
