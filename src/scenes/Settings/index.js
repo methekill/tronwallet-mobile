@@ -278,7 +278,7 @@ class Settings extends Component {
     try {
       if (!useBiometry) {
         await Biometrics.createKeys(tl.t('biometry.register.title'))
-        const signature = await Biometrics.createSignature(tl.t('biometry.register.title'), ' ')
+        const signature = await Biometrics.createSignature(tl.t('biometry.register.title'), '')
         await AsyncStorage.setItem(ENCRYPTED_PIN, encrypt(pin, signature))
       }
       await AsyncStorage.setItem(USE_BIOMETRY, `${!useBiometry}`)
@@ -463,11 +463,6 @@ class Settings extends Component {
             title: tl.t('settings.language.title'),
             icon: 'earth,-globe,-planet,-world,-universe',
             onPress: () => this.ActionSheet.show()
-          },
-          {
-            title: tl.t('settings.network.title'),
-            icon: 'share,-network,-connect,-community,-media',
-            onPress: () => this.props.navigation.navigate('NetworkConnection')
           }
         ]
       }, {
