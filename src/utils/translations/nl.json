@@ -78,7 +78,7 @@
     "minToBuy": "Minimum te ontvangen ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Verhoog de geschatte kosten, en het succespercentage zal hoger zijn.",
-      "sell": "Verlaag de geschatte opbrengst, en het succespercentage zal hoger zijn."
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
     "estimatedRevenue": "VERWACHT TE ONTVANGEN",
     "estimatedCost": "GESCHATTE KOSTEN",
