@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { AsyncStorage } from 'react-native'
 import SplashScreen from 'react-native-splash-screen'
-import { StackActions, NavigationActions } from 'react-navigation'
 import LottieView from 'lottie-react-native'
 
 import * as Utils from '../../components/Utils'
@@ -11,6 +10,7 @@ import { getUserSecrets } from '../../utils/secretsUtils'
 import SecretStore from '../../store/secrets'
 import { withContext } from '../../store/context'
 import { USER_STATUS, USER_FILTERED_TOKENS } from '../../utils/constants'
+import NavigationServices from './../../utils/hocs/NavigationServices'
 
 class LoadingScene extends Component {
   async componentDidMount () {
@@ -59,14 +59,17 @@ class LoadingScene extends Component {
     }
   }
 
-  _handleSuccess = key => {
-    const resetAction = StackActions.reset({
-      index: 0,
-      actions: [NavigationActions.navigate({ routeName: 'App' })],
-      key: null
-    })
+  _navigate = () => {
+    NavigationServices.goToMainScreen()
+    if (NavigationServices.hasNotification()) {
+      NavigationServices.checkNotifications()
+    }
+  }
+
+  _handleSuccess = pinValue => {
+    const { context } = this.props
     setTimeout(() => {
-      this.props.context.setPin(key, () => this.props.navigation.dispatch(resetAction))
+      context.setPin(pinValue, this._navigate)
     }, 2000)
   }
 

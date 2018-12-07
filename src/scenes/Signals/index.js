@@ -65,17 +65,17 @@ class Signals extends Component {
   }
 
   render () {
-    const { list } = this.state
+    const { list, refreshing } = this.state
     return (
       <Utils.SafeAreaView>
         <FlatList
           refreshControl={
             <RefreshControl
-              refreshing={this.state.refreshing}
+              refreshing={refreshing}
               onRefresh={this._fetchData}
             />
           }
-          contentContainerStyle={list.length === 0 ? styles.emptyList : styles.list}
+          contentContainerStyle={(list.length === 0 && refreshing === false) ? styles.emptyList : styles.list}
           data={list}
           keyExtractor={item => item.id}
           renderItem={this._renderItem}

@@ -35,6 +35,7 @@ Mixpanel.sharedInstanceWithToken(MIXPANEL_TOKEN)
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader'])
 
 const prefix = Platform.OS === 'android' ? 'tronwalletmobile://tronwalletmobile/' : 'tronwalletmobile://'
+console.log('init')
 
 class App extends Component {
   state = {
@@ -55,8 +56,7 @@ class App extends Component {
     verifiedTokensOnly: true,
     fixedTokens: [],
     systemAddress: {},
-    systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' },
-    signals: {}
+    systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }
   }
 
   componentDidMount () {
@@ -89,15 +89,23 @@ class App extends Component {
     this.setState({ oneSignalId: device.userId })
   }
 
-  _onReceived = notification => {
+  _onReceived = (notification) => {
     // console.log('Notification received: ', notification)
+    // console.log(notification.payload.additionalData)
+    console.log(notification)
+    NavigationService.setNotification(notification.payload.additionalData)
   }
 
-  _onOpened = openResult => {
+  _onOpened = ({ notification }) => {
     // console.log('Message: ', openResult.notification.payload.body)
     // console.log('Data: ', openResult.notification.payload.additionalData)
     // console.log('isActive: ', openResult.notification.isAppInFocus)
     // console.log('openResult: ', openResult)
+    // NavigationService.gotToSignals(notification.payload.additionalData)
+    NavigationService.goToMainScreen()
+    setTimeout(() => {
+      NavigationService.checkNotifications()
+    }, 500)
   }
 
   _loadUserData = async () => {

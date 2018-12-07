@@ -16,6 +16,7 @@ export const InfoRow = styled.View`
   justify-content: space-between;
   align-items: center;
 `
+
 export const VSpacer = styled.View`
   height: 10px;
 `
