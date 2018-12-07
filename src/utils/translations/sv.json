@@ -77,8 +77,8 @@
     "minToSell": "Minimum för att skicka ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimum för att ta emot ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
-      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher.."
     },
     "estimatedRevenue": "ESTIMATED TO RECEIVE",
     "estimatedCost": "ESTIMATED COST",
