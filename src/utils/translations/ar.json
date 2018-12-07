@@ -78,7 +78,7 @@
     "minToBuy": "الحد الأدنى للإستلام ≈ {{min}}{{tokenId}}",
     "variation": {
       "buy": "زد التكلفة المتوقعة قليلاً، ونسبة النجاح ستكون أكبر.",
-      "sell": "اخفض الربح المتوقع قليلاً، ونسبة الربح ستكون أكبر."
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
     "estimatedRevenue": "المتوقع للاستلام",
     "estimatedCost": "التكلفة المتوقعة",
