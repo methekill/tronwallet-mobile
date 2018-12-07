@@ -213,6 +213,7 @@ ShallowWrapper {
           align="center"
           flex={0.4}
           justify="center"
+          paddingY="medium"
         />
       </Styled(View)>,
     },
@@ -253,6 +254,7 @@ ShallowWrapper {
             align="center"
             flex={0.4}
             justify="center"
+            paddingY="medium"
           />,
         ],
         "justify": "flex-start",
@@ -381,6 +383,7 @@ ShallowWrapper {
             "children": null,
             "flex": 0.4,
             "justify": "center",
+            "paddingY": "medium",
           },
           "ref": null,
           "rendered": null,
@@ -431,6 +434,7 @@ ShallowWrapper {
             align="center"
             flex={0.4}
             justify="center"
+            paddingY="medium"
           />
         </Styled(View)>,
       },
@@ -471,6 +475,7 @@ ShallowWrapper {
               align="center"
               flex={0.4}
               justify="center"
+              paddingY="medium"
             />,
           ],
           "justify": "flex-start",
@@ -599,6 +604,7 @@ ShallowWrapper {
               "children": null,
               "flex": 0.4,
               "justify": "center",
+              "paddingY": "medium",
             },
             "ref": null,
             "rendered": null,
