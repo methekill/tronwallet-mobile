@@ -208,9 +208,9 @@
   },
   "market": {
     "time": {
-      "hour": "1H",
+      "hour": "1T",
       "day": "1D",
-      "week": "1W",
+      "week": "1V",
       "month": "1M",
       "all": "ALLA"
     },
@@ -222,7 +222,7 @@
   },
   "participate": {
     "title": "DELTA",
-    "featured": "SPONSORED",
+    "featured": "SPONSRADE",
     "button": {
       "confirm": "BEKRÄFTA",
       "moreInfo": "MER INFORMATION",
