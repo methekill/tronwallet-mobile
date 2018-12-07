@@ -82,7 +82,7 @@
     },
     "estimatedRevenue": "BERÄKNAS ATT MOTTA",
     "estimatedCost": "BERÄKNAD KOSTNAD",
-    "preview": "Search by the Token name",
+    "preview": "Sök efter namn på Token",
     "notFound": "Ingen exchange hittades"
   },
   "hideAccount": "Du håller på att ta bort det här kontot. Du kan återställa det senare i inställningarna",
@@ -99,11 +99,11 @@
       "permissionMessage": "För att kunna skanna den offentliga nyckeln måste du ge appen tillgång till kameran."
     },
     "vote": {
-      "enterVote": "ENTER THE VOTE VALUE",
+      "enterVote": "ANGE RÖSTENS VÄRDE",
       "votesRemaining": "ÅTERSTÅENDE RÖSTER",
-      "setVote": "SET VOTE",
-      "moreVotes": "If you need more votes you can Freeze more TRX.",
-      "confirmVotes": "CONFIRM VOTES",
+      "setVote": "ANGE RÖST",
+      "moreVotes": "Om du behöver fler röster kan du Frysa mer TRX.",
+      "confirmVotes": "BEKRÄFTA RÖSTERNA",
       "yourVotes": "Your Votes",
       "myVotes": "MY VOTES",
       "confirm": "CONFIRM",
