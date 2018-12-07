@@ -132,28 +132,28 @@
       },
       "votes": {
         "title": "RÖSTER",
-        "body": "Freezing and vote for Super \n Representatives"
+        "body": "Frys och rösta för Super \n Representanter"
       },
       "addressbook": {
-        "title": "ADDRESS BOOK",
-        "body": "Save the addresses of your friends \n and contacts."
+        "title": "ADRESSBOK",
+        "body": "Spara adressen från dina kompisar \n och kontakter."
       },
       "multipleaccounts": {
         "title": "MULTIPLE ACCOUNTS",
-        "body": "You can manage multiple accounts \n in your wallet"
+        "body": "Du kan hantera flera konton \n i din plånbok"
       }
     }
   },
   "addressBook": {
-    "title": "ADDRESS BOOK",
+    "title": "ADRESSBOK",
     "shared": {
-      "add": "ADD",
-      "edit": "EDIT",
-      "delete": "DELETE",
-      "send": "SEND"
+      "add": "LÄGG TILL",
+      "edit": "REDIGERA",
+      "delete": "TA BORT",
+      "send": "SKICKA"
     },
     "contacts": {
-      "title": "CONTACTS",
+      "title": "KONTAKTER",
       "delete": {
         "title": "Ta bort kontakt",
         "message": "Är du verkligen säker på att du vill ta bort den här kontakten?",
@@ -187,7 +187,7 @@
     "title": "FRYSA",
     "unfreeze": {
       "title": "LÅS UPP",
-      "inXTime": "You can unfreeze your TRX",
+      "inXTime": "Du kan låsa upp din TRX",
       "inThreeDays": "Efter en tre dagars period kan du låsa upp din TRX",
       "inXMinutes": "Du kan frigöra din TRX på {{minutes}} minuter.",
       "inXHours": "Du kan frigöra din TRX i {{hours}} timmar.",
