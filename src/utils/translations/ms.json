@@ -307,11 +307,11 @@
         "later": "Sahkan kemudian"
       },
       "backupMessage": "Anda boleh akses kata-kata anda dengan mengakses sandaran di dalam penetapan aplikasi      ",
-      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
+      "seedExplanation": "Kekunci benih adalah sebuah representasi yang boleh dibaca manusia daripada dompet anda. Kata-kata itu, dalam susunan yang tepat, boleh digunakan untuk mencipta semula dompet anda."
     },
     "restore": {
       "title": "MEMULIHKAN DOMPET",
-      "explanation": "To restore your wallet, please provide the same 12 words that you wrote on paper when you created your wallet for the first time. If you enter a different sequence of words, a new empty wallet will be created.",
+      "explanation": "Untuk memulihkan dompet anda, sila berikan 12 kata-kata yang ditulis atau disimpan apabila anda mencipta dompet anda untuk kali pertamanya. Jika anda memasukkan turutan kata-kata yang beza, satu dompet baru akan dicipta.",
       "placeholder": "Sila taip 12 perkataan benih anda di sini",
       "success": "Dompet berjaya dipulihkan!",
       "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
