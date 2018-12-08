@@ -78,7 +78,7 @@
     "minToBuy": "Минимум для получения ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Чем выше оценочная стоимость, тем выше вероятность успешной сделки.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "sell": "Чем ниже оценочная стоимость, тем выше вероятность успешной сделки."
     },
     "estimatedRevenue": "ПРИБЛИЗИТЕЛЬНО К ПОЛУЧЕНИЮ",
     "estimatedCost": "ОЦЕНОЧНАЯ СТОИМОСТЬ",
