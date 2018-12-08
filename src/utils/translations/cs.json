@@ -348,7 +348,7 @@
       "wallet": "PENĚŽENKA",
       "security": "ZABEZPEČENÍ",
       "notification": "OZNÁMENÍ",
-      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
+      "idiomAndLocalization": "IDIOM A LOKALIZACE",
       "accounts": "ŘÍZENÍ ÚČTŮ"
     },
     "notifications": {
@@ -428,7 +428,7 @@
       "title": "Kdo přijímá TRX?"
     },
     "market": {
-      "title": "Market"
+      "title": "Trh"
     },
     "helpCenter": {
       "title": "Centrum nápovědy"
