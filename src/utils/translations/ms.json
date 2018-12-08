@@ -446,8 +446,8 @@
   },
   "submitTransaction": {
     "title": "BUTIR-BUTIR TRANSAKSI",
-    "notification": "You have received a transaction from {{address}}",
-    "notificationPayment": "You have received a payment from {{address}}",
+    "notification": "Anda telah menerima transaksi daripada {{address}}",
+    "notificationPayment": "Anda telah menerima bayaran dari {{address}}",
     "data": "DATA",
     "time": "MASA",
     "button": {
@@ -465,8 +465,8 @@
     "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
     "dic": {
       "contractType": "Transaction Type",
-      "ownerAddress": "From",
-      "toAddress": "To",
+      "ownerAddress": "Daripada",
+      "toAddress": "Kepada",
       "participateAssetIssueContract": "Participate",
       "transferAssetContract": "Transfer",
       "transferContract": "Transfer",
