@@ -240,7 +240,7 @@
     "enterAmountToBuy": "MASUKKAN AMAUN UNTUK BELI",
     "amountToBuy": "AMAUN UNTUK BELI",
     "pricePerToken": "HARGA SETIAP TOKEN",
-    "tokenDescription": "PENERANGAN TOKEN",
+    "tokenDescription": "HURAIAN TOKEN",
     "tokenInfo": "MAKLUMAT TOKEN",
     "token": "TOKEN",
     "tokens": "TOKENS",
@@ -250,7 +250,7 @@
     "totalSupply": "JUMLAH BEKALAN",
     "startTime": "MASA MULA",
     "endTime": "MASA TAMAT",
-    "description": "PENERANGAN",
+    "description": "HURAIAN",
     "transaction": "TRANSAKSI",
     "ownerAddress": "ALAMAT PEMILIK",
     "trxNum": "TRX NUM",
@@ -333,7 +333,7 @@
       "token": "TOKEN",
       "to": "KEPADA",
       "amount": "AMAUN",
-      "description": "PENERANGAN (PILIHAN)"
+      "description": "HURAIAN (PILIHAN)"
     },
     "available": "yang ada",
     "chooseToken": "Sila pilih satu token di bawah.",
@@ -495,67 +495,67 @@
     "title": "TRANSAKSI SAYA",
     "from": "Daripada",
     "to": "Kepada",
-    "notFound": "No transactions found."
+    "notFound": "Tidak transaksi dijumpai."
   },
   "transactionDetails": {
-    "title": "TRANSACTION",
+    "title": "TRANSAKSI",
     "clipboard": {
-      "tronscanUrl": "Tronscan url for this transaction copied to the clipboard",
-      "publicKey": "Public Key copied to the clipboard"
+      "tronscanUrl": "Tronscan url untuk transaksi ini telah disalin kepada papan klip",
+      "publicKey": "Kunci awam telah disalin kepada papan klip"
     },
     "hash": "HASH",
     "status": "STATUS",
-    "time": "TIME",
+    "time": "MASA",
     "block": "BLOCK",
-    "frozenBalance": "FROZEN BALANCE",
-    "unfrozenBalance": "UNFROZEN BALANCE",
-    "totalVotes": "TOTAL VOTES",
-    "amount": "AMOUNT",
-    "to": "TO",
-    "from": "FROM",
-    "tokenName": "TOKEN NAME",
-    "unityValue": "UNITY VALUE",
-    "totalSupply": "TOTAL SUPPLY",
-    "startTime": "START TIME",
-    "endTime": "END TIME",
-    "description": "DESCRIPTION",
-    "votedAddress": "VOTED ADDRESS"
+    "frozenBalance": "BAKI YANG BEKU",
+    "unfrozenBalance": "BAKI YANG TIDAK BEKU",
+    "totalVotes": "JUMLAH UNDI",
+    "amount": "AMAUN",
+    "to": "KEPADA",
+    "from": "DARIPADA",
+    "tokenName": "NAMA TOKEN",
+    "unityValue": "NILAI PERPADUAN",
+    "totalSupply": "JUMLAH BEKALAN",
+    "startTime": "MASA MULA",
+    "endTime": "MASA TAMAT",
+    "description": "HURAIAN",
+    "votedAddress": "ALAMAT YANG DIUNDI"
   },
   "transactionSuccess": {
-    "submitted": "TRANSACTION SUBMITTED TO NETWORK!",
-    "success": "SUCCESS!"
+    "submitted": "TRANSAKSI TELAH DIHANTAR KE RANGKAIAN!",
+    "success": "BERJAYA!"
   },
   "votes": {
-    "title": "VOTES",
-    "totalVotes": "TOTAL VOTES",
-    "votesAvailable": "VOTES AVAILABLE",
-    "search": "Search",
-    "searchPreview": "Suggestions - My latest votes",
-    "error": "Oops, something didn't load correctly. Try to reload",
-    "notFound": "Super Representative not found"
+    "title": "UNDI",
+    "totalVotes": "JUMLAH UNDI",
+    "votesAvailable": "UNDI YANG ADA",
+    "search": "Cari",
+    "searchPreview": "Cadangan - Undi terbaru saya",
+    "error": "Oops, ada sesuatu tidak dimuatkan dengan betul. Cuba tambah nilai",
+    "notFound": "Super Representative tidak dijumpai"
   },
   "scanPayment": {
-    "scan": "SCAN",
+    "scan": "IMBAS",
     "error": {
-      "receiver": "Receiver address invalid",
-      "token": "Token not valid",
-      "amount": "Amount not valid",
-      "description": "Description too long",
-      "code": "Payment code invalid. Please, scan a valid one"
+      "receiver": "Alamat penerima tidak sah",
+      "token": "Token tidak sah",
+      "amount": "Amaun tidak sah",
+      "description": "Huraian terlalu panjang",
+      "code": "Kod bayaran tidak sah. Sila imbas satu kod yang sah"
     }
   },
   "makePayment": {
-    "pay": "PAY",
-    "confirm": "CONFIRM PAYMENT",
+    "pay": "BAYAR",
+    "confirm": "SAHKAN BAYARAN",
     "error": {
-      "receiver": "Receiver is equal to requester",
-      "token": "This account doesn't have the token for this transaction",
-      "amount": "This account doesn't have enough balance.",
-      "description": "No description available"
+      "receiver": "Penerima adalah sama dengan pemohon",
+      "token": "Akaun ini tidak mempunyai token untuk transaksi ini",
+      "amount": "Akaun ini tidak mempunyai baki yang cukup.",
+      "description": "Tiada huraian yang ada"
     }
   },
   "buildPayment": {
-    "generate": "GENERATE REQUEST",
+    "generate": "JANA PERMINTAAN",
     "selectCurrency": "Select the reference currency",
     "error": {
       "currency": "We weren't able to load other currency prices. Please use TRX as reference"
