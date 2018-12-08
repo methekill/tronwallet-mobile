@@ -504,7 +504,7 @@
       "publicKey": "Öffentlicher Schlüssel in die Zwischenablage kopiert"
     },
     "hash": "Rautenzeichen",
-    "status": "Status",
+    "status": "STATUS",
     "time": "ZEIT",
     "block": "BLOCK",
     "frozenBalance": "EINGEFRORENES GUTHABEN",
