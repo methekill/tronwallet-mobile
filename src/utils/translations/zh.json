@@ -15,9 +15,9 @@
     "y": "a year",
     "yy": "%d years"
   },
-  "success": "Success",
-  "warning": "Warning",
-  "cancel": "Cancel",
+  "success": "成功",
+  "warning": "警告",
+  "cancel": "取消",
   "address": "地址",
   "message": "Message",
   "ex": "Exchange",
@@ -54,13 +54,13 @@
   "ends": "Ends",
   "clear": "Clear",
   "allIn": "All In",
-  "skip": "Skip",
+  "skip": "跳过",
   "privateKey": "私钥",
-  "results": "Results",
-  "buy": "Buy",
-  "sell": "Sell",
-  "filter": "Filter",
-  "txs": "Transactions",
+  "results": "结果",
+  "buy": "买",
+  "sell": "卖",
+  "filter": "过滤",
+  "txs": "交易",
   "balance": {
     "title": "ACCOUNTS",
     "error": {
@@ -157,7 +157,7 @@
       "delete": {
         "title": "Delete Contact",
         "message": "Do you really want to delete this contact?",
-        "cancelButton": "Cancel",
+        "cancelButton": "取消",
         "okButton": "OK"
       },
       "empty": "Your address book is empty, add a new contact using the button below.",
