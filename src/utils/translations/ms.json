@@ -556,23 +556,23 @@
   },
   "buildPayment": {
     "generate": "JANA PERMINTAAN",
-    "selectCurrency": "Select the reference currency",
+    "selectCurrency": "Pilih mata wang rujukan",
     "error": {
-      "currency": "We weren't able to load other currency prices. Please use TRX as reference"
+      "currency": "Kami tidak dapat memuatkan harga mata wang lain. Sila guna TRX sebagai rujukan"
     }
   },
   "requestPayment": {
-    "title": "REQUEST PAYMENT"
+    "title": "MINTA BAYARAN"
   },
   "newAccount": {
-    "title": "Account Creation",
-    "placeholder": "My precious account",
+    "title": "Penciptaan Akaun",
+    "placeholder": "Akaun saya yang berharga",
     "success": {
-      "title": "New account successfully created",
-      "message": "You can edit the name on your address book"
+      "title": "Akaun baru berjaya dicipta",
+      "message": "Anda boleh edit nama pada buku alamat anda"
     },
     "failure": {
-      "title": "New account warning",
+      "title": "Amaran akaun baru",
       "message": "To add a new account you should have at least one transaction on your last account."
     }
   },
