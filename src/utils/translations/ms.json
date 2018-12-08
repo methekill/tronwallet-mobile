@@ -368,20 +368,20 @@
         "success": {
           "updated": "Dikemaskini",
           "updatedIp": "Nod IP dikemaskini!",
-          "switchTest": "Switched nodes IP to Testnet",
-          "switchMain": "Switched nodes IP to default main",
-          "reset": "Node IP reseted!"
+          "switchTest": "Nod IP sudah tukar kepada Testnet",
+          "switchMain": "Nod IP sudah tukar kepada default main",
+          "reset": "Nod IP sudah ditetap semula!"
         },
         "placeholder": {
-          "loadingIp": "Loading IP",
-          "loadingPort": "Loading Port"
+          "loadingIp": "Memuatkan IP",
+          "loadingPort": "Memuatkan Port"
         },
         "button": {
-          "update": "Update and Connect",
-          "reset": "Reset"
+          "update": "Kemaskini dan Sambung",
+          "reset": "Tetapkan Semula"
         },
-        "mainNode": "Main Node",
-        "solidityNode": "Solidity Node",
+        "mainNode": "Nod Utama",
+        "solidityNode": "Nod Solidity",
         "testNet": "TestNet"
       }
     },
@@ -408,7 +408,7 @@
         "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
       },
       "button": {
-        "confirm": "Yes, restart now!",
+        "confirm": "Ya, mula semula sekarang!",
         "cancel": "No, I'll do it later"
       },
       "error": "Masalah menyimpan bahasa terpilih"
