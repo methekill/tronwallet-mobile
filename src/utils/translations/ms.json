@@ -20,7 +20,7 @@
   "cancel": "Batal",
   "address": "Alamat",
   "message": "Mesej",
-  "ex": "Pengurup",
+  "ex": "Bursa",
   "ok": "OK",
   "actionModalTitle": "Adakah anda mahu",
   "account": "Akaun",
@@ -77,13 +77,13 @@
     "minToSell": "Minimum untuk hantar ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimum untuk terima ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Tinggikan sedikit kos anggaran, dan kadar kejayaan akan lebih tinggi.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "buy": "Tinggikan sedikit anggaran kos, dan kadar kejayaan akan lebih tinggi.",
+      "sell": "Kurangkan sedikit anggaran pendapatan, dan kadar kejayaan akan lebih tinggi."
     },
     "estimatedRevenue": "ANGGARAN PENDAPATAN",
     "estimatedCost": "ANGGARAN KOS",
     "preview": "Cari dengan nama token",
-    "notFound": "Exchanges not found"
+    "notFound": "Bursa tidak dijumpai"
   },
   "hideAccount": "Anda akan memadamkan akaun ini. Anda boleh memulihkan ia di dalam tetapan nanti",
   "components": {
@@ -95,14 +95,14 @@
     "QRScanner": {
       "title": "Pengimbas Alamat",
       "scan": "Imbas",
-      "explanation": "Scan the QRCode to identify the target user",
-      "permissionMessage": "To scan the public key the app needs your permission to access the camera."
+      "explanation": "Imbas QRCode untuk mengenal pasti pengguna disasarkan",
+      "permissionMessage": "Untuk mengimbas kunci awam, aplikasi memerlukan kebenaran untuk mengakses kamera."
     },
     "vote": {
       "enterVote": "MASUKKAN NILAI UNDI",
       "votesRemaining": "UNDI YANG TINGGAL",
       "setVote": "TETAPKAN UNDI",
-      "moreVotes": "If you need more votes you can Freeze more TRX.",
+      "moreVotes": "Jika anda perlu undi lebih, anda boleh beku lebih TRX.",
       "confirmVotes": "MENGESAHKAN UNDIAN",
       "yourVotes": "Undian Anda",
       "myVotes": "UNDIAN SAYA",
@@ -111,8 +111,8 @@
       "totalVotes": "Jumlah undi yang ada:",
       "delete": "PADAM",
       "set": "TETAPKAN",
-      "freezeOrLower": "You do not have enough frozen TRX. Freeze more TRX or lower the vote amount",
-      "freezeToContinue": "You do not have enough frozen TRX. Freeze more TRX to continue"
+      "freezeOrLower": "Anda tidak mempunyai cukup TRX yang beku. Beku lebih TRX atau kurangkan amaun undi",
+      "freezeToContinue": "Anda tidak mempunyai cukup TRX yang beku. Beku lebih TRX untuk teruskan"
     }
   },
   "firstTime": {
@@ -136,11 +136,11 @@
       },
       "addressbook": {
         "title": "BUKU ALAMAT",
-        "body": "Save the addresses of your friends \n and contacts."
+        "body": "Simpan alamat-alamat kawan dan kenalan anda."
       },
       "multipleaccounts": {
-        "title": "MULTIPLE ACCOUNTS",
-        "body": "You can manage multiple accounts \n in your wallet"
+        "title": "BERBILANG AKAUN",
+        "body": "Anda boleh mengurus berbilang akaun dalam dompet anda"
       }
     }
   },
@@ -160,7 +160,7 @@
         "cancelButton": "Batal",
         "okButton": "OK"
       },
-      "empty": "Your address book is empty, add a new contact using the button below.",
+      "empty": "Buku alamat anda kosong, tambah kenalan baru menggunakan butang di bawah.",
       "loadError": "Ada masalah untuk memuatkan kenalan. Sila cuba lagi.",
       "addContact": "TAMBAH KENALAN",
       "addToContacts": "TAMBAH KEPADA KENALAN"
@@ -458,9 +458,9 @@
       "noData": "Couldn't load transaction data"
     },
     "exchange": {
-      "send": "Sending {{sendtoken}}",
-      "receive": "Receiving {{receivetoken}}",
-      "error": "Check your latest transactions to confirm the received amount."
+      "send": "Hantar {{sendtoken}}",
+      "receive": "Terima {{receivetoken}}",
+      "error": "Semak transaksi terakhir anda untuk mengesahkan amaun diterima."
     },
     "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
     "dic": {
