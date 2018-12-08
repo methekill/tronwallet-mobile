@@ -203,7 +203,7 @@
     "balance": "Baki"
   },
   "getVault": {
-    "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
+    "notInstalled": "Nampaknya anda tidak mempunyai Tron Vault dipasang dalam telefon anda untuk meneruskan transaksi anda.",
     "downloadHere": "Anda boleh memuat turun di sini"
   },
   "market": {
@@ -236,7 +236,7 @@
       },
       "notFound": "Aset tidak dijumpai"
     },
-    "warning": "You don't have enough TRX to buy that many {{token}}",
+    "warning": "Anda tidak mempunyai TRX yang cukup untuk membeli jumlah {{token}} yang diingini",
     "enterAmountToBuy": "MASUKKAN AMAUN UNTUK BELI",
     "amountToBuy": "AMAUN UNTUK BELI",
     "pricePerToken": "HARGA SETIAP TOKEN",
@@ -257,7 +257,7 @@
     "num": "NUM",
     "block": "BLOCK",
     "balance": "BAKI",
-    "searchPreview": "Featured Tokens"
+    "searchPreview": "Token Yang Diketengahkan"
   },
   "pin": {
     "title": "PEMERIKSAAN KESELAMATAN",
@@ -290,7 +290,7 @@
         "message": "Perkataan yang dipilih tidak sepadan. Pastikan susunan betul untuk perkataan yang ditulis."
       },
       "success": "Dompet berjaya disahkan",
-      "explanation": "Select the words below in the right order to confirm your secret phrase.",
+      "explanation": "Pilih kata-kata di bawah dalam susunan yang betul untuk mengesahkan frasa rahsia anda.",
       "button": {
         "reset": "MENETAP SEMULA PERKATAAN",
         "confirm": "SAHKAN BENIH"
@@ -306,7 +306,7 @@
         "newSeed": "DAPATKAN BENIH BARU",
         "later": "Sahkan kemudian"
       },
-      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
+      "backupMessage": "Anda boleh akses kata-kata anda dengan mengakses sandaran di dalam penetapan aplikasi      ",
       "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
@@ -333,11 +333,11 @@
       "token": "TOKEN",
       "to": "KEPADA",
       "amount": "AMAUN",
-      "description": "DESCRIPTION (OPTIONAL)"
+      "description": "PENERANGAN (PILIHAN)"
     },
-    "available": "available",
+    "available": "yang ada",
     "chooseToken": "Sila pilih satu token di bawah.",
-    "minimumAmount": "The minimum amount for any send transaction is 0.000001."
+    "minimumAmount": "Amaun minimum untuk menghantar sebarang transaksi ialah 0.000001."
   },
   "menu": {
     "title": "MENU"
@@ -347,27 +347,27 @@
     "sectionTitles": {
       "wallet": "DOMPET",
       "security": "KESELAMATAN",
-      "notification": "NOTIFICATIONS",
-      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
-      "accounts": "ACCOUNTS MANAGEMENT"
+      "notification": "PEMBERITAHUAN",
+      "idiomAndLocalization": "IDIOM DAN PENYETEMPATAN",
+      "accounts": "PENGURUSAN AKAUN"
     },
     "notifications": {
-      "title": "Notifications"
+      "title": "Pemberitahuan"
     },
     "network": {
-      "title": "Network",
+      "title": "Rangkaian",
       "modal": {
-        "title": "NETWORK",
-        "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
+        "title": "RANGKAIAN",
+        "explanation": "Dengan pilihan ini, anda boleh memilih nod yang lebih memenuhi keperluan dan keutamaan anda. Sila berhati-hati semasa mengemaskini nod IP kerana IP salah boleh menyebabkan masalah dalam dompet anda. Contoh: 35.231.121.122:50051",
         "error": {
           "storage": "Masalah mendapatkan nod IP dari storan tempatan",
           "invalidIp": "Sila masukkan IP yang sah",
-          "update": "Something went wrong while updating nodes ip",
-          "reset": "Something wrong while reseting node ip"
+          "update": "Sesuatu yang salah semasa mengemaskinikan nod ip",
+          "reset": "Sesuatu yang salah semasa menetapkan semula nod ip"
         },
         "success": {
-          "updated": "Updated",
-          "updatedIp": "Nodes IP updated!",
+          "updated": "Dikemaskini",
+          "updatedIp": "Nod IP dikemaskini!",
           "switchTest": "Switched nodes IP to Testnet",
           "switchMain": "Switched nodes IP to default main",
           "reset": "Node IP reseted!"
