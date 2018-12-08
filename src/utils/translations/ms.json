@@ -464,18 +464,18 @@
     },
     "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
     "dic": {
-      "contractType": "Transaction Type",
+      "contractType": "Jenis Transaksi",
       "ownerAddress": "Daripada",
       "toAddress": "Kepada",
-      "participateAssetIssueContract": "Participate",
-      "transferAssetContract": "Transfer",
-      "transferContract": "Transfer",
-      "unfreezeBalanceContract": "Unfreeze",
-      "freezeBalanceContract": "Freeze",
-      "assetIssueContract": "Create",
-      "voteWitnessContract": "Vote",
-      "frozenDuration": "Duration",
-      "frozenBalance": "Total to Freeze"
+      "participateAssetIssueContract": "Ambil Bahagian",
+      "transferAssetContract": "Pindah",
+      "transferContract": "Pindah",
+      "unfreezeBalanceContract": "Cairkan",
+      "freezeBalanceContract": "Beku",
+      "assetIssueContract": "Mencipta",
+      "voteWitnessContract": "Undi",
+      "frozenDuration": "Tempoh",
+      "frozenBalance": "Jumlah untuk Beku"
     },
     "errorDic": {
       "contractValidate": "Transaction data not valid. Please try again later.",
