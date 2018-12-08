@@ -314,7 +314,7 @@
       "explanation": "Untuk memulihkan dompet anda, sila berikan 12 kata-kata yang ditulis atau disimpan apabila anda mencipta dompet anda untuk kali pertamanya. Jika anda memasukkan turutan kata-kata yang beza, satu dompet baru akan dicipta.",
       "placeholder": "Sila taip 12 perkataan benih anda di sini",
       "success": "Dompet berjaya dipulihkan!",
-      "warning": "Restore seed will erase all data on this device and pull information from the network for the restored account.",
+      "warning": "Memulihkan benih akan memadamkan semua data di dalam peranti ini dan memuat turn maklumat dari rangkaian untuk akaun yang dipulihkan.",
       "error": "Oops. Perkataan benih yang anda taip tidak sah. Semak semula untuk kesilapan menaip dan cuba lagi.",
       "button": "MEMULIHKAN"
     }
@@ -324,7 +324,7 @@
     "error": {
       "insufficientBalance": "Tidak cukup baki.",
       "gettingBalance": "Masalah semasa mendapatkan data baki",
-      "incompleteAddress": "Address is either incomplete or invalid.",
+      "incompleteAddress": "Alamat sama ada tidak lengkap atau tidak sah.",
       "invalidReceiver": "Alamat penerima tidak sah",
       "selectBalance": "Pilih satu baki dulu",
       "invalidAmount": "Amaun tidak sah"
@@ -452,17 +452,17 @@
     "time": "MASA",
     "button": {
       "tryAgain": "Cuba lagi",
-      "submit": "SUBMIT TRANSACTION"
+      "submit": "HANTAR TRANSAKSI"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "Tidak dapat memuat data transaksi"
     },
     "exchange": {
       "send": "Hantar {{sendtoken}}",
       "receive": "Terima {{receivetoken}}",
       "error": "Semak transaksi terakhir anda untuk mengesahkan amaun diterima."
     },
-    "disconnectedMessage": "It seems that you are disconnected. Reconnect to the internet before proceeding with the transaction.",
+    "disconnectedMessage": "Nampaknya anda telah terputus. Sambung balik ke Internet sebelum meneruskan dengan transaksi.",
     "dic": {
       "contractType": "Jenis Transaksi",
       "ownerAddress": "Daripada",
@@ -478,23 +478,23 @@
       "frozenBalance": "Jumlah untuk Beku"
     },
     "errorDic": {
-      "contractValidate": "Transaction data not valid. Please try again later.",
-      "signature": "Transaction signature not valid.",
-      "duplicate": "Transaction already broadcasted.",
-      "contractValidateCee": "Transaction data not valid (CEE). Please try again later.",
-      "bandwith": "Not enought bandwidth. Please try again later.",
-      "contractValidateTapos": "Transaction data not valid (TAPOS). Please try again later.",
-      "tooBig": "Transaction too big to be submitted.",
-      "expiration": "Transaction expired. Please try again.",
-      "serverBusy": "Server busy.",
-      "resource": "Insufficient bandwidth or balance. You might need some frozen TRX."
+      "contractValidate": "Data transaksi tidak sah. Sila cuba lagi nanti.",
+      "signature": "Tandatangan transaksi tidak sah.",
+      "duplicate": "Transaksi yang sudah disiarkan.",
+      "contractValidateCee": "Data transaksi tidak sah (CEE). Sila cuba lagi nanti.",
+      "bandwith": "Tidak cukup bandwidth. Sila cuba lagi nanti.",
+      "contractValidateTapos": "Data transaksi tidak sah (TAPOS). Sila cuba lagi nanti.",
+      "tooBig": "Transaksi terlalu besar untuk dihantar.",
+      "expiration": "Transaksi sudah tamat tempoh. Sila cuba lagi.",
+      "serverBusy": "Pelayan sibuk.",
+      "resource": "Tidak cukup bandwidth atau baki. Anda mungkin memerlukan beberapa TRX yang beku."
     },
-    "totalVotes": "Total Votes"
+    "totalVotes": "Jumlah Undi"
   },
   "transactions": {
-    "title": "MY TRANSACTIONS",
-    "from": "From",
-    "to": "To",
+    "title": "TRANSAKSI SAYA",
+    "from": "Daripada",
+    "to": "Kepada",
     "notFound": "No transactions found."
   },
   "transactionDetails": {
