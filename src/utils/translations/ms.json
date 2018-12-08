@@ -177,7 +177,7 @@
   },
   "importWallet": {
     "title": "IMPORT DOMPET",
-    "message": "If you have the private key and address of your wallet you can recovery it here but keep in mind that TronWallet operates with mnemonics primarily. This recovery method will disable some functionalities within the App.",
+    "message": "Jika anda mempunyai kunci peribadi dan alamat dompet anda, anda boleh memulihkan di sini tetapi ingat TronWallet beroperasi dengan mnemonik terutamanya. Kaedah pemulihan ini akan lumpuhkan sesetengah fungsi di dalam aplikasi.",
     "button": "IMPORT",
     "error": {
       "privateKey": "Kunci peribadi tidak sah atau tidak lengkap"
@@ -188,16 +188,16 @@
     "unfreeze": {
       "title": "MENCAIRKAN",
       "inXTime": "Anda boleh mencairkan TRX anda",
-      "inThreeDays": "After a three day period you can unfreeze your TRX",
-      "inXMinutes": "You can unfreeze your TRX in {{minutes}} minutes.",
-      "inXHours": "You can unfreeze your TRX in {{hours}} hours.",
-      "inXDays": "You can unfreeze your TRX in {{days}} days.",
-      "now": "You can unfreeze your TRX now."
+      "inThreeDays": "Selepas tempoh tiga hari anda boleh mencairkan TRX anda",
+      "inXMinutes": "Anda boleh mencairkan TRX anda dalam {{minutes}} minit.",
+      "inXHours": "Anda boleh mencairkan TRX anda dalam {{hours}} jam.",
+      "inXDays": "Anda boleh mencairkan TRX anda dalam {{days}} hari.",
+      "now": "Anda boleh mencairkan TRX anda sekarang."
     },
     "error": {
-      "minimumAmount": "The minimum amount for any freeze transaction is 1.",
+      "minimumAmount": "Amaun minimum untuk sebarang transaksi beku ialah 1.",
       "insufficientBalance": "Baki TRX tidak cukup",
-      "roundNumbers": "Can only freeze round numbers"
+      "roundNumbers": "Hanya boleh beku nombor bulat"
     },
     "amount": "AMAUN BEKU",
     "balance": "Baki"
