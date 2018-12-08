@@ -386,14 +386,14 @@
       }
     },
     "backup": {
-      "title": "Backup Wallet"
+      "title": "Sandarkan Dompet"
     },
     "restore": {
-      "title": "Restore Wallet"
+      "title": "Memulihkan Dompet"
     },
     "reset": {
-      "title": "Reset Wallet",
-      "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
+      "title": "Tetapkan Semula Dompet",
+      "warning": "Amaran: Tindakan ini akan memadamkan semua data disimpan termasuk 12 perkataan rahsia. Jika anda belum menyimpan rahsia ini, sila buat demikian sebelum anda teruskan.",
       "button": "OK, saya faham"
     },
     "pin": {
@@ -405,53 +405,53 @@
       "choose": "Sila pilih satu bahasa di bawah:",
       "success": {
         "title": "Bahasa ditukar kepada {{language}}",
-        "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
+        "description": "Walau bagaimanapun, anda masih perlu mula semula aplikasi supaya perubahan akan berkuatkuasa. Adakah anda mahu berbuat demikian sekarang?"
       },
       "button": {
         "confirm": "Ya, mula semula sekarang!",
-        "cancel": "No, I'll do it later"
+        "cancel": "Tidak, saya akan buat kemudian"
       },
       "error": "Masalah menyimpan bahasa terpilih"
     },
     "token": {
-      "title": "Token Filter",
+      "title": "Penapis Token",
       "search": "Cari token",
-      "confirm": "Save",
-      "noResult": "No results..."
+      "confirm": "Simpan",
+      "noResult": "Tiada keputusan..."
     },
     "about": {
       "title": "Tentang",
-      "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
+      "description": "TronWallet adalah satu sumber terbuka P2P Dompet Crypto yang desentralisasi sepenuhnya untuk rangkaian TRON yang dibina dengan React Native. Dengan ini anda boleh menghantar dan menerima token, mengundi Super Representatives, mengambil bahagian dalam jualan token, terus menjejaki anak baki dan urus niaga dan banyak lagi. Ketuk pautan di bawah untuk tutorial terperinci tentang bagaimana untuk menggunakannya.",
       "tutorial": "TUTORIAL"
     },
     "accepts": {
       "title": "Siapa yang terima TRX?"
     },
     "market": {
-      "title": "Market"
+      "title": "Pasaran"
     },
     "helpCenter": {
-      "title": "Help Center"
+      "title": "Pusat Bantuan"
     },
     "accounts": {
-      "title": "Accounts",
-      "search": "Search accounts",
-      "restoreAccounts": "Restore Accounts",
+      "title": "Akaun-akaun",
+      "search": "Cari akaun",
+      "restoreAccounts": "Memulihkan Akaun",
       "noAccounts": "Tiada akaun untuk dipulihkan"
     },
-    "partners": "PARTNERS",
-    "askPin": "Always ask PIN",
-    "askBiometry": "Activate Biometry",
-    "verifiedTokensOnly": "Verified tokens only"
+    "partners": "RAKAN KONGSI",
+    "askPin": "Sentiasa tanya PIN",
+    "askBiometry": "Aktifkan Biometri",
+    "verifiedTokensOnly": "Token yang disahkan sahaja"
   },
   "submitTransaction": {
-    "title": "TRANSACTION DETAILS",
+    "title": "BUTIR-BUTIR TRANSAKSI",
     "notification": "You have received a transaction from {{address}}",
     "notificationPayment": "You have received a payment from {{address}}",
     "data": "DATA",
-    "time": "TIME",
+    "time": "MASA",
     "button": {
-      "tryAgain": "Try again",
+      "tryAgain": "Cuba lagi",
       "submit": "SUBMIT TRANSACTION"
     },
     "error": {
