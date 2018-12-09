@@ -264,7 +264,7 @@
     "enter": "PIN eingeben",
     "new": "Neue PIN eingeben",
     "reenter": "PIN erneut eingeben",
-    "biometrics": "Überprüfe Biometrie"
+    "biometrics": "Biometrie überprüfen"
   },
   "receive": {
     "title": "ERHALTEN",
@@ -441,7 +441,7 @@
     },
     "partners": "PARTNER",
     "askPin": "Immer nach der PIN fragen",
-    "askBiometry": "Aktivieren Sie Biometrie",
+    "askBiometry": "Biometrie aktivieren",
     "verifiedTokensOnly": "Nur verifizierte Tokens"
   },
   "submitTransaction": {
