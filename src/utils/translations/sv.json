@@ -1,8 +1,8 @@
 {
   "relativeTime": {
-    "future": "i %s",
+    "future": "Om %s",
     "past": "%s sedan",
-    "s": "en få sekunder",
+    "s": "Ett par sekunder",
     "ss": "%d sekunder",
     "m": "en minut",
     "mm": "%d minuter",
