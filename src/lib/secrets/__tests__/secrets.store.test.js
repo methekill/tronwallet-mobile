@@ -123,6 +123,18 @@ describe('Secret store', () => {
 
       expect(accounts).toHaveLength(0)
     })
+
+    test('should return first account when list have accounts', () => {
+      const account = _secretStore.findFirstAccount()
+
+      expect(account).toMatchObject({ key: 1, value: 'a', hide: false })
+    })
+
+    test('should return last account when list have accounts', () => {
+      const account = _secretStore.findLastAccount()
+
+      expect(account).toMatchObject({ key: 2, value: 'b', hide: true })
+    })
   })
 
   describe('Delete account', () => {
