@@ -2,7 +2,7 @@ import RealmStoreMock from '../../infra-data/__mocks__/realm.store.mock'
 import SecretsStore from '../secrets.store'
 
 describe('Secret store', () => {
-  let _secretStore, _store, _mockData, _RNTron
+  let _secretStore, _contactStore, _store, _mockData, _RNTron
 
   beforeEach(() => {
     _mockData = [
@@ -15,7 +15,8 @@ describe('Secret store', () => {
     }
 
     _store = new RealmStoreMock('key', _mockData)
-    _secretStore = new SecretsStore(_store, _RNTron)
+    _contactStore = new RealmStoreMock('key', _mockData)
+    _secretStore = new SecretsStore(_RNTron, _store, _contactStore)
   })
 
   describe('Create user secret account', () => {
@@ -58,7 +59,7 @@ describe('Secret store', () => {
   describe('Create FIRST user secret account', () => {
     test('should create when mnemonic filled and accounts is empty', async () => {
       const store = new RealmStoreMock('key', [])
-      const secretStore = new SecretsStore(store, _RNTron)
+      const secretStore = new SecretsStore(_RNTron, store, _contactStore)
 
       const mnemonic = 'asdf qwer zxcv'
 
@@ -101,7 +102,7 @@ describe('Secret store', () => {
 
     test('should return empty list when accounts list is empty', () => {
       const store = new RealmStoreMock('key', [])
-      const secretStore = new SecretsStore(store)
+      const secretStore = new SecretsStore(_RNTron, store, _contactStore)
 
       const accounts = secretStore.findAllAccounts()
 
@@ -116,7 +117,7 @@ describe('Secret store', () => {
 
     test('should return empty list when list doesn\'t have visible accounts', () => {
       const store = new RealmStoreMock('key', [{ key: 1, value: 'a', hide: true }])
-      const secretStore = new SecretsStore(store)
+      const secretStore = new SecretsStore(_RNTron, store, _contactStore)
 
       const accounts = secretStore.findVisibleAccounts()
 
