@@ -105,36 +105,36 @@ describe('Basic repository', () => {
     })
   })
 
-  // describe('Delete objects', () => {
-  //   test('should decrease list length when delete object by key', async () => {
-  //     await store.deleteByKey(2)
+  describe('Delete objects', () => {
+    test('should decrease list length when delete object by key', async () => {
+      await store.deleteByKey(2)
 
-  //     const objects = store.findAll()
-  //     expect(objects).toHaveLength(1)
-  //   })
+      const objects = store.findAll()
+      expect(objects).toHaveLength(1)
+    })
 
-  //   test('should keep list length when key doesn\'t exists for delete', async () => {
-  //     await store.deleteByKey(5)
+    test('should keep list length when key doesn\'t exists for delete', async () => {
+      await store.deleteByKey(5)
 
-  //     const objects = store.findAll()
-  //     expect(objects).toHaveLength(2)
-  //   })
+      const objects = store.findAll()
+      expect(objects).toHaveLength(2)
+    })
 
-  //   test('should decrease list length when delete object by instance', async () => {
-  //     const object = store.findByKey(2)
-  //     await store.delete(object)
+    test('should decrease list length when delete object by instance', async () => {
+      const object = store.findByKey(2)
+      await store.delete(object)
 
-  //     const objects = store.findAll()
-  //     expect(objects).toHaveLength(1)
-  //   })
+      const objects = store.findAll()
+      expect(objects).toHaveLength(1)
+    })
 
-  //   test('should list length empty when reset data', async () => {
-  //     await store.resetData()
+    test('should list length empty when reset data', async () => {
+      await store.resetData()
 
-  //     const objects = store.findAll()
-  //     expect(objects).toHaveLength(0)
-  //   })
-  // })
+      const objects = store.findAll()
+      expect(objects).toHaveLength(0)
+    })
+  })
 
   describe('Get db instance', () => {
     test('should return db instance when db exists', () => {
