@@ -77,8 +77,8 @@
     "minToSell": "Minimum k prodeji ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimum k nákupu ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Mírně vyšší odhadované náklady zvýší míru obratu.",
-      "sell": "Mírně nižší odhadované náklady zvýší míru obratu."
+      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
     "estimatedRevenue": "ODHADOVANÝ PŘÍJEM",
     "estimatedCost": "ODHADOVANÉ NÁKLADY",
@@ -222,7 +222,7 @@
   },
   "participate": {
     "title": "NÁKUP TOKENŮ",
-    "featured": "SPONSORED",
+    "featured": "SPONZOROVÁNO",
     "button": {
       "confirm": "POTVRDIT",
       "moreInfo": "VÍCE INFORMACÍ",
@@ -339,12 +339,16 @@
     "chooseToken": "Prosím, vyberte z tokenů níže.",
     "minimumAmount": "Minimální množství pro poslání transakce je 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "NASTAVENÍ",
     "sectionTitles": {
       "wallet": "PENĚŽENKA",
       "security": "ZABEZPEČENÍ",
-      "notification": "OZNÁMENÍ A JAZYKY",
+      "notification": "OZNÁMENÍ",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "ŘÍZENÍ ÚČTŮ"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Kdo přijímá TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Centrum nápovědy"

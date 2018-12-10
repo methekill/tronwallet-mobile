@@ -74,11 +74,11 @@
     "holdings": "PEGANGAN"
   },
   "exchange": {
-    "minToSell": "Minimum untuk jual ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimum untuk beli ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
-      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
     "estimatedRevenue": "ANGGARAN PENDAPATAN",
     "estimatedCost": "ANGGARAN KOS",
@@ -101,7 +101,7 @@
     "vote": {
       "enterVote": "MASUKKAN NILAI UNDI",
       "votesRemaining": "UNDI YANG TINGGAL",
-      "setVote": "SET VOTE",
+      "setVote": "TETAPKAN UNDI",
       "moreVotes": "If you need more votes you can Freeze more TRX.",
       "confirmVotes": "MENGESAHKAN UNDIAN",
       "yourVotes": "Undian Anda",
@@ -237,9 +237,9 @@
       "notFound": "Aset tidak dijumpai"
     },
     "warning": "You don't have enough TRX to buy that many {{token}}",
-    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
-    "amountToBuy": "AMOUNT TO BUY",
-    "pricePerToken": "PRICE PER TOKEN",
+    "enterAmountToBuy": "MASUKKAN AMAUN UNTUK BELI",
+    "amountToBuy": "AMAUN UNTUK BELI",
+    "pricePerToken": "HARGA SETIAP TOKEN",
     "tokenDescription": "PENERANGAN TOKEN",
     "tokenInfo": "MAKLUMAT TOKEN",
     "token": "TOKEN",
@@ -275,12 +275,12 @@
     },
     "tabs": {
       "share": "KONGSI",
-      "request": "REQUEST"
+      "request": "PERMINTAAN"
     }
   },
   "rewards": {
     "title": "GANJARAN",
-    "earned": "You have earned"
+    "earned": "Anda telah memperoleh"
   },
   "seed": {
     "confirm": {
@@ -325,26 +325,30 @@
       "insufficientBalance": "Tidak cukup baki.",
       "gettingBalance": "Masalah semasa mendapatkan data baki",
       "incompleteAddress": "Address is either incomplete or invalid.",
-      "invalidReceiver": "Invalid receiver address",
-      "selectBalance": "Select a balance first",
-      "invalidAmount": "Invalid amount"
+      "invalidReceiver": "Alamat penerima tidak sah",
+      "selectBalance": "Pilih satu baki dulu",
+      "invalidAmount": "Amaun tidak sah"
     },
     "input": {
       "token": "TOKEN",
-      "to": "TO",
-      "amount": "AMOUNT",
+      "to": "KEPADA",
+      "amount": "AMAUN",
       "description": "DESCRIPTION (OPTIONAL)"
     },
     "available": "available",
-    "chooseToken": "Please, choose a token below.",
+    "chooseToken": "Sila pilih satu token di bawah.",
     "minimumAmount": "The minimum amount for any send transaction is 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
-    "title": "SETTINGS",
+    "title": "PENETAPAN",
     "sectionTitles": {
-      "wallet": "WALLET",
-      "security": "SECURITY",
-      "notification": "NOTIFICATIONS AND IDIOM",
+      "wallet": "DOMPET",
+      "security": "KESELAMATAN",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "ACCOUNTS MANAGEMENT"
     },
     "notifications": {
@@ -357,7 +361,7 @@
         "explanation": "With this option you can select the node that will better suit your needs and preferences. Please be careful while updating the node IP while wrong IP can lead to malfunctions within your wallet. Example: 35.231.121.122:50051",
         "error": {
           "storage": "Masalah mendapatkan nod IP dari storan tempatan",
-          "invalidIp": "Please put a valid IP",
+          "invalidIp": "Sila masukkan IP yang sah",
           "update": "Something went wrong while updating nodes ip",
           "reset": "Something wrong while reseting node ip"
         },
@@ -390,17 +394,17 @@
     "reset": {
       "title": "Reset Wallet",
       "warning": "Warning: This action will erase all saved data including your 12 secret words. If you didn't save your secret, please do so before you continue.",
-      "button": "OK, I understand it"
+      "button": "OK, saya faham"
     },
     "pin": {
-      "title": "Change Pin",
-      "success": "Pin successfully changed!"
+      "title": "Tukar Pin",
+      "success": "Pin berjaya ditukarkan!"
     },
     "language": {
-      "title": "Language",
-      "choose": "Please, choose a Language below:",
+      "title": "Bahasa",
+      "choose": "Sila pilih satu bahasa di bawah:",
       "success": {
-        "title": "Language changed to {{language}}",
+        "title": "Bahasa ditukar kepada {{language}}",
         "description": "However, you still need to restart the app so the changes can take effect. Would you like to do it now?"
       },
       "button": {
@@ -411,17 +415,20 @@
     },
     "token": {
       "title": "Token Filter",
-      "search": "Search tokens",
+      "search": "Cari token",
       "confirm": "Save",
       "noResult": "No results..."
     },
     "about": {
-      "title": "About",
+      "title": "Tentang",
       "description": "TronWallet is an open source fully decentralized P2P Crypto Wallet for TRON Network built with React Native. With it you can send and receive tokens, vote on a Super Representative, participate in a token sale, keep track of your balances and transactions and much more. Tap on the link below for a detailed tutorial on how to use it.",
       "tutorial": "TUTORIAL"
     },
     "accepts": {
-      "title": "Who accepts TRX?"
+      "title": "Siapa yang terima TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Help Center"

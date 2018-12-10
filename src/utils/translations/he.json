@@ -60,7 +60,7 @@
   "buy": "קניה",
   "sell": "מכירה",
   "filter": "סינון",
-  "txs": "תנועות",
+  "txs": "עסקאות",
   "balance": {
     "title": "חשבונות",
     "error": {
@@ -71,19 +71,19 @@
     "confirmSeed": "הקש כדי לאשר את 12 מילות הצופן שלך",
     "bandwidth": "רוחב פס",
     "tokens": "טוקנים",
-    "holdings": "אחזקות"
+    "holdings": "החזקות"
   },
   "exchange": {
-    "minToSell": "כמות מינימלית למכירה ≈ {{min}} {{tokenId}}",
-    "minToBuy": "כמות מינימלית לקניה ≈ {{min}} {{tokenId}}",
+    "minToSell": "כמות מינימלית לשליחה ≈ {{tokenId}} {{min}}",
+    "minToBuy": "כמות מינימלית לקבלה ≈ {{tokenId}} {{min}}",
     "variation": {
-      "buy": "מעט גבוה מידי מהעלות המוערכת, קצב החלופה יהיה גבוה יותר.",
-      "sell": "מעט נמוך מידי מהעלות המוערכת, קצב החלופה יהיה גבוה יותר."
+      "buy": "הגדל במעט את העלות המוערכת, וסיכויי ההצלחה יהיו גבוהים יותר.",
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
     "estimatedRevenue": "הערך המשוערך לקבלה",
     "estimatedCost": "העלות המשוערכת",
     "preview": "חפש לפי שם הטוקן",
-    "notFound": "הבורסאות לא זמינות"
+    "notFound": "המסחר אינו זמין"
   },
   "hideAccount": "אתה עומד להסיר את החשבון הזה. ניתן לשחזר אותו מאוחר יותר בהגדרות",
   "components": {
@@ -107,7 +107,7 @@
       "yourVotes": "ההצבעות שלך",
       "myVotes": "ההצבעות שלי",
       "confirm": "אשר",
-      "freeze": "נעל",
+      "freeze": "הקפא",
       "totalVotes": "סה\"כ כל הקולות הזמינים:",
       "delete": "מחק",
       "set": "הגדר",
@@ -246,7 +246,7 @@
     "tokens": "טוקנים",
     "frozen": "קפוא",
     "percentage": "אחוז",
-    "issued": "הוציא",
+    "issued": "הונפק",
     "totalSupply": "סה\"כ האספקה",
     "startTime": "זמן התחלה",
     "endTime": "זמן סיום",
@@ -339,12 +339,16 @@
     "chooseToken": "אנא, בחר טוקן מלמטה.",
     "minimumAmount": "הסכום המינימלי לשליחת כל עסקה הוא 0.000001."
   },
+  "menu": {
+    "title": "תפריט"
+  },
   "settings": {
     "title": "הגדרות",
     "sectionTitles": {
       "wallet": "ארנק",
       "security": "אבטחה",
-      "notification": "הודעות והודאה",
+      "notification": "התראות",
+      "idiomAndLocalization": "ניב ולוקליזציה",
       "accounts": "ניהול חשבונות"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "מי מקבל TRX?"
+    },
+    "market": {
+      "title": "שוק"
     },
     "helpCenter": {
       "title": "מרכז עזרה"

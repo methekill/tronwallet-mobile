@@ -3,7 +3,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import * as Animatable from 'react-native-animatable'
 import PropTypes from 'prop-types'
 
-import { PinDigit, KeyPad, Key } from './elements'
+import { PinDigit, KeyPad, Key, PinWrapper } from './elements'
 import * as Utils from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
 
@@ -64,8 +64,8 @@ class PinPad extends PureComponent {
   render () {
     const { pin } = this.state
     return (
-      <Utils.View marginBottom={40}>
-        <Utils.View height={180} justify='center' align='center'>
+      <Utils.View marginBottom={10}>
+        <PinWrapper>
           <Animatable.View ref={ref => { this.pinView = ref }} >
             <Utils.Row align='center' justify='space-between' width={264}>
               <PinDigit digit={0} currentState={pin} />
@@ -76,7 +76,7 @@ class PinPad extends PureComponent {
               <PinDigit digit={5} currentState={pin} />
             </Utils.Row>
           </Animatable.View>
-        </Utils.View>
+        </PinWrapper>
 
         <KeyPad>
           <Key onPress={this._handleKeyInput}>1</Key>
