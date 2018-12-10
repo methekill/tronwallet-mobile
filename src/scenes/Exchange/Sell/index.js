@@ -170,6 +170,9 @@ class SellScene extends Component {
     const formattedCost = formatFloat(cost)
 
     const isTokenToToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
+    const sellType = firstTokenId === 'TRX' ? 'float' : 'int'
+    const estimatedType = secondTokenId === 'TRX' ? 'float' : 'int'
+
     const minToSell = Math.round((1 / price) * 1.05) /* Used in Token To Token transaction, it needs to have a hihger variation when selling */
 
     return (
@@ -201,7 +204,7 @@ class SellScene extends Component {
               rightContent={() => this._renderRightContent(firstTokenId)}
               placeholder='0'
               keyboardType='numeric'
-              type='float'
+              type={sellType}
               numbersOnly
               value={sellAmount}
             />
@@ -215,7 +218,7 @@ class SellScene extends Component {
               onChangeText={estimatedRevenue => this.setState({estimatedRevenue})}
               placeholder={formattedCost}
               keyboardType='numeric'
-              type='float'
+              type={estimatedType}
               numbersOnly
               value={estimatedRevenue}
             />

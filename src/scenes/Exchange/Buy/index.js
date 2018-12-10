@@ -148,7 +148,7 @@ class BuyScene extends Component {
     } = this.props.exchangeData
     const estimatedCost = estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount || 0, secondTokenId === 'TRX')
 
-    this.setState({buyAmount, estimatedCost})
+    this.setState({buyAmount: Math.round(buyAmount), estimatedCost})
   }
 
   _renderRightContent = token => (
@@ -177,6 +177,9 @@ class BuyScene extends Component {
     const formattedCost = formatFloat(cost)
 
     const isTokenToToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
+    const buyType = firstTokenId === 'TRX' ? 'float' : 'int'
+    const estimatedType = secondTokenId === 'TRX' ? 'float' : 'int'
+
     const minBuy = Math.floor(cost / price)
 
     return (
@@ -208,7 +211,7 @@ class BuyScene extends Component {
               rightContent={() => this._renderRightContent(firstTokenId)}
               placeholder='0'
               keyboardType='numeric'
-              type='float'
+              type={buyType}
               numbersOnly
               value={buyAmount}
             />
@@ -222,7 +225,7 @@ class BuyScene extends Component {
               onChangeText={estimatedCost => this.setState({estimatedCost})}
               placeholder={formattedCost}
               keyboardType='numeric'
-              type='float'
+              type={estimatedType}
               numbersOnly
               value={estimatedCost}
             />

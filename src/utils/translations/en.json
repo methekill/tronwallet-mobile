@@ -83,7 +83,8 @@
     "estimatedRevenue": "ESTIMATED TO RECEIVE",
     "estimatedCost": "ESTIMATED COST",
     "preview": "Search by the Token name",
-    "notFound": "Exchanges not found"
+    "notFound": "Exchanges not found",
+    "error": "Exchange not executed. Please review your input values and try again."
   },
   "hideAccount": "You are about to remove this account. You can restore it later in the settings",
   "components": {
