@@ -74,11 +74,11 @@
     "holdings": "HOLDINGS"
   },
   "exchange": {
-    "minToSell": "Suma minimă de vândut ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Suma minimă de cumpărat ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minim de trimis{{min}}{{tokenId}}",
+    "minToBuy": "Minim de primit{{min}}{{tokenId}}",
     "variation": {
       "buy": "Costul estimativ este puțin mai mare, și probabilitatea de a executa tranzacţia va fi mai mare.",
-      "sell": "Costul estimativ este puțin mai mic, și probabilitatea de a executa tranzacţia va fi mai mare."
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
     "estimatedRevenue": "SUMĂ ESTIMATIVĂ DE PRIMIT",
     "estimatedCost": "COST ESTIMATIV",
@@ -339,12 +339,16 @@
     "chooseToken": "Te rugăm să alegi un token de mai jos.",
     "minimumAmount": "Suma minimă pentru orice tranzacție trimisă este de 0.000001."
   },
+  "menu": {
+    "title": "MENIU"
+  },
   "settings": {
     "title": "SETĂRI",
     "sectionTitles": {
       "wallet": "PORTOFEL",
       "security": "SECURITATE",
-      "notification": "NOTIFICĂRI ȘI IDIOMURI",
+      "notification": "NOTIFICĂRI",
+      "idiomAndLocalization": "IDIOM ŞI LOCALIZARE",
       "accounts": "ADMINISTRAREA CONTURILOR"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Cine acceptă TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Serviciul de Asistență"

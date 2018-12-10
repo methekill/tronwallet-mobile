@@ -74,11 +74,11 @@
     "holdings": "होल्डिंग्स"
   },
   "exchange": {
-    "minToSell": "Minimun to sell ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimun to buy ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly higher the estimated cost, and the turnover rate will be higher.",
-      "sell": "Slightly lower the estimated cost, and the turnover rate will be higher."
+      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
     "estimatedRevenue": "ESTIMATED TO RECEIVE",
     "estimatedCost": "ESTIMATED COST",
@@ -339,12 +339,16 @@
     "chooseToken": "कृपया, नीचे एक टोकन चुनें।",
     "minimumAmount": "किसी भी प्रेषण लेनदेन के लिए न्यूनतम राशि 0.000001 है।"
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "सेटिंग्स",
     "sectionTitles": {
       "wallet": "बटुआ",
       "security": "सुरक्षा",
-      "notification": "अधिसूचनाएं और पहचान",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "खाता प्रबंधन"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "टीआरएक्स कौन स्वीकार करता है?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Help Center"

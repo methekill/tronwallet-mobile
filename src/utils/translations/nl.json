@@ -75,10 +75,10 @@
   },
   "exchange": {
     "minToSell": "Minimum te verkopen ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimum te kopen ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum te ontvangen ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Verhoog de geschatte kosten en het percentage van de ratio zal hoger zijn.",
-      "sell": "Verlaag de geschatte kosten en het percentage van de ratio zal hoger zijn."
+      "buy": "Verhoog de geschatte kosten, en het succespercentage zal hoger zijn.",
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
     "estimatedRevenue": "VERWACHT TE ONTVANGEN",
     "estimatedCost": "GESCHATTE KOSTEN",
@@ -222,7 +222,7 @@
   },
   "participate": {
     "title": "DEELNEMEN",
-    "featured": "SPONSORED",
+    "featured": "GESPONSORD",
     "button": {
       "confirm": "BEVESTIG",
       "moreInfo": "MEER INFORMATIE",
@@ -339,12 +339,16 @@
     "chooseToken": "Kies hieronder een token.",
     "minimumAmount": "Het minimum aantal voor elke verzendtransactie is 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "INSTELLINGEN",
     "sectionTitles": {
       "wallet": "PORTEMONNEE",
       "security": "BEVEILIGING",
-      "notification": "MELDINGEN EN IDIOM",
+      "notification": "MELDINGEN",
+      "idiomAndLocalization": "IDIOOM EN LOCALISATIE",
       "accounts": "BEHEER VAN DE REKENINGEN"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Wie accepteert TRX?"
+    },
+    "market": {
+      "title": "Markt"
     },
     "helpCenter": {
       "title": "Helpcentrum"

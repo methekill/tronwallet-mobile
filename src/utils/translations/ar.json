@@ -74,11 +74,11 @@
     "holdings": "الممتلكات"
   },
   "exchange": {
-    "minToSell": "الحد الأدنى للبيع ≈ {{min}} {{tokenId}}",
-    "minToBuy": "الحد الأدنى للشراء ≈ {{min}}{{tokenId}}",
+    "minToSell": "الحد الأدنى للإرسال ≈ {{min}}{{tokenId}}",
+    "minToBuy": "الحد الأدنى للإستلام ≈ {{min}}{{tokenId}}",
     "variation": {
-      "buy": "قم بزيادة خفيفة على التكلفة التقديرية، و نسبة إجمالي المبيعات ستكون أعلى.",
-      "sell": "قم بتخفيض التكلفة التقديرية قليلا، و نسبة إجمالي المبيعات ستكون أعلى."
+      "buy": "زد التكلفة المتوقعة قليلاً، ونسبة النجاح ستكون أكبر.",
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
     "estimatedRevenue": "المتوقع للاستلام",
     "estimatedCost": "التكلفة المتوقعة",
@@ -339,12 +339,16 @@
     "chooseToken": "الرجاء اختيار عملة من الأسفل.",
     "minimumAmount": "الحد الأدنى لمبلغ عملية الإرسال هو 0.000001 ."
   },
+  "menu": {
+    "title": "القائمة"
+  },
   "settings": {
     "title": "إعدادات",
     "sectionTitles": {
       "wallet": "محفظة",
       "security": "الأمان",
-      "notification": "الإشعارات والاختصارات",
+      "notification": "الإشعارات",
+      "idiomAndLocalization": "اللغة والتمركز",
       "accounts": "إدارة الحسابات"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "من يقبل عملة TRX؟"
+    },
+    "market": {
+      "title": "السوق"
     },
     "helpCenter": {
       "title": "مركز المساعدة"

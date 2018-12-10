@@ -38,7 +38,7 @@ class PinScene extends Component {
 
   _didFocus = async () => {
     const useBiometrySetting = await Async.get(USE_BIOMETRY, false)
-    if (useBiometrySetting) {
+    if (useBiometrySetting === 'true') {
       Biometrics.isSensorAvailable()
         .then(async (biometryType) => {
           if (biometryType === Biometrics.TouchID || biometryType === Biometrics.FaceID) {
@@ -68,7 +68,7 @@ class PinScene extends Component {
 
   _handleBiometrics = async () => {
     try {
-      const signature = await Biometrics.createSignature(tl.t('biometry.register.title'), ' ')
+      const signature = await Biometrics.createSignature(tl.t('biometry.register.title'), '')
       const currentPIN = await AsyncStorage.getItem(ENCRYPTED_PIN)
       const decryptPIN = decrypt(currentPIN, signature)
       this._onSubmit(decryptPIN)
@@ -119,11 +119,9 @@ class PinScene extends Component {
 
       if (biometricsEnabled) {
         return (
-
           <BiometricButton onPress={this._handleBiometrics}>
             <Text>{tl.t('pin.biometrics')}</Text>
           </BiometricButton>
-
         )
       }
 
@@ -149,7 +147,7 @@ class PinScene extends Component {
               </Utils.View>
             </Utils.Content>
             <PinPad ref={ref => { this.pinPad = ref }} onComplete={this._checkPIN} />
-            <Utils.View flex={0.4} justify='center' align='center'>
+            <Utils.View flex={0.4} paddingY='medium' justify='center' align='center'>
               {this._renderBiometrics()}
             </Utils.View>
           </Utils.Container>

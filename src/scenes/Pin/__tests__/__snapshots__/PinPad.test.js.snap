@@ -21,11 +21,7 @@ ShallowWrapper {
     "props": Object {
       "align": "stretch",
       "children": Array [
-        <Styled(View)
-          align="center"
-          height={180}
-          justify="center"
-        >
+        <Styled(View)>
           <withAnimatable(View)
             delay={0}
             direction="normal"
@@ -140,7 +136,7 @@ ShallowWrapper {
         </Styled(View)>,
       ],
       "justify": "flex-start",
-      "marginBottom": 40,
+      "marginBottom": 10,
     },
     "ref": null,
     "rendered": Array [
@@ -149,7 +145,6 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "align": "center",
           "children": <withAnimatable(View)
             delay={0}
             direction="normal"
@@ -192,8 +187,6 @@ ShallowWrapper {
               />
             </Styled(View)>
           </withAnimatable(View)>,
-          "height": 180,
-          "justify": "center",
         },
         "ref": null,
         "rendered": Object {
@@ -619,11 +612,7 @@ ShallowWrapper {
       "props": Object {
         "align": "stretch",
         "children": Array [
-          <Styled(View)
-            align="center"
-            height={180}
-            justify="center"
-          >
+          <Styled(View)>
             <withAnimatable(View)
               delay={0}
               direction="normal"
@@ -738,7 +727,7 @@ ShallowWrapper {
           </Styled(View)>,
         ],
         "justify": "flex-start",
-        "marginBottom": 40,
+        "marginBottom": 10,
       },
       "ref": null,
       "rendered": Array [
@@ -747,7 +736,6 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "align": "center",
             "children": <withAnimatable(View)
               delay={0}
               direction="normal"
@@ -790,8 +778,6 @@ ShallowWrapper {
                 />
               </Styled(View)>
             </withAnimatable(View)>,
-            "height": 180,
-            "justify": "center",
           },
           "ref": null,
           "rendered": Object {

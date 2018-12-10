@@ -53,20 +53,22 @@ class FreezeScene extends Component {
       disabled: false
     }
     const { balances } = freeze[publicKey]
-    const { expires: frozenExpiration } = balances[0]
+    if (balances.length > 0) {
+      const { expires: frozenExpiration } = balances[0]
 
-    if (frozenExpiration > 0) {
-      if (frozenExpiration < new Date().getTime()) {
-        unfreezeStatus.msg = tl.t('freeze.unfreeze.now')
-        unfreezeStatus.disabled = false
-        return unfreezeStatus
+      if (frozenExpiration > 0) {
+        if (frozenExpiration < new Date().getTime()) {
+          unfreezeStatus.msg = tl.t('freeze.unfreeze.now')
+          unfreezeStatus.disabled = false
+          return unfreezeStatus
+        } else {
+          unfreezeStatus.msg = `${tl.t('freeze.unfreeze.inXTime')} ${moment(frozenExpiration).fromNow()}`
+          unfreezeStatus.disabled = true
+          return unfreezeStatus
+        }
       } else {
-        unfreezeStatus.msg = `${tl.t('freeze.unfreeze.inXTime')} ${moment(frozenExpiration).fromNow()}`
-        unfreezeStatus.disabled = true
         return unfreezeStatus
       }
-    } else {
-      return unfreezeStatus
     }
   }
 

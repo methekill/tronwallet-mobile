@@ -74,15 +74,15 @@
     "holdings": "موجودی ها"
   },
   "exchange": {
-    "minToSell": "حداقل فروش ≈ {{min}} {{tokenId}}",
-    "minToBuy": "حداقل خرید ≈ {{min}} {{tokenId}}",
+    "minToSell": "حداقل ارسال ≈ {{min}} {{tokenId}}",
+    "minToBuy": "حداقل دریافت ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "هرچه ارزش تخمین زده شده بالاتر رود، میزان گردش مالی نیز بالاتر خواهد رفت.",
-      "sell": "هرچه ارزش تخمین زده شده پایین تر رود، میزان گردش مالی نیز پایین تر خواهد رفت."
+      "buy": "اندکی افزایش در هزینه تخمینی، میزان موفقیت را بالاتر خواهد برد.",
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
-    "estimatedRevenue": "ESTIMATED TO RECEIVE",
-    "estimatedCost": "ESTIMATED COST",
-    "preview": "Search by the Token name",
+    "estimatedRevenue": "برآورد دریافت",
+    "estimatedCost": "هزینه تخمینی",
+    "preview": "جستجو بر اساس نام توکن",
     "notFound": "امکان تبادل وجود ندارد"
   },
   "hideAccount": "شما در حال حذف این حساب هستید. شما می توانید بعدا آن را در تنظیمات بازیابی کنید",
@@ -222,7 +222,7 @@
   },
   "participate": {
     "title": "مشارکت",
-    "featured": "SPONSORED",
+    "featured": "حامی مالی",
     "button": {
       "confirm": "تایید",
       "moreInfo": "اطلاعات بیشتر",
@@ -339,12 +339,16 @@
     "chooseToken": "لطفا، یک توکن را انتخاب کنید.",
     "minimumAmount": "حداقل مقدار برای هر تراکنش ارسال 0.000001 است."
   },
+  "menu": {
+    "title": "منو"
+  },
   "settings": {
     "title": "تنظیمات",
     "sectionTitles": {
       "wallet": "کیف پول",
       "security": "امنیت",
-      "notification": "اطلاعیه ها و اصطلاحات",
+      "notification": "اطلاعیه ها",
+      "idiomAndLocalization": "تنظیمات محلی",
       "accounts": "مدیریت حساب"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "چه کسی TRX می پذیرد؟"
+    },
+    "market": {
+      "title": "بازار"
     },
     "helpCenter": {
       "title": "مرکز راهنمایی"

@@ -77,8 +77,8 @@
     "minToSell": "Minimum zu verkaufen ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimum zu kaufen ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Erhöhe die Kostenschätzung leicht und die Kaufwahrscheinlichkeit wird höher sein.",
-      "sell": "Senke den zu erwartenden Ertrag leicht um die Verkaufswahrscheinlicheit zu erhöhen."
+      "buy": "Steigere die Kosten leicht, um damit die Kaufwahrscheinlichkeit zu erhöhen.",
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
     "estimatedRevenue": "GESCHÄTZTER ERTRAG",
     "estimatedCost": "GESCHÄTZTE KOSTEN",
@@ -222,7 +222,7 @@
   },
   "participate": {
     "title": "TEILNEHMEN",
-    "featured": "SPONSORED",
+    "featured": "GESPONSERT",
     "button": {
       "confirm": "BESTÄTIGEN",
       "moreInfo": "MEHR INFORMATION",
@@ -339,12 +339,16 @@
     "chooseToken": "Bitte wählen Sie von unten einen Token.",
     "minimumAmount": "Der Mindestbetrag für jede Sendetransaktion beträgt 0,000001."
   },
+  "menu": {
+    "title": "MENÜ"
+  },
   "settings": {
     "title": "EINSTELLUNGEN",
     "sectionTitles": {
       "wallet": "WALLET",
       "security": "SICHERHEIT",
-      "notification": "BENACHRICHTIGUNGEN UND SPRACHE",
+      "notification": "BENACHRICHTIGUNG",
+      "idiomAndLocalization": "IDIOM UND LOKALISIERUNG",
       "accounts": "KONTENVERWALTUNG"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Wer akzeptiert TRX?"
+    },
+    "market": {
+      "title": "Markt"
     },
     "helpCenter": {
       "title": "Hilfezentrum"

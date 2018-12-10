@@ -74,11 +74,11 @@
     "holdings": "Tenuti in custodia"
   },
   "exchange": {
-    "minToSell": "Minimo da vendere ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimo da comprare ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimo da inviare ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimo da ricevere ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Lievemente maggiore del costo stimato e il tasso di cambio sarà maggiore.",
-      "sell": "Lievemente minore del costo stimato e il tasso di cambio sarà maggiore."
+      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
+      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
     "estimatedRevenue": "STIMATO DA RICEVERE",
     "estimatedCost": "COSTO STIMATO",
@@ -222,7 +222,7 @@
   },
   "participate": {
     "title": "PARTECIPARE",
-    "featured": "SPONSORED",
+    "featured": "SPONSORIZZATO",
     "button": {
       "confirm": "CONFERMA",
       "moreInfo": "PIU' INFORMAZIONI",
@@ -339,12 +339,16 @@
     "chooseToken": "Per favore, scegli un token qui sotto.",
     "minimumAmount": "L'importo minimo per qualsiasi transazione di invio è 0.000001."
   },
+  "menu": {
+    "title": "MENU"
+  },
   "settings": {
     "title": "IMPOSTAZIONI",
     "sectionTitles": {
       "wallet": "PORTAFOGLIO",
       "security": "SICUREZZA",
-      "notification": "NOTIFICHE E LINGUE",
+      "notification": "NOTIFICATIONS",
+      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "GESTIONE DEI CONTI"
     },
     "notifications": {
@@ -422,6 +426,9 @@
     },
     "accepts": {
       "title": "Chi accetta TRX?"
+    },
+    "market": {
+      "title": "Market"
     },
     "helpCenter": {
       "title": "Centro assistenza"
