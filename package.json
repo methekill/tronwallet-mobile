@@ -68,7 +68,7 @@
     "react-native-switch-pro": "^1.0.0-beta",
     "react-native-tab-view": "^0.0.78",
     "react-native-tron": "gettyio/react-native-tron#1.0.4",
-    "react-native-vector-icons": "^4.6.0",
+    "react-native-vector-icons": "^6.1.0",
     "react-navigation": "^3.0.2",
     "react-navigation-material-bottom-tabs": "^1.0.0",
     "reactotron-react-native": "^1.14.0",
