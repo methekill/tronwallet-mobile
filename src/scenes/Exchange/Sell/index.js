@@ -15,7 +15,7 @@ import PercentageSelector from '../../../components/SelectorTile'
 // Utils
 import tl from '../../../utils/i18n'
 import { withContext } from '../../../store/context'
-import { estimatedSellCost, trxValueParse, HIGH_VARIATION } from '../../../utils/exchangeUtils'
+import { estimatedSellCost, trxValueParse, HIGH_VARIATION, getInputType } from '../../../utils/exchangeUtils'
 import { formatFloat } from '../../../utils/numberUtils'
 import { logSentry } from '../../../utils/sentryUtils'
 
@@ -170,8 +170,8 @@ class SellScene extends Component {
     const formattedCost = formatFloat(cost)
 
     const isTokenToToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
-    const sellType = firstTokenId === 'TRX' ? 'float' : 'int'
-    const estimatedType = secondTokenId === 'TRX' ? 'float' : 'int'
+    const sellType = getInputType(firstTokenId)
+    const estimatedType = getInputType(secondTokenId)
 
     const minToSell = Math.round((1 / price) * 1.05) /* Used in Token To Token transaction, it needs to have a hihger variation when selling */
 

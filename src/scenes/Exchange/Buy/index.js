@@ -15,7 +15,7 @@ import PercentageSelector from '../../../components/SelectorTile'
 // Utils
 import tl from '../../../utils/i18n'
 import { withContext } from '../../../store/context'
-import { trxValueParse, estimatedBuyCost, LOW_VARIATION, estimatedBuyWanted } from '../../../utils/exchangeUtils'
+import { trxValueParse, estimatedBuyCost, LOW_VARIATION, estimatedBuyWanted, getInputType } from '../../../utils/exchangeUtils'
 import { formatFloat } from '../../../utils/numberUtils'
 import { logSentry } from '../../../utils/sentryUtils'
 
@@ -140,6 +140,8 @@ class BuyScene extends Component {
     this._changeBuyAmount(buyAmount)
   }
 
+  _getInputType = tokenId => tokenId === 'TRX' ? 'float' : 'int'
+
   _changeBuyAmount = buyAmount => {
     const {
       firstTokenBalance,
@@ -177,8 +179,8 @@ class BuyScene extends Component {
     const formattedCost = formatFloat(cost)
 
     const isTokenToToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
-    const buyType = firstTokenId === 'TRX' ? 'float' : 'int'
-    const estimatedType = secondTokenId === 'TRX' ? 'float' : 'int'
+    const buyType = getInputType(firstTokenId)
+    const estimatedType = getInputType(secondTokenId)
 
     const minBuy = Math.floor(cost / price)
 
