@@ -43,9 +43,11 @@ class RealmMock {
 
   delete (schema, object) {
     const list = Array.isArray(object) ? object : [object]
-    list.forEach((item) => {
-      const arr = this.data
-      arr.splice(arr.indexOf(item), 1)
+    const arr = this.data
+
+    const indexToRemove = list.map(item => arr.indexOf(item)).sort((a, b) => b - a)
+    indexToRemove.forEach((index) => {
+      arr.splice(index, 1)
     })
   }
 }
