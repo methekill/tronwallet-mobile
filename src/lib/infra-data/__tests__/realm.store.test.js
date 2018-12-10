@@ -72,17 +72,23 @@ describe('Basic repository', () => {
   })
 
   describe('Save object on list', () => {
-    test('should increase list length when new object is added', async () => {
+    test('should add item when new object is added', async () => {
       await store.save({ key: 3, value: 'c' })
 
       const objects = store.findAll()
-      expect(objects).toHaveLength(3)
+
+      expect(objects).toMatchObject([
+        { key: 1, value: 'a' },
+        { key: 2, value: 'b' },
+        { key: 3, value: 'c' }
+      ])
     })
 
     test('should update object when value from object is updated', async () => {
       await store.save({ key: 1, value: 'h' })
 
       const object = store.findByKey(1)
+
       expect(object).toMatchObject({ key: 1, value: 'h' })
     })
 
@@ -92,7 +98,11 @@ describe('Basic repository', () => {
       })
 
       const objects = store.findAll()
-      expect(objects).toHaveLength(3)
+      expect(objects).toMatchObject([
+        { key: 1, value: 'a' },
+        { key: 2, value: 'b' },
+        { key: 3, value: 'c' }
+      ])
     })
 
     test('should update object when value from object is updated by write action', async () => {
@@ -106,26 +116,33 @@ describe('Basic repository', () => {
   })
 
   describe('Delete objects', () => {
-    test('should decrease list length when delete object by key', async () => {
+    test('should remove item when delete object by key', async () => {
       await store.deleteByKey(2)
 
       const objects = store.findAll()
-      expect(objects).toHaveLength(1)
+      expect(objects).toMatchObject([
+        { key: 1, value: 'a' }
+      ])
     })
 
-    test('should keep list length when key doesn\'t exists for delete', async () => {
+    test('should not remove item when key doesn\'t exists for delete', async () => {
       await store.deleteByKey(5)
 
       const objects = store.findAll()
-      expect(objects).toHaveLength(2)
+      expect(objects).toMatchObject([
+        { key: 1, value: 'a' },
+        { key: 2, value: 'b' }
+      ])
     })
 
-    test('should decrease list length when delete object by instance', async () => {
+    test('should remove item when delete object by instance', async () => {
       const object = store.findByKey(2)
       await store.delete(object)
 
       const objects = store.findAll()
-      expect(objects).toHaveLength(1)
+      expect(objects).toMatchObject([
+        { key: 1, value: 'a' }
+      ])
     })
 
     test('should list length empty when reset data', async () => {

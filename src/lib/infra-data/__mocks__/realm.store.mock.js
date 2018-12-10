@@ -31,6 +31,18 @@ class RealmStoreMock {
     this._store.save(object)
   }
 
+  async deleteByKey (key) {
+    await this._store.deleteByKey(key)
+  }
+
+  async delete (object) {
+    await this._store.delete(object)
+  }
+
+  async resetData () {
+    await this._store.resetData()
+  }
+
   get db () {
     return this._store.db
   }
