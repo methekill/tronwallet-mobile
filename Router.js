@@ -48,6 +48,7 @@ import CreateSeed from './src/scenes/Seed/Create'
 import ImportWallet from './src/scenes/Seed/Import'
 import PrivacyPolicy from './src/scenes/PrivacyPolicy'
 import ContractPreview from './src/scenes/ContractPreview'
+import TronWebview from './src/scenes/TronWebview'
 import Notifications from './src/scenes/Notifications'
 import Signals from './src/scenes/Signals'
 import ExchangeList from './src/scenes/Exchange'
@@ -168,6 +169,7 @@ const AppTabs = createMaterialBottomTabNavigator({
   },
   AddressBook: AddressBookStack,
   Balance: BalanceStack,
+  TronWebview,
   Transactions: TransactionList,
   Participate: ParticipateStack,
   Settings: SettingsStack
@@ -210,7 +212,7 @@ const AppTabs = createMaterialBottomTabNavigator({
   },
   showLabel: false,
   animationEnabled: true,
-  initialRouteName: 'Balance'
+  initialRouteName: 'TronWebview'
 })
 
 const RootNavigator = createStackNavigator({
