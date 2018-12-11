@@ -77,6 +77,10 @@
 		F2B3C943A5AF4056A8C801A7 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F3DC3734E824E88BCDED9A4 /* Rubik-Bold.ttf */; };
 		FBA91F12EB6A4A97A2943CB1 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE020D056F0F412A817394FD /* MaterialIcons.ttf */; };
 		9DEEBBB4D71C4A478B52CD57 /* tronwallet.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 205560E4FC894BFE91C9B267 /* tronwallet.ttf */; };
+		A765C08BB50A444C96091F97 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CF2514D3C3C412683BDEAAC /* AntDesign.ttf */; };
+		9EDE1114FDD748998AAF69E4 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ECA59D1535B42F7A17457A9 /* FontAwesome5_Brands.ttf */; };
+		01AE12845290408C91382E95 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68257B456B224FD7BCEFC0B5 /* FontAwesome5_Regular.ttf */; };
+		A66C776F62A94951A80C59C3 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 568D77AB54554C86BFB2B4A6 /* FontAwesome5_Solid.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -554,6 +558,10 @@
 		FA4F7D3A4701414A8A359C39 /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-BoldItalic.ttf"; path = "../src/assets/fonts/Rubik-BoldItalic.ttf"; sourceTree = "<group>"; };
 		FBA8F6CE85EE4A558FD86480 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		205560E4FC894BFE91C9B267 /* tronwallet.ttf */ = {isa = PBXFileReference; name = "tronwallet.ttf"; path = "../src/assets/fonts/tronwallet.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2CF2514D3C3C412683BDEAAC /* AntDesign.ttf */ = {isa = PBXFileReference; name = "AntDesign.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2ECA59D1535B42F7A17457A9 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		68257B456B224FD7BCEFC0B5 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		568D77AB54554C86BFB2B4A6 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -727,6 +735,10 @@
 				B52F74CF3CAE44A5ABE1D73C /* Rubik-MediumItalic.ttf */,
 				37F5E92D400949F8AF9F23B0 /* Rubik-Regular.ttf */,
 				205560E4FC894BFE91C9B267 /* tronwallet.ttf */,
+				2CF2514D3C3C412683BDEAAC /* AntDesign.ttf */,
+				2ECA59D1535B42F7A17457A9 /* FontAwesome5_Brands.ttf */,
+				68257B456B224FD7BCEFC0B5 /* FontAwesome5_Regular.ttf */,
+				568D77AB54554C86BFB2B4A6 /* FontAwesome5_Solid.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1658,6 +1670,10 @@
 				0F8E6D76E1B64CF5BA007B37 /* Rubik-MediumItalic.ttf in Resources */,
 				E0987A43542E48A184C5A9E4 /* Rubik-Regular.ttf in Resources */,
 				9DEEBBB4D71C4A478B52CD57 /* tronwallet.ttf in Resources */,
+				A765C08BB50A444C96091F97 /* AntDesign.ttf in Resources */,
+				9EDE1114FDD748998AAF69E4 /* FontAwesome5_Brands.ttf in Resources */,
+				01AE12845290408C91382E95 /* FontAwesome5_Regular.ttf in Resources */,
+				A66C776F62A94951A80C59C3 /* FontAwesome5_Solid.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
