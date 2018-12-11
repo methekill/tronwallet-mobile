@@ -43,7 +43,7 @@
     "transfer": "Pemindahan",
     "transferAsset": "Memindahkan Aset",
     "freeze": "Beku",
-    "unfreeze": "Mencairkan",
+    "unfreeze": "Cairkan",
     "vote": "Undi",
     "participate": "Mengambil bahagian",
     "create": "Mencipta",
@@ -186,7 +186,7 @@
   "freeze": {
     "title": "BEKU",
     "unfreeze": {
-      "title": "MENCAIRKAN",
+      "title": "CAIRKAN",
       "inXTime": "Anda boleh mencairkan TRX anda",
       "inThreeDays": "Selepas tempoh tiga hari anda boleh mencairkan TRX anda",
       "inXMinutes": "Anda boleh mencairkan TRX anda dalam {{minutes}} minit.",
