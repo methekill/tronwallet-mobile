@@ -12,9 +12,11 @@ import { SafeAreaView } from '../../../components/Utils'
 
 // Utils
 import tl from '../../../utils/i18n'
+import { withContext } from '../../../store/context'
 
 // Service
 import TronStreamSocket from '../../../services/socket'
+import WalletClient from '../../../services/client'
 
 const initialLayout = {
   height: 0,
@@ -37,25 +39,44 @@ export class ExchangeTransaction extends Component {
       { key: 'sell', title: tl.t('sell') }
     ],
     exchangeData: this.props.navigation.getParam('exData',
-      { exchangeId: -1,
-        creatorAddress: '',
-        createTime: 0,
-        firstTokenId: '',
-        firstTokenBalance: 0,
-        secondTokenId: '',
-        secondTokenBalance: 0,
-        available: false,
-        price: 0
+      { 'exchangeId': 15,
+        'creatorAddress': 'TNFtRfcnATHXmPhQjf5voQHsWykCvXAjkK',
+        'createTime': 1542073914000,
+        'firstTokenId': 'TWX',
+        'firstTokenBalance': 10420274,
+        'secondTokenId': 'TRX',
+        'secondTokenBalance': 6549812348205,
+        'price': 0.6285644942519137,
+        'variation': '2.4957'
       }),
+    lastTransactions: [],
     refreshingPrice: false
   }
 
   componentDidMount () {
     this._setExchangeSocket()
+    this._setRefreshLastExchanges()
   }
 
   componentWillUnmount () {
     this.exchangeSocket.close()
+    clearInterval(this.refreshExchangesInterval)
+  }
+
+  _setRefreshLastExchanges = () => {
+    this._loadLastExchanges()
+    this.refreshExchangesInterval = setInterval(this._loadLastExchanges, 15000)
+  }
+
+  _loadLastExchanges = async () => {
+    const { publicKey } = this.props.context
+    try {
+      const lastTransactions = await WalletClient.getTransactionsList(publicKey)
+      const lastExchangesTransactions = lastTransactions.filter(tx => tx.contractType === 44)
+      this.setState({lastTransactions: lastExchangesTransactions})
+    } catch (error) {
+      console.warn('Error', error)
+    }
   }
 
   _setExchangeSocket = () => {
@@ -100,9 +121,19 @@ export class ExchangeTransaction extends Component {
   _renderScene = ({ route }) => {
     switch (route.key) {
       case 'sell':
-        return (<SellScene {...this.props} exchangeData={this.state.exchangeData} />)
+        return (
+          <SellScene
+            {...this.props}
+            exchangeData={this.state.exchangeData}
+            lastTransactions={this.state.lastTransactions}
+          />)
       case 'buy':
-        return (<BuyScene {...this.props} exchangeData={this.state.exchangeData} />)
+        return (
+          <BuyScene
+            {...this.props}
+            exchangeData={this.state.exchangeData}
+            lastTransactions={this.state.lastTransactions}
+          />)
       default:
         return null
     }
@@ -128,4 +159,4 @@ export class ExchangeTransaction extends Component {
     )
   }
 }
-export default ExchangeTransaction
+export default withContext(ExchangeTransaction)

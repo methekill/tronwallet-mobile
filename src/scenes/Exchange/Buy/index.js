@@ -11,6 +11,7 @@ import { ExchangePair, ExchangeVariation, ScrollWrapper, PERCENTAGE_OPTIONS } fr
 import ExchangeBalancePair from '../BalancePair'
 import ExchangeButton from '../Button'
 import PercentageSelector from '../../../components/SelectorTile'
+import ExchangeTransactions from '../Transactions'
 
 // Utils
 import tl from '../../../utils/i18n'
@@ -185,9 +186,9 @@ class BuyScene extends Component {
     const minBuy = Math.floor(cost / price)
 
     return (
-      <Utils.SafeAreaView>
-        <ScrollWrapper>
-          <Utils.View height={8} />
+      <ScrollWrapper>
+        <Utils.View height={8} />
+        <Utils.View paddingX='medium'>
           <ExchangeBalancePair
             firstToken={secondTokenId}
             firstTokenImage={secondTokenImage}
@@ -239,8 +240,9 @@ class BuyScene extends Component {
             />
             <ExchangeVariation text={tl.t('exchange.variation.buy')} />
           </Utils.View>
-        </ScrollWrapper>
-      </Utils.SafeAreaView>
+        </Utils.View>
+        <ExchangeTransactions lastTransactions={this.props.lastTransactions} />
+      </ScrollWrapper>
     )
   }
 }
