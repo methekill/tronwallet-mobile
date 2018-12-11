@@ -11,6 +11,7 @@ import ExchangeBalancePair from '../BalancePair'
 import ExchangeButton from '../Button'
 import { Colors } from '../../../components/DesignSystem'
 import PercentageSelector from '../../../components/SelectorTile'
+import ExchangeTransactions from '../Transactions'
 
 // Utils
 import tl from '../../../utils/i18n'
@@ -176,9 +177,10 @@ class SellScene extends Component {
     const minToSell = Math.round((1 / price) * 1.05) /* Used in Token To Token transaction, it needs to have a hihger variation when selling */
 
     return (
-      <Utils.SafeAreaView>
-        <ScrollWrapper>
-          <Utils.View height={8} />
+      <ScrollWrapper>
+        <Utils.View height={8} />
+        <Utils.View paddingX='medium'>
+
           <ExchangeBalancePair
             firstToken={firstTokenId}
             firstTokenImage={firstTokenImage}
@@ -209,9 +211,9 @@ class SellScene extends Component {
               value={sellAmount}
             />
             {isTokenToToken &&
-            <Utils.Text size='tiny' font='regular' align='right'>
-              {tl.t('exchange.minToSell', {min: minToSell, tokenId: firstTokenId})}
-            </Utils.Text>}
+              <Utils.Text size='tiny' font='regular' align='right'>
+                {tl.t('exchange.minToSell', {min: minToSell, tokenId: firstTokenId})}
+              </Utils.Text>}
             <Input
               label={tl.t('exchange.estimatedRevenue')}
               rightContent={() => this._renderRightContent(secondTokenId)}
@@ -230,8 +232,9 @@ class SellScene extends Component {
             />
             <ExchangeVariation text={tl.t('exchange.variation.sell')} />
           </Utils.View>
-        </ScrollWrapper>
-      </Utils.SafeAreaView>
+        </Utils.View>
+        <ExchangeTransactions lastTransactions={this.props.lastTransactions} />
+      </ScrollWrapper>
     )
   }
 }

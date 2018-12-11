@@ -136,8 +136,8 @@ const BalanceStack = createStackNavigator({
 })
 
 const ExchangeStack = createStackNavigator({
-  ExchangeTabs,
-  ExchangeList
+  ExchangeList,
+  ExchangeTabs
 }, {
   mode: 'modal',
   cardStyle: defaultCardStyle

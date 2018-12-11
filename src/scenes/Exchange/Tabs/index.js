@@ -39,15 +39,15 @@ export class ExchangeTransaction extends Component {
       { key: 'sell', title: tl.t('sell') }
     ],
     exchangeData: this.props.navigation.getParam('exData',
-      { 'exchangeId': 15,
-        'creatorAddress': 'TNFtRfcnATHXmPhQjf5voQHsWykCvXAjkK',
-        'createTime': 1542073914000,
-        'firstTokenId': 'TWX',
-        'firstTokenBalance': 10420274,
-        'secondTokenId': 'TRX',
-        'secondTokenBalance': 6549812348205,
-        'price': 0.6285644942519137,
-        'variation': '2.4957'
+      { exchangeId: -1,
+        creatorAddress: '',
+        createTime: 0,
+        firstTokenId: '',
+        firstTokenBalance: 0,
+        secondTokenId: '',
+        secondTokenBalance: 0,
+        available: false,
+        price: 0
       }),
     lastTransactions: [],
     refreshingPrice: false
