@@ -78,7 +78,7 @@
     "minToBuy": "Minimum för att ta emot ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Minska beräknad kostnad något för att öka chansen att lyckas.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "sell": "Minska beräknad intäkt något för att öka chansen att lyckas."
     },
     "estimatedRevenue": "BERÄKNAS ATT MOTTA",
     "estimatedCost": "BERÄKNAD KOSTNAD",
