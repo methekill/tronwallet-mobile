@@ -6013,6 +6013,7 @@ lodash@^4.0.0, lodash@^4.15.0:
 lodash@^4.13.1, lodash@^4.16.6, lodash@^4.17.10, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
+  integrity sha512-UejweD1pDoXu+AD825lWwp4ZGtSwgnpZxb3JDViD7StjQz+Nb/6l093lx4OQ0foGWNRoc19mWy7BzL+UAK2iVg==
 
 loglevel-colored-level-prefix@^1.0.0:
   version "1.0.0"
@@ -7809,10 +7810,10 @@ react-native-motion@^0.2.0:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-onesignal@^3.2.5:
-  version "3.2.5"
-  resolved "https://registry.yarnpkg.com/react-native-onesignal/-/react-native-onesignal-3.2.5.tgz#8b20a63877ee8fe3a77c76db40b0d8d9e192ec42"
-  integrity sha512-VMXYbRBwWPAGjsmt03rfuArCPHywPG+VAozUeBu+EtlpCYDoiatDhQtLxgYYn0uGgO8k/dJ/684Z66mVLIdJow==
+react-native-onesignal@^3.2.11:
+  version "3.2.11"
+  resolved "https://registry.yarnpkg.com/react-native-onesignal/-/react-native-onesignal-3.2.11.tgz#22f7e27210d56e95ca5af1ee9a124c0e1097f8f7"
+  integrity sha512-bhIGwi5ztXpJaDCGVJMstjnMEFj7sLR3dSiWgCYMUegoQXjtpivo0ft5j6xRCAe7qF2NGaUXbyuOC52k2kN+dA==
   dependencies:
     invariant "^2.2.2"
 
@@ -7965,16 +7966,10 @@ react-native-tron@gettyio/react-native-tron#1.0.4:
   version "1.0.0"
   resolved "https://codeload.github.com/gettyio/react-native-tron/tar.gz/36098741f9da81fc4776cbe9dbcd8a3b80ddd8d1"
 
-<<<<<<< HEAD
-react-native-vector-icons@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.6.0.tgz#e4014311ffa6de397d914ffc31b7097a874cc8d5"
-  integrity sha512-rpfhfPiXCK2PX1nrNhdxSMrEGB/Gw/SvKoPM0G2wAkSoqynnes19K0VYI+Up7DqR1rFIpE4hP2erpT1tNx2tfg==
-=======
 react-native-vector-icons@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-6.1.0.tgz#770a3f8ced692d75deb3afbb9829195ceed1eedd"
->>>>>>> f7684a8bb6704534a17c6ea575498f9e242a6a07
+  integrity sha512-1GF5I4VWgwnzBtVfAKNgEiR5ziHi5QaKL381wwApMzuiFgIJMNt5XIChuKwKoaiB86s+P5iMcYWxYCyENL96lA==
   dependencies:
     lodash "^4.0.0"
     prop-types "^15.6.2"
