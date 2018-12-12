@@ -453,6 +453,18 @@ class Settings extends Component {
                 />
               )
             }
+          },
+          {
+            title: tl.t('notifications.notifications.title'),
+            icon: 'message,-chat,-bubble,-text,-rounded',
+            onPress: () => this.props.navigation.navigate('Notifications'),
+            hide: this.state.subscriptionStatus === null
+          },
+          {
+            title: tl.t('notifications.signals.title'),
+            icon: 'message,-chat,-bubble,-text,-rounded',
+            onPress: () => this.props.navigation.navigate('Signals'),
+            hide: this.state.subscriptionStatus === null
           }
         ]
       },
