@@ -103,10 +103,10 @@
       "votesRemaining": "UNDI YANG TINGGAL",
       "setVote": "TETAPKAN UNDI",
       "moreVotes": "Jika anda perlu undi lebih, anda boleh beku lebih TRX.",
-      "confirmVotes": "MENGESAHKAN UNDIAN",
+      "confirmVotes": "SAHKAN UNDIAN",
       "yourVotes": "Undian Anda",
       "myVotes": "UNDIAN SAYA",
-      "confirm": "MENGESAHKAN",
+      "confirm": "SAHKAN",
       "freeze": "Beku",
       "totalVotes": "Jumlah undi yang ada:",
       "delete": "PADAM",
@@ -224,7 +224,7 @@
     "title": "MENGAMBIL BAHAGIAN",
     "featured": "DITAJA",
     "button": {
-      "confirm": "MENGESAHKAN",
+      "confirm": "SAHKAN",
       "moreInfo": "MAKLUMAT LEBIH",
       "buyNow": "BELI SEKARANG"
     },
