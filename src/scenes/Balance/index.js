@@ -13,7 +13,7 @@ import * as Utils from '../../components/Utils'
 import WalletBalances from './WalletBalances'
 import BalanceNavigation from './BalanceNavigation'
 import AccountsCarousel from './AccountsCarousel'
-import { ButtonHeader } from './../../components/Navigation/elements'
+import { ButtonHeader, Badge } from './../../components/Navigation/elements'
 
 import tl from '../../utils/i18n'
 import { isNameValid, isAliasUnique } from '../../utils/validations'
@@ -85,7 +85,7 @@ export class BalanceScene extends Component {
   _loadData = async () => {
     try {
       this.props.context.loadUserData()
-      this.props.context.updateSystemStatus()
+      // this.props.context.updateSystemStatus()
       MixPanel.trackWithProperties('Account Operation', { type: 'Balance load' })
     } catch (e) {
       this.setState({ error: tl.t('balance.error.loadingData') })
@@ -149,31 +149,26 @@ export class BalanceScene extends Component {
   }
 
   _onAppStateChange = nextAppState => {
-    const { alwaysAskPin } = this.props.context
     if (nextAppState.match(/background/)) {
       // Closing all modals
       this.setState({ accountModalVisible: false })
       if (this.carousel.innerComponent.ActionSheet && this.carousel.innerComponent.ActionSheet.hide) {
         this.carousel.innerComponent.ActionSheet.hide()
       }
-
-      if (alwaysAskPin) {
-        this.props.navigation.navigate('Pin', {
-          testInput: pin => pin === this.props.context.pin,
-          onSuccess: () => {}
-        })
-      }
     }
   }
 
   _leftButtonHeader = () => {
+    const { hasUnreadNotification } = this.props.context
     return (
       <ButtonHeader onPress={() => this.props.navigation.navigate('NotificationsTabs')}>
-        <Ionicons
-          name='ios-notifications-outline'
-          size={28}
-          color={Colors.primaryText}
-        />
+        <Badge value={hasUnreadNotification}>
+          <Ionicons
+            name='ios-notifications-outline'
+            size={28}
+            color={Colors.primaryText}
+          />
+        </Badge>
       </ButtonHeader>
     )
   }

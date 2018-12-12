@@ -12,7 +12,7 @@ import createCustomTopTabNavigator from './src/components/Navigation/createCusto
 import { Colors, ScreenSize } from './src/components/DesignSystem'
 import { TWIcon } from './src/components/Utils'
 
-import LoadingScene from './src/scenes/Loading'
+import Loading from './src/scenes/Loading'
 import SendScene from './src/scenes/Send'
 import Market from './src/scenes/Market'
 import BalanceScene from './src/scenes/Balance'
@@ -225,9 +225,14 @@ const AppTabs = createMaterialBottomTabNavigator({
   initialRouteName: 'Balance'
 })
 
+const FirstTimeSwitch = createSwitchNavigator({
+  PrivacyPolicy,
+  First: FirstTime
+}, { initialRouteName: 'PrivacyPolicy' })
+
 const RootNavigator = createStackNavigator({
-  Loading: LoadingScene,
-  FirstTime: createSwitchNavigator({ PrivacyPolicy, First: FirstTime }, { initialRouteName: 'PrivacyPolicy' }),
+  Loading,
+  FirstTime: FirstTimeSwitch,
   Pin,
   CreateSeed,
   SeedRestore,

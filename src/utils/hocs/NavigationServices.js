@@ -20,14 +20,12 @@ function navigate (routeName, params) {
   )
 }
 
-function setNotification (type, data = {}) {
+function setNotification (data = {}) {
+  const { type } = data
   if (NOTIFICATIONS_TYPE.indexOf(type) < 0) {
     return null
   }
-  _notifications = {
-    type,
-    data
-  }
+  _notifications = data
   return _notifications
 }
 
@@ -52,6 +50,7 @@ function checkNotifications () {
     case 'transactions':
       return navigate('Notifications', params)
     default:
+      break
   }
   _notifications = {
     type: null,

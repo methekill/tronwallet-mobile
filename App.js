@@ -16,11 +16,16 @@ import { Context } from './src/store/context'
 import NodesIp from './src/utils/nodeIp'
 import { getUserSecrets } from './src/utils/secretsUtils'
 import getBalanceStore from './src/store/balance'
-import { USER_PREFERRED_CURRENCY, ALWAYS_ASK_PIN, USE_BIOMETRY, TOKENS_VISIBLE } from './src/utils/constants'
+import { USER_PREFERRED_CURRENCY, ALWAYS_ASK_PIN, TOKENS_VISIBLE, USER_STATUS, USER_FILTERED_TOKENS } from './src/utils/constants'
 import { ONE_SIGNAL_KEY, MIXPANEL_TOKEN } from './config'
 import ConfigJson from './package.json'
+import SecretStore from './src/store/secrets'
+import onBackgroundHandler from './src/utils/onBackgroundHandler'
+import { getActiveRouteName } from './src/utils/navigationUtils'
 
-import { getFixedTokens, getSystemStatus } from './src/services/contentful'
+import Async from './src/utils/asyncStorageUtils'
+
+import { getFixedTokens } from './src/services/contentful'
 import NavigationService from './src/utils/hocs/NavigationServices'
 // import './ReactotronConfig'
 
@@ -35,7 +40,6 @@ Mixpanel.sharedInstanceWithToken(MIXPANEL_TOKEN)
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader'])
 
 const prefix = Platform.OS === 'android' ? 'tronwalletmobile://tronwalletmobile/' : 'tronwalletmobile://'
-console.log('init')
 
 class App extends Component {
   state = {
@@ -50,38 +54,122 @@ class App extends Component {
     shareModal: false,
     queue: null,
     alwaysAskPin: true,
-    useBiometry: false,
     currency: null,
     secretMode: 'mnemonic',
     verifiedTokensOnly: true,
-    fixedTokens: [],
-    systemAddress: {},
-    systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }
+    fixedTokens: ['TRX', 'TWX'],
+    hasUnreadNotification: false
   }
 
-  componentDidMount () {
+  async componentDidMount () {
     setTimeout(() => {
-      OneSignal.init(ONE_SIGNAL_KEY)
+      OneSignal.init(ONE_SIGNAL_KEY, { kOSSettingsKeyAutoPrompt: true })
       OneSignal.inFocusDisplaying(2)
-      OneSignal.addEventListener('ids', this._onIds)
-      OneSignal.addEventListener('opened', this._onOpened)
+
       OneSignal.addEventListener('received', this._onReceived)
+      OneSignal.addEventListener('opened', this._onOpened)
+      OneSignal.addEventListener('ids', this._onIds)
       OneSignal.configure()
     }, 1000)
 
-    this._updateSystemStatus()
     this._setNodes()
-    this._loadAskPin()
-    this._loadUseBiometry()
-    this._loadVerifiedTokenFlag()
-    this._loadFixedTokens()
-    this._loadCurrency()
+    this._bootstrapAsync()
+
+    this.appStateListener = onBackgroundHandler(this._onAppStateChange)
   }
 
   componentWillUnmount () {
     OneSignal.removeEventListener('ids', this._onIds)
     OneSignal.removeEventListener('opened', this._onOpened)
     OneSignal.removeEventListener('received', this._onReceived)
+    this.appStateListener.remove()
+  }
+
+  _bootstrapAsync = () => {
+    return Promise.all([
+      Async.get(ALWAYS_ASK_PIN, 'true').then(data => JSON.parse(data)),
+      Async.get(USER_STATUS, null),
+      Async.get(USER_FILTERED_TOKENS, null),
+      getFixedTokens(),
+      Async.get(TOKENS_VISIBLE).then(data => JSON.parse(data)),
+      Async.get(USER_PREFERRED_CURRENCY, 'TRX')
+    ]).then(results => {
+      const [alwaysAskPin, useStatus, filteredTokens, fixedTokens, verifiedTokensOnly, currency] = results
+      // console.warn(results)
+
+      if (useStatus) {
+        if (useStatus === 'active') {
+          this._requestPIN()
+        } else {
+          NavigationService.navigate('FirstTime', {
+            shouldDoubleCheck: useStatus !== 'reset',
+            testInput: this._tryToOpenStore
+          })
+        }
+        this.setState({ alwaysAskPin, fixedTokens, verifiedTokensOnly, currency }, () => {
+          this._getPrice(currency)
+        })
+      }
+
+      if (filteredTokens === null) {
+        Async.set(USER_FILTERED_TOKENS, '[]')
+      }
+    })
+      .catch(error => console.log(error))
+  }
+
+  _onAppStateChange = (nextAppState) => {
+    const { alwaysAskPin, pin } = this.state
+    if (nextAppState.match(/background/)) {
+      if (alwaysAskPin) {
+        NavigationService.navigate('Pin', {
+          testInput: resultPIN => resultPIN === pin,
+          onSuccess: () => {
+            if (NavigationService.hasNotification()) {
+              NavigationService.checkNotifications()
+            }
+          }
+        })
+      }
+    }
+  }
+
+  _requestPIN = () => {
+    NavigationService.navigate('Pin', {
+      testInput: this._tryToOpenStore,
+      onSuccess: this._handleSuccess
+    })
+  }
+
+  _navigate = () => {
+    NavigationService.goToMainScreen()
+    if (NavigationService.hasNotification()) {
+      NavigationService.checkNotifications()
+    }
+  }
+
+  _handleSuccess = pinValue => {
+    setTimeout(() => {
+      this._setPin(pinValue, this._navigate)
+    }, 2000)
+  }
+
+  _tryToOpenStore = async pin => {
+    try {
+      await SecretStore(pin)
+      this._getRestoreMode(pin)
+      return true
+    } catch (e) {
+      return false
+    }
+  }
+
+  _getRestoreMode = async pin => {
+    const accounts = await getUserSecrets(pin)
+    if (accounts.length) {
+      const mode = accounts[0].mnemonic ? 'mnemonic' : 'privatekey'
+      this._setSecretMode(mode)
+    }
   }
 
   _onIds = device => {
@@ -92,20 +180,22 @@ class App extends Component {
   _onReceived = (notification) => {
     // console.log('Notification received: ', notification)
     // console.log(notification.payload.additionalData)
-    console.log(notification)
-    NavigationService.setNotification(notification.payload.additionalData)
+    console.warn(notification)
+    this.setState({
+      hasUnreadNotification: true
+    })
   }
 
   _onOpened = ({ notification }) => {
+    NavigationService.setNotification(notification.payload.additionalData)
     // console.log('Message: ', openResult.notification.payload.body)
     // console.log('Data: ', openResult.notification.payload.additionalData)
     // console.log('isActive: ', openResult.notification.isAppInFocus)
     // console.log('openResult: ', openResult)
-    // NavigationService.gotToSignals(notification.payload.additionalData)
-    NavigationService.goToMainScreen()
-    setTimeout(() => {
+    // this._navigate()
+    if (notification.isAppInFocus) {
       NavigationService.checkNotifications()
-    }, 500)
+    }
   }
 
   _loadUserData = async () => {
@@ -163,7 +253,9 @@ class App extends Component {
 
   _setCurrency = currency => {
     this.setState({ currency }, () => AsyncStorage.setItem(USER_PREFERRED_CURRENCY, currency))
-    if (!this.state.price[currency]) this._getPrice(currency)
+    if (!this.state.price[currency]) {
+      this._getPrice(currency)
+    }
   }
 
   _getPrice = async (currency = 'TRX') => {
@@ -180,72 +272,11 @@ class App extends Component {
     }
   }
 
-  _loadAskPin = async () => {
-    try {
-      const askPin = await AsyncStorage.getItem(ALWAYS_ASK_PIN)
-      const alwaysAskPin = askPin === null ? true : askPin === 'true'
-      this.setState({ alwaysAskPin })
-    } catch (error) {
-      this.setState({ alwaysAskPin: true })
-    }
-  }
-
-  _loadUseBiometry = async () => {
-    try {
-      const useBiometry = await AsyncStorage.getItem(USE_BIOMETRY)
-      this.setState({ useBiometry: useBiometry === null ? false : useBiometry === 'true' })
-    } catch (error) {
-      this.setState({ useBiometry: false })
-    }
-  }
-
-  _loadVerifiedTokenFlag = async () => {
-    try {
-      const tokenVibility = await AsyncStorage.getItem(TOKENS_VISIBLE)
-      const verifiedTokensOnly = tokenVibility === null ? true : tokenVibility === 'true'
-      this.setState({ verifiedTokensOnly })
-    } catch (error) {
-      this.setState({ verifiedTokensOnly: false })
-    }
-  }
-
-  _loadFixedTokens = async () => {
-    try {
-      const fixedTokens = await getFixedTokens()
-      this.setState({ fixedTokens })
-    } catch (error) {
-      this.setState({ fixedTokens: ['TRX', 'TWX'] })
-      logSentry(error, 'App - Load Fixed Tokens')
-    }
-  }
-
-  _loadCurrency = async () => {
-    try {
-      const preferedCurrency = await AsyncStorage.getItem(USER_PREFERRED_CURRENCY) || 'TRX'
-      this._getPrice(preferedCurrency)
-      this.setState({ currency: preferedCurrency })
-    } catch (error) {
-      this.setState({currency: 'TRX'})
-      logSentry(error, 'App - Load Fixed Tokens')
-    }
-  }
-
   _setNodes = async () => {
     try {
       await NodesIp.initNodes()
     } catch (e) {
       logSentry(e, 'App - SetNodes')
-    }
-  }
-
-  _updateSystemStatus = async () => {
-    try {
-      const {systemStatus, systemAddress} = await getSystemStatus()
-      this.setState({systemStatus, systemAddress})
-    } catch (error) {
-      this.setState({
-        systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }})
-      logSentry(error, 'App - can\'t get system status')
     }
   }
 
@@ -261,7 +292,7 @@ class App extends Component {
 
   _setPin = (pin, callback) => {
     this.setState({ pin }, () => {
-      this._loadUserData()
+      // this._loadUserData()
       callback()
     })
   }
@@ -286,21 +317,31 @@ class App extends Component {
       setAskPin: this._setAskPin,
       setUseBiometry: this._setUseBiometry,
       setSecretMode: this._setSecretMode,
-      setVerifiedTokensOnly: this._setVerifiedTokensOnly,
-      updateSystemStatus: this._updateSystemStatus
+      setVerifiedTokensOnly: this._setVerifiedTokensOnly
     }
 
     return (
       <View style={{ backgroundColor: Colors.background, flex: 1 }} >
         <Context.Provider value={contextProps}>
           <StatusBar barStyle='light-content' />
-          {this.state.systemStatus.showStatus && (
-            <StatusMessage systemStatus={this.state.systemStatus} />
-          )}
+          <StatusMessage
+            ref={ref => {
+              this.statusMSGref = ref
+            }}
+          />
           <RootNavigator
             uriPrefix={prefix}
             ref={navigatorRef => {
               NavigationService.setTopLevelNavigator(navigatorRef)
+            }}
+            onNavigationStateChange={(prevState, currentState) => {
+              const currentScreen = getActiveRouteName(currentState)
+              const prevScreen = getActiveRouteName(prevState)
+              if (prevScreen !== currentScreen) {
+                if (this.statusMSGref) {
+                  this.statusMSGref.checkStatus()
+                }
+              }
             }}
           />
         </Context.Provider>

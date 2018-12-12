@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
+import capitalize from 'lodash/capitalize'
 import * as Utils from './../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
 
@@ -48,7 +49,7 @@ export const ListItem = ({ title, onPress, right, icon }) => (
     <Utils.Item padding={16}>
       <Utils.Row justify='space-between' align='center'>
         <Utils.Row justify='space-between' align='center'>
-          <Utils.View paddingRight='medium'>
+          <Utils.View paddingRight='medium' paddingLeft='small' >
             <Utils.TWIcon
               name={icon}
               size={22}
@@ -57,7 +58,7 @@ export const ListItem = ({ title, onPress, right, icon }) => (
           </Utils.View>
           <Utils.View>
             <Utils.Text lineHeight={20} size='small'>
-              {title}
+              {capitalize(title)}
             </Utils.Text>
           </Utils.View>
         </Utils.Row>

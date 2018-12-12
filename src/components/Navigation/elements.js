@@ -66,3 +66,30 @@ export const ButtonHeader = styled.TouchableOpacity`
   align-content: center;
   align-items: center;
 `
+
+const BadgeWrapper = styled.View`
+  width: 30px;
+`
+
+const BadgeIcon = styled.View`
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: ${props => props.bgColor};
+  position: absolute;
+  top: 2px;
+  right: 10px;
+`
+
+export const Badge = ({ children, value, bgColor }) => {
+  return (
+    <BadgeWrapper>
+      {children}
+      {value && (<BadgeIcon bgColor={bgColor} />)}
+    </BadgeWrapper>
+  )
+}
+
+Badge.defaultProps = {
+  bgColor: 'green'
+}
