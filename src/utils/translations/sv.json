@@ -237,7 +237,7 @@
       "notFound": "Tillgång(ar) hittades inte"
     },
     "warning": "Du har inte tillräckligt TRX att köpa att många {{token}}",
-    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
+    "enterAmountToBuy": "ANGE DET BELOPP DU VILL KÖPA",
     "amountToBuy": "MÄNGD ATT KÖPA",
     "pricePerToken": "PRIS PER TOKEN",
     "tokenDescription": "TOKEN BESKRIVNING",
@@ -256,15 +256,15 @@
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "BLOCKERA",
-    "balance": "BALANCE",
-    "searchPreview": "Featured Tokens"
+    "balance": "SALDO",
+    "searchPreview": "Utvalda Tokens"
   },
   "pin": {
     "title": "SÄKERHETSKONTROLL",
     "enter": "Ange PIN-kod",
     "new": "Ange ny PIN-kod",
     "reenter": "Ange PIN-kod igen",
-    "biometrics": "Biometric Check"
+    "biometrics": "Biometrisk Kontroll"
   },
   "receive": {
     "title": "MOTTA",
@@ -279,7 +279,7 @@
     }
   },
   "rewards": {
-    "title": "REWARDS",
+    "title": "BELÖNINGAR",
     "earned": "Du har tjänat"
   },
   "seed": {
