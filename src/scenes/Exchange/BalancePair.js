@@ -14,8 +14,11 @@ const ARROW_GRADIENT = require('../../assets/arrow-right-gradient.png')
 class ExchangeBalancePair extends Component {
   _findTokenBalance = (tokenName) => {
     const { balances, publicKey } = this.props.context
-    const { balance: tokenBalance } = balances[publicKey].find(bl => bl.name === tokenName) || { balance: 0 }
-    return tokenBalance
+    if (balances[publicKey]) {
+      const { balance: tokenBalance } = balances[publicKey].find(bl => bl.name === tokenName) || { balance: 0 }
+      return tokenBalance
+    }
+    return { balance: 0 }
   }
   render () {
     const { firstToken, secondToken } = this.props

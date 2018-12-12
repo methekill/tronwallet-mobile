@@ -233,7 +233,7 @@ class SellScene extends Component {
             <ExchangeVariation text={tl.t('exchange.variation.sell')} />
           </Utils.View>
         </Utils.View>
-        <ExchangeTransactions lastTransactions={this.props.lastTransactions} />
+        <ExchangeTransactions {...this.props} />
       </ScrollWrapper>
     )
   }

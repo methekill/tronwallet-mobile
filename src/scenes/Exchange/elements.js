@@ -127,10 +127,6 @@ export const TransactionRow = styled.View`
   align-items: center;
 `
 
-export const ExpandRow = TransactionRow.extend`
-  justify-content: center;
-`
-
 export const TransactionHeader = TransactionRow.extend`
   padding-horizontal: ${Spacing.medium};
 `

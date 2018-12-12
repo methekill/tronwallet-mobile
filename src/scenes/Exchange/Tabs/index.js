@@ -27,7 +27,7 @@ const SCREENSIZE = Dimensions.get('window')
 const TAB_WIDTH = SCREENSIZE.width / 2
 const INDICATOR_WIDTH = 13
 
-export class ExchangeTransaction extends Component {
+export class ExchangeTabs extends Component {
   static navigationOptions = {
     header: null
   }
@@ -50,7 +50,7 @@ export class ExchangeTransaction extends Component {
         price: 0
       }),
     lastTransactions: [],
-    refreshingPrice: false
+    refreshingExchange: false
   }
 
   componentDidMount () {
@@ -65,17 +65,18 @@ export class ExchangeTransaction extends Component {
 
   _setRefreshLastExchanges = () => {
     this._loadLastExchanges()
-    this.refreshExchangesInterval = setInterval(this._loadLastExchanges, 15000)
+    this.refreshExchangesInterval = setInterval(this._loadLastExchanges, 20000)
   }
 
   _loadLastExchanges = async () => {
-    const { publicKey } = this.props.context
+    const { exchangeId } = this.state.exchangeData
+    this.setState({refreshingExchange: true})
     try {
-      const lastTransactions = await WalletClient.getTransactionsList(publicKey)
-      const lastExchangesTransactions = lastTransactions.filter(tx => tx.contractType === 44)
-      this.setState({lastTransactions: lastExchangesTransactions})
+      const lastTransactions = await WalletClient.getTransactionExchangesList(exchangeId)
+      this.setState({lastTransactions, refreshingExchange: false})
     } catch (error) {
-      console.warn('Error', error)
+      console.warn('Error', error.message)
+      this.setState({refreshingExchange: false})
     }
   }
 
@@ -126,6 +127,7 @@ export class ExchangeTransaction extends Component {
             {...this.props}
             exchangeData={this.state.exchangeData}
             lastTransactions={this.state.lastTransactions}
+            refreshing={this.state.refreshingExchange}
           />)
       case 'buy':
         return (
@@ -133,6 +135,7 @@ export class ExchangeTransaction extends Component {
             {...this.props}
             exchangeData={this.state.exchangeData}
             lastTransactions={this.state.lastTransactions}
+            refreshing={this.state.refreshingExchange}
           />)
       default:
         return null
@@ -159,4 +162,4 @@ export class ExchangeTransaction extends Component {
     )
   }
 }
-export default withContext(ExchangeTransaction)
+export default withContext(ExchangeTabs)
