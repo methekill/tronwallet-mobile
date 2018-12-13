@@ -217,7 +217,7 @@ class App extends Component {
       this._getPrice(preferedCurrency)
       this.setState({ currency: preferedCurrency })
     } catch (error) {
-      this.setState({currency: 'TRX'})
+      this.setState({ currency: 'TRX' })
       logSentry(error, 'App - Load Fixed Tokens')
     }
   }
@@ -232,11 +232,12 @@ class App extends Component {
 
   _updateSystemStatus = async () => {
     try {
-      const {systemStatus, systemAddress} = await getSystemStatus()
-      this.setState({systemStatus, systemAddress})
+      const { systemStatus, systemAddress } = await getSystemStatus()
+      this.setState({ systemStatus, systemAddress })
     } catch (error) {
       this.setState({
-        systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }})
+        systemStatus: { showStatus: false, statusMessage: '', statusColor: '', messageColor: '' }
+      })
       logSentry(error, 'App - can\'t get system status')
     }
   }
