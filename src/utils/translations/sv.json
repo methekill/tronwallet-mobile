@@ -80,20 +80,20 @@
       "buy": "Minska beräknad kostnad något för att öka chansen att lyckas.",
       "sell": "Minska beräknad intäkt något för att öka chansen att lyckas."
     },
-    "estimatedRevenue": "BERÄKNAS ATT MOTTA",
+    "estimatedRevenue": "BERÄKNAT ATT TA EMOT",
     "estimatedCost": "BERÄKNAD KOSTNAD",
     "preview": "Sök efter namn på Token",
-    "notFound": "Ingen exchange hittades"
+    "notFound": "Ingen Exchange hittades"
   },
   "hideAccount": "Du håller på att ta bort det här kontot. Du kan återställa det senare i inställningarna",
   "components": {
     "share": {
-      "title": "Dela TronWallet address",
-      "message": "Detta är min TronWallet adress:\n\n{{address}}\n\nTips: när du har kopierat det kan du klistra in det i din tronwallet app med hjälpa av den speciella knappen på skicka sidan.",
-      "dialogTitle": "Dela användning:"
+      "title": "Dela TronWallet adress",
+      "message": "Detta är min TronWallet adress:\n\n{{address}}\n\nTips: när du har kopierat det kan du klistra in det i din TronWallet app med hjälpa av den speciella knappen på Skicka skärm.",
+      "dialogTitle": "Dela genom:"
     },
     "QRScanner": {
-      "title": "Adress skannare",
+      "title": "Adress Skannare",
       "scan": "Skanna",
       "explanation": "Skanna QR koden för att identifiera målanvändaren",
       "permissionMessage": "För att kunna skanna den offentliga nyckeln måste du ge appen tillgång till kameran."
