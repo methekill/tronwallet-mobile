@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { FlatList, RefreshControl } from 'react-native'
 import MixPanel from 'react-native-mixpanel'
+import sortBy from 'lodash/sortBy'
 
 // Design
 import * as Utils from '../../components/Utils'
@@ -13,6 +14,8 @@ import LoadingScene from '../../components/LoadingScene'
 import { withContext } from '../../store/context'
 import tl from '../../utils/i18n'
 import { logSentry } from '../../utils/sentryUtils'
+import Async from '../../utils/asyncStorageUtils'
+import { FAVORITE_EXCHANGES } from '../../utils/constants'
 
 // Services
 import WalletClient from '../../services/client'
@@ -26,7 +29,8 @@ export class ExchangeScene extends Component {
       refreshing: false,
       isSearching: false,
       searchName: '',
-      currentList: []
+      currentList: [],
+      favoriteExchanges: []
     }
 
     componentDidMount () {
@@ -40,11 +44,54 @@ export class ExchangeScene extends Component {
 
     _loadData = async () => {
       try {
-        const exchangeList = await WalletClient.getExchangesList()
-        this.setState({ exchangeList, currentList: exchangeList, loading: false })
+        const [exchangeList, favoriteList] = await Promise.all([WalletClient.getExchangesList(), Async.get(FAVORITE_EXCHANGES, [15])])
+        const parsedFavoriteList = JSON.parse(favoriteList)
+        const sortedExList = this._sortExList(exchangeList, parsedFavoriteList)
+
+        this.setState({
+          exchangeList: sortedExList,
+          currentList: sortedExList,
+          loading: false,
+          favoriteExchanges: parsedFavoriteList
+        })
       } catch (error) {
         logSentry(error, 'Error exchange list')
         this.setState({exchangeList: [], loading: false})
+      }
+    }
+
+    _sortExList = (list, favList) => (
+      sortBy(
+        list.map(ex => ({...ex, favorited: favList.indexOf(ex.exchangeId) > -1})),
+        [(ex) => !ex.favorited, (ex) => ex.firstTokenId !== 'TWX', (ex) => -(ex.variation || -999)]
+      )
+    )
+
+    _onFavoritePress = async newExId => {
+      const { exchangeList, currentList, favoriteExchanges } = this.state
+      try {
+        // Find if Exchange ID is already saved
+        let newFavoriteExchanges = favoriteExchanges.slice()
+        const exIdPosition = newFavoriteExchanges.indexOf(newExId)
+
+        // Change the exchange list to update the favorite status
+        let newExList = exchangeList.slice()
+        let newCurrList = currentList.slice()
+
+        exIdPosition > -1 ? newFavoriteExchanges.splice(exIdPosition, 1) : newFavoriteExchanges.push(newExId)
+
+        // Sort the exchange to put the favorite ones up to the top
+        newExList = this._sortExList(newExList, newFavoriteExchanges)
+        newCurrList = this._sortExList(newCurrList, newFavoriteExchanges)
+
+        this.setState({
+          exchangeList: newExList,
+          currentList: newCurrList,
+          favoriteExchanges: newFavoriteExchanges
+        })
+        await Async.set(FAVORITE_EXCHANGES, JSON.stringify(newFavoriteExchanges))
+      } catch (error) {
+        logSentry('Exchange Favorite Press', error)
       }
     }
 
@@ -96,6 +143,7 @@ export class ExchangeScene extends Component {
       <ExchangeItem
         exchangeData={item}
         onItemPress={this._onItemPressed}
+        onFavoritePress={this._onFavoritePress}
       />
     )
 

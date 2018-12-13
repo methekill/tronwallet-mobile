@@ -5,6 +5,7 @@ import { withNavigation } from 'react-navigation'
 import { Colors } from '../../components/DesignSystem'
 import { ExchangeRow, TinyTriangle, ExchangeLogo } from './elements'
 import * as Utils from '../../components/Utils'
+import FontelloButton from '../../components/FontelloButton'
 
 class ExchangeItem extends Component {
     _renderPercentageIndicator = variation => {
@@ -26,19 +27,32 @@ class ExchangeItem extends Component {
 
     render () {
       const {
-        onItemPress } = this.props
+        onItemPress,
+        onFavoritePress } = this.props
       const {
+        exchangeId,
         firstTokenId,
         secondTokenId,
         firstTokenImage,
         variation,
-        price } = this.props.exchangeData
-
+        price,
+        favorited } = this.props.exchangeData
+      const icon = favorited ? 'star,-mark,-highlight,-bookmark,-save' : 'swipe-up,-hand-gesture,-top,-scroll-up,-move-up'
+      const iconColor = favorited ? Colors.greyBlue : Colors.red
       return (
         <ExchangeRow onPress={() => onItemPress(this.props.exchangeData)}>
           <ExchangeLogo source={firstTokenImage} />
           <Utils.View flex={1} paddingLeft='medium' justify='center'>
-            <Utils.Text size='small'>{firstTokenId} / {secondTokenId}</Utils.Text>
+            <Utils.Row justify='space-between'>
+              <Utils.Text size='small'>{firstTokenId} / {secondTokenId}</Utils.Text>
+              <FontelloButton
+                size={18}
+                name={icon}
+                color={iconColor}
+                onPress={() => onFavoritePress(exchangeId)}
+                style={{translateX: 3}}
+              />
+            </Utils.Row>
             <Utils.View height={8} />
             <Utils.Row justify='space-between'>
               <Utils.Text size='xsmall' color={Colors.greyBlue}>{price.toFixed(8)}</Utils.Text>
@@ -52,12 +66,15 @@ class ExchangeItem extends Component {
 
 ExchangeItem.propTypes = {
   onItemPress: PropTypes.func.isRequired,
+  onFavoritePress: PropTypes.func.isRequired,
   exchangeData: PropTypes.shape({
     firstTokenId: PropTypes.string,
     secondTokenId: PropTypes.string,
     firstTokenImage: PropTypes.string,
     price: PropTypes.number,
-    exchangeId: PropTypes.number
+    exchangeId: PropTypes.number,
+    variation: PropTypes.number,
+    favorited: PropTypes.bool.isRequired
   }).isRequired
 }
 

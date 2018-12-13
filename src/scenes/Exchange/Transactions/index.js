@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FlatList, ActivityIndicator, Clipboard } from 'react-native'
+import { FlatList, ActivityIndicator, Alert, Clipboard } from 'react-native'
 // import MixPanel from 'react-native-mixpanel'
 import moment from 'moment'
 
@@ -7,6 +7,7 @@ import moment from 'moment'
 import * as Utils from '../../../components/Utils'
 import { Colors, Spacing } from '../../../components/DesignSystem'
 import { Divider, TransactionRow, TransactionHeader, CopyableText } from '../elements'
+import FontelloIcon from '../../../components/FontelloIcon'
 import Collapsable from './collapse'
 
 // Utils
@@ -21,6 +22,7 @@ export class LatestTransactions extends Component {
 
     _onCopyText = async text => {
       await Clipboard.setString(text)
+      Alert.alert('Clipboard', 'Text copied')
     }
 
     _renderHeader = () => (
@@ -46,7 +48,7 @@ export class LatestTransactions extends Component {
           </Utils.Text>
 
           <TransactionRow flex={0.2}>
-            <Utils.Text size='average' color={Colors.green}>✓</Utils.Text>
+            <FontelloIcon name='tick,-check-mark,-accept,-verified,-done' size={16} color={Colors.weirdGreen} />
             <Utils.HorizontalSpacer />
             <Utils.Text size='large' font='light' color={Colors.greyBlue}>
               {expanded ? '-' : '+'}
