@@ -360,16 +360,16 @@
         "title": "NÄTVERK",
         "explanation": "Med det här alternativet kan du välja nod som bättre passar dina behov och önskemål. Var försiktig när du uppdaterar nod IP medan fel IP kan leda till funktionsfel i din plånbok. Exempel: 35.231.121.122:50051",
         "error": {
-          "storage": "Det gick inte att få nod ip från lokal lagring",
+          "storage": "Det gick inte att få nodens ip från lokalt lagringsutrymme",
           "invalidIp": "Ange en giltig IP-adress",
-          "update": "Något gick fel när du uppdaterade nodar ip",
-          "reset": "Något som är fel när du återställer noden ip"
+          "update": "Något gick fel när du uppdaterade nodens ip",
+          "reset": "Något gick fel när du återställde nodens ip"
         },
         "success": {
           "updated": "Uppdaterad",
           "updatedIp": "Nodes IP uppdaterad!",
           "switchTest": "Omkopplade noder IP till Testnet",
-          "switchMain": "Omkopplade noder IP till standard huvud",
+          "switchMain": "Omkopplade nodernas IP till standard",
           "reset": "Nod IP återställdes!"
         },
         "placeholder": {
@@ -377,11 +377,11 @@
           "loadingPort": "Laddningsport"
         },
         "button": {
-          "update": "Uppdatera och anslut",
-          "reset": "Återställa"
+          "update": "Uppdatera och Anslut",
+          "reset": "Återställ"
         },
-        "mainNode": "Huvudkod",
-        "solidityNode": "Soliditetskod",
+        "mainNode": "Huvudnoden",
+        "solidityNode": "Soliditet-nod",
         "testNet": "TestNet"
       }
     },
@@ -389,29 +389,29 @@
       "title": "Backup Wallet"
     },
     "restore": {
-      "title": "Återställ Wallet"
+      "title": "Återställ Plånbok"
     },
     "reset": {
-      "title": "Återställ Plånbok",
+      "title": "Nollställ Plånbok",
       "warning": "Varning: Den här åtgärden raderar alla sparade data inklusive dina 12 hemliga ord. Om du inte sparade din hemlighet, vänligen gör det innan du fortsätter.",
       "button": "OK, jag förstår det"
     },
     "pin": {
       "title": "Byt pin",
-      "success": "Pin ändras framgångsrikt!"
+      "success": "Pin ändring genomförd!"
     },
     "language": {
       "title": "Språk",
       "choose": "Vänligen välj ett språk nedan:",
       "success": {
-        "title": "Språk ändrats till {{language}}",
-        "description": "Men du behöver fortfarande starta om appen så att ändringarna kan träda i kraft. Vill du göra det nu?"
+        "title": "Språket ändrades till {{language}}",
+        "description": "Fast du behöver fortfarande starta om appen så att ändringarna kan träda i kraft. Vill du göra det nu?"
       },
       "button": {
         "confirm": "Ja, starta om nu!",
         "cancel": "Nej, det gör jag senare"
       },
-      "error": "Ett fel på att spara språk som valts"
+      "error": "Ett fel uppstod med att spara valt språk"
     },
     "token": {
       "title": "Tokenfilter",
@@ -420,9 +420,9 @@
       "noResult": "Inga resultat..."
     },
     "about": {
-      "title": "Handla om",
-      "description": "TronWallet är en öppen källkod full decentraliserad P2P Crypto Wallet för TRON Network byggt med React Native. Med det kan du skicka och ta emot tokens, rösta på en superrepresentant, delta i en token-försäljning, hålla reda på dina saldon och transaktioner och mycket mer. Klicka på länken nedan för en detaljerad handledning om hur du använder den.",
-      "tutorial": "HANDLEDNING"
+      "title": "Om",
+      "description": "TronWallet är öppen källkod och en fullt decentraliserad P2P Crypto Wallet för TRON Network byggt med React Native. Med det kan du skicka och ta emot tokens, rösta på en superrepresentant, delta i en token-försäljning, hålla reda på dina saldon och transaktioner samt mycket mer. Klicka på länken nedan för en detaljerade instruktioner om hur du använder den.",
+      "tutorial": "Instruktioner"
     },
     "accepts": {
       "title": "Vem accepterar TRX?"
