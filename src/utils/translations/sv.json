@@ -189,22 +189,22 @@
       "title": "LÅS UPP",
       "inXTime": "Du kan låsa upp din TRX",
       "inThreeDays": "Efter en tre dagars period kan du låsa upp din TRX",
-      "inXMinutes": "Du kan frigöra din TRX på {{minutes}} minuter.",
-      "inXHours": "Du kan frigöra din TRX i {{hours}} timmar.",
-      "inXDays": "Du kan frigöra din TRX i {{days}} dagar.",
+      "inXMinutes": "Du kan låsa upp din TRX om {{minutes}} minuter.",
+      "inXHours": "Du kan låsa upp din TRX om {{hours}} timmar.",
+      "inXDays": "Du kan låsa upp din TRX om {{days}} dagar.",
       "now": "Du kan låsa upp din TRX nu."
     },
     "error": {
       "minimumAmount": "Minsta belopp för att frysa en transaktion är 1.",
-      "insufficientBalance": "Otillräcklig TRX balans",
+      "insufficientBalance": "Otillräckligt TRX på saldot",
       "roundNumbers": "Kan bara att frysa runda tal"
     },
-    "amount": "FRYSA BELOPP",
-    "balance": "Kapital"
+    "amount": "FRYS BELOPP",
+    "balance": "Saldo"
   },
   "getVault": {
-    "notInstalled": "Det verkar som du inte har Tron Vault installerad i telefonen för att gå vidare med din transaktion.",
-    "downloadHere": "Du kan hämta det här"
+    "notInstalled": "Det verkar som du inte har Tron Vault installerad i din telefon för att gå vidare med din transaktion.",
+    "downloadHere": "Du kan ladda ner det här"
   },
   "market": {
     "time": {
@@ -231,12 +231,12 @@
     "error": {
       "insufficientBalance": "Inte tillräckligt med pengar (TRX) att delta.",
       "insufficientTrx": {
-        "title": "Du måste köpa minst en TRX värt {{token}}.",
+        "title": "Du måste köpa minst en TRX av värdet på {{token}}.",
         "message": "För närvarande köper du endast {{amount}}."
       },
       "notFound": "Tillgång(ar) hittades inte"
     },
-    "warning": "Du har inte tillräckligt TRX att köpa att många {{token}}",
+    "warning": "Du har inte tillräckligt TRX att köpa så många {{token}}",
     "enterAmountToBuy": "ANGE BELOPP ATT KÖPA",
     "amountToBuy": "BELOPP ATT KÖPA",
     "pricePerToken": "PRIS PER TOKEN",
