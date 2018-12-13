@@ -252,7 +252,7 @@
     "endTime": "SLUTTID",
     "description": "BESKRIVNING",
     "transaction": "TRANSAKTION",
-    "ownerAddress": "ÄGARADRESS",
+    "ownerAddress": "ÄGARENS ADRESS",
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "BLOCKERA",
