@@ -95,11 +95,11 @@
     "QRScanner": {
       "title": "Adress skannare",
       "scan": "Skanna",
-      "explanation": "Skanna QR koden för att identifiera målanvandaren",
+      "explanation": "Skanna QR koden för att identifiera målanvändaren",
       "permissionMessage": "För att kunna skanna den offentliga nyckeln måste du ge appen tillgång till kameran."
     },
     "vote": {
-      "enterVote": "ANGE RÖSTENS VÄRDE",
+      "enterVote": "ANGE VÄRDET PÅ RÖSTEN",
       "votesRemaining": "ÅTERSTÅENDE RÖSTER",
       "setVote": "ANGE RÖST",
       "moreVotes": "Om du behöver fler röster kan du Frysa mer TRX.",
@@ -155,19 +155,19 @@
     "contacts": {
       "title": "KONTAKTER",
       "delete": {
-        "title": "Ta bort kontakt",
+        "title": "Radera Kontakt",
         "message": "Är du verkligen säker på att du vill ta bort den här kontakten?",
         "cancelButton": "Avbryt",
-        "okButton": "Ok"
+        "okButton": "OK"
       },
-      "empty": "Din adressbok är tom, lägg till en ny kontakt genom att klicka på knappen under till.",
-      "loadError": "Det uppstod ett problem med hämta kontakterna. var god och försök igen.",
+      "empty": "Din adressbok är tom, lägg till en ny kontakt genom att klicka på knappen nedan.",
+      "loadError": "Det uppstod ett problem med att ladda kontakterna. Var god försök igen.",
       "addContact": "LÄGG TILL KONTAKT",
-      "addToContacts": "LÄGG TILL SOM KONTAKT"
+      "addToContacts": "LÄGG TILL I KONTAKTER"
     },
     "form": {
-      "generalError": "Det uppstod ett problem med att skicka detta formulär. var snäll och kontakta administratör.",
-      "nameError": "Namnfältet måste börja med en bokstav, innehålla högst 32 tecken, och det kommer att acceptera endast bokstäver, siffror och blanksteg.",
+      "generalError": "Det uppstod ett problem med att skicka in detta formulär. Var god kontakta en administratör.",
+      "nameError": "Namnfältet måste börja med en bokstav, innehålla högst 32 tecken och endast bokstäver, siffror samt blanksteg kommer accepteras.",
       "addressError": "Någonting är fel med denna adress. var god och titta efter stavfel.",
       "uniqueAddressError": "Nyckeln måste vara unikt. Vänligen välj en annan adress.",
       "uniqueAliasError": "Namn i din adressbok måste vara unika. Vänligen välj en annat namn.",
