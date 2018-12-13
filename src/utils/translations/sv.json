@@ -315,18 +315,18 @@
       "placeholder": "Var god, skriv dina 12 frö ord här",
       "success": "Wallet restaurerad med framgång!",
       "warning": "Återställ fröet raderar alla data på den här enheten och drar information från nätverket för det återställda kontot.",
-      "error": "Hoppsan. Ser ut att orden du skrev inte är ett giltigt mnemoniskt utsäde. Kontrollera efter ett typsnitt och försök igen.",
-      "button": "ÅTERSTÄLLA"
+      "error": "Hoppsan. Ser ut som att orden du skrev är inte ett giltigt mnemoniskt seed. Kontrollera efter ett stavfel och försök igen.",
+      "button": "ÅTERSTÄLL"
     }
   },
   "send": {
     "title": "SKICKA",
     "error": {
-      "insufficientBalance": "Inte tillräckligt saldo.",
-      "gettingBalance": "Ett fel uppstod med hämtning av saldo data",
-      "incompleteAddress": "Adress är ofullständig eller ogiltig.",
-      "invalidReceiver": "Ogiltig mottagare adress",
-      "selectBalance": "Välj balans först",
+      "insufficientBalance": "Inte tillräckligt på saldot.",
+      "gettingBalance": "Ett fel uppstod medans att hämta data för saldot",
+      "incompleteAddress": "Adressen är antingen ofullständig eller ogiltig.",
+      "invalidReceiver": "Mottagarens adress är ogiltig",
+      "selectBalance": "Välj din balans först",
       "invalidAmount": "Ogiltigt belopp"
     },
     "input": {
