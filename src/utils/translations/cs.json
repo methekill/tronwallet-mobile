@@ -77,8 +77,8 @@
     "minToSell": "Minimum k prodeji ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimum k nákupu ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "buy": "Mírným zvýšením odhadovaných nákladů se zvýší úspěšnost obchodu.",
+      "sell": "Mírným snížením odhadovaného výnosu se zvýší úspěšnost obchodu."
     },
     "estimatedRevenue": "ODHADOVANÝ PŘÍJEM",
     "estimatedCost": "ODHADOVANÉ NÁKLADY",
@@ -348,7 +348,7 @@
       "wallet": "PENĚŽENKA",
       "security": "ZABEZPEČENÍ",
       "notification": "OZNÁMENÍ",
-      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
+      "idiomAndLocalization": "IDIOM A LOKALIZACE",
       "accounts": "ŘÍZENÍ ÚČTŮ"
     },
     "notifications": {
@@ -428,7 +428,7 @@
       "title": "Kdo přijímá TRX?"
     },
     "market": {
-      "title": "Market"
+      "title": "Trh"
     },
     "helpCenter": {
       "title": "Centrum nápovědy"

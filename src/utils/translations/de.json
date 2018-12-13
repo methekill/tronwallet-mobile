@@ -78,7 +78,7 @@
     "minToBuy": "Minimum zu kaufen ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Steigere die Kosten leicht, um damit die Kaufwahrscheinlichkeit zu erhöhen.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "sell": "Senke den zu erwartenden Ertrag leicht, um damit die Verkaufswahrscheinlichkeit zu erhöhen."
     },
     "estimatedRevenue": "GESCHÄTZTER ERTRAG",
     "estimatedCost": "GESCHÄTZTE KOSTEN",
@@ -212,7 +212,7 @@
       "day": "1T.",
       "week": "1 W.",
       "month": "1 M.",
-      "all": "ALLES"
+      "all": "GESAMT"
     },
     "highest": "HÖCHSTE",
     "lowest": "NIEDRIGSTE",
@@ -264,7 +264,7 @@
     "enter": "PIN eingeben",
     "new": "Neue PIN eingeben",
     "reenter": "PIN erneut eingeben",
-    "biometrics": "Überprüfe Biometrie"
+    "biometrics": "Biometrie überprüfen"
   },
   "receive": {
     "title": "ERHALTEN",
@@ -441,7 +441,7 @@
     },
     "partners": "PARTNER",
     "askPin": "Immer nach der PIN fragen",
-    "askBiometry": "Aktivieren Sie Biometrie",
+    "askBiometry": "Biometrie aktivieren",
     "verifiedTokensOnly": "Nur verifizierte Tokens"
   },
   "submitTransaction": {
@@ -503,8 +503,8 @@
       "tronscanUrl": "Tronscan URL für diese Transaktion in die Zwischenablage kopiert",
       "publicKey": "Öffentlicher Schlüssel in die Zwischenablage kopiert"
     },
-    "hash": "Rautenzeichen",
-    "status": "Status",
+    "hash": "HASH",
+    "status": "STATUS",
     "time": "ZEIT",
     "block": "BLOCK",
     "frozenBalance": "EINGEFRORENES GUTHABEN",
