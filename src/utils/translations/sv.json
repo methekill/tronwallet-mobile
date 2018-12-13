@@ -292,21 +292,21 @@
       "success": "Wallet bekräftades framgångsrikt",
       "explanation": "Välj orden nedan i rätt ordning för att bekräfta din hemliga fras.",
       "button": {
-        "reset": "Nollställ ord",
-        "confirm": "Bekräfta sådd"
+        "reset": "NOLLSTÄLL ORD",
+        "confirm": "BEKRÄFTA SEED"
       }
     },
     "create": {
-      "title": "SKAPA SÖD",
-      "titleConfirm": "Bekräfta Wall Seed",
-      "error": "Oj, vi har ett problem. Vänligen starta om programmet.",
+      "title": "SKAPA SEED",
+      "titleConfirm": "BEKRÄFTA WALLET SEED",
+      "error": "Oj, vi har ett problem. Vänligen starta om applikationen.",
       "generateNew": "Detta kommer att generera en helt ny plånbok.",
       "button": {
-        "written": "Jag har skrivit det ner",
-        "newSeed": "FÅ NYA FRÅN",
+        "written": "JAG HAR SKRIVIT NER DET",
+        "newSeed": "FÅ NYA SEED",
         "later": "Bekräfta senare"
       },
-      "backupMessage": "Du kan alltid få tillgång till dina ord genom säkerhetskopian på inställningarna för appen      ",
+      "backupMessage": "Du kan alltid få tillgång till dina ord genom att gå till säkerhetskopian via app inställningarna      ",
       "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
     },
     "restore": {
