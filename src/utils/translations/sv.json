@@ -335,9 +335,9 @@
       "amount": "BELOPP",
       "description": "BESKRIVNING (VALFRITT)"
     },
-    "available": "tillgängliga",
-    "chooseToken": "Vänligen, Välj en token nedan.",
-    "minimumAmount": "Minsta belopp för någon skicka transaktion är marginal på 0,000001."
+    "available": "tillgängligt",
+    "chooseToken": "Vänligen välj en token nedan.",
+    "minimumAmount": "Minsta belopp för alla utgående transaktioner är 0,000001."
   },
   "menu": {
     "title": "MENU"
@@ -349,16 +349,16 @@
       "security": "SÄKERHET",
       "notification": "NOTIFICATIONS",
       "idiomAndLocalization": "IDIOM AND LOCALIZATION",
-      "accounts": "REDOVISNINGSREDOVISNING"
+      "accounts": "HANTERING AV KONTON"
     },
     "notifications": {
-      "title": "anmälningar"
+      "title": "Notifikationer"
     },
     "network": {
       "title": "Nätverk",
       "modal": {
         "title": "NÄTVERK",
-        "explanation": "Med det här alternativet kan du välja nod som bättre passar dina behov och önskemål. Var försiktig när du uppdaterar nod IP medan fel IP kan leda till funktionsfel i din plånbok. Exempel: 35.231.121.122:50051",
+        "explanation": "Med det här alternativet kan du välja nod som bättre passar dina behov och önskemål. Var försiktig när du uppdaterar nod IP då fel IP kan leda till att din plånbok blir ofunktionell. Exempel: 35.231.121.122:50051",
         "error": {
           "storage": "Det gick inte att få nodens ip från lokalt lagringsutrymme",
           "invalidIp": "Ange en giltig IP-adress",
