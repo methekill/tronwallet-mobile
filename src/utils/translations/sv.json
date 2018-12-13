@@ -434,13 +434,13 @@
       "title": "Help Center"
     },
     "accounts": {
-      "title": "konton",
-      "search": "Sök konton",
+      "title": "Konton",
+      "search": "Sök efter konton",
       "restoreAccounts": "Återställ konton",
-      "noAccounts": "Inga konton för att återställa"
+      "noAccounts": "Inga konton att återställa"
     },
     "partners": "PARTNERS",
-    "askPin": "Fråga alltid PIN-kod",
+    "askPin": "Fråga alltid efter PIN-kod",
     "askBiometry": "Activate Biometry",
     "verifiedTokensOnly": "Verified tokens only"
   },
@@ -470,8 +470,8 @@
       "participateAssetIssueContract": "Delta",
       "transferAssetContract": "Överföra",
       "transferContract": "Överföra",
-      "unfreezeBalanceContract": "frigöra",
-      "freezeBalanceContract": "Frysa",
+      "unfreezeBalanceContract": "Frigör",
+      "freezeBalanceContract": "Frys",
       "assetIssueContract": "Skapa",
       "voteWitnessContract": "Rösta",
       "frozenDuration": "Varaktighet",
