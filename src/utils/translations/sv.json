@@ -170,25 +170,25 @@
       "nameError": "Namnfältet måste börja med en bokstav, innehålla högst 32 tecken, och det kommer att acceptera endast bokstäver, siffror och blanksteg.",
       "addressError": "Någonting är fel med denna adress. var god och titta efter stavfel.",
       "uniqueAddressError": "Nyckeln måste vara unikt. Vänligen välj en annan adress.",
-      "uniqueAliasError": "Namn i din adressbok måste vara unika. Vänligen välj en annan.",
-      "name": "Namn",
+      "uniqueAliasError": "Namn i din adressbok måste vara unika. Vänligen välj en annat namn.",
+      "name": "NAMN",
       "address": "ADRESS"
     }
   },
   "importWallet": {
-    "title": "IMPORTVALLET",
-    "message": "Om du har den privata nyckeln och adressen till din plånbok kan du återställa det här, men kom ihåg att TronWallet arbetar med mnemonics primärt. Den här återställningsmetoden kommer att inaktivera vissa funktioner i App.",
+    "title": "IMPORTERA PLÅNBOK",
+    "message": "Om du har den privata nyckeln och adressen till din plånbok kan du återställa det här, men kom ihåg att TronWallet arbetar med mnemonics primärt. Den här återställningsmetoden kommer att inaktivera vissa funktioner i appen.",
     "button": "IMPORTERA",
     "error": {
       "privateKey": "Privat nyckel är ogiltig eller ofullständig"
     }
   },
   "freeze": {
-    "title": "FRYSA",
+    "title": "FRYS",
     "unfreeze": {
       "title": "LÅS UPP",
-      "inXTime": "Du kan låsa upp din TRX",
-      "inThreeDays": "Efter en tre dagars period kan du låsa upp din TRX",
+      "inXTime": "Du kan nu låsa upp din TRX",
+      "inThreeDays": "Efter en period på 3 dagar kan du låsa upp din TRX",
       "inXMinutes": "Du kan låsa upp din TRX om {{minutes}} minuter.",
       "inXHours": "Du kan låsa upp din TRX om {{hours}} timmar.",
       "inXDays": "Du kan låsa upp din TRX om {{days}} dagar.",
