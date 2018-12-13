@@ -77,11 +77,11 @@
     "minToSell": "Minimum te verkopen ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimum te ontvangen ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Verhoog de geschatte kosten, en het succespercentage zal hoger zijn.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "buy": "Verhoog de verwachte kosten, en het succespercentage zal hoger zijn.",
+      "sell": "Verlaag de verwachte opbrengst, en het succespercentage zal hoger zijn."
     },
-    "estimatedRevenue": "VERWACHT TE ONTVANGEN",
-    "estimatedCost": "GESCHATTE KOSTEN",
+    "estimatedRevenue": "VERWACHTE OPBRENGST",
+    "estimatedCost": "VERWACHTE KOSTEN",
     "preview": "Zoeken op de naam van de Token",
     "notFound": "Exchange niet gevonden"
   },

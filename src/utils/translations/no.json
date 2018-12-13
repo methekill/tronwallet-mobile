@@ -74,11 +74,11 @@
     "holdings": "BEHOLDNING"
   },
   "exchange": {
-    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum å sende ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum for å motta ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "buy": "Øke litt estimert kostnaden, og suksessraten vil bli høyere.",
+      "sell": "Redusere litt beregnet omsetning, og suksessraten vil bli høyere."
     },
     "estimatedRevenue": "ESTIMERT TIL Å MOTTA",
     "estimatedCost": "ESTIMERT KOSTNAD",
@@ -222,7 +222,7 @@
   },
   "participate": {
     "title": "DELTA",
-    "featured": "SPONSORED",
+    "featured": "SPONSET",
     "button": {
       "confirm": "BEKREFTE",
       "moreInfo": "MER INFORMASJON",
@@ -340,15 +340,15 @@
     "minimumAmount": "Minimumsbeløpet for enhver send transaksjon er 0.000001."
   },
   "menu": {
-    "title": "MENU"
+    "title": "MENY"
   },
   "settings": {
     "title": "INNSTILLINGER",
     "sectionTitles": {
       "wallet": "LOMMEBOK",
       "security": "SIKKERHET",
-      "notification": "NOTIFICATIONS",
-      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
+      "notification": "VARSLINGER",
+      "idiomAndLocalization": "UTTRYKK OG LOKALISERING",
       "accounts": "REGNSKAPSSTYRING"
     },
     "notifications": {
@@ -428,7 +428,7 @@
       "title": "Hvem aksepterer TRX?"
     },
     "market": {
-      "title": "Market"
+      "title": "Marked"
     },
     "helpCenter": {
       "title": "Brukerstøtte"
