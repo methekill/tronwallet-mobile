@@ -261,21 +261,21 @@
   },
   "pin": {
     "title": "SÄKERHETSKONTROLL",
-    "enter": "Ange PIN-kod",
-    "new": "Ange ny PIN-kod",
-    "reenter": "Ange PIN-kod igen",
+    "enter": "Skriv PIN-kod",
+    "new": "Ange Ny PIN-kod",
+    "reenter": "Skriv PIN-kod igen",
     "biometrics": "Biometrisk Kontroll"
   },
   "receive": {
-    "title": "MOTTA",
-    "clipboardCopied": "Kopieras till Urklipp",
+    "title": "TA EMOT",
+    "clipboardCopied": "Kopierad till urklipp",
     "button": {
       "copy": "Kopiera",
-      "share": "Dela med sig"
+      "share": "Dela"
     },
     "tabs": {
-      "share": "DELA MED SIG",
-      "request": "BEGÄRAN"
+      "share": "DELA",
+      "request": "FÖRFRÅGAN"
     }
   },
   "rewards": {
@@ -284,12 +284,12 @@
   },
   "seed": {
     "confirm": {
-      "title": "Bekräfta sådd",
+      "title": "BEKRÄFTA SEED",
       "error": {
-        "title": "Fel kombination",
+        "title": "Fel Kombination",
         "message": "Valda ord matchar inte. Se till att du skrev orden i rätt ordning."
       },
-      "success": "Wallet bekräftades framgångsrikt",
+      "success": "Lyckad bekräftelse av plånboken",
       "explanation": "Välj orden nedan i rätt ordning för att bekräfta din hemliga fras.",
       "button": {
         "reset": "NOLLSTÄLL ORD",
