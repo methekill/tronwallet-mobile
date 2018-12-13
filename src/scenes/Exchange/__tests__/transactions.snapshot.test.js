@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { ExchangeTransaction } from '../Transaction/index'
+import { ExchangeTabs } from '../Tabs/index'
 import exchangeListMock from '../../../services/__mocks__/exchangeList.json'
 
 jest.mock('./../../../utils/i18n')
@@ -14,7 +14,7 @@ describe('Exchange Transactions (Sell/Buy) Snapshot', () => {
     navigation = { addListener: jest.fn(), getParam: jest.fn(() => exchangeData) }
     const props = { navigation }
 
-    exchangeSceneWrapper = shallow(<ExchangeTransaction {...props} />)
+    exchangeSceneWrapper = shallow(<ExchangeTabs {...props} />)
   })
 
   test('Should match snapshot', () => {

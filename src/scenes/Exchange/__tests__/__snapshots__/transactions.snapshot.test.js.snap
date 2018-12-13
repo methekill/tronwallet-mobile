@@ -3,7 +3,7 @@
 exports[`Exchange Transactions (Sell/Buy) Snapshot Should match snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <ExchangeTransaction
+  Symbol(enzyme.__unrendered__): <ExchangeTabs
     navigation={
       Object {
         "addListener": [MockFunction],
@@ -85,7 +85,8 @@ ShallowWrapper {
                 "variation": "-4.3394",
               },
               "index": 0,
-              "refreshingPrice": false,
+              "lastTransactions": Array [],
+              "refreshingExchange": false,
               "routes": Array [
                 Object {
                   "key": "buy",
@@ -139,7 +140,8 @@ ShallowWrapper {
                   "variation": "-4.3394",
                 },
                 "index": 0,
-                "refreshingPrice": false,
+                "lastTransactions": Array [],
+                "refreshingExchange": false,
                 "routes": Array [
                   Object {
                     "key": "buy",
@@ -197,7 +199,8 @@ ShallowWrapper {
                 "variation": "-4.3394",
               },
               "index": 0,
-              "refreshingPrice": false,
+              "lastTransactions": Array [],
+              "refreshingExchange": false,
               "routes": Array [
                 Object {
                   "key": "buy",
@@ -258,7 +261,8 @@ ShallowWrapper {
                   "variation": "-4.3394",
                 },
                 "index": 0,
-                "refreshingPrice": false,
+                "lastTransactions": Array [],
+                "refreshingExchange": false,
                 "routes": Array [
                   Object {
                     "key": "buy",
@@ -312,7 +316,8 @@ ShallowWrapper {
                     "variation": "-4.3394",
                   },
                   "index": 0,
-                  "refreshingPrice": false,
+                  "lastTransactions": Array [],
+                  "refreshingExchange": false,
                   "routes": Array [
                     Object {
                       "key": "buy",
@@ -370,7 +375,8 @@ ShallowWrapper {
                   "variation": "-4.3394",
                 },
                 "index": 0,
-                "refreshingPrice": false,
+                "lastTransactions": Array [],
+                "refreshingExchange": false,
                 "routes": Array [
                   Object {
                     "key": "buy",

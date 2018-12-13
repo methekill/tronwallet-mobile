@@ -17,9 +17,6 @@ import tl from '../../../utils/i18n'
 import { ONE_TRX } from '../../../services/client'
 
 export class LatestTransactions extends Component {
-    state = {
-    }
-
     _onCopyText = async text => {
       await Clipboard.setString(text)
       Alert.alert('Clipboard', 'Text copied')
@@ -48,7 +45,7 @@ export class LatestTransactions extends Component {
           </Utils.Text>
 
           <TransactionRow flex={0.2}>
-            <FontelloIcon name='tick,-check-mark,-accept,-verified,-done' size={16} color={Colors.weirdGreen} />
+            <FontelloIcon name='check' size={17} color={Colors.weirdGreen} />
             <Utils.HorizontalSpacer />
             <Utils.Text size='large' font='light' color={Colors.greyBlue}>
               {expanded ? '-' : '+'}
@@ -93,9 +90,8 @@ export class LatestTransactions extends Component {
             extraData={refreshingExchange}
             ItemSeparatorComponent={this._renderSeparator}
             keyExtractor={(item) => item.hash}
-            onEndReached={this._onLoadMore}
-            initialNumToRender={10}
-            onEndReachedThreshold={0.75}
+            initialNumToRender={20}
+            removeClippedSubviews
           />
         </React.Fragment>
       )

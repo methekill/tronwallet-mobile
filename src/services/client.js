@@ -77,6 +77,12 @@ class ClientWallet {
         : {...tx, type: this.getContractType(tx.contractType)})
   }
 
+  async getTransactionExchangesList (exchangeId) {
+    const reqBody = { exchangeId }
+    const { data: result } = await axios.post(`${this.tronwalletDB}/transactions/list/exchange`, reqBody)
+    return result.map(tx => ({...tx, type: this.getContractType(tx.contractType)}))
+  }
+
   async getTransactionByHash (hash, address) {
     const reqBody = { hash }
     const { data: result } = await axios.post(`${this.tronwalletDB}/transactions/find/`, reqBody)

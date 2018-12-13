@@ -37,8 +37,8 @@ class ExchangeItem extends Component {
         variation,
         price,
         favorited } = this.props.exchangeData
-      const icon = favorited ? 'star,-mark,-highlight,-bookmark,-save' : 'swipe-up,-hand-gesture,-top,-scroll-up,-move-up'
-      const iconColor = favorited ? Colors.greyBlue : Colors.red
+      const icon = favorited ? 'star-fill' : '-mark,-highlight,-bookmark,-save'
+      const iconColor = Colors.lemonYellow
       return (
         <ExchangeRow onPress={() => onItemPress(this.props.exchangeData)}>
           <ExchangeLogo source={firstTokenImage} />
@@ -46,7 +46,7 @@ class ExchangeItem extends Component {
             <Utils.Row justify='space-between'>
               <Utils.Text size='small'>{firstTokenId} / {secondTokenId}</Utils.Text>
               <FontelloButton
-                size={18}
+                size={16}
                 name={icon}
                 color={iconColor}
                 onPress={() => onFavoritePress(exchangeId)}
