@@ -13,6 +13,7 @@ import { SafeAreaView } from '../../../components/Utils'
 // Utils
 import tl from '../../../utils/i18n'
 import { withContext } from '../../../store/context'
+import { logSentry } from '../../../utils/sentryUtils'
 
 // Service
 import TronStreamSocket from '../../../services/socket'
@@ -64,18 +65,22 @@ export class ExchangeTabs extends Component {
   }
 
   _setRefreshLastExchanges = () => {
-    this._loadLastExchanges()
-    this.refreshExchangesInterval = setInterval(this._loadLastExchanges, 20000)
+    this._loadExchangesTransactions()
+    this.refreshExchangesInterval = setInterval(this._loadExchangesTransactions, 15000)
   }
 
-  _loadLastExchanges = async () => {
+  _loadExchangesTransactions = async () => {
+    const { lastTransactions } = this.state
     const { exchangeId } = this.state.exchangeData
     this.setState({refreshingExchange: true})
     try {
-      const lastTransactions = await WalletClient.getTransactionExchangesList(exchangeId)
-      this.setState({lastTransactions, refreshingExchange: false})
+      const updatedTransactions = await WalletClient.getTransactionExchangesList(exchangeId)
+      if (!lastTransactions.length || updatedTransactions[0]['_id'] !== lastTransactions[0]['_id']) {
+        this.setState({lastTransactions: updatedTransactions})
+      }
     } catch (error) {
-      console.warn('Error', error.message)
+      logSentry('Exchange Tabs - Load Transactions', error)
+    } finally {
       this.setState({refreshingExchange: false})
     }
   }
@@ -123,20 +128,10 @@ export class ExchangeTabs extends Component {
     switch (route.key) {
       case 'sell':
         return (
-          <SellScene
-            {...this.props}
-            exchangeData={this.state.exchangeData}
-            lastTransactions={this.state.lastTransactions}
-            refreshing={this.state.refreshingExchange}
-          />)
+          <SellScene {...this.props} {...this.state} />)
       case 'buy':
         return (
-          <BuyScene
-            {...this.props}
-            exchangeData={this.state.exchangeData}
-            lastTransactions={this.state.lastTransactions}
-            refreshing={this.state.refreshingExchange}
-          />)
+          <BuyScene {...this.props} {...this.state} />)
       default:
         return null
     }

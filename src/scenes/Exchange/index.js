@@ -30,8 +30,8 @@ export class ExchangeScene extends Component {
     }
 
     componentDidMount () {
-      this._didFocusSubscription = this.props.navigation.addListener('didFocus', this._loadData)
       this._loadData()
+      this._didFocusSubscription = this.props.navigation.addListener('didFocus', this._loadData)
     }
 
     componentWillUnmount () {

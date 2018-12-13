@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, LayoutAnimation, Platform, UIManager, Animated, TouchableOpacity } from 'react-native'
 
-export default class App extends Component {
+class CollapseView extends Component {
   constructor () {
     super()
     this.state = {
@@ -31,3 +31,5 @@ export default class App extends Component {
     )
   }
 }
+
+export default CollapseView

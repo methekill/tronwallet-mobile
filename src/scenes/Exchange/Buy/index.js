@@ -15,7 +15,6 @@ import ExchangeTransactions from '../Transactions'
 
 // Utils
 import tl from '../../../utils/i18n'
-import { withContext } from '../../../store/context'
 import { trxValueParse, estimatedBuyCost, LOW_VARIATION, estimatedBuyWanted, getInputType } from '../../../utils/exchangeUtils'
 import { formatFloat } from '../../../utils/numberUtils'
 import { logSentry } from '../../../utils/sentryUtils'
@@ -247,4 +246,4 @@ class BuyScene extends Component {
   }
 }
 
-export default withContext(BuyScene)
+export default BuyScene

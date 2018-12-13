@@ -17,8 +17,6 @@ import { ONE_TRX } from '../../../services/client'
 
 export class LatestTransactions extends Component {
     state = {
-      transactions: [],
-      selectedTransaction: null
     }
 
     _onCopyText = async text => {
@@ -28,8 +26,8 @@ export class LatestTransactions extends Component {
     _renderHeader = () => (
       <TransactionHeader>
         <Utils.Text flex={0.3} size='tiny' color={Colors.slateGrey}>{tl.t('time')}</Utils.Text>
-        <Utils.Text flex={0.5} size='tiny' color={Colors.slateGrey}>Transaction Amount</Utils.Text>
-        <Utils.View flex={0.2}>{this.props.refreshing ? <ActivityIndicator color={Colors.primaryText} /> : null}</Utils.View>
+        <Utils.Text flex={0.5} size='tiny' color={Colors.slateGrey}>{tl.t('exchange.txAmount')}</Utils.Text>
+        <Utils.View flex={0.2}>{this.props.refreshingExchange ? <ActivityIndicator color={Colors.primaryText} /> : null}</Utils.View>
       </TransactionHeader>
     )
 
@@ -60,7 +58,7 @@ export class LatestTransactions extends Component {
 
     _renderHiddenCollapseView = (_, item) => (
       <Utils.View paddingX='medium'>
-        <Utils.Text size='tiny' marginY={5} color={Colors.slateGrey}>Hash</Utils.Text>
+        <Utils.Text size='tiny' marginY={5} color={Colors.slateGrey}>{tl.t('hash')}</Utils.Text>
         <CopyableText onPress={() => this._onCopyText(item.hash)} text={item.hash} />
         <Utils.Text size='tiny' marginY={5} color={Colors.slateGrey}>{tl.t('address')}</Utils.Text>
         <CopyableText onPress={() => this._onCopyText(item.ownerAddress)} text={item.ownerAddress} />
@@ -78,7 +76,7 @@ export class LatestTransactions extends Component {
     _renderSeparator = () => (<Divider />)
 
     render () {
-      const { lastTransactions } = this.props
+      const { lastTransactions, refreshingExchange } = this.props
       return (
         <React.Fragment>
           <Utils.View height={Spacing.medium} />
@@ -87,12 +85,13 @@ export class LatestTransactions extends Component {
             <Utils.Text size='xsmall'>{tl.t('txs')}</Utils.Text>
           </Utils.View>
           <FlatList
-            data={lastTransactions}
+            data={lastTransactions.slice(0, 30)}
             renderItem={this._renderItem}
             ListHeaderComponent={this._renderHeader}
-            extraData={this.props.refreshing}
+            extraData={refreshingExchange}
             ItemSeparatorComponent={this._renderSeparator}
             keyExtractor={(item) => item.hash}
+            onEndReached={this._onLoadMore}
             initialNumToRender={10}
             onEndReachedThreshold={0.75}
           />

@@ -56,6 +56,7 @@
   "clear": "Clear",
   "allIn": "All In",
   "skip": "Skip",
+  "hash" : "Hash",
   "privateKey": "Private Key",
   "results": "Results",
   "buy": "Buy",
@@ -81,6 +82,7 @@
       "buy": "Slightly increase the estimated cost, and success rate will be higher.",
       "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "ESTIMATED TO RECEIVE",
     "estimatedCost": "ESTIMATED COST",
     "preview": "Search by the Token name",
