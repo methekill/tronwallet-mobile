@@ -312,9 +312,9 @@
     "restore": {
       "title": "RESTORE WALLET",
       "explanation": "För att återställa din plånbok, ange samma 12 ord som du skrev på papper när du skapade din plånbok för första gången. Om du anger en annan ordsekvens skapas en ny tom plånbok.",
-      "placeholder": "Var god, skriv dina 12 frö ord här",
-      "success": "Wallet restaurerad med framgång!",
-      "warning": "Återställ fröet raderar alla data på den här enheten och drar information från nätverket för det återställda kontot.",
+      "placeholder": "Var god skriv dina 12 seed ord här",
+      "success": "Lyckad återställning av pånboken!",
+      "warning": "Återställ seed kommer att radera all data på den här enheten och hämta information från nätverket för det återställda kontot.",
       "error": "Hoppsan. Ser ut som att orden du skrev är inte ett giltigt mnemoniskt seed. Kontrollera efter ett stavfel och försök igen.",
       "button": "ÅTERSTÄLL"
     }
