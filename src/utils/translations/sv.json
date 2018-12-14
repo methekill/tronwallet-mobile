@@ -29,7 +29,7 @@
     "default": "Oj någonting gick fel. Försök igen senare, om felet återkommer försök att uppdatera nätverks insträllningar.",
     "buildingTransaction": "Ett fel uppstod vid uppbyggnaden av överföringen, försök igen.",
     "gettingTransaction": "Ett fel inträffade vid mottagandet av överföringen.",
-    "clipboardCopied": "Något fel med kopiering",
+    "clipboardCopied": "Något gick fel med kopieringen",
     "hideAccount": "Något gick fel med att ta bort konto, försök igen \""
   },
   "avaliable": "TILLGÄNGLIGT",
@@ -48,7 +48,7 @@
     "participate": "Delta",
     "create": "Skapa",
     "exchange": "Exchange",
-    "undefined": "Odentifierad Typ"
+    "undefined": "Odefinierad Typ"
   },
   "close": "Stäng",
   "ends": "Slutar",
