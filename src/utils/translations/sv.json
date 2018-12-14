@@ -77,12 +77,12 @@
     "minToSell": "Minsta att skicka ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minsta att ta emot ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Minska beräknad kostnad något för att öka chansen att lyckas.",
-      "sell": "Minska beräknad intäkt något för att öka chansen att lyckas."
+      "buy": "Öka den beräknade kostnaden något och chansen att lyckas blir större.",
+      "sell": "Minska den beräknade intäkten något och chansen att lyckas blir större."
     },
-    "estimatedRevenue": "BERÄKNAT ATT TA EMOT",
+    "estimatedRevenue": "BERÄKNAS ATT MOTTA",
     "estimatedCost": "BERÄKNAD KOSTNAD",
-    "preview": "Sök efter namn på Token",
+    "preview": "Sök efter namnet på Token",
     "notFound": "Ingen Exchange hittades"
   },
   "hideAccount": "Du håller på att ta bort det här kontot. Du kan återställa det senare i inställningarna",
@@ -90,7 +90,7 @@
     "share": {
       "title": "Dela TronWallet adress",
       "message": "Detta är min TronWallet adress:\n\n{{address}}\n\nTips: när du har kopierat det kan du klistra in det i din TronWallet app med hjälpa av den speciella knappen på Skicka skärm.",
-      "dialogTitle": "Dela genom:"
+      "dialogTitle": "Dela med:"
     },
     "QRScanner": {
       "title": "Adress Skannare",
@@ -161,13 +161,13 @@
         "okButton": "OK"
       },
       "empty": "Din adressbok är tom, lägg till en ny kontakt genom att klicka på knappen nedan.",
-      "loadError": "Det uppstod ett problem med att ladda kontakterna. Var god försök igen.",
+      "loadError": "Det uppstod ett problem med att ladda dina kontakter. Var god försök igen.",
       "addContact": "LÄGG TILL KONTAKT",
       "addToContacts": "LÄGG TILL I KONTAKTER"
     },
     "form": {
       "generalError": "Det uppstod ett problem med att skicka in detta formulär. Var god kontakta en administratör.",
-      "nameError": "Namnfältet måste börja med en bokstav, innehålla högst 32 tecken och endast bokstäver, siffror samt blanksteg kommer accepteras.",
+      "nameError": "Namnfältet måste börja med en bokstav, innehålla högst 32 tecken och endast bokstäver, siffror samt blanksteg accepteras.",
       "addressError": "Någonting är fel med denna adress. var god och titta efter stavfel.",
       "uniqueAddressError": "Nyckeln måste vara unikt. Vänligen välj en annan adress.",
       "uniqueAliasError": "Namn i din adressbok måste vara unika. Vänligen välj en annat namn.",
@@ -378,7 +378,7 @@
         },
         "button": {
           "update": "Uppdatera och Anslut",
-          "reset": "Återställ"
+          "reset": "Nollställ"
         },
         "mainNode": "Huvudnoden",
         "solidityNode": "Soliditet-nod",
@@ -414,7 +414,7 @@
       "error": "Ett fel uppstod med att spara valt språk"
     },
     "token": {
-      "title": "Tokenfilter",
+      "title": "Filter Token",
       "search": "Sök tokens",
       "confirm": "Spara",
       "noResult": "Inga resultat..."
