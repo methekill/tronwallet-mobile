@@ -84,7 +84,7 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
-        }
+    }
     splits {
         abi {
             reset()
@@ -134,12 +134,12 @@ dependencies {
     implementation project(':react-native-device-info')
     implementation project(':react-native-tron')
     implementation project(':react-native-config')
+    implementation project(':react-native-vector-icons')
     implementation (project(':react-native-camera')) {
         exclude group: "com.android.support"
     }
     implementation project(':react-native-splash-screen')
     implementation project(':realm')
-    implementation project(':react-native-vector-icons')
     implementation project(':react-native-svg')
     implementation project(':react-native-linear-gradient')
     implementation fileTree(include: ['*.jar'], dir: 'libs')

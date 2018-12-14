@@ -37,7 +37,7 @@ export const TextInput = styled.TextInput`
   font-family: Rubik-Medium;
   font-size: 16px;
   line-height: 18px;
-  color: ${Colors.primaryText};
+  color: ${props => props.color || Colors.primaryText};
   flex: 1;
   padding: 8px;
   ${props => props.align && `text-align: ${props.align}`};
