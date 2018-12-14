@@ -348,7 +348,7 @@
       "wallet": "PLÅNBOK",
       "security": "SÄKERHET",
       "notification": "NOTIFIKATIONER",
-      "idiomAndLocalization": "SPRÅK OCH PLATS",
+      "idiomAndLocalization": "IDOM OCH PLATS",
       "accounts": "HANTERING AV KONTON"
     },
     "notifications": {
@@ -386,7 +386,7 @@
       }
     },
     "backup": {
-      "title": "1"
+      "title": "Säkerhetskopiera Plånbok"
     },
     "restore": {
       "title": "Återställ Plånbok"
@@ -458,9 +458,9 @@
       "noData": "Kunde inte ladda transaktionsdata"
     },
     "exchange": {
-      "send": "Skicka {{sendtoken}}",
-      "receive": "Mottar {{receivetoken}}",
-      "error": "Check your latest transactions to confirm the received amount."
+      "send": "Skickar {{sendtoken}}",
+      "receive": "Tar emot {{receivetoken}}",
+      "error": "Kontrollera dina senaste transaktioner för att bekräfta det mottagna beloppet."
     },
     "disconnectedMessage": "Det verkar som om du är bortkopplad. Återanslut till internet innan du fortsätter med transaktionen.",
     "dic": {
@@ -508,13 +508,13 @@
     "time": "TID",
     "block": "BLOCKERA",
     "frozenBalance": "FROZEN BALANS",
-    "unfrozenBalance": "UNFROZEN BALANCE",
+    "unfrozenBalance": "UPPLÅST SALDO",
     "totalVotes": "TOTALA RÖSTAR",
     "amount": "BELOPP",
     "to": "TILL",
     "from": "FRÅN",
-    "tokenName": "TOKEN NAME",
-    "unityValue": "UNITY VALUE",
+    "tokenName": "NAMN PÅ TOKEN",
+    "unityValue": "UNITY VÄRDE",
     "totalSupply": "TOTAL FÖRSÄLJNING",
     "startTime": "STARTTID",
     "endTime": "SLUTTID",
@@ -532,7 +532,7 @@
     "search": "Sök",
     "searchPreview": "Suggestions - Most Voted",
     "error": "Oj, något laddades inte korrekt. Försök att ladda om",
-    "notFound": "Super Representative not found"
+    "notFound": "Super Representant hittades inte"
   },
   "scanPayment": {
     "scan": "SKANNA",
@@ -577,25 +577,25 @@
     }
   },
   "balanceToken": {
-    "updating": "Updating token information. Please wait a few seconds.",
-    "notAvailable": "Token information not available"
+    "updating": "Uppdaterar token information. Vänligen vänta några sekunder.",
+    "notAvailable": "Token information är inte tillgänglig"
   },
   "biometry": {
     "register": {
-      "title": "Check your biometry"
+      "title": "Kontrollera din biometri"
     },
     "auth": {
-      "title": "Save Biometry",
-      "error": "Access denied"
+      "title": "Spara Biometri",
+      "error": "Åtkomst nekad"
     }
   },
   "privacyPolicy": {
-    "title": "PRIVACY POLICY",
-    "subtitle": "You must read and accept our privacy terms to continue.",
-    "error": "You need to accept of privacy terms before to continue. ",
-    "acceptTerms": "I have read and agree to the terms",
-    "continue": "CONTINUE",
-    "docTitle": "Privacy Policy",
+    "title": "SEKRETESSPOLICY",
+    "subtitle": "Du måste läsa och acceptera våra sekretessvillkor att fortsätta.",
+    "error": "Du måste acceptera av sekretessvillkor innan för att fortsätta. ",
+    "acceptTerms": "Jag har läst och godkänner villkoren",
+    "continue": "FORTSÄTT",
+    "docTitle": "Sekretesspolicy",
     "introduction": "Your privacy is important to us.\nIt is TronWallet's policy to respect your privacy regarding any information we may collect from you across our website, http://tronwallet.me, and other sites we own and operate.\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent.\nWe also let you know why we're collecting it and how it will be used.\nWe only retain collected information for as long as necessary to provide you with your requested service.\nWhat data we store, we'll protect within commercially acceptable means to prevent loss and theft, as well as unauthorised access, disclosure, copying, use or modification.\nWe don't share any personally identifying information publicly or with third-parties, except when required to by law.\nOur website may link to external sites that are not operated by us.\nPlease be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.\nYou are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.\nYour continued use of our website will be regarded as acceptance of our practices around privacy and personal information.\nIf you have any questions about how we handle user data and personal information, feel free to contact us.\nThis policy is effective as of 1 July 2018.",
     "termsOfService": {
       "title": "TronWallet Terms of Service",
