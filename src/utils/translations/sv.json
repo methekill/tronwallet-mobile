@@ -65,7 +65,7 @@
     "title": "KONTON",
     "error": {
       "loadingData": "Ett fel uppstod medans data laddades.",
-      "savingCurrency": "Ett fel uppstod med att spara vald valuta"
+      "savingCurrency": "Ett fel inträffade med spara vald valuta"
     },
     "chooseCurrency": "Var vänlig välj din önskade valuta.",
     "confirmSeed": "Var vänligen tryck för aceptera dina 12 seed ord",
@@ -74,8 +74,8 @@
     "holdings": "INNEHAV"
   },
   "exchange": {
-    "minToSell": "Minimum att skicka ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimum att ta emot ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minsta att skicka ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minsta att ta emot ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Minska beräknad kostnad något för att öka chansen att lyckas.",
       "sell": "Minska beräknad intäkt något för att öka chansen att lyckas."
