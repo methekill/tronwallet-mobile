@@ -370,7 +370,7 @@
           "updatedIp": "Nodes IP uppdaterad!",
           "switchTest": "Omkopplade noder IP till Testnet",
           "switchMain": "Omkopplade nodernas IP till standard",
-          "reset": "Nod IP återställdes!"
+          "reset": "Nod IP nollsälldes!"
         },
         "placeholder": {
           "loadingIp": "Laddar IP",
