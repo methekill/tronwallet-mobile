@@ -78,7 +78,7 @@
     "minToBuy": "כמות מינימלית לקבלה ≈ {{tokenId}} {{min}}",
     "variation": {
       "buy": "הגדל במעט את העלות המוערכת, וסיכויי ההצלחה יהיו גבוהים יותר.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "sell": "הקטן במעט את ההכנסה המוערכת, וסיכויי ההצלחה יהיו גבוהים יותר."
     },
     "estimatedRevenue": "הערך המשוערך לקבלה",
     "estimatedCost": "העלות המשוערכת",

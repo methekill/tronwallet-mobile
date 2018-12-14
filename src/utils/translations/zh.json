@@ -15,9 +15,9 @@
     "y": "a year",
     "yy": "%d years"
   },
-  "success": "Success",
-  "warning": "Warning",
-  "cancel": "Cancel",
+  "success": "成功",
+  "warning": "警告",
+  "cancel": "取消",
   "address": "地址",
   "message": "Message",
   "ex": "Exchange",
@@ -42,35 +42,35 @@
   "transactionType": {
     "transfer": "Transfer",
     "transferAsset": "Transfer Asset",
-    "freeze": "Freeze",
-    "unfreeze": "Unfreeze",
-    "vote": "Vote",
+    "freeze": "冻结",
+    "unfreeze": "解冻",
+    "vote": "投票",
     "participate": "Participate",
-    "create": "Create",
+    "create": "创建",
     "exchange": "Exchange",
     "undefined": "Undefined Type"
   },
-  "close": "Close",
+  "close": "关闭",
   "ends": "Ends",
   "clear": "Clear",
   "allIn": "All In",
-  "skip": "Skip",
+  "skip": "跳过",
   "privateKey": "私钥",
-  "results": "Results",
-  "buy": "Buy",
-  "sell": "Sell",
-  "filter": "Filter",
-  "txs": "Transactions",
+  "results": "结果",
+  "buy": "买",
+  "sell": "卖",
+  "filter": "过滤",
+  "txs": "交易",
   "balance": {
     "title": "ACCOUNTS",
     "error": {
       "loadingData": "An error occured while loading the data.",
-      "savingCurrency": "Error saving preferred currency"
+      "savingCurrency": "保存首选币种时出错"
     },
-    "chooseCurrency": "Please, choose your preferred currency.",
+    "chooseCurrency": "请选择您的首选货币。",
     "confirmSeed": "Please tap to confirm your 12 seed words",
     "bandwidth": "带宽",
-    "tokens": "TOKENS",
+    "tokens": "令牌",
     "holdings": "HOLDINGS"
   },
   "exchange": {
@@ -104,12 +104,12 @@
       "setVote": "SET VOTE",
       "moreVotes": "If you need more votes you can Freeze more TRX.",
       "confirmVotes": "CONFIRM VOTES",
-      "yourVotes": "Your Votes",
-      "myVotes": "MY VOTES",
-      "confirm": "CONFIRM",
+      "yourVotes": "您的投票",
+      "myVotes": "我的投票",
+      "confirm": "确认",
       "freeze": "Freeze",
       "totalVotes": "Total votes available:",
-      "delete": "DELETE",
+      "delete": "删除",
       "set": "SET",
       "freezeOrLower": "You do not have enough frozen TRX. Freeze more TRX or lower the vote amount",
       "freezeToContinue": "You do not have enough frozen TRX. Freeze more TRX to continue"
@@ -147,17 +147,17 @@
   "addressBook": {
     "title": "ADDRESS BOOK",
     "shared": {
-      "add": "ADD",
-      "edit": "EDIT",
-      "delete": "DELETE",
-      "send": "SEND"
+      "add": "添加",
+      "edit": "编辑",
+      "delete": "删除",
+      "send": "发送"
     },
     "contacts": {
       "title": "CONTACTS",
       "delete": {
         "title": "Delete Contact",
         "message": "Do you really want to delete this contact?",
-        "cancelButton": "Cancel",
+        "cancelButton": "取消",
         "okButton": "OK"
       },
       "empty": "Your address book is empty, add a new contact using the button below.",
@@ -171,8 +171,8 @@
       "addressError": "Something isn't right with the address. Please double check for typos.",
       "uniqueAddressError": "The key must be unique. Please choose a different address.",
       "uniqueAliasError": "Names in your address book must be unique. Please choose a different one.",
-      "name": "NAME",
-      "address": "ADDRESS"
+      "name": "姓名",
+      "address": "地址"
     }
   },
   "importWallet": {
@@ -204,7 +204,7 @@
   },
   "getVault": {
     "notInstalled": "It seems that you don't have Tron Vault installed in your phone to proceed with your transaction.",
-    "downloadHere": "You can download it here"
+    "downloadHere": "你可以在这里下载"
   },
   "market": {
     "time": {
@@ -256,7 +256,7 @@
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "块",
-    "balance": "BALANCE",
+    "balance": "余额",
     "searchPreview": "Featured Tokens"
   },
   "pin": {
@@ -320,9 +320,9 @@
     }
   },
   "send": {
-    "title": "SEND",
+    "title": "发送",
     "error": {
-      "insufficientBalance": "Not enough balance.",
+      "insufficientBalance": "没有足够的余额",
       "gettingBalance": "Error while getting balance data",
       "incompleteAddress": "Address is either incomplete or invalid.",
       "invalidReceiver": "Invalid receiver address",
@@ -347,7 +347,7 @@
     "sectionTitles": {
       "wallet": "钱包",
       "security": "安全",
-      "notification": "NOTIFICATIONS",
+      "notification": "通知",
       "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "账户管理"
     },
@@ -503,7 +503,7 @@
       "tronscanUrl": "此事务的Tronscan url已复制到剪贴板",
       "publicKey": "公钥复制到剪贴板"
     },
-    "hash": "HASH",
+    "hash": "哈希",
     "status": "状态",
     "time": "时间",
     "block": "块",
@@ -586,7 +586,7 @@
     },
     "auth": {
       "title": "Save Biometry",
-      "error": "Access denied"
+      "error": "访问拒绝"
     }
   },
   "privacyPolicy": {
@@ -595,7 +595,7 @@
     "error": "You need to accept of privacy terms before to continue. ",
     "acceptTerms": "I have read and agree to the terms",
     "continue": "CONTINUE",
-    "docTitle": "Privacy Policy",
+    "docTitle": "隐私政策",
     "introduction": "Your privacy is important to us.\nIt is TronWallet's policy to respect your privacy regarding any information we may collect from you across our website, http://tronwallet.me, and other sites we own and operate.\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent.\nWe also let you know why we're collecting it and how it will be used.\nWe only retain collected information for as long as necessary to provide you with your requested service.\nWhat data we store, we'll protect within commercially acceptable means to prevent loss and theft, as well as unauthorised access, disclosure, copying, use or modification.\nWe don't share any personally identifying information publicly or with third-parties, except when required to by law.\nOur website may link to external sites that are not operated by us.\nPlease be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.\nYou are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.\nYour continued use of our website will be regarded as acceptance of our practices around privacy and personal information.\nIf you have any questions about how we handle user data and personal information, feel free to contact us.\nThis policy is effective as of 1 July 2018.",
     "termsOfService": {
       "title": "TronWallet Terms of Service",
