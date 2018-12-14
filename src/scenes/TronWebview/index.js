@@ -1,42 +1,119 @@
-import React, { Component } from 'react';
-import { WebView, Linking } from 'react-native';
+import React, { Component } from 'react'
+import { WebView, Alert } from 'react-native'
+import withContext from '../../utils/hocs/withContext'
 
-export default class TronWebView extends Component {
+import { Text } from '../../components/Utils'
+import { HeaderContainer, PageWrapper, HeaderView, URLInput, BlankPage } from './elements'
 
-  injectjs(){
+class TronWebView extends Component {
+  constructor (props) {
+    super(props)
 
-    let jsCode = `
-      function importScript(src) {
-        return new Promise((resolve, reject) => {
-          const script = document.createElement("script");
-
-          script.async = 1;
-          script.type = "text/javascript";
-          script.src = src;
-          script.onerror = reject;
-          script.onload = () => {
-            document.body.removeChild(script);
-            resolve();
-          };
-
-          document.body.appendChild(script);
-        });
-      }
-
-      if (useragent === 'TronWallet1.3') {
-        importScript('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js')
-        $(".tx").text("Initialized")
-      }
-    `;
-    return jsCode;
+    this.webview = null
+    this.state = {
+      initialized: false,
+      url: null,
+      isPageVisible: false
+    }
   }
 
-  
+  handleMessage = (ev) => {
+    const { accounts } = this.props.context
+    const { balance, address } = accounts.find(acc => acc.alias === '@main_account')
 
-  render() {
-    return <WebView 
-    javaScriptEnabled={true}
-    injectedJavaScript={this.injectjs()} 
-    source={{uri:"https://codepen.io/marlonbrgomes/full/JegmYg"}} style={{ marginTop: 20 }} />;
+    try {
+      const contract = JSON.parse(ev.nativeEvent.data)
+      if ((!balance && balance !== 0) || !address) {
+        throw new Error('Invalid contract, try again or contact the support for help')
+      }
+
+      if (balance < contract.amount) {
+        throw new Error('You dont have enought amount to run this contract')
+      }
+
+      this.props.navigation.navigate('ContractPreview', { ...contract, prevRoute: 'TronWebview' })
+    } catch (e) {
+      Alert.alert(e.message)
+    }
+  }
+
+  sendMessage = (type, payload) => {
+    this.webview.postMessage(JSON.stringify({
+      type,
+      payload
+    }))
+  }
+
+  configInstance = () => {
+    const { initialized } = this.state
+    const { accounts } = this.props.context
+    const { balance, address, tronPower, confirmed } = accounts.find(acc => acc.alias === '@main_account')
+
+    if (!initialized && this.webview) {
+      this.sendMessage('ADDRESS', {
+        balance: balance, address, tronPower, confirmed
+      })
+
+      this.setState({ initialized: true })
+    }
+  }
+
+  // injectDebuggScript = () => {
+  //   return `
+  //     document.addEventListener("message", function(data) {
+  //       var JData = JSON.parse(data.data);
+  //       alert(data.data)
+
+  //     });
+  //   `;
+  // }
+
+  injectjs () {
+    let jsCode = `      
+        var script   = document.createElement("script");
+        script.type  = "text/javascript";
+        script.text  = "function callTronWallet(data) {postMessage(JSON.stringify(data))}"
+        document.body.appendChild(script);
+        document.useragent = "TronWallet1.3"
+    `
+
+    return jsCode
+  }
+
+  render () {
+    const { isPageVisible, url } = this.state
+
+    return (
+      <PageWrapper>
+        <HeaderContainer>
+          <HeaderView>
+            <Text>WEB BROWSER</Text>
+            <URLInput
+              placeholder='URL'
+              keyboardType='url'
+              onSubmitEditing={() => this.setState({ isPageVisible: true })}
+              value={url}
+              onChangeText={url => this.setState({ url, isPageVisible: false })}
+            />
+          </HeaderView>
+
+        </HeaderContainer>
+
+        { isPageVisible ? (
+          <WebView
+            style={{ flex: 0.75 }}
+            ref={(ref) => (this.webview = ref)}
+            javaScriptEnabled
+            automaticallyAdjustContentInsets
+            injectedJavaScript={this.injectjs()}
+            onLoadEnd={this.configInstance}
+            onMessage={this.handleMessage}
+            source={{uri: url}} />
+        ) : <BlankPage />}
+
+      </PageWrapper>
+    )
   }
 }
+
+export default withContext(TronWebView)

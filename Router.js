@@ -212,7 +212,7 @@ const AppTabs = createMaterialBottomTabNavigator({
   },
   showLabel: false,
   animationEnabled: true,
-  initialRouteName: 'TronWebview'
+  initialRouteName: 'Balance'
 })
 
 const RootNavigator = createStackNavigator({
