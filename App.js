@@ -61,7 +61,7 @@ class App extends Component {
     hasUnreadNotification: false
   }
 
-  async componentDidMount () {
+  componentDidMount () {
     setTimeout(() => {
       OneSignal.init(ONE_SIGNAL_KEY, { kOSSettingsKeyAutoPrompt: true })
       OneSignal.inFocusDisplaying(2)

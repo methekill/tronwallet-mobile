@@ -39,20 +39,20 @@ export default function createCustomTopTabNavigator (routeConfigMap, tabConfig =
   })
 
   class CustomNavigator extends React.Component {
-  static router = NotificationsTabs.router;
-  render () {
-    const { navigation } = this.props
+    static router = NotificationsTabs.router;
+    render () {
+      const { navigation } = this.props
 
-    return (
-      <SafeAreaView style={{ flex: 1, backgroundColor: Colors.background }} forceInset={{ top: 'always', bottom: 'always' }} >
-        <NavigationHeader
-          title={get(tabConfig, 'tabBarOptions.header.title', '')}
-          onBack={() => navigation.goBack()}
-        />
-        <NotificationsTabs navigation={navigation} />
-      </SafeAreaView>
-    )
-  }
+      return (
+        <SafeAreaView style={{ flex: 1, backgroundColor: Colors.background }} forceInset={{ top: 'always', bottom: 'always' }} >
+          <NavigationHeader
+            title={get(tabConfig, 'tabBarOptions.header.title', '')}
+            onBack={() => navigation.goBack()}
+          />
+          <NotificationsTabs navigation={navigation} />
+        </SafeAreaView>
+      )
+    }
   }
 
   return CustomNavigator

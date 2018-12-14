@@ -37,7 +37,7 @@ const Icon = createIconSetFromFontello(fontelloConfig, 'tronwallet')
 
 const resetAction = StackActions.reset({
   index: 0,
-  actions: [NavigationActions.navigate({ routeName: 'Loading' })],
+  actions: [NavigationActions.navigate({ routeName: 'FirstTime' })],
   key: null
 })
 
