@@ -2,9 +2,9 @@ import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 
-import * as Utils from '../../components/Utils'
-import { Colors } from '../../components/DesignSystem'
-import FontelloIcon from '../../components/FontelloIcon'
+import * as Utils from '../../../components/Utils'
+import { Colors } from '../../../components/DesignSystem'
+import FontelloIcon from '../../../components/FontelloIcon'
 
 const LockPin = ({locked, onPress}) => (
   <TouchableOpacity style={{padding: 8}} onPress={onPress}>

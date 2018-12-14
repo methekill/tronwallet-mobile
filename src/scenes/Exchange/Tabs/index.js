@@ -5,12 +5,12 @@ import find from 'lodash/find'
 
 // Design
 import { Colors } from '../../../components/DesignSystem'
-import SellScene from '../Sell'
-import BuyScene from '../Buy'
+import SellScene from './Sell'
+import BuyScene from './Buy'
+import LockPin from './Lock'
+import ActionModal from './ActionModal'
 import NavigationHeader from '../../../components/Navigation/Header'
 import { SafeAreaView } from '../../../components/Utils'
-import LockPin from '../Lock'
-import ActionModal from '../ActionModal'
 
 // Utils
 import tl from '../../../utils/i18n'
@@ -83,11 +83,10 @@ export class ExchangeTabs extends Component {
     try {
       const updatedTransactions = await WalletClient.getTransactionExchangesList(exchangeId)
       if (!lastTransactions.length || updatedTransactions[0]['_id'] !== lastTransactions[0]['_id']) {
-        this.setState({lastTransactions: updatedTransactions})
+        this.setState({lastTransactions: updatedTransactions, refreshingExchange: false})
       }
     } catch (error) {
       logSentry('Exchange Tabs - Load Transactions', error)
-    } finally {
       this.setState({refreshingExchange: false})
     }
   }

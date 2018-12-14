@@ -4,23 +4,23 @@ import RNTron from 'react-native-tron'
 import MixPanel from 'react-native-mixpanel'
 
 // Design
-import Input from '../../../components/Input'
-import * as Utils from '../../../components/Utils'
-import { Colors } from '../../../components/DesignSystem'
-import { ExchangePair, ExchangeVariation, ScrollWrapper, PERCENTAGE_OPTIONS } from '../elements'
+import Input from '../../../../components/Input'
+import * as Utils from '../../../../components/Utils'
+import { Colors } from '../../../../components/DesignSystem'
+import { ExchangePair, ExchangeVariation, ScrollWrapper, PERCENTAGE_OPTIONS } from '../../elements'
 import ExchangeBalancePair from '../BalancePair'
 import ExchangeButton from '../Button'
-import PercentageSelector from '../../../components/SelectorTile'
+import PercentageSelector from '../../../../components/SelectorTile'
 import ExchangeTransactions from '../Transactions'
 
 // Utils
-import tl from '../../../utils/i18n'
-import { trxValueParse, estimatedBuyCost, LOW_VARIATION, estimatedBuyWanted, getInputType } from '../../../utils/exchangeUtils'
-import { formatFloat } from '../../../utils/numberUtils'
-import { logSentry } from '../../../utils/sentryUtils'
+import tl from '../../../../utils/i18n'
+import { trxValueParse, estimatedBuyCost, LOW_VARIATION, estimatedBuyWanted, getInputType } from '../../../../utils/exchangeUtils'
+import { formatFloat } from '../../../../utils/numberUtils'
+import { logSentry } from '../../../../utils/sentryUtils'
 
 // Service
-import WalletClient from '../../../services/client'
+import WalletClient from '../../../../services/client'
 
 class BuyScene extends Component {
   static navigationOptions = { header: null }

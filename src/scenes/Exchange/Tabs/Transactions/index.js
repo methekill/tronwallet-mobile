@@ -4,17 +4,17 @@ import { FlatList, ActivityIndicator, Alert, Clipboard } from 'react-native'
 import moment from 'moment'
 
 // Design
-import * as Utils from '../../../components/Utils'
-import { Colors, Spacing } from '../../../components/DesignSystem'
-import { Divider, TransactionRow, TransactionHeader, CopyableText } from '../elements'
-import FontelloIcon from '../../../components/FontelloIcon'
+import * as Utils from '../../../../components/Utils'
+import { Colors, Spacing } from '../../../../components/DesignSystem'
+import { Divider, TransactionRow, TransactionHeader, CopyableText } from '../../elements'
+import FontelloIcon from '../../../../components/FontelloIcon'
 import Collapsable from './collapse'
 
 // Utils
-import tl from '../../../utils/i18n'
+import tl from '../../../../utils/i18n'
 
 // Services
-import { ONE_TRX } from '../../../services/client'
+import { ONE_TRX } from '../../../../services/client'
 
 export class LatestTransactions extends PureComponent {
     _onCopyText = async text => {

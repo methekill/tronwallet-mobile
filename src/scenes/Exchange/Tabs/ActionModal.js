@@ -4,11 +4,11 @@ import Switch from 'react-native-switch-pro'
 import Modal from 'react-native-modal'
 import PropTypes from 'prop-types'
 
-import { Colors } from '../../components/DesignSystem'
-import { ModalContainer } from './elements'
+import { Colors } from '../../../components/DesignSystem'
+import { ModalContainer } from '../elements'
 
-import tl from '../../utils/i18n'
-import * as Utils from '../../components/Utils'
+import tl from '../../../utils/i18n'
+import * as Utils from '../../../components/Utils'
 
 const { width: DEVICE_WIDTH, height: DEVICE_HEIGHT } = Dimensions.get('window')
 

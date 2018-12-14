@@ -3,13 +3,13 @@ import { Image } from 'react-native'
 import { Motion, spring } from 'react-motion'
 import PropTypes from 'prop-types'
 
-import { Colors } from '../../components/DesignSystem'
-import * as Utils from '../../components/Utils'
+import { Colors } from '../../../components/DesignSystem'
+import * as Utils from '../../../components/Utils'
 
-import { withContext } from '../../store/context'
-import { formatNumber } from '../../utils/numberUtils'
+import { withContext } from '../../../store/context'
+import { formatNumber } from '../../../utils/numberUtils'
 
-const ARROW_GRADIENT = require('../../assets/arrow-right-gradient.png')
+const ARROW_GRADIENT = require('../../../assets/arrow-right-gradient.png')
 
 class ExchangeBalancePair extends Component {
   _findTokenBalance = (tokenName) => {
