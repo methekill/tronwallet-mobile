@@ -114,8 +114,7 @@ const AddressBookTabs = createMaterialTopTabNavigator({
 })
 
 const NotificationsTabs = createCustomTopTabNavigator({
-  Notifications,
-  Signals
+  Notifications
 }, {
   tabBarOptions: {
     header: {
@@ -141,7 +140,8 @@ const BalanceStack = createStackNavigator({
   PaymentsScene,
   MakePayScene,
   ScanPayScene,
-  TokenDetailScene: TokenInfoScene
+  TokenDetailScene: TokenInfoScene,
+  Signals
 }, {
   mode: 'modal',
   cardStyle: defaultCardStyle
