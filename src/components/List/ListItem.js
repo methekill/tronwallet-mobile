@@ -1,9 +1,18 @@
 import React from 'react'
+import { Image } from 'react-native'
 import { ListItem, Avatar } from 'react-native-elements'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import { Colors } from './../DesignSystem'
 
-export default ({ title, subtitle, rightTitle, avatar }) => (
+const AvatarWrapper = styled.View`
+  align-self: flex-start;
+  margin-right: 5px;
+`
+
+const NewListItem = ({ title, subtitle, rightTitle, avatar, onPress }) => (
   <ListItem
+    onPress={onPress || null}
     title={title}
     subtitle={subtitle}
     hideChevron
@@ -11,11 +20,13 @@ export default ({ title, subtitle, rightTitle, avatar }) => (
     rightTitle={rightTitle}
     avatar={
       avatar && (
-        <Avatar
-          rounded
-          source={avatar}
-          medium
-        />
+        <AvatarWrapper>
+          <Avatar
+            rounded
+            source={avatar}
+            medium
+          />
+        </AvatarWrapper>
       )
     }
     containerStyle={{
@@ -48,5 +59,15 @@ export default ({ title, subtitle, rightTitle, avatar }) => (
       lineHeight: 20,
       height: '100%'
     }}
+    underlayColor='rgba(0, 0, 0, 0.54)'
   />
 )
+
+NewListItem.propTypes = {
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  rightTitle: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  avatar: Image.propTypes.source
+}
+
+export default NewListItem
