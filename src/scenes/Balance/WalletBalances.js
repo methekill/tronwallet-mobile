@@ -79,26 +79,27 @@ class WalletBalances extends Component {
     this.props.navigation.navigate('TokenDetailScene', { item, fromBalance: true })
   }
 
-  _onItemPress = async ({ name: tokenName }) => {
-    this.setState({ modalTokenVisible: true, errorToken: null })
-    try {
-      const customParams = {
-        content_type: 'asset',
-        order: '-fields.isFeatured,-fields.isVerified,fields.position'
+  _onItemPress = ({ name: tokenName }) => {
+    this.setState({ modalTokenVisible: true, errorToken: null }, async () => {
+      try {
+        const customParams = {
+          content_type: 'asset',
+          order: '-fields.isFeatured,-fields.isVerified,fields.position'
+        }
+        const { results } = await queryToken(false, tokenName, customParams)
+        if (results.length) {
+          this.setState({ modalTokenVisible: false, errorToken: null }, () => {
+            this._navigateToTokenDetails(results[0])
+            MixPanel.trackWithProperties('Account Operation', { type: 'Navigate to Token Info', token: tokenName })
+          })
+        } else {
+          this.setState({ errorToken: tl.t('balanceToken.notAvailable') })
+        }
+      } catch (error) {
+        logSentry(error, 'Navigate to Token Info')
+        this.setState({ modalTokenVisible: false })
       }
-      const { results } = await queryToken(false, tokenName, customParams)
-      if (results.length) {
-        this.setState({ modalTokenVisible: false, errorToken: null }, () => {
-          this._navigateToTokenDetails(results[0])
-          MixPanel.trackWithProperties('Account Operation', { type: 'Navigate to Token Info', token: tokenName })
-        })
-      } else {
-        this.setState({ errorToken: tl.t('balanceToken.notAvailable') })
-      }
-    } catch (error) {
-      logSentry(error, 'Navigate to Token Info')
-      this.setState({ modalTokenVisible: false })
-    }
+    })
   }
 
   renderModalToken = () => (

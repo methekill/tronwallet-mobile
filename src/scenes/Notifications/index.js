@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { FlatList, Platform, StyleSheet, RefreshControl } from 'react-native'
+import { Platform, StyleSheet, RefreshControl } from 'react-native'
 import HTMLView from 'react-native-htmlview'
+import { FlatList } from 'react-navigation'
 
 import * as Utils from './../../components/Utils'
 
