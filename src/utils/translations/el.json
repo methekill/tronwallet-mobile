@@ -654,9 +654,12 @@
     }
   },
   "notifications": {
-    "title": "NOTIFICATIONS"
-  },
-  "news": {
-    "title": "NEWS"
+    "title": "NOTIFICATIONS",
+    "notifications": {
+      "title": "TRANSACTIONS"
+    },
+    "signals": {
+      "title": "SIGNALS"
+    }
   }
 }
