@@ -95,27 +95,26 @@ class App extends Component {
       Async.get(USER_PREFERRED_CURRENCY, 'TRX')
     ]).then(results => {
       const [alwaysAskPin, useStatus, filteredTokens, fixedTokens, verifiedTokensOnly, currency] = results
-      // console.warn(results)
 
-      if (useStatus) {
-        if (useStatus === 'active') {
-          this._requestPIN()
-        } else {
-          NavigationService.navigate('FirstTime', {
-            shouldDoubleCheck: useStatus !== 'reset',
-            testInput: this._tryToOpenStore
-          })
-        }
-        this.setState({ alwaysAskPin, fixedTokens, verifiedTokensOnly, currency }, () => {
-          this._getPrice(currency)
+      if (useStatus === 'active') {
+        this._requestPIN()
+      } else {
+        NavigationService.navigate('FirstTime', {
+          shouldDoubleCheck: useStatus !== 'reset',
+          testInput: this._tryToOpenStore
         })
       }
+      this.setState({ alwaysAskPin, fixedTokens, verifiedTokensOnly, currency }, () => {
+        this._getPrice(currency)
+      })
 
       if (filteredTokens === null) {
         Async.set(USER_FILTERED_TOKENS, '[]')
       }
     })
-      .catch(error => console.log(error))
+      .catch(error => {
+        logSentry(error, 'App - Bootstrap')
+      })
   }
 
   _onAppStateChange = (nextAppState) => {
@@ -173,14 +172,10 @@ class App extends Component {
   }
 
   _onIds = device => {
-    // console.log('Device info: ', device)
     this.setState({ oneSignalId: device.userId })
   }
 
   _onReceived = (notification) => {
-    // console.log('Notification received: ', notification)
-    // console.log(notification.payload.additionalData)
-    console.warn(notification)
     this.setState({
       hasUnreadNotification: true
     })
@@ -188,11 +183,6 @@ class App extends Component {
 
   _onOpened = ({ notification }) => {
     NavigationService.setNotification(notification.payload.additionalData)
-    // console.log('Message: ', openResult.notification.payload.body)
-    // console.log('Data: ', openResult.notification.payload.additionalData)
-    // console.log('isActive: ', openResult.notification.isAppInFocus)
-    // console.log('openResult: ', openResult)
-    // this._navigate()
     if (notification.isAppInFocus) {
       NavigationService.checkNotifications()
     }
@@ -292,7 +282,6 @@ class App extends Component {
 
   _setPin = (pin, callback) => {
     this.setState({ pin }, () => {
-      // this._loadUserData()
       callback()
     })
   }
