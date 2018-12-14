@@ -307,10 +307,10 @@
         "later": "Bekräfta senare"
       },
       "backupMessage": "Du kan alltid få tillgång till dina ord genom att gå till säkerhetskopian via app inställningarna      ",
-      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
+      "seedExplanation": "Nyckelns seed är en läsbar representation av din plånbok. Dessa ord, kan i den exakta ordningen, användas för att återskapa din plånbok."
     },
     "restore": {
-      "title": "RESTORE WALLET",
+      "title": "ÅTERSKAPA PLÅNBOK",
       "explanation": "För att återställa din plånbok, ange samma 12 ord som du skrev på papper när du skapade din plånbok för första gången. Om du anger en annan ordsekvens skapas en ny tom plånbok.",
       "placeholder": "Var god skriv dina 12 seed ord här",
       "success": "Lyckad återställning av pånboken!",
@@ -340,15 +340,15 @@
     "minimumAmount": "Minsta belopp för alla utgående transaktioner är 0,000001."
   },
   "menu": {
-    "title": "MENU"
+    "title": "MENY"
   },
   "settings": {
     "title": "INSTÄLLNINGAR",
     "sectionTitles": {
       "wallet": "PLÅNBOK",
       "security": "SÄKERHET",
-      "notification": "NOTIFICATIONS",
-      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
+      "notification": "NOTIFIKATIONER",
+      "idiomAndLocalization": "SPRÅK OCH PLATS",
       "accounts": "HANTERING AV KONTON"
     },
     "notifications": {
@@ -382,11 +382,11 @@
         },
         "mainNode": "Huvudnoden",
         "solidityNode": "Soliditet-nod",
-        "testNet": "TestNet"
+        "testNet": "TestNät"
       }
     },
     "backup": {
-      "title": "Backup Wallet"
+      "title": "1"
     },
     "restore": {
       "title": "Återställ Plånbok"
