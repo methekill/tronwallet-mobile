@@ -654,9 +654,12 @@
     }
   },
   "notifications": {
-    "title": "PEMBERITAHUAN"
-  },
-  "news": {
-    "title": "BERITA"
+    "title": "PEMBERITAHUAN",
+    "notifications": {
+      "title": "TRANSACTIONS"
+    },
+    "signals": {
+      "title": "SIGNALS"
+    }
   }
 }
