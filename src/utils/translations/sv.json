@@ -289,7 +289,7 @@
         "title": "Fel Kombination",
         "message": "Valda ord matchar inte. Se till att du skrev orden i rätt ordning."
       },
-      "success": "Lyckad bekräftelse av plånboken",
+      "success": "Plånboken är nu bekräftad",
       "explanation": "Välj orden nedan i rätt ordning för att bekräfta din hemliga fras.",
       "button": {
         "reset": "NOLLSTÄLL ORD",
@@ -302,7 +302,7 @@
       "error": "Oj, vi har ett problem. Vänligen starta om applikationen.",
       "generateNew": "Detta kommer att generera en helt ny plånbok.",
       "button": {
-        "written": "JAG HAR SKRIVIT NER DET",
+        "written": "JAG HAR DET NEDSKRIVET",
         "newSeed": "FÅ NYA SEED",
         "later": "Bekräfta senare"
       },
@@ -312,9 +312,9 @@
     "restore": {
       "title": "ÅTERSKAPA PLÅNBOK",
       "explanation": "För att återställa din plånbok, ange samma 12 ord som du skrev på papper när du skapade din plånbok för första gången. Om du anger en annan ordsekvens skapas en ny tom plånbok.",
-      "placeholder": "Var god skriv dina 12 seed ord här",
+      "placeholder": "Var vänlig skriv dina 12 seed ord här",
       "success": "Lyckad återställning av pånboken!",
-      "warning": "Återställ seed kommer att radera all data på den här enheten och hämta information från nätverket för det återställda kontot.",
+      "warning": "Återställa ditt seed kommer att radera all data på den här enheten och hämta information från nätverket för det återställda kontot.",
       "error": "Hoppsan. Ser ut som att orden du skrev är inte ett giltigt mnemoniskt seed. Kontrollera efter ett stavfel och försök igen.",
       "button": "ÅTERSTÄLL"
     }
