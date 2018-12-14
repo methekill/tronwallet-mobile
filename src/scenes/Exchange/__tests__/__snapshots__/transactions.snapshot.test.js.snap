@@ -58,11 +58,17 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "background": "#191A2A",
-      "children": <React.Fragment>
+      "children": Array [
         <NavigationHeader
           onBack={[Function]}
+          rightButton={
+            <LockPin
+              locked={true}
+              onPress={[Function]}
+            />
+          }
           title="Exchange"
-        />
+        />,
         <TabViewAnimated
           canJumpToTab={[Function]}
           initialLayout={
@@ -73,6 +79,7 @@ ShallowWrapper {
           }
           navigationState={
             Object {
+              "askPinEx": true,
               "exchangeData": Object {
                 "createTime": 1542073914000,
                 "creatorAddress": "TNFtRfcnATHXmPhQjf5voQHsWykCvXAjkK",
@@ -86,6 +93,7 @@ ShallowWrapper {
               },
               "index": 0,
               "lastTransactions": Array [],
+              "modalVisible": false,
               "refreshingExchange": false,
               "routes": Array [
                 Object {
@@ -104,18 +112,114 @@ ShallowWrapper {
           renderPager={[Function]}
           renderScene={[Function]}
           useNativeDriver={false}
-        />
-      </React.Fragment>,
+        />,
+        <ActionModal
+          isVisible={false}
+          locked={true}
+          onClose={[Function]}
+          toggleLock={[Function]}
+        />,
+      ],
     },
     "ref": null,
-    "rendered": Object {
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "onBack": [Function],
+          "rightButton": <LockPin
+            locked={true}
+            onPress={[Function]}
+          />,
+          "title": "Exchange",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "canJumpToTab": [Function],
+          "initialLayout": Object {
+            "height": 0,
+            "width": 750,
+          },
+          "navigationState": Object {
+            "askPinEx": true,
+            "exchangeData": Object {
+              "createTime": 1542073914000,
+              "creatorAddress": "TNFtRfcnATHXmPhQjf5voQHsWykCvXAjkK",
+              "exchangeId": 15,
+              "firstTokenBalance": 11738109,
+              "firstTokenId": "TWX",
+              "price": 0.4953046649179027,
+              "secondTokenBalance": 5813930099903,
+              "secondTokenId": "TRX",
+              "variation": "-4.3394",
+            },
+            "index": 0,
+            "lastTransactions": Array [],
+            "modalVisible": false,
+            "refreshingExchange": false,
+            "routes": Array [
+              Object {
+                "key": "buy",
+                "title": "Buy",
+              },
+              Object {
+                "key": "sell",
+                "title": "Sell",
+              },
+            ],
+          },
+          "onIndexChange": [Function],
+          "renderHeader": [Function],
+          "renderPager": [Function],
+          "renderScene": [Function],
+          "useNativeDriver": false,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "isVisible": false,
+          "locked": true,
+          "onClose": [Function],
+          "toggleLock": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
+      "nodeType": "class",
       "props": Object {
+        "background": "#191A2A",
         "children": Array [
           <NavigationHeader
             onBack={[Function]}
+            rightButton={
+              <LockPin
+                locked={true}
+                onPress={[Function]}
+              />
+            }
             title="Exchange"
           />,
           <TabViewAnimated
@@ -128,6 +232,7 @@ ShallowWrapper {
             }
             navigationState={
               Object {
+                "askPinEx": true,
                 "exchangeData": Object {
                   "createTime": 1542073914000,
                   "creatorAddress": "TNFtRfcnATHXmPhQjf5voQHsWykCvXAjkK",
@@ -141,6 +246,7 @@ ShallowWrapper {
                 },
                 "index": 0,
                 "lastTransactions": Array [],
+                "modalVisible": false,
                 "refreshingExchange": false,
                 "routes": Array [
                   Object {
@@ -160,6 +266,12 @@ ShallowWrapper {
             renderScene={[Function]}
             useNativeDriver={false}
           />,
+          <ActionModal
+            isVisible={false}
+            locked={true}
+            onClose={[Function]}
+            toggleLock={[Function]}
+          />,
         ],
       },
       "ref": null,
@@ -170,6 +282,10 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "onBack": [Function],
+            "rightButton": <LockPin
+              locked={true}
+              onPress={[Function]}
+            />,
             "title": "Exchange",
           },
           "ref": null,
@@ -187,6 +303,7 @@ ShallowWrapper {
               "width": 750,
             },
             "navigationState": Object {
+              "askPinEx": true,
               "exchangeData": Object {
                 "createTime": 1542073914000,
                 "creatorAddress": "TNFtRfcnATHXmPhQjf5voQHsWykCvXAjkK",
@@ -200,6 +317,7 @@ ShallowWrapper {
               },
               "index": 0,
               "lastTransactions": Array [],
+              "modalVisible": false,
               "refreshingExchange": false,
               "routes": Array [
                 Object {
@@ -222,185 +340,21 @@ ShallowWrapper {
           "rendered": null,
           "type": [Function],
         },
-      ],
-      "type": Symbol(react.fragment),
-    },
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "background": "#191A2A",
-        "children": <React.Fragment>
-          <NavigationHeader
-            onBack={[Function]}
-            title="Exchange"
-          />
-          <TabViewAnimated
-            canJumpToTab={[Function]}
-            initialLayout={
-              Object {
-                "height": 0,
-                "width": 750,
-              }
-            }
-            navigationState={
-              Object {
-                "exchangeData": Object {
-                  "createTime": 1542073914000,
-                  "creatorAddress": "TNFtRfcnATHXmPhQjf5voQHsWykCvXAjkK",
-                  "exchangeId": 15,
-                  "firstTokenBalance": 11738109,
-                  "firstTokenId": "TWX",
-                  "price": 0.4953046649179027,
-                  "secondTokenBalance": 5813930099903,
-                  "secondTokenId": "TRX",
-                  "variation": "-4.3394",
-                },
-                "index": 0,
-                "lastTransactions": Array [],
-                "refreshingExchange": false,
-                "routes": Array [
-                  Object {
-                    "key": "buy",
-                    "title": "Buy",
-                  },
-                  Object {
-                    "key": "sell",
-                    "title": "Sell",
-                  },
-                ],
-              }
-            }
-            onIndexChange={[Function]}
-            renderHeader={[Function]}
-            renderPager={[Function]}
-            renderScene={[Function]}
-            useNativeDriver={false}
-          />
-        </React.Fragment>,
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "children": Array [
-            <NavigationHeader
-              onBack={[Function]}
-              title="Exchange"
-            />,
-            <TabViewAnimated
-              canJumpToTab={[Function]}
-              initialLayout={
-                Object {
-                  "height": 0,
-                  "width": 750,
-                }
-              }
-              navigationState={
-                Object {
-                  "exchangeData": Object {
-                    "createTime": 1542073914000,
-                    "creatorAddress": "TNFtRfcnATHXmPhQjf5voQHsWykCvXAjkK",
-                    "exchangeId": 15,
-                    "firstTokenBalance": 11738109,
-                    "firstTokenId": "TWX",
-                    "price": 0.4953046649179027,
-                    "secondTokenBalance": 5813930099903,
-                    "secondTokenId": "TRX",
-                    "variation": "-4.3394",
-                  },
-                  "index": 0,
-                  "lastTransactions": Array [],
-                  "refreshingExchange": false,
-                  "routes": Array [
-                    Object {
-                      "key": "buy",
-                      "title": "Buy",
-                    },
-                    Object {
-                      "key": "sell",
-                      "title": "Sell",
-                    },
-                  ],
-                }
-              }
-              onIndexChange={[Function]}
-              renderHeader={[Function]}
-              renderPager={[Function]}
-              renderScene={[Function]}
-              useNativeDriver={false}
-            />,
-          ],
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "isVisible": false,
+            "locked": true,
+            "onClose": [Function],
+            "toggleLock": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
         },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "onBack": [Function],
-              "title": "Exchange",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "canJumpToTab": [Function],
-              "initialLayout": Object {
-                "height": 0,
-                "width": 750,
-              },
-              "navigationState": Object {
-                "exchangeData": Object {
-                  "createTime": 1542073914000,
-                  "creatorAddress": "TNFtRfcnATHXmPhQjf5voQHsWykCvXAjkK",
-                  "exchangeId": 15,
-                  "firstTokenBalance": 11738109,
-                  "firstTokenId": "TWX",
-                  "price": 0.4953046649179027,
-                  "secondTokenBalance": 5813930099903,
-                  "secondTokenId": "TRX",
-                  "variation": "-4.3394",
-                },
-                "index": 0,
-                "lastTransactions": Array [],
-                "refreshingExchange": false,
-                "routes": Array [
-                  Object {
-                    "key": "buy",
-                    "title": "Buy",
-                  },
-                  Object {
-                    "key": "sell",
-                    "title": "Sell",
-                  },
-                ],
-              },
-              "onIndexChange": [Function],
-              "renderHeader": [Function],
-              "renderPager": [Function],
-              "renderScene": [Function],
-              "useNativeDriver": false,
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-        ],
-        "type": Symbol(react.fragment),
-      },
+      ],
       "type": [Function],
     },
   ],
