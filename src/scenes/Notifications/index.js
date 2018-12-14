@@ -29,7 +29,7 @@ class Notifications extends Component {
     this.setState({
       refreshing: true
     }, () => {
-      getAllNotifications(1, 100)
+      getAllNotifications(0, 100)
         .then(list => {
           this.setState({
             list,
