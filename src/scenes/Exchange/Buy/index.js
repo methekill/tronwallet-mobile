@@ -39,8 +39,9 @@ class BuyScene extends Component {
 
   _submit = () => {
     const { buyAmount, estimatedCost } = this.state
-    const { balances, publicKey } = this.props.context
-    const { firstTokenBalance, secondTokenBalance, firstTokenId, secondTokenId } = this.props.exchangeData
+    const { askPinEx, exchangeData, context } = this.props
+    const { balances, publicKey } = context
+    const { firstTokenBalance, secondTokenBalance, firstTokenId, secondTokenId } = exchangeData
 
     if (buyAmount <= 0 || !buyAmount) {
       this.buyAmount.focus()
@@ -70,11 +71,15 @@ class BuyScene extends Component {
       return
     }
 
-    this.props.navigation.navigate('Pin', {
-      shouldGoBack: true,
-      testInput: pin => pin === this.props.context.pin,
-      onSuccess: this._exchangeToken
-    })
+    if (askPinEx) {
+      this.props.navigation.navigate('Pin', {
+        shouldGoBack: true,
+        testInput: pin => pin === this.props.context.pin,
+        onSuccess: this._exchangeToken
+      })
+    } else {
+      this._exchangeToken()
+    }
   }
 
   _exchangeToken = async () => {

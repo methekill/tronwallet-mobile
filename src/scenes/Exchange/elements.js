@@ -130,3 +130,11 @@ export const TransactionRow = styled.View`
 export const TransactionHeader = TransactionRow.extend`
   padding-horizontal: ${Spacing.medium};
 `
+
+export const ModalContainer = Utils.View.extend`
+  elevation: 5;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.54);
+  background-color : ${Colors.dusk};
+  padding: ${Spacing.large}px;
+  border-radius: 5px;
+`

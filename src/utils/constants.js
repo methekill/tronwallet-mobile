@@ -7,6 +7,7 @@ export const ENCRYPTED_PIN = '@TronWallet:encryptedPin'
 export const USER_FILTERED_TOKENS = '@TronWallet:userFilteredTokens'
 export const TOKENS_VISIBLE = '@TronWallet:tokensVisibility'
 export const FAVORITE_EXCHANGES = '@TronWallet:favoriteExchanges'
+export const ASK_PIN_EX = '@TronWallet:askPinEx'
 export const ADD = 'ADD'
 export const EDIT = 'EDIT'
 export const WALLET_TOKENS = ['TRX', 'TWX']

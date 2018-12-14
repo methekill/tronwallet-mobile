@@ -26,6 +26,7 @@
   "time" : "Time",
   "account": "Account",
   "restore": "Restore",
+  "security" : "Security",
   "error": {
     "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
     "buildingTransaction": "Error while building transaction, try again.",
@@ -87,7 +88,8 @@
     "estimatedCost": "ESTIMATED COST",
     "preview": "Search by the Token name",
     "notFound": "Exchanges not found",
-    "error": "Exchange not executed. Please review your input values and try again."
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "You are about to remove this account. You can restore it later in the settings",
   "components": {

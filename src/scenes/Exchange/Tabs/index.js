@@ -9,11 +9,15 @@ import SellScene from '../Sell'
 import BuyScene from '../Buy'
 import NavigationHeader from '../../../components/Navigation/Header'
 import { SafeAreaView } from '../../../components/Utils'
+import LockPin from '../Lock'
+import ActionModal from '../ActionModal'
 
 // Utils
 import tl from '../../../utils/i18n'
 import { withContext } from '../../../store/context'
 import { logSentry } from '../../../utils/sentryUtils'
+import Async from '../../../utils/asyncStorageUtils'
+import { ASK_PIN_EX } from '../../../utils/constants'
 
 // Service
 import TronStreamSocket from '../../../services/socket'
@@ -51,12 +55,15 @@ export class ExchangeTabs extends Component {
         price: 0
       }),
     lastTransactions: [],
-    refreshingExchange: false
+    refreshingExchange: false,
+    askPinEx: true,
+    modalVisible: false
   }
 
   componentDidMount () {
     this._setExchangeSocket()
     this._setRefreshLastExchanges()
+    this._loadAskPin()
   }
 
   componentWillUnmount () {
@@ -85,6 +92,11 @@ export class ExchangeTabs extends Component {
     }
   }
 
+  _loadAskPin = async () => {
+    const askPinEx = await Async.get(ASK_PIN_EX, 'true')
+    this.setState({askPinEx: askPinEx === 'true'})
+  }
+
   _setExchangeSocket = () => {
     this.exchangeSocket = TronStreamSocket()
 
@@ -97,7 +109,21 @@ export class ExchangeTabs extends Component {
     })
   }
 
+  _toggleLock = () => {
+    this.setState({askPinEx: !this.state.askPinEx})
+    Async.set(ASK_PIN_EX, `${!this.state.askPinEx}`)
+  }
+
+  _setModalVisibility = visible => this.setState({modalVisible: visible})
+
   _handleIndexChange = index => this.setState({ index })
+
+  _renderRightButtonNav = () => (
+    <LockPin
+      locked={this.state.askPinEx}
+      onPress={() => this._setModalVisibility(true)}
+    />
+  )
 
   _renderHeader = props => (
     <TabBar
@@ -140,19 +166,24 @@ export class ExchangeTabs extends Component {
   render () {
     return (
       <SafeAreaView>
-        <React.Fragment>
-          <NavigationHeader
-            title={tl.t('ex')}
-            onBack={() => this.props.navigation.goBack()}
-          />
-          <TabViewAnimated
-            navigationState={this.state}
-            renderScene={this._renderScene}
-            renderHeader={this._renderHeader}
-            onIndexChange={this._handleIndexChange}
-            initialLayout={initialLayout}
-          />
-        </React.Fragment>
+        <NavigationHeader
+          title={tl.t('ex')}
+          onBack={() => this.props.navigation.goBack()}
+          rightButton={this._renderRightButtonNav()}
+        />
+        <TabViewAnimated
+          navigationState={this.state}
+          renderScene={this._renderScene}
+          renderHeader={this._renderHeader}
+          onIndexChange={this._handleIndexChange}
+          initialLayout={initialLayout}
+        />
+        <ActionModal
+          isVisible={this.state.modalVisible}
+          locked={this.state.askPinEx}
+          onClose={() => this._setModalVisibility(false)}
+          toggleLock={this._toggleLock}
+        />
       </SafeAreaView>
     )
   }

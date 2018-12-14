@@ -73,7 +73,7 @@ ExchangeItem.propTypes = {
     firstTokenImage: PropTypes.string,
     price: PropTypes.number,
     exchangeId: PropTypes.number,
-    variation: PropTypes.number,
+    variation: PropTypes.oneOfType([null, PropTypes.number]),
     favorited: PropTypes.bool.isRequired
   }).isRequired
 }

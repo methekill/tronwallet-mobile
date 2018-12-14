@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { FlatList, ActivityIndicator, Alert, Clipboard } from 'react-native'
 // import MixPanel from 'react-native-mixpanel'
 import moment from 'moment'
@@ -16,7 +16,7 @@ import tl from '../../../utils/i18n'
 // Services
 import { ONE_TRX } from '../../../services/client'
 
-export class LatestTransactions extends Component {
+export class LatestTransactions extends PureComponent {
     _onCopyText = async text => {
       await Clipboard.setString(text)
       Alert.alert('Clipboard', 'Text copied')
