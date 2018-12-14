@@ -199,6 +199,9 @@ const AppTabs = createMaterialBottomTabNavigator({
       } else if (routeName === 'Exchange') {
         iconName = 'exchange'
         iconSize = 22
+      } else if (routeName === 'TronWebview') {
+        iconName = `earth,-globe,-planet,-world,-universe`
+        iconSize = 22
       }
 
       return (<TWIcon name={iconName} size={iconSize} color={tintColor} />)
