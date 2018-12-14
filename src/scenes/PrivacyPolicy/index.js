@@ -8,16 +8,25 @@ import ButtonGradient from './../../components/ButtonGradient'
 import { PolicyText } from './elements'
 import { Colors, Spacing } from './../../components/DesignSystem'
 import tl from '../../utils/i18n'
+import Async from './../../utils/asyncStorageUtils'
+import { USER_PRIVACY } from './../../utils/constants'
 
 class PrivacyPolicy extends Component {
   state = {
     userAccepted: false
   }
 
+  async componentDidMount () {
+    if (await Async.get(USER_PRIVACY, false)) {
+      this.props.navigation.navigate('First', this.props.navigation.state)
+    }
+  }
+
   onPressConfirm = () => {
     if (!this.state.userAccepted) {
       Alert.alert(tl.t('warning'), tl.t('privacyPolicy.error'))
     } else {
+      Async.set(USER_PRIVACY, 'true')
       this.props.navigation.navigate('First', this.props.navigation.state)
       MixPanel.track('Privacy Policy')
     }
