@@ -428,10 +428,10 @@
       "title": "Vem accepterar TRX?"
     },
     "market": {
-      "title": "Market"
+      "title": "Marknad"
     },
     "helpCenter": {
-      "title": "Help Center"
+      "title": "Hjälp Centrum"
     },
     "accounts": {
       "title": "Konton",
@@ -441,8 +441,8 @@
     },
     "partners": "PARTNERS",
     "askPin": "Fråga alltid efter PIN-kod",
-    "askBiometry": "Activate Biometry",
-    "verifiedTokensOnly": "Verified tokens only"
+    "askBiometry": "Aktivera Biometri",
+    "verifiedTokensOnly": "Verifierade tokens endast"
   },
   "submitTransaction": {
     "title": "TRANSAKTIONS DETALJER",
@@ -455,11 +455,11 @@
       "submit": "SÄND TRANSAKTION"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "Kunde inte ladda transaktionsdata"
     },
     "exchange": {
-      "send": "Sending {{sendtoken}}",
-      "receive": "Receiving {{receivetoken}}",
+      "send": "Skicka {{sendtoken}}",
+      "receive": "Mottar {{receivetoken}}",
       "error": "Check your latest transactions to confirm the received amount."
     },
     "disconnectedMessage": "Det verkar som om du är bortkopplad. Återanslut till internet innan du fortsätter med transaktionen.",
