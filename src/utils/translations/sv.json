@@ -306,7 +306,7 @@
         "newSeed": "FÅ NYA SEED",
         "later": "Bekräfta senare"
       },
-      "backupMessage": "Du kan alltid få tillgång till dina ord genom att gå till säkerhetskopian via app inställningarna      ",
+      "backupMessage": "Du kan alltid få tillgång till dina ord genom att gå till säkerhetskopian via inställningarna i appen      ",
       "seedExplanation": "Nyckelns seed är en läsbar representation av din plånbok. Dessa ord, kan i den exakta ordningen, användas för att återskapa din plånbok."
     },
     "restore": {
@@ -578,7 +578,7 @@
   },
   "balanceToken": {
     "updating": "Uppdaterar token information. Vänligen vänta några sekunder.",
-    "notAvailable": "Token information är inte tillgänglig"
+    "notAvailable": "Information om Token är inte tillgänglig"
   },
   "biometry": {
     "register": {
