@@ -7,6 +7,7 @@ export const HeaderContainer = styled(LinearGradient).attrs({
   start: { x: 0, y: 0 },
   end: { x: 1, y: 0 }
 })`
+  z-index: 2;
   display: flex;
   flex: 0.25;
   width: 100%;
@@ -20,9 +21,11 @@ export const PageWrapper = styled.View`
   flex: 1;
   flex-direction: column;
   height: 100%;
+  background-color: ${Colors.lightBackground}
 `
 
 export const HeaderView = styled.View`
+  z-index: 3;
   width: 100%;
   height: 70;
   justify-content: center;
@@ -40,4 +43,8 @@ export const URLInput = styled.TextInput`
 export const BlankPage = styled.View`
   flex: 0.75;
   background-color: ${Colors.lightBackground};
+`
+
+export const WebViewLimit = styled.View`
+  flex: 0.001;
 `

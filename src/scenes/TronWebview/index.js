@@ -3,7 +3,7 @@ import { WebView, Alert } from 'react-native'
 import withContext from '../../utils/hocs/withContext'
 
 import { Text } from '../../components/Utils'
-import { HeaderContainer, PageWrapper, HeaderView, URLInput, BlankPage } from './elements'
+import { HeaderContainer, PageWrapper, HeaderView, URLInput, BlankPage, WebViewLimit } from './elements'
 
 class TronWebView extends Component {
   constructor (props) {
@@ -45,11 +45,10 @@ class TronWebView extends Component {
   }
 
   configInstance = () => {
-    const { initialized } = this.state
     const { accounts } = this.props.context
     const { balance, address, tronPower, confirmed } = accounts.find(acc => acc.alias === '@main_account')
 
-    if (!initialized && this.webview) {
+    if (this.webview) {
       this.sendMessage('ADDRESS', {
         balance: balance, address, tronPower, confirmed
       })
@@ -58,15 +57,15 @@ class TronWebView extends Component {
     }
   }
 
-  // injectDebuggScript = () => {
-  //   return `
-  //     document.addEventListener("message", function(data) {
-  //       var JData = JSON.parse(data.data);
-  //       alert(data.data)
+  injectDebuggScript = () => {
+    return `
+      document.addEventListener("message", function(data) {
+        var JData = JSON.parse(data.data);
+        alert(data.data)
 
-  //     });
-  //   `;
-  // }
+      });
+    `
+  }
 
   injectjs () {
     let jsCode = `      
@@ -101,7 +100,7 @@ class TronWebView extends Component {
 
         { isPageVisible ? (
           <WebView
-            style={{ flex: 0.75 }}
+            style={{ display: 'flex', flex: 1, height: '100%' }}
             ref={(ref) => (this.webview = ref)}
             javaScriptEnabled
             automaticallyAdjustContentInsets
@@ -110,6 +109,8 @@ class TronWebView extends Component {
             onMessage={this.handleMessage}
             source={{uri: url}} />
         ) : <BlankPage />}
+
+        <WebViewLimit />
 
       </PageWrapper>
     )
