@@ -352,6 +352,41 @@ class Settings extends Component {
         ]
       },
       {
+        title: tl.t('settings.sectionTitles.notification'),
+        data: [
+          {
+            title: tl.t('settings.notifications.title'),
+            icon: 'user,-person,-avtar,-profile-picture,-dp',
+            right: () => {
+              if ((this.state.subscriptionStatus === null) || this.state.changingSubscription) {
+                return <ActivityIndicator size='small' color={Colors.primaryText} />
+              }
+              return (
+                <Switch
+                  circleStyle={{ backgroundColor: Colors.orange }}
+                  backgroundActive={Colors.yellow}
+                  backgroundInactive={Colors.secondaryText}
+                  value={this.state.subscriptionStatus}
+                  onSyncPress={this._changeSubscription}
+                />
+              )
+            }
+          },
+          {
+            title: tl.t('notifications.signals.title'),
+            icon: 'message,-chat,-bubble,-text,-rounded',
+            onPress: () => this.props.navigation.navigate('Signals'),
+            hide: this.state.subscriptionStatus === null
+          },
+          {
+            title: tl.t('notifications.notifications.title'),
+            icon: 'message,-chat,-bubble,-text,-rounded',
+            onPress: () => this.props.navigation.navigate('Notifications'),
+            hide: this.state.subscriptionStatus === null
+          }
+        ]
+      },
+      {
         title: tl.t('settings.sectionTitles.security'),
         data: [
           {
@@ -413,7 +448,7 @@ class Settings extends Component {
                     backgroundActive={Colors.yellow}
                     backgroundInactive={Colors.secondaryText}
                     value={this.props.context.useBiometry}
-                    onAsyncPress={(callback) => {        
+                    onAsyncPress={(callback) => {
                       this._getPinCallback((pin) => {
                         this._saveBiometry(pin)
                       })
@@ -432,42 +467,7 @@ class Settings extends Component {
             }
           }
         ]
-      },
-      {
-        title: tl.t('settings.sectionTitles.notification'),
-        data: [
-          {
-            title: tl.t('settings.notifications.title'),
-            icon: 'user,-person,-avtar,-profile-picture,-dp',
-            right: () => {
-              if ((this.state.subscriptionStatus === null) || this.state.changingSubscription) {
-                return <ActivityIndicator size='small' color={Colors.primaryText} />
-              }
-              return (
-                <Switch
-                  circleStyle={{ backgroundColor: Colors.orange }}
-                  backgroundActive={Colors.yellow}
-                  backgroundInactive={Colors.secondaryText}
-                  value={this.state.subscriptionStatus}
-                  onSyncPress={this._changeSubscription}
-                />
-              )
-            }
-          },
-          {
-            title: tl.t('notifications.notifications.title'),
-            icon: 'message,-chat,-bubble,-text,-rounded',
-            onPress: () => this.props.navigation.navigate('Notifications'),
-            hide: this.state.subscriptionStatus === null
-          },
-          {
-            title: tl.t('notifications.signals.title'),
-            icon: 'message,-chat,-bubble,-text,-rounded',
-            onPress: () => this.props.navigation.navigate('Signals'),
-            hide: this.state.subscriptionStatus === null
-          }
-        ]
-      },
+      },      
       {
         title: tl.t('settings.sectionTitles.idiomAndLocalization'),
         data: [
