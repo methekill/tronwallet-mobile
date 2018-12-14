@@ -2,7 +2,7 @@
   "relativeTime": {
     "future": "Om %s",
     "past": "%s sedan",
-    "s": "Ett par sekunder",
+    "s": "ett par sekunder",
     "ss": "%d sekunder",
     "m": "en minut",
     "mm": "%d minuter",
@@ -28,16 +28,16 @@
   "error": {
     "default": "Oj någonting gick fel. Försök igen senare, om felet återkommer försök att uppdatera nätverks insträllningar.",
     "buildingTransaction": "Ett fel uppstod vid uppbyggnaden av överföringen, försök igen.",
-    "gettingTransaction": "Ett fel inträffade vid mottagandet av överföringen.",
+    "gettingTransaction": "Ett fel inträffade med att ta emot överföringen.",
     "clipboardCopied": "Något gick fel med kopieringen",
-    "hideAccount": "Något gick fel med att ta bort konto, försök igen \""
+    "hideAccount": "Något gick fel med att ta bort konto, försök igen'"
   },
   "avaliable": "TILLGÄNGLIGT",
   "frozen": "FRUSNA",
-  "tronPower": "TRON KRAFT",
+  "tronPower": "TRON POWER",
   "trxPrice": "TRX PRIS",
-  "confirmed": "Avklarat",
-  "unconfirmed": "Oavklarad",
+  "confirmed": "Bekräftat",
+  "unconfirmed": "Obekräftat",
   "copyAddress": "KOPIERA ADRESS",
   "transactionType": {
     "transfer": "Överföring",
