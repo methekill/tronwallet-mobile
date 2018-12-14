@@ -44,7 +44,7 @@ export class ExchangeScene extends Component {
 
     _loadData = async () => {
       try {
-        const [exchangeList, favoriteList] = await Promise.all([WalletClient.getExchangesList(), Async.get(FAVORITE_EXCHANGES, [15])])
+        const [exchangeList, favoriteList] = await Promise.all([WalletClient.getExchangesList(), Async.get(FAVORITE_EXCHANGES, '[]')])
         const parsedFavoriteList = JSON.parse(favoriteList)
         const sortedExList = this._sortExList(exchangeList, parsedFavoriteList)
 

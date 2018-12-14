@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Alert } from 'react-native'
+import { Alert, Vibration } from 'react-native'
 import RNTron from 'react-native-tron'
 import MixPanel from 'react-native-mixpanel'
 
@@ -108,6 +108,7 @@ class BuyScene extends Component {
 
       if (code === 'SUCCESS') {
         this.setState({result: 'success', loading: false})
+        Vibration.vibrate()
         loadUserData()
       } else {
         this.setState({result: 'fail', loading: false})
