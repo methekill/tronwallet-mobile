@@ -4,7 +4,6 @@ import { createMaterialTopTabNavigator, SafeAreaView } from 'react-navigation'
 import { Colors, ScreenSize } from './../../components/DesignSystem'
 import NavigationHeader from './../../components/Navigation/Header'
 
-const tabWidth = ScreenSize.width / 2
 const indicatorWidth = 15
 const defaultCardStyle = {
   shadowColor: 'transparent',
@@ -12,6 +11,8 @@ const defaultCardStyle = {
 }
 
 export default function createCustomTopTabNavigator (routeConfigMap, tabConfig = { tabBarOptions: {} }) {
+  const tabWidth = Math.floor(ScreenSize.width / Object.keys(routeConfigMap).length)
+
   const NotificationsTabs = createMaterialTopTabNavigator(routeConfigMap, {
     tabBarOptions: {
       activeTintColor: Colors.primaryText,
