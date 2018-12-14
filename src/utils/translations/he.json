@@ -654,9 +654,12 @@
     }
   },
   "notifications": {
-    "title": "התראות"
-  },
-  "news": {
-    "title": "חדשות"
+    "title": "התראות",
+    "notifications": {
+      "title": "TRANSACTIONS"
+    },
+    "signals": {
+      "title": "SIGNALS"
+    }
   }
 }
