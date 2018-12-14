@@ -37,7 +37,7 @@ class TronWebView extends Component {
     }
   }
 
-  sendMessage = (type, payload) => {
+  _sendMessage = (type, payload) => {
     this.webview.postMessage(JSON.stringify({
       type,
       payload
@@ -49,7 +49,7 @@ class TronWebView extends Component {
     const { balance, address, tronPower, confirmed } = accounts.find(acc => acc.alias === '@main_account')
 
     if (this.webview) {
-      this.sendMessage('ADDRESS', {
+      this._sendMessage('ADDRESS', {
         balance: balance, address, tronPower, confirmed
       })
 
