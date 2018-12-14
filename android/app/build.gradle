@@ -134,6 +134,7 @@ dependencies {
     implementation project(':react-native-device-info')
     implementation project(':react-native-tron')
     implementation project(':react-native-config')
+    implementation project(':react-native-vector-icons')
     implementation (project(':react-native-camera')) {
         exclude group: "com.android.support"
     }
