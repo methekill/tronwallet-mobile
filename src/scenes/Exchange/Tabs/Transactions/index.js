@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import { FlatList, ActivityIndicator, Alert, Clipboard } from 'react-native'
-// import MixPanel from 'react-native-mixpanel'
 import moment from 'moment'
 
 // Design
@@ -84,14 +83,14 @@ export class LatestTransactions extends PureComponent {
             <Utils.Text size='xsmall'>{tl.t('txs')}</Utils.Text>
           </Utils.View>
           <FlatList
-            data={lastTransactions.slice(0, 30)}
+            data={lastTransactions}
             renderItem={this._renderItem}
             ListHeaderComponent={this._renderHeader}
             extraData={refreshingExchange}
             ItemSeparatorComponent={this._renderSeparator}
             keyExtractor={(item) => item.hash}
-            initialNumToRender={20}
-            removeClippedSubviews
+            initialNumToRender={10}
+            maxToRenderPerBatch={10}
           />
         </React.Fragment>
       )
