@@ -32,7 +32,7 @@
     "clipboardCopied": "Något fel med kopiering",
     "hideAccount": "Något gick fel med att ta bort konto, försök igen \""
   },
-  "avaliable": "TILLGÄNGLIG",
+  "avaliable": "TILLGÄNGLIGT",
   "frozen": "FRUSNA",
   "tronPower": "TRON KRAFT",
   "trxPrice": "TRX PRIS",
@@ -195,11 +195,11 @@
       "now": "Du kan låsa upp din TRX nu."
     },
     "error": {
-      "minimumAmount": "Minsta belopp för att frysa en transaktion är 1.",
+      "minimumAmount": "Det minsta beloppet för att frysa en transaktion är 1.",
       "insufficientBalance": "Otillräckligt TRX på saldot",
-      "roundNumbers": "Kan bara att frysa runda tal"
+      "roundNumbers": "Endast runda tal går att frysa"
     },
-    "amount": "FRYS BELOPP",
+    "amount": "FRYS BELOPPET",
     "balance": "Saldo"
   },
   "getVault": {
@@ -470,12 +470,12 @@
       "participateAssetIssueContract": "Delta",
       "transferAssetContract": "Överföra",
       "transferContract": "Överföra",
-      "unfreezeBalanceContract": "Frigör",
+      "unfreezeBalanceContract": "Lås Upp",
       "freezeBalanceContract": "Frys",
       "assetIssueContract": "Skapa",
       "voteWitnessContract": "Rösta",
       "frozenDuration": "Varaktighet",
-      "frozenBalance": "Totalt att frysa"
+      "frozenBalance": "Frys Totalt"
     },
     "errorDic": {
       "contractValidate": "Transaktionsdata är inte giltig. Vänligen försök igen senare.",
@@ -528,7 +528,7 @@
   "votes": {
     "title": "RÖSTER",
     "totalVotes": "TOTALA RÖSTAR",
-    "votesAvailable": "RÖSTAR TILLGÄNGLIG",
+    "votesAvailable": "TILLGÄNGLIGA RÖSTER",
     "search": "Sök",
     "searchPreview": "Suggestions - Most Voted",
     "error": "Oj, något laddades inte korrekt. Försök att ladda om",
