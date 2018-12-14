@@ -551,7 +551,7 @@
       "receiver": "Mottagaren är lika med förfrågan",
       "token": "Det här kontot har inte tecknet för denna transaktion",
       "amount": "Det här kontot har inte tillräckligt med balans.",
-      "description": "Ingen beskrivning finns tillgänglig"
+      "description": "Ingen beskrivning är tillgänglig"
     }
   },
   "buildPayment": {
