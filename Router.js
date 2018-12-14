@@ -7,11 +7,12 @@ import {
   createAppContainer
 } from 'react-navigation'
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
+import createCustomTopTabNavigator from './src/components/Navigation/createCustomTopTabNavigator'
 
 import { Colors, ScreenSize } from './src/components/DesignSystem'
 import { TWIcon } from './src/components/Utils'
 
-import LoadingScene from './src/scenes/Loading'
+import Loading from './src/scenes/Loading'
 import SendScene from './src/scenes/Send'
 import Market from './src/scenes/Market'
 import BalanceScene from './src/scenes/Balance'
@@ -48,6 +49,7 @@ import CreateSeed from './src/scenes/Seed/Create'
 import ImportWallet from './src/scenes/Seed/Import'
 import PrivacyPolicy from './src/scenes/PrivacyPolicy'
 import ContractPreview from './src/scenes/ContractPreview'
+import TronWebview from './src/scenes/TronWebview'
 import Notifications from './src/scenes/Notifications'
 import Signals from './src/scenes/Signals'
 import ExchangeList from './src/scenes/Exchange'
@@ -112,6 +114,16 @@ const AddressBookTabs = createMaterialTopTabNavigator({
   }
 })
 
+const NotificationsTabs = createCustomTopTabNavigator({
+  Notifications
+}, {
+  tabBarOptions: {
+    header: {
+      title: tl.t('notifications.title')
+    }
+  }
+})
+
 const AddressBookStack = createStackNavigator({
   AddressBook: AddressBookTabs,
   EditAddressBookItem,
@@ -129,7 +141,8 @@ const BalanceStack = createStackNavigator({
   PaymentsScene,
   MakePayScene,
   ScanPayScene,
-  TokenDetailScene: TokenInfoScene
+  TokenDetailScene: TokenInfoScene,
+  Signals
 }, {
   mode: 'modal',
   cardStyle: defaultCardStyle
@@ -168,6 +181,7 @@ const AppTabs = createMaterialBottomTabNavigator({
   },
   AddressBook: AddressBookStack,
   Balance: BalanceStack,
+  TronWebview,
   Transactions: TransactionList,
   Participate: ParticipateStack,
   Settings: SettingsStack
@@ -197,6 +211,9 @@ const AppTabs = createMaterialBottomTabNavigator({
       } else if (routeName === 'Exchange') {
         iconName = 'exchange'
         iconSize = 22
+      } else if (routeName === 'TronWebview') {
+        iconName = `earth,-globe,-planet,-world,-universe`
+        iconSize = 22
       }
 
       return (<TWIcon name={iconName} size={iconSize} color={tintColor} />)
@@ -213,9 +230,14 @@ const AppTabs = createMaterialBottomTabNavigator({
   initialRouteName: 'Balance'
 })
 
+const FirstTimeSwitch = createSwitchNavigator({
+  PrivacyPolicy,
+  First: FirstTime
+}, { initialRouteName: 'PrivacyPolicy' })
+
 const RootNavigator = createStackNavigator({
-  Loading: LoadingScene,
-  FirstTime: createSwitchNavigator({ PrivacyPolicy, First: FirstTime }, { initialRouteName: 'PrivacyPolicy' }),
+  Loading,
+  FirstTime: FirstTimeSwitch,
   Pin,
   CreateSeed,
   SeedRestore,
@@ -230,8 +252,7 @@ const RootNavigator = createStackNavigator({
   TransactionSuccess,
   Freeze: FreezeVoteScene,
   Rewards: RewardsScene,
-  Notifications,
-  Signals
+  NotificationsTabs
 }, {
   mode: 'modal',
   headerMode: 'none',

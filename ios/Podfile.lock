@@ -55,7 +55,7 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - "NSData+FastHex (1.0.1)"
-  - OneSignal (2.8.5)
+  - OneSignal (2.9.4)
   - Protobuf (3.6.1)
   - React (0.57.7):
     - React/Core (= 0.57.7)
@@ -70,8 +70,8 @@ PODS:
   - react-native-mixpanel (0.0.6):
     - Mixpanel
     - React
-  - react-native-onesignal (3.2.5):
-    - OneSignal (= 2.8.5)
+  - react-native-onesignal (3.2.11):
+    - OneSignal (= 2.9.4)
     - React
   - React/ART (0.57.7):
     - React/Core
@@ -260,12 +260,12 @@ SPEC CHECKSUMS:
   Mixpanel: 1e94d1d29dfc3d3c66f734d10e29ad86420889fe
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   "NSData+FastHex": a22ad031ee10a4297d0bf4d20cf03406a4476169
-  OneSignal: 42dae269c7eca517aee34963820e1eb922390031
+  OneSignal: a41f5a896177275662da07e23d6a809c0e105a89
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
   react-native-camera: ab22041dcf0403d88f2ae4b9ea3ed2644e680423
   react-native-mixpanel: 0683bc3f3f8db8f9d79a8ba8584ee51030338a2f
-  react-native-onesignal: 4f425b36d3edf595c93c1a8d3618a93b71a85a51
+  react-native-onesignal: f4dddbd062825fb18ea5c4e34da501318cce334d
   ReactNativeFabric: 3912bf9c714d7cc98110eadf06ca6dedef219322
   RNBackgroundFetch: 8c4f77f83c398c659bce82af2f0a885079417b9e
   RNDeviceInfo: 568c5641057313b4912d08a7742ff0b2f753ed5c

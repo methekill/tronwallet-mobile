@@ -5,10 +5,14 @@ import PropTypes from 'prop-types'
 import * as Utils from '../Utils'
 import { Colors } from '../DesignSystem'
 
+// TODO deprecated
+
 const NavigationButtonHeader = ({ title, onPress, disabled }) => {
-  return <TouchableOpacity disabled={disabled} onPress={onPress} style={{ marginRight: 10 }}>
-    <Utils.Text size={'xsmall'} medium color={disabled ? Colors.secondaryText : Colors.primaryText}>{title}</Utils.Text>
-  </TouchableOpacity>
+  return (
+    <TouchableOpacity disabled={disabled} onPress={onPress} style={{ marginRight: 10 }}>
+      <Utils.Text size={'xsmall'} medium color={disabled ? Colors.secondaryText : Colors.primaryText}>{title}</Utils.Text>
+    </TouchableOpacity>
+  )
 }
 
 NavigationButtonHeader.defaultProps = {
