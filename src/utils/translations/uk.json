@@ -656,10 +656,10 @@
   "notifications": {
     "title": "СПОВІЩЕННЯ",
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "ТРАНЗАКЦІЇ"
     },
     "signals": {
-      "title": "SIGNALS"
+      "title": "СИГНАЛИ"
     }
   }
 }
