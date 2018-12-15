@@ -656,10 +656,10 @@
   "notifications": {
     "title": "PEMBERITAHUAN",
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "TRANSAKSI"
     },
     "signals": {
-      "title": "SIGNALS"
+      "title": "ISYARAT"
     }
   }
 }
