@@ -1,6 +1,6 @@
 {
   "relativeTime": {
-    "future": "в %s",
+    "future": "через %s",
     "past": "%s назад",
     "s": "несколько секунд",
     "ss": "%d секунд",
@@ -656,10 +656,10 @@
   "notifications": {
     "title": "УВЕДОМЛЕНИЯ",
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "ТРАНЗАКЦИИ"
     },
     "signals": {
-      "title": "SIGNALS"
+      "title": "СИГНАЛЫ"
     }
   }
 }
