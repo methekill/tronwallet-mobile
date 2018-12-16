@@ -139,7 +139,7 @@
         "body": "Speichern Sie die Adressen Ihrer Freunde \n und Kontakte."
       },
       "multipleaccounts": {
-        "title": "MEHRFACH KONTEN",
+        "title": "MEHRFACH-KONTEN",
         "body": "Sie können mehrere Konten \n in Ihrer Wallet verwalten"
       }
     }
@@ -167,11 +167,11 @@
     },
     "form": {
       "generalError": "Es gab ein Problem bei der Übermittlung des Formulars. Bitte kontaktieren Sie einen Administrator.",
-      "nameError": "Das Namensfeld muss mit einem Buchstaben beginnen, darf maximal 32 Zeichen enthalten und akzeptiert nur Buchstaben, Zahlen und Leerzeichen.",
+      "nameError": "Das Namensfeld muss mit einem Buchstaben beginnen, es darf maximal 32 Zeichen enthalten und akzeptiert nur Buchstaben, Zahlen und Leerzeichen.",
       "addressError": "Etwas stimmt nicht mit der Adresse. Bitte kontrollieren Sie diese auf Tippfehler.",
       "uniqueAddressError": "Der Schlüssel muss einzigartig sein. Bitte wählen Sie eine andere Adresse.",
       "uniqueAliasError": "Namen in Ihrem Adressbuch müssen einzigartig sein. Bitte wählen Sie einen anderen aus.",
-      "name": "Name",
+      "name": "NAME",
       "address": "ADRESSE"
     }
   },
