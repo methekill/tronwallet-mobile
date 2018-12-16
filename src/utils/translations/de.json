@@ -82,21 +82,21 @@
     },
     "estimatedRevenue": "GESCHÄTZTER ERTRAG",
     "estimatedCost": "GESCHÄTZTE KOSTEN",
-    "preview": "Mit dem Tokennamen suchen",
+    "preview": "Nach dem Tokennamen suchen",
     "notFound": "Börse nicht gefunden"
   },
   "hideAccount": "Sie sind dabei dieses Konto zu entfernen. Sie können es später in den Einstellungen wiederherstellen",
   "components": {
     "share": {
       "title": "TronWallet Adresse teilen",
-      "message": "Dies ist meine TronWallet Adresse:\n\n {{address}}\n\nTipp: Nachdem Sie diese kopiert haben, können Sie diese in Ihrer TronWallet-App über die Spezial-Taste einfügen.",
+      "message": "Dies ist meine TronWallet Adresse:\n\n {{address}}\n\nTipp: Nachdem Sie diese kopiert haben, können Sie diese in Ihrer TronWallet-App über die Spezial-Taste auf dem Senden-Bildschirm einfügen.",
       "dialogTitle": "Teilen Sie mit:"
     },
     "QRScanner": {
       "title": "Adressen-Scanner",
       "scan": "Scannen",
       "explanation": "Scannen Sie den QRCode um den Empfänger zu identifizieren",
-      "permissionMessage": "Um den öffentlichen Schlüssel zu scannen benötigt die App Ihre Berechtigung um auf die Kamera zugreifen zu können."
+      "permissionMessage": "Um den öffentlichen Schlüssel zu scannen benötigt die App die Berechtigung auf die Kamera zugreifen zu können."
     },
     "vote": {
       "enterVote": "STIMMENANZAHL EINGEBEN",
@@ -104,22 +104,22 @@
       "setVote": "STIMMEN ABGEBEN",
       "moreVotes": "Wenn Sie mehr Stimmen benötigen, können Sie mehr TRX einfrieren.",
       "confirmVotes": "STIMMEN BESTÄTIGEN",
-      "yourVotes": "Deine Stimmen",
-      "myVotes": "Meine Stimmen",
+      "yourVotes": "Ihre Stimmen",
+      "myVotes": "MEINE STIMMEN",
       "confirm": "BESTÄTIGEN",
       "freeze": "Einfrieren",
       "totalVotes": "Anzahl verfügbarer Stimmen:",
-      "delete": "Löschen",
+      "delete": "LÖSCHEN",
       "set": "EINSTELLEN",
-      "freezeOrLower": "Sie haben nicht genug eingefrorene TRX. Frieren Sie mehr TRX ein, oder reduzieren Sie die Anzahl der Stimmen",
-      "freezeToContinue": "Sie haben nicht genug eingefrorene TRX. Um fortzufahren, frieren Sie mehr TRX ein"
+      "freezeOrLower": "Sie haben nicht genug eingefrorene TRX. Frieren Sie mehr TRX ein oder reduzieren Sie die Anzahl der Stimmen",
+      "freezeToContinue": "Sie haben nicht genug eingefrorene TRX. Frieren Sie mehr TRX ein um fortzufahren"
     }
   },
   "firstTime": {
     "button": {
       "create": "WALLET ERSTELLEN",
       "restore": "WALLET WIEDERHERSTELLEN",
-      "import": "IMPORTIERE WALLET"
+      "import": "WALLET IMPORTIEREN"
     },
     "swiper": {
       "welcome": {
