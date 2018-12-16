@@ -541,14 +541,14 @@
       "token": "Token ungültig",
       "amount": "Betrag ungültig",
       "description": "Beschreibung zu lang",
-      "code": "Zahlungscode ungültig. Bitte scannen Sie einen gültigen"
+      "code": "Zahlungscode ungültig. Bitte scannen Sie einen Gültigen"
     }
   },
   "makePayment": {
     "pay": "BEZAHLEN",
     "confirm": "ZAHLUNG BESTÄTIGEN",
     "error": {
-      "receiver": "Empfänger ist gleich Antragsteller",
+      "receiver": "Empfänger und Antragsteller sind gleich",
       "token": "Dieses Konto besitzt nicht genügend Token für diese Transaktion",
       "amount": "Dieses Konto hat kein ausreichendes Guthaben.",
       "description": "Keine Beschreibung verfügbar"
