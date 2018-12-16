@@ -656,10 +656,10 @@
   "notifications": {
     "title": "NOTIFIKACE",
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "TRANSAKCE"
     },
     "signals": {
-      "title": "SIGNALS"
+      "title": "SIGNÁLY"
     }
   }
 }
