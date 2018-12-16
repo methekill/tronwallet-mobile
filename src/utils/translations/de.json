@@ -231,7 +231,7 @@
     "error": {
       "insufficientBalance": "Nicht genügend Guthaben (TRX) verfügbar um teilzunehmen.",
       "insufficientTrx": {
-        "title": "Sie müssen mindestens im Werte von einen TRX {{token}} kaufen.",
+        "title": "Sie müssen {{token}} im Wert von mindestens einem TRX kaufen.",
         "message": "Momentan kaufen Sie nur {{amount}}."
       },
       "notFound": "Vermögenswert(e) nicht gefunden"
