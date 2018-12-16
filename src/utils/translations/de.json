@@ -187,7 +187,7 @@
     "title": "EINFRIEREN",
     "unfreeze": {
       "title": "FREIGEBEN",
-      "inXTime": "Die Freigabe Ihrer TRX kann jetzt erfolgen.",
+      "inXTime": "Sie können Ihre TRX freigeben",
       "inThreeDays": "Nach einem Zeitraum von drei Tagen können Sie Ihre TRX auftauen und freigeben",
       "inXMinutes": "Sie können Ihre TRX in {{minutes}} Minuten freigeben.",
       "inXHours": "Sie können Ihre TRX in {{hours}} Stunden freigeben.",
