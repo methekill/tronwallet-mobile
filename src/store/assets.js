@@ -22,7 +22,6 @@ const AssetsSchema = {
     percentage: 'float?',
     frozenPercentage: 'float?',
     id: 'string',
-    block: 'int',
     transaction: 'string',
     ownerAddress: 'string',
     name: 'string',
@@ -43,7 +42,7 @@ export default async () => {
   this.assets = this.assets ? this.assets : await Realm.open({
     path: 'Realm.assets',
     schema: [AssetsSchema, FrozenItemSchema],
-    schemaVersion: 9,
+    schemaVersion: 10,
     migration: (oldRealm, newRealm) => {
       if (oldRealm.schemaVersion < 9) {
         const oldObjects = oldRealm.objects('Asset')
