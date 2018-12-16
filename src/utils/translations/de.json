@@ -196,14 +196,14 @@
     },
     "error": {
       "minimumAmount": "Der Mindestbetrag für die Einfrier-Transaktion beträgt 1.",
-      "insufficientBalance": "Unzureichendes TRX Guthaben",
-      "roundNumbers": "Sie können nur glatte Beträge einfrieren"
+      "insufficientBalance": "Unzureichendes TRX-Guthaben",
+      "roundNumbers": "Sie können nur runde Beträge einfrieren"
     },
     "amount": "BETRAG EINFRIEREN",
     "balance": "Guthaben"
   },
   "getVault": {
-    "notInstalled": "Es scheint, dass Sie die Tron Vault nicht auf Ihrem Telefon installiert haben, um mit Ihrer Buchung fortzufahren.",
+    "notInstalled": "Es scheint, dass Sie Tron Vault nicht auf Ihrem Telefon installiert haben, um mit Ihrer Buchung fortzufahren.",
     "downloadHere": "Sie können es hier herunterladen"
   },
   "market": {
