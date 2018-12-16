@@ -1,105 +1,105 @@
 {
   "relativeTime": {
-    "future": "i %s",
+    "future": "Om %s",
     "past": "%s sedan",
-    "s": "en få sekunder",
+    "s": "ett par sekunder",
     "ss": "%d sekunder",
     "m": "en minut",
     "mm": "%d minuter",
-    "h": "ek timma",
+    "h": "en timme",
     "hh": "%d timmar",
     "d": "en dag",
     "dd": "%d dagar",
     "M": "en månad",
     "MM": "%d månader",
     "y": "ett år",
-    "yy": "%d flera år"
+    "yy": "%d år"
   },
-  "success": "Framgång",
+  "success": "Lyckad",
   "warning": "Varning",
   "cancel": "Avbryt",
   "address": "Adress",
   "message": "Meddelande",
   "ex": "Exchange",
-  "ok": "Ok",
+  "ok": "OK",
   "actionModalTitle": "Skulle du vilja",
-  "account": "konto",
-  "restore": "Återställa",
+  "account": "Konto",
+  "restore": "Återställ",
   "error": {
-    "default": "Oj någonting gick fel. försök igen senare, om felet återkommer försök att uppdatera nätverks insträllningarna.",
-    "buildingTransaction": "Fel med att samla överföring, försök igen.",
-    "gettingTransaction": "Fel med att ta imot överföring.",
-    "clipboardCopied": "Något fel med kopiering",
-    "hideAccount": "Något gick fel med att ta bort konto, försök igen \""
+    "default": "Oj någonting gick fel. Försök igen senare, om felet återkommer försök att uppdatera nätverks insträllningar.",
+    "buildingTransaction": "Ett fel uppstod vid uppbyggnaden av överföringen, försök igen.",
+    "gettingTransaction": "Ett fel inträffade med att ta emot överföringen.",
+    "clipboardCopied": "Något gick fel med kopieringen",
+    "hideAccount": "Något gick fel med att ta bort konto, försök igen'"
   },
-  "avaliable": "TILLGÄNGLIG",
+  "avaliable": "TILLGÄNGLIGT",
   "frozen": "FRUSNA",
-  "tronPower": "TRON KRAFT",
+  "tronPower": "TRON POWER",
   "trxPrice": "TRX PRIS",
-  "confirmed": "Avklarat",
-  "unconfirmed": "Oavklarad",
+  "confirmed": "Bekräftat",
+  "unconfirmed": "Obekräftat",
   "copyAddress": "KOPIERA ADRESS",
   "transactionType": {
     "transfer": "Överföring",
     "transferAsset": "Överför Valuta",
     "freeze": "Frys",
-    "unfreeze": "Ofryst",
+    "unfreeze": "Lås Upp",
     "vote": "Rösta",
     "participate": "Delta",
     "create": "Skapa",
     "exchange": "Exchange",
-    "undefined": "Odentifierad Typ"
+    "undefined": "Odefinierad Typ"
   },
-  "close": "Stängt",
+  "close": "Stäng",
   "ends": "Slutar",
-  "clear": "Färdig",
-  "allIn": "Alt In",
+  "clear": "Rensa",
+  "allIn": "Allt",
   "skip": "Hoppa Över",
-  "privateKey": "Privat nyckel",
+  "privateKey": "Privat Nyckel",
   "results": "Resultat",
   "buy": "Köp",
   "sell": "Sälj",
   "filter": "Filter",
   "txs": "Transaktioner",
   "balance": {
-    "title": "Konton",
+    "title": "KONTON",
     "error": {
-      "loadingData": "Ett fel uppstod under data laddning.",
-      "savingCurrency": "Fel med att spara vald valuta"
+      "loadingData": "Ett fel uppstod medans data laddades.",
+      "savingCurrency": "Ett fel inträffade med spara vald valuta"
     },
-    "chooseCurrency": "Varvänlig, välj din önskade valuta.",
-    "confirmSeed": "Var vänligen tryck för aceptera dina 12 kod ord",
+    "chooseCurrency": "Var vänlig välj din önskade valuta.",
+    "confirmSeed": "Var vänligen tryck för aceptera dina 12 seed ord",
     "bandwidth": "BANDBREDD",
-    "tokens": "Valuta",
-    "holdings": "Besparingar"
+    "tokens": "TOKENS",
+    "holdings": "INNEHAV"
   },
   "exchange": {
-    "minToSell": "Minimum för att skicka ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimum för att ta emot ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minsta att skicka ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minsta att ta emot ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Minska beräknad kostnad något för att öka chansen att lyckas.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "buy": "Öka den beräknade kostnaden något och chansen att lyckas blir större.",
+      "sell": "Minska den beräknade intäkten något och chansen att lyckas blir större."
     },
     "estimatedRevenue": "BERÄKNAS ATT MOTTA",
     "estimatedCost": "BERÄKNAD KOSTNAD",
-    "preview": "Sök efter namn på Token",
-    "notFound": "Ingen exchange hittades"
+    "preview": "Sök efter namnet på Token",
+    "notFound": "Ingen Exchange hittades"
   },
   "hideAccount": "Du håller på att ta bort det här kontot. Du kan återställa det senare i inställningarna",
   "components": {
     "share": {
-      "title": "Dela TronWallet address",
-      "message": "Detta är min TronWallet adress:\n\n{{address}}\n\nTips: när du har kopierat det kan du klistra in det i din tronwallet app med hjälpa av den speciella knappen på skicka sidan.",
-      "dialogTitle": "Dela användning:"
+      "title": "Dela TronWallet adress",
+      "message": "Detta är min TronWallet adress:\n\n{{address}}\n\nTips: när du har kopierat det kan du klistra in det i din TronWallet app med hjälpa av den speciella knappen på Skicka skärm.",
+      "dialogTitle": "Dela med:"
     },
     "QRScanner": {
-      "title": "Adress skannare",
+      "title": "Adress Skannare",
       "scan": "Skanna",
-      "explanation": "Skanna QR koden för att identifiera målanvandaren",
+      "explanation": "Skanna QR koden för att identifiera målanvändaren",
       "permissionMessage": "För att kunna skanna den offentliga nyckeln måste du ge appen tillgång till kameran."
     },
     "vote": {
-      "enterVote": "ANGE RÖSTENS VÄRDE",
+      "enterVote": "ANGE VÄRDET PÅ RÖSTEN",
       "votesRemaining": "ÅTERSTÅENDE RÖSTER",
       "setVote": "ANGE RÖST",
       "moreVotes": "Om du behöver fler röster kan du Frysa mer TRX.",
@@ -155,56 +155,56 @@
     "contacts": {
       "title": "KONTAKTER",
       "delete": {
-        "title": "Ta bort kontakt",
+        "title": "Radera Kontakt",
         "message": "Är du verkligen säker på att du vill ta bort den här kontakten?",
         "cancelButton": "Avbryt",
-        "okButton": "Ok"
+        "okButton": "OK"
       },
-      "empty": "Din adressbok är tom, lägg till en ny kontakt genom att klicka på knappen under till.",
-      "loadError": "Det uppstod ett problem med hämta kontakterna. var god och försök igen.",
+      "empty": "Din adressbok är tom, lägg till en ny kontakt genom att klicka på knappen nedan.",
+      "loadError": "Det uppstod ett problem med att ladda dina kontakter. Var god försök igen.",
       "addContact": "LÄGG TILL KONTAKT",
-      "addToContacts": "LÄGG TILL SOM KONTAKT"
+      "addToContacts": "LÄGG TILL I KONTAKTER"
     },
     "form": {
-      "generalError": "Det uppstod ett problem med att skicka detta formulär. var snäll och kontakta administratör.",
-      "nameError": "Namnfältet måste börja med en bokstav, innehålla högst 32 tecken, och det kommer att acceptera endast bokstäver, siffror och blanksteg.",
+      "generalError": "Det uppstod ett problem med att skicka in detta formulär. Var god kontakta en administratör.",
+      "nameError": "Namnfältet måste börja med en bokstav, innehålla högst 32 tecken och endast bokstäver, siffror samt blanksteg accepteras.",
       "addressError": "Någonting är fel med denna adress. var god och titta efter stavfel.",
       "uniqueAddressError": "Nyckeln måste vara unikt. Vänligen välj en annan adress.",
-      "uniqueAliasError": "Namn i din adressbok måste vara unika. Vänligen välj en annan.",
-      "name": "Namn",
+      "uniqueAliasError": "Namn i din adressbok måste vara unika. Vänligen välj en annat namn.",
+      "name": "NAMN",
       "address": "ADRESS"
     }
   },
   "importWallet": {
-    "title": "IMPORTVALLET",
-    "message": "Om du har den privata nyckeln och adressen till din plånbok kan du återställa det här, men kom ihåg att TronWallet arbetar med mnemonics primärt. Den här återställningsmetoden kommer att inaktivera vissa funktioner i App.",
+    "title": "IMPORTERA PLÅNBOK",
+    "message": "Om du har den privata nyckeln och adressen till din plånbok kan du återställa det här, men kom ihåg att TronWallet arbetar med mnemonics primärt. Den här återställningsmetoden kommer att inaktivera vissa funktioner i appen.",
     "button": "IMPORTERA",
     "error": {
       "privateKey": "Privat nyckel är ogiltig eller ofullständig"
     }
   },
   "freeze": {
-    "title": "FRYSA",
+    "title": "FRYS",
     "unfreeze": {
       "title": "LÅS UPP",
-      "inXTime": "Du kan låsa upp din TRX",
-      "inThreeDays": "Efter en tre dagars period kan du låsa upp din TRX",
-      "inXMinutes": "Du kan frigöra din TRX på {{minutes}} minuter.",
-      "inXHours": "Du kan frigöra din TRX i {{hours}} timmar.",
-      "inXDays": "Du kan frigöra din TRX i {{days}} dagar.",
+      "inXTime": "Du kan nu låsa upp din TRX",
+      "inThreeDays": "Efter en period på 3 dagar kan du låsa upp din TRX",
+      "inXMinutes": "Du kan låsa upp din TRX om {{minutes}} minuter.",
+      "inXHours": "Du kan låsa upp din TRX om {{hours}} timmar.",
+      "inXDays": "Du kan låsa upp din TRX om {{days}} dagar.",
       "now": "Du kan låsa upp din TRX nu."
     },
     "error": {
-      "minimumAmount": "Minsta belopp för att frysa en transaktion är 1.",
-      "insufficientBalance": "Otillräcklig TRX balans",
-      "roundNumbers": "Kan bara att frysa runda tal"
+      "minimumAmount": "Det minsta beloppet för att frysa en transaktion är 1.",
+      "insufficientBalance": "Otillräckligt TRX på saldot",
+      "roundNumbers": "Endast runda tal går att frysa"
     },
-    "amount": "FRYSA BELOPP",
-    "balance": "Kapital"
+    "amount": "FRYS BELOPPET",
+    "balance": "Saldo"
   },
   "getVault": {
-    "notInstalled": "Det verkar som du inte har Tron Vault installerad i telefonen för att gå vidare med din transaktion.",
-    "downloadHere": "Du kan hämta det här"
+    "notInstalled": "Det verkar som du inte har Tron Vault installerad i din telefon för att gå vidare med din transaktion.",
+    "downloadHere": "Du kan ladda ner det här"
   },
   "market": {
     "time": {
@@ -231,102 +231,102 @@
     "error": {
       "insufficientBalance": "Inte tillräckligt med pengar (TRX) att delta.",
       "insufficientTrx": {
-        "title": "Du måste köpa minst en TRX värt {{token}}.",
+        "title": "Du måste köpa minst en TRX av värdet på {{token}}.",
         "message": "För närvarande köper du endast {{amount}}."
       },
       "notFound": "Tillgång(ar) hittades inte"
     },
-    "warning": "Du har inte tillräckligt TRX att köpa att många {{token}}",
-    "enterAmountToBuy": "ENTER THE AMOUNT TO BUY",
-    "amountToBuy": "MÄNGD ATT KÖPA",
+    "warning": "Du har inte tillräckligt TRX att köpa så många {{token}}",
+    "enterAmountToBuy": "ANGE BELOPP ATT KÖPA",
+    "amountToBuy": "BELOPP ATT KÖPA",
     "pricePerToken": "PRIS PER TOKEN",
-    "tokenDescription": "TOKEN BESKRIVNING",
+    "tokenDescription": "BESKRIVNING AV TOKEN",
     "tokenInfo": "TOKEN INFO",
-    "token": "TECKEN",
-    "tokens": "tokens",
-    "frozen": "FRYSTA",
-    "percentage": "PROCENTSATS",
+    "token": "TOKEN",
+    "tokens": "TOKENS",
+    "frozen": "FRUSNA",
+    "percentage": "PROCENT",
     "issued": "UTFÄRDAD",
-    "totalSupply": "TOTAL FÖRSÄLJNING",
+    "totalSupply": "TOTALT UTBUD",
     "startTime": "STARTTID",
     "endTime": "SLUTTID",
     "description": "BESKRIVNING",
     "transaction": "TRANSAKTION",
-    "ownerAddress": "ÄGARADRESS",
+    "ownerAddress": "ÄGARENS ADRESS",
     "trxNum": "TRX NUM",
     "num": "NUM",
     "block": "BLOCKERA",
-    "balance": "BALANCE",
-    "searchPreview": "Featured Tokens"
+    "balance": "SALDO",
+    "searchPreview": "Utvalda Tokens"
   },
   "pin": {
     "title": "SÄKERHETSKONTROLL",
-    "enter": "Ange PIN-kod",
-    "new": "Ange ny PIN-kod",
-    "reenter": "Ange PIN-kod igen",
-    "biometrics": "Biometric Check"
+    "enter": "Skriv PIN-kod",
+    "new": "Ange Ny PIN-kod",
+    "reenter": "Skriv PIN-kod igen",
+    "biometrics": "Biometrisk Kontroll"
   },
   "receive": {
-    "title": "MOTTA",
-    "clipboardCopied": "Kopieras till Urklipp",
+    "title": "TA EMOT",
+    "clipboardCopied": "Kopierad till urklipp",
     "button": {
       "copy": "Kopiera",
-      "share": "Dela med sig"
+      "share": "Dela"
     },
     "tabs": {
-      "share": "DELA MED SIG",
-      "request": "BEGÄRAN"
+      "share": "DELA",
+      "request": "FÖRFRÅGAN"
     }
   },
   "rewards": {
-    "title": "REWARDS",
+    "title": "BELÖNINGAR",
     "earned": "Du har tjänat"
   },
   "seed": {
     "confirm": {
-      "title": "Bekräfta sådd",
+      "title": "BEKRÄFTA SEED",
       "error": {
-        "title": "Fel kombination",
+        "title": "Fel Kombination",
         "message": "Valda ord matchar inte. Se till att du skrev orden i rätt ordning."
       },
-      "success": "Wallet bekräftades framgångsrikt",
+      "success": "Plånboken är nu bekräftad",
       "explanation": "Välj orden nedan i rätt ordning för att bekräfta din hemliga fras.",
       "button": {
-        "reset": "Nollställ ord",
-        "confirm": "Bekräfta sådd"
+        "reset": "NOLLSTÄLL ORD",
+        "confirm": "BEKRÄFTA SEED"
       }
     },
     "create": {
-      "title": "SKAPA SÖD",
-      "titleConfirm": "Bekräfta Wall Seed",
-      "error": "Oj, vi har ett problem. Vänligen starta om programmet.",
+      "title": "SKAPA SEED",
+      "titleConfirm": "BEKRÄFTA WALLET SEED",
+      "error": "Oj, vi har ett problem. Vänligen starta om applikationen.",
       "generateNew": "Detta kommer att generera en helt ny plånbok.",
       "button": {
-        "written": "Jag har skrivit det ner",
-        "newSeed": "FÅ NYA FRÅN",
+        "written": "JAG HAR DET NEDSKRIVET",
+        "newSeed": "FÅ NYA SEED",
         "later": "Bekräfta senare"
       },
-      "backupMessage": "You can always access your words by accessing the backup on the app settings      ",
-      "seedExplanation": "The seed key is a human-readable representation of your wallet. Those words, in that exact order, can be used to re-create your wallet."
+      "backupMessage": "Du kan alltid få tillgång till dina ord genom att gå till säkerhetskopian via inställningarna i appen      ",
+      "seedExplanation": "Din seed nyckel är en läsbar representation av din plånbok. Med seed orden i exakt rätt ordning kan du återskapa din plånbok."
     },
     "restore": {
-      "title": "RESTORE WALLET",
+      "title": "ÅTERSKAPA PLÅNBOK",
       "explanation": "För att återställa din plånbok, ange samma 12 ord som du skrev på papper när du skapade din plånbok för första gången. Om du anger en annan ordsekvens skapas en ny tom plånbok.",
-      "placeholder": "Var god, skriv dina 12 frö ord här",
-      "success": "Wallet restaurerad med framgång!",
-      "warning": "Återställ fröet raderar alla data på den här enheten och drar information från nätverket för det återställda kontot.",
-      "error": "Hoppsan. Ser ut att orden du skrev inte är ett giltigt mnemoniskt utsäde. Kontrollera efter ett typsnitt och försök igen.",
-      "button": "ÅTERSTÄLLA"
+      "placeholder": "Var vänlig skriv dina 12 seed ord här",
+      "success": "Lyckad återställning av pånboken!",
+      "warning": "Återställa ditt seed kommer att radera all data på den här enheten och hämta information från nätverket för det återställda kontot.",
+      "error": "Hoppsan. Ser ut som att orden du skrev är inte ett giltigt mnemoniskt seed. Kontrollera efter ett stavfel och försök igen.",
+      "button": "ÅTERSTÄLL"
     }
   },
   "send": {
     "title": "SKICKA",
     "error": {
-      "insufficientBalance": "Inte tillräckligt saldo.",
-      "gettingBalance": "Ett fel uppstod med hämtning av saldo data",
-      "incompleteAddress": "Adress är ofullständig eller ogiltig.",
-      "invalidReceiver": "Ogiltig mottagare adress",
-      "selectBalance": "Välj balans först",
+      "insufficientBalance": "Inte tillräckligt på saldot.",
+      "gettingBalance": "Ett fel uppstod medans att hämta data för saldot",
+      "incompleteAddress": "Adressen är antingen ofullständig eller ogiltig.",
+      "invalidReceiver": "Mottagarens adress är ogiltig",
+      "selectBalance": "Välj din balans först",
       "invalidAmount": "Ogiltigt belopp"
     },
     "input": {
@@ -335,114 +335,114 @@
       "amount": "BELOPP",
       "description": "BESKRIVNING (VALFRITT)"
     },
-    "available": "tillgängliga",
-    "chooseToken": "Vänligen, Välj en token nedan.",
-    "minimumAmount": "Minsta belopp för någon skicka transaktion är marginal på 0,000001."
+    "available": "tillgängligt",
+    "chooseToken": "Vänligen välj en token nedan.",
+    "minimumAmount": "Minsta belopp för alla utgående transaktioner är 0,000001."
   },
   "menu": {
-    "title": "MENU"
+    "title": "MENY"
   },
   "settings": {
     "title": "INSTÄLLNINGAR",
     "sectionTitles": {
       "wallet": "PLÅNBOK",
       "security": "SÄKERHET",
-      "notification": "NOTIFICATIONS",
-      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
-      "accounts": "REDOVISNINGSREDOVISNING"
+      "notification": "NOTIFIKATIONER",
+      "idiomAndLocalization": "IDOM OCH PLATS",
+      "accounts": "HANTERING AV KONTON"
     },
     "notifications": {
-      "title": "anmälningar"
+      "title": "Notifikationer"
     },
     "network": {
       "title": "Nätverk",
       "modal": {
         "title": "NÄTVERK",
-        "explanation": "Med det här alternativet kan du välja nod som bättre passar dina behov och önskemål. Var försiktig när du uppdaterar nod IP medan fel IP kan leda till funktionsfel i din plånbok. Exempel: 35.231.121.122:50051",
+        "explanation": "Med det här alternativet kan du välja nod som bättre passar dina behov och önskemål. Var försiktig när du uppdaterar nod IP då fel IP kan leda till att din plånbok blir ofunktionell. Exempel: 35.231.121.122:50051",
         "error": {
-          "storage": "Det gick inte att få nod ip från lokal lagring",
+          "storage": "Det gick inte att få nodens ip från lokalt lagringsutrymme",
           "invalidIp": "Ange en giltig IP-adress",
-          "update": "Något gick fel när du uppdaterade nodar ip",
-          "reset": "Något som är fel när du återställer noden ip"
+          "update": "Något gick fel när du uppdaterade nodens ip",
+          "reset": "Något gick fel när du återställde nodens ip"
         },
         "success": {
           "updated": "Uppdaterad",
           "updatedIp": "Nodes IP uppdaterad!",
           "switchTest": "Omkopplade noder IP till Testnet",
-          "switchMain": "Omkopplade noder IP till standard huvud",
-          "reset": "Nod IP återställdes!"
+          "switchMain": "Omkopplade nodernas IP till standard",
+          "reset": "Nod IP nollsälldes!"
         },
         "placeholder": {
           "loadingIp": "Laddar IP",
           "loadingPort": "Laddningsport"
         },
         "button": {
-          "update": "Uppdatera och anslut",
-          "reset": "Återställa"
+          "update": "Uppdatera och Anslut",
+          "reset": "Nollställ"
         },
-        "mainNode": "Huvudkod",
-        "solidityNode": "Soliditetskod",
-        "testNet": "TestNet"
+        "mainNode": "Huvudnoden",
+        "solidityNode": "Soliditet-nod",
+        "testNet": "TestNät"
       }
     },
     "backup": {
-      "title": "Backup Wallet"
+      "title": "Säkerhetskopiera Plånbok"
     },
     "restore": {
-      "title": "Återställ Wallet"
+      "title": "Återställ Plånbok"
     },
     "reset": {
-      "title": "Återställ Plånbok",
+      "title": "Nollställ Plånbok",
       "warning": "Varning: Den här åtgärden raderar alla sparade data inklusive dina 12 hemliga ord. Om du inte sparade din hemlighet, vänligen gör det innan du fortsätter.",
       "button": "OK, jag förstår det"
     },
     "pin": {
       "title": "Byt pin",
-      "success": "Pin ändras framgångsrikt!"
+      "success": "Pin ändring genomförd!"
     },
     "language": {
       "title": "Språk",
       "choose": "Vänligen välj ett språk nedan:",
       "success": {
-        "title": "Språk ändrats till {{language}}",
-        "description": "Men du behöver fortfarande starta om appen så att ändringarna kan träda i kraft. Vill du göra det nu?"
+        "title": "Språket ändrades till {{language}}",
+        "description": "Fast du behöver fortfarande starta om appen så att ändringarna kan träda i kraft. Vill du göra det nu?"
       },
       "button": {
         "confirm": "Ja, starta om nu!",
         "cancel": "Nej, det gör jag senare"
       },
-      "error": "Ett fel på att spara språk som valts"
+      "error": "Ett fel uppstod med att spara valt språk"
     },
     "token": {
-      "title": "Tokenfilter",
+      "title": "Filter Token",
       "search": "Sök tokens",
       "confirm": "Spara",
       "noResult": "Inga resultat..."
     },
     "about": {
-      "title": "Handla om",
-      "description": "TronWallet är en öppen källkod full decentraliserad P2P Crypto Wallet för TRON Network byggt med React Native. Med det kan du skicka och ta emot tokens, rösta på en superrepresentant, delta i en token-försäljning, hålla reda på dina saldon och transaktioner och mycket mer. Klicka på länken nedan för en detaljerad handledning om hur du använder den.",
-      "tutorial": "HANDLEDNING"
+      "title": "Om",
+      "description": "TronWallet är öppen källkod och en fullt decentraliserad P2P Crypto Wallet för TRON Network byggt med React Native. Med det kan du skicka och ta emot tokens, rösta på en superrepresentant, delta i en token-försäljning, hålla reda på dina saldon och transaktioner samt mycket mer. Klicka på länken nedan för en detaljerade instruktioner om hur du använder den.",
+      "tutorial": "Instruktioner"
     },
     "accepts": {
       "title": "Vem accepterar TRX?"
     },
     "market": {
-      "title": "Market"
+      "title": "Marknad"
     },
     "helpCenter": {
-      "title": "Help Center"
+      "title": "Hjälp Centrum"
     },
     "accounts": {
-      "title": "konton",
-      "search": "Sök konton",
+      "title": "Konton",
+      "search": "Sök efter konton",
       "restoreAccounts": "Återställ konton",
-      "noAccounts": "Inga konton för att återställa"
+      "noAccounts": "Inga konton att återställa"
     },
     "partners": "PARTNERS",
-    "askPin": "Fråga alltid PIN-kod",
-    "askBiometry": "Activate Biometry",
-    "verifiedTokensOnly": "Verified tokens only"
+    "askPin": "Fråga alltid efter PIN-kod",
+    "askBiometry": "Aktivera Biometri",
+    "verifiedTokensOnly": "Verifierade tokens endast"
   },
   "submitTransaction": {
     "title": "TRANSAKTIONS DETALJER",
@@ -455,12 +455,12 @@
       "submit": "SÄND TRANSAKTION"
     },
     "error": {
-      "noData": "Couldn't load transaction data"
+      "noData": "Kunde inte ladda transaktionsdata"
     },
     "exchange": {
-      "send": "Sending {{sendtoken}}",
-      "receive": "Receiving {{receivetoken}}",
-      "error": "Check your latest transactions to confirm the received amount."
+      "send": "Skickar {{sendtoken}}",
+      "receive": "Tar emot {{receivetoken}}",
+      "error": "Kontrollera dina senaste transaktioner för att bekräfta det mottagna beloppet."
     },
     "disconnectedMessage": "Det verkar som om du är bortkopplad. Återanslut till internet innan du fortsätter med transaktionen.",
     "dic": {
@@ -470,12 +470,12 @@
       "participateAssetIssueContract": "Delta",
       "transferAssetContract": "Överföra",
       "transferContract": "Överföra",
-      "unfreezeBalanceContract": "frigöra",
-      "freezeBalanceContract": "Frysa",
+      "unfreezeBalanceContract": "Lås Upp",
+      "freezeBalanceContract": "Frys",
       "assetIssueContract": "Skapa",
       "voteWitnessContract": "Rösta",
       "frozenDuration": "Varaktighet",
-      "frozenBalance": "Totalt att frysa"
+      "frozenBalance": "Frys Totalt"
     },
     "errorDic": {
       "contractValidate": "Transaktionsdata är inte giltig. Vänligen försök igen senare.",
@@ -508,13 +508,13 @@
     "time": "TID",
     "block": "BLOCKERA",
     "frozenBalance": "FROZEN BALANS",
-    "unfrozenBalance": "UNFROZEN BALANCE",
+    "unfrozenBalance": "UPPLÅST SALDO",
     "totalVotes": "TOTALA RÖSTAR",
     "amount": "BELOPP",
     "to": "TILL",
     "from": "FRÅN",
-    "tokenName": "TOKEN NAME",
-    "unityValue": "UNITY VALUE",
+    "tokenName": "NAMN PÅ TOKEN",
+    "unityValue": "UNITY VÄRDE",
     "totalSupply": "TOTAL FÖRSÄLJNING",
     "startTime": "STARTTID",
     "endTime": "SLUTTID",
@@ -528,11 +528,11 @@
   "votes": {
     "title": "RÖSTER",
     "totalVotes": "TOTALA RÖSTAR",
-    "votesAvailable": "RÖSTAR TILLGÄNGLIG",
+    "votesAvailable": "TILLGÄNGLIGA RÖSTER",
     "search": "Sök",
     "searchPreview": "Suggestions - Most Voted",
     "error": "Oj, något laddades inte korrekt. Försök att ladda om",
-    "notFound": "Super Representative not found"
+    "notFound": "Super Representant hittades inte"
   },
   "scanPayment": {
     "scan": "SKANNA",
@@ -551,7 +551,7 @@
       "receiver": "Mottagaren är lika med förfrågan",
       "token": "Det här kontot har inte tecknet för denna transaktion",
       "amount": "Det här kontot har inte tillräckligt med balans.",
-      "description": "Ingen beskrivning finns tillgänglig"
+      "description": "Ingen beskrivning är tillgänglig"
     }
   },
   "buildPayment": {
@@ -577,26 +577,26 @@
     }
   },
   "balanceToken": {
-    "updating": "Updating token information. Please wait a few seconds.",
-    "notAvailable": "Token information not available"
+    "updating": "Uppdaterar token information. Vänligen vänta några sekunder.",
+    "notAvailable": "Information om Token är inte tillgänglig"
   },
   "biometry": {
     "register": {
-      "title": "Check your biometry"
+      "title": "Kontrollera din biometri"
     },
     "auth": {
-      "title": "Save Biometry",
-      "error": "Access denied"
+      "title": "Spara Biometri",
+      "error": "Åtkomst nekad"
     }
   },
   "privacyPolicy": {
-    "title": "PRIVACY POLICY",
-    "subtitle": "You must read and accept our privacy terms to continue.",
-    "error": "You need to accept of privacy terms before to continue. ",
-    "acceptTerms": "I have read and agree to the terms",
-    "continue": "CONTINUE",
-    "docTitle": "Privacy Policy",
-    "introduction": "Your privacy is important to us.\nIt is TronWallet's policy to respect your privacy regarding any information we may collect from you across our website, http://tronwallet.me, and other sites we own and operate.\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent.\nWe also let you know why we're collecting it and how it will be used.\nWe only retain collected information for as long as necessary to provide you with your requested service.\nWhat data we store, we'll protect within commercially acceptable means to prevent loss and theft, as well as unauthorised access, disclosure, copying, use or modification.\nWe don't share any personally identifying information publicly or with third-parties, except when required to by law.\nOur website may link to external sites that are not operated by us.\nPlease be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.\nYou are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.\nYour continued use of our website will be regarded as acceptance of our practices around privacy and personal information.\nIf you have any questions about how we handle user data and personal information, feel free to contact us.\nThis policy is effective as of 1 July 2018.",
+    "title": "SEKRETESSPOLICY",
+    "subtitle": "Du måste läsa och acceptera våra sekretessvillkor att fortsätta.",
+    "error": "Du måste acceptera av sekretessvillkor innan för att fortsätta. ",
+    "acceptTerms": "Jag har läst och godkänner villkoren",
+    "continue": "FORTSÄTT",
+    "docTitle": "Sekretesspolicy",
+    "introduction": "Din integritet är viktig för oss.\nDet är TronWallet's policy att respektera din integritet när det gäller all information vi kan samla in från dig på vår hemsida, http://tronwallet.me och andra platser vi äger och driver.\nVi kommer bara be om personlig information när vi verkligen behöver det för att tillhandahålla en tjänst till dig. Vi samlar in den på korrekt och lagligt sätt, med din vetskap och samtycke.\nVi kommer också låta dig veta varför vi samlar in den och hur den ska användas.\nVi klockan bara behålla insamlade informationen så länge som behövs för att ge dig din begärda tjänst.\nDen data vi lagrar skyddar vi inom kommersiellt godtagbara sätt genom att förhindra förlust och stöld, samt obehörig åtkomst, avslöjande, kopiering, användning eller modifiering.\nVi kommer inte dela någon personlig identifieringsinformation offentligt eller med tredje part, förutom under skyldighet enligt lag.\nVår webbplats kan länka till externa webbplatser som inte drivs av oss.\nVänligen tänk på att vi har ingen kontroll över innehåll och praxis för dessa platser, och kan inte godta ansvar för deras respektive sekretesspolicy.\nDu är du fri att avslå vår begäran om personlig information, med insikten att vi kanske inte kan förse dig med några av dina önskade tjänster.\nDin fortsatta användning av vår webbplats kommer att betraktas som ett godkännande av våra rutiner kring integritet och personlig information.\nOm du har några frågor om hur vi hanterar användardata och personlig information, välkommen att kontakta oss.\nDenna policy gäller från och med 1 Juli 2018.",
     "termsOfService": {
       "title": "TronWallet Terms of Service",
       "section1": {
@@ -654,9 +654,9 @@
     }
   },
   "notifications": {
-    "title": "NOTIFICATIONS"
+    "title": "NOTIFIKATIONER"
   },
   "news": {
-    "title": "NEWS"
+    "title": "NYHETER"
   }
 }

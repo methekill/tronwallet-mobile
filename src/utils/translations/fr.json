@@ -77,8 +77,8 @@
     "minToSell": "Minimum pour envoyer ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimum pour recevoir ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "buy": "Augmentez légèrement le coût estimé et le taux de réussite sera plus élevé.",
+      "sell": "Réduisez légèrement le coût estimé et le taux de réussite sera plus élevé."
     },
     "estimatedRevenue": "ESTIMÉ À RECEVOIR",
     "estimatedCost": "Coût estimé",
@@ -348,7 +348,7 @@
       "wallet": "PORTEFEUILLE",
       "security": "SÉCURITÉ",
       "notification": "NOTIFICATIONS",
-      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
+      "idiomAndLocalization": "IDIOM ET LOCALISATION",
       "accounts": "GESTION DES COMPTES"
     },
     "notifications": {
@@ -428,7 +428,7 @@
       "title": "Qui accepte les TRX ?"
     },
     "market": {
-      "title": "Market"
+      "title": "Marché"
     },
     "helpCenter": {
       "title": "Centre d'aide"

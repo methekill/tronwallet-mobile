@@ -78,7 +78,7 @@
     "minToBuy": "Minim de primit{{min}}{{tokenId}}",
     "variation": {
       "buy": "Costul estimativ este puțin mai mare, și probabilitatea de a executa tranzacţia va fi mai mare.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "sell": "Incearca sa reduci usor profitul estimativ si rata de succes va fi mai mare."
     },
     "estimatedRevenue": "SUMĂ ESTIMATIVĂ DE PRIMIT",
     "estimatedCost": "COST ESTIMATIV",
@@ -88,9 +88,9 @@
   "hideAccount": "Ești pe cale să elimini acest cont. Îl vei putea restabili ulterior în setări",
   "components": {
     "share": {
-      "title": "Partajare adresă TronWallet",
+      "title": "Distribuie adresa TronWallet",
       "message": "Aceasta este adresa mea TronWallet:\n\n{{address}}\n\nSfat: O data ce ai copiat-o, o poți lipi în aplicația ta TronWallet utilizând butonul special din ecranul Trimitere.",
-      "dialogTitle": "Partajare utilizând:"
+      "dialogTitle": "Distribuie utilizând:"
     },
     "QRScanner": {
       "title": "Scaner de adrese",
@@ -271,10 +271,10 @@
     "clipboardCopied": "Copiat în clipboard",
     "button": {
       "copy": "Copiază",
-      "share": "Partajare"
+      "share": "Distribuire"
     },
     "tabs": {
-      "share": "PARTAJARE",
+      "share": "DISTRIBUIRE",
       "request": "CERERE"
     }
   },
