@@ -255,7 +255,7 @@
     "ownerAddress": "INHABERADRESSE",
     "trxNum": "ANZAHL TRX",
     "num": "ANZAHL",
-    "block": "Block",
+    "block": "BLOCK",
     "balance": "GUTHABEN",
     "searchPreview": "Ausgezeichnete Token"
   },
@@ -280,7 +280,7 @@
   },
   "rewards": {
     "title": "BELOHNUNGEN",
-    "earned": "Sie haben verdient"
+    "earned": "Sie haben eingenommen"
   },
   "seed": {
     "confirm": {
