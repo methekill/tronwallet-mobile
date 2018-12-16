@@ -26,7 +26,7 @@
   "account": "Konto",
   "restore": "Wiederherstellen",
   "error": {
-    "default": "Es tut uns leid, etwas ist schiefgelaufen. Bitte versuchen Sie es später noch mal. Wenn der Fehler weiterhin auftritt, versuchen Sie die Netzwerk-Einstellungen zu aktualisieren.",
+    "default": "Es tut uns leid, etwas ist schiefgelaufen. Bitte versuchen Sie es später noch einmal. Wenn der Fehler weiterhin auftritt, versuchen Sie die Netzwerk-Einstellungen zu aktualisieren.",
     "buildingTransaction": "Fehler beim Erstellen der Transaktion, bitte versuchen Sie es erneut.",
     "gettingTransaction": "Fehler beim Abrufen der Transaktion.",
     "clipboardCopied": "Bei dem Kopiervorgang ist ein Fehler aufgetreten",
@@ -35,7 +35,7 @@
   "avaliable": "VERFÜGBAR",
   "frozen": "EINGEFROREN",
   "tronPower": "TRON-POWER",
-  "trxPrice": "TRX PREIS",
+  "trxPrice": "TRX-PREIS",
   "confirmed": "Bestätigt",
   "unconfirmed": "Unbestätigt",
   "copyAddress": "ADRESSE KOPIEREN",
@@ -64,7 +64,7 @@
   "balance": {
     "title": "KONTEN",
     "error": {
-      "loadingData": "Fehler beim Laden der Daten.",
+      "loadingData": "Beim Laden der Daten ist ein Fehler aufgetreten.",
       "savingCurrency": "Fehler beim Speichern der bevorzugten Währung"
     },
     "chooseCurrency": "Bitte wählen Sie Ihre bevorzugte Währung.",
@@ -656,10 +656,10 @@
   "notifications": {
     "title": "BENACHRICHTIGUNGEN",
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "TRANSAKTIONEN"
     },
     "signals": {
-      "title": "SIGNALS"
+      "title": "SIGNALE"
     }
   }
 }
