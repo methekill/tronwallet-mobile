@@ -2,7 +2,6 @@ package com.tronwallet2;
 
 import android.app.Application;
 import com.facebook.react.ReactApplication;
-import com.oblador.vectoricons.VectorIconsPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.kevinejohn.RNMixpanel.RNMixpanel;
@@ -41,7 +40,6 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-          new VectorIconsPackage(),
           new RNGestureHandlerPackage(),
           new RNMixpanel(),
           new ReactNativeBiometricsPackage(),

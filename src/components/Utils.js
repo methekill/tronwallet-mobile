@@ -66,7 +66,7 @@ export const View = styled.View`
   ${props => props.bottom && css`bottom: ${props.bottom}`};
   ${props => props.right && css`right: ${props.right}`};
   ${props => props.left && css`left: ${props.left}`};
-  ${props => props.vertical && css` flex-direction: row`}
+  ${props => props.vertical && css` flex-direction: row`};
 `
 
 View.defaultProps = {
@@ -302,7 +302,8 @@ export const PlusButton = styled.TouchableOpacity`
   align-items: center;
 `
 export const CloseButton = styled.TouchableOpacity`
-  ${tronWalletBorder} margin-right: 15px;
+  ${tronWalletBorder}
+  margin-right: 15px;
 `
 
 export const PickerInput = Platform.select({
@@ -536,3 +537,17 @@ export const SafeAreaView = styled.SafeAreaView`
 SafeAreaView.defaultProps = {
   background: Colors.background
 }
+
+const EmptyImg = styled.Image`
+  width: 200px;
+  height: 200px;
+`
+
+export const Empty = () => (
+  <View flex={1} align='center' justify='center'>
+    <EmptyImg
+      source={require('./../assets/empty.png')}
+      resizeMode='contain'
+    />
+  </View>
+)

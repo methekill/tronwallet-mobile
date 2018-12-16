@@ -78,7 +78,7 @@
     "minToBuy": "Минимум для получения ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Чем выше оценочная стоимость, тем выше вероятность успешной сделки.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "sell": "Чем ниже оценочная стоимость, тем выше вероятность успешной сделки."
     },
     "estimatedRevenue": "ПРИБЛИЗИТЕЛЬНО К ПОЛУЧЕНИЮ",
     "estimatedCost": "ОЦЕНОЧНАЯ СТОИМОСТЬ",
@@ -145,7 +145,7 @@
     }
   },
   "addressBook": {
-    "title": "КОНТАКТЫ",
+    "title": "АДРЕСНАЯ КНИГА",
     "shared": {
       "add": "ДОБАВИТЬ",
       "edit": "РЕДАКТИРОВАТЬ",
@@ -222,7 +222,7 @@
   },
   "participate": {
     "title": "УЧАСТВОВАТЬ",
-    "featured": "РЕКЛАМИРУЕМЫЙ",
+    "featured": "ПРОДВИГАЕМЫЙ",
     "button": {
       "confirm": "ПОДТВЕРДИТЬ",
       "moreInfo": "ПОДРОБНЕЕ",
@@ -526,7 +526,7 @@
     "success": "ВЫПОЛНЕНО!"
   },
   "votes": {
-    "title": "ГОЛОСА",
+    "title": "ГОЛОСОВАНИЕ",
     "totalVotes": "ВСЕГО ГОЛОСОВ",
     "votesAvailable": "ДОСТУПНЫХ ГОЛОСОВ",
     "search": "Поиск",

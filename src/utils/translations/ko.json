@@ -74,11 +74,11 @@
     "holdings": "보유량"
   },
   "exchange": {
-    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
+    "minToSell": "최소 매도 수량 ≈ {{min}} {{tokenId}}",
+    "minToBuy": "최소 매수 수량 ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "buy": "예상 수량을 약간 증가시키면 거래 성사 확률이 높아집니다.",
+      "sell": "예상 수량을 약간 줄이면 거래 성사 확률이 높아집니다."
     },
     "estimatedRevenue": "예상 수량",
     "estimatedCost": "예상 수량",
@@ -222,7 +222,7 @@
   },
   "participate": {
     "title": "토큰 공개 참여",
-    "featured": "SPONSORED",
+    "featured": "제휴토큰",
     "button": {
       "confirm": "확인",
       "moreInfo": "추가 정보",
