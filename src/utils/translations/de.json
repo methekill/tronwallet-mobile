@@ -458,13 +458,13 @@
       "noData": "Transaktionsdaten konnten nicht geladen werden"
     },
     "exchange": {
-      "send": "Versenden {{sendtoken}}",
-      "receive": "Erhalten {{receivetoken}}",
-      "error": "Überprüfen Sie die letzte Transaktion um Ihren erhaltenen Betrag zu bestätigen."
+      "send": "{{sendtoken}} wird gesendet",
+      "receive": "{{receivetoken}} wird empfangen",
+      "error": "Überprüfen Sie Ihre letzten Transaktionen um Ihren erhaltenen Betrag zu bestätigen."
     },
     "disconnectedMessage": "Es scheint, dass Sie keine Internetverbindung haben. Verbinden Sie sich mit dem Internet bevor Sie mit der Transaktion fortfahren.",
     "dic": {
-      "contractType": "Buchungsart",
+      "contractType": "Transaktionsart",
       "ownerAddress": "Von",
       "toAddress": "An",
       "participateAssetIssueContract": "Teilnehmen",
@@ -475,19 +475,19 @@
       "assetIssueContract": "Erstellen",
       "voteWitnessContract": "Abstimmen",
       "frozenDuration": "Dauer",
-      "frozenBalance": "Insgesamt zum Einfrieren"
+      "frozenBalance": "Gesamtbetrag zum Einfrieren"
     },
     "errorDic": {
-      "contractValidate": "Transaktionsdaten nicht gültig. Bitte versuchen Sie es später erneut.",
-      "signature": "Transaktionssignatur nicht gültig.",
+      "contractValidate": "Transaktionsdaten ungültig. Bitte versuchen Sie es später erneut.",
+      "signature": "Transaktionssignatur ungültig.",
       "duplicate": "Transaktion bereits übertragen.",
-      "contractValidateCee": "Transaktionsdaten nicht gültig (CEE). Bitte versuchen Sie es später erneut.",
+      "contractValidateCee": "Transaktionsdaten ungültig (CEE). Bitte versuchen Sie es später erneut.",
       "bandwith": "Nicht genügend Bandbreite. Bitte versuchen Sie es später erneut.",
-      "contractValidateTapos": "Transaktionsdaten nicht gültig (TAPOS). Bitte versuchen Sie es später erneut.",
+      "contractValidateTapos": "Transaktionsdaten ungültig (TAPOS). Bitte versuchen Sie es später erneut.",
       "tooBig": "Transaktion zu groß um diese einzureichen.",
       "expiration": "Transaktion ist abgelaufen. Bitte versuchen Sie es erneut.",
       "serverBusy": "Der Server ist ausgelastet.",
-      "resource": "Unzureichende Bandbreite oder Guthaben. Möglicherweise benötigen Sie einige eigefrorene TRX."
+      "resource": "Nicht genügend Bandbreite oder Guthaben. Möglicherweise benötigen Sie einige eingefrorene TRX."
     },
     "totalVotes": "Gesamtstimmen"
   },
@@ -535,7 +535,7 @@
     "notFound": "Super-Repräsentant nicht gefunden"
   },
   "scanPayment": {
-    "scan": "ÜBERPRÜFEN",
+    "scan": "SCANNEN",
     "error": {
       "receiver": "Empfängeradresse ungültig",
       "token": "Token nicht gültig",
