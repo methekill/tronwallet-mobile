@@ -538,8 +538,8 @@
     "scan": "SCANNEN",
     "error": {
       "receiver": "Empfängeradresse ungültig",
-      "token": "Token nicht gültig",
-      "amount": "Betrag nicht gültig",
+      "token": "Token ungültig",
+      "amount": "Betrag ungültig",
       "description": "Beschreibung zu lang",
       "code": "Zahlungscode ungültig. Bitte scannen Sie einen gültigen"
     }
