@@ -656,10 +656,10 @@
   "notifications": {
     "title": "إشعارات",
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "المعاملات"
     },
     "signals": {
-      "title": "SIGNALS"
+      "title": "مؤشرات"
     }
   }
 }
