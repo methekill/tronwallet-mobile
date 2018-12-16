@@ -306,16 +306,16 @@
         "newSeed": "NEUE GEHEIMWÖRTER ERHALTEN",
         "later": "Später bestätigen"
       },
-      "backupMessage": "Sie habe jederzeit Zugriff auf Ihre Wörter, indem Sie in den App-Einstellungen auf das Backup zugreifen      ",
+      "backupMessage": "Sie habe jederzeit Zugriff auf Ihre Wörter, indem Sie in den App-Einstellungen auf die Sicherheitskopie zugreifen      ",
       "seedExplanation": "Die Geheimwörter sind eine lesbare Darstellung Ihrer Wallet. Diese Worte können in exakt dieser Reihenfolge verwendet werden, um Ihre Wallet wiederherzustellen."
     },
     "restore": {
       "title": "WALLET WIEDERHERSTELLEN",
       "explanation": "Um Ihre Wallet wiederherzustellen, geben Sie bitte die gleichen 12 Wörter ein, die Sie auf Papier geschrieben haben, als Sie Ihr Wallet zum ersten Mal erstellt haben. Wenn Sie eine andere Reihenfolge der Wörter eingeben, wird eine neue leere Wallet erstellt.",
-      "placeholder": "Bitte schreiben Sie hier Ihre 12 Geheimwörter",
+      "placeholder": "Bitte geben Sie Ihre 12 Geheimwörter hier ein",
       "success": "Wallet erfolgreich wiederhergestellt!",
-      "warning": "Das Zurücksetzen der Geheimwörter löscht alle Daten von diesem Gerät und synchronisiert das wiederhergestellte Wallet mit Daten aus dem Netzwerk.",
-      "error": "Oops. Es scheint, dass die Worte die Sie eingegeben haben kein gültiges mnemonisches Geheimwort ergeben. Überprüfen Sie ob ein Tippfehler vorliegt und versuchen Sie es bitte erneut.",
+      "warning": "Das Zurücksetzen der Geheimwörter löscht alle Daten von diesem Gerät und holt sich die Informationen für das wiederhergestellte Konto aus dem Netzwerk.",
+      "error": "Hoppla. Es scheint, dass die Wörter, die Sie eingegeben haben, kein gültiges mnemonisches Geheimwort ergeben. Überprüfen Sie, ob ein Tippfehler vorliegt und versuchen Sie es bitte erneut.",
       "button": "WIEDERHERSTELLEN"
     }
   },
@@ -324,10 +324,10 @@
     "error": {
       "insufficientBalance": "Nicht genug Guthaben.",
       "gettingBalance": "Fehler beim Abrufen des Kontostandes",
-      "incompleteAddress": "Adresse ist entweder ungültig oder unvollständig.",
+      "incompleteAddress": "Adresse ist entweder unvollständig oder ungültig.",
       "invalidReceiver": "Ungültige Empfängeradresse",
       "selectBalance": "Wählen Sie zuerst das Guthaben",
-      "invalidAmount": "Ungültige Menge"
+      "invalidAmount": "Ungültiger Betrag"
     },
     "input": {
       "token": "TOKEN",
@@ -347,7 +347,7 @@
     "sectionTitles": {
       "wallet": "WALLET",
       "security": "SICHERHEIT",
-      "notification": "BENACHRICHTIGUNG",
+      "notification": "BENACHRICHTIGUNGEN",
       "idiomAndLocalization": "IDIOM UND LOKALISIERUNG",
       "accounts": "KONTENVERWALTUNG"
     },
