@@ -113,23 +113,6 @@ const AddressBookTabs = createMaterialTopTabNavigator({
   }
 })
 
-// const NotificationsTabs = createCustomTopTabNavigator({
-//   Notifications
-// }, {
-//   tabBarOptions: {
-//     header: {
-//       title: tl.t('notifications.title')
-//     }
-//   }
-// })
-
-// const ExchangeStack = createStackNavigator({
-//   Notifications
-// }, {
-//     mode: 'modal',
-//     cardStyle: defaultCardStyle
-//   })
-
 const AddressBookStack = createStackNavigator({
   AddressBook: AddressBookTabs,
   EditAddressBookItem,
