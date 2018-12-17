@@ -21,6 +21,7 @@ ShallowWrapper {
                 "price": 0,
                 "secondTokenBalance": 0,
                 "secondTokenId": "",
+                "variation": -999,
               },
             ],
           ],
