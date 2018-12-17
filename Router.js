@@ -45,7 +45,7 @@ import MakePayScene from './src/scenes/Payments/Make'
 import PaymentsScene from './src/scenes/Payments'
 import ScanPayScene from './src/scenes/Payments/Scan'
 import CreateSeed from './src/scenes/Seed/Create'
-import ImportWallet from './src/scenes/Seed/Import'
+import PrivateKeyImportScene from './src/scenes/Seed/Import/PrivateKeyImport'
 import PrivacyPolicy from './src/scenes/PrivacyPolicy'
 import ContractPreview from './src/scenes/ContractPreview'
 import Notifications from './src/scenes/Notifications'
@@ -160,6 +160,49 @@ const ParticipateStack = createStackNavigator({
   cardStyle: defaultCardStyle
 })
 
+const ImportWalletTabs = createMaterialTopTabNavigator({
+  PrivateKeyImport: PrivateKeyImportScene,
+}, {
+  navigationOptions: {
+    header: ({ navigation }) => (
+      <SafeAreaView style={{ backgroundColor: Colors.background }}>
+        <NavigationHeader
+          title={tl.t('importWallet.title')}
+          onBack={() => navigation.goBack()}
+        />
+      </SafeAreaView>
+    ),
+    gesturesEnabled: false
+  },
+  tabBarOptions: {
+    activeTintColor: Colors.primaryText,
+    inactiveTintColor: '#66688f',
+    style: {
+      paddingTop: 10,
+      backgroundColor: Colors.background,
+      elevation: 0
+    },
+    labelStyle: {
+      fontSize: 12,
+      lineHeight: 12,
+      letterSpacing: 0.6,
+      fontFamily: 'Rubik-Medium'
+    },
+    indicatorStyle: {
+      width: indicatorWidth,
+      height: 1.2,
+      marginLeft: tabWidth / 2 - indicatorWidth / 2
+    }
+  }
+})
+
+const ImportWalletStack = createStackNavigator({
+  ImportWallet: ImportWalletTabs
+}, {
+  mode: 'modal',
+  cardStyle: defaultCardStyle
+})
+
 const AppTabs = createMaterialBottomTabNavigator({
   Exchange: ExchangeStack,
   Vote: {
@@ -219,7 +262,7 @@ const RootNavigator = createStackNavigator({
   Pin,
   CreateSeed,
   SeedRestore,
-  ImportWallet,
+  ImportWallet: ImportWalletStack,
   ContractPreview,
   App: AppTabs,
   GetVault: GetVaultScene,

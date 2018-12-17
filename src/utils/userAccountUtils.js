@@ -3,11 +3,14 @@ import { AsyncStorage } from 'react-native'
 import getBalanceStore from '../store/balance'
 import getTransactionStore from '../store/transactions'
 import getCandidatesStore from '../store/candidates'
-import { USER_STATUS, USER_FILTERED_TOKENS, VERIFIED_TOKENS } from './constants'
+import WalletClient from '../services/client'
 
-import NodesIp from '../utils/nodeIp'
-import { resetContactsData } from '../utils/contactUtils'
-import { resetSecretData } from '../utils/secretsUtils'
+import { USER_STATUS, USER_FILTERED_TOKENS, VERIFIED_TOKENS } from './constants'
+import NodesIp from './nodeIp'
+import { resetContactsData } from './contactUtils'
+import { resetSecretData } from './secretsUtils'
+import { logSentry } from './sentryUtils'
+import { generateMockTransactionSigned } from './transactionUtils'
 
 export const resetWalletData = async () => {
   const [balanceStore, transactionStore] = await Promise.all([
@@ -49,3 +52,30 @@ export const hardResetWalletData = async (pin) => (
     AsyncStorage.setItem(USER_FILTERED_TOKENS, '[]')
   ])
 )
+
+export const checkAccount = async (address, privateKey) => {
+  let exception = null
+
+  try {
+    const mockTransactionSigned = await generateMockTransactionSigned(address, privateKey)
+    await WalletClient.broadcastTransaction(mockTransactionSigned)
+  } catch (e) {
+    exception = e
+  }
+
+  const { data } = exception.response || {}
+
+  if (!data) {
+    return
+  }
+
+  if (data.type === 'INSUFICIENT_AMOUNT' || data.type === 'ACCOUNT_NOT_EXISTS') {
+    return
+  }
+
+  if (data.error !== 'validate signature error') {
+    logSentry(exception, 'Check Account response')
+  }
+
+  throw exception
+}

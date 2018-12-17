@@ -139,3 +139,10 @@ export const getTokenPriceFromStore = (tokenName, assetStore) => {
 
   return ONE_TRX
 }
+
+export const generateMockTransactionSigned = async (address, privateKey) => {
+  const mockTransaction = { from: address, to: 'TJo2xFo14Rnx9vvMSm1kRTQhVHPW4KPQ76', amount: 0, token: 'TRX' }
+  const transactionUnsigned = await Client.getTransferTransaction(mockTransaction)
+
+  return RNTron.signTransaction(privateKey, transactionUnsigned)
+}

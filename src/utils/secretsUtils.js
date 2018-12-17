@@ -4,10 +4,12 @@ import { AsyncStorage, Alert } from 'react-native'
 import getSecretsStore from '../store/secrets'
 import getTransactionStore from '../store/transactions'
 import Client from '../services/client'
-import { updateTransactions } from '../utils/transactionUtils'
-import { formatAlias } from '../utils/contactUtils'
-import { USER_STATUS } from '../utils/constants'
-import tl from '../utils/i18n'
+
+import { updateTransactions } from './transactionUtils'
+import { formatAlias } from './contactUtils'
+import { USER_STATUS } from './constants'
+import { checkAccount } from './userAccountUtils'
+import tl from './i18n'
 
 export const createUserKeyPair = async (pin, oneSignalId, mnemonic = null) => {
   if (!mnemonic) mnemonic = await RNTron.generateMnemonic()
@@ -88,8 +90,10 @@ const generateKeypair = async (pin, oneSignalId, mnemonic, vaultNumber, randomly
 }
 
 export const restoreFromPrivateKey = async (pin, oneSignalId, address, privateKey) => {
-  const removeExtraDeviceIds = true
+  await checkAccount(address, privateKey)
+
   await resetSecretData(pin)
+
   const userSecrets = {
     privateKey,
     address,
@@ -101,9 +105,13 @@ export const restoreFromPrivateKey = async (pin, oneSignalId, address, privateKe
     name: 'Main Account',
     alias: '@main_account'
   }
+
   const secretsStore = await getSecretsStore(pin)
   await secretsStore.write(() => secretsStore.create('UserSecret', userSecrets, true))
+
+  const removeExtraDeviceIds = true
   Client.registerDeviceForNotifications(oneSignalId, address, removeExtraDeviceIds)
+
   AsyncStorage.setItem(USER_STATUS, 'active')
 }
 

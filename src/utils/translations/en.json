@@ -658,5 +658,12 @@
   },
   "news": {
     "title": "NEWS"
+  },
+  "import": {
+    "header": {
+      "privateKey": "Private Key",
+      "mnemonic": "Mnemonic",
+      "watch": "Watch"
+    }
   }
 }
