@@ -3,6 +3,8 @@ import { Platform, StyleSheet, RefreshControl } from 'react-native'
 import HTMLView from 'react-native-htmlview'
 import { FlatList } from 'react-navigation'
 
+import NavigationHeader from './../../components/Navigation/Header'
+
 import * as Utils from './../../components/Utils'
 
 import ListItem from './../../components/List/ListItem'
@@ -13,7 +15,7 @@ import { Colors } from './../../components/DesignSystem'
 
 class Notifications extends Component {
   static navigationOptions = {
-    title: tl.t('notifications.notifications.title')
+    heder: null
   }
 
   state = {
@@ -64,6 +66,10 @@ class Notifications extends Component {
     const { list, refreshing } = this.state
     return (
       <Utils.SafeAreaView>
+        <NavigationHeader
+          title={tl.t('notifications.notifications.title')}
+          onBack={() => this.props.navigation.goBack()}
+        />
         <FlatList
           refreshControl={
             <RefreshControl

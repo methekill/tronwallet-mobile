@@ -7,7 +7,6 @@ import {
   createAppContainer
 } from 'react-navigation'
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
-import createCustomTopTabNavigator from './src/components/Navigation/createCustomTopTabNavigator'
 
 import { Colors, ScreenSize } from './src/components/DesignSystem'
 import { TWIcon } from './src/components/Utils'
@@ -114,15 +113,22 @@ const AddressBookTabs = createMaterialTopTabNavigator({
   }
 })
 
-const NotificationsTabs = createCustomTopTabNavigator({
-  Notifications
-}, {
-  tabBarOptions: {
-    header: {
-      title: tl.t('notifications.title')
-    }
-  }
-})
+// const NotificationsTabs = createCustomTopTabNavigator({
+//   Notifications
+// }, {
+//   tabBarOptions: {
+//     header: {
+//       title: tl.t('notifications.title')
+//     }
+//   }
+// })
+
+// const ExchangeStack = createStackNavigator({
+//   Notifications
+// }, {
+//     mode: 'modal',
+//     cardStyle: defaultCardStyle
+//   })
 
 const AddressBookStack = createStackNavigator({
   AddressBook: AddressBookTabs,
@@ -252,7 +258,7 @@ const RootNavigator = createStackNavigator({
   TransactionSuccess,
   Freeze: FreezeVoteScene,
   Rewards: RewardsScene,
-  NotificationsTabs
+  Notifications
 }, {
   mode: 'modal',
   headerMode: 'none',
