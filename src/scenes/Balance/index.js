@@ -132,7 +132,7 @@ export class BalanceScene extends Component {
       if (createdNewAccount) {
         await loadUserData()
         this.carousel.innerComponent._snapToNewAccount()
-        MixPanel.trackWithProperties('Account Operation', { type: 'Create new account' })
+        MixPanel.trackWithProperties('Account Operation - Create new account', { type: 'Create new account' })
       }
     } catch (error) {
       logSentry(error, 'Error creating new Account')

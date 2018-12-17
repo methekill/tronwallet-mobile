@@ -72,7 +72,7 @@ export class AccountsCarousel extends React.Component {
     if (accounts.length) {
       const { address } = accounts[activeAccount]
       setPublicKey(address)
-      MixPanel.trackWithProperties('Account Operation', { type: 'Switch account', address })
+      MixPanel.trackWithProperties('Account Operation - Switch account', { type: 'Switch account', address })
     }
   }
 
@@ -93,7 +93,7 @@ export class AccountsCarousel extends React.Component {
       await hideSecret(pin, address)
       this.carousel.snapToItem(nextAccountIndex)
       hideAccount(address)
-      MixPanel.trackWithProperties('Account Operation', { type: 'Hide Account', address })
+      MixPanel.trackWithProperties('Account Operation - Hide Account', { type: 'Hide Account', address })
     } catch (error) {
       logSentry(error, 'Hide Account Handler')
       Alert.alert(tl.t('warning'), tl.t('error.hideAccount'))
@@ -104,7 +104,7 @@ export class AccountsCarousel extends React.Component {
     if (index) {
       const currency = CURRENCIES[index]
       this.props.context.setCurrency(currency)
-      MixPanel.trackWithProperties('Account Operation', { type: 'Set currency', currency })
+      MixPanel.trackWithProperties('Account Operation - Set currency', { type: 'Set currency', currency })
     }
   }
 
@@ -112,7 +112,7 @@ export class AccountsCarousel extends React.Component {
     try {
       await Clipboard.setString(address)
       this.refs.toast.show(tl.t('receive.clipboardCopied'))
-      MixPanel.trackWithProperties('Account Operation', { type: 'Copy Address - Clipboard' })
+      MixPanel.trackWithProperties('Account Operation - Copy Address', { type: 'Copy Address - Clipboard', address })
     } catch (error) {
       logSentry(error, 'Copy Address - Clipboard')
     }
