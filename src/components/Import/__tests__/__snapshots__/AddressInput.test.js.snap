@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Address input component Should match when render component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <AddressInput
+    innerRef={[Function]}
+    onChangeText={[Function]}
+    onSubmitEditing={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <Input
+          editable={true}
+          innerRef={[Function]}
+          label="ADDRESS"
+          labelWrapperColor="#191A2A"
+          numbersOnly={false}
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          placeholderTextColor="#66688F"
+          returnKeyType="send"
+          rightContent={[Function]}
+          showPlaceholder={true}
+          value=""
+        />,
+        false,
+        <QRScannerModal
+          onClose={[Function]}
+          onRead={[Function]}
+          visible={false}
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "editable": true,
+          "innerRef": [Function],
+          "label": "ADDRESS",
+          "labelWrapperColor": "#191A2A",
+          "numbersOnly": false,
+          "onChangeText": [Function],
+          "onSubmitEditing": [Function],
+          "placeholderTextColor": "#66688F",
+          "returnKeyType": "send",
+          "rightContent": [Function],
+          "showPlaceholder": true,
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      false,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "onClose": [Function],
+          "onRead": [Function],
+          "visible": false,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <Input
+            editable={true}
+            innerRef={[Function]}
+            label="ADDRESS"
+            labelWrapperColor="#191A2A"
+            numbersOnly={false}
+            onChangeText={[Function]}
+            onSubmitEditing={[Function]}
+            placeholderTextColor="#66688F"
+            returnKeyType="send"
+            rightContent={[Function]}
+            showPlaceholder={true}
+            value=""
+          />,
+          false,
+          <QRScannerModal
+            onClose={[Function]}
+            onRead={[Function]}
+            visible={false}
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "editable": true,
+            "innerRef": [Function],
+            "label": "ADDRESS",
+            "labelWrapperColor": "#191A2A",
+            "numbersOnly": false,
+            "onChangeText": [Function],
+            "onSubmitEditing": [Function],
+            "placeholderTextColor": "#66688F",
+            "returnKeyType": "send",
+            "rightContent": [Function],
+            "showPlaceholder": true,
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        false,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "onClose": [Function],
+            "onRead": [Function],
+            "visible": false,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenThreeAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "disableLifecycleMethods": true,
+  },
+}
+`;
