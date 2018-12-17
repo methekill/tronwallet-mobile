@@ -67,7 +67,7 @@ class Notifications extends Component {
     return (
       <Utils.SafeAreaView>
         <NavigationHeader
-          title={tl.t('notifications.notifications.title')}
+          title={tl.t('notifications.title')}
           onBack={() => this.props.navigation.goBack()}
         />
         <FlatList
