@@ -654,9 +654,12 @@
     }
   },
   "notifications": {
-    "title": "NOTIFIKATIONER"
-  },
-  "news": {
-    "title": "NYHETER"
+    "title": "NOTIFIKATIONER",
+    "notifications": {
+      "title": "TRANSACTIONS"
+    },
+    "signals": {
+      "title": "SIGNALS"
+    }
   }
 }
