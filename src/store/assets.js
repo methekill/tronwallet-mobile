@@ -44,12 +44,15 @@ export default async () => {
     schema: [AssetsSchema, FrozenItemSchema],
     schemaVersion: 10,
     migration: (oldRealm, newRealm) => {
-      if (oldRealm.schemaVersion < 9) {
-        const oldObjects = oldRealm.objects('Asset')
-        const newObjects = newRealm.objects('Asset')
+      const oldObjects = oldRealm.objects('Asset')
+      const newObjects = newRealm.objects('Asset')
 
-        for (let i = 0; i < oldObjects.length; i++) {
+      for (let i = 0; i < oldObjects.length; i++) {
+        if (oldRealm.schemaVersion < 9) {
           newObjects[i].frozen = null
+        }
+        if (oldRealm.schemaVersion < 10) {
+          newObjects[i].block = 1
         }
       }
     }
