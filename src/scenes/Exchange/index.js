@@ -97,7 +97,7 @@ export class ExchangeScene extends Component {
 
     _onSearching = name => {
       const { exchangeList } = this.state
-      const searchValue = name.replace(/^[^a-zA-Z]/g, '')
+      const searchValue = name.toString().replace(/^[^a-zA-Z]/g, '')
       const regex = new RegExp(searchValue.toUpperCase(), 'i')
       const resultList = exchangeList.filter(ast => regex.test(ast.firstTokenId.toUpperCase()) ||
         regex.test(ast.secondTokenId.toUpperCase()))
