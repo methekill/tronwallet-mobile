@@ -654,9 +654,12 @@
     }
   },
   "notifications": {
-    "title": "NOTIFIKACE"
-  },
-  "news": {
-    "title": "NOVINKY"
+    "title": "NOTIFIKACE",
+    "notifications": {
+      "title": "TRANSAKCE"
+    },
+    "signals": {
+      "title": "SIGNÁLY"
+    }
   }
 }
