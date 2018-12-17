@@ -52,6 +52,7 @@ export class ExchangeTabs extends Component {
         secondTokenId: '',
         secondTokenBalance: 0,
         available: false,
+        variation: -999,
         price: 0
       }),
     lastTransactions: [],
@@ -61,9 +62,9 @@ export class ExchangeTabs extends Component {
   }
 
   componentDidMount () {
+    this._loadAskPin()
     this._setExchangeSocket()
     this._setRefreshLastExchanges()
-    this._loadAskPin()
   }
 
   componentWillUnmount () {
@@ -71,9 +72,9 @@ export class ExchangeTabs extends Component {
     clearInterval(this.refreshExchangesInterval)
   }
 
-  _setRefreshLastExchanges = () => {
-    this._loadExchangesTransactions()
-    this.refreshExchangesInterval = setInterval(this._loadExchangesTransactions, 15000)
+  _toggleLock = () => {
+    this.setState({askPinEx: !this.state.askPinEx})
+    Async.set(ASK_PIN_EX, `${!this.state.askPinEx}`)
   }
 
   _loadExchangesTransactions = async () => {
@@ -96,6 +97,14 @@ export class ExchangeTabs extends Component {
     this.setState({askPinEx: askPinEx === 'true'})
   }
 
+  _setRefreshLastExchanges = () => {
+    // Using Timeout to prevent UI bug
+    setTimeout(() => {
+      this._loadExchangesTransactions()
+      this.refreshExchangesInterval = setInterval(this._loadExchangesTransactions, 15000)
+    }, 1500)
+  }
+
   _setExchangeSocket = () => {
     this.exchangeSocket = TronStreamSocket()
 
@@ -106,11 +115,6 @@ export class ExchangeTabs extends Component {
         this.setState({exchangeData: {...this.state.exchangeData, price: newPrice}})
       }
     })
-  }
-
-  _toggleLock = () => {
-    this.setState({askPinEx: !this.state.askPinEx})
-    Async.set(ASK_PIN_EX, `${!this.state.askPinEx}`)
   }
 
   _setModalVisibility = visible => this.setState({modalVisible: visible})

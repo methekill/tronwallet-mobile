@@ -134,7 +134,7 @@ export class ExchangeScene extends Component {
     }
 
     _onRefreshing = async () => {
-      this.setState({refreshing: true})
+      this.setState({refreshing: true, isSearching: false, searchName: ''})
       await this._loadData()
       this.setState({refreshing: false})
     }

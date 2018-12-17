@@ -24,7 +24,7 @@ export class LatestTransactions extends PureComponent {
     _renderHeader = () => (
       <TransactionHeader>
         <Utils.Text flex={0.3} size='tiny' color={Colors.slateGrey}>{tl.t('time')}</Utils.Text>
-        <Utils.Text flex={0.5} size='tiny' color={Colors.slateGrey}>{tl.t('exchange.txAmount')}</Utils.Text>
+        <Utils.Text flex={0.5} marginX={5} size='tiny' color={Colors.slateGrey}>{tl.t('exchange.txAmount')}</Utils.Text>
         <Utils.View flex={0.2}>{this.props.refreshingExchange ? <ActivityIndicator color={Colors.primaryText} /> : null}</Utils.View>
       </TransactionHeader>
     )
@@ -39,7 +39,7 @@ export class LatestTransactions extends PureComponent {
             {moment(item.createdAt).format('HH:mm:ss')}
           </Utils.Text>
 
-          <Utils.Text flex={0.5} size='small'>
+          <Utils.Text marginX={5} flex={0.5} size='small'>
             {amount} {tokenId}
           </Utils.Text>
 
