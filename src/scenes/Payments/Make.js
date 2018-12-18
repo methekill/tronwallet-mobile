@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Alert, ActivityIndicator } from 'react-native'
 import { Answers } from 'react-native-fabric'
-import OneSignal from 'react-native-onesignal'
 import MixPanel from 'react-native-mixpanel'
 
 // Design
@@ -124,18 +123,6 @@ class MakePayment extends PureComponent {
         if (code === 'SUCCESS') {
           if (NOTIFICATION_TRANSACTIONS.includes(transaction.type)) {
             Answers.logCustom('Payment Operation', { type: transaction.type })
-            // if the receiver is a tronwallet user we'll find his devices here
-            const response = await WalletClient.getDevicesFromPublicKey(transaction.contractData.transferToAddress)
-            if (response.data.users.length) {
-              const content = {
-                'en': tl.t('submitTransaction.notificationPayment', { address: transaction.contractData.transferFromAddress })
-              }
-              response.data.users.map(device => {
-                // We use @ to identify the multiple accounts
-                const deviceId = device.deviceid.split('@')[0] || device.deviceid
-                OneSignal.postNotification(content, transaction, deviceId)
-              })
-            }
           }
           MixPanel.trackWithProperties('Payment Operation', { type: 'Payment Success', transaction: transaction })
           await this.props.context.loadUserData()
