@@ -23,8 +23,10 @@
   "ex": "Échange",
   "ok": "Ok",
   "actionModalTitle": "Souhaitez-vous",
+  "time": "Time",
   "account": "Compte",
   "restore": "Restaurer",
+  "security": "Security",
   "error": {
     "default": "Oups, quelque chose n'a pas fonctionné comme prévu. Réessayez plus tard, si l’erreur persiste, essayez de mettre à jour vos paramètres réseau.",
     "buildingTransaction": "Erreur pendant la création de la transaction, Réessayez s'il vous plait.",
@@ -55,6 +57,7 @@
   "clear": "Effacer",
   "allIn": "Tout compris",
   "skip": "Passer",
+  "hash": "Hash",
   "privateKey": "Clé privée",
   "results": "Résultats",
   "buy": "Acheter",
@@ -80,10 +83,13 @@
       "buy": "Augmentez légèrement le coût estimé et le taux de réussite sera plus élevé.",
       "sell": "Réduisez légèrement le coût estimé et le taux de réussite sera plus élevé."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "ESTIMÉ À RECEVOIR",
     "estimatedCost": "Coût estimé",
     "preview": "Recherche par nom de jeton",
-    "notFound": "Échange non trouvé"
+    "notFound": "Échange non trouvé",
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "Vous êtes sur le point de supprimer ce compte. Vous pouvez le restaurer plus tard dans les paramètres",
   "components": {
