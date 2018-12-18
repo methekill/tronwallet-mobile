@@ -23,8 +23,10 @@
   "ex": "صرف",
   "ok": "تم",
   "actionModalTitle": "هل ترغب في",
+  "time": "Time",
   "account": "الحساب",
   "restore": "استعادة",
+  "security": "Security",
   "error": {
     "default": "أوبس حدث خطأ. حاول ثانية في وقت لاحق، إذا استمر الخطأ حاول إعادة ضبط إعدادات شبكة الاتصال.",
     "buildingTransaction": "حدث خطأ أثناء إنشاء العملية، حاول مرة أخرى.",
@@ -55,6 +57,7 @@
   "clear": "مسح",
   "allIn": "الجميع",
   "skip": "تخطي",
+  "hash": "Hash",
   "privateKey": "مفتاح سري",
   "results": "النتائج",
   "buy": "شراء",
@@ -80,10 +83,13 @@
       "buy": "زد التكلفة المتوقعة قليلاً، ونسبة النجاح ستكون أكبر.",
       "sell": "قم بالحد قليلا من تقديرات الإيرادات، و سترتفع نسبة النجاح."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "المتوقع للاستلام",
     "estimatedCost": "التكلفة المتوقعة",
     "preview": "البحث باسم العملة",
-    "notFound": "لم يتم العثور على المبادلة"
+    "notFound": "لم يتم العثور على المبادلة",
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "أنت على وشك إزالة هذا الحساب. يمكنك استعادتها لاحقًا في الإعدادات",
   "components": {
