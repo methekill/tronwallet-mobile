@@ -75,7 +75,7 @@ export const getSystemStatus = async () => {
   }
 }
 
-export const getExchangesImagesAvailable = async () => {
+export const getExchangeContentful = async () => {
   const queryEntry = { content_type: 'exchange' }
   const { items: exchangesAvailable } = await contentfulClient.getEntries(queryEntry)
   return exchangesAvailable.reduce((list, {fields: ex}) => {
@@ -83,6 +83,8 @@ export const getExchangesImagesAvailable = async () => {
       const firstTokenImage = ex.firstTokenImage ? `https:${ex.firstTokenImage.fields.file.url}` : null
       const secondTokenImage = ex.secondTokenImage ? `https:${ex.secondTokenImage.fields.file.url}` : null
       list.push({
+        firstTokenAbbr: ex.firstTokenAbbr,
+        secondTokenAbbr: ex.secondTokenAbbr,
         exchangeId: ex.exchangeId,
         isEnabled: ex.isEnabled,
         firstTokenImage,

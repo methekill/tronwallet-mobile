@@ -52,7 +52,7 @@ import TronWebview from './src/scenes/TronWebview'
 import Notifications from './src/scenes/Notifications'
 import Signals from './src/scenes/Signals'
 import ExchangeList from './src/scenes/Exchange'
-import ExchangeTransaction from './src/scenes/Exchange/Transaction'
+import ExchangeTabs from './src/scenes/Exchange/Tabs'
 
 import tl from './src/utils/i18n'
 
@@ -139,7 +139,7 @@ const BalanceStack = createStackNavigator({
 
 const ExchangeStack = createStackNavigator({
   ExchangeList,
-  ExchangeTransaction
+  ExchangeTabs
 }, {
   mode: 'modal',
   cardStyle: defaultCardStyle

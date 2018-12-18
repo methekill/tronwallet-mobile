@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { FlatList, RefreshControl } from 'react-native'
 import MixPanel from 'react-native-mixpanel'
+import sortBy from 'lodash/sortBy'
 
 // Design
 import * as Utils from '../../components/Utils'
@@ -13,7 +14,9 @@ import LoadingScene from '../../components/LoadingScene'
 import { withContext } from '../../store/context'
 import tl from '../../utils/i18n'
 import { logSentry } from '../../utils/sentryUtils'
-
+import Async from '../../utils/asyncStorageUtils'
+import { FAVORITE_EXCHANGES } from '../../utils/constants'
+import { formatNumber } from '../../utils/numberUtils'
 // Services
 import WalletClient from '../../services/client'
 
@@ -26,12 +29,13 @@ export class ExchangeScene extends Component {
       refreshing: false,
       isSearching: false,
       searchName: '',
-      currentList: []
+      currentList: [],
+      favoriteExchanges: []
     }
 
     componentDidMount () {
-      this._didFocusSubscription = this.props.navigation.addListener('didFocus', this._loadData)
       this._loadData()
+      this._didFocusSubscription = this.props.navigation.addListener('didFocus', this._loadData)
     }
 
     componentWillUnmount () {
@@ -40,17 +44,69 @@ export class ExchangeScene extends Component {
 
     _loadData = async () => {
       try {
-        const exchangeList = await WalletClient.getExchangesList()
-        this.setState({ exchangeList, currentList: exchangeList, loading: false })
+        const [exchangeList, favoriteList] = await Promise.all([WalletClient.getExchangesList(), Async.get(FAVORITE_EXCHANGES, '[]')])
+        const parsedFavoriteList = JSON.parse(favoriteList)
+        const sortedExList = this._sortExList(exchangeList, parsedFavoriteList)
+
+        this.setState({
+          exchangeList: sortedExList,
+          currentList: sortedExList,
+          loading: false,
+          favoriteExchanges: parsedFavoriteList
+        })
       } catch (error) {
         logSentry(error, 'Error exchange list')
         this.setState({exchangeList: [], loading: false})
       }
     }
 
+    _getBalanceByName = tokenName => {
+      const { balances, publicKey } = this.props.context
+      if (balances[publicKey]) {
+        const { balance } = balances[publicKey].find(bl => bl.name === tokenName) || { balance: 0 }
+        return formatNumber(balance)
+      }
+      return formatNumber(0, true)
+    }
+
+    _sortExList = (list, favList) => (
+      sortBy(
+        list.map(ex => ({...ex, favorited: favList.indexOf(ex.exchangeId) > -1, firstTokenUserBalance: this._getBalanceByName(ex.firstTokenId)})),
+        [(ex) => !ex.favorited, (ex) => ex.firstTokenId !== 'TWX', (ex) => -(ex.variation || -999)]
+      )
+    )
+
+    _onFavoritePress = async newExId => {
+      const { exchangeList, currentList, favoriteExchanges } = this.state
+      try {
+        // Find if Exchange ID is already saved
+        let newFavoriteExchanges = favoriteExchanges.slice()
+        const exIdPosition = newFavoriteExchanges.indexOf(newExId)
+
+        // Change the exchange list to update the favorite status
+        let newExList = exchangeList.slice()
+        let newCurrList = currentList.slice()
+
+        exIdPosition > -1 ? newFavoriteExchanges.splice(exIdPosition, 1) : newFavoriteExchanges.push(newExId)
+
+        // Sort the exchange to put the favorite ones up to the top
+        newExList = this._sortExList(newExList, newFavoriteExchanges)
+        newCurrList = this._sortExList(newCurrList, newFavoriteExchanges)
+
+        this.setState({
+          exchangeList: newExList,
+          currentList: newCurrList,
+          favoriteExchanges: newFavoriteExchanges
+        })
+        await Async.set(FAVORITE_EXCHANGES, JSON.stringify(newFavoriteExchanges))
+      } catch (error) {
+        logSentry('Exchange Favorite Press', error)
+      }
+    }
+
     _onSearching = name => {
       const { exchangeList } = this.state
-      const searchValue = name.replace(/^[^a-zA-Z]/g, '')
+      const searchValue = name.toString().replace(/^[^a-zA-Z]/g, '')
       const regex = new RegExp(searchValue.toUpperCase(), 'i')
       const resultList = exchangeList.filter(ast => regex.test(ast.firstTokenId.toUpperCase()) ||
         regex.test(ast.secondTokenId.toUpperCase()))
@@ -77,7 +133,7 @@ export class ExchangeScene extends Component {
       const { exchangeList } = this.state
       const { navigation } = this.props
 
-      navigation.navigate('ExchangeTransaction', { exData: item })
+      navigation.navigate('ExchangeTabs', { exData: item })
       this.setState({ isSearching: false, currentList: exchangeList, searchName: '' })
 
       MixPanel.trackWithProperties('Exchange', {
@@ -87,7 +143,7 @@ export class ExchangeScene extends Component {
     }
 
     _onRefreshing = async () => {
-      this.setState({refreshing: true})
+      this.setState({refreshing: true, isSearching: false, searchName: ''})
       await this._loadData()
       this.setState({refreshing: false})
     }
@@ -96,6 +152,7 @@ export class ExchangeScene extends Component {
       <ExchangeItem
         exchangeData={item}
         onItemPress={this._onItemPressed}
+        onFavoritePress={this._onFavoritePress}
       />
     )
 
