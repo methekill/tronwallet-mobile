@@ -106,7 +106,6 @@ class Signals extends Component {
   _renderItem = ({ item }) => {
     return (
       <ListItem
-        onPress={() => this._onItemPress(item.tokenName)}
         title={item.title}
         subtitle={
           <HTMLView

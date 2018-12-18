@@ -7,7 +7,6 @@ import {
   createAppContainer
 } from 'react-navigation'
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
-import createCustomTopTabNavigator from './src/components/Navigation/createCustomTopTabNavigator'
 
 import { Colors, ScreenSize } from './src/components/DesignSystem'
 import { TWIcon } from './src/components/Utils'
@@ -110,16 +109,6 @@ const AddressBookTabs = createMaterialTopTabNavigator({
       width: indicatorWidth,
       height: 1.2,
       marginLeft: tabWidth / 2 - indicatorWidth / 2
-    }
-  }
-})
-
-const NotificationsTabs = createCustomTopTabNavigator({
-  Notifications
-}, {
-  tabBarOptions: {
-    header: {
-      title: tl.t('notifications.title')
     }
   }
 })
@@ -252,7 +241,7 @@ const RootNavigator = createStackNavigator({
   TransactionSuccess,
   Freeze: FreezeVoteScene,
   Rewards: RewardsScene,
-  NotificationsTabs
+  Notifications
 }, {
   mode: 'modal',
   headerMode: 'none',
