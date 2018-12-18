@@ -284,12 +284,12 @@ class App extends Component {
   _setVerifiedTokensOnly = (verifiedTokensOnly) => this.setState({ verifiedTokensOnly })
 
   _setPin = (pin, callback) => {
-    this.setState({ pin }, () => {
-      callback()
-    })
+    this.setState({ pin }, callback)
   }
 
-  _resetAccounts = () => this.setState({ accounts: [], publicKey: null })
+  _resetAccounts = () => {
+    this.setState({ accounts: [], publicKey: null })
+  }
 
   _hideAccount = address => {
     const newAccounts = this.state.accounts.filter(acc => acc.address !== address)
