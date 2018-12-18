@@ -9,7 +9,7 @@ export const HeaderContainer = styled(LinearGradient).attrs({
 })`
   z-index: 2;
   display: flex;
-  flex: 0.25;
+  flex: 0.20;
   width: 100%;
   height: 100%;
   justify-content: center;
@@ -41,7 +41,7 @@ export const URLInput = styled.TextInput`
 `
 
 export const BlankPage = styled.View`
-  flex: 0.75;
+  flex: 0.80;
   background-color: ${Colors.lightBackground};
 `
 

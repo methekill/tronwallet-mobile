@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { WebView, Alert } from 'react-native'
 import withContext from '../../utils/hocs/withContext'
 
-import { Text } from '../../components/Utils'
 import { HeaderContainer, PageWrapper, HeaderView, URLInput, BlankPage, WebViewLimit } from './elements'
 
 class TronWebView extends Component {
@@ -62,7 +61,6 @@ class TronWebView extends Component {
       document.addEventListener("message", function(data) {
         var JData = JSON.parse(data.data);
         alert(data.data)
-
       });
     `
   }
@@ -86,7 +84,6 @@ class TronWebView extends Component {
       <PageWrapper>
         <HeaderContainer>
           <HeaderView>
-            <Text>WEB BROWSER</Text>
             <URLInput
               placeholder='URL'
               keyboardType='url'
