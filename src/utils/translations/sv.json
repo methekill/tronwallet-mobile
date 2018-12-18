@@ -23,8 +23,10 @@
   "ex": "Exchange",
   "ok": "OK",
   "actionModalTitle": "Skulle du vilja",
+  "time": "Time",
   "account": "Konto",
   "restore": "Återställ",
+  "security": "Security",
   "error": {
     "default": "Oj någonting gick fel. Försök igen senare, om felet återkommer försök att uppdatera nätverks insträllningar.",
     "buildingTransaction": "Ett fel uppstod vid uppbyggnaden av överföringen, försök igen.",
@@ -55,6 +57,7 @@
   "clear": "Rensa",
   "allIn": "Allt",
   "skip": "Hoppa Över",
+  "hash": "Hash",
   "privateKey": "Privat Nyckel",
   "results": "Resultat",
   "buy": "Köp",
@@ -80,10 +83,13 @@
       "buy": "Öka den beräknade kostnaden något och chansen att lyckas blir större.",
       "sell": "Minska den beräknade intäkten något och chansen att lyckas blir större."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "BERÄKNAS ATT MOTTA",
     "estimatedCost": "BERÄKNAD KOSTNAD",
     "preview": "Sök efter namnet på Token",
-    "notFound": "Ingen Exchange hittades"
+    "notFound": "Ingen Exchange hittades",
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "Du håller på att ta bort det här kontot. Du kan återställa det senare i inställningarna",
   "components": {
