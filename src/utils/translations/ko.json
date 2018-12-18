@@ -654,9 +654,12 @@
     }
   },
   "notifications": {
-    "title": "알림"
-  },
-  "news": {
-    "title": "뉴스"
+    "title": "알림",
+    "notifications": {
+      "title": "TRANSACTIONS"
+    },
+    "signals": {
+      "title": "SIGNALS"
+    }
   }
 }
