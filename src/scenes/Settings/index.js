@@ -165,9 +165,11 @@ class Settings extends Component {
             testInput: pin => pin === this.props.context.pin,
             onSuccess: async () => {
               await hardResetWalletData(this.props.context.pin)
+              const { accounts } = this.props.context
               this.props.context.resetAccount()
               this.props.navigation.dispatch(resetAction)
-              MixPanel.trackWithProperties('Settings Operation', { type: 'Reset Wallet' })
+              AsyncStorage.setItem(USE_BIOMETRY, 'false')
+              MixPanel.trackWithProperties('Reset Wallet', { accounts })
             }
           })
         }
@@ -208,9 +210,6 @@ class Settings extends Component {
       ({ subscriptionStatus }) => ({ subscriptionStatus: !subscriptionStatus }),
       () => {
         OneSignal.setSubscription(this.state.subscriptionStatus)
-        OneSignal.getPermissionSubscriptionState(
-          status => console.log('subscriptions status', status)
-        )
         if (this.state.subscriptionStatus) {
           Client.registerDeviceForNotifications(
             this.props.context.oneSignalId,
