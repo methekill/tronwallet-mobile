@@ -23,8 +23,10 @@
   "ex": "거래소",
   "ok": "확인",
   "actionModalTitle": "원하는 항목을 선택하세요",
+  "time": "Time",
   "account": "계정",
   "restore": "복원",
+  "security": "Security",
   "error": {
     "default": "문제가 발생한 것 같네요. 잠시 후 다시 시도해보시기 바랍니다. 오류가 지속된다면 네트워크 설정을 업데이트 하시기 바랍니다.",
     "buildingTransaction": "트랜잭션 구성 중 에러가 발생했습니다, 다시 시도해 주세요.",
@@ -55,6 +57,7 @@
   "clear": "초기화",
   "allIn": "전액",
   "skip": "건너뛰기",
+  "hash": "Hash",
   "privateKey": "개인키",
   "results": "결과",
   "buy": "구매",
@@ -80,10 +83,13 @@
       "buy": "예상 수량을 약간 증가시키면 거래 성사 확률이 높아집니다.",
       "sell": "예상 수량을 약간 줄이면 거래 성사 확률이 높아집니다."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "예상 수량",
     "estimatedCost": "예상 수량",
     "preview": "토큰 이름으로 검색하기",
-    "notFound": "거래 조건을 찾을 수 없습니다"
+    "notFound": "거래 조건을 찾을 수 없습니다",
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "이 계정을 제거하려고합니다. 나중에 설정 메뉴에서 복원할 수 있습니다.",
   "components": {
