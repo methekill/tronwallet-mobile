@@ -23,8 +23,10 @@
   "ex": "Обмен",
   "ok": "ОК",
   "actionModalTitle": "Хотите ли вы",
+  "time": "Time",
   "account": "Учетная запись",
   "restore": "Восстановить",
+  "security": "Security",
   "error": {
     "default": "Упс, что-то пошло не так. Повторите попытку позже. Eсли ошибка сохраняется, попробуйте обновить настройки сети.",
     "buildingTransaction": "Ошибка во время создания транзакции, попробуйте еще раз.",
@@ -55,6 +57,7 @@
   "clear": "Очистить",
   "allIn": "Все в",
   "skip": "Пропустить",
+  "hash": "Hash",
   "privateKey": "Закрытый ключ",
   "results": "Результаты",
   "buy": "Купить",
@@ -80,10 +83,13 @@
       "buy": "Чем выше оценочная стоимость, тем выше вероятность успешной сделки.",
       "sell": "Чем ниже оценочная стоимость, тем выше вероятность успешной сделки."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "ПРИБЛИЗИТЕЛЬНО К ПОЛУЧЕНИЮ",
     "estimatedCost": "ОЦЕНОЧНАЯ СТОИМОСТЬ",
     "preview": "Поиск по имени токена",
-    "notFound": "Предложения не найдены"
+    "notFound": "Предложения не найдены",
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "Вы собираетесь удалить эту учетную запись. Вы можете восстановить её в настройках позже.",
   "components": {
