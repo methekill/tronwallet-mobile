@@ -63,6 +63,7 @@ const defaultCardStyle = {
 
 const SettingsStack = createStackNavigator({
   Settings,
+  TronWebview,
   Market,
   About,
   SeedSave,
@@ -169,7 +170,6 @@ const AppTabs = createMaterialBottomTabNavigator({
   },
   AddressBook: AddressBookStack,
   Balance: BalanceStack,
-  TronWebview,
   Transactions: TransactionList,
   Participate: ParticipateStack,
   Settings: SettingsStack
@@ -198,9 +198,6 @@ const AppTabs = createMaterialBottomTabNavigator({
         iconName = `dollar,-currency,-money,-cash,-coin`
       } else if (routeName === 'Exchange') {
         iconName = 'exchange'
-        iconSize = 22
-      } else if (routeName === 'TronWebview') {
-        iconName = `earth,-globe,-planet,-world,-universe`
         iconSize = 22
       }
 

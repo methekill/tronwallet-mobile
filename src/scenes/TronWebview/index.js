@@ -3,6 +3,7 @@ import { WebView, Alert } from 'react-native'
 import withContext from '../../utils/hocs/withContext'
 
 import { HeaderContainer, PageWrapper, HeaderView, URLInput, BlankPage, WebViewLimit } from './elements'
+import LeftCloseButton from '../../components/Navigation/LeftCloseButton'
 
 class TronWebView extends Component {
   constructor (props) {
@@ -83,6 +84,7 @@ class TronWebView extends Component {
     return (
       <PageWrapper>
         <HeaderContainer>
+          <LeftCloseButton onBack={() => this.props.navigation.goBack()} zIndex={10} />
           <HeaderView>
             <URLInput
               placeholder='URL'
