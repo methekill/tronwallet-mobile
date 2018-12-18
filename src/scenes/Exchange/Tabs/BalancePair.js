@@ -20,15 +20,20 @@ class ExchangeBalancePair extends Component {
     }
     return { balance: 0 }
   }
+
   render () {
     const { firstToken, secondToken } = this.props
-    const firstTokenBalance = this._findTokenBalance(firstToken)
-    const secondTokenBalance = this._findTokenBalance(secondToken)
+
+    const firstTokenBalance = this._findTokenBalance(firstToken.name)
+    const secondTokenBalance = this._findTokenBalance(secondToken.name)
+
+    const firstTokenIdentifier = firstToken.abbr || firstToken.name
+    const secondTokenIdentifier = secondToken.abbr || secondToken.name
 
     return (<Utils.View paddingY='small'>
       <Utils.Row align='center'>
         <Utils.View flex={0.33} align='center' justify='center'>
-          <Utils.Text marginTop='small' size='small'>{firstToken}</Utils.Text>
+          <Utils.Text marginTop='small' size='small'>{firstTokenIdentifier}</Utils.Text>
           <Motion
             defaultStyle={{ firstBalance: 0 }}
             style={{firstBalance: spring(firstTokenBalance)}}>
@@ -46,7 +51,7 @@ class ExchangeBalancePair extends Component {
           />
         </Utils.View>
         <Utils.View flex={0.33} justify='center' align='center'>
-          <Utils.Text marginTop='small' size='small'>{secondToken}</Utils.Text>
+          <Utils.Text marginTop='small' size='small'>{secondTokenIdentifier}</Utils.Text>
           <Motion
             defaultStyle={{ secondBalance: 0 }}
             style={{secondBalance: spring(secondTokenBalance)}}>
@@ -61,16 +66,30 @@ class ExchangeBalancePair extends Component {
     </Utils.View>)
   }
 }
+
 ExchangeBalancePair.propTypes = {
-  firstToken: PropTypes.string.isRequired,
-  secondToken: PropTypes.string.isRequired,
-  firstTokenImage: PropTypes.string,
-  secondTokenImage: PropTypes.string
+  firstToken: PropTypes.shape({
+    name: PropTypes.string,
+    abbr: PropTypes.oneOfType([null, PropTypes.string]),
+    image: PropTypes.oneOfType([null, PropTypes.string])
+  }).isRequired,
+  secondToken: PropTypes.shape({
+    name: PropTypes.string,
+    abbr: PropTypes.oneOfType([null, PropTypes.string]),
+    image: PropTypes.oneOfType([null, PropTypes.string])
+  }).isRequired
 }
+
 ExchangeBalancePair.defaultProps = {
-  firstToken: '',
-  secondToken: '',
-  firstTokenImage: '',
-  secondTokenImage: ''
+  firstToken: {
+    name: '',
+    abbr: '',
+    image: ''
+  },
+  secondToken: {
+    name: '',
+    abbr: '',
+    image: ''
+  }
 }
 export default withContext(ExchangeBalancePair)

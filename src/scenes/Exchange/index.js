@@ -16,7 +16,7 @@ import tl from '../../utils/i18n'
 import { logSentry } from '../../utils/sentryUtils'
 import Async from '../../utils/asyncStorageUtils'
 import { FAVORITE_EXCHANGES } from '../../utils/constants'
-
+import { formatNumber } from '../../utils/numberUtils'
 // Services
 import WalletClient from '../../services/client'
 
@@ -60,9 +60,18 @@ export class ExchangeScene extends Component {
       }
     }
 
+    _getBalanceByName = tokenName => {
+      const { balances, publicKey } = this.props.context
+      if (balances[publicKey]) {
+        const { balance } = balances[publicKey].find(bl => bl.name === tokenName) || { balance: 0 }
+        return formatNumber(balance)
+      }
+      return formatNumber(0, true)
+    }
+
     _sortExList = (list, favList) => (
       sortBy(
-        list.map(ex => ({...ex, favorited: favList.indexOf(ex.exchangeId) > -1})),
+        list.map(ex => ({...ex, favorited: favList.indexOf(ex.exchangeId) > -1, firstTokenUserBalance: this._getBalanceByName(ex.firstTokenId)})),
         [(ex) => !ex.favorited, (ex) => ex.firstTokenId !== 'TWX', (ex) => -(ex.variation || -999)]
       )
     )

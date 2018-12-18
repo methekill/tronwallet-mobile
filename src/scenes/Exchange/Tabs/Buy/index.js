@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Alert, Vibration } from 'react-native'
 import RNTron from 'react-native-tron'
 import MixPanel from 'react-native-mixpanel'
+import PropTypes from 'prop-types'
 
 // Design
 import Input from '../../../../components/Input'
@@ -173,13 +174,15 @@ class BuyScene extends Component {
       result
     } = this.state
     const {
-      firstTokenId,
       firstTokenBalance,
+      firstTokenId,
+      firstTokenAbbr,
       firstTokenImage,
       secondTokenId,
+      secondTokenAbbr,
       secondTokenBalance,
-      secondTokenImage,
-      price } = this.props.exchangeData
+      price,
+      secondTokenImage } = this.props.exchangeData
 
     const cost = estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount || 0, secondTokenId === 'TRX')
     const formattedCost = formatFloat(cost)
@@ -190,15 +193,20 @@ class BuyScene extends Component {
 
     const minBuy = Math.floor(cost / price)
 
+    const firstToken = { name: firstTokenId, abbr: firstTokenAbbr, image: firstTokenImage }
+    const secondToken = { name: secondTokenId, abbr: secondTokenAbbr, image: secondTokenImage }
+
+    const firstTokenIdentifier = firstTokenAbbr || firstTokenId
+    const secondTokenIdentifier = secondTokenAbbr || secondTokenId
+
     return (
       <ScrollWrapper>
         <Utils.View height={8} />
         <Utils.View paddingX='medium'>
+
           <ExchangeBalancePair
-            firstToken={secondTokenId}
-            firstTokenImage={secondTokenImage}
-            secondToken={firstTokenId}
-            secondTokenImage={firstTokenImage}
+            firstToken={secondToken}
+            secondToken={firstToken}
           />
           <ExchangePair
             firstToken={firstTokenId}
@@ -216,7 +224,7 @@ class BuyScene extends Component {
               label={tl.t('buy').toUpperCase()}
               innerRef={input => { this.buyAmount = input }}
               onChangeText={this._changeBuyAmount}
-              rightContent={() => this._renderRightContent(firstTokenId)}
+              rightContent={() => this._renderRightContent(firstTokenIdentifier)}
               placeholder='0'
               keyboardType='numeric'
               type={buyType}
@@ -229,7 +237,7 @@ class BuyScene extends Component {
             </Utils.Text>}
             <Input
               label={tl.t('exchange.estimatedCost')}
-              rightContent={() => this._renderRightContent(secondTokenId)}
+              rightContent={() => this._renderRightContent(secondTokenIdentifier)}
               onChangeText={estimatedCost => this.setState({estimatedCost})}
               placeholder={formattedCost}
               keyboardType='numeric'
@@ -250,6 +258,10 @@ class BuyScene extends Component {
       </ScrollWrapper>
     )
   }
+}
+
+BuyScene.propTypes = {
+  exchangeData: PropTypes.object.isRequired
 }
 
 export default BuyScene

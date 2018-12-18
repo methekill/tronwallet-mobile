@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Alert, Vibration } from 'react-native'
 import RNTron from 'react-native-tron'
 import MixPanel from 'react-native-mixpanel'
+import PropTypes from 'prop-types'
 
 // Design
 import Input from '../../../../components/Input'
@@ -164,11 +165,13 @@ class SellScene extends Component {
       result } = this.state
     const {
       firstTokenBalance,
-      secondTokenId,
-      secondTokenBalance,
       firstTokenId,
-      price,
+      firstTokenAbbr,
       firstTokenImage,
+      secondTokenId,
+      secondTokenAbbr,
+      secondTokenBalance,
+      price,
       secondTokenImage
     } = this.props.exchangeData
 
@@ -181,16 +184,20 @@ class SellScene extends Component {
 
     const minToSell = Math.round((1 / price) * 1.05) /* Used in Token To Token transaction, it needs to have a hihger variation when selling */
 
+    const firstToken = { name: firstTokenId, abbr: firstTokenAbbr, image: firstTokenImage }
+    const secondToken = { name: secondTokenId, abbr: secondTokenAbbr, image: secondTokenImage }
+
+    const firstTokenIdentifier = firstTokenAbbr || firstTokenId
+    const secondTokenIdentifier = secondTokenAbbr || secondTokenId
+
     return (
       <ScrollWrapper>
         <Utils.View height={8} />
         <Utils.View paddingX='medium'>
 
           <ExchangeBalancePair
-            firstToken={firstTokenId}
-            firstTokenImage={firstTokenImage}
-            secondToken={secondTokenId}
-            secondTokenImage={secondTokenImage}
+            firstToken={firstToken}
+            secondToken={secondToken}
           />
           <ExchangePair
             firstToken={firstTokenId}
@@ -208,7 +215,7 @@ class SellScene extends Component {
               label={tl.t('sell').toUpperCase()}
               innerRef={input => { this.sellAmount = input }}
               onChangeText={this._changeSellAmount}
-              rightContent={() => this._renderRightContent(firstTokenId)}
+              rightContent={() => this._renderRightContent(firstTokenIdentifier)}
               placeholder='0'
               keyboardType='numeric'
               type={sellType}
@@ -221,7 +228,7 @@ class SellScene extends Component {
               </Utils.Text>}
             <Input
               label={tl.t('exchange.estimatedRevenue')}
-              rightContent={() => this._renderRightContent(secondTokenId)}
+              rightContent={() => this._renderRightContent(secondTokenIdentifier)}
               onChangeText={estimatedRevenue => this.setState({estimatedRevenue})}
               placeholder={formattedCost}
               keyboardType='numeric'
@@ -242,6 +249,10 @@ class SellScene extends Component {
       </ScrollWrapper>
     )
   }
+}
+
+SellScene.propTypes = {
+  exchangeData: PropTypes.object.isRequired
 }
 
 export default SellScene

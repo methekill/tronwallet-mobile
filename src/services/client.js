@@ -3,7 +3,7 @@ import Config from 'react-native-config'
 import NodesIp from '../utils/nodeIp'
 import sortBy from 'lodash/sortBy'
 import { AUTH_ID } from './../../config'
-import { getExchangesImagesAvailable } from './contentful'
+import { getExchangeContentful } from './contentful'
 
 export const ONE_TRX = 1000000
 
@@ -119,7 +119,7 @@ class ClientWallet {
   async getExchangesList () {
     const [fullExchangeList, selectedExchangeList] = await Promise.all([
       axios.get(`${this.tronwalletExApi}/list`),
-      getExchangesImagesAvailable()
+      getExchangeContentful()
     ])
 
     let { data: exchangeList } = fullExchangeList

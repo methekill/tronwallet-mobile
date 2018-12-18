@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, LayoutAnimation, Platform, UIManager, Animated, TouchableOpacity } from 'react-native'
+import PropTypes from 'prop-types'
 
 class CollapseView extends Component {
   constructor () {
@@ -30,6 +31,12 @@ class CollapseView extends Component {
       </Animated.View>
     )
   }
+}
+
+CollapseView.propTypes = {
+  renderView: PropTypes.func.isRequired,
+  renderCollapseView: PropTypes.func.isRequired,
+  containerStyle: PropTypes.object
 }
 
 export default CollapseView

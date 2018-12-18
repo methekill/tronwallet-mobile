@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { FlatList, ActivityIndicator, Alert, Clipboard } from 'react-native'
 import moment from 'moment'
+import PropTypes from 'prop-types'
 
 // Design
 import * as Utils from '../../../../components/Utils'
@@ -11,6 +12,7 @@ import Collapsable from './collapse'
 
 // Utils
 import tl from '../../../../utils/i18n'
+import { formatNumber } from '../../../../utils/numberUtils'
 
 // Services
 import { ONE_TRX } from '../../../../services/client'
@@ -19,6 +21,12 @@ export class LatestTransactions extends PureComponent {
     _onCopyText = async text => {
       await Clipboard.setString(text)
       Alert.alert('Clipboard', 'Text copied')
+    }
+
+    _getTokenIdentifier = tokenId => {
+      const { firstTokenId, secondTokenId, secondTokenAbbr, firstTokenAbbr } = this.props.exchangeData
+      if (tokenId === '_') return 'TRX'
+      return tokenId === firstTokenId ? (firstTokenAbbr || firstTokenId) : (secondTokenAbbr || secondTokenId)
     }
 
     _renderHeader = () => (
@@ -31,7 +39,8 @@ export class LatestTransactions extends PureComponent {
 
     _renderCollapseView = (expanded, item) => {
       const amount = item.tokenId === '_' ? (item.quant / ONE_TRX).toFixed(3) : item.quant
-      const tokenId = item.tokenId === '_' ? 'TRX' : item.tokenId
+      const tokenIdentifier = this._getTokenIdentifier(item.tokenId)
+
       return <Utils.View paddingX='medium'>
         <TransactionRow>
           <Utils.Text flex={0.3} size='tiny'>
@@ -40,7 +49,7 @@ export class LatestTransactions extends PureComponent {
           </Utils.Text>
 
           <Utils.Text marginX={5} flex={0.5} size='small'>
-            {amount} {tokenId}
+            {formatNumber(amount)} {tokenIdentifier}
           </Utils.Text>
 
           <TransactionRow flex={0.2}>
@@ -97,4 +106,14 @@ export class LatestTransactions extends PureComponent {
     }
 }
 
+LatestTransactions.propTypes = {
+  lastTransactions: PropTypes.array.isRequired,
+  refreshingExchange: PropTypes.bool.isRequired,
+  exchangeData: PropTypes.object.isRequired
+}
+
+LatestTransactions.defaultProps = {
+  lastTransactions: [],
+  refreshingExchange: false
+}
 export default LatestTransactions

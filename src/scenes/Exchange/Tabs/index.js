@@ -48,8 +48,10 @@ export class ExchangeTabs extends Component {
         creatorAddress: '',
         createTime: 0,
         firstTokenId: '',
+        firstTokenAbbr: '',
         firstTokenBalance: 0,
         secondTokenId: '',
+        secondTokenAbbr: '',
         secondTokenBalance: 0,
         available: false,
         variation: -999,
@@ -98,7 +100,7 @@ export class ExchangeTabs extends Component {
   }
 
   _setRefreshLastExchanges = () => {
-    // Using Timeout to prevent UI bug
+    // Using Timeout to prevent UI freezing
     setTimeout(() => {
       this._loadExchangesTransactions()
       this.refreshExchangesInterval = setInterval(this._loadExchangesTransactions, 15000)
