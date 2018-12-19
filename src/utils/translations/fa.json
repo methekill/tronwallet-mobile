@@ -661,6 +661,9 @@
   },
   "notifications": {
     "title": "اطلاعیه ها",
+    "empty": {
+      "msg": "No notifications available at the moment"
+    },
     "notifications": {
       "title": "تراکنش ها"
     },
