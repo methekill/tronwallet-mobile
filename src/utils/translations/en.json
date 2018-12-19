@@ -34,6 +34,7 @@
     "clipboardCopied": "Something wrong while copying",
     "hideAccount": "Something went wrong deleting account, try again'"
   },
+  "amount" : "Amount",
   "avaliable": "AVAILABLE",
   "frozen": "FROZEN",
   "tronPower": "TRON POWER",
@@ -83,7 +84,6 @@
       "buy": "Slightly increase the estimated cost, and success rate will be higher.",
       "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
-    "txAmount": "Transaction Amount",
     "estimatedRevenue": "ESTIMATED TO RECEIVE",
     "estimatedCost": "ESTIMATED COST",
     "preview": "Search by the Token name",
