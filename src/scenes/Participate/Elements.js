@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { View } from '../../components/Utils'
-import { Colors, Spacing } from '../../components/DesignSystem'
+import { Colors, Spacing, FontSize } from '../../components/DesignSystem'
 import LinearGradient from 'react-native-linear-gradient'
 
 export const Text = styled.Text`
@@ -142,7 +142,7 @@ export const TokensTitle = styled.Text`
 `
 export const LabelText = styled.Text`
   font-family: Rubik-Bold;
-  font-size: 18px;
+  font-size: ${props => FontSize[props.size]};
   color: ${Colors.primaryText};
 `
 export const TronIcon = styled.Image`
@@ -152,21 +152,26 @@ export const TronIcon = styled.Image`
 export const PercentageView = View.extend`
   transform: translateY(-5px);
 `
-export const TokenLabel = (props) =>
+function labelSize (length) {
+  if (length < 5) return 'average'
+  if (length < 6) return 'small'
+  return 'xsmall'
+}
+export const TokenLabel = ({label}) =>
   <LinearGradient
     start={{ x: 0.4, y: 0 }}
     end={{ x: 1, y: 1 }}
     colors={[Colors.primaryGradient[0], Colors.primaryGradient[1]]}
     style={{width: 60, height: 60, borderRadius: 4, alignItems: 'center', justifyContent: 'center'}}>
     <View flex={1} align='center' justify='center'>
-      <LabelText font='bold' size='large'>{props.label}</LabelText>
+      <LabelText font='bold' size={labelSize(label.length)}>{label}</LabelText>
     </View>
   </LinearGradient>
 
-export const WhiteLabelText = (props) =>
+export const WhiteLabelText = ({label}) =>
   <View borderRadius={4} background='white' align='center' justify='center' height={60} width={60}>
-    <LabelText style={{color: Colors.buttonGradient[2]}} size='large' font='bold'>
-      {props.label.substr(0, 4).toUpperCase()}
+    <LabelText style={{color: Colors.buttonGradient[2]}} size={labelSize(label.length)} font='bold'>
+      {label}
     </LabelText>
   </View>
 
