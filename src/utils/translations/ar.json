@@ -661,6 +661,9 @@
   },
   "notifications": {
     "title": "إشعارات",
+    "empty": {
+      "msg": "No notifications available at the moment"
+    },
     "notifications": {
       "title": "المعاملات"
     },
