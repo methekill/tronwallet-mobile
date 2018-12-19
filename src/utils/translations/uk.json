@@ -661,6 +661,9 @@
   },
   "notifications": {
     "title": "СПОВІЩЕННЯ",
+    "empty": {
+      "msg": "No notifications available at the moment"
+    },
     "notifications": {
       "title": "ТРАНЗАКЦІЇ"
     },
