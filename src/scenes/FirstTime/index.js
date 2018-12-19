@@ -57,20 +57,6 @@ class FirstTime extends React.Component {
     })
   }
 
-  _navigateToRestoreWalletScene = () => {
-    const { context, navigation } = this.props
-    const shouldDoubleCheck = navigation.getParam('shouldDoubleCheck')
-    const testInput = navigation.getParam('testInput')
-
-    this._navigate({
-      shouldDoubleCheck,
-      testInput,
-      onSuccess: pin => {
-        context.setPin(pin, () => this._handlePinSuccess('SeedRestore'))
-      }
-    })
-  }
-
   _navigate = (navigationProps) => {
     this.props.navigation.navigate('Pin', navigationProps)
   }
@@ -83,9 +69,8 @@ class FirstTime extends React.Component {
           <Utils.View height={20} />
           <ButtonGradient text={tl.t('firstTime.button.create')} onPress={this._navigateToCreateWalletScene} />
           <Utils.VerticalSpacer />
-          <ButtonGradient text={tl.t('firstTime.button.import')} onPress={this._navigateToImportScene} />
+          <BlackButton text={tl.t('firstTime.button.import')} onPress={this._navigateToImportScene} />
           <Utils.VerticalSpacer />
-          <BlackButton text={tl.t('firstTime.button.restore')} onPress={this._navigateToRestoreWalletScene} />
           <Utils.VersionText>{`v${ConfigJson.version}`}</Utils.VersionText>
         </Utils.View>
       </React.Fragment>

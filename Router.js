@@ -29,7 +29,7 @@ import FreezeVoteScene from './src/components/Vote/Freeze'
 import RewardsScene from './src/scenes/Rewards'
 import NetworkConnection from './src/scenes/Settings/NetworkModal'
 import SeedSave from './src/scenes/Seed/Save'
-import SeedRestore from './src/scenes/Seed/Restore'
+import SeedImport from './src/scenes/Seed/Import'
 import SeedConfirm from './src/scenes/Seed/Confirm'
 import TransactionDetails from './src/scenes/TransactionDetails'
 import ParticipateHome from './src/scenes/Participate'
@@ -261,8 +261,7 @@ const RootNavigator = createStackNavigator({
   FirstTime: createSwitchNavigator({ PrivacyPolicy, First: FirstTime }, { initialRouteName: 'PrivacyPolicy' }),
   Pin,
   CreateSeed,
-  SeedRestore,
-  ImportWallet: ImportWalletStack,
+  ImportWallet: SeedImport,
   ContractPreview,
   App: AppTabs,
   GetVault: GetVaultScene,
