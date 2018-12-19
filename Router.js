@@ -132,7 +132,8 @@ const BalanceStack = createStackNavigator({
   MakePayScene,
   ScanPayScene,
   TokenDetailScene: TokenInfoScene,
-  Signals
+  Signals,
+  Notifications
 }, {
   mode: 'modal',
   cardStyle: defaultCardStyle
@@ -237,8 +238,7 @@ const RootNavigator = createStackNavigator({
   },
   TransactionSuccess,
   Freeze: FreezeVoteScene,
-  Rewards: RewardsScene,
-  Notifications
+  Rewards: RewardsScene
 }, {
   mode: 'modal',
   headerMode: 'none',
