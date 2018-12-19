@@ -654,9 +654,12 @@
     }
   },
   "notifications": {
-    "title": "MELDINGEN"
-  },
-  "news": {
-    "title": "NIEUWS"
+    "title": "MELDINGEN",
+    "notifications": {
+      "title": "TRANSACTIONS"
+    },
+    "signals": {
+      "title": "SIGNALS"
+    }
   }
 }

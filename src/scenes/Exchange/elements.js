@@ -1,6 +1,6 @@
 import React from 'react'
-import { Image, ScrollView } from 'react-native'
-import styled from 'styled-components'
+import { Image, ScrollView, TouchableOpacity } from 'react-native'
+import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { Colors, Spacing } from '../../components/DesignSystem'
@@ -21,7 +21,7 @@ export const ExchangeRow = styled.TouchableOpacity`
   padding-vertical: ${Spacing.medium};
 `
 export const Divider = styled.View`
-  width: 95%;
+  width: ${props => props.full ? '100%' : '95%'};
   padding-right: ${Spacing.medium};
   background-color: ${Colors.greyBlue};
   height: 0.5;
@@ -107,7 +107,34 @@ EmptyList.propTypes = {
 
 export const ScrollWrapper = (props) => (
   <ScrollView
-    contentContainerStyle={{paddingHorizontal: Spacing.medium, paddingVertical: Spacing.medium}}>
+    contentContainerStyle={{paddingVertical: Spacing.medium}}>
     {props.children}
   </ScrollView>
 )
+
+/**
+ * Transactions Elements
+ */
+export const CopyableText = ({text, onPress}) => (
+  <TouchableOpacity onPress={() => onPress(text)}>
+    <Utils.Text size='xsmall' marginY={5} color={Colors.greyBlue}>{text}</Utils.Text>
+  </TouchableOpacity>
+)
+export const TransactionRow = styled.View`
+  ${props => props.flex && css` flex: ${props.flex}`};
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+`
+
+export const TransactionHeader = TransactionRow.extend`
+  padding-horizontal: ${Spacing.medium};
+`
+
+export const ModalContainer = Utils.View.extend`
+  elevation: 5;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.54);
+  background-color : ${Colors.dusk};
+  padding: ${Spacing.large}px;
+  border-radius: 5px;
+`

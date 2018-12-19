@@ -1,52 +1,90 @@
 import React, { Component } from 'react'
-import { FlatList, Platform, StyleSheet } from 'react-native'
+import { Platform, StyleSheet, RefreshControl } from 'react-native'
+import HTMLView from 'react-native-htmlview'
+import { FlatList } from 'react-navigation'
 
 import NavigationHeader from './../../components/Navigation/Header'
+
 import * as Utils from './../../components/Utils'
-import tl from '../../utils/i18n'
+
 import ListItem from './../../components/List/ListItem'
+import { getAllNotifications } from './../../services/contentful/notifications'
+import { postFormat } from './../../utils/dateUtils'
+import tl from './../../utils/i18n'
+import { Colors } from './../../components/DesignSystem'
 
 class Notifications extends Component {
+  static navigationOptions = {
+    heder: null
+  }
+
   state = {
-    list: [
-      {
-        id: '1',
-        name: 'New transfer received',
-        subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet suscipit odio non finibus. Curabitur efficitur euismod porta. '
-      },
-      {
-        id: '2',
-        name: 'New transfer received',
-        subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque laoreet suscipit odio non finibus. Curabitur efficitur euismod porta. '
-      }
-    ]
+    list: [ ],
+    refreshing: false
+  }
+
+  componentDidMount () {
+    this._fetchData()
+  }
+
+  _fetchData = () => {
+    this.setState({
+      refreshing: true
+    }, () => {
+      getAllNotifications(0, 100)
+        .then(list => {
+          this.setState({
+            list,
+            refreshing: false
+          })
+        })
+        .catch(() => {
+          this.setState({
+            refreshing: false
+          })
+        })
+    })
   }
 
   _renderItem = ({ item }) => {
     return (
       <ListItem
-        title={item.name}
-        subtitle={item.subtitle}
-        rightTitle='16 hours ago'
+        title={item.title}
+        subtitle={
+          <HTMLView
+            style={styles.html}
+            value={`<span>${item.description || ' '}</span>`}
+            stylesheet={styles}
+          />
+        }
+        rightTitle={postFormat(item.updatedAt)}
       />
     )
   }
 
   render () {
-    const { list } = this.state
+    const { list, refreshing } = this.state
     return (
       <Utils.SafeAreaView>
-        <NavigationHeader title={tl.t('notifications.title')} />
+        <NavigationHeader
+          title={tl.t('notifications.title')}
+          onBack={() => this.props.navigation.goBack()}
+        />
         <FlatList
-          contentContainerStyle={list.length === 0 ? styles.emptyList : {}}
+          refreshControl={
+            <RefreshControl
+              refreshing={refreshing}
+              onRefresh={this._fetchData}
+            />
+          }
+          contentContainerStyle={(list.length === 0 && refreshing === false) ? styles.emptyList : {}}
           data={list}
-          // ListEmptyComponent={<Empty loading={refreshing} />}
           keyExtractor={item => item.id}
           renderItem={this._renderItem}
           initialNumToRender={10}
           onEndReachedThreshold={0.75}
-          // onEndReached={this._loadRemainingTransactions}
           removeClippedSubviews={Platform.OS === 'android'}
+          ListEmptyComponent={<Utils.Empty />}
         />
       </Utils.SafeAreaView>
     )
@@ -58,6 +96,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%'
+  },
+  html: {
+    padding: 10
+  },
+  span: {
+    color: Colors.greyBlue
   }
 })
 

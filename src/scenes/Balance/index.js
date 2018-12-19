@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { RefreshControl, ScrollView, TouchableOpacity, Linking, Alert } from 'react-native'
 import { Answers } from 'react-native-fabric'
 import Feather from 'react-native-vector-icons/Feather'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import MixPanel from 'react-native-mixpanel'
 
 import FormModal from '../../components/FormModal'
@@ -12,6 +13,7 @@ import * as Utils from '../../components/Utils'
 import WalletBalances from './WalletBalances'
 import BalanceNavigation from './BalanceNavigation'
 import AccountsCarousel from './AccountsCarousel'
+import { ButtonHeader, Badge } from './../../components/Navigation/elements'
 
 import tl from '../../utils/i18n'
 import { isNameValid, isAliasUnique } from '../../utils/validations'
@@ -20,6 +22,7 @@ import { createNewAccount } from '../../utils/secretsUtils'
 import withContext from '../../utils/hocs/withContext'
 import { logSentry } from '../../utils/sentryUtils'
 import onBackgroundHandler from '../../utils/onBackgroundHandler'
+import { Colors } from './../../components/DesignSystem'
 
 export class BalanceScene extends Component {
   static navigationOptions = {
@@ -82,7 +85,6 @@ export class BalanceScene extends Component {
   _loadData = async () => {
     try {
       this.props.context.loadUserData()
-      this.props.context.updateSystemStatus()
       MixPanel.trackWithProperties('Account Operation', { type: 'Balance load' })
     } catch (e) {
       this.setState({ error: tl.t('balance.error.loadingData') })
@@ -146,21 +148,28 @@ export class BalanceScene extends Component {
   }
 
   _onAppStateChange = nextAppState => {
-    const { alwaysAskPin } = this.props.context
     if (nextAppState.match(/background/)) {
       // Closing all modals
       this.setState({ accountModalVisible: false })
       if (this.carousel.innerComponent.ActionSheet && this.carousel.innerComponent.ActionSheet.hide) {
         this.carousel.innerComponent.ActionSheet.hide()
       }
-
-      if (alwaysAskPin) {
-        this.props.navigation.navigate('Pin', {
-          testInput: pin => pin === this.props.context.pin,
-          onSuccess: () => {}
-        })
-      }
     }
+  }
+
+  _leftButtonHeader = () => {
+    const { hasUnreadNotification } = this.props.context
+    return (
+      <ButtonHeader onPress={() => this.props.navigation.navigate('Notifications')}>
+        <Badge value={hasUnreadNotification}>
+          <Ionicons
+            name='ios-notifications-outline'
+            size={28}
+            color={Colors.primaryText}
+          />
+        </Badge>
+      </ButtonHeader>
+    )
   }
 
   _rightButtonHeader = () => {
@@ -189,6 +198,7 @@ export class BalanceScene extends Component {
     return (
       <Utils.SafeAreaView>
         <NavigationHeader
+          leftButton={this._leftButtonHeader()}
           title={tl.t('balance.title')}
           rightButton={this._rightButtonHeader()}
         />

@@ -7,11 +7,15 @@ import LottieView from 'lottie-react-native'
 
 class Empty extends PureComponent {
   componentDidMount () {
-    this.lottie.play()
+    if (this.lottie) {
+      this.lottie.play()
+    }
   }
 
   componentWillUnmount () {
-    this.lottie.reset()
+    if (this.lottie) {
+      this.lottie.reset()
+    }
   }
 
   renderWorldLoading = () => (

@@ -654,9 +654,12 @@
     }
   },
   "notifications": {
-    "title": "СПОВІЩЕННЯ"
-  },
-  "news": {
-    "title": "НОВИНИ"
+    "title": "СПОВІЩЕННЯ",
+    "notifications": {
+      "title": "ТРАНЗАКЦІЇ"
+    },
+    "signals": {
+      "title": "СИГНАЛИ"
+    }
   }
 }

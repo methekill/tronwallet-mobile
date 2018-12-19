@@ -3,7 +3,7 @@ import { AsyncStorage } from 'react-native'
 import getBalanceStore from '../store/balance'
 import getTransactionStore from '../store/transactions'
 import getCandidatesStore from '../store/candidates'
-import { USER_STATUS, USER_FILTERED_TOKENS, VERIFIED_TOKENS } from './constants'
+import { USER_STATUS, USER_FILTERED_TOKENS, VERIFIED_TOKENS, FAVORITE_EXCHANGES, ASK_PIN_EX } from './constants'
 
 import NodesIp from '../utils/nodeIp'
 import { resetContactsData } from '../utils/contactUtils'
@@ -46,6 +46,8 @@ export const hardResetWalletData = async (pin) => (
     resetSecretData(pin),
     NodesIp.switchTestnet(false),
     AsyncStorage.setItem(USER_STATUS, 'reset'),
-    AsyncStorage.setItem(USER_FILTERED_TOKENS, '[]')
+    AsyncStorage.setItem(USER_FILTERED_TOKENS, '[]'),
+    AsyncStorage.setItem(FAVORITE_EXCHANGES, '[]'),
+    AsyncStorage.setItem(ASK_PIN_EX, 'true')
   ])
 )

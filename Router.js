@@ -11,7 +11,7 @@ import { createMaterialBottomTabNavigator } from 'react-navigation-material-bott
 import { Colors, ScreenSize } from './src/components/DesignSystem'
 import { TWIcon } from './src/components/Utils'
 
-import LoadingScene from './src/scenes/Loading'
+import Loading from './src/scenes/Loading'
 import SendScene from './src/scenes/Send'
 import Market from './src/scenes/Market'
 import BalanceScene from './src/scenes/Balance'
@@ -52,7 +52,7 @@ import TronWebview from './src/scenes/TronWebview'
 import Notifications from './src/scenes/Notifications'
 import Signals from './src/scenes/Signals'
 import ExchangeList from './src/scenes/Exchange'
-import ExchangeTransaction from './src/scenes/Exchange/Transaction'
+import ExchangeTabs from './src/scenes/Exchange/Tabs'
 
 import tl from './src/utils/i18n'
 
@@ -131,7 +131,8 @@ const BalanceStack = createStackNavigator({
   PaymentsScene,
   MakePayScene,
   ScanPayScene,
-  TokenDetailScene: TokenInfoScene
+  TokenDetailScene: TokenInfoScene,
+  Signals
 }, {
   mode: 'modal',
   cardStyle: defaultCardStyle
@@ -139,7 +140,7 @@ const BalanceStack = createStackNavigator({
 
 const ExchangeStack = createStackNavigator({
   ExchangeList,
-  ExchangeTransaction
+  ExchangeTabs
 }, {
   mode: 'modal',
   cardStyle: defaultCardStyle
@@ -215,9 +216,14 @@ const AppTabs = createMaterialBottomTabNavigator({
   initialRouteName: 'Balance'
 })
 
+const FirstTimeSwitch = createSwitchNavigator({
+  PrivacyPolicy,
+  First: FirstTime
+}, { initialRouteName: 'PrivacyPolicy' })
+
 const RootNavigator = createStackNavigator({
-  Loading: LoadingScene,
-  FirstTime: createSwitchNavigator({ PrivacyPolicy, First: FirstTime }, { initialRouteName: 'PrivacyPolicy' }),
+  Loading,
+  FirstTime: FirstTimeSwitch,
   Pin,
   CreateSeed,
   SeedRestore,
@@ -232,8 +238,7 @@ const RootNavigator = createStackNavigator({
   TransactionSuccess,
   Freeze: FreezeVoteScene,
   Rewards: RewardsScene,
-  Notifications,
-  Signals
+  Notifications
 }, {
   mode: 'modal',
   headerMode: 'none',
