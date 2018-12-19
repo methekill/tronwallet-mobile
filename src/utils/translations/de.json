@@ -661,6 +661,9 @@
   },
   "notifications": {
     "title": "BENACHRICHTIGUNGEN",
+    "empty": {
+      "msg": "No notifications available at the moment"
+    },
     "notifications": {
       "title": "TRANSAKTIONEN"
     },
