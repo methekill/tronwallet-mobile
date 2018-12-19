@@ -2,10 +2,12 @@ import React from 'react'
 import { ActivityIndicator } from 'react-native'
 import PropTypes from 'prop-types'
 
-import ButtonGradient from '../../components/ButtonGradient'
-import * as Utils from '../../components/Utils'
-import { Colors } from '../../components/DesignSystem'
-import FadeIn from '../../components/Animations/FadeIn'
+import ButtonGradient from '../../../components/ButtonGradient'
+import * as Utils from '../../../components/Utils'
+import { Colors } from '../../../components/DesignSystem'
+import FadeIn from '../../../components/Animations/FadeIn'
+
+import tl from '../../../utils/i18n'
 
 const ExchangeButton = ({text, loading, result, onSubmit}) => {
   let element = null
@@ -19,7 +21,7 @@ const ExchangeButton = ({text, loading, result, onSubmit}) => {
         align='center'
         font='regular'
       >
-        {result === 'success' ? 'Success ✓' : 'Exchange not executed. Please review your input values and try again.'}
+        {result === 'success' ? `${tl.t('success')} ✓` : tl.t('exchange.error')}
       </Utils.Text>
     </FadeIn>
   } else {

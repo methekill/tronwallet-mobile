@@ -198,7 +198,7 @@ class ParticipateHome extends React.Component {
     const { name, abbr, issuedPercentage, endTime } = asset
     return (
       <GradientCard>
-        <WhiteLabelText label={abbr.substr(0, 4).toUpperCase()} />
+        <WhiteLabelText label={abbr.toUpperCase()} />
         <HorizontalSpacer size={18} />
         <View flex={1} justify='space-between'>
           <FeaturedTokenName>{getCustomName(name)}</FeaturedTokenName>
@@ -235,7 +235,7 @@ class ParticipateHome extends React.Component {
     const { name, abbr, price, issuedPercentage, endTime, isVerified } = asset
     return (
       <Card>
-        <TokenLabel label={abbr.substr(0, 4).toUpperCase()} />
+        <TokenLabel label={abbr.toUpperCase()} />
         <HorizontalSpacer size={24} />
         <View flex={1} justify='space-between'>
           {isVerified

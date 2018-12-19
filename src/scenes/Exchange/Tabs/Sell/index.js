@@ -1,26 +1,27 @@
 import React, { Component } from 'react'
-import { Alert } from 'react-native'
+import { Alert, Vibration } from 'react-native'
 import RNTron from 'react-native-tron'
 import MixPanel from 'react-native-mixpanel'
+import PropTypes from 'prop-types'
 
 // Design
-import Input from '../../../components/Input'
-import * as Utils from '../../../components/Utils'
-import { ExchangePair, ExchangeVariation, ScrollWrapper, PERCENTAGE_OPTIONS } from '../elements'
+import Input from '../../../../components/Input'
+import * as Utils from '../../../../components/Utils'
+import { ExchangePair, ExchangeVariation, ScrollWrapper, PERCENTAGE_OPTIONS } from '../../elements'
 import ExchangeBalancePair from '../BalancePair'
 import ExchangeButton from '../Button'
-import { Colors } from '../../../components/DesignSystem'
-import PercentageSelector from '../../../components/SelectorTile'
+import { Colors } from '../../../../components/DesignSystem'
+import PercentageSelector from '../../../../components/SelectorTile'
+import ExchangeTransactions from '../Transactions'
 
 // Utils
-import tl from '../../../utils/i18n'
-import { withContext } from '../../../store/context'
-import { estimatedSellCost, trxValueParse, HIGH_VARIATION } from '../../../utils/exchangeUtils'
-import { formatFloat } from '../../../utils/numberUtils'
-import { logSentry } from '../../../utils/sentryUtils'
+import tl from '../../../../utils/i18n'
+import { estimatedSellCost, trxValueParse, HIGH_VARIATION, getInputType } from '../../../../utils/exchangeUtils'
+import { formatFloat } from '../../../../utils/numberUtils'
+import { logSentry } from '../../../../utils/sentryUtils'
 
 // Service
-import WalletClient from '../../../services/client'
+import WalletClient from '../../../../services/client'
 
 class SellScene extends Component {
   static navigationOptions = { header: null }
@@ -38,8 +39,9 @@ class SellScene extends Component {
 
   _submit = () => {
     const { sellAmount, estimatedRevenue } = this.state
-    const { balances, publicKey } = this.props.context
-    const { firstTokenBalance, secondTokenBalance, firstTokenId, secondTokenId } = this.props.exchangeData
+    const { askPinEx, context, exchangeData } = this.props
+    const { balances, publicKey } = context
+    const { firstTokenBalance, secondTokenBalance, firstTokenId, secondTokenId } = exchangeData
 
     if (sellAmount <= 0 || !sellAmount) {
       this.sellAmount.focus()
@@ -67,11 +69,15 @@ class SellScene extends Component {
       return
     }
 
-    this.props.navigation.navigate('Pin', {
-      shouldGoBack: true,
-      testInput: pin => pin === this.props.context.pin,
-      onSuccess: this._exchangeToken
-    })
+    if (askPinEx) {
+      this.props.navigation.navigate('Pin', {
+        shouldGoBack: true,
+        testInput: pin => pin === this.props.context.pin,
+        onSuccess: this._exchangeToken
+      })
+    } else {
+      this._exchangeToken()
+    }
   }
 
   _exchangeToken = async () => {
@@ -105,6 +111,7 @@ class SellScene extends Component {
 
       if (code === 'SUCCESS') {
         this.setState({result: 'success', loading: false})
+        Vibration.vibrate()
         loadUserData()
       } else {
         this.setState({result: 'fail', loading: false})
@@ -158,11 +165,13 @@ class SellScene extends Component {
       result } = this.state
     const {
       firstTokenBalance,
-      secondTokenId,
-      secondTokenBalance,
       firstTokenId,
-      price,
+      firstTokenAbbr,
       firstTokenImage,
+      secondTokenId,
+      secondTokenAbbr,
+      secondTokenBalance,
+      price,
       secondTokenImage
     } = this.props.exchangeData
 
@@ -170,17 +179,25 @@ class SellScene extends Component {
     const formattedCost = formatFloat(cost)
 
     const isTokenToToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
+    const sellType = getInputType(firstTokenId)
+    const estimatedType = getInputType(secondTokenId)
+
     const minToSell = Math.round((1 / price) * 1.05) /* Used in Token To Token transaction, it needs to have a hihger variation when selling */
 
+    const firstToken = { name: firstTokenId, abbr: firstTokenAbbr, image: firstTokenImage }
+    const secondToken = { name: secondTokenId, abbr: secondTokenAbbr, image: secondTokenImage }
+
+    const firstTokenIdentifier = firstTokenAbbr || firstTokenId
+    const secondTokenIdentifier = secondTokenAbbr || secondTokenId
+
     return (
-      <Utils.SafeAreaView>
-        <ScrollWrapper>
-          <Utils.View height={8} />
+      <ScrollWrapper>
+        <Utils.View height={8} />
+        <Utils.View paddingX='medium'>
+
           <ExchangeBalancePair
-            firstToken={firstTokenId}
-            firstTokenImage={firstTokenImage}
-            secondToken={secondTokenId}
-            secondTokenImage={secondTokenImage}
+            firstToken={firstToken}
+            secondToken={secondToken}
           />
           <ExchangePair
             firstToken={firstTokenId}
@@ -198,24 +215,24 @@ class SellScene extends Component {
               label={tl.t('sell').toUpperCase()}
               innerRef={input => { this.sellAmount = input }}
               onChangeText={this._changeSellAmount}
-              rightContent={() => this._renderRightContent(firstTokenId)}
+              rightContent={() => this._renderRightContent(firstTokenIdentifier)}
               placeholder='0'
               keyboardType='numeric'
-              type='float'
+              type={sellType}
               numbersOnly
               value={sellAmount}
             />
             {isTokenToToken &&
-            <Utils.Text size='tiny' font='regular' align='right'>
-              {tl.t('exchange.minToSell', {min: minToSell, tokenId: firstTokenId})}
-            </Utils.Text>}
+              <Utils.Text size='tiny' font='regular' align='right'>
+                {tl.t('exchange.minToSell', {min: minToSell, tokenId: firstTokenId})}
+              </Utils.Text>}
             <Input
               label={tl.t('exchange.estimatedRevenue')}
-              rightContent={() => this._renderRightContent(secondTokenId)}
+              rightContent={() => this._renderRightContent(secondTokenIdentifier)}
               onChangeText={estimatedRevenue => this.setState({estimatedRevenue})}
               placeholder={formattedCost}
               keyboardType='numeric'
-              type='float'
+              type={estimatedType}
               numbersOnly
               value={estimatedRevenue}
             />
@@ -227,10 +244,15 @@ class SellScene extends Component {
             />
             <ExchangeVariation text={tl.t('exchange.variation.sell')} />
           </Utils.View>
-        </ScrollWrapper>
-      </Utils.SafeAreaView>
+        </Utils.View>
+        <ExchangeTransactions {...this.props} />
+      </ScrollWrapper>
     )
   }
 }
 
-export default withContext(SellScene)
+SellScene.propTypes = {
+  exchangeData: PropTypes.object.isRequired
+}
+
+export default SellScene

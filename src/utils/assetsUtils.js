@@ -2,13 +2,22 @@ import Client from '../services/client'
 import getAssetsStore from '../store/assets'
 import { FEATURED_TOKENS, VERIFIED_TOKENS } from './constants'
 
+/**
+ * TronScan API Adapter
+ */
+function assetAdapter (asset) {
+  return {
+    ...asset,
+    id: asset.name + asset.ownerAddress,
+    transaction: asset.transaction || 'N/A'
+  }
+}
+
 export const updateAssets = async (start = 0, limit = 100, name = '') => {
   const assets = await Client.getTokenList(start, limit, name)
   const store = await getAssetsStore()
   store.write(() => assets.map(asset => {
-    if (asset.id) {
-      store.create('Asset', asset, true)
-    }
+    store.create('Asset', assetAdapter(asset), true)
   }))
 
   return assets

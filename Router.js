@@ -7,7 +7,6 @@ import {
   createAppContainer
 } from 'react-navigation'
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
-import createCustomTopTabNavigator from './src/components/Navigation/createCustomTopTabNavigator'
 
 import { Colors, ScreenSize } from './src/components/DesignSystem'
 import { TWIcon } from './src/components/Utils'
@@ -53,7 +52,7 @@ import TronWebview from './src/scenes/TronWebview'
 import Notifications from './src/scenes/Notifications'
 import Signals from './src/scenes/Signals'
 import ExchangeList from './src/scenes/Exchange'
-import ExchangeTransaction from './src/scenes/Exchange/Transaction'
+import ExchangeTabs from './src/scenes/Exchange/Tabs'
 
 import tl from './src/utils/i18n'
 
@@ -114,16 +113,6 @@ const AddressBookTabs = createMaterialTopTabNavigator({
   }
 })
 
-const NotificationsTabs = createCustomTopTabNavigator({
-  Notifications
-}, {
-  tabBarOptions: {
-    header: {
-      title: tl.t('notifications.title')
-    }
-  }
-})
-
 const AddressBookStack = createStackNavigator({
   AddressBook: AddressBookTabs,
   EditAddressBookItem,
@@ -150,7 +139,7 @@ const BalanceStack = createStackNavigator({
 
 const ExchangeStack = createStackNavigator({
   ExchangeList,
-  ExchangeTransaction
+  ExchangeTabs
 }, {
   mode: 'modal',
   cardStyle: defaultCardStyle
@@ -252,7 +241,7 @@ const RootNavigator = createStackNavigator({
   TransactionSuccess,
   Freeze: FreezeVoteScene,
   Rewards: RewardsScene,
-  NotificationsTabs
+  Notifications
 }, {
   mode: 'modal',
   headerMode: 'none',
