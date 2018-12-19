@@ -23,8 +23,10 @@
   "ex": "Börse",
   "ok": "Ok",
   "actionModalTitle": "Würden Sie gerne",
+  "time": "Time",
   "account": "Konto",
   "restore": "Wiederherstellen",
+  "security": "Security",
   "error": {
     "default": "Es tut uns leid, etwas ist schiefgelaufen. Bitte versuchen Sie es später noch einmal. Wenn der Fehler weiterhin auftritt, versuchen Sie die Netzwerk-Einstellungen zu aktualisieren.",
     "buildingTransaction": "Fehler beim Erstellen der Transaktion, bitte versuchen Sie es erneut.",
@@ -55,6 +57,7 @@
   "clear": "Löschen",
   "allIn": "Alles",
   "skip": "Überspringen",
+  "hash": "Hash",
   "privateKey": "Privater Schlüssel",
   "results": "Ergebnisse",
   "buy": "Kaufen",
@@ -80,10 +83,13 @@
       "buy": "Steigere die Kosten leicht, um damit die Kaufwahrscheinlichkeit zu erhöhen.",
       "sell": "Senke den zu erwartenden Ertrag leicht, um damit die Verkaufswahrscheinlichkeit zu erhöhen."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "GESCHÄTZTER ERTRAG",
     "estimatedCost": "GESCHÄTZTE KOSTEN",
     "preview": "Nach dem Tokennamen suchen",
-    "notFound": "Börse nicht gefunden"
+    "notFound": "Börse nicht gefunden",
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "Sie sind dabei dieses Konto zu entfernen. Sie können es später in den Einstellungen wiederherstellen",
   "components": {

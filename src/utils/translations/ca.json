@@ -23,8 +23,10 @@
   "ex": "Exchange",
   "ok": "D'acord",
   "actionModalTitle": "Would you like to",
+  "time": "Time",
   "account": "Compte",
   "restore": "Restaurar",
+  "security": "Security",
   "error": {
     "default": "Woops alguna cosa sortia malament. Provar una altra vegada més tard, si persisteix l'error intentar actualitzar la configuració de xarxa.",
     "buildingTransaction": "Error mentre que la construcció de transacció, torneu.",
@@ -55,6 +57,7 @@
   "clear": "Clar",
   "allIn": "Tot en",
   "skip": "Omet",
+  "hash": "Hash",
   "privateKey": "Clau privada",
   "results": "Resultats",
   "buy": "Buy",
@@ -80,10 +83,13 @@
       "buy": "Slightly increase the estimated cost, and success rate will be higher.",
       "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "ESTIMATED TO RECEIVE",
     "estimatedCost": "ESTIMATED COST",
     "preview": "Search by the Token name",
-    "notFound": "Exchanges not found"
+    "notFound": "Exchanges not found",
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "Esteu a punt d'eliminar aquest compte. Podeu restaurar-lo més tard a la configuració",
   "components": {
