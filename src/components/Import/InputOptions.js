@@ -21,7 +21,7 @@ class InputOptions extends PureComponent {
 
     return (
       <Fragment>
-        <IconButton onPress={this._onPaste} icon='md-clipboard' />
+        <IconButton onPress={() => this._onPaste()} icon='md-clipboard' />
         <HorizontalSpacer />
         <IconButton onPress={onPressScanner} icon='ios-qr-scanner' />
       </Fragment>
