@@ -296,6 +296,11 @@ class App extends Component {
     this.setState({ accounts: newAccounts })
   }
 
+  _getCurrentAccount = () => {
+    const { publicKey, accounts } = this.state
+    return accounts.find(account => account.address === publicKey)
+  }
+
   render () {
     const contextProps = {
       ...this.state,
@@ -309,7 +314,8 @@ class App extends Component {
       setAskPin: this._setAskPin,
       setUseBiometry: this._setUseBiometry,
       setSecretMode: this._setSecretMode,
-      setVerifiedTokensOnly: this._setVerifiedTokensOnly
+      setVerifiedTokensOnly: this._setVerifiedTokensOnly,
+      getCurrentAccount: this._getCurrentAccount
     }
 
     return (

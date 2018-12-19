@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Alert, ActivityIndicator } from 'react-native'
 import { Answers } from 'react-native-fabric'
-import OneSignal from 'react-native-onesignal'
 import MixPanel from 'react-native-mixpanel'
 
 // Design
@@ -69,7 +68,7 @@ class MakePayment extends PureComponent {
       const { context, navigation } = this.props
       const { publicKey } = context
       const from = publicKey
-      this.setState({loading: true})
+      this.setState({ loading: true })
       try {
         const { address, amount, token, description } = navigation.getParam('payment')
         if (from === address) throw new DataError(tl.t('makePayment.error.receiver'))
@@ -92,10 +91,10 @@ class MakePayment extends PureComponent {
       }
     }
 
-    _buildTransaction = async ({to, amount, token, from, data}) => {
+    _buildTransaction = async ({ to, amount, token, from, data }) => {
       try {
         // Build Transaction
-        const transactionUnsigned = await WalletClient.getTransferTransaction({from, to, amount, token, data})
+        const transactionUnsigned = await WalletClient.getTransferTransaction({ from, to, amount, token, data })
         // Sign Transaction
         const { accounts, publicKey } = this.props.context
         const transactionSigned = await signTransaction(
@@ -105,8 +104,9 @@ class MakePayment extends PureComponent {
         // Get Transaction Signed Data
         const transactionData = await WalletClient.getTransactionDetails(transactionSigned)
         // Proceed to broadcast
-        if (transactionData) this._submitTransaction(transactionData, transactionSigned)
-        else throw new Error('Empty Transaction Data')
+        if (transactionData) {
+          this._submitTransaction(transactionData, transactionSigned)
+        } else throw new Error('Empty Transaction Data')
       } catch (error) {
         Alert.alert(tl.t('warning'), tl.t('error.default'))
         this.setState({ loading: false })
@@ -119,25 +119,22 @@ class MakePayment extends PureComponent {
       const store = await getTransactionStore()
       try {
         const transaction = this._getTransactionObject(transactionData)
-        store.write(() => { store.create('Transaction', transaction, true) })
+        store.write(() => {
+          store.create('Transaction', transaction, true)
+        })
         const { code } = await WalletClient.broadcastTransaction(transactionSigned)
         if (code === 'SUCCESS') {
           if (NOTIFICATION_TRANSACTIONS.includes(transaction.type)) {
             Answers.logCustom('Payment Operation', { type: transaction.type })
-            // if the receiver is a tronwallet user we'll find his devices here
-            const response = await WalletClient.getDevicesFromPublicKey(transaction.contractData.transferToAddress)
-            if (response.data.users.length) {
-              const content = {
-                'en': tl.t('submitTransaction.notificationPayment', { address: transaction.contractData.transferFromAddress })
-              }
-              response.data.users.map(device => {
-                // We use @ to identify the multiple accounts
-                const deviceId = device.deviceid.split('@')[0] || device.deviceid
-                OneSignal.postNotification(content, transaction, deviceId)
-              })
-            }
           }
-          MixPanel.trackWithProperties('Payment Operation', { type: 'Payment Success', transaction: transaction })
+
+          MixPanel.trackWithProperties('Payment Operation', {
+            'payment.type': transaction.type,
+            'payment.transferFromAddress': transaction.contractData.transferFromAddress,
+            'payment.transferToAddress': transaction.contractData.transferToAddress,
+            'payment.tokenName': transaction.contractData.tokenName,
+            'payment.amount': transaction.contractData.amount
+          })
           await this.props.context.loadUserData()
         }
         this.setState({ loading: false }, this._navigateNext(transactionData))
@@ -145,12 +142,12 @@ class MakePayment extends PureComponent {
         // This needs to be adapted better from serverless api
         const errorMessage = error.response && error.response.data ? translateError(error.response.data.error)
           : tl.t('error.default')
-        Alert.alert('Warning', errorMessage)
+        Alert.alert(tl.t('warning'), errorMessage)
         store.write(() => {
           const lastTransaction = store.objectForPrimaryKey('Transaction', hash)
           store.delete(lastTransaction)
         })
-        this.setState({loading: false})
+        this.setState({ loading: false })
         logSentry(error, 'Make Payment - Transaction Failed')
       }
     }

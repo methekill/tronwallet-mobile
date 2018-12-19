@@ -84,8 +84,13 @@ export class BalanceScene extends Component {
 
   _loadData = async () => {
     try {
-      this.props.context.loadUserData()
-      MixPanel.trackWithProperties('Account Operation', { type: 'Balance load' })
+      await this.props.context.loadUserData()
+      const currentAccount = this.props.context.getCurrentAccount()
+      MixPanel.trackWithProperties('Balance load', {
+        name: currentAccount.name,
+        address: currentAccount.address,
+        balance: currentAccount.balance || 0
+      })
     } catch (e) {
       this.setState({ error: tl.t('balance.error.loadingData') })
       logSentry(e, 'Balance - LoadData')
@@ -132,7 +137,7 @@ export class BalanceScene extends Component {
       if (createdNewAccount) {
         await loadUserData()
         this.carousel.innerComponent._snapToNewAccount()
-        MixPanel.trackWithProperties('Account Operation - Create new account', { type: 'Create new account' })
+        MixPanel.trackWithProperties('Create new account', { name: newAccountName })
       }
     } catch (error) {
       logSentry(error, 'Error creating new Account')

@@ -117,8 +117,9 @@ export class AccountsCarousel extends React.Component {
   _handleCurrencyChange = async index => {
     if (index) {
       const currency = CURRENCIES[index]
+      const prevCurrency = this.props.context.currency
       this.props.context.setCurrency(currency)
-      // MixPanel.trackWithProperties('Change currency', { currency })
+      MixPanel.trackWithProperties('Change currency', { prevCurrency, currency })
     }
   }
 
@@ -126,7 +127,7 @@ export class AccountsCarousel extends React.Component {
     try {
       await Clipboard.setString(address)
       this.refs.toast.show(tl.t('receive.clipboardCopied'))
-      // MixPanel.trackWithProperties('Copy my Address to clipboard', { address })
+      MixPanel.trackWithProperties('Copy to clipboard', { address, location: 'Balance Card' })
     } catch (error) {
       logSentry(error, 'Copy Address - Clipboard')
     }
