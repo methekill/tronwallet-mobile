@@ -27,7 +27,8 @@ describe('Balance Scene', () => {
         secretMode: '',
         pin: '12345',
         oneSignalId: '123456789',
-        loadUserData: jest.fn()
+        loadUserData: jest.fn(),
+        userSecrets: []
       }
     }
 
@@ -53,7 +54,7 @@ describe('Balance Scene', () => {
     }
 
     // Act
-    await instance._addNewAccount()
+    await instance._onCreatedNewAccount()
 
     // Assert
     expect(creatingNewAccount).toBeTruthy()
@@ -64,27 +65,13 @@ describe('Balance Scene', () => {
     const instance = balanceSceneWrapper.instance()
 
     // Act
-    await instance._addNewAccount()
+    await instance._onCreatedNewAccount()
 
     const { creatingNewAccount } = balanceSceneWrapper.state()
 
     // Assert
     expect(creatingNewAccount).toBeFalsy()
     expect(sentryUtils.logSentry).not.toBeCalled()
-  })
-
-  test('Should creatingNewAccount state is FALSE when new account WASN\'T created', async () => {
-    // Arrange
-    const instance = balanceSceneWrapper.instance()
-    instance.props.context.loadUserData = null
-
-    // Act
-    await instance._addNewAccount()
-    const creatingNewAccount = balanceSceneWrapper.state('creatingNewAccount')
-
-    // Assert
-    expect(creatingNewAccount).toBeFalsy()
-    expect(sentryUtils.logSentry).toBeCalled()
   })
 
   test('Should make sure that loadData is calling loadUserData', async () => {

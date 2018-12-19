@@ -1,12 +1,9 @@
 import qs from 'qs'
 import React, { Component } from 'react'
-import { RefreshControl, ScrollView, TouchableOpacity, Linking, Alert } from 'react-native'
+import { RefreshControl, ScrollView, Linking, Alert } from 'react-native'
 import { Answers } from 'react-native-fabric'
-import Feather from 'react-native-vector-icons/Feather'
 import MixPanel from 'react-native-mixpanel'
 
-import FormModal from '../../components/FormModal'
-import SyncButton from '../../components/SyncButton'
 import NavigationHeader from '../../components/Navigation/Header'
 import * as Utils from '../../components/Utils'
 import WalletBalances from './WalletBalances'
@@ -14,12 +11,11 @@ import BalanceNavigation from './BalanceNavigation'
 import AccountsCarousel from './AccountsCarousel'
 
 import tl from '../../utils/i18n'
-import { isNameValid, isAliasUnique } from '../../utils/validations'
-import { formatAlias } from '../../utils/contactUtils'
-import { createNewAccount } from '../../utils/secretsUtils'
 import withContext from '../../utils/hocs/withContext'
 import { logSentry } from '../../utils/sentryUtils'
 import onBackgroundHandler from '../../utils/onBackgroundHandler'
+import AddAccountModal from '../../components/AddAccounts/AddAccountModal'
+import AddAccountButton from '../../components/AddAccounts/AddAccountButton'
 
 export class BalanceScene extends Component {
   static navigationOptions = {
@@ -101,42 +97,13 @@ export class BalanceScene extends Component {
     })
   }
 
-  _validateAccountName = async name => {
-    if (name) {
-      if (!isNameValid(name)) {
-        return tl.t('addressBook.form.nameError')
-      }
+  _onCreatedNewAccount = async () => {
+    this.setState({ creatingNewAccount: true })
 
-      const aliasIsUnique = await isAliasUnique(formatAlias(name), this.props.context.pin)
-      if (!aliasIsUnique) {
-        return tl.t('addressBook.form.uniqueAliasError')
-      }
-    }
+    await this.props.context.loadUserData()
+    this.carousel.innerComponent._snapToNewAccount()
 
-    return null
-  }
-
-  _handleAccountNameChange = async name => {
-    const accountNameError = await this._validateAccountName(name)
-    this.setState({ newAccountName: name, accountNameError })
-  }
-
-  _addNewAccount = async () => {
-    const { newAccountName } = this.state
-    const { pin, oneSignalId, loadUserData } = this.props.context
-    this.setState({ creatingNewAccount: true, accountModalVisible: false })
-    try {
-      const createdNewAccount = await createNewAccount(pin, oneSignalId, newAccountName)
-      if (createdNewAccount) {
-        await loadUserData()
-        this.carousel.innerComponent._snapToNewAccount()
-        MixPanel.trackWithProperties('Account Operation', { type: 'Create new account' })
-      }
-    } catch (error) {
-      logSentry(error, 'Error creating new Account')
-    } finally {
-      this.setState({ creatingNewAccount: false })
-    }
+    this.setState({ creatingNewAccount: false })
   }
 
   _onRefresh = async () => {
@@ -166,31 +133,40 @@ export class BalanceScene extends Component {
   _rightButtonHeader = () => {
     const { secretMode } = this.props.context
     const { creatingNewAccount } = this.state
-    if (secretMode === 'privatekey') {
-      return null
-    }
 
     return (
-      <TouchableOpacity onPress={this._createAccountPressed} disabled={creatingNewAccount} >
-        {creatingNewAccount
-          ? (<SyncButton loading />)
-          : (<Feather name='plus' color={'white'} size={28} />)}
-      </TouchableOpacity>
+      <AddAccountButton
+        onPress={this._createAccountPressed}
+        loading={creatingNewAccount}
+        secretMode={secretMode}
+      />
     )
+  }
+
+  _gotoAddExistentAccount = () => {
+    this.setState({ accountModalVisible: false })
+    this.props.navigation.navigate('AddAccountsScene')
   }
 
   render () {
     const {
       refreshing,
-      accountModalVisible,
-      newAccountName,
-      accountNameError
+      accountModalVisible
     } = this.state
+
+    const {
+      pin,
+      oneSignalId,
+      userSecrets
+    } = this.props.context
+
+    const rightButton = this._rightButtonHeader()
+
     return (
       <Utils.SafeAreaView>
         <NavigationHeader
           title={tl.t('balance.title')}
-          rightButton={this._rightButtonHeader()}
+          rightButton={rightButton}
         />
         <Utils.Container justify='flex-start' align='stretch'>
           <ScrollView
@@ -209,19 +185,14 @@ export class BalanceScene extends Component {
             </Utils.Content>
           </ScrollView>
         </Utils.Container>
-        <FormModal
-          title={tl.t('newAccount.title')}
-          error={accountNameError}
-          inputLabel={tl.t('addressBook.form.name')}
-          inputValue={newAccountName}
-          inputPlaceholder={tl.t('newAccount.placeholder')}
-          onChangeText={this._handleAccountNameChange}
-          buttonText={tl.t(`addressBook.shared.add`)}
-          onButtonPress={this._addNewAccount}
-          buttonDisabled={!!accountNameError || !newAccountName}
+        <AddAccountModal
+          pin={pin}
+          oneSignalId={oneSignalId}
+          totalAccounts={userSecrets.length}
           visible={accountModalVisible}
+          onCreated={this._onCreatedNewAccount}
           closeModal={() => this.setState({ accountModalVisible: false })}
-          animationType='fade'
+          gotoAddExistentAccount={this._gotoAddExistentAccount}
         />
       </Utils.SafeAreaView>
     )
