@@ -45,7 +45,9 @@ import MakePayScene from './src/scenes/Payments/Make'
 import PaymentsScene from './src/scenes/Payments'
 import ScanPayScene from './src/scenes/Payments/Scan'
 import CreateSeed from './src/scenes/Seed/Create'
-import PrivateKeyImportScene from './src/scenes/Seed/Import/PrivateKeyImport'
+import PrivateKeyImportScene from './src/scenes/AddAccounts/PrivateKeyAccount'
+import MnemonicImportScene from './src/scenes/AddAccounts/MnemonicAccount'
+import WatchImportScene from './src/scenes/AddAccounts/WatchAccount'
 import PrivacyPolicy from './src/scenes/PrivacyPolicy'
 import ContractPreview from './src/scenes/ContractPreview'
 import Notifications from './src/scenes/Notifications'
@@ -121,54 +123,17 @@ const AddressBookStack = createStackNavigator({
   cardStyle: defaultCardStyle
 })
 
-const BalanceStack = createStackNavigator({
-  BalanceScene,
-  ReceiveScene,
-  FreezeScene,
-  SendScene,
-  PaymentsScene,
-  MakePayScene,
-  ScanPayScene,
-  TokenDetailScene: TokenInfoScene
-}, {
-  mode: 'modal',
-  cardStyle: defaultCardStyle
-})
-
-const ExchangeStack = createStackNavigator({
-  ExchangeList,
-  ExchangeTransaction
-}, {
-  mode: 'modal',
-  cardStyle: defaultCardStyle
-})
-
-const TransactionList = createStackNavigator({
-  TransactionListScene,
-  TransactionDetails
-}, {
-  mode: 'modal',
-  cardStyle: defaultCardStyle
-})
-
-const ParticipateStack = createStackNavigator({
-  ParticipateHome,
-  TokenInfo: TokenInfoScene,
-  Buy: BuyScene
-}, {
-  mode: 'modal',
-  cardStyle: defaultCardStyle
-})
-
-const ImportWalletTabs = createMaterialTopTabNavigator({
+const AddAccountsTabs = createMaterialTopTabNavigator({
+  MnemonicImport: MnemonicImportScene,
   PrivateKeyImport: PrivateKeyImportScene,
+  WatchImport: WatchImportScene
 }, {
   navigationOptions: {
     header: ({ navigation }) => (
       <SafeAreaView style={{ backgroundColor: Colors.background }}>
         <NavigationHeader
           title={tl.t('importWallet.title')}
-          onBack={() => navigation.goBack()}
+          onBack={() => navigation.goBack(null)}
         />
       </SafeAreaView>
     ),
@@ -196,8 +161,41 @@ const ImportWalletTabs = createMaterialTopTabNavigator({
   }
 })
 
-const ImportWalletStack = createStackNavigator({
-  ImportWallet: ImportWalletTabs
+const BalanceStack = createStackNavigator({
+  BalanceScene,
+  ReceiveScene,
+  FreezeScene,
+  SendScene,
+  PaymentsScene,
+  MakePayScene,
+  ScanPayScene,
+  AddAccountsScene: AddAccountsTabs,
+  TokenDetailScene: TokenInfoScene
+}, {
+  mode: 'modal',
+  cardStyle: defaultCardStyle
+})
+
+const ExchangeStack = createStackNavigator({
+  ExchangeList,
+  ExchangeTransaction
+}, {
+  mode: 'modal',
+  cardStyle: defaultCardStyle
+})
+
+const TransactionList = createStackNavigator({
+  TransactionListScene,
+  TransactionDetails
+}, {
+  mode: 'modal',
+  cardStyle: defaultCardStyle
+})
+
+const ParticipateStack = createStackNavigator({
+  ParticipateHome,
+  TokenInfo: TokenInfoScene,
+  Buy: BuyScene
 }, {
   mode: 'modal',
   cardStyle: defaultCardStyle
