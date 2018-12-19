@@ -660,6 +660,10 @@
     "title": "NEWS"
   },
   "import": {
+    "button": {
+      "create": "CREATE",
+      "addAccount": "ADD EXISTENT ACCOUNT"
+    },
     "header": {
       "privateKey": "Private Key",
       "mnemonic": "Mnemonic",
