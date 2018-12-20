@@ -23,8 +23,10 @@
   "ex": "Exchange",
   "ok": "Ok",
   "actionModalTitle": "Ai dori să",
+  "time": "Time",
   "account": "Cont",
   "restore": "Restaurare",
+  "security": "Security",
   "error": {
     "default": "Ups, ceva nu a mers bine. Reincerca mai tarziu. Dacă eroarea persista, incerca să updatezi setarile de retea.",
     "buildingTransaction": "Eroare la construirea tranzacției, încercă din nou.",
@@ -55,6 +57,7 @@
   "clear": "Curăţa",
   "allIn": "Toate",
   "skip": "Sari peste",
+  "hash": "Hash",
   "privateKey": "Cheie Privată",
   "results": "Rezultate",
   "buy": "Cumpără",
@@ -78,19 +81,22 @@
     "minToBuy": "Minim de primit{{min}}{{tokenId}}",
     "variation": {
       "buy": "Costul estimativ este puțin mai mare, și probabilitatea de a executa tranzacţia va fi mai mare.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "sell": "Incearca sa reduci usor profitul estimativ si rata de succes va fi mai mare."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "SUMĂ ESTIMATIVĂ DE PRIMIT",
     "estimatedCost": "COST ESTIMATIV",
     "preview": "Căutare dupa numele Token-ului",
-    "notFound": "Nu au fost găsite Schimburi"
+    "notFound": "Nu au fost găsite Schimburi",
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "Ești pe cale să elimini acest cont. Îl vei putea restabili ulterior în setări",
   "components": {
     "share": {
-      "title": "Partajare adresă TronWallet",
+      "title": "Distribuie adresa TronWallet",
       "message": "Aceasta este adresa mea TronWallet:\n\n{{address}}\n\nSfat: O data ce ai copiat-o, o poți lipi în aplicația ta TronWallet utilizând butonul special din ecranul Trimitere.",
-      "dialogTitle": "Partajare utilizând:"
+      "dialogTitle": "Distribuie utilizând:"
     },
     "QRScanner": {
       "title": "Scaner de adrese",
@@ -271,10 +277,10 @@
     "clipboardCopied": "Copiat în clipboard",
     "button": {
       "copy": "Copiază",
-      "share": "Partajare"
+      "share": "Distribuire"
     },
     "tabs": {
-      "share": "PARTAJARE",
+      "share": "DISTRIBUIRE",
       "request": "CERERE"
     }
   },
@@ -654,9 +660,12 @@
     }
   },
   "notifications": {
-    "title": "NOTIFICĂRI"
-  },
-  "news": {
-    "title": "STIRI"
+    "title": "NOTIFICĂRI",
+    "notifications": {
+      "title": "TRANSACTIONS"
+    },
+    "signals": {
+      "title": "SIGNALS"
+    }
   }
 }

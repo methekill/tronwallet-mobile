@@ -23,8 +23,10 @@
   "ex": "Cambio",
   "ok": "Ok",
   "actionModalTitle": "Ti piacerebbe",
+  "time": "Time",
   "account": "Conto",
   "restore": "Ripristinare",
+  "security": "Security",
   "error": {
     "default": "Woops qualcosa è andato storto. Riprovate più tardi e se l'errore persiste provate ad aggiornare le impostazioni di rete.",
     "buildingTransaction": "Si è verificato un errore durante la creazione della transazione. Riprovate di nuovo.",
@@ -55,6 +57,7 @@
   "clear": "Chiarificare",
   "allIn": "Tutto",
   "skip": "Salta",
+  "hash": "Hash",
   "privateKey": "Chiave privata",
   "results": "Risultati",
   "buy": "Compra",
@@ -80,10 +83,13 @@
       "buy": "Slightly increase the estimated cost, and success rate will be higher.",
       "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "STIMATO DA RICEVERE",
     "estimatedCost": "COSTO STIMATO",
     "preview": "Ricerca del token attraverso nome",
-    "notFound": "Cambi non trovati"
+    "notFound": "Cambi non trovati",
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "Stai per rimuovere questo account. Puoi ripristinarlo più tardi dalle impostazioni",
   "components": {
@@ -654,9 +660,12 @@
     }
   },
   "notifications": {
-    "title": "NOTIFICHE"
-  },
-  "news": {
-    "title": "NOTIZIE"
+    "title": "NOTIFICHE",
+    "notifications": {
+      "title": "TRANSACTIONS"
+    },
+    "signals": {
+      "title": "SIGNALS"
+    }
   }
 }

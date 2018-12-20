@@ -23,8 +23,10 @@
   "ex": "Exchange",
   "ok": "OK",
   "actionModalTitle": "Would you like to",
+  "time" : "Time",
   "account": "Account",
   "restore": "Restore",
+  "security" : "Security",
   "error": {
     "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
     "buildingTransaction": "Error while building transaction, try again.",
@@ -55,6 +57,7 @@
   "clear": "Clear",
   "allIn": "All In",
   "skip": "Skip",
+  "hash" : "Hash",
   "privateKey": "Private Key",
   "results": "Results",
   "buy": "Buy",
@@ -80,10 +83,13 @@
       "buy": "Slightly increase the estimated cost, and success rate will be higher.",
       "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "ESTIMATED TO RECEIVE",
     "estimatedCost": "ESTIMATED COST",
     "preview": "Search by the Token name",
-    "notFound": "Exchanges not found"
+    "notFound": "Exchanges not found",
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "You are about to remove this account. You can restore it later in the settings",
   "components": {
@@ -654,7 +660,16 @@
     }
   },
   "notifications": {
-    "title": "NOTIFICATIONS"
+    "title": "NOTIFICATIONS",
+    "empty": {
+      "msg": "No notifications available at the moment"
+    },
+    "notifications": {
+      "title": "TRANSACTIONS"
+    },
+    "signals": {
+      "title": "SIGNALS"
+    }
   },
   "news": {
     "title": "NEWS"

@@ -18,7 +18,6 @@ import io.getty.rntron.RNTronPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import io.realm.react.RealmReactPackage;
-import com.oblador.vectoricons.VectorIconsPackage;
 import com.horcrux.svg.SvgPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.facebook.react.ReactNativeHost;
@@ -57,7 +56,6 @@ public class MainApplication extends Application implements ReactApplication {
           new RNCameraPackage(),
           new SplashScreenReactPackage(),
           new RealmReactPackage(),
-          new VectorIconsPackage(),
           new SvgPackage(),
           new LinearGradientPackage()
       );

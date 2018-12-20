@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { View, Alert } from 'react-native'
 import styled from 'styled-components'
 import Communications from 'react-native-communications'
 
@@ -11,8 +11,6 @@ import ButtonGradient from '../../components/ButtonGradient'
 
 import { triggerSmartContract, signSmartContract, submitSmartContract } from '../../services/tronweb'
 import { ONE_TRX } from '../../services/client'
-
-import { replaceRoute } from '../../utils/navigationUtils'
 
 const Card = styled.View`
   display: flex;
@@ -65,15 +63,18 @@ class ContractCard extends Component {
     const signedTR = await signSmartContract(TR.transaction, account.privateKey)
     const result = await submitSmartContract(signedTR)
 
-    if (result) {
+    if (result && result.code !== 'CONTRACT_VALIDATE_ERROR') {
       this.props.navigation.navigate('TransactionSuccess', {
         stackToReset: 'ParticipateHome',
-        nextRoute: 'Transactions'
+        nextRoute: 'TronWebview'
       })
 
       if (callbackUrl) {
         return Communications.web(`${callbackUrl}?tx=${result.transaction.txID}`)
       }
+    } else {
+      this.props.navigation.navigate('TronWebview')
+      Alert.alert('Failed while trying to submit this contract')
     }
   }
 
@@ -110,7 +111,7 @@ class ContractCard extends Component {
 
         <Row style={{ marginTop: 15 }}>
           <View style={{ flex: 1, marginRight: '5%' }}>
-            <ButtonGradient width={'100%'} text='Reject' onClick={() => replaceRoute(this.props.navigation, 'Balance')} />
+            <ButtonGradient width={'100%'} text='Reject' onPress={() => this.props.navigation.goBack()} />
           </View>
 
           <View style={{ flex: 1, marginLeft: '5%' }}>

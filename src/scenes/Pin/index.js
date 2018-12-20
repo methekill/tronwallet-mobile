@@ -56,12 +56,16 @@ class PinScene extends Component {
       if (result) {
         this.props.navigation.goBack(null)
         if (onSuccess) {
-          this.pinPad.reset()
+          if (this.pinPad) {
+            this.pinPad.reset()
+          }
           onSuccess(currentPin)
         }
       } else {
-        this.pinPad.reset()
-        this.pinPad.shake()
+        if (this.pinPad) {
+          this.pinPad.reset()
+          this.pinPad.shake()
+        }
       }
     }
   }

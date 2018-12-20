@@ -23,8 +23,10 @@
   "ex": "Exchange",
   "ok": "OK",
   "actionModalTitle": "Vil du gjerne",
+  "time": "Time",
   "account": "Konto",
   "restore": "Gjenopprette",
+  "security": "Security",
   "error": {
     "default": "Woops noe gikk galt. Prøv igjen senere, \nhvis feilen vedvarer, prøv å oppdatere nettverksinnstillingene.",
     "buildingTransaction": "Feil under opprettelse av transaksjon, prøv igjen.",
@@ -55,6 +57,7 @@
   "clear": "Klar",
   "allIn": "Alt I",
   "skip": "Hopp over",
+  "hash": "Hash",
   "privateKey": "Privat nøkkel",
   "results": "Resultater",
   "buy": "Kjøpe",
@@ -74,16 +77,19 @@
     "holdings": "BEHOLDNING"
   },
   "exchange": {
-    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum å sende ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimum for å motta ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "buy": "Øke litt estimert kostnaden, og suksessraten vil bli høyere.",
+      "sell": "Redusere litt beregnet omsetning, og suksessraten vil bli høyere."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "ESTIMERT TIL Å MOTTA",
     "estimatedCost": "ESTIMERT KOSTNAD",
     "preview": "Søk etter Token navnet",
-    "notFound": "Børser ikke funnet"
+    "notFound": "Børser ikke funnet",
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "Du er i ferd med å fjerne denne kontoen. Du kan gjenopprette det senere i innstillingene",
   "components": {
@@ -222,7 +228,7 @@
   },
   "participate": {
     "title": "DELTA",
-    "featured": "SPONSORED",
+    "featured": "SPONSET",
     "button": {
       "confirm": "BEKREFTE",
       "moreInfo": "MER INFORMASJON",
@@ -340,15 +346,15 @@
     "minimumAmount": "Minimumsbeløpet for enhver send transaksjon er 0.000001."
   },
   "menu": {
-    "title": "MENU"
+    "title": "MENY"
   },
   "settings": {
     "title": "INNSTILLINGER",
     "sectionTitles": {
       "wallet": "LOMMEBOK",
       "security": "SIKKERHET",
-      "notification": "NOTIFICATIONS",
-      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
+      "notification": "VARSLINGER",
+      "idiomAndLocalization": "UTTRYKK OG LOKALISERING",
       "accounts": "REGNSKAPSSTYRING"
     },
     "notifications": {
@@ -428,7 +434,7 @@
       "title": "Hvem aksepterer TRX?"
     },
     "market": {
-      "title": "Market"
+      "title": "Marked"
     },
     "helpCenter": {
       "title": "Brukerstøtte"
@@ -654,9 +660,12 @@
     }
   },
   "notifications": {
-    "title": "VARSLER"
-  },
-  "news": {
-    "title": "NYHETER"
+    "title": "VARSLER",
+    "notifications": {
+      "title": "TRANSACTIONS"
+    },
+    "signals": {
+      "title": "SIGNALS"
+    }
   }
 }

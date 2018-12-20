@@ -23,8 +23,10 @@
   "ex": "Échange",
   "ok": "Ok",
   "actionModalTitle": "Souhaitez-vous",
+  "time": "Time",
   "account": "Compte",
   "restore": "Restaurer",
+  "security": "Security",
   "error": {
     "default": "Oups, quelque chose n'a pas fonctionné comme prévu. Réessayez plus tard, si l’erreur persiste, essayez de mettre à jour vos paramètres réseau.",
     "buildingTransaction": "Erreur pendant la création de la transaction, Réessayez s'il vous plait.",
@@ -55,6 +57,7 @@
   "clear": "Effacer",
   "allIn": "Tout compris",
   "skip": "Passer",
+  "hash": "Hash",
   "privateKey": "Clé privée",
   "results": "Résultats",
   "buy": "Acheter",
@@ -77,13 +80,16 @@
     "minToSell": "Minimum pour envoyer ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimum pour recevoir ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "buy": "Augmentez légèrement le coût estimé et le taux de réussite sera plus élevé.",
+      "sell": "Réduisez légèrement le coût estimé et le taux de réussite sera plus élevé."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "ESTIMÉ À RECEVOIR",
     "estimatedCost": "Coût estimé",
     "preview": "Recherche par nom de jeton",
-    "notFound": "Échange non trouvé"
+    "notFound": "Échange non trouvé",
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "Vous êtes sur le point de supprimer ce compte. Vous pouvez le restaurer plus tard dans les paramètres",
   "components": {
@@ -348,7 +354,7 @@
       "wallet": "PORTEFEUILLE",
       "security": "SÉCURITÉ",
       "notification": "NOTIFICATIONS",
-      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
+      "idiomAndLocalization": "IDIOM ET LOCALISATION",
       "accounts": "GESTION DES COMPTES"
     },
     "notifications": {
@@ -428,7 +434,7 @@
       "title": "Qui accepte les TRX ?"
     },
     "market": {
-      "title": "Market"
+      "title": "Marché"
     },
     "helpCenter": {
       "title": "Centre d'aide"
@@ -654,9 +660,12 @@
     }
   },
   "notifications": {
-    "title": "NOTIFICATIONS"
-  },
-  "news": {
-    "title": "Nouveautés"
+    "title": "NOTIFICATIONS",
+    "notifications": {
+      "title": "TRANSACTIONS"
+    },
+    "signals": {
+      "title": "SIGNALS"
+    }
   }
 }
