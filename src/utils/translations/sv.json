@@ -23,10 +23,10 @@
   "ex": "Exchange",
   "ok": "OK",
   "actionModalTitle": "Skulle du vilja",
-  "time": "Time",
+  "time": "Tid",
   "account": "Konto",
   "restore": "Återställ",
-  "security": "Security",
+  "security": "Säkerhet",
   "error": {
     "default": "Oj någonting gick fel. Försök igen senare, om felet återkommer försök att uppdatera nätverks insträllningar.",
     "buildingTransaction": "Ett fel uppstod vid uppbyggnaden av överföringen, försök igen.",
@@ -83,13 +83,13 @@
       "buy": "Öka den beräknade kostnaden något och chansen att lyckas blir större.",
       "sell": "Minska den beräknade intäkten något och chansen att lyckas blir större."
     },
-    "txAmount": "Transaction Amount",
+    "txAmount": "Transaktionsbelopp",
     "estimatedRevenue": "BERÄKNAS ATT MOTTA",
     "estimatedCost": "BERÄKNAD KOSTNAD",
     "preview": "Sök efter namnet på Token",
     "notFound": "Ingen Exchange hittades",
-    "error": "Exchange not executed. Please review your input values and try again.",
-    "askPin": "Ask PIN for exchange Transactions"
+    "error": "Bytet ej genomfört. Granska dina inmatade värden och försök igen.",
+    "askPin": "Be om PIN för utbyte av Transaktioner"
   },
   "hideAccount": "Du håller på att ta bort det här kontot. Du kan återställa det senare i inställningarna",
   "components": {
@@ -662,13 +662,13 @@
   "notifications": {
     "title": "NOTIFIKATIONER",
     "empty": {
-      "msg": "No notifications available at the moment"
+      "msg": "Inga notifikationer tillgängliga just nu"
     },
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "TRANSAKTIONER"
     },
     "signals": {
-      "title": "SIGNALS"
+      "title": "MEDDELANDEN"
     }
   }
 }
