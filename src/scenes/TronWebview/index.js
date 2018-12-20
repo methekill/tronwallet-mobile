@@ -90,7 +90,7 @@ class TronWebView extends Component {
               iconName='close'
               iconSize={16}
               iconColor={Colors.primaryText}
-              onBack={() => this.props.navigation.goBack()}
+              onPress={() => this.props.navigation.goBack()}
               zIndex={10}
             />
             <URLInput
