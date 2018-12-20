@@ -360,6 +360,9 @@
     "notifications": {
       "title": "Pemberitahuan"
     },
+    "dappBrowser": {
+      "title": "DApp Browser"
+    },
     "network": {
       "title": "Rangkaian",
       "modal": {
