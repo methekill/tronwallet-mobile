@@ -23,8 +23,10 @@
   "ex": "Bursa",
   "ok": "OK",
   "actionModalTitle": "Adakah anda mahu",
+  "time": "Masa",
   "account": "Akaun",
   "restore": "Memulihkan",
+  "security": "Keselamatan",
   "error": {
     "default": "Woops terdapat sesuatu kesalahan. Sila cuba lagi nanti. Kalau masih ada masalah, cuba kemaskini tetapan rangkaian.",
     "buildingTransaction": "Kesilapan semasa membina transaksi, sila cuba lagi.",
@@ -55,6 +57,7 @@
   "clear": "Jelas",
   "allIn": "Semua Sekali",
   "skip": "Langkau",
+  "hash": "Hash",
   "privateKey": "Kunci Peribadi",
   "results": "Keputusan",
   "buy": "Beli",
@@ -80,10 +83,13 @@
       "buy": "Tinggikan sedikit anggaran kos, dan kadar kejayaan akan lebih tinggi.",
       "sell": "Kurangkan sedikit anggaran pendapatan, dan kadar kejayaan akan lebih tinggi."
     },
+    "txAmount": "Amaun Transaksi",
     "estimatedRevenue": "ANGGARAN PENDAPATAN",
     "estimatedCost": "ANGGARAN KOS",
     "preview": "Cari dengan nama token",
-    "notFound": "Bursa tidak dijumpai"
+    "notFound": "Bursa tidak dijumpai",
+    "error": "Pertukaran tidak dilaksanakan. Sila semak nilai input anda dan cuba lagi.",
+    "askPin": "Minta PIN untuk transaksi bursa"
   },
   "hideAccount": "Anda akan memadamkan akaun ini. Anda boleh memulihkan ia di dalam tetapan nanti",
   "components": {

@@ -23,8 +23,10 @@
   "ex": "Exchange",
   "ok": "OK",
   "actionModalTitle": "Vil du gjerne",
+  "time": "Time",
   "account": "Konto",
   "restore": "Gjenopprette",
+  "security": "Security",
   "error": {
     "default": "Woops noe gikk galt. Prøv igjen senere, \nhvis feilen vedvarer, prøv å oppdatere nettverksinnstillingene.",
     "buildingTransaction": "Feil under opprettelse av transaksjon, prøv igjen.",
@@ -55,6 +57,7 @@
   "clear": "Klar",
   "allIn": "Alt I",
   "skip": "Hopp over",
+  "hash": "Hash",
   "privateKey": "Privat nøkkel",
   "results": "Resultater",
   "buy": "Kjøpe",
@@ -80,10 +83,13 @@
       "buy": "Øke litt estimert kostnaden, og suksessraten vil bli høyere.",
       "sell": "Redusere litt beregnet omsetning, og suksessraten vil bli høyere."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "ESTIMERT TIL Å MOTTA",
     "estimatedCost": "ESTIMERT KOSTNAD",
     "preview": "Søk etter Token navnet",
-    "notFound": "Børser ikke funnet"
+    "notFound": "Børser ikke funnet",
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "Du er i ferd med å fjerne denne kontoen. Du kan gjenopprette det senere i innstillingene",
   "components": {

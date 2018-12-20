@@ -543,11 +543,16 @@ const EmptyImg = styled.Image`
   height: 200px;
 `
 
-export const Empty = () => (
+export const Empty = ({ text }) => (
   <View flex={1} align='center' justify='center'>
     <EmptyImg
       source={require('./../assets/empty.png')}
       resizeMode='contain'
     />
+    {text && (<Text size='tiny'>{text}</Text>)}
   </View>
 )
+
+Empty.propTypes = {
+  text: PropTypes.string
+}
