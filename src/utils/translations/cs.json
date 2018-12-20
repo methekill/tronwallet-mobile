@@ -360,6 +360,9 @@
     "notifications": {
       "title": "Oznámení"
     },
+    "dappBrowser": {
+      "title": "DApp Browser"
+    },
     "network": {
       "title": "Síť",
       "modal": {
@@ -661,6 +664,9 @@
   },
   "notifications": {
     "title": "NOTIFIKACE",
+    "empty": {
+      "msg": "No notifications available at the moment"
+    },
     "notifications": {
       "title": "TRANSAKCE"
     },

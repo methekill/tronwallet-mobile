@@ -22,10 +22,10 @@
   "message": "Mensagem",
   "ex": "Exchange",
   "ok": "OK",
-  "actionModalTitle": "Would you like to",
+  "actionModalTitle": "Você gostaria de",
   "time": "Time",
-  "account": "Account",
-  "restore": "Restore",
+  "account": "Conta",
+  "restore": "Recuperar",
   "security": "Security",
   "error": {
     "default": "Ops, algo saiu errado. Tente novamente mais tarde, se o erro persistir, tente atualizar as configurações de rede.",
@@ -50,17 +50,17 @@
     "participate": "Participação",
     "create": "Criar",
     "exchange": "Exchange",
-    "undefined": "Undefined Type"
+    "undefined": "Tipo Indefinido"
   },
-  "close": "Close",
-  "ends": "Ends",
-  "clear": "Clear",
-  "allIn": "All In",
-  "skip": "Skip",
+  "close": "Fechar",
+  "ends": "Fim",
+  "clear": "Limpar",
+  "allIn": "Incluir Tudo",
+  "skip": "Pular",
   "hash": "Hash",
-  "privateKey": "Private Key",
-  "results": "Results",
-  "buy": "Buy",
+  "privateKey": "Chave Privada",
+  "results": "Resultados",
+  "buy": "Comprar",
   "sell": "Sell",
   "filter": "Filtrar",
   "txs": "Transações",
@@ -359,6 +359,9 @@
     },
     "notifications": {
       "title": "Notificações"
+    },
+    "dappBrowser": {
+      "title": "DApp Browser"
     },
     "network": {
       "title": "Rede",
@@ -661,6 +664,9 @@
   },
   "notifications": {
     "title": "NOTIFICATIONS",
+    "empty": {
+      "msg": "No notifications available at the moment"
+    },
     "notifications": {
       "title": "TRANSACTIONS"
     },

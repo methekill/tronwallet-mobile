@@ -23,10 +23,10 @@
   "ex": "صرف",
   "ok": "تم",
   "actionModalTitle": "هل ترغب في",
-  "time": "Time",
+  "time": "وقت",
   "account": "الحساب",
   "restore": "استعادة",
-  "security": "Security",
+  "security": "الأمن",
   "error": {
     "default": "أوبس حدث خطأ. حاول ثانية في وقت لاحق، إذا استمر الخطأ حاول إعادة ضبط إعدادات شبكة الاتصال.",
     "buildingTransaction": "حدث خطأ أثناء إنشاء العملية، حاول مرة أخرى.",
@@ -57,7 +57,7 @@
   "clear": "مسح",
   "allIn": "الجميع",
   "skip": "تخطي",
-  "hash": "Hash",
+  "hash": "الهاش",
   "privateKey": "مفتاح سري",
   "results": "النتائج",
   "buy": "شراء",
@@ -83,13 +83,13 @@
       "buy": "زد التكلفة المتوقعة قليلاً، ونسبة النجاح ستكون أكبر.",
       "sell": "قم بالحد قليلا من تقديرات الإيرادات، و سترتفع نسبة النجاح."
     },
-    "txAmount": "Transaction Amount",
+    "txAmount": "مبلغ المعاملة",
     "estimatedRevenue": "المتوقع للاستلام",
     "estimatedCost": "التكلفة المتوقعة",
     "preview": "البحث باسم العملة",
     "notFound": "لم يتم العثور على المبادلة",
-    "error": "Exchange not executed. Please review your input values and try again.",
-    "askPin": "Ask PIN for exchange Transactions"
+    "error": "لم يتم تنفيذ التبادل. يرجى مراجعة قيم المدخلات الخاصة بك والمحاولة مرة أخرى.",
+    "askPin": "اطلب رقم التعريف الشخصي PIN لعمليات التبادل"
   },
   "hideAccount": "أنت على وشك إزالة هذا الحساب. يمكنك استعادتها لاحقًا في الإعدادات",
   "components": {
@@ -661,6 +661,9 @@
   },
   "notifications": {
     "title": "إشعارات",
+    "empty": {
+      "msg": "لا توجد إشعارات متاحة في الوقت الحالي"
+    },
     "notifications": {
       "title": "المعاملات"
     },

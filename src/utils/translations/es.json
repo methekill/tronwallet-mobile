@@ -360,6 +360,9 @@
     "notifications": {
       "title": "Notificaciones"
     },
+    "dappBrowser": {
+      "title": "DApp Browser"
+    },
     "network": {
       "title": "Red",
       "modal": {
@@ -661,6 +664,9 @@
   },
   "notifications": {
     "title": "NOTIFICACIONES",
+    "empty": {
+      "msg": "No notifications available at the moment"
+    },
     "notifications": {
       "title": "TRANSACTIONS"
     },
