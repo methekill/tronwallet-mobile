@@ -5,6 +5,9 @@ import { Colors } from './DesignSystem'
 
 const ITEM_SIZE = 30
 
+/**
+ * WIP - Only supports one item on the right
+ */
 class SwipeItem extends Component {
   constructor (props) {
     super(props)
@@ -13,28 +16,31 @@ class SwipeItem extends Component {
     }
 
     this.isSwiped = false
+    this.gestureDelay = 10
+
     const panResponder = PanResponder.create({
       onStartShouldSetPanResponder: (evt, gestureState) => false,
       onMoveShouldSetPanResponder: (evt, gestureState) => true,
       onPanResponderTerminationRequest: (evt, gestureState) => false,
       onPanResponderMove: (evt, gestureState) => {
         if (gestureState.dx < -25) {
-          let newX = gestureState.dx
+          let newX = gestureState.dx + this.gestureDelay
           this.state.position.setValue({x: newX, y: 0})
         }
       },
       onPanResponderRelease: (evt, gestureState) => {
+        const defaultDuration = 160
         if (this.isSwiped) {
           Animated.timing(this.state.position, {
             toValue: {x: 0, y: 0},
-            duration: 150
+            duration: defaultDuration
           }).start(() => {
             this.isSwiped = !this.isSwiped
           })
         } else {
           Animated.timing(this.state.position, {
             toValue: {x: -50, y: 0},
-            duration: 150
+            duration: defaultDuration
           }).start(() => {
             this.isSwiped = !this.isSwiped
           })
