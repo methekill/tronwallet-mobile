@@ -36,9 +36,6 @@ ShallowWrapper {
               false,
             ],
             Array [
-              "onSuccess",
-            ],
-            Array [
               "shouldGoBack",
               false,
             ],
@@ -98,275 +95,67 @@ ShallowWrapper {
           "results": Array [
             Object {
               "isThrow": false,
-              "value": [MockFunction] {
-                "calls": Array [
-                  Array [
-                    "123456",
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "isThrow": false,
-                    "value": undefined,
-                  },
-                ],
-              },
+              "value": [MockFunction],
             },
             Object {
               "isThrow": false,
-              "value": [MockFunction] {
-                "calls": Array [
-                  Array [
-                    "123456",
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "isThrow": false,
-                    "value": undefined,
-                  },
-                ],
-              },
+              "value": [MockFunction],
             },
             Object {
               "isThrow": false,
-              "value": [MockFunction] {
-                "calls": Array [
-                  Array [
-                    "123456",
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "isThrow": false,
-                    "value": undefined,
-                  },
-                ],
-              },
+              "value": [MockFunction],
             },
             Object {
               "isThrow": false,
-              "value": [MockFunction] {
-                "calls": Array [
-                  Array [
-                    "123456",
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "isThrow": false,
-                    "value": undefined,
-                  },
-                ],
-              },
+              "value": [MockFunction],
             },
             Object {
               "isThrow": false,
-              "value": [MockFunction] {
-                "calls": Array [
-                  Array [
-                    "123456",
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "isThrow": false,
-                    "value": undefined,
-                  },
-                ],
-              },
+              "value": [MockFunction],
             },
             Object {
               "isThrow": false,
-              "value": [MockFunction] {
-                "calls": Array [
-                  Array [
-                    "123456",
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "isThrow": false,
-                    "value": undefined,
-                  },
-                ],
-              },
+              "value": [MockFunction],
             },
             Object {
               "isThrow": false,
-              "value": [MockFunction] {
-                "calls": Array [
-                  Array [
-                    "123456",
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "isThrow": false,
-                    "value": undefined,
-                  },
-                ],
-              },
+              "value": [MockFunction],
             },
             Object {
               "isThrow": false,
-              "value": [MockFunction] {
-                "calls": Array [
-                  Array [
-                    "123456",
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "isThrow": false,
-                    "value": undefined,
-                  },
-                ],
-              },
+              "value": [MockFunction],
             },
             Object {
               "isThrow": false,
-              "value": [MockFunction] {
-                "calls": Array [
-                  Array [
-                    "123456",
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "isThrow": false,
-                    "value": undefined,
-                  },
-                ],
-              },
+              "value": [MockFunction],
             },
             Object {
               "isThrow": false,
-              "value": [MockFunction] {
-                "calls": Array [
-                  Array [
-                    "123456",
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "isThrow": false,
-                    "value": undefined,
-                  },
-                ],
-              },
+              "value": [MockFunction],
             },
             Object {
               "isThrow": false,
-              "value": [MockFunction] {
-                "calls": Array [
-                  Array [
-                    "123456",
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "isThrow": false,
-                    "value": undefined,
-                  },
-                ],
-              },
+              "value": [MockFunction],
             },
             Object {
               "isThrow": false,
-              "value": [MockFunction] {
-                "calls": Array [
-                  Array [
-                    "123456",
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "isThrow": false,
-                    "value": undefined,
-                  },
-                ],
-              },
+              "value": [MockFunction],
             },
             Object {
               "isThrow": false,
-              "value": [MockFunction] {
-                "calls": Array [
-                  Array [
-                    "123456",
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "isThrow": false,
-                    "value": undefined,
-                  },
-                ],
-              },
+              "value": [MockFunction],
             },
             Object {
               "isThrow": false,
-              "value": [MockFunction] {
-                "calls": Array [
-                  Array [
-                    "123456",
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "isThrow": false,
-                    "value": undefined,
-                  },
-                ],
-              },
+              "value": [MockFunction],
             },
             Object {
               "isThrow": false,
-              "value": [MockFunction] {
-                "calls": Array [
-                  Array [
-                    "123456",
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "isThrow": false,
-                    "value": undefined,
-                  },
-                ],
-              },
+              "value": [MockFunction],
             },
             Object {
               "isThrow": false,
-              "value": [MockFunction] {
-                "calls": Array [
-                  Array [
-                    "123456",
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "isThrow": false,
-                    "value": undefined,
-                  },
-                ],
-              },
-            },
-            Object {
-              "isThrow": false,
-              "value": [MockFunction] {
-                "calls": Array [
-                  Array [
-                    "123456",
-                  ],
-                ],
-                "results": Array [
-                  Object {
-                    "isThrow": false,
-                    "value": undefined,
-                  },
-                ],
-              },
+              "value": [MockFunction],
             },
           ],
         },
