@@ -486,19 +486,19 @@
     "errorDic": {
       "contractValidate": "Transaktionsdata är inte giltig. Vänligen försök igen senare.",
       "signature": "Transaktionssignaturen är inte giltig.",
-      "duplicate": "Transaktion som redan sänds.",
+      "duplicate": "Transaktion används redan.",
       "contractValidateCee": "Transaktionsdata ej giltig (CEE). Vänligen försök igen senare.",
-      "bandwith": "Inte tillräckligt med bandbredd. Vänligen försök igen senare.",
+      "bandwith": "Inte tillräcklig bandbredd. Vänligen försök igen senare.",
       "contractValidateTapos": "Transaktionsdata är inte giltiga (TAPOS). Vänligen försök igen senare.",
-      "tooBig": "Transaktionen är för stor för att kunna skickas in.",
-      "expiration": "Transaktionen löpte ut. Var god försök igen.",
+      "tooBig": "Transaktionen är för stor för att skickas.",
+      "expiration": "Transaktionen är utgången. Var god försök igen.",
       "serverBusy": "Server upptagen.",
       "resource": "Otillräcklig bandbredd eller balans. Du kanske behöver lite frusen TRX."
     },
     "totalVotes": "Totalt antal röster"
   },
   "transactions": {
-    "title": "MIN TRANSAKTIONER",
+    "title": "MINA TRANSAKTIONER",
     "from": "Från",
     "to": "Till",
     "notFound": "Inga transaktioner hittades."
@@ -506,7 +506,7 @@
   "transactionDetails": {
     "title": "TRANSAKTION",
     "clipboard": {
-      "tronscanUrl": "Tronscan url för denna transaktion kopierades till Urklipp",
+      "tronscanUrl": "Tronscan url för denna transaktion kopierades till urklipp",
       "publicKey": "Public Key kopierades till Urklipp"
     },
     "hash": "HASH",
