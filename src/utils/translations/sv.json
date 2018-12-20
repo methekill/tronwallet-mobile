@@ -360,6 +360,9 @@
     "notifications": {
       "title": "Notifikationer"
     },
+    "dappBrowser": {
+      "title": "DApp Browser"
+    },
     "network": {
       "title": "Nätverk",
       "modal": {
