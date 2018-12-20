@@ -4,6 +4,7 @@ import withContext from '../../utils/hocs/withContext'
 
 import { HeaderContainer, PageWrapper, HeaderView, URLInput, BlankPage, WebViewLimit } from './elements'
 import { FloatingIconButton } from '../../components/Navigation/elements'
+import { Colors } from '../../components/DesignSystem'
 
 class TronWebView extends Component {
   constructor (props) {
@@ -84,8 +85,14 @@ class TronWebView extends Component {
     return (
       <PageWrapper>
         <HeaderContainer>
-          <FloatingIconButton onBack={() => this.props.navigation.goBack()} zIndex={10} />
           <HeaderView>
+            <FloatingIconButton
+              iconName='close'
+              iconSize={16}
+              iconColor={Colors.primaryText}
+              onBack={() => this.props.navigation.goBack()}
+              zIndex={10}
+            />
             <URLInput
               placeholder='URL'
               keyboardType='url'
