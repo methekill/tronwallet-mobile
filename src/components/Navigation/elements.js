@@ -98,8 +98,8 @@ Badge.defaultProps = {
 export const FloatingTouchable = styled(TouchableOpacity)`
   padding: 8px;
   position absolute;
-  left: -150;
-  top: 12;
+  left: -160;
+  top: 5;
   background-color: transparent;
   z-index: ${props => props.zIndex || 1}
 `

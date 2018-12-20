@@ -68,7 +68,7 @@ class TronWebView extends Component {
   }
 
   injectjs () {
-    let jsCode = `      
+    let jsCode = `
         var script   = document.createElement("script");
         script.type  = "text/javascript";
         script.text  = "function callTronWallet(data) {postMessage(JSON.stringify(data))}"
