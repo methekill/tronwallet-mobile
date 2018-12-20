@@ -88,8 +88,8 @@
     "estimatedCost": "COSTO STIMATO",
     "preview": "Ricerca del token attraverso nome",
     "notFound": "Cambi non trovati",
-    "error": "Exchange not executed. Please review your input values and try again.",
-    "askPin": "Ask PIN for exchange Transactions"
+    "error": "Scambio non effettuato. Per piacere ricontrolla i valori inseriti e riprova.",
+    "askPin": "Chiedi PIN per le transazioni dell'exchange"
   },
   "hideAccount": "Stai per rimuovere questo account. Puoi ripristinarlo più tardi dalle impostazioni",
   "components": {
@@ -353,8 +353,8 @@
     "sectionTitles": {
       "wallet": "PORTAFOGLIO",
       "security": "SICUREZZA",
-      "notification": "NOTIFICATIONS",
-      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
+      "notification": "NOTIFICHE",
+      "idiomAndLocalization": "LINGUA E LOCALIZZAZIONE",
       "accounts": "GESTIONE DEI CONTI"
     },
     "notifications": {
@@ -434,7 +434,7 @@
       "title": "Chi accetta TRX?"
     },
     "market": {
-      "title": "Market"
+      "title": "Mercato"
     },
     "helpCenter": {
       "title": "Centro assistenza"
@@ -662,13 +662,13 @@
   "notifications": {
     "title": "NOTIFICHE",
     "empty": {
-      "msg": "No notifications available at the moment"
+      "msg": "Nessuna notifica disponibile al momento"
     },
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "TRANSAZIONI"
     },
     "signals": {
-      "title": "SIGNALS"
+      "title": "SEGNALI"
     }
   }
 }
