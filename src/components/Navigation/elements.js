@@ -3,7 +3,7 @@ import { View, TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import LinearGradient from 'react-native-linear-gradient'
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import FontelloIcon from '../FontelloIcon'
 
 import { Colors, Spacing } from '../DesignSystem'
 import { Text } from '../Utils'
@@ -96,16 +96,17 @@ Badge.defaultProps = {
 }
 
 export const FloatingTouchable = styled(TouchableOpacity)`
-  padding: 8;
+  padding: 8px;
   position absolute;
-  left: 20;
-  top: 20;
+  left: -40%;
+  top: 5;
+  background-color: transparent;
   z-index: ${props => props.zIndex || 1}
 `
 
 export const FloatingIconButton = ({ iconName, iconSize, iconColor, onPress, zIndex }) => (
   <FloatingTouchable onPress={onPress} zIndex={zIndex}>
-    <Ionicons
+    <FontelloIcon
       name={iconName}
       size={iconSize}
       color={iconColor}
@@ -114,8 +115,7 @@ export const FloatingIconButton = ({ iconName, iconSize, iconColor, onPress, zIn
 )
 
 FloatingIconButton.defaultProps = {
-  iconName: '',
   iconSize: 36,
-  iconColor: '',
+  iconColor: 'white',
   onPress: () => {}
 }
