@@ -23,10 +23,10 @@
   "ex": "Cambio",
   "ok": "Ok",
   "actionModalTitle": "Ti piacerebbe",
-  "time": "Time",
+  "time": "Tempo",
   "account": "Conto",
   "restore": "Ripristinare",
-  "security": "Security",
+  "security": "Sicurezza",
   "error": {
     "default": "Woops qualcosa è andato storto. Riprovate più tardi e se l'errore persiste provate ad aggiornare le impostazioni di rete.",
     "buildingTransaction": "Si è verificato un errore durante la creazione della transazione. Riprovate di nuovo.",
@@ -80,10 +80,10 @@
     "minToSell": "Minimo da inviare ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimo da ricevere ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "buy": "Incrementa leggermente il costo stimato e la probabilità di successo sarà più alta.",
+      "sell": "Riduci leggermente il guadagno stimato e la probabilità di successo sarà più alta."
     },
-    "txAmount": "Transaction Amount",
+    "txAmount": "Valore della transazione",
     "estimatedRevenue": "STIMATO DA RICEVERE",
     "estimatedCost": "COSTO STIMATO",
     "preview": "Ricerca del token attraverso nome",
