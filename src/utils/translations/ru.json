@@ -662,7 +662,7 @@
   "notifications": {
     "title": "УВЕДОМЛЕНИЯ",
     "empty": {
-      "msg": "No notifications available at the moment"
+      "msg": "Нет доступных уведомлений"
     },
     "notifications": {
       "title": "ТРАНЗАКЦИИ"
