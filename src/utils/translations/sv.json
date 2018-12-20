@@ -1,6 +1,6 @@
 {
   "relativeTime": {
-    "future": "Om %s",
+    "future": "om %s",
     "past": "%s sedan",
     "s": "ett par sekunder",
     "ss": "%d sekunder",
@@ -23,10 +23,10 @@
   "ex": "Exchange",
   "ok": "OK",
   "actionModalTitle": "Skulle du vilja",
-  "time": "Time",
+  "time": "Tid",
   "account": "Konto",
   "restore": "Återställ",
-  "security": "Security",
+  "security": "Säkerhet",
   "error": {
     "default": "Oj någonting gick fel. Försök igen senare, om felet återkommer försök att uppdatera nätverks insträllningar.",
     "buildingTransaction": "Ett fel uppstod vid uppbyggnaden av överföringen, försök igen.",
@@ -83,13 +83,13 @@
       "buy": "Öka den beräknade kostnaden något och chansen att lyckas blir större.",
       "sell": "Minska den beräknade intäkten något och chansen att lyckas blir större."
     },
-    "txAmount": "Transaction Amount",
+    "txAmount": "Transaktionsbelopp",
     "estimatedRevenue": "BERÄKNAS ATT MOTTA",
     "estimatedCost": "BERÄKNAD KOSTNAD",
     "preview": "Sök efter namnet på Token",
     "notFound": "Ingen Exchange hittades",
-    "error": "Exchange not executed. Please review your input values and try again.",
-    "askPin": "Ask PIN for exchange Transactions"
+    "error": "Bytet ej genomfört. Granska dina inmatade värden och försök igen.",
+    "askPin": "Be om PIN för utbyte av Transaktioner"
   },
   "hideAccount": "Du håller på att ta bort det här kontot. Du kan återställa det senare i inställningarna",
   "components": {
@@ -360,6 +360,9 @@
     "notifications": {
       "title": "Notifikationer"
     },
+    "dappBrowser": {
+      "title": "DApp Browser"
+    },
     "network": {
       "title": "Nätverk",
       "modal": {
@@ -474,8 +477,8 @@
       "ownerAddress": "Från",
       "toAddress": "Till",
       "participateAssetIssueContract": "Delta",
-      "transferAssetContract": "Överföra",
-      "transferContract": "Överföra",
+      "transferAssetContract": "Överför",
+      "transferContract": "Överför",
       "unfreezeBalanceContract": "Lås Upp",
       "freezeBalanceContract": "Frys",
       "assetIssueContract": "Skapa",
@@ -486,19 +489,19 @@
     "errorDic": {
       "contractValidate": "Transaktionsdata är inte giltig. Vänligen försök igen senare.",
       "signature": "Transaktionssignaturen är inte giltig.",
-      "duplicate": "Transaktion som redan sänds.",
+      "duplicate": "Transaktion används redan.",
       "contractValidateCee": "Transaktionsdata ej giltig (CEE). Vänligen försök igen senare.",
-      "bandwith": "Inte tillräckligt med bandbredd. Vänligen försök igen senare.",
+      "bandwith": "Inte tillräcklig bandbredd. Vänligen försök igen senare.",
       "contractValidateTapos": "Transaktionsdata är inte giltiga (TAPOS). Vänligen försök igen senare.",
-      "tooBig": "Transaktionen är för stor för att kunna skickas in.",
-      "expiration": "Transaktionen löpte ut. Var god försök igen.",
+      "tooBig": "Transaktionen är för stor för att skickas.",
+      "expiration": "Transaktionen är utgången. Var god försök igen.",
       "serverBusy": "Server upptagen.",
       "resource": "Otillräcklig bandbredd eller balans. Du kanske behöver lite frusen TRX."
     },
     "totalVotes": "Totalt antal röster"
   },
   "transactions": {
-    "title": "MIN TRANSAKTIONER",
+    "title": "MINA TRANSAKTIONER",
     "from": "Från",
     "to": "Till",
     "notFound": "Inga transaktioner hittades."
@@ -506,38 +509,38 @@
   "transactionDetails": {
     "title": "TRANSAKTION",
     "clipboard": {
-      "tronscanUrl": "Tronscan url för denna transaktion kopierades till Urklipp",
-      "publicKey": "Public Key kopierades till Urklipp"
+      "tronscanUrl": "Tronscan url för denna transaktion kopierades till urklipp",
+      "publicKey": "Allmän Nyckel kopierades till urklipp"
     },
     "hash": "HASH",
     "status": "STATUS",
     "time": "TID",
     "block": "BLOCKERA",
-    "frozenBalance": "FROZEN BALANS",
+    "frozenBalance": "FRYST BALANS",
     "unfrozenBalance": "UPPLÅST SALDO",
-    "totalVotes": "TOTALA RÖSTAR",
+    "totalVotes": "TOTALA RÖSTER",
     "amount": "BELOPP",
     "to": "TILL",
     "from": "FRÅN",
     "tokenName": "NAMN PÅ TOKEN",
     "unityValue": "UNITY VÄRDE",
-    "totalSupply": "TOTAL FÖRSÄLJNING",
+    "totalSupply": "TOTALA TILLGÅNGARNA",
     "startTime": "STARTTID",
     "endTime": "SLUTTID",
     "description": "BESKRIVNING",
     "votedAddress": "RÖSTAD ADRESS"
   },
   "transactionSuccess": {
-    "submitted": "TRANSAKTION SOM INGÅTAS PÅ NÄTVERK!",
-    "success": "FRAMGÅNG!"
+    "submitted": "TRANSAKTION SKICKAD TILL NÄTVERKET!",
+    "success": "LYCKAT!"
   },
   "votes": {
     "title": "RÖSTER",
     "totalVotes": "TOTALA RÖSTAR",
     "votesAvailable": "TILLGÄNGLIGA RÖSTER",
     "search": "Sök",
-    "searchPreview": "Suggestions - Most Voted",
-    "error": "Oj, något laddades inte korrekt. Försök att ladda om",
+    "searchPreview": "Förslag - Mina senaste röster",
+    "error": "Oj, något laddades inte korrekt. Försök att starta om",
     "notFound": "Super Representant hittades inte"
   },
   "scanPayment": {
@@ -579,7 +582,7 @@
     },
     "failure": {
       "title": "Ny kontovarning",
-      "message": "För att lägga till ett nytt konto borde du ha minst en transaktion på ditt senaste konto."
+      "message": "För att lägga till ett nytt konto borde du ha minst en transaktion på ditt förra konto."
     }
   },
   "balanceToken": {
@@ -661,11 +664,14 @@
   },
   "notifications": {
     "title": "NOTIFIKATIONER",
+    "empty": {
+      "msg": "Inga notifikationer tillgängliga just nu"
+    },
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "TRANSAKTIONER"
     },
     "signals": {
-      "title": "SIGNALS"
+      "title": "MEDDELANDEN"
     }
   }
 }

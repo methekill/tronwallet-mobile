@@ -23,10 +23,10 @@
   "ex": "Exchange",
   "ok": "Ok",
   "actionModalTitle": "Ai dori să",
-  "time": "Time",
+  "time": "Timp",
   "account": "Cont",
   "restore": "Restaurare",
-  "security": "Security",
+  "security": "Securitate",
   "error": {
     "default": "Ups, ceva nu a mers bine. Reincerca mai tarziu. Dacă eroarea persista, incerca să updatezi setarile de retea.",
     "buildingTransaction": "Eroare la construirea tranzacției, încercă din nou.",
@@ -83,13 +83,13 @@
       "buy": "Costul estimativ este puțin mai mare, și probabilitatea de a executa tranzacţia va fi mai mare.",
       "sell": "Incearca sa reduci usor profitul estimativ si rata de succes va fi mai mare."
     },
-    "txAmount": "Transaction Amount",
+    "txAmount": "Suma Trazacţiei",
     "estimatedRevenue": "SUMĂ ESTIMATIVĂ DE PRIMIT",
     "estimatedCost": "COST ESTIMATIV",
     "preview": "Căutare dupa numele Token-ului",
     "notFound": "Nu au fost găsite Schimburi",
-    "error": "Exchange not executed. Please review your input values and try again.",
-    "askPin": "Ask PIN for exchange Transactions"
+    "error": "Schimb neexecutat. Te rugăm să verifici valorile inițiale și sa încearci din nou.",
+    "askPin": "Cere PIN pentru Tranzacţiile de schimb"
   },
   "hideAccount": "Ești pe cale să elimini acest cont. Îl vei putea restabili ulterior în setări",
   "components": {
@@ -359,6 +359,9 @@
     },
     "notifications": {
       "title": "Notificări"
+    },
+    "dappBrowser": {
+      "title": "DApp Browser"
     },
     "network": {
       "title": "Reţea",
@@ -661,11 +664,14 @@
   },
   "notifications": {
     "title": "NOTIFICĂRI",
+    "empty": {
+      "msg": "Nu sunt disponibile Notificări în acest moment"
+    },
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "TRANZACŢII"
     },
     "signals": {
-      "title": "SIGNALS"
+      "title": "SEMNALE"
     }
   }
 }

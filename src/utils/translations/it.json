@@ -23,10 +23,10 @@
   "ex": "Cambio",
   "ok": "Ok",
   "actionModalTitle": "Ti piacerebbe",
-  "time": "Time",
+  "time": "Tempo",
   "account": "Conto",
   "restore": "Ripristinare",
-  "security": "Security",
+  "security": "Sicurezza",
   "error": {
     "default": "Woops qualcosa è andato storto. Riprovate più tardi e se l'errore persiste provate ad aggiornare le impostazioni di rete.",
     "buildingTransaction": "Si è verificato un errore durante la creazione della transazione. Riprovate di nuovo.",
@@ -80,16 +80,16 @@
     "minToSell": "Minimo da inviare ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimo da ricevere ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "buy": "Incrementa leggermente il costo stimato e la probabilità di successo sarà più alta.",
+      "sell": "Riduci leggermente il guadagno stimato e la probabilità di successo sarà più alta."
     },
-    "txAmount": "Transaction Amount",
+    "txAmount": "Valore della transazione",
     "estimatedRevenue": "STIMATO DA RICEVERE",
     "estimatedCost": "COSTO STIMATO",
     "preview": "Ricerca del token attraverso nome",
     "notFound": "Cambi non trovati",
-    "error": "Exchange not executed. Please review your input values and try again.",
-    "askPin": "Ask PIN for exchange Transactions"
+    "error": "Scambio non effettuato. Per piacere ricontrolla i valori inseriti e riprova.",
+    "askPin": "Chiedi PIN per le transazioni dell'exchange"
   },
   "hideAccount": "Stai per rimuovere questo account. Puoi ripristinarlo più tardi dalle impostazioni",
   "components": {
@@ -353,12 +353,15 @@
     "sectionTitles": {
       "wallet": "PORTAFOGLIO",
       "security": "SICUREZZA",
-      "notification": "NOTIFICATIONS",
-      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
+      "notification": "NOTIFICHE",
+      "idiomAndLocalization": "LINGUA E LOCALIZZAZIONE",
       "accounts": "GESTIONE DEI CONTI"
     },
     "notifications": {
       "title": "Notifiche"
+    },
+    "dappBrowser": {
+      "title": "DApp Browser"
     },
     "network": {
       "title": "Rete",
@@ -434,7 +437,7 @@
       "title": "Chi accetta TRX?"
     },
     "market": {
-      "title": "Market"
+      "title": "Mercato"
     },
     "helpCenter": {
       "title": "Centro assistenza"
@@ -661,11 +664,14 @@
   },
   "notifications": {
     "title": "NOTIFICHE",
+    "empty": {
+      "msg": "Nessuna notifica disponibile al momento"
+    },
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "TRANSAZIONI"
     },
     "signals": {
-      "title": "SIGNALS"
+      "title": "SEGNALI"
     }
   }
 }
