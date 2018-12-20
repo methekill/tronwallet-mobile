@@ -1,6 +1,6 @@
 {
   "relativeTime": {
-    "future": "Om %s",
+    "future": "om %s",
     "past": "%s sedan",
     "s": "ett par sekunder",
     "ss": "%d sekunder",
@@ -474,8 +474,8 @@
       "ownerAddress": "Från",
       "toAddress": "Till",
       "participateAssetIssueContract": "Delta",
-      "transferAssetContract": "Överföra",
-      "transferContract": "Överföra",
+      "transferAssetContract": "Överför",
+      "transferContract": "Överför",
       "unfreezeBalanceContract": "Lås Upp",
       "freezeBalanceContract": "Frys",
       "assetIssueContract": "Skapa",
