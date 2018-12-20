@@ -360,6 +360,9 @@
     "notifications": {
       "title": "underretninger"
     },
+    "dappBrowser": {
+      "title": "DApp Browser"
+    },
     "network": {
       "title": "Netværk",
       "modal": {
