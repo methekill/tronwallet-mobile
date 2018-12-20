@@ -23,10 +23,10 @@
   "ex": "Börse",
   "ok": "Ok",
   "actionModalTitle": "Würden Sie gerne",
-  "time": "Time",
+  "time": "Zeit",
   "account": "Konto",
   "restore": "Wiederherstellen",
-  "security": "Security",
+  "security": "Sicherheit",
   "error": {
     "default": "Es tut uns leid, etwas ist schiefgelaufen. Bitte versuchen Sie es später noch einmal. Wenn der Fehler weiterhin auftritt, versuchen Sie die Netzwerk-Einstellungen zu aktualisieren.",
     "buildingTransaction": "Fehler beim Erstellen der Transaktion, bitte versuchen Sie es erneut.",
@@ -83,12 +83,12 @@
       "buy": "Steigere die Kosten leicht, um damit die Kaufwahrscheinlichkeit zu erhöhen.",
       "sell": "Senke den zu erwartenden Ertrag leicht, um damit die Verkaufswahrscheinlichkeit zu erhöhen."
     },
-    "txAmount": "Transaction Amount",
+    "txAmount": "Transaktionsbetrag",
     "estimatedRevenue": "GESCHÄTZTER ERTRAG",
     "estimatedCost": "GESCHÄTZTE KOSTEN",
     "preview": "Nach dem Tokennamen suchen",
     "notFound": "Börse nicht gefunden",
-    "error": "Exchange not executed. Please review your input values and try again.",
+    "error": "Umtausch nicht durchgeführt. Bitte überprüfen Sie die Eingabeparameter und versuchen es erneut.",
     "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "Sie sind dabei dieses Konto zu entfernen. Sie können es später in den Einstellungen wiederherstellen",
@@ -662,7 +662,7 @@
   "notifications": {
     "title": "BENACHRICHTIGUNGEN",
     "empty": {
-      "msg": "No notifications available at the moment"
+      "msg": "Momentan sind keine Benachrichtigungen verfügbar"
     },
     "notifications": {
       "title": "TRANSAKTIONEN"
