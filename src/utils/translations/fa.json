@@ -23,10 +23,10 @@
   "ex": "تبادل",
   "ok": "تایید",
   "actionModalTitle": "آیا میخواهید",
-  "time": "Time",
+  "time": "زمان",
   "account": "حساب",
   "restore": "بازیابی",
-  "security": "Security",
+  "security": "امنیت",
   "error": {
     "default": "خطایی رخ داده است. بعدا دوباره سعی کنید، اگر خطا ادامه داشت تنظیمات شبکه را بررسی کنید.",
     "buildingTransaction": "خطا در حین انجام تراکنش، دوباره سعی کنید.",
@@ -57,7 +57,7 @@
   "clear": "واضح",
   "allIn": "کل موجودی",
   "skip": "رد شدن",
-  "hash": "Hash",
+  "hash": "هش",
   "privateKey": "کلید خصوصی",
   "results": "نتایج",
   "buy": "خرید",
@@ -83,13 +83,13 @@
       "buy": "اندکی افزایش در ارزش تخمینی، میزان موفقیت را بالاتر خواهد برد.",
       "sell": "اندکی کاهش در درآمد تخمینی، میزان موفقیت را بالاتر خواهد برد."
     },
-    "txAmount": "Transaction Amount",
+    "txAmount": "مقدار تراکنش",
     "estimatedRevenue": "برآورد دریافت",
     "estimatedCost": "برآورد هزینه",
     "preview": "جستجو بر اساس نام توکن",
     "notFound": "امکان تبادل وجود ندارد",
-    "error": "Exchange not executed. Please review your input values and try again.",
-    "askPin": "Ask PIN for exchange Transactions"
+    "error": "تبادل انجام نشد. لطفا مقادیر ورودی خود را بررسی و دوباره سعی کنید.",
+    "askPin": "درخواست PIN برای تراکنش های تبادل"
   },
   "hideAccount": "شما در حال حذف این حساب هستید. شما می توانید بعدا آن را در تنظیمات بازیابی کنید",
   "components": {
@@ -662,7 +662,7 @@
   "notifications": {
     "title": "اطلاعیه ها",
     "empty": {
-      "msg": "No notifications available at the moment"
+      "msg": "هیچ اطلاعیه ای در حال حاضر در دسترس نیست"
     },
     "notifications": {
       "title": "تراکنش ها"
