@@ -507,37 +507,37 @@
     "title": "TRANSAKTION",
     "clipboard": {
       "tronscanUrl": "Tronscan url för denna transaktion kopierades till urklipp",
-      "publicKey": "Public Key kopierades till Urklipp"
+      "publicKey": "Allmän Nyckel kopierades till urklipp"
     },
     "hash": "HASH",
     "status": "STATUS",
     "time": "TID",
     "block": "BLOCKERA",
-    "frozenBalance": "FROZEN BALANS",
+    "frozenBalance": "FRYST BALANS",
     "unfrozenBalance": "UPPLÅST SALDO",
-    "totalVotes": "TOTALA RÖSTAR",
+    "totalVotes": "TOTALA RÖSTER",
     "amount": "BELOPP",
     "to": "TILL",
     "from": "FRÅN",
     "tokenName": "NAMN PÅ TOKEN",
     "unityValue": "UNITY VÄRDE",
-    "totalSupply": "TOTAL FÖRSÄLJNING",
+    "totalSupply": "TOTALA TILLGÅNGARNA",
     "startTime": "STARTTID",
     "endTime": "SLUTTID",
     "description": "BESKRIVNING",
     "votedAddress": "RÖSTAD ADRESS"
   },
   "transactionSuccess": {
-    "submitted": "TRANSAKTION SOM INGÅTAS PÅ NÄTVERK!",
-    "success": "FRAMGÅNG!"
+    "submitted": "TRANSAKTION SKICKAD TILL NÄTVERKET!",
+    "success": "LYCKAT!"
   },
   "votes": {
     "title": "RÖSTER",
     "totalVotes": "TOTALA RÖSTAR",
     "votesAvailable": "TILLGÄNGLIGA RÖSTER",
     "search": "Sök",
-    "searchPreview": "Suggestions - Most Voted",
-    "error": "Oj, något laddades inte korrekt. Försök att ladda om",
+    "searchPreview": "Förslag - Mina senaste röster",
+    "error": "Oj, något laddades inte korrekt. Försök att starta om",
     "notFound": "Super Representant hittades inte"
   },
   "scanPayment": {
@@ -579,7 +579,7 @@
     },
     "failure": {
       "title": "Ny kontovarning",
-      "message": "För att lägga till ett nytt konto borde du ha minst en transaktion på ditt senaste konto."
+      "message": "För att lägga till ett nytt konto borde du ha minst en transaktion på ditt förra konto."
     }
   },
   "balanceToken": {
