@@ -89,7 +89,7 @@
     "preview": "Nach dem Tokennamen suchen",
     "notFound": "Börse nicht gefunden",
     "error": "Umtausch nicht durchgeführt. Bitte überprüfen Sie die Eingabeparameter und versuchen es erneut.",
-    "askPin": "Ask PIN for exchange Transactions"
+    "askPin": "Für Börsen-Transaktionen nach der PIN fragen"
   },
   "hideAccount": "Sie sind dabei dieses Konto zu entfernen. Sie können es später in den Einstellungen wiederherstellen",
   "components": {
