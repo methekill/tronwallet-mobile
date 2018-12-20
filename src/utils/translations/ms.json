@@ -662,7 +662,7 @@
   "notifications": {
     "title": "PEMBERITAHUAN",
     "empty": {
-      "msg": "No notifications available at the moment"
+      "msg": "Pemberitahuan tidak tersedia pada masa ini"
     },
     "notifications": {
       "title": "TRANSAKSI"
