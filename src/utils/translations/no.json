@@ -360,6 +360,9 @@
     "notifications": {
       "title": "Varsler"
     },
+    "dappBrowser": {
+      "title": "DApp Browser"
+    },
     "network": {
       "title": "Nettverk",
       "modal": {
