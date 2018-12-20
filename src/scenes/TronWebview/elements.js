@@ -38,7 +38,7 @@ export const URLInput = styled.TextInput`
   height: 70%;
   color: ${Colors.titleLabel};
   borderRadius: 5;
-  margin-top: 15%;
+  margin-top: 5%;
 `
 
 export const BlankPage = styled.View`
