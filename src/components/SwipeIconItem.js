@@ -15,7 +15,6 @@ class SwipeItem extends Component {
       position: new Animated.ValueXY()
     }
 
-    this.isSwiped = false
     this.gestureDelay = 10
 
     const panResponder = PanResponder.create({
@@ -23,26 +22,24 @@ class SwipeItem extends Component {
       onMoveShouldSetPanResponder: (evt, gestureState) => true,
       onPanResponderTerminationRequest: (evt, gestureState) => false,
       onPanResponderMove: (evt, gestureState) => {
-        if (gestureState.dx < -25) {
+        if (gestureState.dx < -40 || gestureState.dx > 40) {
           let newX = gestureState.dx + this.gestureDelay
           this.state.position.setValue({x: newX, y: 0})
         }
       },
       onPanResponderRelease: (evt, gestureState) => {
         const defaultDuration = 160
-        if (this.isSwiped) {
+        if (gestureState.dx > 50) {
           Animated.timing(this.state.position, {
             toValue: {x: 0, y: 0},
             duration: defaultDuration
           }).start(() => {
-            this.isSwiped = !this.isSwiped
           })
         } else {
           Animated.timing(this.state.position, {
             toValue: {x: -50, y: 0},
             duration: defaultDuration
           }).start(() => {
-            this.isSwiped = !this.isSwiped
           })
         }
       }
