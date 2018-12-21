@@ -501,7 +501,7 @@
     "totalVotes": "סה\"כ הצבעות"
   },
   "transactions": {
-    "title": "הטרנזקציות שלי",
+    "title": "העסקאות שלי",
     "from": "מאת",
     "to": "אל",
     "notFound": "לא נמצאו עסקאות."
@@ -509,7 +509,7 @@
   "transactionDetails": {
     "title": "עסקה",
     "clipboard": {
-      "tronscanUrl": "כתובת Tronscan הועתקה ללוח המקשים",
+      "tronscanUrl": "כתובת Tronscan של העסקה הועתקה ללוח המקשים",
       "publicKey": "המפתח הציבורי הועתק ללוח המקשים"
     },
     "hash": "HASH",
@@ -518,10 +518,10 @@
     "block": "בלוק",
     "frozenBalance": "יתרה קפואה",
     "unfrozenBalance": "יתרה ששוחררה",
-    "totalVotes": "סך הכל הקולות",
+    "totalVotes": "סך הכל הצבעות",
     "amount": "כמות",
     "to": "אל",
-    "from": "מעת",
+    "from": "מאת",
     "tokenName": "שם הטוקן",
     "unityValue": "ערך יחידה",
     "totalSupply": "סך הכל ההספקה",
@@ -558,14 +558,14 @@
     "confirm": "אשר תשלום",
     "error": {
       "receiver": "הנמען זהה למבקש",
-      "token": "לחשבון זה אין את הטוקנים עבור עסקה זו",
+      "token": "לחשבון זה אין את הטוקן עבור עסקה זו",
       "amount": "לחשבון זה אין יתרה מספקת.",
       "description": "אין תיאור זמין"
     }
   },
   "buildPayment": {
     "generate": "צור בקשה",
-    "selectCurrency": "בחר את מטבע ההתייחסות",
+    "selectCurrency": "בחר את השער המועדף",
     "error": {
       "currency": "לא הצלחנו לטעון את מחירי המטבעות האחרים. השתמש ב- TRX כמטבע ההתייחסות"
     }
