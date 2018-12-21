@@ -457,7 +457,7 @@
     "title": "פרטי העסקה",
     "notification": "קיבלת עסקה מ-{{address}}",
     "notificationPayment": "קיבלת תשלום מ-{{address}}",
-    "data": "מידע",
+    "data": "נתונים",
     "time": "זמן",
     "button": {
       "tryAgain": "נסה שוב",
@@ -469,12 +469,12 @@
     "exchange": {
       "send": "שולח {{sendtoken}}",
       "receive": "קיבלת {{receivetoken}}",
-      "error": "בדוק את הטרנזקציות האחרונות שלך כדי לאשר את הסכום שהתקבל."
+      "error": "בדוק את העסקאות האחרונות שלך כדי לאשר את הסכום שהתקבל."
     },
-    "disconnectedMessage": "נראה כי אתה מנותק. תתחבר לאינטרנט לפני שתמשיך עם הטרנזקציה.",
+    "disconnectedMessage": "נראה כי אתה מנותק. תתחבר לאינטרנט לפני שתמשיך עם העסקה.",
     "dic": {
-      "contractType": "סוג טרנזקציה",
-      "ownerAddress": "מעת",
+      "contractType": "סוג עסקה",
+      "ownerAddress": "מאת",
       "toAddress": "אל",
       "participateAssetIssueContract": "השתתף",
       "transferAssetContract": "העבר",
@@ -487,14 +487,14 @@
       "frozenBalance": "סה\"כ להקפאה"
     },
     "errorDic": {
-      "contractValidate": "תוכן הטרנזקציה אינו חוקי. אנה נסה שנית מאוחר יותר.",
-      "signature": "חתימת הטרנזקציה אינה חוקית.",
-      "duplicate": "הטרנזקציה כבר נשלחה.",
-      "contractValidateCee": "נתוני הטרנזקציה אינם חוקיים (CEE). אנא נסה שנית מאוחר יותר.",
+      "contractValidate": "תוכן העסקה אינו חוקי. אנה נסה שנית מאוחר יותר.",
+      "signature": "חתימת העסקה אינה חוקית.",
+      "duplicate": "העסקה כבר נשלחה.",
+      "contractValidateCee": "נתוני העסקה אינם חוקיים (CEE). אנא נסה שנית מאוחר יותר.",
       "bandwith": "אין לך מספיק רוחב פס. אנא נסה שנית מאוחר יותר.",
-      "contractValidateTapos": "נתוני הטרנזקציה אינם חוקיים (TAPOS). אנא נסה שנית מאוחר יותר.",
-      "tooBig": "הטרנזקציה יותר מדי גדולה להגשה.",
-      "expiration": "הטרנזקציה פגה. נא נסה שוב.",
+      "contractValidateTapos": "נתוני העסקה אינם חוקיים (TAPOS). אנא נסה שנית מאוחר יותר.",
+      "tooBig": "העסקה יותר מדי גדולה להגשה.",
+      "expiration": "העסקה פגה. נא נסה שוב.",
       "serverBusy": "השרת עסוק.",
       "resource": "אין מספיק רוחב פס או יתרה. ייתכן ותצטרך להקפיא TRX."
     },
