@@ -43,7 +43,13 @@ class Save extends React.Component {
 
   _onCopyClipboard = (eventName, string) => async () => {
     await Clipboard.setString(string)
-    MixPanel.trackWithProperties('Wallet Operation', { type: 'Copy - ' + eventName })
+
+    const typeOfEvent = string === 'seed' ? 'publicKey' : 'privateKey'
+    MixPanel.trackWithProperties('Copy to clipboard', {
+      type: eventName,
+      location: 'Balance Card',
+      [typeOfEvent]: string
+    })
     this.refs.toast.show(tl.t('receive.clipboardCopied'))
     setTimeout(() => Clipboard.setString(''), 30000)
   }
