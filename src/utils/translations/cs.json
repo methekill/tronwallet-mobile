@@ -535,7 +535,7 @@
     "success": "ÚSPĚCH!"
   },
   "votes": {
-    "title": "HLASY",
+    "title": "HLASOVÁNÍ",
     "totalVotes": "POČET HLASŮ",
     "votesAvailable": "DOSTUPNÉ HLASY",
     "search": "Hledat",
