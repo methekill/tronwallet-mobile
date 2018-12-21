@@ -62,7 +62,6 @@ export class AccountsCarousel extends React.Component {
     const { accounts } = this.props.context
     const createdItemPosition = accounts.length - 1
     // We set the state to load before the item is focused
-    // this._onSnapToItem(createdItemPosition)
     // Timeout needed for android
     setTimeout(() => this.carousel.snapToItem(createdItemPosition), 300)
   }
@@ -100,7 +99,6 @@ export class AccountsCarousel extends React.Component {
   _handleHideAccount = async (address, balance) => {
     try {
       const { pin, hideAccount } = this.props.context
-      // const nextAccountIndex = this.currentIndex() - 1
       await hideSecret(pin, address)
       this.carousel.snapToPrev()
       hideAccount(address)
