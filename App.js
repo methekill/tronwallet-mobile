@@ -298,7 +298,10 @@ class App extends Component {
 
   _getCurrentAccount = () => {
     const { publicKey, accounts } = this.state
-    return accounts.find(account => account.address === publicKey)
+    if (Array.isArray(accounts) && accounts.length > 0) {
+      return accounts.find(account => account.address === publicKey)
+    }
+    return null
   }
 
   render () {

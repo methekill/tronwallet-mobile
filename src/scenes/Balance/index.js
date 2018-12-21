@@ -86,11 +86,13 @@ export class BalanceScene extends Component {
     try {
       await this.props.context.loadUserData()
       const currentAccount = this.props.context.getCurrentAccount()
-      MixPanel.trackWithProperties('Balance load', {
-        name: currentAccount.name,
-        address: currentAccount.address,
-        balance: currentAccount.balance || 0
-      })
+      if (currentAccount) {
+        MixPanel.trackWithProperties('Balance load', {
+          name: currentAccount.name,
+          address: currentAccount.address,
+          balance: currentAccount.balance || 0
+        })
+      }
     } catch (e) {
       this.setState({ error: tl.t('balance.error.loadingData') })
       logSentry(e, 'Balance - LoadData')

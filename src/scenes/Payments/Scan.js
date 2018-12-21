@@ -66,13 +66,15 @@ class ScanPayment extends Component {
         payment: { address, amount, token, description }
       })
       const currentAccount = this.props.context.getCurrentAccount()
-      MixPanel.trackWithProperties('Scan Payment', {
-        'payment.address': address,
-        'payment.amount': amount,
-        'payment.token': token,
-        'currentAccount.address': currentAccount.address,
-        'currentAccount.balance': currentAccount.balance
-      })
+      if (currentAccount) {
+        MixPanel.trackWithProperties('Scan Payment', {
+          'payment.address': address,
+          'payment.amount': amount,
+          'payment.token': token,
+          'currentAccount.address': currentAccount.address,
+          'currentAccount.balance': currentAccount.balance
+        })
+      }
     } catch (error) {
       if (error.name === 'DataError') {
         Alert.alert(tl.t('warning'), error.message)

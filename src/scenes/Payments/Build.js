@@ -70,16 +70,18 @@ class RequestPayment extends Component {
 
       this.setState({ currencyPrices: newCurrencyPrices })
       const currencyAccount = this.props.context.getCurrentAccount()
-      const { amount, token, currencySelected } = this.state
-      MixPanel.trackWithProperties('Build Payment', {
-        'account.address': currencyAccount.address,
-        'account.balance': currencyAccount.balance || 0,
-        currencySelected,
-        usd: newCurrencyPrices['USD'],
-        eur: newCurrencyPrices['EUR'],
-        amount,
-        token
-      })
+      if (currencyAccount) {
+        const { amount, token, currencySelected } = this.state
+        MixPanel.trackWithProperties('Build Payment', {
+          'account.address': currencyAccount.address,
+          'account.balance': currencyAccount.balance || 0,
+          currencySelected,
+          usd: newCurrencyPrices['USD'],
+          eur: newCurrencyPrices['EUR'],
+          amount,
+          token
+        })
+      }
     } catch (err) {
       Alert.alert(tl.t('warning'), tl.t('buildPayment.error.currency'))
       logSentry(err, 'Build Payment')
