@@ -40,7 +40,10 @@ class ReceiveScreen extends PureComponent {
     try {
       await Clipboard.setString(this.props.context.publicKey)
       this.refs.toast.show(tl.t('receive.clipboardCopied'))
-      MixPanel.trackWithProperties('Copy to clipboard', { address: this.props.context.publicKey, location: 'Receive' })
+      MixPanel.trackWithProperties('Copy to clipboard', {
+        address: this.props.context.publicKey,
+        location: 'Receive'
+      })
     } catch (error) {
       this.refs.toast.show(tl.t('error.clipboardCopied'))
       logSentry(error, 'Receive - Clipboard')
