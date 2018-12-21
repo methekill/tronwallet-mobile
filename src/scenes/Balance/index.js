@@ -165,7 +165,7 @@ export class BalanceScene extends Component {
   _leftButtonHeader = () => {
     const { hasUnreadNotification } = this.props.context
     return (
-      <ButtonHeader onPress={() => this.props.navigation.navigate('NotificationsTabs')}>
+      <ButtonHeader onPress={() => this.props.navigation.navigate('Notifications')}>
         <Badge value={hasUnreadNotification}>
           <Ionicons
             name='ios-notifications-outline'

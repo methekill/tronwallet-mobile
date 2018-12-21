@@ -23,8 +23,10 @@
   "ex": "מסחר",
   "ok": "אוקיי",
   "actionModalTitle": "האם תרצה",
+  "time": "Time",
   "account": "חשבון",
   "restore": "שחזור",
+  "security": "Security",
   "error": {
     "default": "אופס משהו השתבש. נסה שוב מאוחר יותר, אם השגיאה נמשכת נסה לעדכן את הגדרות הרשת.",
     "buildingTransaction": "קרתה שגיאה בעת בניית העסקה, נסה שוב.",
@@ -55,6 +57,7 @@
   "clear": "נקה",
   "allIn": "כל הסכום",
   "skip": "דלג",
+  "hash": "Hash",
   "privateKey": "מפתח פרטי",
   "results": "תוצאות",
   "buy": "קניה",
@@ -80,10 +83,13 @@
       "buy": "הגדל במעט את העלות המוערכת, וסיכויי ההצלחה יהיו גבוהים יותר.",
       "sell": "הקטן במעט את ההכנסה המוערכת, וסיכויי ההצלחה יהיו גבוהים יותר."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "הערך המשוערך לקבלה",
     "estimatedCost": "העלות המשוערכת",
     "preview": "חפש לפי שם הטוקן",
-    "notFound": "המסחר אינו זמין"
+    "notFound": "המסחר אינו זמין",
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "אתה עומד להסיר את החשבון הזה. ניתן לשחזר אותו מאוחר יותר בהגדרות",
   "components": {
@@ -654,9 +660,15 @@
     }
   },
   "notifications": {
-    "title": "התראות"
-  },
-  "news": {
-    "title": "חדשות"
+    "title": "התראות",
+    "empty": {
+      "msg": "No notifications available at the moment"
+    },
+    "notifications": {
+      "title": "עסקאות"
+    },
+    "signals": {
+      "title": "אותות"
+    }
   }
 }

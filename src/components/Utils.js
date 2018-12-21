@@ -178,6 +178,7 @@ VerticalSpacer.propTypes = {
 export const Text = styled.Text`
   color: ${props => props.color};
   font-family: ${props => `Rubik-${capitalize(props.font)}`};
+  ${props => props.flex && css` flex:${props.flex}`};
   ${props => props.size && css` font-size: ${FontSize[props.size]}px`};
   ${props => props.light && css` font-family: rubik-light`};
   ${props => props.padding && css` padding: ${props.padding}px`};
@@ -542,11 +543,16 @@ const EmptyImg = styled.Image`
   height: 200px;
 `
 
-export const Empty = () => (
+export const Empty = ({ text }) => (
   <View flex={1} align='center' justify='center'>
     <EmptyImg
       source={require('./../assets/empty.png')}
       resizeMode='contain'
     />
+    {text && (<Text size='tiny'>{text}</Text>)}
   </View>
 )
+
+Empty.propTypes = {
+  text: PropTypes.string
+}

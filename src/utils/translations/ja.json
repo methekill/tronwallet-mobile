@@ -23,8 +23,10 @@
   "ex": "Exchange",
   "ok": "OK",
   "actionModalTitle": "いかかですか",
+  "time": "Time",
   "account": "アカウント",
   "restore": "リストア",
+  "security": "Security",
   "error": {
     "default": "問題が起こりました。その後もう一度お試しください。エラーが発生した場合、ネットワーク設定を確認してください。",
     "buildingTransaction": "トランザクションの作成中にエラーが発生しました。再度実行してください。",
@@ -55,6 +57,7 @@
   "clear": "クリア",
   "allIn": "オールイン",
   "skip": "スキップ",
+  "hash": "Hash",
   "privateKey": "秘密鍵",
   "results": "結果",
   "buy": "Buy",
@@ -80,10 +83,13 @@
       "buy": "Slightly increase the estimated cost, and success rate will be higher.",
       "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "ESTIMATED TO RECEIVE",
     "estimatedCost": "ESTIMATED COST",
     "preview": "Search by the Token name",
-    "notFound": "Exchanges not found"
+    "notFound": "Exchanges not found",
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "このアカウントを削除しようとしています。後で設定で復元することができます",
   "components": {
@@ -654,9 +660,15 @@
     }
   },
   "notifications": {
-    "title": "NOTIFICATIONS"
-  },
-  "news": {
-    "title": "NEWS"
+    "title": "NOTIFICATIONS",
+    "empty": {
+      "msg": "No notifications available at the moment"
+    },
+    "notifications": {
+      "title": "TRANSACTIONS"
+    },
+    "signals": {
+      "title": "SIGNALS"
+    }
   }
 }

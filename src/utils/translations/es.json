@@ -23,8 +23,10 @@
   "ex": "Intercambio",
   "ok": "Ok",
   "actionModalTitle": "Le gustaría",
+  "time": "Time",
   "account": "Cuenta",
   "restore": "Restaurar",
+  "security": "Security",
   "error": {
     "default": "Woops algo salió mal. Inténtalo de nuevo más tarde, si el error persiste, intente actualizar la configuración de red.",
     "buildingTransaction": "Error durante la transacción, inténtalo de nuevo.",
@@ -55,6 +57,7 @@
   "clear": "Limpiar",
   "allIn": "Todo",
   "skip": "Saltar",
+  "hash": "Hash",
   "privateKey": "Clave privada",
   "results": "Resultados",
   "buy": "Comprar",
@@ -80,10 +83,13 @@
       "buy": "Slightly increase the estimated cost, and success rate will be higher.",
       "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "ESTIMATED TO RECEIVE",
     "estimatedCost": "ESTIMATED COST",
     "preview": "Search by the Token name",
-    "notFound": "Intercambios no encontrados"
+    "notFound": "Intercambios no encontrados",
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "Estás a punto de eliminar esta cuenta. Puedes restaurarla más tarde en la configuración",
   "components": {
@@ -353,6 +359,9 @@
     },
     "notifications": {
       "title": "Notificaciones"
+    },
+    "dappBrowser": {
+      "title": "DApp Browser"
     },
     "network": {
       "title": "Red",
@@ -654,9 +663,15 @@
     }
   },
   "notifications": {
-    "title": "NOTIFICACIONES"
-  },
-  "news": {
-    "title": "NOTICIAS"
+    "title": "NOTIFICACIONES",
+    "empty": {
+      "msg": "No notifications available at the moment"
+    },
+    "notifications": {
+      "title": "TRANSACTIONS"
+    },
+    "signals": {
+      "title": "SIGNALS"
+    }
   }
 }

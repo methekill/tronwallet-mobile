@@ -3,6 +3,8 @@ import { Platform, StyleSheet, RefreshControl } from 'react-native'
 import HTMLView from 'react-native-htmlview'
 import { FlatList } from 'react-navigation'
 
+import NavigationHeader from './../../components/Navigation/Header'
+
 import * as Utils from './../../components/Utils'
 
 import ListItem from './../../components/List/ListItem'
@@ -13,32 +15,34 @@ import { Colors } from './../../components/DesignSystem'
 
 class Notifications extends Component {
   static navigationOptions = {
-    title: tl.t('notifications.notifications.title')
+    header: null
   }
 
   state = {
-    list: [ ],
-    refreshing: false
+    list: [],
+    isLoading: true,
+    noRecords: false
   }
 
   componentDidMount () {
-    this._fetchData()
+    setTimeout(() => {
+      this._fetchData()
+    }, 500)
   }
 
   _fetchData = () => {
-    this.setState({
-      refreshing: true
-    }, () => {
+    this.setState({ isLoading: true }, () => {
       getAllNotifications(0, 100)
         .then(list => {
           this.setState({
             list,
-            refreshing: false
+            isLoading: false,
+            noRecords: list.length === 0
           })
         })
         .catch(() => {
           this.setState({
-            refreshing: false
+            isLoading: false
           })
         })
     })
@@ -61,24 +65,28 @@ class Notifications extends Component {
   }
 
   render () {
-    const { list, refreshing } = this.state
+    const { list, isLoading, noRecords } = this.state
     return (
       <Utils.SafeAreaView>
+        <NavigationHeader
+          title={tl.t('notifications.title')}
+          onBack={() => this.props.navigation.goBack()}
+        />
         <FlatList
           refreshControl={
             <RefreshControl
-              refreshing={refreshing}
+              refreshing={isLoading}
               onRefresh={this._fetchData}
             />
           }
-          contentContainerStyle={(list.length === 0 && refreshing === false) ? styles.emptyList : {}}
+          contentContainerStyle={noRecords ? styles.emptyList : {}}
           data={list}
           keyExtractor={item => item.id}
           renderItem={this._renderItem}
-          initialNumToRender={10}
-          onEndReachedThreshold={0.75}
+          initialNumToRender={100}
+          onEndReachedThreshold={0}
           removeClippedSubviews={Platform.OS === 'android'}
-          ListEmptyComponent={<Utils.Empty />}
+          ListEmptyComponent={noRecords ? (<Utils.Empty text={tl.t('notifications.empty.msg')} />) : null}
         />
       </Utils.SafeAreaView>
     )

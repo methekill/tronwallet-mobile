@@ -321,6 +321,11 @@ class Settings extends Component {
             onPress: () => this.props.navigation.navigate('Market')
           },
           {
+            title: tl.t('settings.dappBrowser.title'),
+            icon: 'earth,-globe,-planet,-world,-universe',
+            onPress: () => this.props.navigation.navigate('TronWebview')
+          },
+          {
             title: tl.t('settings.token.title'),
             icon: 'sort,-filter,-arrange,-funnel,-filter',
             hide: userTokens.length === 0,

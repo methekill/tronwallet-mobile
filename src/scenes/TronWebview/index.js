@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { WebView, Alert } from 'react-native'
 import withContext from '../../utils/hocs/withContext'
 
-import { Text } from '../../components/Utils'
 import { HeaderContainer, PageWrapper, HeaderView, URLInput, BlankPage, WebViewLimit } from './elements'
+import { FloatingIconButton } from '../../components/Navigation/elements'
+import { Colors } from '../../components/DesignSystem'
 
 class TronWebView extends Component {
   constructor (props) {
@@ -62,13 +63,12 @@ class TronWebView extends Component {
       document.addEventListener("message", function(data) {
         var JData = JSON.parse(data.data);
         alert(data.data)
-
       });
     `
   }
 
   injectjs () {
-    let jsCode = `      
+    let jsCode = `
         var script   = document.createElement("script");
         script.type  = "text/javascript";
         script.text  = "function callTronWallet(data) {postMessage(JSON.stringify(data))}"
@@ -86,7 +86,13 @@ class TronWebView extends Component {
       <PageWrapper>
         <HeaderContainer>
           <HeaderView>
-            <Text>WEB BROWSER</Text>
+            <FloatingIconButton
+              iconName='close'
+              iconSize={16}
+              iconColor={Colors.primaryText}
+              onPress={() => this.props.navigation.goBack()}
+              zIndex={10}
+            />
             <URLInput
               placeholder='URL'
               keyboardType='url'

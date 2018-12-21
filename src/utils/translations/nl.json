@@ -23,8 +23,10 @@
   "ex": "Exchange",
   "ok": "OK",
   "actionModalTitle": "Wilt u graag",
+  "time": "Time",
   "account": "Rekening",
   "restore": "Herstellen",
+  "security": "Security",
   "error": {
     "default": "Oeps, er is iets misgegaan. Probeer het later opnieuw. Als de fout aanhoudt, probeert u de netwerkinstellingen bij te werken.",
     "buildingTransaction": "Fout bij het opbouwen van de transactie, probeer het opnieuw.",
@@ -55,6 +57,7 @@
   "clear": "Wissen",
   "allIn": "Volledig",
   "skip": "Overslaan",
+  "hash": "Hash",
   "privateKey": "Prive sleutel",
   "results": "Resultaten",
   "buy": "Koop",
@@ -80,10 +83,13 @@
       "buy": "Verhoog de verwachte kosten, en het succespercentage zal hoger zijn.",
       "sell": "Verlaag de verwachte opbrengst, en het succespercentage zal hoger zijn."
     },
+    "txAmount": "Transaction Amount",
     "estimatedRevenue": "VERWACHTE OPBRENGST",
     "estimatedCost": "VERWACHTE KOSTEN",
     "preview": "Zoeken op de naam van de Token",
-    "notFound": "Exchange niet gevonden"
+    "notFound": "Exchange niet gevonden",
+    "error": "Exchange not executed. Please review your input values and try again.",
+    "askPin": "Ask PIN for exchange Transactions"
   },
   "hideAccount": "U staat op het punt dit account te verwijderen. U kunt het later in de instellingen herstellen",
   "components": {
@@ -654,9 +660,15 @@
     }
   },
   "notifications": {
-    "title": "MELDINGEN"
-  },
-  "news": {
-    "title": "NIEUWS"
+    "title": "MELDINGEN",
+    "empty": {
+      "msg": "No notifications available at the moment"
+    },
+    "notifications": {
+      "title": "TRANSACTIONS"
+    },
+    "signals": {
+      "title": "SIGNALS"
+    }
   }
 }

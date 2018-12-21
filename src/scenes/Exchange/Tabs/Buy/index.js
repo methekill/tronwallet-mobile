@@ -1,26 +1,27 @@
 import React, { Component } from 'react'
-import { Alert } from 'react-native'
+import { Alert, Vibration } from 'react-native'
 import RNTron from 'react-native-tron'
 import MixPanel from 'react-native-mixpanel'
+import PropTypes from 'prop-types'
 
 // Design
-import Input from '../../../components/Input'
-import * as Utils from '../../../components/Utils'
-import { Colors } from '../../../components/DesignSystem'
-import { ExchangePair, ExchangeVariation, ScrollWrapper, PERCENTAGE_OPTIONS } from '../elements'
+import Input from '../../../../components/Input'
+import * as Utils from '../../../../components/Utils'
+import { Colors } from '../../../../components/DesignSystem'
+import { ExchangePair, ExchangeVariation, ScrollWrapper, PERCENTAGE_OPTIONS } from '../../elements'
 import ExchangeBalancePair from '../BalancePair'
 import ExchangeButton from '../Button'
-import PercentageSelector from '../../../components/SelectorTile'
+import PercentageSelector from '../../../../components/SelectorTile'
+import ExchangeTransactions from '../Transactions'
 
 // Utils
-import tl from '../../../utils/i18n'
-import { withContext } from '../../../store/context'
-import { trxValueParse, estimatedBuyCost, LOW_VARIATION, estimatedBuyWanted } from '../../../utils/exchangeUtils'
-import { formatFloat } from '../../../utils/numberUtils'
-import { logSentry } from '../../../utils/sentryUtils'
+import tl from '../../../../utils/i18n'
+import { trxValueParse, estimatedBuyCost, LOW_VARIATION, estimatedBuyWanted, getInputType } from '../../../../utils/exchangeUtils'
+import { formatFloat } from '../../../../utils/numberUtils'
+import { logSentry } from '../../../../utils/sentryUtils'
 
 // Service
-import WalletClient from '../../../services/client'
+import WalletClient from '../../../../services/client'
 
 class BuyScene extends Component {
   static navigationOptions = { header: null }
@@ -39,8 +40,9 @@ class BuyScene extends Component {
 
   _submit = () => {
     const { buyAmount, estimatedCost } = this.state
-    const { balances, publicKey } = this.props.context
-    const { firstTokenBalance, secondTokenBalance, firstTokenId, secondTokenId } = this.props.exchangeData
+    const { askPinEx, exchangeData, context } = this.props
+    const { balances, publicKey } = context
+    const { firstTokenBalance, secondTokenBalance, firstTokenId, secondTokenId } = exchangeData
 
     if (buyAmount <= 0 || !buyAmount) {
       this.buyAmount.focus()
@@ -70,21 +72,25 @@ class BuyScene extends Component {
       return
     }
 
-    this.props.navigation.navigate('Pin', {
-      shouldGoBack: true,
-      testInput: pin => pin === this.props.context.pin,
-      onSuccess: () => {
-        const { buyAmount, estimatedCost } = this.state
-        const { publicKey } = this.props.context
-        MixPanel.trackWithProperties('Pin Validation', {
-          type: 'Exchange',
-          buyAmount,
-          estimatedCost,
-          publicKey
-        })
-        this._exchangeToken()
-      }
-    })
+    if (askPinEx) {
+      this.props.navigation.navigate('Pin', {
+        shouldGoBack: true,
+        testInput: pin => pin === this.props.context.pin,
+        onSuccess: () => {
+          const { buyAmount, estimatedCost } = this.state
+          const { publicKey } = this.props.context
+          MixPanel.trackWithProperties('Pin Validation', {
+            type: 'Exchange',
+            buyAmount,
+            estimatedCost,
+            publicKey
+          })
+          this._exchangeToken()
+        }
+      })
+    } else {
+      this._exchangeToken()
+    }
   }
 
   _exchangeToken = async () => {
@@ -118,6 +124,7 @@ class BuyScene extends Component {
 
       if (code === 'SUCCESS') {
         this.setState({result: 'success', loading: false})
+        Vibration.vibrate()
         loadUserData()
       } else {
         this.setState({result: 'fail', loading: false})
@@ -150,6 +157,8 @@ class BuyScene extends Component {
     this._changeBuyAmount(buyAmount)
   }
 
+  _getInputType = tokenId => tokenId === 'TRX' ? 'float' : 'int'
+
   _changeBuyAmount = buyAmount => {
     const {
       firstTokenBalance,
@@ -158,7 +167,7 @@ class BuyScene extends Component {
     } = this.props.exchangeData
     const estimatedCost = estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount || 0, secondTokenId === 'TRX')
 
-    this.setState({buyAmount, estimatedCost})
+    this.setState({buyAmount: Math.round(buyAmount), estimatedCost})
   }
 
   _renderRightContent = token => (
@@ -175,29 +184,39 @@ class BuyScene extends Component {
       result
     } = this.state
     const {
-      firstTokenId,
       firstTokenBalance,
+      firstTokenId,
+      firstTokenAbbr,
       firstTokenImage,
       secondTokenId,
+      secondTokenAbbr,
       secondTokenBalance,
-      secondTokenImage,
-      price } = this.props.exchangeData
+      price,
+      secondTokenImage } = this.props.exchangeData
 
     const cost = estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount || 0, secondTokenId === 'TRX')
     const formattedCost = formatFloat(cost)
 
     const isTokenToToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
+    const buyType = getInputType(firstTokenId)
+    const estimatedType = getInputType(secondTokenId)
+
     const minBuy = Math.floor(cost / price)
 
+    const firstToken = { name: firstTokenId, abbr: firstTokenAbbr, image: firstTokenImage }
+    const secondToken = { name: secondTokenId, abbr: secondTokenAbbr, image: secondTokenImage }
+
+    const firstTokenIdentifier = firstTokenAbbr || firstTokenId
+    const secondTokenIdentifier = secondTokenAbbr || secondTokenId
+
     return (
-      <Utils.SafeAreaView>
-        <ScrollWrapper>
-          <Utils.View height={8} />
+      <ScrollWrapper>
+        <Utils.View height={8} />
+        <Utils.View paddingX='medium'>
+
           <ExchangeBalancePair
-            firstToken={secondTokenId}
-            firstTokenImage={secondTokenImage}
-            secondToken={firstTokenId}
-            secondTokenImage={firstTokenImage}
+            firstToken={secondToken}
+            secondToken={firstToken}
           />
           <ExchangePair
             firstToken={firstTokenId}
@@ -215,10 +234,10 @@ class BuyScene extends Component {
               label={tl.t('buy').toUpperCase()}
               innerRef={input => { this.buyAmount = input }}
               onChangeText={this._changeBuyAmount}
-              rightContent={() => this._renderRightContent(firstTokenId)}
+              rightContent={() => this._renderRightContent(firstTokenIdentifier)}
               placeholder='0'
               keyboardType='numeric'
-              type='float'
+              type={buyType}
               numbersOnly
               value={buyAmount}
             />
@@ -228,11 +247,11 @@ class BuyScene extends Component {
             </Utils.Text>}
             <Input
               label={tl.t('exchange.estimatedCost')}
-              rightContent={() => this._renderRightContent(secondTokenId)}
+              rightContent={() => this._renderRightContent(secondTokenIdentifier)}
               onChangeText={estimatedCost => this.setState({estimatedCost})}
               placeholder={formattedCost}
               keyboardType='numeric'
-              type='float'
+              type={estimatedType}
               numbersOnly
               value={estimatedCost}
             />
@@ -244,10 +263,15 @@ class BuyScene extends Component {
             />
             <ExchangeVariation text={tl.t('exchange.variation.buy')} />
           </Utils.View>
-        </ScrollWrapper>
-      </Utils.SafeAreaView>
+        </Utils.View>
+        <ExchangeTransactions {...this.props} />
+      </ScrollWrapper>
     )
   }
 }
 
-export default withContext(BuyScene)
+BuyScene.propTypes = {
+  exchangeData: PropTypes.object.isRequired
+}
+
+export default BuyScene

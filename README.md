@@ -1,5 +1,5 @@
 # TronWallet 
-[![CircleCI](https://circleci.com/gh/gettyio/tronwallet-mobile/tree/development.svg?style=svg)](https://circleci.com/gh/gettyio/tronwallet-mobile/tree/development)
+[![CircleCI](https://circleci.com/gh/gettyio/tronwallet-mobile/tree/master.svg?style=svg)](https://circleci.com/gh/gettyio/tronwallet-mobile/tree/master)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![GitHub issues](https://img.shields.io/github/issues/gettyio/tronwallet-mobile.svg)](https://github.com/gettyio/tronwallet-mobile/issues)
 [![GitHub stars](https://img.shields.io/github/stars/gettyio/tronwallet-mobile.svg)](https://github.com/gettyio/tronwallet-mobile/stargazers)

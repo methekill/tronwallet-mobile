@@ -47,3 +47,5 @@ export const estimatedSellCost = (firstBalance, secondBalance, quant, parseTrx =
 }
 
 export const trxValueParse = (value, isTrx) => Math.round((isTrx ? ONE_TRX : 1) * value)
+
+export const getInputType = tokenId => tokenId === 'TRX' ? 'float' : 'int'

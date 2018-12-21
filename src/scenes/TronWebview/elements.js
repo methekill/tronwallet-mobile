@@ -9,7 +9,7 @@ export const HeaderContainer = styled(LinearGradient).attrs({
 })`
   z-index: 2;
   display: flex;
-  flex: 0.25;
+  flex: 0.23;
   width: 100%;
   height: 100%;
   justify-content: center;
@@ -27,7 +27,7 @@ export const PageWrapper = styled.View`
 export const HeaderView = styled.View`
   z-index: 3;
   width: 100%;
-  height: 70;
+  height: 100%;
   justify-content: center;
   align-items: center;
 `
@@ -35,13 +35,14 @@ export const HeaderView = styled.View`
 export const URLInput = styled.TextInput`
   background-color: ${Colors.primaryText};
   width: 85%;
-  height: 70%;
+  height: 35%;
   color: ${Colors.titleLabel};
   borderRadius: 5;
+  margin-top: 2%;
 `
 
 export const BlankPage = styled.View`
-  flex: 0.75;
+  flex: 1;
   background-color: ${Colors.lightBackground};
 `
 
