@@ -78,7 +78,11 @@ class MakePayment extends PureComponent {
         navigation.navigate('Pin', {
           shouldGoBack: true,
           testInput: pin => pin === context.pin,
-          onSuccess: () => this._buildTransaction({from, to: address, amount, token, data: description})
+          onSuccess: () => {
+            const payload = { from, to: address, amount, token, data: description }
+            MixPanel.trackWithProperties('Pin Validation', payload)
+            this._buildTransaction(payload)
+          }
         })
       } catch (error) {
         if (error.name === 'DataError') {

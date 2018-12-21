@@ -73,7 +73,17 @@ class BuyScene extends Component {
     this.props.navigation.navigate('Pin', {
       shouldGoBack: true,
       testInput: pin => pin === this.props.context.pin,
-      onSuccess: this._exchangeToken
+      onSuccess: () => {
+        const { buyAmount, estimatedCost } = this.state
+        const { publicKey } = this.props.context
+        MixPanel.trackWithProperties('Pin Validation', {
+          type: 'Exchange',
+          buyAmount,
+          estimatedCost,
+          publicKey
+        })
+        this._exchangeToken()
+      }
     })
   }
 
@@ -88,7 +98,7 @@ class BuyScene extends Component {
 
     const expected = trxValueParse(buyAmount, firstTokenId === 'TRX')
 
-    this.setState({loading: true})
+    this.setState({ loading: true })
     try {
       const exParams = {
         address: publicKey,

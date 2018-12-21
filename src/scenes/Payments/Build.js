@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {ActivityIndicator, Alert, ScrollView} from 'react-native'
+import { ActivityIndicator, Alert, ScrollView } from 'react-native'
 import axios from 'axios'
 import Config from 'react-native-config'
 import MixPanel from 'react-native-mixpanel'

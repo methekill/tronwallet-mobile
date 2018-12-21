@@ -169,7 +169,7 @@ class Settings extends Component {
               this.props.context.resetAccount()
               this.props.navigation.dispatch(resetAction)
               AsyncStorage.setItem(USE_BIOMETRY, 'false')
-              MixPanel.trackWithProperties('Reset Wallet', { accounts })
+              MixPanel.trackWithProperties('Pin Validation', { type: 'Reset Wallet', accounts })
             }
           })
         }
@@ -199,7 +199,10 @@ class Settings extends Component {
         this.props.navigation.navigate('Pin', {
           shouldDoubleCheck: true,
           shouldGoBack: true,
-          onSuccess: pin => this.props.context.setPin(pin, () => this.refs.settingsToast.show(tl.t('settings.pin.success')))
+          onSuccess: pin => {
+            MixPanel.trackWithProperties('Pin Validation', { type: 'Change PIN' })
+            this.props.context.setPin(pin, () => this.refs.settingsToast.show(tl.t('settings.pin.success')))
+          }
         })
       }
     })

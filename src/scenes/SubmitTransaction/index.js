@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { ActivityIndicator, NetInfo, ScrollView } from 'react-native'
 import moment from 'moment'
 import { Answers } from 'react-native-fabric'
-import OneSignal from 'react-native-onesignal'
+import MixPanel from 'react-native-mixpanel'
 
 // Design
 import * as Utils from '../../components/Utils'
@@ -24,7 +24,6 @@ import { logSentry } from '../../utils/sentryUtils'
 import { updateAssets } from '../../utils/assetsUtils'
 
 const ANSWERS_TRANSACTIONS = ['Transfer', 'Vote', 'Participate', 'Freeze']
-const NOTIFICATION_TRANSACTIONS = ['Transfer', 'Transfer Asset']
 
 class TransactionDetail extends Component {
   state = {
@@ -279,22 +278,6 @@ class TransactionDetail extends Component {
         if (ANSWERS_TRANSACTIONS.includes(transaction.type)) {
           Answers.logCustom('Transaction Operation', { type: transaction.type })
         }
-        if (NOTIFICATION_TRANSACTIONS.includes(transaction.type)) {
-          // if the receiver is a tronwallet user we'll find his devices here
-          const response = await Client.getDevicesFromPublicKey(transaction.contractData.transferToAddress)
-          if (response.data.users.length) {
-            const content = {
-              en: tl.t('submitTransaction.notification', {
-                address: transaction.contractData.transferFromAddress
-              })
-            }
-            response.data.users.map(device => {
-              // We use @ to identify the multiple accounts
-              const deviceId = device.deviceid.split('@')[0] || device.deviceid
-              OneSignal.postNotification(content, transaction, deviceId)
-            })
-          }
-        }
         await this.props.context.loadUserData()
         // TODO - Remove this piece of code when transactions come with Participate Price
         if (transaction.type === 'Participate') {
@@ -433,7 +416,12 @@ class TransactionDetail extends Component {
                 this.props.navigation.navigate('Pin', {
                   shouldGoBack: true,
                   testInput: pin => pin === this.props.context.pin,
-                  onSuccess: this._setSubmission
+                  onSuccess: () => {
+                    MixPanel.trackWithProperties('Pin Validation', {
+                      type: 'Submit transaction'
+                    })
+                    this._setSubmission()
+                  }
                 })
               }
               disabled={submitted || submitError}
