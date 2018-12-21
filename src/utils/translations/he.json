@@ -389,7 +389,7 @@
           "update": "עדכן ותתחבר",
           "reset": "איפוס"
         },
-        "mainNode": "צומת Main",
+        "mainNode": "Node ראשי",
         "solidityNode": "צומת Solidity",
         "testNet": "TestNet"
       }
