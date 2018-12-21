@@ -46,9 +46,8 @@ class Save extends React.Component {
 
     const typeOfEvent = string === 'seed' ? 'publicKey' : 'privateKey'
     MixPanel.trackWithProperties('Copy to clipboard', {
-      type: eventName,
-      location: 'Balance Card',
-      [typeOfEvent]: string
+      type: typeOfEvent,
+      location: 'Backup Wallet'
     })
     this.refs.toast.show(tl.t('receive.clipboardCopied'))
     setTimeout(() => Clipboard.setString(''), 30000)
