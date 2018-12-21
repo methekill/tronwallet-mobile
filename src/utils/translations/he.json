@@ -504,10 +504,10 @@
     "title": "הטרנזקציות שלי",
     "from": "מאת",
     "to": "אל",
-    "notFound": "לא נמצאו טרנזקציות."
+    "notFound": "לא נמצאו עסקאות."
   },
   "transactionDetails": {
-    "title": "טרנזקציה",
+    "title": "עסקה",
     "clipboard": {
       "tronscanUrl": "כתובת Tronscan הועתקה ללוח המקשים",
       "publicKey": "המפתח הציבורי הועתק ללוח המקשים"
