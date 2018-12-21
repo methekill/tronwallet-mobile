@@ -43,8 +43,7 @@ class Save extends React.Component {
 
   _onCopyClipboard = (eventName, string) => async () => {
     await Clipboard.setString(string)
-
-    const typeOfEvent = string === 'seed' ? 'publicKey' : 'privateKey'
+    const typeOfEvent = eventName === 'seed' ? 'publicKey' : 'privateKey'
     MixPanel.trackWithProperties('Copy to clipboard', {
       type: typeOfEvent,
       location: 'Backup Wallet'
