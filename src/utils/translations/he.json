@@ -23,10 +23,10 @@
   "ex": "מסחר",
   "ok": "אוקיי",
   "actionModalTitle": "האם תרצה",
-  "time": "Time",
+  "time": "זמן",
   "account": "חשבון",
   "restore": "שחזור",
-  "security": "Security",
+  "security": "אבטחה",
   "error": {
     "default": "אופס משהו השתבש. נסה שוב מאוחר יותר, אם השגיאה נמשכת נסה לעדכן את הגדרות הרשת.",
     "buildingTransaction": "קרתה שגיאה בעת בניית העסקה, נסה שוב.",
@@ -83,13 +83,13 @@
       "buy": "הגדל במעט את העלות המוערכת, וסיכויי ההצלחה יהיו גבוהים יותר.",
       "sell": "הקטן במעט את ההכנסה המוערכת, וסיכויי ההצלחה יהיו גבוהים יותר."
     },
-    "txAmount": "Transaction Amount",
+    "txAmount": "סכום העסקה",
     "estimatedRevenue": "הערך המשוערך לקבלה",
     "estimatedCost": "העלות המשוערכת",
     "preview": "חפש לפי שם הטוקן",
     "notFound": "המסחר אינו זמין",
-    "error": "Exchange not executed. Please review your input values and try again.",
-    "askPin": "Ask PIN for exchange Transactions"
+    "error": "ההחלפה לא בוצעה. אנא בדוק שנית את ערכי הקלט שלך ונסה שוב.",
+    "askPin": "בקש קוד PIN עבור עסקאות מסחר"
   },
   "hideAccount": "אתה עומד להסיר את החשבון הזה. ניתן לשחזר אותו מאוחר יותר בהגדרות",
   "components": {
@@ -361,7 +361,7 @@
       "title": "התראות"
     },
     "dappBrowser": {
-      "title": "DApp Browser"
+      "title": "דפדפן DApp"
     },
     "network": {
       "title": "רשת",
@@ -665,7 +665,7 @@
   "notifications": {
     "title": "התראות",
     "empty": {
-      "msg": "No notifications available at the moment"
+      "msg": "ההתראות אינן זמינות כרגע"
     },
     "notifications": {
       "title": "עסקאות"
