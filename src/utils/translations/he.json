@@ -455,7 +455,7 @@
   },
   "submitTransaction": {
     "title": "פרטי העסקה",
-    "notification": "קיבלת טרנזקציה מ-{{address}}",
+    "notification": "קיבלת עסקה מ-{{address}}",
     "notificationPayment": "קיבלת תשלום מ-{{address}}",
     "data": "מידע",
     "time": "זמן",
