@@ -23,10 +23,10 @@
   "ex": "Обмін",
   "ok": "ОК",
   "actionModalTitle": "Чи хотіли б Ви",
-  "time": "Time",
+  "time": "Час",
   "account": "Обліковий запис",
   "restore": "Відновлення",
-  "security": "Security",
+  "security": "Безпека",
   "error": {
     "default": "Нажаль, щось пішло не так. Спробуйте пізніше, якщо помилка не зникне, спробуйте оновити налаштування мережі.",
     "buildingTransaction": "Помилка під час створення транзакції, спробуйте ще раз.",
@@ -57,7 +57,7 @@
   "clear": "Очистити",
   "allIn": "Вибрати все",
   "skip": "Пропустити",
-  "hash": "Hash",
+  "hash": "Хеш",
   "privateKey": "Приватний ключ",
   "results": "Результати",
   "buy": "Купити",
@@ -83,13 +83,13 @@
       "buy": "Трохи збільшіть прогнозований прибуток і успіх ставки буде вище.",
       "sell": "Трохи зменьшіть прогнозований прибуток і успіх ставки буде вище."
     },
-    "txAmount": "Transaction Amount",
+    "txAmount": "Сума транзакції",
     "estimatedRevenue": "Очікується отримати",
     "estimatedCost": "Орієнтовна вартість",
     "preview": "Пошук за іменем Токену",
     "notFound": "Обмінів не знайдено",
-    "error": "Exchange not executed. Please review your input values and try again.",
-    "askPin": "Ask PIN for exchange Transactions"
+    "error": "Обмін не виконано. Будь ласка, перегляньте ваші дані та повторіть спробу.",
+    "askPin": "Запитайте PIN-код для обміну транзакцій "
   },
   "hideAccount": "Ви збираєтеся видалити цей обліковий запис. Ви можете відновити його пізніше в налаштуваннях",
   "components": {
@@ -361,7 +361,7 @@
       "title": "Сповіщення"
     },
     "dappBrowser": {
-      "title": "DApp Browser"
+      "title": "Браузер DApp"
     },
     "network": {
       "title": "Мережа",
@@ -665,7 +665,7 @@
   "notifications": {
     "title": "СПОВІЩЕННЯ",
     "empty": {
-      "msg": "No notifications available at the moment"
+      "msg": "Немає доступних повідомлень на даний момент"
     },
     "notifications": {
       "title": "ТРАНЗАКЦІЇ"
