@@ -53,18 +53,6 @@ describe('Exchange - List', () => {
     expect(removeSubscription).toBeCalled()
   })
 
-  test('#_loadData', async () => {
-    // Assert
-    const instance = wrapper.instance()
-    const spyLoadData = jest.spyOn(instance, '_loadData')
-
-    // Act
-    instance.componentDidMount()
-
-    // Assert
-    expect(spyLoadData).toHaveBeenCalled()
-  })
-
   test('Load data to state', async () => {
     // Arrange
     const instance = wrapper.instance()

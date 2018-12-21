@@ -57,9 +57,8 @@ export class ExchangeScene extends Component {
           favoriteExchanges: parsedFavoriteList
         })
       } catch (error) {
-        console.log('..', error)
         logSentry(error, 'Error exchange list')
-        this.setState({exchangeList: [], loading: false, error: true})
+        this.setState({exchangeList: [], loading: false})
       }
     }
 
