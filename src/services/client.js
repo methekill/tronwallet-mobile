@@ -3,7 +3,7 @@ import Config from 'react-native-config'
 import NodesIp from '../utils/nodeIp'
 import sortBy from 'lodash/sortBy'
 import { AUTH_ID } from './../../config'
-import { getExchangeContentful } from './contentful'
+import { getExchangeContentful } from './contentful/general'
 
 export const ONE_TRX = 1000000
 

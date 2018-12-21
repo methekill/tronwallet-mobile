@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { ExchangeScene } from './../index'
 import exchangeListMock from '../../../services/__mocks__/exchangeList.json'
-import * as Contentful from '../../../services/contentful'
+import * as Contentful from '../../../services/contentful/general'
 import WalletClient from '../../../services/client'
 
 jest.mock('./../../../utils/i18n')
