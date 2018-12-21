@@ -17,11 +17,13 @@ import { logSentry } from '../../utils/sentryUtils'
 import Async from '../../utils/asyncStorageUtils'
 import { FAVORITE_EXCHANGES } from '../../utils/constants'
 import { formatNumber } from '../../utils/numberUtils'
+
 // Services
 import WalletClient from '../../services/client'
 
 export class ExchangeScene extends Component {
     static navigationOptions = { header: null }
+    static displayName = 'Exchanges List Screen'
 
     state = {
       exchangeList: [],
@@ -55,8 +57,9 @@ export class ExchangeScene extends Component {
           favoriteExchanges: parsedFavoriteList
         })
       } catch (error) {
+        console.log('..', error)
         logSentry(error, 'Error exchange list')
-        this.setState({exchangeList: [], loading: false})
+        this.setState({exchangeList: [], loading: false, error: true})
       }
     }
 
