@@ -87,6 +87,8 @@ export class ExchangeTabs extends Component {
       const updatedTransactions = await WalletClient.getTransactionExchangesList(exchangeId)
       if (!lastTransactions.length || updatedTransactions[0]['_id'] !== lastTransactions[0]['_id']) {
         this.setState({lastTransactions: updatedTransactions, refreshingExchange: false})
+      } else {
+        this.setState({refreshingExchange: false})
       }
     } catch (error) {
       logSentry('Exchange Tabs - Load Transactions', error)
