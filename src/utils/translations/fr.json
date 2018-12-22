@@ -665,13 +665,13 @@
   "notifications": {
     "title": "NOTIFICATIONS",
     "empty": {
-      "msg": "No notifications available at the moment"
+      "msg": "Aucune notification disponible pour le moment"
     },
     "notifications": {
       "title": "TRANSACTIONS"
     },
     "signals": {
-      "title": "SIGNALS"
+      "title": "SIGNAUX"
     }
   }
 }
