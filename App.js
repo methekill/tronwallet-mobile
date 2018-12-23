@@ -25,7 +25,7 @@ import { getActiveRouteName } from './src/utils/navigationUtils'
 
 import Async from './src/utils/asyncStorageUtils'
 
-import { getFixedTokens } from './src/services/contentful'
+import { getFixedTokens, getSystemStatus } from './src/services/contentful'
 import NavigationService from './src/utils/hocs/NavigationServices'
 // import './ReactotronConfig'
 
@@ -92,7 +92,8 @@ class App extends Component {
       Async.get(USER_FILTERED_TOKENS, null),
       getFixedTokens(),
       Async.get(TOKENS_VISIBLE).then(data => JSON.parse(data)),
-      Async.get(USER_PREFERRED_CURRENCY, 'TRX')
+      Async.get(USER_PREFERRED_CURRENCY, 'TRX'),
+      this._loadSystemAddress()
     ]).then(results => {
       const [alwaysAskPin, useStatus, filteredTokens, fixedTokens, verifiedTokensOnly, currency] = results
 
@@ -240,6 +241,14 @@ class App extends Component {
 
     this.setState({ accounts: updatedAccounDataArray, balances: updatedBalanceData, freeze: updatedFreezeData })
   }
+
+  _loadSystemAddress = () => (
+    getSystemStatus()
+      .then(data => {
+        const { systemAddress } = data
+        this.setState({ systemAddress })
+      })
+  )
 
   _setCurrency = currency => {
     this.setState({ currency }, () => AsyncStorage.setItem(USER_PREFERRED_CURRENCY, currency))
