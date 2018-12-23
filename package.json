@@ -14,7 +14,7 @@
     "lint:fix": "prettier-standard \"src/**/*.js\"",
     "precommit": "yarn lint",
     "postversion": "react-native-version --never-amend",
-    "storybook": "STORYBOOK=true storybook start",
+    "storybook": "storybook start | react-native start --projectRoot storybook",
     "prestorybook": "rnstl"
   },
   "dependencies": {
@@ -82,6 +82,7 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^4.1.3",
+    "@storybook/addon-info": "^4.1.3",
     "@storybook/addon-links": "^4.1.3",
     "@storybook/addons": "^4.1.3",
     "@storybook/react-native": "^4.1.3",

@@ -12,6 +12,7 @@ export const HEADER_HEIGHT = 64
 
 export const HeaderWrapper = styled.View`
   background-color:${Colors.background};
+  height: ${HEADER_HEIGHT}px;
 `
 export const Header = styled.View`
   height: ${HEADER_HEIGHT}px;
