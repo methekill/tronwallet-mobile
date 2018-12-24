@@ -36,7 +36,7 @@
   },
   "avaliable": "TILLGÄNGLIGT",
   "frozen": "FRUSNA",
-  "tronPower": "TRON POWER",
+  "tronPower": "TRON KRAFT",
   "trxPrice": "TRX PRIS",
   "confirmed": "Bekräftat",
   "unconfirmed": "Obekräftat",
@@ -413,7 +413,7 @@
       "title": "Språk",
       "choose": "Vänligen välj ett språk nedan:",
       "success": {
-        "title": "Språket ändrades till {{language}}",
+        "title": "Språk ändrat till {{language}}",
         "description": "Fast du behöver fortfarande starta om appen så att ändringarna kan träda i kraft. Vill du göra det nu?"
       },
       "button": {
@@ -468,7 +468,7 @@
     },
     "exchange": {
       "send": "Skickar {{sendtoken}}",
-      "receive": "Tar emot {{receivetoken}}",
+      "receive": "Mottar {{receivetoken}}",
       "error": "Kontrollera dina senaste transaktioner för att bekräfta det mottagna beloppet."
     },
     "disconnectedMessage": "Det verkar som om du är bortkopplad. Återanslut till internet innan du fortsätter med transaktionen.",
