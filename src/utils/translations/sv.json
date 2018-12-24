@@ -78,7 +78,7 @@
   },
   "exchange": {
     "minToSell": "Minsta att skicka ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minsta att ta emot ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minst att ta emot ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Öka den beräknade kostnaden något och chansen att lyckas blir större.",
       "sell": "Minska den beräknade intäkten något och chansen att lyckas blir större."
@@ -361,7 +361,7 @@
       "title": "Notifikationer"
     },
     "dappBrowser": {
-      "title": "DApp Browser"
+      "title": "DApp Webbläsare"
     },
     "network": {
       "title": "Nätverk",
