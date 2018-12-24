@@ -77,7 +77,7 @@
     "holdings": "INNEHAV"
   },
   "exchange": {
-    "minToSell": "Minsta att skicka ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minst att skicka ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minst att ta emot ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Öka den beräknade kostnaden något och chansen att lyckas blir större.",
@@ -86,7 +86,7 @@
     "txAmount": "Transaktionsbelopp",
     "estimatedRevenue": "BERÄKNAS ATT MOTTA",
     "estimatedCost": "BERÄKNAD KOSTNAD",
-    "preview": "Sök efter namnet på Token",
+    "preview": "Sök efter Token namnet",
     "notFound": "Ingen Exchange hittades",
     "error": "Bytet ej genomfört. Granska dina inmatade värden och försök igen.",
     "askPin": "Be om PIN för utbyte av Transaktioner"
@@ -193,7 +193,7 @@
     "title": "FRYS",
     "unfreeze": {
       "title": "LÅS UPP",
-      "inXTime": "Du kan nu låsa upp din TRX",
+      "inXTime": "Du kan låsa upp din TRX",
       "inThreeDays": "Efter en period på 3 dagar kan du låsa upp din TRX",
       "inXMinutes": "Du kan låsa upp din TRX om {{minutes}} minuter.",
       "inXHours": "Du kan låsa upp din TRX om {{hours}} timmar.",
@@ -244,7 +244,7 @@
     },
     "warning": "Du har inte tillräckligt TRX att köpa så många {{token}}",
     "enterAmountToBuy": "ANGE BELOPP ATT KÖPA",
-    "amountToBuy": "BELOPP ATT KÖPA",
+    "amountToBuy": "KÖP BELOPP",
     "pricePerToken": "PRIS PER TOKEN",
     "tokenDescription": "BESKRIVNING AV TOKEN",
     "tokenInfo": "TOKEN INFO",
@@ -329,7 +329,7 @@
     "title": "SKICKA",
     "error": {
       "insufficientBalance": "Inte tillräckligt på saldot.",
-      "gettingBalance": "Ett fel uppstod medans att hämta data för saldot",
+      "gettingBalance": "Ett fel uppstod med att ladda saldots balans",
       "incompleteAddress": "Adressen är antingen ofullständig eller ogiltig.",
       "invalidReceiver": "Mottagarens adress är ogiltig",
       "selectBalance": "Välj din balans först",
