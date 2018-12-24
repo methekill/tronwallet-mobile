@@ -332,7 +332,7 @@
       "gettingBalance": "Ett fel uppstod med att ladda saldots balans",
       "incompleteAddress": "Adressen är antingen ofullständig eller ogiltig.",
       "invalidReceiver": "Mottagarens adress är ogiltig",
-      "selectBalance": "Välj din balans först",
+      "selectBalance": "Välj balans först",
       "invalidAmount": "Ogiltigt belopp"
     },
     "input": {
@@ -355,7 +355,7 @@
       "security": "SÄKERHET",
       "notification": "NOTIFIKATIONER",
       "idiomAndLocalization": "IDOM OCH PLATS",
-      "accounts": "HANTERING AV KONTON"
+      "accounts": "HANTERA KOMTON"
     },
     "notifications": {
       "title": "Notifikationer"
@@ -376,10 +376,10 @@
         },
         "success": {
           "updated": "Uppdaterad",
-          "updatedIp": "Nodes IP uppdaterad!",
-          "switchTest": "Omkopplade noder IP till Testnet",
-          "switchMain": "Omkopplade nodernas IP till standard",
-          "reset": "Nod IP nollsälldes!"
+          "updatedIp": "Nodernas IP uppdaterades!",
+          "switchTest": "Bytte noderas IP till Testnätet",
+          "switchMain": "Bytte nodernas IP till standard main",
+          "reset": "Node IP nollsälldes!"
         },
         "placeholder": {
           "loadingIp": "Laddar IP",
