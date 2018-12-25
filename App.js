@@ -16,7 +16,7 @@ import { Context } from './src/store/context'
 import NodesIp from './src/utils/nodeIp'
 import { getUserSecrets } from './src/utils/secretsUtils'
 import getBalanceStore from './src/store/balance'
-import { USER_PREFERRED_CURRENCY, ALWAYS_ASK_PIN, TOKENS_VISIBLE, USER_STATUS, USER_FILTERED_TOKENS } from './src/utils/constants'
+import { USER_PREFERRED_CURRENCY, ALWAYS_ASK_PIN, USER_STATUS, USER_FILTERED_TOKENS } from './src/utils/constants'
 import { ONE_SIGNAL_KEY, MIXPANEL_TOKEN } from './config'
 import ConfigJson from './package.json'
 import SecretStore from './src/store/secrets'
@@ -56,7 +56,6 @@ class App extends Component {
     alwaysAskPin: true,
     currency: null,
     secretMode: 'mnemonic',
-    verifiedTokensOnly: true,
     fixedTokens: ['TRX', 'TWX'],
     hasUnreadNotification: false
   }
@@ -91,11 +90,10 @@ class App extends Component {
       Async.get(USER_STATUS, null),
       Async.get(USER_FILTERED_TOKENS, null),
       getFixedTokens(),
-      Async.get(TOKENS_VISIBLE).then(data => JSON.parse(data)),
       Async.get(USER_PREFERRED_CURRENCY, 'TRX'),
-      this._loadSystemAddress()
+      getSystemStatus().then(data => data.systemAddress)
     ]).then(results => {
-      const [alwaysAskPin, useStatus, filteredTokens, fixedTokens, verifiedTokensOnly, currency] = results
+      const [alwaysAskPin, useStatus, filteredTokens, fixedTokens, currency, systemAddress] = results
 
       if (useStatus === 'active') {
         this._requestPIN()
@@ -105,7 +103,7 @@ class App extends Component {
           testInput: this._tryToOpenStore
         })
       }
-      this.setState({ alwaysAskPin, fixedTokens, verifiedTokensOnly, currency }, () => {
+      this.setState({ alwaysAskPin, fixedTokens, currency, systemAddress }, () => {
         this._getPrice(currency)
       })
 
@@ -242,14 +240,6 @@ class App extends Component {
     this.setState({ accounts: updatedAccounDataArray, balances: updatedBalanceData, freeze: updatedFreezeData })
   }
 
-  _loadSystemAddress = () => (
-    getSystemStatus()
-      .then(data => {
-        const { systemAddress } = data
-        this.setState({ systemAddress })
-      })
-  )
-
   _setCurrency = currency => {
     this.setState({ currency }, () => AsyncStorage.setItem(USER_PREFERRED_CURRENCY, currency))
     if (!this.state.price[currency]) {
@@ -287,8 +277,6 @@ class App extends Component {
 
   _setUseBiometry = (useBiometry) => this.setState({ useBiometry })
 
-  _setVerifiedTokensOnly = (verifiedTokensOnly) => this.setState({ verifiedTokensOnly })
-
   _setPin = (pin, callback) => {
     this.setState({ pin }, () => {
       callback()
@@ -314,8 +302,7 @@ class App extends Component {
       hideAccount: this._hideAccount,
       setAskPin: this._setAskPin,
       setUseBiometry: this._setUseBiometry,
-      setSecretMode: this._setSecretMode,
-      setVerifiedTokensOnly: this._setVerifiedTokensOnly
+      setSecretMode: this._setSecretMode
     }
 
     return (

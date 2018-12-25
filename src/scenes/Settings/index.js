@@ -223,16 +223,6 @@ class Settings extends Component {
     )
   }
 
-  _changeTokensVisibility = async currentValue => {
-    try {
-      await AsyncStorage.setItem(TOKENS_VISIBLE, `${!this.props.context.verifiedTokensOnly}`)
-      this.props.context.setVerifiedTokensOnly(!this.props.context.verifiedTokensOnly)
-      MixPanel.trackWithProperties('Settings Operation', { type: 'Change tokens visibility' })
-    } catch (error) {
-      this.props.context.setVerifiedTokensOnly(currentValue)
-    }
-  }
-
   _openLink = (uri) => this.setState({ modalVisible: true, uri })
 
   _handleLanguageChange = async (index) => {
@@ -340,19 +330,6 @@ class Settings extends Component {
             onPress: () => {
               this.helpView.open('https://help.tronwallet.me/')
             }
-          },
-          {
-            title: tl.t('settings.verifiedTokensOnly'),
-            icon: 'guarantee',
-            right: () => (
-              <Switch
-                circleStyle={{ backgroundColor: Colors.orange }}
-                backgroundActive={Colors.yellow}
-                backgroundInactive={Colors.secondaryText}
-                value={this.props.context.verifiedTokensOnly}
-                onSyncPress={this._changeTokensVisibility}
-              />
-            )
           }
         ]
       },
