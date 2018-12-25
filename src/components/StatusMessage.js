@@ -14,7 +14,6 @@ class StatusMessage extends Component {
     statusMessage: '',
     statusColor: '',
     messageColor: '',
-    systemAddress: {},
 
     isFecthing: false
   }
@@ -44,10 +43,9 @@ class StatusMessage extends Component {
       this.setState({ isFecthing: true })
       getSystemStatus()
         .then(data => {
-          const { systemStatus, systemAddress } = data
+          const { systemStatus } = data
           this.setState({
             ...systemStatus,
-            systemAddress,
             isFecthing: false
           })
         })
