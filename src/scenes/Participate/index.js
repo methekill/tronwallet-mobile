@@ -39,7 +39,7 @@ import { ONE_TRX } from '../../services/client'
 import tl from '../../utils/i18n'
 
 // Service
-import { BATCH_NUMBER, getTokens, queryToken } from '../../services/contentful'
+import { BATCH_NUMBER, getTokens, queryToken } from '../../services/contentful/general'
 
 class ParticipateHome extends React.Component {
   static navigationOptions = () => ({ header: null })

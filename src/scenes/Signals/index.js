@@ -12,7 +12,7 @@ import { CloseButton, ModalContainer } from './elements'
 import NavigationHeader from './../../components/Navigation/Header'
 
 import { getAllSignals } from './../../services/contentful/notifications'
-import { queryToken } from './../../services/contentful'
+import { queryToken } from './../../services/contentful/general'
 
 import { postFormat } from './../../utils/dateUtils'
 import tl from './../../utils/i18n'
