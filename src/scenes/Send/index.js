@@ -32,7 +32,7 @@ import getBalanceStore from '../../store/balance'
 import { withContext } from '../../store/context'
 import { USER_FILTERED_TOKENS } from '../../utils/constants'
 import { logSentry } from '../../utils/sentryUtils'
-import { ButtonWrapper } from './elements'
+import InputTextButton from '../../components/InputTextButton'
 import { replaceRoute } from '../../utils/navigationUtils'
 import { orderBalances } from '../../utils/balanceUtils'
 import onBackgroundHandler from '../../utils/onBackgroundHandler'
@@ -269,9 +269,7 @@ class SendScene extends Component {
   )
 
   _rightContentAmount = () => (
-    <ButtonWrapper onPress={this._setMaxAmount}>
-      <Utils.Text color={Colors.secondaryText} size='tiny'>MAX</Utils.Text>
-    </ButtonWrapper>
+    <InputTextButton onPress={this._setMaxAmount} text='MAX' />
   )
 
   _nextInput = currentInput => {
