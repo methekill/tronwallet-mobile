@@ -73,7 +73,15 @@ class SellScene extends Component {
       this.props.navigation.navigate('Pin', {
         shouldGoBack: true,
         testInput: pin => pin === this.props.context.pin,
-        onSuccess: this._exchangeToken
+        onSuccess: () => {
+          MixPanel.trackWithProperties('Pin Validation', {
+            type: 'Sell',
+            sellAmount,
+            estimatedRevenue,
+            publicKey
+          })
+          this._exchangeToken()
+        }
       })
     } else {
       this._exchangeToken()

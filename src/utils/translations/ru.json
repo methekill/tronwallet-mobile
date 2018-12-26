@@ -18,6 +18,7 @@
   "success": "Выполнено",
   "warning": "Внимание",
   "cancel": "Отменить",
+  "remove": "Удалить",
   "address": "Адрес",
   "message": "Сообщение",
   "ex": "Обмен",
@@ -361,7 +362,7 @@
       "title": "Уведомления"
     },
     "dappBrowser": {
-      "title": "DApp Browser"
+      "title": "DApp браузер"
     },
     "network": {
       "title": "Сеть",

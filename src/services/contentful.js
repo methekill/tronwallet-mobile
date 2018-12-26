@@ -13,14 +13,12 @@ const defaultParams = {
 
 export const BATCH_NUMBER = 30
 
-export const getTokens = async (verifiedOnly = false, start = 0) => {
+export const getTokens = async (start = 0) => {
   const queryEntry = {
     ...defaultParams,
     skip: start,
     limit: BATCH_NUMBER
   }
-
-  if (verifiedOnly) queryEntry['fields.isVerified'] = true
 
   const { total, items: featuredTokens } = await contentfulClient.getEntries(queryEntry)
   const featured = []
@@ -40,13 +38,12 @@ export const getTokens = async (verifiedOnly = false, start = 0) => {
   return {featured, assets, allAssets, totalTokens: total}
 }
 
-export const queryToken = async (verifiedOnly = false, name = '', params = defaultParams) => {
+export const queryToken = async (name = '', params = defaultParams) => {
   const queryEntry = {
     ...params,
     'fields.name[match]': name,
     limit: 5
   }
-  if (verifiedOnly) queryEntry['fields.isVerified'] = true
 
   const { total, items: assets } = await contentfulClient.getEntries(queryEntry)
   const results = assets.map(({fields}) => fields)
