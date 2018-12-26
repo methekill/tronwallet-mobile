@@ -18,15 +18,16 @@
   "success": "Succes",
   "warning": "Waarschuwing",
   "cancel": "Annuleren",
+  "remove": "Remove",
   "address": "Adres",
   "message": "Bericht",
   "ex": "Exchange",
   "ok": "OK",
   "actionModalTitle": "Wilt u graag",
-  "time": "Time",
+  "time": "Tijd",
   "account": "Rekening",
   "restore": "Herstellen",
-  "security": "Security",
+  "security": "Beveiliging",
   "error": {
     "default": "Oeps, er is iets misgegaan. Probeer het later opnieuw. Als de fout aanhoudt, probeert u de netwerkinstellingen bij te werken.",
     "buildingTransaction": "Fout bij het opbouwen van de transactie, probeer het opnieuw.",
@@ -83,13 +84,13 @@
       "buy": "Verhoog de verwachte kosten, en het succespercentage zal hoger zijn.",
       "sell": "Verlaag de verwachte opbrengst, en het succespercentage zal hoger zijn."
     },
-    "txAmount": "Transaction Amount",
+    "txAmount": "Transactiebedrag",
     "estimatedRevenue": "VERWACHTE OPBRENGST",
     "estimatedCost": "VERWACHTE KOSTEN",
     "preview": "Zoeken op de naam van de Token",
     "notFound": "Exchange niet gevonden",
-    "error": "Exchange not executed. Please review your input values and try again.",
-    "askPin": "Ask PIN for exchange Transactions"
+    "error": "Order is niet uitgevoerd. Controleer uw invoer waarden en probeer het opnieuw.",
+    "askPin": "Vraag PINCODE voor exchange transacties"
   },
   "hideAccount": "U staat op het punt dit account te verwijderen. U kunt het later in de instellingen herstellen",
   "components": {
@@ -359,6 +360,9 @@
     },
     "notifications": {
       "title": "Notificaties"
+    },
+    "dappBrowser": {
+      "title": "DApp Browser"
     },
     "network": {
       "title": "Netwerk",
@@ -662,13 +666,13 @@
   "notifications": {
     "title": "MELDINGEN",
     "empty": {
-      "msg": "No notifications available at the moment"
+      "msg": "Geen meldingen beschikbaar op het moment"
     },
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "TRANSACTIES"
     },
     "signals": {
-      "title": "SIGNALS"
+      "title": "MELDINGEN"
     }
   }
 }

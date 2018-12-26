@@ -23,7 +23,7 @@ import AccountRecover from './RecoverAccount'
 
 // Utils
 import getBalanceStore from '../../store/balance'
-import { USER_PREFERRED_LANGUAGE, USER_FILTERED_TOKENS, ALWAYS_ASK_PIN, USE_BIOMETRY, ENCRYPTED_PIN, TOKENS_VISIBLE } from '../../utils/constants'
+import { USER_PREFERRED_LANGUAGE, USER_FILTERED_TOKENS, ALWAYS_ASK_PIN, USE_BIOMETRY, ENCRYPTED_PIN } from '../../utils/constants'
 import tl, { LANGUAGES } from '../../utils/i18n'
 import fontelloConfig from '../../assets/icons/config.json'
 import { withContext } from '../../store/context'
@@ -165,9 +165,11 @@ class Settings extends Component {
             testInput: pin => pin === this.props.context.pin,
             onSuccess: async () => {
               await hardResetWalletData(this.props.context.pin)
+              const { accounts } = this.props.context
               this.props.context.resetAccount()
               this.props.navigation.dispatch(resetAction)
-              MixPanel.trackWithProperties('Settings Operation', { type: 'Reset Wallet' })
+              AsyncStorage.setItem(USE_BIOMETRY, 'false')
+              MixPanel.trackWithProperties('Pin Validation', { type: 'Reset Wallet', accounts })
             }
           })
         }
@@ -197,7 +199,10 @@ class Settings extends Component {
         this.props.navigation.navigate('Pin', {
           shouldDoubleCheck: true,
           shouldGoBack: true,
-          onSuccess: pin => this.props.context.setPin(pin, () => this.refs.settingsToast.show(tl.t('settings.pin.success')))
+          onSuccess: pin => {
+            MixPanel.trackWithProperties('Pin Validation', { type: 'Change PIN' })
+            this.props.context.setPin(pin, () => this.refs.settingsToast.show(tl.t('settings.pin.success')))
+          }
         })
       }
     })
@@ -208,9 +213,6 @@ class Settings extends Component {
       ({ subscriptionStatus }) => ({ subscriptionStatus: !subscriptionStatus }),
       () => {
         OneSignal.setSubscription(this.state.subscriptionStatus)
-        OneSignal.getPermissionSubscriptionState(
-          status => console.log('subscriptions status', status)
-        )
         if (this.state.subscriptionStatus) {
           Client.registerDeviceForNotifications(
             this.props.context.oneSignalId,
@@ -221,16 +223,6 @@ class Settings extends Component {
         }
       }
     )
-  }
-
-  _changeTokensVisibility = async currentValue => {
-    try {
-      await AsyncStorage.setItem(TOKENS_VISIBLE, `${!this.props.context.verifiedTokensOnly}`)
-      this.props.context.setVerifiedTokensOnly(!this.props.context.verifiedTokensOnly)
-      MixPanel.trackWithProperties('Settings Operation', { type: 'Change tokens visibility' })
-    } catch (error) {
-      this.props.context.setVerifiedTokensOnly(currentValue)
-    }
   }
 
   _openLink = (uri) => this.setState({ modalVisible: true, uri })
@@ -340,19 +332,6 @@ class Settings extends Component {
             onPress: () => {
               this.helpView.open('https://help.tronwallet.me/')
             }
-          },
-          {
-            title: tl.t('settings.verifiedTokensOnly'),
-            icon: 'guarantee',
-            right: () => (
-              <Switch
-                circleStyle={{ backgroundColor: Colors.orange }}
-                backgroundActive={Colors.yellow}
-                backgroundInactive={Colors.secondaryText}
-                value={this.props.context.verifiedTokensOnly}
-                onSyncPress={this._changeTokensVisibility}
-              />
-            )
           }
         ]
       },

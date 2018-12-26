@@ -5,6 +5,7 @@ import Config from 'react-native-config'
 import OneSignal from 'react-native-onesignal'
 import Mixpanel from 'react-native-mixpanel'
 import { Sentry } from 'react-native-sentry'
+import DeviceInfo from 'react-native-device-info'
 
 import { logSentry } from './src/utils/sentryUtils'
 import RootNavigator from './Router'
@@ -16,7 +17,7 @@ import { Context } from './src/store/context'
 import NodesIp from './src/utils/nodeIp'
 import { getUserSecrets } from './src/utils/secretsUtils'
 import getBalanceStore from './src/store/balance'
-import { USER_PREFERRED_CURRENCY, ALWAYS_ASK_PIN, TOKENS_VISIBLE, USER_STATUS, USER_FILTERED_TOKENS } from './src/utils/constants'
+import { USER_PREFERRED_CURRENCY, ALWAYS_ASK_PIN, USER_STATUS, USER_FILTERED_TOKENS } from './src/utils/constants'
 import { ONE_SIGNAL_KEY, MIXPANEL_TOKEN } from './config'
 import ConfigJson from './package.json'
 import SecretStore from './src/store/secrets'
@@ -36,6 +37,9 @@ if (!__DEV__) {
   }).install()
 }
 Mixpanel.sharedInstanceWithToken(MIXPANEL_TOKEN)
+  .then(() => {
+    Mixpanel.identify(DeviceInfo.getUniqueID())
+  })
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader'])
 
@@ -56,7 +60,6 @@ class App extends Component {
     alwaysAskPin: true,
     currency: null,
     secretMode: 'mnemonic',
-    verifiedTokensOnly: true,
     fixedTokens: ['TRX', 'TWX'],
     hasUnreadNotification: false
   }
@@ -91,11 +94,10 @@ class App extends Component {
       Async.get(USER_STATUS, null),
       Async.get(USER_FILTERED_TOKENS, null),
       getFixedTokens(),
-      Async.get(TOKENS_VISIBLE).then(data => JSON.parse(data)),
       Async.get(USER_PREFERRED_CURRENCY, 'TRX'),
-      this._loadSystemAddress()
+      getSystemStatus().then(data => data.systemAddress)
     ]).then(results => {
-      const [alwaysAskPin, useStatus, filteredTokens, fixedTokens, verifiedTokensOnly, currency] = results
+      const [alwaysAskPin, useStatus, filteredTokens, fixedTokens, currency, systemAddress] = results
 
       if (useStatus === 'active') {
         this._requestPIN()
@@ -105,7 +107,7 @@ class App extends Component {
           testInput: this._tryToOpenStore
         })
       }
-      this.setState({ alwaysAskPin, fixedTokens, verifiedTokensOnly, currency }, () => {
+      this.setState({ alwaysAskPin, fixedTokens, currency, systemAddress }, () => {
         this._getPrice(currency)
       })
 
@@ -195,7 +197,7 @@ class App extends Component {
     let accounts = await getUserSecrets(this.state.pin)
     const userSecrets = accounts
     // First Time
-    if (!accounts.length) return
+    if (!accounts.length) return null
 
     // merge store with state
     accounts = accounts
@@ -206,7 +208,6 @@ class App extends Component {
       })
 
     const publicKey = this.state.publicKey || accounts[0].address
-    Mixpanel.identify(publicKey)
     this.setState({ accounts, userSecrets, publicKey }, () => this._updateAccounts(accounts))
   }
 
@@ -241,14 +242,6 @@ class App extends Component {
 
     this.setState({ accounts: updatedAccounDataArray, balances: updatedBalanceData, freeze: updatedFreezeData })
   }
-
-  _loadSystemAddress = () => (
-    getSystemStatus()
-      .then(data => {
-        const { systemAddress } = data
-        this.setState({ systemAddress })
-      })
-  )
 
   _setCurrency = currency => {
     this.setState({ currency }, () => AsyncStorage.setItem(USER_PREFERRED_CURRENCY, currency))
@@ -287,19 +280,25 @@ class App extends Component {
 
   _setUseBiometry = (useBiometry) => this.setState({ useBiometry })
 
-  _setVerifiedTokensOnly = (verifiedTokensOnly) => this.setState({ verifiedTokensOnly })
-
   _setPin = (pin, callback) => {
-    this.setState({ pin }, () => {
-      callback()
-    })
+    this.setState({ pin }, callback)
   }
 
-  _resetAccounts = () => this.setState({ accounts: [], publicKey: null })
+  _resetAccounts = () => {
+    this.setState({ accounts: [], publicKey: null })
+  }
 
   _hideAccount = address => {
     const newAccounts = this.state.accounts.filter(acc => acc.address !== address)
     this.setState({ accounts: newAccounts })
+  }
+
+  _getCurrentAccount = () => {
+    const { publicKey, accounts } = this.state
+    if (Array.isArray(accounts) && accounts.length > 0) {
+      return accounts.find(account => account.address === publicKey)
+    }
+    return null
   }
 
   render () {
@@ -315,7 +314,7 @@ class App extends Component {
       setAskPin: this._setAskPin,
       setUseBiometry: this._setUseBiometry,
       setSecretMode: this._setSecretMode,
-      setVerifiedTokensOnly: this._setVerifiedTokensOnly
+      getCurrentAccount: this._getCurrentAccount
     }
 
     return (

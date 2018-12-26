@@ -18,6 +18,7 @@
   "success": "نجح",
   "warning": "تحذير",
   "cancel": "إلغاء",
+  "remove": "إزالة",
   "address": "عنوان",
   "message": "رسالة",
   "ex": "صرف",
@@ -359,6 +360,9 @@
     },
     "notifications": {
       "title": "الإشعارات"
+    },
+    "dappBrowser": {
+      "title": "متصفح DApp"
     },
     "network": {
       "title": "شبكة",
