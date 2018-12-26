@@ -432,7 +432,7 @@
     "about": {
       "title": "Om",
       "description": "TronWallet är öppen källkod och en fullt decentraliserad P2P Crypto Wallet för TRON Network byggt med React Native. Med det kan du skicka och ta emot tokens, rösta på en superrepresentant, delta i en token-försäljning, hålla reda på dina saldon och transaktioner samt mycket mer. Klicka på länken nedan för en detaljerade instruktioner om hur du använder den.",
-      "tutorial": "Instruktioner"
+      "tutorial": "INSTRUKTIONER"
     },
     "accepts": {
       "title": "Vem accepterar TRX?"
@@ -445,18 +445,18 @@
     },
     "accounts": {
       "title": "Konton",
-      "search": "Sök efter konton",
-      "restoreAccounts": "Återställ konton",
+      "search": "Sök konton",
+      "restoreAccounts": "Återställ Konton",
       "noAccounts": "Inga konton att återställa"
     },
     "partners": "PARTNERS",
-    "askPin": "Fråga alltid efter PIN-kod",
+    "askPin": "Fråga alltid om PIN-kod",
     "askBiometry": "Aktivera Biometri",
     "verifiedTokensOnly": "Verifierade tokens endast"
   },
   "submitTransaction": {
     "title": "TRANSAKTIONS DETALJER",
-    "notification": "Du har fått en transaktion från {{address}}",
+    "notification": "Du har fått en överföring från {{address}}",
     "notificationPayment": "Du har fått en betalning från {{address}}",
     "data": "DATA",
     "time": "TID",
@@ -550,8 +550,8 @@
       "receiver": "Mottagaradressen är ogiltig",
       "token": "Token är inte giltig",
       "amount": "Beloppet är inte giltigt",
-      "description": "Beskrivning för lång",
-      "code": "Betalningskoden är ogiltig. Snälla, skanna en giltig en"
+      "description": "För lång beskrivning",
+      "code": "Betalningskoden är ogiltig. Vänligen, skanna en giltig kod"
     }
   },
   "makePayment": {
