@@ -558,27 +558,27 @@
     "pay": "BETALA",
     "confirm": "BEKRÄFTA BETALNING",
     "error": {
-      "receiver": "Mottagaren är lika med förfrågan",
-      "token": "Det här kontot har inte tecknet för denna transaktion",
-      "amount": "Det här kontot har inte tillräckligt med balans.",
+      "receiver": "Mottagaren matchar med beställaren",
+      "token": "Det här kontot har inte den token som krävs för denna transaktion",
+      "amount": "Det här kontot har inte tillräckligt med tillgångar.",
       "description": "Ingen beskrivning är tillgänglig"
     }
   },
   "buildPayment": {
-    "generate": "GENERERA ANMÄLAN",
+    "generate": "GENERAL FÖRFRÅGAN",
     "selectCurrency": "Välj referensvaluta",
     "error": {
-      "currency": "Vi kunde inte ladda andra valutapriser. Använd TRX som referens"
+      "currency": "Vi kunde inte ladda andra valutapriser. Vänligen, använd TRX som referens"
     }
   },
   "requestPayment": {
     "title": "EFTERFRÅGA BETALNING"
   },
   "newAccount": {
-    "title": "Konto skapande",
+    "title": "Skapa Konto",
     "placeholder": "Mitt värdefulla konto",
     "success": {
-      "title": "Nytt konto skapades",
+      "title": "Nytt konto skapat",
       "message": "Du kan redigera namnet i din adressbok"
     },
     "failure": {
