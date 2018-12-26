@@ -203,14 +203,14 @@
     },
     "error": {
       "minimumAmount": "Det minsta beloppet för att frysa en transaktion är 1.",
-      "insufficientBalance": "Ej tillräckligt med TRX på saldot",
+      "insufficientBalance": "Inte tillräckligt med TRX på saldot",
       "roundNumbers": "Endast runda tal går att frysa"
     },
     "amount": "FRYS BELOPPET",
     "balance": "Saldo"
   },
   "getVault": {
-    "notInstalled": "Det verkar som du inte har Tron Vault installerad i din telefon för att gå vidare med din transaktion.",
+    "notInstalled": "Det verkar som du inte har Tron Vault installerad i telefonen för att gå vidare med din transaktion.",
     "downloadHere": "Du kan ladda ner det här"
   },
   "market": {
@@ -223,7 +223,7 @@
     },
     "highest": "HÖGSTA",
     "lowest": "LÄGSTA",
-    "volume": "VOLYM 24H",
+    "volume": "VOLYM 24T",
     "cap": "BÖRSVÄRDE",
     "supply": "CIRKULERANDE ANTAL"
   },
