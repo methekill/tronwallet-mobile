@@ -75,7 +75,7 @@ const Card = ({ name, address, price, balance, tronPower, bandwidth, currency, s
                   {shortNumberFormat(bandwidth)}
                 </Value>
                 {showDeleteBtn && (
-                  <BtnTrash onPress={() => onDelete(address)} />
+                  <BtnTrash onPress={() => onDelete(address, balance)} />
                 )}
               </Utils.Row>
             </Utils.Column>

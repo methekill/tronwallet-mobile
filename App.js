@@ -5,6 +5,7 @@ import Config from 'react-native-config'
 import OneSignal from 'react-native-onesignal'
 import Mixpanel from 'react-native-mixpanel'
 import { Sentry } from 'react-native-sentry'
+import DeviceInfo from 'react-native-device-info'
 
 import { logSentry } from './src/utils/sentryUtils'
 import RootNavigator from './Router'
@@ -36,6 +37,9 @@ if (!__DEV__) {
   }).install()
 }
 Mixpanel.sharedInstanceWithToken(MIXPANEL_TOKEN)
+  .then(() => {
+    Mixpanel.identify(DeviceInfo.getUniqueID())
+  })
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader'])
 
@@ -193,7 +197,7 @@ class App extends Component {
     let accounts = await getUserSecrets(this.state.pin)
     const userSecrets = accounts
     // First Time
-    if (!accounts.length) return
+    if (!accounts.length) return null
 
     // merge store with state
     accounts = accounts
@@ -204,7 +208,6 @@ class App extends Component {
       })
 
     const publicKey = this.state.publicKey || accounts[0].address
-    Mixpanel.identify(publicKey)
     this.setState({ accounts, userSecrets, publicKey }, () => this._updateAccounts(accounts))
   }
 
@@ -278,16 +281,24 @@ class App extends Component {
   _setUseBiometry = (useBiometry) => this.setState({ useBiometry })
 
   _setPin = (pin, callback) => {
-    this.setState({ pin }, () => {
-      callback()
-    })
+    this.setState({ pin }, callback)
   }
 
-  _resetAccounts = () => this.setState({ accounts: [], publicKey: null })
+  _resetAccounts = () => {
+    this.setState({ accounts: [], publicKey: null })
+  }
 
   _hideAccount = address => {
     const newAccounts = this.state.accounts.filter(acc => acc.address !== address)
     this.setState({ accounts: newAccounts })
+  }
+
+  _getCurrentAccount = () => {
+    const { publicKey, accounts } = this.state
+    if (Array.isArray(accounts) && accounts.length > 0) {
+      return accounts.find(account => account.address === publicKey)
+    }
+    return null
   }
 
   render () {
@@ -302,7 +313,8 @@ class App extends Component {
       hideAccount: this._hideAccount,
       setAskPin: this._setAskPin,
       setUseBiometry: this._setUseBiometry,
-      setSecretMode: this._setSecretMode
+      setSecretMode: this._setSecretMode,
+      getCurrentAccount: this._getCurrentAccount
     }
 
     return (

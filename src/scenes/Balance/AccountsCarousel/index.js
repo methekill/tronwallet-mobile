@@ -62,7 +62,6 @@ export class AccountsCarousel extends React.Component {
     const { accounts } = this.props.context
     const createdItemPosition = accounts.length - 1
     // We set the state to load before the item is focused
-    this._onSnapToItem(createdItemPosition)
     // Timeout needed for android
     setTimeout(() => this.carousel.snapToItem(createdItemPosition), 300)
   }
@@ -70,30 +69,43 @@ export class AccountsCarousel extends React.Component {
   _onSnapToItem = activeAccount => {
     const { setPublicKey, accounts } = this.props.context
     if (accounts.length) {
-      const { address } = accounts[activeAccount]
+      const { address, balance } = accounts[activeAccount]
+
+      let prevAccountIndex = activeAccount - 1
+      if (prevAccountIndex <= 0) {
+        prevAccountIndex = 0
+      }
       setPublicKey(address)
-      MixPanel.trackWithProperties('Account Operation', { type: 'Switch account', address })
+      const prevAccount = accounts[prevAccountIndex]
+      MixPanel.trackWithProperties('Switch account', {
+        'from.adress': prevAccount.address,
+        'from.balance': prevAccount.balance || 0,
+        'to.address': address,
+        'to.balance': balance || 0
+      })
     }
   }
 
   // expose current index to parent
   currentIndex = () => this.carousel.currentIndex
 
-  _alertHideAccount = address => {
+  _alertHideAccount = (address, balance) => {
     Alert.alert(tl.t('warning'), tl.t('hideAccount'), [
       { text: tl.t('cancel'), style: 'cancel' },
-      { text: 'Remove', onPress: () => this._handleHideAccount(address) }
+      { text: tl.t('remove'), onPress: () => this._handleHideAccount(address, balance) }
     ])
   }
 
-  _handleHideAccount = async address => {
+  _handleHideAccount = async (address, balance) => {
     try {
       const { pin, hideAccount } = this.props.context
-      const nextAccountIndex = this.currentIndex() - 1
       await hideSecret(pin, address)
-      this.carousel.snapToItem(nextAccountIndex)
+      this.carousel.snapToPrev()
       hideAccount(address)
-      MixPanel.trackWithProperties('Account Operation', { type: 'Hide Account', address })
+      MixPanel.trackWithProperties('Hide Account', {
+        address,
+        balance
+      })
     } catch (error) {
       logSentry(error, 'Hide Account Handler')
       Alert.alert(tl.t('warning'), tl.t('error.hideAccount'))
@@ -103,8 +115,9 @@ export class AccountsCarousel extends React.Component {
   _handleCurrencyChange = async index => {
     if (index) {
       const currency = CURRENCIES[index]
+      const prevCurrency = this.props.context.currency
       this.props.context.setCurrency(currency)
-      MixPanel.trackWithProperties('Account Operation', { type: 'Set currency', currency })
+      MixPanel.trackWithProperties('Change currency', { prevCurrency, currency })
     }
   }
 
@@ -112,17 +125,11 @@ export class AccountsCarousel extends React.Component {
     try {
       await Clipboard.setString(address)
       this.refs.toast.show(tl.t('receive.clipboardCopied'))
-      MixPanel.trackWithProperties('Account Operation', { type: 'Copy Address - Clipboard' })
+      MixPanel.trackWithProperties('Copy to clipboard', { address, location: 'Balance Card' })
     } catch (error) {
       logSentry(error, 'Copy Address - Clipboard')
     }
   }
-
-  _formatAddress = address =>
-    address
-      .substring(0, 9)
-      .concat('...')
-      .concat(address.substring(25, address.length))
 
   _renderItem = ({ item, index }) => {
     if (!item) {
