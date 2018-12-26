@@ -23,7 +23,7 @@ import WalletClient from '../../services/client'
 
 export class ExchangeScene extends Component {
     static navigationOptions = { header: null }
-    static displayName = 'Exchanges List Screen'
+    static displayName = 'Exchange List Screen'
 
     state = {
       exchangeList: [],
