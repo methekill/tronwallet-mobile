@@ -23,7 +23,7 @@ import AccountRecover from './RecoverAccount'
 
 // Utils
 import getBalanceStore from '../../store/balance'
-import { USER_PREFERRED_LANGUAGE, USER_FILTERED_TOKENS, ALWAYS_ASK_PIN, USE_BIOMETRY, ENCRYPTED_PIN, TOKENS_VISIBLE } from '../../utils/constants'
+import { USER_PREFERRED_LANGUAGE, USER_FILTERED_TOKENS, ALWAYS_ASK_PIN, USE_BIOMETRY, ENCRYPTED_PIN } from '../../utils/constants'
 import tl, { LANGUAGES } from '../../utils/i18n'
 import fontelloConfig from '../../assets/icons/config.json'
 import { withContext } from '../../store/context'
@@ -225,16 +225,6 @@ class Settings extends Component {
     )
   }
 
-  _changeTokensVisibility = async currentValue => {
-    try {
-      await AsyncStorage.setItem(TOKENS_VISIBLE, `${!this.props.context.verifiedTokensOnly}`)
-      this.props.context.setVerifiedTokensOnly(!this.props.context.verifiedTokensOnly)
-      MixPanel.trackWithProperties('Settings Operation', { type: 'Change tokens visibility' })
-    } catch (error) {
-      this.props.context.setVerifiedTokensOnly(currentValue)
-    }
-  }
-
   _openLink = (uri) => this.setState({ modalVisible: true, uri })
 
   _handleLanguageChange = async (index) => {
@@ -342,19 +332,6 @@ class Settings extends Component {
             onPress: () => {
               this.helpView.open('https://help.tronwallet.me/')
             }
-          },
-          {
-            title: tl.t('settings.verifiedTokensOnly'),
-            icon: 'guarantee',
-            right: () => (
-              <Switch
-                circleStyle={{ backgroundColor: Colors.orange }}
-                backgroundActive={Colors.yellow}
-                backgroundInactive={Colors.secondaryText}
-                value={this.props.context.verifiedTokensOnly}
-                onSyncPress={this._changeTokensVisibility}
-              />
-            )
           }
         ]
       },
