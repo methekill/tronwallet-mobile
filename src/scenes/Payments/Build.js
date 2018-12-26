@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {ActivityIndicator, Alert, ScrollView} from 'react-native'
+import { ActivityIndicator, Alert, ScrollView } from 'react-native'
 import axios from 'axios'
 import Config from 'react-native-config'
 import MixPanel from 'react-native-mixpanel'
@@ -59,15 +59,29 @@ class RequestPayment extends Component {
 
   _loadData = async () => {
     try {
-      const [{data: {data: usdData}}, {data: {data: eurData}}] = await Promise.all([axios.get(`${Config.TRX_PRICE_API}/?convert=USD`),
-        axios.get(`${Config.TRX_PRICE_API}/?convert=EUR`)])
+      const [{ data: { data: usdData } }, { data: { data: eurData } }] = await Promise.all([
+        axios.get(`${Config.TRX_PRICE_API}/?convert=USD`),
+        axios.get(`${Config.TRX_PRICE_API}/?convert=EUR`)
+      ])
 
-      const newCurrencyPrices = {...this.state.currencyPrices}
+      const newCurrencyPrices = { ...this.state.currencyPrices }
       newCurrencyPrices['USD'] = formatNumber(usdData.quotes['USD'].price)
       newCurrencyPrices['EUR'] = formatNumber(eurData.quotes['EUR'].price)
 
       this.setState({ currencyPrices: newCurrencyPrices })
-      MixPanel.trackWithProperties('Build Operation', { type: 'Load data' })
+      const currencyAccount = this.props.context.getCurrentAccount()
+      if (currencyAccount) {
+        const { amount, token, currencySelected } = this.state
+        MixPanel.trackWithProperties('Build Payment', {
+          'account.address': currencyAccount.address,
+          'account.balance': currencyAccount.balance || 0,
+          currencySelected,
+          usd: newCurrencyPrices['USD'],
+          eur: newCurrencyPrices['EUR'],
+          amount,
+          token
+        })
+      }
     } catch (err) {
       Alert.alert(tl.t('warning'), tl.t('buildPayment.error.currency'))
       logSentry(err, 'Build Payment')
@@ -91,7 +105,7 @@ class RequestPayment extends Component {
       const amountTrx = (text / currencyPrices[currencySelected]).toFixed(6)
       this.setState({ [field]: text, amountTrx })
     } else {
-      this.setState({[field]: text})
+      this.setState({ [field]: text })
     }
   }
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { ActivityIndicator, NetInfo, ScrollView } from 'react-native'
 import moment from 'moment'
 import { Answers } from 'react-native-fabric'
+import MixPanel from 'react-native-mixpanel'
 
 // Design
 import * as Utils from '../../components/Utils'
@@ -277,7 +278,6 @@ class TransactionDetail extends Component {
         if (ANSWERS_TRANSACTIONS.includes(transaction.type)) {
           Answers.logCustom('Transaction Operation', { type: transaction.type })
         }
-
         await this.props.context.loadUserData()
         // TODO - Remove this piece of code when transactions come with Participate Price
         if (transaction.type === 'Participate') {
@@ -416,7 +416,12 @@ class TransactionDetail extends Component {
                 this.props.navigation.navigate('Pin', {
                   shouldGoBack: true,
                   testInput: pin => pin === this.props.context.pin,
-                  onSuccess: this._setSubmission
+                  onSuccess: () => {
+                    MixPanel.trackWithProperties('Pin Validation', {
+                      type: 'Submit transaction'
+                    })
+                    this._setSubmission()
+                  }
                 })
               }
               disabled={submitted || submitError}

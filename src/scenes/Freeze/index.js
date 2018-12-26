@@ -94,7 +94,6 @@ class FreezeScene extends Component {
         unfreezeStatus,
         total: tronPower
       })
-      MixPanel.trackWithProperties('Freeze Operation', { type: 'Load Data' })
     } catch (e) {
       logSentry(e, 'Freeze - Load Data')
       this.setState({ loading: false })
@@ -114,9 +113,12 @@ class FreezeScene extends Component {
     try {
       const data = await Client.getUnfreezeTransaction(publicKey, this.props.context.pin)
       this._openTransactionDetails(data)
-      MixPanel.trackWithProperties('Freeze Operation', { type: 'Unfreeze' })
+      MixPanel.trackWithProperties('UnFreeze', {
+        address: publicKey,
+        amount: this.state.amount
+      })
     } catch (e) {
-      Alert.alert(tl.t('error.buildingTransaction'))
+      Alert.alert(tl.t('warning'), tl.t('error.buildingTransaction'))
       this.setState({ loadingSign: false })
       logSentry(e, 'Unfreeze - Submit')
     } finally {
@@ -160,9 +162,12 @@ class FreezeScene extends Component {
     try {
       const data = await Client.getFreezeTransaction(this.props.context.publicKey, convertedAmount)
       this._openTransactionDetails(data)
-      MixPanel.trackWithProperties('Freeze Operation', { type: 'Freeze' })
+      MixPanel.trackWithProperties('Freeze', {
+        address: this.props.context.publicKey,
+        amount
+      })
     } catch (e) {
-      Alert.alert(Alert.alert(tl.t('error.buildingTransaction')))
+      Alert.alert(tl.t('warning'), tl.t('error.buildingTransaction'))
       logSentry(e, 'Freeze - Create Tx')
     } finally {
       this.setState({ loading: false })

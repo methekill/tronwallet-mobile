@@ -70,9 +70,8 @@ class ParticipateHome extends React.Component {
 
   _loadData = async () => {
     this.setState({ start: 0, isSearching: false })
-    const { verifiedTokensOnly } = this.props.context
     try {
-      const { assets, featured, totalTokens } = await getTokens(verifiedTokensOnly)
+      const { assets, featured, totalTokens } = await getTokens()
       this.setState({
         totalTokens,
         assetList: assets,
@@ -90,14 +89,13 @@ class ParticipateHome extends React.Component {
 
   _loadMore = async () => {
     const { start, assetList, isSearching, loading, totalTokens } = this.state
-    const { verifiedTokensOnly } = this.props.context
     const newStart = clamp(start + BATCH_NUMBER, totalTokens)
 
     if (loading || isSearching || newStart === totalTokens) return
 
     this.setState({ loadingMore: true })
     try {
-      const { assets } = await getTokens(verifiedTokensOnly, newStart)
+      const { assets } = await getTokens(newStart)
       const updatedAssets = union(assetList, assets)
 
       this.setState({
@@ -151,10 +149,9 @@ class ParticipateHome extends React.Component {
   }
 
   _searchFromApi = async name => {
-    const { verifiedTokensOnly } = this.props.context
     this.setState({ searching: true })
     try {
-      const { results } = await queryToken(verifiedTokensOnly, name)
+      const { results } = await queryToken(name)
       this.setState({ currentList: results })
     } catch (error) {
       logSentry(error, 'Search Participate Error')
