@@ -18,6 +18,7 @@
   "success": "Success",
   "warning": "Warning",
   "cancel": "Cancel",
+  "remove": "Remove",
   "address": "adres",
   "message": "Message",
   "ex": "Exchange",
@@ -359,6 +360,9 @@
     },
     "notifications": {
       "title": "Notifications"
+    },
+    "dappBrowser": {
+      "title": "DApp Browser"
     },
     "network": {
       "title": "Network",

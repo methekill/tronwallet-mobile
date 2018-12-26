@@ -18,15 +18,16 @@
   "success": "Succès",
   "warning": "Attention",
   "cancel": "Annuler",
+  "remove": "Remove",
   "address": "Adresse",
   "message": "Message",
   "ex": "Échange",
   "ok": "Ok",
   "actionModalTitle": "Souhaitez-vous",
-  "time": "Time",
+  "time": "Temps",
   "account": "Compte",
   "restore": "Restaurer",
-  "security": "Security",
+  "security": "Sécurité",
   "error": {
     "default": "Oups, quelque chose n'a pas fonctionné comme prévu. Réessayez plus tard, si l’erreur persiste, essayez de mettre à jour vos paramètres réseau.",
     "buildingTransaction": "Erreur pendant la création de la transaction, Réessayez s'il vous plait.",
@@ -57,7 +58,7 @@
   "clear": "Effacer",
   "allIn": "Tout compris",
   "skip": "Passer",
-  "hash": "Hash",
+  "hash": "Hachage",
   "privateKey": "Clé privée",
   "results": "Résultats",
   "buy": "Acheter",
@@ -83,13 +84,13 @@
       "buy": "Augmentez légèrement le coût estimé et le taux de réussite sera plus élevé.",
       "sell": "Réduisez légèrement le coût estimé et le taux de réussite sera plus élevé."
     },
-    "txAmount": "Transaction Amount",
+    "txAmount": "Montant de la transaction",
     "estimatedRevenue": "ESTIMÉ À RECEVOIR",
     "estimatedCost": "Coût estimé",
     "preview": "Recherche par nom de jeton",
     "notFound": "Échange non trouvé",
-    "error": "Exchange not executed. Please review your input values and try again.",
-    "askPin": "Ask PIN for exchange Transactions"
+    "error": "Échange non exécuté. Veuillez réviser vos valeurs d’entrée, puis réessayez.",
+    "askPin": "Demander code PIN pour l’échange de Transactions"
   },
   "hideAccount": "Vous êtes sur le point de supprimer ce compte. Vous pouvez le restaurer plus tard dans les paramètres",
   "components": {
@@ -359,6 +360,9 @@
     },
     "notifications": {
       "title": "Notifications"
+    },
+    "dappBrowser": {
+      "title": "Navigateur de DApp"
     },
     "network": {
       "title": "Réseau",
@@ -662,13 +666,13 @@
   "notifications": {
     "title": "NOTIFICATIONS",
     "empty": {
-      "msg": "No notifications available at the moment"
+      "msg": "Aucune notification disponible pour le moment"
     },
     "notifications": {
       "title": "TRANSACTIONS"
     },
     "signals": {
-      "title": "SIGNALS"
+      "title": "SIGNAUX"
     }
   }
 }
