@@ -37,7 +37,7 @@
   },
   "avaliable": "TILLGÄNGLIGT",
   "frozen": "FRUSNA",
-  "tronPower": "TRON KRAFT",
+  "tronPower": "TRON POWER",
   "trxPrice": "TRX PRIS",
   "confirmed": "Bekräftat",
   "unconfirmed": "Obekräftat",
@@ -87,7 +87,7 @@
     "txAmount": "Transaktionsbelopp",
     "estimatedRevenue": "BERÄKNAS ATT MOTTA",
     "estimatedCost": "BERÄKNAD KOSTNAD",
-    "preview": "Sök efter Token namnet",
+    "preview": "Sök efter namnet på Token",
     "notFound": "Ingen Exchange hittades",
     "error": "Bytet ej genomfört. Granska dina inmatade värden och försök igen.",
     "askPin": "Be om PIN för utbyte av Transaktioner"
@@ -391,7 +391,7 @@
           "reset": "Nollställ"
         },
         "mainNode": "Huvudnoden",
-        "solidityNode": "Soliditet-nod",
+        "solidityNode": "Soliditets-Nod",
         "testNet": "TestNät"
       }
     },
