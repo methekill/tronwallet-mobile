@@ -96,7 +96,7 @@
   "components": {
     "share": {
       "title": "Dela TronWallet adress",
-      "message": "Detta är min TronWallet adress:\n\n{{address}}\n\nTips: när du har kopierat det kan du klistra in det i din TronWallet app med hjälpa av den speciella knappen på Skicka skärm.",
+      "message": "Detta är min TronWallet adress:\n\n{{address}}\n\nTips: när du har kopierat det kan du klistra in det i din TronWallet app med hjälpa av special knappen på sidan Skicka.",
       "dialogTitle": "Dela med:"
     },
     "QRScanner": {
@@ -184,7 +184,7 @@
   },
   "importWallet": {
     "title": "IMPORTERA PLÅNBOK",
-    "message": "Om du har den privata nyckeln och adressen till din plånbok kan du återställa det här, men kom ihåg att TronWallet arbetar med mnemonics primärt. Den här återställningsmetoden kommer att inaktivera vissa funktioner i appen.",
+    "message": "Om du har den privata nyckeln och adressen till din plånbok kan du återställa den här. Kom bara ihåg att TronWallet arbetar med mnemonics primärt. Den här återställningsmetoden kommer att inaktivera vissa funktioner i appen.",
     "button": "IMPORTERA",
     "error": {
       "privateKey": "Privat nyckel är ogiltig eller ofullständig"
@@ -195,7 +195,7 @@
     "unfreeze": {
       "title": "LÅS UPP",
       "inXTime": "Du kan låsa upp din TRX",
-      "inThreeDays": "Efter en period på 3 dagar kan du låsa upp din TRX",
+      "inThreeDays": "Efter en 3 dagars period kan du låsa upp din TRX",
       "inXMinutes": "Du kan låsa upp din TRX om {{minutes}} minuter.",
       "inXHours": "Du kan låsa upp din TRX om {{hours}} timmar.",
       "inXDays": "Du kan låsa upp din TRX om {{days}} dagar.",
@@ -203,7 +203,7 @@
     },
     "error": {
       "minimumAmount": "Det minsta beloppet för att frysa en transaktion är 1.",
-      "insufficientBalance": "Otillräckligt TRX på saldot",
+      "insufficientBalance": "Ej tillräckligt med TRX på saldot",
       "roundNumbers": "Endast runda tal går att frysa"
     },
     "amount": "FRYS BELOPPET",
