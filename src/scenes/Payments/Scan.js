@@ -65,7 +65,16 @@ class ScanPayment extends Component {
       navigation.navigate('MakePayScene', {
         payment: { address, amount, token, description }
       })
-      MixPanel.trackWithProperties('Account Operation', { type: 'Scan Payment', token })
+      const currentAccount = this.props.context.getCurrentAccount()
+      if (currentAccount) {
+        MixPanel.trackWithProperties('Scan Payment', {
+          'payment.address': address,
+          'payment.amount': amount,
+          'payment.token': token,
+          'currentAccount.address': currentAccount.address,
+          'currentAccount.balance': currentAccount.balance
+        })
+      }
     } catch (error) {
       if (error.name === 'DataError') {
         Alert.alert(tl.t('warning'), error.message)
@@ -139,4 +148,6 @@ class ScanPayment extends Component {
   }
 }
 
-export default withContext(withNavigationFocus(ScanPayment))
+export default withContext(
+  withNavigationFocus(ScanPayment)
+)
