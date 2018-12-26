@@ -18,6 +18,7 @@
   "success": "Success",
   "warning": "Warning",
   "cancel": "Cancel",
+  "remove": "Remove",
   "address": "Địa chỉ nhà",
   "message": "Message",
   "ex": "Exchange",
@@ -359,6 +360,9 @@
     },
     "notifications": {
       "title": "Thông báo"
+    },
+    "dappBrowser": {
+      "title": "DApp Browser"
     },
     "network": {
       "title": "Mạng lưới",

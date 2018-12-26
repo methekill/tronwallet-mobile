@@ -18,6 +18,7 @@
   "success": "Berjaya",
   "warning": "Amaran",
   "cancel": "Batal",
+  "remove": "Remove",
   "address": "Alamat",
   "message": "Mesej",
   "ex": "Bursa",
@@ -359,6 +360,9 @@
     },
     "notifications": {
       "title": "Pemberitahuan"
+    },
+    "dappBrowser": {
+      "title": "Pelayar DApp"
     },
     "network": {
       "title": "Rangkaian",
