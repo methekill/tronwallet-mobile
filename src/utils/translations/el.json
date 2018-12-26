@@ -18,6 +18,7 @@
   "success": "Success",
   "warning": "Warning",
   "cancel": "Cancel",
+  "remove": "Remove",
   "address": "Διεύθυνση",
   "message": "Message",
   "ex": "Exchange",
@@ -359,6 +360,9 @@
     },
     "notifications": {
       "title": "Ειδοποιήσεις"
+    },
+    "dappBrowser": {
+      "title": "DApp Browser"
     },
     "network": {
       "title": "Δίκτυο",

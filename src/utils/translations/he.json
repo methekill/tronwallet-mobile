@@ -18,15 +18,16 @@
   "success": "הצלחה",
   "warning": "אזהרה",
   "cancel": "ביטול",
+  "remove": "Remove",
   "address": "כתובת",
   "message": "הודעה",
   "ex": "מסחר",
   "ok": "אוקיי",
   "actionModalTitle": "האם תרצה",
-  "time": "Time",
+  "time": "זמן",
   "account": "חשבון",
   "restore": "שחזור",
-  "security": "Security",
+  "security": "אבטחה",
   "error": {
     "default": "אופס משהו השתבש. נסה שוב מאוחר יותר, אם השגיאה נמשכת נסה לעדכן את הגדרות הרשת.",
     "buildingTransaction": "קרתה שגיאה בעת בניית העסקה, נסה שוב.",
@@ -83,13 +84,13 @@
       "buy": "הגדל במעט את העלות המוערכת, וסיכויי ההצלחה יהיו גבוהים יותר.",
       "sell": "הקטן במעט את ההכנסה המוערכת, וסיכויי ההצלחה יהיו גבוהים יותר."
     },
-    "txAmount": "Transaction Amount",
+    "txAmount": "סכום העסקה",
     "estimatedRevenue": "הערך המשוערך לקבלה",
     "estimatedCost": "העלות המשוערכת",
     "preview": "חפש לפי שם הטוקן",
     "notFound": "המסחר אינו זמין",
-    "error": "Exchange not executed. Please review your input values and try again.",
-    "askPin": "Ask PIN for exchange Transactions"
+    "error": "ההחלפה לא בוצעה. אנא בדוק שנית את ערכי הקלט שלך ונסה שוב.",
+    "askPin": "בקש קוד PIN עבור עסקאות מסחר"
   },
   "hideAccount": "אתה עומד להסיר את החשבון הזה. ניתן לשחזר אותו מאוחר יותר בהגדרות",
   "components": {
@@ -293,7 +294,7 @@
       "title": "אשר את ה-SEED",
       "error": {
         "title": "שילוב שגוי",
-        "message": "המילים שנבחרו אינן תואמות. ודא שכתבת את המילים בסדר הנכון."
+        "message": "המילים שנבחרו אינן מתאימות. ודא שכתבת את המילים בסדר הנכון."
       },
       "success": "הארנק אושר בהצלחה",
       "explanation": "בחר את המילים למטה בסדר הנכון כדי לאשר את הביטוי הסודי שלך.",
@@ -360,6 +361,9 @@
     "notifications": {
       "title": "התראות"
     },
+    "dappBrowser": {
+      "title": "דפדפן DApp"
+    },
     "network": {
       "title": "רשת",
       "modal": {
@@ -373,10 +377,10 @@
         },
         "success": {
           "updated": "עודכן",
-          "updatedIp": "Nodes IP updated!",
-          "switchTest": "כתובות ה-IP של הצמתים הוחלפו ל-Testnet",
-          "switchMain": "כתובות ה-IP של הצמתים הוחלפו לברירת המחדל הראשית",
-          "reset": "כתובת ה-IP של הצומת אופסה!"
+          "updatedIp": "כתובת ה-IP של ה-Nodes עודכנה!",
+          "switchTest": "כתובות ה-IP של ה-Nodes הוחלפו ל-Testnet",
+          "switchMain": "כתובות ה-IP של ה-Nodes הוחלפו לברירת המחדל הראשית",
+          "reset": "כתובת ה-IP של ה-Nodes אופסה!"
         },
         "placeholder": {
           "loadingIp": "טוען כתובת IP",
@@ -386,7 +390,7 @@
           "update": "עדכן ותתחבר",
           "reset": "איפוס"
         },
-        "mainNode": "צומת Main",
+        "mainNode": "Node ראשי",
         "solidityNode": "צומת Solidity",
         "testNet": "TestNet"
       }
@@ -452,9 +456,9 @@
   },
   "submitTransaction": {
     "title": "פרטי העסקה",
-    "notification": "קיבלת טרנזקציה מ-{{address}}",
+    "notification": "קיבלת עסקה מ-{{address}}",
     "notificationPayment": "קיבלת תשלום מ-{{address}}",
-    "data": "מידע",
+    "data": "נתונים",
     "time": "זמן",
     "button": {
       "tryAgain": "נסה שוב",
@@ -466,12 +470,12 @@
     "exchange": {
       "send": "שולח {{sendtoken}}",
       "receive": "קיבלת {{receivetoken}}",
-      "error": "בדוק את הטרנזקציות האחרונות שלך כדי לאשר את הסכום שהתקבל."
+      "error": "בדוק את העסקאות האחרונות שלך כדי לאשר את הסכום שהתקבל."
     },
-    "disconnectedMessage": "נראה כי אתה מנותק. תתחבר לאינטרנט לפני שתמשיך עם הטרנזקציה.",
+    "disconnectedMessage": "נראה כי אתה מנותק. תתחבר לאינטרנט לפני שתמשיך עם העסקה.",
     "dic": {
-      "contractType": "סוג טרנזקציה",
-      "ownerAddress": "מעת",
+      "contractType": "סוג עסקה",
+      "ownerAddress": "מאת",
       "toAddress": "אל",
       "participateAssetIssueContract": "השתתף",
       "transferAssetContract": "העבר",
@@ -484,29 +488,29 @@
       "frozenBalance": "סה\"כ להקפאה"
     },
     "errorDic": {
-      "contractValidate": "תוכן הטרנזקציה אינו חוקי. אנה נסה שנית מאוחר יותר.",
-      "signature": "חתימת הטרנזקציה אינה חוקית.",
-      "duplicate": "הטרנזקציה כבר נשלחה.",
-      "contractValidateCee": "נתוני הטרנזקציה אינם חוקיים (CEE). אנא נסה שנית מאוחר יותר.",
+      "contractValidate": "תוכן העסקה אינו חוקי. אנה נסה שנית מאוחר יותר.",
+      "signature": "חתימת העסקה אינה חוקית.",
+      "duplicate": "העסקה כבר נשלחה.",
+      "contractValidateCee": "נתוני העסקה אינם חוקיים (CEE). אנא נסה שנית מאוחר יותר.",
       "bandwith": "אין לך מספיק רוחב פס. אנא נסה שנית מאוחר יותר.",
-      "contractValidateTapos": "נתוני הטרנזקציה אינם חוקיים (TAPOS). אנא נסה שנית מאוחר יותר.",
-      "tooBig": "הטרנזקציה יותר מדי גדולה להגשה.",
-      "expiration": "הטרנזקציה פגה. נא נסה שוב.",
+      "contractValidateTapos": "נתוני העסקה אינם חוקיים (TAPOS). אנא נסה שנית מאוחר יותר.",
+      "tooBig": "העסקה יותר מדי גדולה להגשה.",
+      "expiration": "העסקה פגה. נא נסה שוב.",
       "serverBusy": "השרת עסוק.",
       "resource": "אין מספיק רוחב פס או יתרה. ייתכן ותצטרך להקפיא TRX."
     },
     "totalVotes": "סה\"כ הצבעות"
   },
   "transactions": {
-    "title": "הטרנזקציות שלי",
-    "from": "מעת",
+    "title": "העסקאות שלי",
+    "from": "מאת",
     "to": "אל",
-    "notFound": "לא נמצאו טרנזקציות."
+    "notFound": "לא נמצאו עסקאות."
   },
   "transactionDetails": {
-    "title": "טרנזקציה",
+    "title": "עסקה",
     "clipboard": {
-      "tronscanUrl": "כתובת Tronscan הועתקה ללוח המקשים",
+      "tronscanUrl": "כתובת Tronscan של העסקה הועתקה ללוח המקשים",
       "publicKey": "המפתח הציבורי הועתק ללוח המקשים"
     },
     "hash": "HASH",
@@ -515,10 +519,10 @@
     "block": "בלוק",
     "frozenBalance": "יתרה קפואה",
     "unfrozenBalance": "יתרה ששוחררה",
-    "totalVotes": "סך הכל הקולות",
+    "totalVotes": "סך הכל הצבעות",
     "amount": "כמות",
     "to": "אל",
-    "from": "מעת",
+    "from": "מאת",
     "tokenName": "שם הטוקן",
     "unityValue": "ערך יחידה",
     "totalSupply": "סך הכל ההספקה",
@@ -555,14 +559,14 @@
     "confirm": "אשר תשלום",
     "error": {
       "receiver": "הנמען זהה למבקש",
-      "token": "לחשבון זה אין את הטוקנים עבור עסקה זו",
+      "token": "לחשבון זה אין את הטוקן עבור עסקה זו",
       "amount": "לחשבון זה אין יתרה מספקת.",
       "description": "אין תיאור זמין"
     }
   },
   "buildPayment": {
     "generate": "צור בקשה",
-    "selectCurrency": "בחר את מטבע ההתייחסות",
+    "selectCurrency": "בחר את השער המועדף",
     "error": {
       "currency": "לא הצלחנו לטעון את מחירי המטבעות האחרים. השתמש ב- TRX כמטבע ההתייחסות"
     }
@@ -662,7 +666,7 @@
   "notifications": {
     "title": "התראות",
     "empty": {
-      "msg": "No notifications available at the moment"
+      "msg": "ההתראות אינן זמינות כרגע"
     },
     "notifications": {
       "title": "עסקאות"
