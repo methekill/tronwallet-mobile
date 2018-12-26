@@ -224,8 +224,8 @@
     "highest": "HÖGSTA",
     "lowest": "LÄGSTA",
     "volume": "VOLYM 24T",
-    "cap": "BÖRSVÄRDE",
-    "supply": "CIRKULERANDE ANTAL"
+    "cap": "MARKNADSKPITAL",
+    "supply": "CIRKULERANDE TILLGÅNGAR"
   },
   "participate": {
     "title": "DELTA",
@@ -236,18 +236,18 @@
       "buyNow": "KÖP NU"
     },
     "error": {
-      "insufficientBalance": "Inte tillräckligt med pengar (TRX) att delta.",
+      "insufficientBalance": "Inte tillräckligt med tillgångar (TRX) för att delta.",
       "insufficientTrx": {
-        "title": "Du måste köpa minst en TRX av värdet på {{token}}.",
+        "title": "Du måste köpa minst en TRX värt av {{token}}.",
         "message": "För närvarande köper du endast {{amount}}."
       },
       "notFound": "Tillgång(ar) hittades inte"
     },
-    "warning": "Du har inte tillräckligt TRX att köpa så många {{token}}",
+    "warning": "Du har inte tillräckligt TRX för att köpa så här många {{token}}",
     "enterAmountToBuy": "ANGE BELOPP ATT KÖPA",
     "amountToBuy": "KÖP BELOPP",
     "pricePerToken": "PRIS PER TOKEN",
-    "tokenDescription": "BESKRIVNING AV TOKEN",
+    "tokenDescription": "TOKEN BESKRIVNING",
     "tokenInfo": "TOKEN INFO",
     "token": "TOKEN",
     "tokens": "TOKENS",
@@ -269,13 +269,13 @@
   "pin": {
     "title": "SÄKERHETSKONTROLL",
     "enter": "Skriv PIN-kod",
-    "new": "Ange Ny PIN-kod",
-    "reenter": "Skriv PIN-kod igen",
+    "new": "Ange ny PIN-kod",
+    "reenter": "Ange PIN-kod igen",
     "biometrics": "Biometrisk Kontroll"
   },
   "receive": {
     "title": "TA EMOT",
-    "clipboardCopied": "Kopierad till urklipp",
+    "clipboardCopied": "Kopierat till urklipp",
     "button": {
       "copy": "Kopiera",
       "share": "Dela"
