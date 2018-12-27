@@ -236,19 +236,19 @@
       "buyNow": "KOOP NU"
     },
     "error": {
-      "insufficientBalance": "Niet genoeg voorraad (TRX) om deel te nemen.",
+      "insufficientBalance": "Niet genoeg in bezit (TRX) om deel te nemen.",
       "insufficientTrx": {
         "title": "U moet ten minste één TRX aan waarde van {{token}} kopen.",
-        "message": "Momenteel koopt u slechts {{amount}}."
+        "message": "Momenteel koopt u enkel {{amount}}."
       },
       "notFound": "Asset(s) niet gevonden"
     },
-    "warning": "Uw TRX saldo is niet toereikend om zoveel {{token}} te kopen",
+    "warning": "Uw TRX saldo is ontoereikend om zoveel {{token}} te kopen",
     "enterAmountToBuy": "VOER HET AANTAL IN DAT U WILT KOPEN",
-    "amountToBuy": "AANTAL TE KOPEN",
+    "amountToBuy": "AANKOOPBEDRAG",
     "pricePerToken": "PRIJS PER TOKEN",
     "tokenDescription": "TOKEN BESCHRIJVING",
-    "tokenInfo": "TOKEN INFORMATIE",
+    "tokenInfo": "TOKEN INFO",
     "token": "TOKEN",
     "tokens": "TOKENS",
     "frozen": "VASTGEZET",
@@ -263,7 +263,7 @@
     "trxNum": "AANTAL TRX",
     "num": "AANTAL",
     "block": "BLOK",
-    "balance": "Balans",
+    "balance": "BALANS",
     "searchPreview": "Aanbevolen Tokens"
   },
   "pin": {
