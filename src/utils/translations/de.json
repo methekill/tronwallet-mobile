@@ -669,7 +669,7 @@
       "msg": "Momentan sind keine Benachrichtigungen verfügbar"
     },
     "notifications": {
-      "title": "TRANSAKTIONEN"
+      "title": "notifications"
     },
     "signals": {
       "title": "MELDUNGEN"
