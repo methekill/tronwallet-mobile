@@ -70,6 +70,10 @@ class PinScene extends Component {
     }
   }
 
+  _resetState = () => {
+    this.setState({ isDoubleChecking: false, pin: null })
+  }
+
   _handleBiometrics = async () => {
     try {
       const signature = await Biometrics.createSignature(tl.t('biometry.register.title'), '')
@@ -85,10 +89,11 @@ class PinScene extends Component {
     if (this.state.pin === null) {
       this.setState({ pin: currentPin, isDoubleChecking: true })
       this.pinPad.reset()
-    }
-
-    if (this.state.pin && this.state.pin === currentPin) {
+    } else if (this.state.pin && this.state.pin === currentPin) {
       this._onSubmit(currentPin)
+    } else {
+      this.pinPad.reset()
+      this.pinPad.shake()
     }
   }
 

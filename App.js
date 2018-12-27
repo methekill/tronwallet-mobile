@@ -284,8 +284,9 @@ class App extends Component {
     this.setState({ pin }, callback)
   }
 
-  _resetAccounts = () => {
+  _resetAccounts = (hardReset = false) => {
     this.setState({ accounts: [], publicKey: null })
+    if (hardReset) this._bootstrapAsync()
   }
 
   _hideAccount = address => {
