@@ -6,7 +6,6 @@ import ActionSheet from 'react-native-actionsheet'
 import Toast from 'react-native-easy-toast'
 import { Answers } from 'react-native-fabric'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
-import { StackActions, NavigationActions } from 'react-navigation'
 import OneSignal from 'react-native-onesignal'
 import Switch from 'react-native-switch-pro'
 import Biometrics from 'react-native-biometrics'
@@ -34,12 +33,6 @@ import { logSentry } from '../../utils/sentryUtils'
 import onBackgroundHandler from '../../utils/onBackgroundHandler'
 
 const Icon = createIconSetFromFontello(fontelloConfig, 'tronwallet')
-
-const resetAction = StackActions.reset({
-  index: 0,
-  actions: [NavigationActions.navigate({ routeName: 'FirstTime' })],
-  key: null
-})
 
 class Settings extends Component {
   static navigationOptions = {
@@ -166,9 +159,7 @@ class Settings extends Component {
             onSuccess: async () => {
               await hardResetWalletData(this.props.context.pin)
               const { accounts } = this.props.context
-              this.props.context.resetAccount()
-              this.props.navigation.dispatch(resetAction)
-              AsyncStorage.setItem(USE_BIOMETRY, 'false')
+              this.props.context.resetAccount(true)
               MixPanel.trackWithProperties('Pin Validation', { type: 'Reset Wallet', accounts })
             }
           })
@@ -258,9 +249,10 @@ class Settings extends Component {
     const { currentSelectedTokens } = this.state
     try {
       await AsyncStorage.setItem(USER_FILTERED_TOKENS, JSON.stringify(currentSelectedTokens))
-      this.setState({ userSelectedTokens: currentSelectedTokens })
+      this.setState({ userSelectedTokens: currentSelectedTokens, tokenFilterModal: false })
       MixPanel.trackWithProperties('Settings Operation', { type: 'Token filter' })
     } catch (error) {
+      this.setState({ tokenFilterModal: false })
       logSentry(error, 'Settings - Save tokens')
     }
   }
@@ -294,7 +286,6 @@ class Settings extends Component {
       currentSelectedTokens: userSelectedTokens,
       tokenFilterModal: !tokenFilterModal
     })
-
     this.SectionedMultiSelect._toggleSelector()
   }
 

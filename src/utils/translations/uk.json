@@ -669,7 +669,7 @@
       "msg": "Немає доступних повідомлень на даний момент"
     },
     "notifications": {
-      "title": "ТРАНЗАКЦІЇ"
+      "title": "notifications"
     },
     "signals": {
       "title": "СИГНАЛИ"

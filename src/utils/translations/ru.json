@@ -669,7 +669,7 @@
       "msg": "Нет доступных уведомлений"
     },
     "notifications": {
-      "title": "ТРАНЗАКЦИИ"
+      "title": "notifications"
     },
     "signals": {
       "title": "ОПОВЕЩЕНИЯ"

@@ -17,7 +17,7 @@ import { Context } from './src/store/context'
 import NodesIp from './src/utils/nodeIp'
 import { getUserSecrets } from './src/utils/secretsUtils'
 import getBalanceStore from './src/store/balance'
-import { USER_PREFERRED_CURRENCY, ALWAYS_ASK_PIN, USER_STATUS, USER_FILTERED_TOKENS } from './src/utils/constants'
+import { USER_PREFERRED_CURRENCY, ALWAYS_ASK_PIN, USER_STATUS, USER_FILTERED_TOKENS, USE_BIOMETRY } from './src/utils/constants'
 import { ONE_SIGNAL_KEY, MIXPANEL_TOKEN } from './config'
 import ConfigJson from './package.json'
 import SecretStore from './src/store/secrets'
@@ -26,7 +26,7 @@ import { getActiveRouteName } from './src/utils/navigationUtils'
 
 import Async from './src/utils/asyncStorageUtils'
 
-import { getFixedTokens, getSystemStatus } from './src/services/contentful'
+import { getFixedTokens, getSystemStatus } from './src/services/contentful/general'
 import NavigationService from './src/utils/hocs/NavigationServices'
 // import './ReactotronConfig'
 
@@ -93,11 +93,12 @@ class App extends Component {
       Async.get(ALWAYS_ASK_PIN, 'true').then(data => JSON.parse(data)),
       Async.get(USER_STATUS, null),
       Async.get(USER_FILTERED_TOKENS, null),
+      Async.get(USE_BIOMETRY, 'false').then(data => data === 'true'),
       getFixedTokens(),
       Async.get(USER_PREFERRED_CURRENCY, 'TRX'),
       getSystemStatus().then(data => data.systemAddress)
     ]).then(results => {
-      const [alwaysAskPin, useStatus, filteredTokens, fixedTokens, currency, systemAddress] = results
+      const [alwaysAskPin, useStatus, filteredTokens, useBiometry, fixedTokens, currency, systemAddress] = results
 
       if (useStatus === 'active') {
         this._requestPIN()
@@ -107,7 +108,7 @@ class App extends Component {
           testInput: this._tryToOpenStore
         })
       }
-      this.setState({ alwaysAskPin, fixedTokens, currency, systemAddress }, () => {
+      this.setState({ alwaysAskPin, fixedTokens, useBiometry, currency, systemAddress }, () => {
         this._getPrice(currency)
       })
 
@@ -284,8 +285,9 @@ class App extends Component {
     this.setState({ pin }, callback)
   }
 
-  _resetAccounts = () => {
+  _resetAccounts = (hardReset = false) => {
     this.setState({ accounts: [], publicKey: null })
+    if (hardReset) this._bootstrapAsync()
   }
 
   _hideAccount = address => {

@@ -21,7 +21,7 @@ import { getCustomName } from '../../utils/assetsUtils'
 import { USER_FILTERED_TOKENS, WALLET_TOKENS } from '../../utils/constants'
 import { logSentry } from '../../utils/sentryUtils'
 import { withContext } from '../../store/context'
-import { queryToken } from '../../services/contentful'
+import { queryToken } from '../../services/contentful/general'
 
 class WalletBalances extends Component {
   state = {
@@ -86,7 +86,7 @@ class WalletBalances extends Component {
           content_type: 'asset',
           order: '-fields.isFeatured,-fields.isVerified,fields.position'
         }
-        const { results } = await queryToken(false, tokenName, customParams)
+        const { results } = await queryToken(tokenName, customParams)
         if (results.length) {
           this.setState({ modalTokenVisible: false, errorToken: null }, () => {
             this._navigateToTokenDetails(results[0])

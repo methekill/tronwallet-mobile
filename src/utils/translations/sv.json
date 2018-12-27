@@ -669,7 +669,7 @@
       "msg": "Inga notifikationer tillgängliga just nu"
     },
     "notifications": {
-      "title": "TRANSAKTIONER"
+      "title": "notifications"
     },
     "signals": {
       "title": "MEDDELANDEN"
