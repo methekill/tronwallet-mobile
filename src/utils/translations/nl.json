@@ -32,8 +32,8 @@
     "default": "Oeps, er is iets misgegaan. Probeer het later opnieuw. Als de fout aanhoudt, probeer de netwerkinstellingen bij te werken.",
     "buildingTransaction": "Fout bij het opbouwen van de transactie, probeer het opnieuw.",
     "gettingTransaction": "Fout bij het ophalen van de transactie.",
-    "clipboardCopied": "Er klopt iets niet tijdens het kopiëren",
-    "hideAccount": "Er is iets misgegaan bij het verwijderen van een account, probeer het opnieuw '"
+    "clipboardCopied": "Er liep wat fout tijdens het kopiëren",
+    "hideAccount": "Er is iets misgegaan bij het verwijderen van de account, probeer het opnieuw'"
   },
   "avaliable": "BESCHIKBAAR",
   "frozen": "VASTGEZET",
@@ -44,19 +44,19 @@
   "copyAddress": "ADRES KOPIËREN",
   "transactionType": {
     "transfer": "Transactie",
-    "transferAsset": "Verstuur token",
+    "transferAsset": "Transfer token",
     "freeze": "Vastzetten",
     "unfreeze": "Ontgrendelen",
     "vote": "Stemmen",
     "participate": "Deelnemen",
-    "create": "Maken",
+    "create": "Aanmaken",
     "exchange": "Exchange",
-    "undefined": "Niet gedefinieerd type"
+    "undefined": "Ongedefinieerd type"
   },
   "close": "Sluiten",
   "ends": "Eindigt",
   "clear": "Wissen",
-  "allIn": "Volledig",
+  "allIn": "Alles in",
   "skip": "Overslaan",
   "hash": "Hash",
   "privateKey": "Prive sleutel",
@@ -66,7 +66,7 @@
   "filter": "Filter",
   "txs": "Transacties",
   "balance": {
-    "title": "REKENINGEN",
+    "title": "ACCOUNTEN",
     "error": {
       "loadingData": "Er is een fout opgetreden tijdens het laden van de gegevens.",
       "savingCurrency": "Fout bij het opslaan van de voorkeursvaluta"
@@ -75,28 +75,28 @@
     "confirmSeed": "Tik om uw 12 woorden te bevestigen",
     "bandwidth": "BANDBREEDTE",
     "tokens": "TOKENS",
-    "holdings": "BEZITTINGEN"
+    "holdings": "AANDELEN"
   },
   "exchange": {
-    "minToSell": "Minimum te verkopen ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimum te verzenden ≈ {{min}} {{tokenId}}",
     "minToBuy": "Minimum te ontvangen ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Verhoog de verwachte kosten, en het succespercentage zal hoger zijn.",
       "sell": "Verlaag de verwachte opbrengst, en het succespercentage zal hoger zijn."
     },
     "txAmount": "Transactiebedrag",
-    "estimatedRevenue": "VERWACHTE OPBRENGST",
-    "estimatedCost": "VERWACHTE KOSTEN",
-    "preview": "Zoeken op de naam van de Token",
+    "estimatedRevenue": "VERWACHT TE ONTVANGEN",
+    "estimatedCost": "VERWACHTTE KOSTEN",
+    "preview": "Zoeken op naam van de Token",
     "notFound": "Exchange niet gevonden",
-    "error": "Order is niet uitgevoerd. Controleer uw invoer waarden en probeer het opnieuw.",
+    "error": "Order is niet uitgevoerd. Controleer uw invoerwaarden en probeer het opnieuw.",
     "askPin": "Vraag PINCODE voor exchange transacties"
   },
-  "hideAccount": "U staat op het punt dit account te verwijderen. U kunt het later in de instellingen herstellen",
+  "hideAccount": "U staat op het punt dit account te verwijderen. U kunt het later via de instellingen herstellen",
   "components": {
     "share": {
       "title": "Deel TronWallet adres",
-      "message": "Dit is mijn TronWallet adres:\n\n {{address}}\n\nTip: nadat u deze hebt gekopieerd, kunt u deze in uw TronWallet-app plakken met de speciale knop op het scherm Verzenden.",
+      "message": "Dit is mijn TronWallet adres:\n\n {{address}}\n\nTip: nadat u deze hebt gekopieerd, kunt u deze in uw TronWallet-app plakken met de speciale knop op het Verzendscherm.",
       "dialogTitle": "Delen via:"
     },
     "QRScanner": {
@@ -106,10 +106,10 @@
       "permissionMessage": "Voor het scannen van de publieke sleutel heeft de app uw toestemming nodig om de camera te gebruiken."
     },
     "vote": {
-      "enterVote": "VOER STEM AANTAL IN",
-      "votesRemaining": "STEMMEN OVER",
-      "setVote": "STEM",
-      "moreVotes": "Als u meer stemmen wilt, dient u meer TRX vast te zetten.",
+      "enterVote": "VUL HET AANTAL STEMMEN IN",
+      "votesRemaining": "AANTAL STEMMEN OVER",
+      "setVote": "BEWAAR STEMMEN",
+      "moreVotes": "Als u meer stemmen wilt, kan u meer TRX vastzetten.",
       "confirmVotes": "BEVESTIG STEMMEN",
       "yourVotes": "Jouw stemmen",
       "myVotes": "MIJN STEMMEN",
