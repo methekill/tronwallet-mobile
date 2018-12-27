@@ -7,29 +7,29 @@
     "m": "een minuut",
     "mm": "%d minuten",
     "h": "een uur",
-    "hh": "%d uur",
+    "hh": "%d uren",
     "d": "een dag",
     "dd": "%d dagen",
     "M": "een maand",
     "MM": "%d maanden",
     "y": "een jaar",
-    "yy": "%d jaar"
+    "yy": "%d jaren"
   },
   "success": "Succes",
   "warning": "Waarschuwing",
   "cancel": "Annuleren",
-  "remove": "Remove",
+  "remove": "Verwijderen",
   "address": "Adres",
   "message": "Bericht",
   "ex": "Exchange",
   "ok": "OK",
   "actionModalTitle": "Wilt u graag",
   "time": "Tijd",
-  "account": "Rekening",
+  "account": "Account",
   "restore": "Herstellen",
   "security": "Beveiliging",
   "error": {
-    "default": "Oeps, er is iets misgegaan. Probeer het later opnieuw. Als de fout aanhoudt, probeert u de netwerkinstellingen bij te werken.",
+    "default": "Oeps, er is iets misgegaan. Probeer het later opnieuw. Als de fout aanhoudt, probeer de netwerkinstellingen bij te werken.",
     "buildingTransaction": "Fout bij het opbouwen van de transactie, probeer het opnieuw.",
     "gettingTransaction": "Fout bij het ophalen van de transactie.",
     "clipboardCopied": "Er klopt iets niet tijdens het kopiëren",
@@ -669,7 +669,7 @@
       "msg": "Geen meldingen beschikbaar op het moment"
     },
     "notifications": {
-      "title": "notifications"
+      "title": "Meldingen"
     },
     "signals": {
       "title": "MELDINGEN"
