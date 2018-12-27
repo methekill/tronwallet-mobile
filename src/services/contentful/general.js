@@ -1,4 +1,4 @@
-import contentfulClient from './contentfulClient'
+import contentfulClient from './index'
 
 const SYSTEM_CONTENT = '11bJZFl0J6CMEwoMi20sqC'
 

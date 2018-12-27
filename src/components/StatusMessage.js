@@ -3,7 +3,7 @@ import { SafeAreaView } from 'react-native'
 
 import * as Utils from './Utils'
 import { Colors } from './DesignSystem'
-import { getSystemStatus } from './../services/contentful'
+import { getSystemStatus } from './../services/contentful/general'
 import { logSentry } from './../utils/sentryUtils'
 
 class StatusMessage extends Component {
