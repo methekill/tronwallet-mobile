@@ -669,7 +669,7 @@
       "msg": "Nu sunt disponibile Notificări în acest moment"
     },
     "notifications": {
-      "title": "TRANZACŢII"
+      "title": "notifications"
     },
     "signals": {
       "title": "SEMNALE"

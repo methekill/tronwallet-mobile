@@ -669,7 +669,7 @@
       "msg": "Nessuna notifica disponibile al momento"
     },
     "notifications": {
-      "title": "TRANSAZIONI"
+      "title": "notifications"
     },
     "signals": {
       "title": "SEGNALI"

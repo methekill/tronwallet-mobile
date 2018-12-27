@@ -669,7 +669,7 @@
       "msg": "알림 메시지가 아직 없습니다"
     },
     "notifications": {
-      "title": "트랜잭션"
+      "title": "notifications"
     },
     "signals": {
       "title": "뉴스 알림"
