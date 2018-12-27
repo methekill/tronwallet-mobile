@@ -89,7 +89,7 @@ class PinScene extends Component {
     if (this.state.pin === null) {
       this.setState({ pin: currentPin, isDoubleChecking: true })
       this.pinPad.reset()
-    } else if (this.state.pin && this.state.pin === currentPin) {
+    } else if (this.state.pin === currentPin) {
       this._onSubmit(currentPin)
     } else {
       this.pinPad.reset()
