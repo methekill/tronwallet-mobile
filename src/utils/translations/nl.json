@@ -124,7 +124,7 @@
   },
   "firstTime": {
     "button": {
-      "create": "MAAK PORTEMONNEE",
+      "create": "MAAK PORTEMONNEE AAN",
       "restore": "HERSTEL PORTEMONNEE",
       "import": "IMPORTEER PORTEMONNEE"
     },
@@ -139,7 +139,7 @@
       },
       "votes": {
         "title": "STEMMEN",
-        "body": "Vastzetten en stemmen op Super \n vertegenwoordigers"
+        "body": "Vastzetten en stemmen op Super \n Vertegenwoordigers"
       },
       "addressbook": {
         "title": "ADRESBOEK",
@@ -168,16 +168,16 @@
         "okButton": "OK"
       },
       "empty": "Uw adresboek is leeg, voeg een nieuw contact toe met behulp van de onderstaande knop.",
-      "loadError": "Er is een probleem opgetreden bij het laden van de contacten. Probeer het opnieuw.",
+      "loadError": "Er is een probleem opgetreden bij het laden van de contacten. Probeer het A.U.B. opnieuw.",
       "addContact": "VOEG CONTACT TOE",
       "addToContacts": "TOEVOEGEN AAN CONTACTEN"
     },
     "form": {
       "generalError": "Er is een probleem opgetreden bij het indienen van dit formulier. Neem contact op met een beheerder.",
-      "nameError": "Het veld naam moet beginnen met een letter, maximaal 32 tekens bevatten en accepteert alleen letters, cijfers en spaties.",
-      "addressError": "Er klopt iets niet met het adres. Controleer alstublieft op typefouten.",
+      "nameError": "Het veld naam moet beginnen met een letter, maximaal 32 tekens bevatten, deze accepteert alleen letters, cijfers en spaties.",
+      "addressError": "Er klopt iets niet met het adres. Controleer alstublieft op typ-fouten.",
       "uniqueAddressError": "De sleutel moet uniek zijn. Kies een ander adres.",
-      "uniqueAliasError": "Namen in uw adresboek moeten uniek zijn. Kies een andere.",
+      "uniqueAliasError": "Namen in uw adresboek moeten uniek zijn. Kies A.U.B. een ander.",
       "name": "NAAM",
       "address": "ADRES"
     }
@@ -193,13 +193,13 @@
   "freeze": {
     "title": "VASTZETTEN",
     "unfreeze": {
-      "title": "ONTGRENDELEN",
-      "inXTime": "U kunt nu uw TRX ontgrendelen",
-      "inThreeDays": "Na een periode van drie dagen kunt u uw TRX weer ontgrendelen",
-      "inXMinutes": "U kunt uw TRX ontgrendelen over {{minutes}} minuten.",
-      "inXHours": "U kunt uw TRX ontgrendelen over {{hours}} uren.",
-      "inXDays": "U kunt uw TRX ontgrendelen over {{days}} dagen.",
-      "now": "U kunt nu uw TRX ontgrendelen."
+      "title": "VRIJZETTEN",
+      "inXTime": "Je kan nu jou TRX vrijzetten",
+      "inThreeDays": "Na een periode van drie dagen kunt u uw TRX weer vrijzetten",
+      "inXMinutes": "U kunt uw TRX vrijzetten over {{minutes}} minuten.",
+      "inXHours": "U kunt uw TRX vrijzetten over {{hours}} uren.",
+      "inXDays": "U kunt uw TRX vrijzetten over {{days}} dagen.",
+      "now": "U kunt nu uw TRX vrijzetten."
     },
     "error": {
       "minimumAmount": "Het minimum aantal om vast te zetten is 1.",
@@ -215,7 +215,7 @@
   },
   "market": {
     "time": {
-      "hour": "1U",
+      "hour": "1u.",
       "day": "1D",
       "week": "1W",
       "month": "1M",
@@ -223,9 +223,9 @@
     },
     "highest": "HOOGSTE",
     "lowest": "LAAGSTE",
-    "volume": "VOLUME 24U",
+    "volume": "VOLUME 24u.",
     "cap": "MARKTKAPITALISATIE",
-    "supply": "AANTAL CIRCULERENT"
+    "supply": "CIRCULERENT AANTAL"
   },
   "participate": {
     "title": "DEELNEMEN",
