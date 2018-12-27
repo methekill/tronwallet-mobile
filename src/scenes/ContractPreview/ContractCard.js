@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Alert } from 'react-native'
+import { View } from 'react-native'
 import styled from 'styled-components'
 
 import { withContext } from '../../store/context'
@@ -8,7 +8,7 @@ import { Text } from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
 import ButtonGradient from '../../components/ButtonGradient'
 
-import { signSmartContract, submitSmartContract } from '../../services/tronweb'
+import { signSmartContract } from '../../services/tronweb'
 import { ONE_TRX } from '../../services/client'
 
 import { AutoSignSelector } from './elements'
@@ -59,26 +59,13 @@ class ContractCard extends Component {
 
   submitContract = async () => {
     const account = this.selectAccount()
-    const { tx: TR } = this.props.params
+    const { tx: TR, cb } = this.props.params
 
     const signedTR = await signSmartContract(TR, account.privateKey)
-    const result = await submitSmartContract(signedTR)
+    // Set autosign to X time
 
-    if (result && result.code !== 'CONTRACT_VALIDATE_ERROR') {
-      // Set autosign to X time
-
-      this.props.navigation.navigate('TransactionSuccess', {
-        stackToReset: 'ParticipateHome',
-        nextRoute: 'TronWebview'
-      })
-
-      // if (callbackUrl) {
-      //   return Communications.web(`${callbackUrl}?tx=${result.transaction.txID}`)
-      // }
-    } else {
-      this.props.navigation.navigate('TronWebview')
-      Alert.alert('Failed while trying to submit this contract')
-    }
+    this.props.navigation.navigate('TronWebview')
+    cb(signedTR)
   }
 
   selectAccount = () => {

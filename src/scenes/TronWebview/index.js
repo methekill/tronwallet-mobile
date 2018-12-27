@@ -26,6 +26,11 @@ class TronWebView extends Component {
 
     try {
       const contract = JSON.parse(ev.nativeEvent.data)
+
+      if (contract.type === 'LOG') {
+        return console.log(contract.msg)
+      }
+
       if ((!balance && balance !== 0) || !address) {
         throw new Error('Invalid contract, try again or contact the support for help')
       }
@@ -40,7 +45,8 @@ class TronWebView extends Component {
           tx: contract,
           site: this.state.url,
           address: contract.raw_data.contract[0].parameter.value.contract_address,
-          amount: contract.raw_data.contract[0].parameter.value.call_value
+          amount: contract.raw_data.contract[0].parameter.value.call_value,
+          cb: (tr) => this.webview.postMessage(JSON.stringify(tr))
         })
       }
       this._callContract(contract)
@@ -88,28 +94,61 @@ class TronWebView extends Component {
       const tweb = document.createElement('script');
       tweb.setAttribute('src', 'https://unpkg.com/tronweb@2.1.17/dist/TronWeb.js');
       document.head.appendChild(tweb);
-  
-      setTimeout(function() {
-        const TronWeb = window.TronWeb;
-        const HttpProvider = TronWeb.providers.HttpProvider
-        const fullNode = new HttpProvider('https://api.trongrid.io') // Full node http endpoint
-        const solidityNode = new HttpProvider('https://api.trongrid.io') // Solidity node http endpoint
-        const eventServer = 'https://api.trongrid.io' // Contract events http endpoint
-  
-        const tronWeb = new TronWeb(
-          fullNode,
-          solidityNode,
-          eventServer
-        )
 
-        window.tronWeb = tronWeb;
-        window.tronWeb.setAddress("${address}");
-        window.tronWeb.ready = true;
+      console.log = function(msg){postMessage(JSON.stringify({ msg: msg, type: "LOG" }))}
+      console.error = function(msg){postMessage(JSON.stringify({ msg: msg, type: "LOG" }))}
+  
+      const injectWatcher = setInterval(function() {
+        if(window.TronWeb) {
+          clearInterval(injectWatcher)
+          
+          const TronWeb = window.TronWeb;
+          const HttpProvider = TronWeb.providers.HttpProvider
+          const fullNode = new HttpProvider('https://api.trongrid.io') // Full node http endpoint
+          const solidityNode = new HttpProvider('https://api.trongrid.io') // Solidity node http endpoint
+          const eventServer = 'https://api.trongrid.io' // Contract events http endpoint
+    
+          const tronWeb = new TronWeb(
+            fullNode,
+            solidityNode,
+            eventServer
+          )
 
-        window.tronWeb.trx.sign = (transaction) => (
-          window.callTronWallet(transaction)
-        );
-      }, 1000)
+          window.tronWeb = tronWeb;
+          window.tronWeb.setAddress("${address}");
+          window.tronWeb.ready = true;
+
+          function injectPromise(func, ...args) {
+            return new Promise((resolve, reject) => {
+                func(...args, (err, res) => {
+                    if(err)
+                        reject(err);
+                    else resolve(res);
+                });
+            });
+          }
+
+          return window.tronWeb.trx.sign = (transaction, _pk, _useTronHeader, callback) => {
+            return new Promise((resolve, reject) => {
+              window.callTronWallet(transaction)
+
+              document.addEventListener("message", function(data) {
+                var tr = JSON.parse(data.data);
+                
+                resolve(tr)
+
+                if(callback) {
+                  callback(tr);
+                }
+                
+              });
+            })
+            
+          };
+
+          
+        }
+      }, 10)
     } catch(e) {
       alert(e)
     }
@@ -162,6 +201,7 @@ class TronWebView extends Component {
           <WebView
             style={{ display: 'flex', flex: 1, height: '100%' }}
             ref={(ref) => (this.webview = ref)}
+            nativeConfig={{props: {webContentsDebuggingEnabled: true}}}
             javaScriptEnabled
             automaticallyAdjustContentInsets
             injectedJavaScript={this.injectjs()}
