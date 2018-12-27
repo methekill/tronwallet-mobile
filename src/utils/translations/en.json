@@ -24,10 +24,10 @@
   "ex": "Exchange",
   "ok": "OK",
   "actionModalTitle": "Would you like to",
-  "time" : "Time",
+  "time": "Time",
   "account": "Account",
   "restore": "Restore",
-  "security" : "Security",
+  "security": "Security",
   "error": {
     "default": "Woops something went wrong. Try again later, If the error persist try to update the network settings.",
     "buildingTransaction": "Error while building transaction, try again.",
@@ -58,7 +58,7 @@
   "clear": "Clear",
   "allIn": "All In",
   "skip": "Skip",
-  "hash" : "Hash",
+  "hash": "Hash",
   "privateKey": "Private Key",
   "results": "Results",
   "buy": "Buy",
@@ -669,7 +669,7 @@
       "msg": "No notifications available at the moment"
     },
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "notifications"
     },
     "signals": {
       "title": "SIGNALS"
