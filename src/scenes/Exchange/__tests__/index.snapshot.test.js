@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { ExchangeScene } from './../index'
-import exchangeListMock from '../../../services/__mocks__/exchangeList.json'
+import exchangeListMock from './../../../services/__mocks__/exchangeList.json'
 
 jest.mock('./../../../utils/i18n')
 jest.mock('./../../../utils/sentryUtils')
