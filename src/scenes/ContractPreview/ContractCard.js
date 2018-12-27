@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { View, Alert } from 'react-native'
 import styled from 'styled-components'
-import Communications from 'react-native-communications'
 
 import { withContext } from '../../store/context'
 
@@ -9,8 +8,10 @@ import { Text } from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
 import ButtonGradient from '../../components/ButtonGradient'
 
-import { triggerSmartContract, signSmartContract, submitSmartContract } from '../../services/tronweb'
+import { signSmartContract, submitSmartContract } from '../../services/tronweb'
 import { ONE_TRX } from '../../services/client'
+
+import { AutoSignSelector } from './elements'
 
 const Card = styled.View`
   display: flex;
@@ -31,47 +32,49 @@ const Row = styled.View`
   width: 100%;
   height: 11%;
   background-color: transparent;
-  padding-horizontal: 10%;
+  padding-horizontal: ${({ noPadding }) => noPadding ? '0%' : '10%'};
 `
 
-const ContractParams = styled.View`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  background-color: white;
-  width: 80%;
-  height: 15%;
-  border-radius: 10px;
-`
+// const ContractParams = styled.View`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: row;
+//   background-color: white;
+//   width: 80%;
+//   height: 15%;
+//   border-radius: 10px;
+// `
+
+const options = [
+  { text: 'Don\'t sign automatically', value: null },
+  { text: '5 minutes', value: 300000 },
+  { text: '10 minutes', value: 600000 }
+]
 
 class ContractCard extends Component {
+  state = {
+    autoSign: options[0]
+  }
+
   submitContract = async () => {
     const account = this.selectAccount()
-    const { address, amount, command, feeLimit, params, callbackUrl } = this.props.params
+    const { tx: TR } = this.props.params
 
-    const contract = {
-      address,
-      command,
-      amount: amount * ONE_TRX,
-      params,
-      feeLimit,
-      issuer: account.address
-    }
-
-    const TR = await triggerSmartContract(contract)
-    const signedTR = await signSmartContract(TR.transaction, account.privateKey)
+    const signedTR = await signSmartContract(TR, account.privateKey)
     const result = await submitSmartContract(signedTR)
 
     if (result && result.code !== 'CONTRACT_VALIDATE_ERROR') {
+      // Set autosign to X time
+
       this.props.navigation.navigate('TransactionSuccess', {
         stackToReset: 'ParticipateHome',
         nextRoute: 'TronWebview'
       })
 
-      if (callbackUrl) {
-        return Communications.web(`${callbackUrl}?tx=${result.transaction.txID}`)
-      }
+      // if (callbackUrl) {
+      //   return Communications.web(`${callbackUrl}?tx=${result.transaction.txID}`)
+      // }
     } else {
       this.props.navigation.navigate('TronWebview')
       Alert.alert('Failed while trying to submit this contract')
@@ -84,7 +87,8 @@ class ContractCard extends Component {
   }
 
   render () {
-    const { amount, address, command, site } = this.props.params
+    const { autoSign } = this.state
+    const { amount, address, site } = this.props.params
 
     return (
       <Card>
@@ -102,12 +106,12 @@ class ContractCard extends Component {
 
         <Row>
           <Text>Cost:</Text>
-          <Text>{amount} TRX</Text>
+          <Text>{amount / ONE_TRX} TRX</Text>
         </Row>
 
-        <ContractParams>
+        {/* <ContractParams>
           <Text color='black'>{command}</Text>
-        </ContractParams>
+        </ContractParams> */}
 
         <Row style={{ marginTop: 15 }}>
           <View style={{ flex: 1, marginRight: '5%' }}>
@@ -117,7 +121,14 @@ class ContractCard extends Component {
           <View style={{ flex: 1, marginLeft: '5%' }}>
             <ButtonGradient width={'100%'} text='Confirm' onPress={this.submitContract} />
           </View>
+        </Row>
 
+        <Row noPadding>
+          <AutoSignSelector
+            options={options}
+            autoSign={autoSign}
+            onChange={(autoSign) => this.setState({ autoSign })}
+          />
         </Row>
 
       </Card>

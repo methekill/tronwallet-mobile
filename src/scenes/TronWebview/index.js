@@ -6,6 +6,8 @@ import { HeaderContainer, PageWrapper, HeaderView, URLInput, BlankPage, WebViewL
 import { FloatingIconButton } from '../../components/Navigation/elements'
 import { Colors } from '../../components/DesignSystem'
 
+import { checkAutoContract } from '../../services/tronweb'
+
 class TronWebView extends Component {
   constructor (props) {
     super(props)
@@ -13,8 +15,8 @@ class TronWebView extends Component {
     this.webview = null
     this.state = {
       initialized: false,
-      url: null,
-      isPageVisible: false
+      url: 'https://tronbet.io',
+      isPageVisible: true
     }
   }
 
@@ -32,10 +34,24 @@ class TronWebView extends Component {
         throw new Error('You dont have enought amount to run this contract')
       }
 
-      this.props.navigation.navigate('ContractPreview', { ...contract, prevRoute: 'TronWebview' })
+      if (contract.txID) {
+        console.log(contract, '<<< contract')
+        this._callContract({
+          tx: contract,
+          site: this.state.url,
+          address: contract.raw_data.contract[0].parameter.value.contract_address,
+          amount: contract.raw_data.contract[0].parameter.value.call_value
+        })
+      }
+      this._callContract(contract)
     } catch (e) {
       Alert.alert(e.message)
     }
+  }
+
+  _callContract = (contract) => {
+    checkAutoContract(contract)
+    this.props.navigation.navigate('ContractPreview', { ...contract, prevRoute: 'TronWebview' })
   }
 
   _sendMessage = (type, payload) => {
@@ -67,13 +83,51 @@ class TronWebView extends Component {
     `
   }
 
+  injectTronWeb = (address) => (`
+    try {
+      const tweb = document.createElement('script');
+      tweb.setAttribute('src', 'https://unpkg.com/tronweb@2.1.17/dist/TronWeb.js');
+      document.head.appendChild(tweb);
+  
+      setTimeout(function() {
+        const TronWeb = window.TronWeb;
+        const HttpProvider = TronWeb.providers.HttpProvider
+        const fullNode = new HttpProvider('https://api.trongrid.io') // Full node http endpoint
+        const solidityNode = new HttpProvider('https://api.trongrid.io') // Solidity node http endpoint
+        const eventServer = 'https://api.trongrid.io' // Contract events http endpoint
+  
+        const tronWeb = new TronWeb(
+          fullNode,
+          solidityNode,
+          eventServer
+        )
+
+        window.tronWeb = tronWeb;
+        window.tronWeb.setAddress("${address}");
+        window.tronWeb.ready = true;
+
+        window.tronWeb.trx.sign = (transaction) => (
+          window.callTronWallet(transaction)
+        );
+      }, 1000)
+    } catch(e) {
+      alert(e)
+    }
+    
+  `)
+
   injectjs () {
+    const { accounts } = this.props.context
+    const { address } = accounts.find(acc => acc.alias === '@main_account')
+
     let jsCode = `
         var script   = document.createElement("script");
         script.type  = "text/javascript";
         script.text  = "function callTronWallet(data) {postMessage(JSON.stringify(data))}"
         document.body.appendChild(script);
         document.useragent = "TronWallet1.3"
+
+        ${this.injectTronWeb(address)}
     `
 
     return jsCode

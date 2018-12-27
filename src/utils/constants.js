@@ -12,3 +12,4 @@ export const ASK_PIN_EX = '@TronWallet:askPinEx'
 export const ADD = 'ADD'
 export const EDIT = 'EDIT'
 export const WALLET_TOKENS = ['TRX', 'TWX']
+export const AUTOSIGN_LIST = '@TronWallet:signList'
