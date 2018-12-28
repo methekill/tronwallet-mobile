@@ -306,7 +306,7 @@
     "create": {
       "title": "MAAK HERSTEL CODE",
       "titleConfirm": "BEVESTIG PORTEMONNEE HERSTEL CODE",
-      "error": "Oeps, we hebben een probleem. Herstart de applicatie.",
+      "error": "Oeps, we hebben een probleem. Herstart de applicatie A.U.B.",
       "generateNew": "Dit genereert een volledig nieuwe portemonnee.",
       "button": {
         "written": "IK HEB HET OPGESCHREVEN",
