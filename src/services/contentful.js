@@ -94,3 +94,16 @@ export const getExchangeContentful = async () => {
     return list
   }, [])
 }
+
+export const getDApps = async () => {
+  try {
+    const queryEntry = { content_type: 'dApps' }
+    const { items } = await contentfulClient.getEntries(queryEntry)
+
+    return items.map(({ fields }) => fields).filter(dapp => {
+      if (dapp.isVisible) return dapp
+    })
+  } catch (e) {
+    return []
+  }
+}

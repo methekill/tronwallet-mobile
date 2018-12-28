@@ -1,6 +1,11 @@
+import React from 'react'
 import styled from 'styled-components'
+// import { Image } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
+import { Text } from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
+
+import ButtonIconGradient from '../../components/ButtonIconGradient'
 
 export const HeaderContainer = styled(LinearGradient).attrs({
   colors: [Colors.primaryGradient[0], Colors.primaryGradient[1]],
@@ -41,7 +46,7 @@ export const URLInput = styled.TextInput`
   margin-top: 2%;
 `
 
-export const BlankPage = styled.View`
+export const HomeContainer = styled.View`
   flex: 1;
   background-color: ${Colors.lightBackground};
 `
@@ -49,3 +54,51 @@ export const BlankPage = styled.View`
 export const WebViewLimit = styled.View`
   flex: 0.001;
 `
+const HomeTitle = styled.View`
+  flex: 0.10;
+  justify-content: center;
+  align-items: flex-start;
+  padding-horizontal: 5%;
+`
+
+const HomeSection = styled.View`
+  flex: 0.90;
+  flex-direction: row;
+  padding-horizontal: 5%;
+  justify-content: flex-start;
+  align-items: flex-start;
+`
+
+const ButtonContainer = styled.View`
+  margin-left: 5%;
+`
+
+const DAppButton = ({ dapp, onPress }) => {
+  console.log(dapp)
+  return (
+    <ButtonContainer key={dapp.name}>
+      <ButtonIconGradient key={dapp.name}
+        text={dapp.name}
+        color={Colors.primaryText}
+        onPress={() => onPress(dapp.url)}
+      />
+    </ButtonContainer>
+  )
+}
+
+export const WebViewHome = ({ dapps, onPress }) => {
+  console.log(dapps)
+  const dappList = dapps.map(d => <DAppButton dapp={d} onPress={onPress} />)
+
+  return (
+    <HomeContainer>
+      <HomeTitle>
+        <Text>Popular</Text>
+      </HomeTitle>
+
+      <HomeSection>
+        {dappList}
+      </HomeSection>
+    </HomeContainer>
+  )
+}

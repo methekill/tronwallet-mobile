@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import { WebView, Alert } from 'react-native'
 import withContext from '../../utils/hocs/withContext'
 
-import { HeaderContainer, PageWrapper, HeaderView, URLInput, BlankPage, WebViewLimit } from './elements'
+import { HeaderContainer, PageWrapper, HeaderView, URLInput, WebViewHome, WebViewLimit } from './elements'
 import { FloatingIconButton } from '../../components/Navigation/elements'
 import { Colors } from '../../components/DesignSystem'
 
 import { checkAutoContract } from '../../services/tronweb'
+import { getDApps } from './../../services/contentful'
 
 class TronWebView extends Component {
   constructor (props) {
@@ -14,10 +15,15 @@ class TronWebView extends Component {
 
     this.webview = null
     this.state = {
+      dapps: [],
       initialized: false,
-      url: 'https://tronbet.io',
-      isPageVisible: true
+      url: null,
+      isPageVisible: false
     }
+  }
+
+  async componentDidMount () {
+    this.setState({ dapps: await getDApps() })
   }
 
   handleMessage = (ev) => {
@@ -173,7 +179,7 @@ class TronWebView extends Component {
   }
 
   render () {
-    const { isPageVisible, url } = this.state
+    const { isPageVisible, url, dapps } = this.state
 
     return (
       <PageWrapper>
@@ -208,7 +214,7 @@ class TronWebView extends Component {
             onLoadEnd={this.configInstance}
             onMessage={this.handleMessage}
             source={{uri: url}} />
-        ) : <BlankPage />}
+        ) : <WebViewHome onPress={url => this.setState({ url, isPageVisible: true })} dapps={dapps} />}
 
         <WebViewLimit />
 
