@@ -4,7 +4,7 @@ import moment from 'moment'
 import { Answers } from 'react-native-fabric'
 import MixPanel from 'react-native-mixpanel'
 
-import tl from '../../utils/i18n'
+// Design
 import * as Utils from '../../components/Utils'
 import Header from '../../components/Header'
 import Input from '../../components/Input'
@@ -13,14 +13,26 @@ import ButtonGradient from '../../components/ButtonGradient'
 import { Colors } from '../../components/DesignSystem'
 import KeyboardScreen from '../../components/KeyboardScreen'
 import NavigationHeader from '../../components/Navigation/Header'
+import FontelloIcon from '../../components/FontelloIcon'
+import PercentageSelector from '../../components/SelectorTile'
 
-import Client, { ONE_TRX } from '../../services/client'
+// Utils
+import tl from '../../utils/i18n'
 import { signTransaction } from '../../utils/transactionUtils'
 import { withContext } from '../../store/context'
 import { formatNumber } from '../../utils/numberUtils'
 import { logSentry, DataError } from '../../utils/sentryUtils'
 import { replaceRoute } from '../../utils/navigationUtils'
-import FontelloIcon from '../../components/FontelloIcon'
+
+// Service
+import Client, { ONE_TRX } from '../../services/client'
+
+const PERCENTAGE_OPTIONS = [
+  {label: '25%', value: 0.25},
+  {label: '50%', value: 0.5},
+  {label: '75%', value: 0.75},
+  {label: '100%', value: 1.00}
+]
 
 class FreezeScene extends Component {
   static navigationOptions = {
@@ -82,11 +94,17 @@ class FreezeScene extends Component {
         unfreezeStatus,
         total: tronPower
       })
-      MixPanel.trackWithProperties('Freeze Operation', { type: 'Load Data' })
     } catch (e) {
       logSentry(e, 'Freeze - Load Data')
       this.setState({ loading: false })
     }
+  }
+
+  _setPercentage = percentage => {
+    const { balances, publicKey } = this.props.context
+    const { balance } = balances[publicKey].find(bl => bl.name === 'TRX') || { balance: 0 }
+    const amountWanted = Math.floor(balance * percentage)
+    this.setState({amount: formatNumber(amountWanted)})
   }
 
   _submitUnfreeze = async () => {
@@ -95,9 +113,12 @@ class FreezeScene extends Component {
     try {
       const data = await Client.getUnfreezeTransaction(publicKey, this.props.context.pin)
       this._openTransactionDetails(data)
-      MixPanel.trackWithProperties('Freeze Operation', { type: 'Unfreeze' })
+      MixPanel.trackWithProperties('UnFreeze', {
+        address: publicKey,
+        amount: this.state.amount
+      })
     } catch (e) {
-      Alert.alert(tl.t('error.buildingTransaction'))
+      Alert.alert(tl.t('warning'), tl.t('error.buildingTransaction'))
       this.setState({ loadingSign: false })
       logSentry(e, 'Unfreeze - Submit')
     } finally {
@@ -141,9 +162,12 @@ class FreezeScene extends Component {
     try {
       const data = await Client.getFreezeTransaction(this.props.context.publicKey, convertedAmount)
       this._openTransactionDetails(data)
-      MixPanel.trackWithProperties('Freeze Operation', { type: 'Freeze' })
+      MixPanel.trackWithProperties('Freeze', {
+        address: this.props.context.publicKey,
+        amount
+      })
     } catch (e) {
-      Alert.alert(Alert.alert(tl.t('error.buildingTransaction')))
+      Alert.alert(tl.t('warning'), tl.t('error.buildingTransaction'))
       logSentry(e, 'Freeze - Create Tx')
     } finally {
       this.setState({ loading: false })
@@ -174,7 +198,6 @@ class FreezeScene extends Component {
   _changeFreeze = value => {
     const validation = /^0[0-9]/
     let amount = validation.test(value) ? value.slice(1, value.length) : value
-
     this.setState({
       amount: amount
     })
@@ -236,6 +259,10 @@ class FreezeScene extends Component {
                 placeholder='0'
                 type='int'
                 numbersOnly
+              />
+              <PercentageSelector
+                options={PERCENTAGE_OPTIONS}
+                onItemPress={this._setPercentage}
               />
               <Utils.VerticalSpacer size='small' />
               <Utils.SummaryInfo>

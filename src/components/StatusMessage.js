@@ -3,7 +3,7 @@ import { SafeAreaView } from 'react-native'
 
 import * as Utils from './Utils'
 import { Colors } from './DesignSystem'
-import { getSystemStatus } from './../services/contentful'
+import { getSystemStatus } from './../services/contentful/general'
 import { logSentry } from './../utils/sentryUtils'
 
 class StatusMessage extends Component {
@@ -14,7 +14,6 @@ class StatusMessage extends Component {
     statusMessage: '',
     statusColor: '',
     messageColor: '',
-    systemAddress: {},
 
     isFecthing: false
   }
@@ -44,10 +43,9 @@ class StatusMessage extends Component {
       this.setState({ isFecthing: true })
       getSystemStatus()
         .then(data => {
-          const { systemStatus, systemAddress } = data
+          const { systemStatus } = data
           this.setState({
             ...systemStatus,
-            systemAddress,
             isFecthing: false
           })
         })

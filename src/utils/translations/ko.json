@@ -18,6 +18,7 @@
   "success": "성공",
   "warning": "알림",
   "cancel": "취소",
+  "remove": "삭제",
   "address": "주소",
   "message": "메시지",
   "ex": "거래소",
@@ -60,7 +61,7 @@
   "hash": "해시",
   "privateKey": "개인키",
   "results": "결과",
-  "buy": "구매",
+  "buy": "매수",
   "sell": "매도",
   "filter": "필터",
   "txs": "트랜잭션",
@@ -359,6 +360,9 @@
     },
     "notifications": {
       "title": "알림"
+    },
+    "dappBrowser": {
+      "title": "DApp 브라우저"
     },
     "network": {
       "title": "네트워크",
@@ -665,7 +669,7 @@
       "msg": "알림 메시지가 아직 없습니다"
     },
     "notifications": {
-      "title": "트랜잭션"
+      "title": "notifications"
     },
     "signals": {
       "title": "뉴스 알림"

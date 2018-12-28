@@ -12,12 +12,13 @@ import { CloseButton, ModalContainer } from './elements'
 import NavigationHeader from './../../components/Navigation/Header'
 
 import { getAllSignals } from './../../services/contentful/notifications'
-import { queryToken } from './../../services/contentful'
+import { queryToken } from './../../services/contentful/general'
 
 import { postFormat } from './../../utils/dateUtils'
 import tl from './../../utils/i18n'
 import { Colors } from './../../components/DesignSystem'
 import { logSentry } from './../../utils/sentryUtils'
+import { urlify } from './../../utils/formatUrl'
 
 class Signals extends Component {
   static navigationOptions = {
@@ -104,13 +105,14 @@ class Signals extends Component {
   }
 
   _renderItem = ({ item }) => {
+    const parsedMessage = urlify(item.message || ' ')
     return (
       <ListItem
         title={item.title}
         subtitle={
           <HTMLView
             style={styles.html}
-            value={`<span>${item.message || ' '}</span>`}
+            value={`<span>${parsedMessage}</span>`}
             stylesheet={styles}
           />
         }

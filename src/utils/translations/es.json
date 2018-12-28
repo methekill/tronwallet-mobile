@@ -18,15 +18,16 @@
   "success": "Éxito",
   "warning": "Advertencia",
   "cancel": "Cancelar",
+  "remove": "Remove",
   "address": "Dirección",
   "message": "Mensaje",
   "ex": "Intercambio",
   "ok": "Ok",
   "actionModalTitle": "Le gustaría",
-  "time": "Time",
+  "time": "Hora",
   "account": "Cuenta",
   "restore": "Restaurar",
-  "security": "Security",
+  "security": "Seguridad",
   "error": {
     "default": "Woops algo salió mal. Inténtalo de nuevo más tarde, si el error persiste, intente actualizar la configuración de red.",
     "buildingTransaction": "Error durante la transacción, inténtalo de nuevo.",
@@ -77,19 +78,19 @@
     "holdings": "VALORES EN CARTERA"
   },
   "exchange": {
-    "minToSell": "Minimum to send ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minimum to receive ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minimo de orden para vender ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minimo de orden para comprar ≈ {{min}} {{tokenId}}",
     "variation": {
-      "buy": "Slightly increase the estimated cost, and success rate will be higher.",
-      "sell": "Slightly reduce the estimated revenue, and success rate will be higher."
+      "buy": "Aumente ligeramente el costo estimado y la tasa de éxito será mayor.",
+      "sell": "Reduzca ligeramente los ingresos estimados y la tasa de éxito será mayor."
     },
-    "txAmount": "Transaction Amount",
-    "estimatedRevenue": "ESTIMATED TO RECEIVE",
-    "estimatedCost": "ESTIMATED COST",
-    "preview": "Search by the Token name",
+    "txAmount": "Importe de la transacción",
+    "estimatedRevenue": "SE ESTIMA QUE RECIBIRÁ",
+    "estimatedCost": "COSTO ESTIMADO",
+    "preview": "Buscar por el nombre del símbolo (token)",
     "notFound": "Intercambios no encontrados",
-    "error": "Exchange not executed. Please review your input values and try again.",
-    "askPin": "Ask PIN for exchange Transactions"
+    "error": "Intercambio no ejecutado. Por favor, revise los valores de entrada e inténtelo de nuevo.",
+    "askPin": "Solicitar PIN para transacciones del intercambio"
   },
   "hideAccount": "Estás a punto de eliminar esta cuenta. Puedes restaurarla más tarde en la configuración",
   "components": {
@@ -228,7 +229,7 @@
   },
   "participate": {
     "title": "PARTICIPAR",
-    "featured": "SPONSORED",
+    "featured": "PATROCINADO",
     "button": {
       "confirm": "CONFIRMAR",
       "moreInfo": "MÁS INFO",
@@ -346,22 +347,22 @@
     "minimumAmount": "La cantidad mínima para enviar cualquier transacción es de 0.000001."
   },
   "menu": {
-    "title": "MENU"
+    "title": "MENÚ"
   },
   "settings": {
     "title": "AJUSTES",
     "sectionTitles": {
       "wallet": "BILLETERA",
       "security": "SEGURIDAD",
-      "notification": "NOTIFICATIONS",
-      "idiomAndLocalization": "IDIOM AND LOCALIZATION",
+      "notification": "NOTIFICACIONES",
+      "idiomAndLocalization": "IDIOMA Y LOCALIZACIÓN",
       "accounts": "GESTIÓN DE CUENTAS"
     },
     "notifications": {
       "title": "Notificaciones"
     },
     "dappBrowser": {
-      "title": "DApp Browser"
+      "title": "Navegador de DApp"
     },
     "network": {
       "title": "Red",
@@ -437,7 +438,7 @@
       "title": "¿Quién acepta TRX?"
     },
     "market": {
-      "title": "Market"
+      "title": "Mercado"
     },
     "helpCenter": {
       "title": "Centro de asistencia"
@@ -665,13 +666,13 @@
   "notifications": {
     "title": "NOTIFICACIONES",
     "empty": {
-      "msg": "No notifications available at the moment"
+      "msg": "No hay notificaciones disponibles en el momento"
     },
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "notifications"
     },
     "signals": {
-      "title": "SIGNALS"
+      "title": "SEÑALES"
     }
   }
 }

@@ -18,6 +18,7 @@
   "success": "成功",
   "warning": "警告",
   "cancel": "キャンセル",
+  "remove": "Remove",
   "address": "住所",
   "message": "Message",
   "ex": "Exchange",
@@ -360,6 +361,9 @@
     "notifications": {
       "title": "通知"
     },
+    "dappBrowser": {
+      "title": "DApp Browser"
+    },
     "network": {
       "title": "ネットワーク",
       "modal": {
@@ -665,7 +669,7 @@
       "msg": "No notifications available at the moment"
     },
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "notifications"
     },
     "signals": {
       "title": "SIGNALS"

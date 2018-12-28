@@ -18,6 +18,7 @@
   "success": "نجح",
   "warning": "تحذير",
   "cancel": "إلغاء",
+  "remove": "إزالة",
   "address": "عنوان",
   "message": "رسالة",
   "ex": "صرف",
@@ -360,6 +361,9 @@
     "notifications": {
       "title": "الإشعارات"
     },
+    "dappBrowser": {
+      "title": "متصفح DApp"
+    },
     "network": {
       "title": "شبكة",
       "modal": {
@@ -665,7 +669,7 @@
       "msg": "لا توجد إشعارات متاحة في الوقت الحالي"
     },
     "notifications": {
-      "title": "المعاملات"
+      "title": "notifications"
     },
     "signals": {
       "title": "مؤشرات"

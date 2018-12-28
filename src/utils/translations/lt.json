@@ -18,6 +18,7 @@
   "success": "Success",
   "warning": "Warning",
   "cancel": "Cancel",
+  "remove": "Remove",
   "address": "Address",
   "message": "Message",
   "ex": "Exchange",
@@ -360,6 +361,9 @@
     "notifications": {
       "title": "Notifications"
     },
+    "dappBrowser": {
+      "title": "DApp Browser"
+    },
     "network": {
       "title": "Network",
       "modal": {
@@ -665,7 +669,7 @@
       "msg": "No notifications available at the moment"
     },
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "notifications"
     },
     "signals": {
       "title": "SIGNALS"

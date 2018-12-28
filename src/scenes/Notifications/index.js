@@ -12,6 +12,7 @@ import { getAllNotifications } from './../../services/contentful/notifications'
 import { postFormat } from './../../utils/dateUtils'
 import tl from './../../utils/i18n'
 import { Colors } from './../../components/DesignSystem'
+import { urlify } from './../../utils/formatUrl'
 
 class Notifications extends Component {
   static navigationOptions = {
@@ -49,13 +50,14 @@ class Notifications extends Component {
   }
 
   _renderItem = ({ item }) => {
+    const parsedDescription = urlify(item.description || ' ')
     return (
       <ListItem
         title={item.title}
         subtitle={
           <HTMLView
             style={styles.html}
-            value={`<span>${item.description || ' '}</span>`}
+            value={`<span>${parsedDescription}</span>`}
             stylesheet={styles}
           />
         }

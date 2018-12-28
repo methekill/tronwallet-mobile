@@ -18,6 +18,7 @@
   "success": "Lyckad",
   "warning": "Varning",
   "cancel": "Avbryt",
+  "remove": "Ta bort",
   "address": "Adress",
   "message": "Meddelande",
   "ex": "Exchange",
@@ -38,7 +39,7 @@
   "frozen": "FRUSNA",
   "tronPower": "TRON POWER",
   "trxPrice": "TRX PRIS",
-  "confirmed": "Bekräftat",
+  "confirmed": "Bekräftad",
   "unconfirmed": "Obekräftat",
   "copyAddress": "KOPIERA ADRESS",
   "transactionType": {
@@ -77,8 +78,8 @@
     "holdings": "INNEHAV"
   },
   "exchange": {
-    "minToSell": "Minsta att skicka ≈ {{min}} {{tokenId}}",
-    "minToBuy": "Minsta att ta emot ≈ {{min}} {{tokenId}}",
+    "minToSell": "Minst att skicka ≈ {{min}} {{tokenId}}",
+    "minToBuy": "Minst att ta emot ≈ {{min}} {{tokenId}}",
     "variation": {
       "buy": "Öka den beräknade kostnaden något och chansen att lyckas blir större.",
       "sell": "Minska den beräknade intäkten något och chansen att lyckas blir större."
@@ -95,7 +96,7 @@
   "components": {
     "share": {
       "title": "Dela TronWallet adress",
-      "message": "Detta är min TronWallet adress:\n\n{{address}}\n\nTips: när du har kopierat det kan du klistra in det i din TronWallet app med hjälpa av den speciella knappen på Skicka skärm.",
+      "message": "Detta är min TronWallet adress:\n\n{{address}}\n\nTips: när du har kopierat det kan du klistra in det i din TronWallet app med hjälpa av special knappen på sidan Skicka.",
       "dialogTitle": "Dela med:"
     },
     "QRScanner": {
@@ -183,7 +184,7 @@
   },
   "importWallet": {
     "title": "IMPORTERA PLÅNBOK",
-    "message": "Om du har den privata nyckeln och adressen till din plånbok kan du återställa det här, men kom ihåg att TronWallet arbetar med mnemonics primärt. Den här återställningsmetoden kommer att inaktivera vissa funktioner i appen.",
+    "message": "Om du har den privata nyckeln och adressen till din plånbok kan du återställa den här. Kom bara ihåg att TronWallet arbetar med mnemonics primärt. Den här återställningsmetoden kommer att inaktivera vissa funktioner i appen.",
     "button": "IMPORTERA",
     "error": {
       "privateKey": "Privat nyckel är ogiltig eller ofullständig"
@@ -193,8 +194,8 @@
     "title": "FRYS",
     "unfreeze": {
       "title": "LÅS UPP",
-      "inXTime": "Du kan nu låsa upp din TRX",
-      "inThreeDays": "Efter en period på 3 dagar kan du låsa upp din TRX",
+      "inXTime": "Du kan låsa upp din TRX",
+      "inThreeDays": "Efter en 3 dagars period kan du låsa upp din TRX",
       "inXMinutes": "Du kan låsa upp din TRX om {{minutes}} minuter.",
       "inXHours": "Du kan låsa upp din TRX om {{hours}} timmar.",
       "inXDays": "Du kan låsa upp din TRX om {{days}} dagar.",
@@ -202,14 +203,14 @@
     },
     "error": {
       "minimumAmount": "Det minsta beloppet för att frysa en transaktion är 1.",
-      "insufficientBalance": "Otillräckligt TRX på saldot",
+      "insufficientBalance": "Inte tillräckligt med TRX på saldot",
       "roundNumbers": "Endast runda tal går att frysa"
     },
     "amount": "FRYS BELOPPET",
     "balance": "Saldo"
   },
   "getVault": {
-    "notInstalled": "Det verkar som du inte har Tron Vault installerad i din telefon för att gå vidare med din transaktion.",
+    "notInstalled": "Det verkar som du inte har Tron Vault installerad i telefonen för att gå vidare med din transaktion.",
     "downloadHere": "Du kan ladda ner det här"
   },
   "market": {
@@ -222,9 +223,9 @@
     },
     "highest": "HÖGSTA",
     "lowest": "LÄGSTA",
-    "volume": "VOLYM 24H",
-    "cap": "BÖRSVÄRDE",
-    "supply": "CIRKULERANDE ANTAL"
+    "volume": "VOLYM 24T",
+    "cap": "MARKNADSKPITAL",
+    "supply": "CIRKULERANDE TILLGÅNGAR"
   },
   "participate": {
     "title": "DELTA",
@@ -235,18 +236,18 @@
       "buyNow": "KÖP NU"
     },
     "error": {
-      "insufficientBalance": "Inte tillräckligt med pengar (TRX) att delta.",
+      "insufficientBalance": "Inte tillräckligt med tillgångar (TRX) för att delta.",
       "insufficientTrx": {
-        "title": "Du måste köpa minst en TRX av värdet på {{token}}.",
+        "title": "Du måste köpa minst en TRX värt av {{token}}.",
         "message": "För närvarande köper du endast {{amount}}."
       },
       "notFound": "Tillgång(ar) hittades inte"
     },
-    "warning": "Du har inte tillräckligt TRX att köpa så många {{token}}",
+    "warning": "Du har inte tillräckligt TRX för att köpa så här många {{token}}",
     "enterAmountToBuy": "ANGE BELOPP ATT KÖPA",
-    "amountToBuy": "BELOPP ATT KÖPA",
+    "amountToBuy": "KÖP BELOPP",
     "pricePerToken": "PRIS PER TOKEN",
-    "tokenDescription": "BESKRIVNING AV TOKEN",
+    "tokenDescription": "TOKEN BESKRIVNING",
     "tokenInfo": "TOKEN INFO",
     "token": "TOKEN",
     "tokens": "TOKENS",
@@ -268,13 +269,13 @@
   "pin": {
     "title": "SÄKERHETSKONTROLL",
     "enter": "Skriv PIN-kod",
-    "new": "Ange Ny PIN-kod",
-    "reenter": "Skriv PIN-kod igen",
+    "new": "Ange ny PIN-kod",
+    "reenter": "Ange PIN-kod igen",
     "biometrics": "Biometrisk Kontroll"
   },
   "receive": {
     "title": "TA EMOT",
-    "clipboardCopied": "Kopierad till urklipp",
+    "clipboardCopied": "Kopierat till urklipp",
     "button": {
       "copy": "Kopiera",
       "share": "Dela"
@@ -329,10 +330,10 @@
     "title": "SKICKA",
     "error": {
       "insufficientBalance": "Inte tillräckligt på saldot.",
-      "gettingBalance": "Ett fel uppstod medans att hämta data för saldot",
+      "gettingBalance": "Ett fel uppstod med att ladda saldots balans",
       "incompleteAddress": "Adressen är antingen ofullständig eller ogiltig.",
       "invalidReceiver": "Mottagarens adress är ogiltig",
-      "selectBalance": "Välj din balans först",
+      "selectBalance": "Välj balans först",
       "invalidAmount": "Ogiltigt belopp"
     },
     "input": {
@@ -355,13 +356,13 @@
       "security": "SÄKERHET",
       "notification": "NOTIFIKATIONER",
       "idiomAndLocalization": "IDOM OCH PLATS",
-      "accounts": "HANTERING AV KONTON"
+      "accounts": "HANTERA KOMTON"
     },
     "notifications": {
       "title": "Notifikationer"
     },
     "dappBrowser": {
-      "title": "DApp Browser"
+      "title": "DApp Webbläsare"
     },
     "network": {
       "title": "Nätverk",
@@ -376,10 +377,10 @@
         },
         "success": {
           "updated": "Uppdaterad",
-          "updatedIp": "Nodes IP uppdaterad!",
-          "switchTest": "Omkopplade noder IP till Testnet",
-          "switchMain": "Omkopplade nodernas IP till standard",
-          "reset": "Nod IP nollsälldes!"
+          "updatedIp": "Nodernas IP uppdaterades!",
+          "switchTest": "Bytte noderas IP till Testnätet",
+          "switchMain": "Bytte nodernas IP till standard main",
+          "reset": "Node IP nollsälldes!"
         },
         "placeholder": {
           "loadingIp": "Laddar IP",
@@ -390,7 +391,7 @@
           "reset": "Nollställ"
         },
         "mainNode": "Huvudnoden",
-        "solidityNode": "Soliditet-nod",
+        "solidityNode": "Soliditets-Nod",
         "testNet": "TestNät"
       }
     },
@@ -413,7 +414,7 @@
       "title": "Språk",
       "choose": "Vänligen välj ett språk nedan:",
       "success": {
-        "title": "Språket ändrades till {{language}}",
+        "title": "Språk ändrat till {{language}}",
         "description": "Fast du behöver fortfarande starta om appen så att ändringarna kan träda i kraft. Vill du göra det nu?"
       },
       "button": {
@@ -431,7 +432,7 @@
     "about": {
       "title": "Om",
       "description": "TronWallet är öppen källkod och en fullt decentraliserad P2P Crypto Wallet för TRON Network byggt med React Native. Med det kan du skicka och ta emot tokens, rösta på en superrepresentant, delta i en token-försäljning, hålla reda på dina saldon och transaktioner samt mycket mer. Klicka på länken nedan för en detaljerade instruktioner om hur du använder den.",
-      "tutorial": "Instruktioner"
+      "tutorial": "INSTRUKTIONER"
     },
     "accepts": {
       "title": "Vem accepterar TRX?"
@@ -444,18 +445,18 @@
     },
     "accounts": {
       "title": "Konton",
-      "search": "Sök efter konton",
-      "restoreAccounts": "Återställ konton",
+      "search": "Sök konton",
+      "restoreAccounts": "Återställ Konton",
       "noAccounts": "Inga konton att återställa"
     },
     "partners": "PARTNERS",
-    "askPin": "Fråga alltid efter PIN-kod",
+    "askPin": "Fråga alltid om PIN-kod",
     "askBiometry": "Aktivera Biometri",
     "verifiedTokensOnly": "Verifierade tokens endast"
   },
   "submitTransaction": {
     "title": "TRANSAKTIONS DETALJER",
-    "notification": "Du har fått en transaktion från {{address}}",
+    "notification": "Du har fått en överföring från {{address}}",
     "notificationPayment": "Du har fått en betalning från {{address}}",
     "data": "DATA",
     "time": "TID",
@@ -468,7 +469,7 @@
     },
     "exchange": {
       "send": "Skickar {{sendtoken}}",
-      "receive": "Tar emot {{receivetoken}}",
+      "receive": "Mottar {{receivetoken}}",
       "error": "Kontrollera dina senaste transaktioner för att bekräfta det mottagna beloppet."
     },
     "disconnectedMessage": "Det verkar som om du är bortkopplad. Återanslut till internet innan du fortsätter med transaktionen.",
@@ -549,35 +550,35 @@
       "receiver": "Mottagaradressen är ogiltig",
       "token": "Token är inte giltig",
       "amount": "Beloppet är inte giltigt",
-      "description": "Beskrivning för lång",
-      "code": "Betalningskoden är ogiltig. Snälla, skanna en giltig en"
+      "description": "För lång beskrivning",
+      "code": "Betalningskoden är ogiltig. Vänligen, skanna en giltig kod"
     }
   },
   "makePayment": {
     "pay": "BETALA",
     "confirm": "BEKRÄFTA BETALNING",
     "error": {
-      "receiver": "Mottagaren är lika med förfrågan",
-      "token": "Det här kontot har inte tecknet för denna transaktion",
-      "amount": "Det här kontot har inte tillräckligt med balans.",
+      "receiver": "Mottagaren matchar med beställaren",
+      "token": "Det här kontot har inte den token som krävs för denna transaktion",
+      "amount": "Det här kontot har inte tillräckligt med tillgångar.",
       "description": "Ingen beskrivning är tillgänglig"
     }
   },
   "buildPayment": {
-    "generate": "GENERERA ANMÄLAN",
+    "generate": "GENERAL FÖRFRÅGAN",
     "selectCurrency": "Välj referensvaluta",
     "error": {
-      "currency": "Vi kunde inte ladda andra valutapriser. Använd TRX som referens"
+      "currency": "Vi kunde inte ladda andra valutapriser. Vänligen, använd TRX som referens"
     }
   },
   "requestPayment": {
     "title": "EFTERFRÅGA BETALNING"
   },
   "newAccount": {
-    "title": "Konto skapande",
+    "title": "Skapa Konto",
     "placeholder": "Mitt värdefulla konto",
     "success": {
-      "title": "Nytt konto skapades",
+      "title": "Nytt konto skapat",
       "message": "Du kan redigera namnet i din adressbok"
     },
     "failure": {
@@ -668,7 +669,7 @@
       "msg": "Inga notifikationer tillgängliga just nu"
     },
     "notifications": {
-      "title": "TRANSAKTIONER"
+      "title": "notifications"
     },
     "signals": {
       "title": "MEDDELANDEN"

@@ -18,6 +18,7 @@
   "success": "موفقیت آمیز",
   "warning": "هشدار",
   "cancel": "لغو",
+  "remove": "Remove",
   "address": "آدرس",
   "message": "پیام",
   "ex": "تبادل",
@@ -360,6 +361,9 @@
     "notifications": {
       "title": "اطلاعیه ها"
     },
+    "dappBrowser": {
+      "title": "مرورگر DApp"
+    },
     "network": {
       "title": "شبکه",
       "modal": {
@@ -665,7 +669,7 @@
       "msg": "هیچ اطلاعیه ای در حال حاضر در دسترس نیست"
     },
     "notifications": {
-      "title": "تراکنش ها"
+      "title": "notifications"
     },
     "signals": {
       "title": "سیگنال ها"

@@ -11,7 +11,7 @@ import FontelloIcon from '../../components/FontelloIcon'
 const ICON_SIZE = 22
 
 const BalanceNavigation = ({ navigation }) => {
-  const navigateNext = next => navigation.navigate(next, {index: 0})
+  const navigateNext = next => navigation.navigate(next, { index: 0 })
 
   return (
     <React.Fragment>

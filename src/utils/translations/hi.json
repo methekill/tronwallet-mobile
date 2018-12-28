@@ -18,6 +18,7 @@
   "success": "सफलता",
   "warning": "चेतावनी",
   "cancel": "रद्द करना",
+  "remove": "Remove",
   "address": "पता",
   "message": "संदेश",
   "ex": "Exchange",
@@ -360,6 +361,9 @@
     "notifications": {
       "title": "सूचनाएं"
     },
+    "dappBrowser": {
+      "title": "DApp Browser"
+    },
     "network": {
       "title": "नेटवर्क",
       "modal": {
@@ -665,7 +669,7 @@
       "msg": "No notifications available at the moment"
     },
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "notifications"
     },
     "signals": {
       "title": "SIGNALS"

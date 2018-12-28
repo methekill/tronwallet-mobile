@@ -18,6 +18,7 @@
   "success": "Erfolg",
   "warning": "Warnung",
   "cancel": "Abbrechen",
+  "remove": "Entfernen",
   "address": "Adresse",
   "message": "Nachricht",
   "ex": "Börse",
@@ -360,6 +361,9 @@
     "notifications": {
       "title": "Benachrichtigungen"
     },
+    "dappBrowser": {
+      "title": "DApp Browser"
+    },
     "network": {
       "title": "Netzwerk",
       "modal": {
@@ -665,7 +669,7 @@
       "msg": "Momentan sind keine Benachrichtigungen verfügbar"
     },
     "notifications": {
-      "title": "TRANSAKTIONEN"
+      "title": "Benachrichtigungen"
     },
     "signals": {
       "title": "MELDUNGEN"

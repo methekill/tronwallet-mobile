@@ -1,9 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { ExchangeTabs } from '../Tabs/index'
-import exchangeListMock from '../../../services/__mocks__/exchangeList.json'
+import { ExchangeTabs } from '../index'
+import exchangeListMock from '../../../../services/__mocks__/exchangeList.json'
 
-jest.mock('./../../../utils/i18n')
+jest.mock('../../../../utils/i18n')
 
 describe('Exchange Transactions (Sell/Buy) Snapshot', () => {
   let exchangeSceneWrapper = null

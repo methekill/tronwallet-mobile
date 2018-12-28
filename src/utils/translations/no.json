@@ -18,15 +18,16 @@
   "success": "Suksess",
   "warning": "Advarsel",
   "cancel": "Avbryt",
+  "remove": "Remove",
   "address": "Adresse",
   "message": "Melding",
   "ex": "Exchange",
   "ok": "OK",
   "actionModalTitle": "Vil du gjerne",
-  "time": "Time",
+  "time": "Tid",
   "account": "Konto",
   "restore": "Gjenopprette",
-  "security": "Security",
+  "security": "Sikkerhet",
   "error": {
     "default": "Woops noe gikk galt. Prøv igjen senere, \nhvis feilen vedvarer, prøv å oppdatere nettverksinnstillingene.",
     "buildingTransaction": "Feil under opprettelse av transaksjon, prøv igjen.",
@@ -83,13 +84,13 @@
       "buy": "Øke litt estimert kostnaden, og suksessraten vil bli høyere.",
       "sell": "Redusere litt beregnet omsetning, og suksessraten vil bli høyere."
     },
-    "txAmount": "Transaction Amount",
+    "txAmount": "Transaksjonsbeløpet",
     "estimatedRevenue": "ESTIMERT TIL Å MOTTA",
     "estimatedCost": "ESTIMERT KOSTNAD",
     "preview": "Søk etter Token navnet",
     "notFound": "Børser ikke funnet",
-    "error": "Exchange not executed. Please review your input values and try again.",
-    "askPin": "Ask PIN for exchange Transactions"
+    "error": "Utveksling ikke utført. Vennligst se inndataverdiene dine og prøv igjen.",
+    "askPin": "Spør PIN for utveksling transaksjoner"
   },
   "hideAccount": "Du er i ferd med å fjerne denne kontoen. Du kan gjenopprette det senere i innstillingene",
   "components": {
@@ -359,6 +360,9 @@
     },
     "notifications": {
       "title": "Varsler"
+    },
+    "dappBrowser": {
+      "title": "DApp leseren"
     },
     "network": {
       "title": "Nettverk",
@@ -662,13 +666,13 @@
   "notifications": {
     "title": "VARSLER",
     "empty": {
-      "msg": "No notifications available at the moment"
+      "msg": "Ingen varsler tilgjengelig for øyeblikket"
     },
     "notifications": {
-      "title": "TRANSACTIONS"
+      "title": "notifications"
     },
     "signals": {
-      "title": "SIGNALS"
+      "title": "SIGNALER"
     }
   }
 }

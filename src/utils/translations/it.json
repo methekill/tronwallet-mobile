@@ -18,6 +18,7 @@
   "success": "Successo",
   "warning": "Avvertenza",
   "cancel": "Annulla",
+  "remove": "Remove",
   "address": "Indirizzo",
   "message": "Messaggio",
   "ex": "Cambio",
@@ -668,7 +669,7 @@
       "msg": "Nessuna notifica disponibile al momento"
     },
     "notifications": {
-      "title": "TRANSAZIONI"
+      "title": "notifications"
     },
     "signals": {
       "title": "SEGNALI"
