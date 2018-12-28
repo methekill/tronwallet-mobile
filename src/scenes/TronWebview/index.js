@@ -7,7 +7,7 @@ import { FloatingIconButton } from '../../components/Navigation/elements'
 import { Colors } from '../../components/DesignSystem'
 
 import { checkAutoContract } from '../../services/tronweb'
-import { getDApps } from './../../services/contentful'
+import { getDApps } from './../../services/contentful/general'
 
 class TronWebView extends Component {
   constructor (props) {
