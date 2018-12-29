@@ -1,5 +1,5 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
 import * as Elements from './elements'
 import { Colors } from '../../components/DesignSystem'
 
@@ -51,34 +51,37 @@ const Input = ({
   type,
   editable,
   placeholder,
+  noBorder,
   ...props
 }) => (
-  <Elements.Wrapper>
-    <Elements.LabelWrapper color={labelWrapperColor}>
-      <Elements.Label>{label}</Elements.Label>
-    </Elements.LabelWrapper>
-    <Elements.InputWrapper>
-      {leftContent && leftContent()}
-      {/* Do not change the order of props in the component
+    <Elements.Wrapper>
+      {label && (
+        <Elements.LabelWrapper color={labelWrapperColor}>
+          <Elements.Label>{label}</Elements.Label>
+        </Elements.LabelWrapper>
+      )}
+      <Elements.InputWrapper noBorder={noBorder}>
+        {leftContent && leftContent()}
+        {/* Do not change the order of props in the component
         below. It needs to be first so that keyboardType comes
         before autoCapitalize or it won't show with the decimal
         button.  */}
-      <Elements.TextInput
-        {...props}
-        innerRef={innerRef}
-        value={formatValue(value, numbersOnly, type)}
-        autoCorrect={false}
-        autoCapitalize='none'
-        underlineColorAndroid='transparent'
-        onChangeText={text => formatText(text, numbersOnly, onChangeText, type)}
-        placeholderTextColor={placeholder ? props.placeholderTextColor : Colors.background}
-        placeholder={placeholder || 'hidden'}
-        editable={editable}
-      />
-      {rightContent && rightContent()}
-    </Elements.InputWrapper>
-  </Elements.Wrapper>
-)
+        <Elements.TextInput
+          {...props}
+          innerRef={innerRef}
+          value={formatValue(value, numbersOnly, type)}
+          autoCorrect={false}
+          autoCapitalize='none'
+          underlineColorAndroid='transparent'
+          onChangeText={text => formatText(text, numbersOnly, onChangeText, type)}
+          placeholderTextColor={placeholder ? props.placeholderTextColor : Colors.background}
+          placeholder={placeholder || 'hidden'}
+          editable={editable}
+        />
+        {rightContent && rightContent()}
+      </Elements.InputWrapper>
+    </Elements.Wrapper>
+  )
 
 Input.defaultProps = {
   labelWrapperColor: '#191A2A',
@@ -86,7 +89,15 @@ Input.defaultProps = {
   returnKeyType: 'send',
   numbersOnly: false,
   editable: true,
-  showPlaceholder: true
+  showPlaceholder: true,
+  leftContent: () => null,
+  rightContent: () => null
+}
+
+Input.propTypes = {
+  onChangeText: PropTypes.func.isRequired,
+  leftContent: PropTypes.func.isRequired,
+  rightContent: PropTypes.func.isRequired
 }
 
 export default Input
