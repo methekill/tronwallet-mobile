@@ -674,5 +674,9 @@
     "signals": {
       "title": "ISYARAT"
     }
+  },
+  "contract": {
+    "signMessage": "Don't sign automatically",
+    "time": "Minutes"
   }
 }
