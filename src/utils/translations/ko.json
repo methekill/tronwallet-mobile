@@ -674,5 +674,9 @@
     "signals": {
       "title": "뉴스 알림"
     }
+  },
+  "contract": {
+    "signMessage": "Don't sign automatically",
+    "time": "Minutes"
   }
 }
