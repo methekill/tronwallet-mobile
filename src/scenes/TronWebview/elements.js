@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-// import { Image } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import { Text } from '../../components/Utils'
 import { Colors } from '../../components/DesignSystem'
@@ -74,7 +73,6 @@ const ButtonContainer = styled.View`
 `
 
 const DAppButton = ({ dapp, onPress }) => {
-  console.log(dapp)
   return (
     <ButtonContainer key={dapp.name}>
       <ButtonIconGradient key={dapp.name}
@@ -87,7 +85,6 @@ const DAppButton = ({ dapp, onPress }) => {
 }
 
 export const WebViewHome = ({ dapps, onPress }) => {
-  console.log(dapps)
   const dappList = dapps.map(d => <DAppButton dapp={d} onPress={onPress} />)
 
   return (

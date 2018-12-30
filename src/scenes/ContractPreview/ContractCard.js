@@ -11,7 +11,7 @@ import ButtonGradient from '../../components/ButtonGradient'
 import { signSmartContract } from '../../services/tronweb'
 import { ONE_TRX } from '../../services/client'
 
-import { AutoSignSelector } from './elements'
+import tl from '../../utils/i18n'
 
 const Card = styled.View`
   display: flex;
@@ -47,9 +47,9 @@ const Row = styled.View`
 // `
 
 const options = [
-  { text: 'Don\'t sign automatically', value: null },
-  { text: '5 minutes', value: 300000 },
-  { text: '10 minutes', value: 600000 }
+  { text: tl.t('contract.signMessage'), value: null },
+  { text: `5 ${tl.t('contract.time')}`, value: 300000 },
+  { text: `10 ${tl.t('contract.time')}`, value: 600000 }
 ]
 
 class ContractCard extends Component {
@@ -74,7 +74,6 @@ class ContractCard extends Component {
   }
 
   render () {
-    const { autoSign } = this.state
     const { amount, address, site } = this.props.params
 
     return (
@@ -111,11 +110,11 @@ class ContractCard extends Component {
         </Row>
 
         <Row noPadding>
-          <AutoSignSelector
+          {/* <AutoSignSelector
             options={options}
             autoSign={autoSign}
             onChange={(autoSign) => this.setState({ autoSign })}
-          />
+          /> */}
         </Row>
 
       </Card>

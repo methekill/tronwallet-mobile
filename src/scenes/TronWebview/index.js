@@ -46,7 +46,6 @@ class TronWebView extends Component {
       }
 
       if (contract.txID) {
-        console.log(contract, '<<< contract')
         this._callContract({
           tx: contract,
           site: this.state.url,

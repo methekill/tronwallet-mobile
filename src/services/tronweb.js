@@ -25,8 +25,6 @@ export const triggerSmartContract = ({ address, command, params, feeLimit, issue
       issuer,
       (err, transaction) => {
         if (err) { return reject(err) }
-        console.log(transaction, '<<<< transaction')
-
         resolve(transaction)
       })
   })
@@ -69,9 +67,7 @@ export const addToAutoContract = async (contract, autoSign) => {
   try {
     const list = JSON.parse(await AsyncStorage.getItem(AUTOSIGN_LIST))
     list.push({ ...contract, autoSign, createdAt: new Date() })
-
-    console.log(list)
   } catch (e) {
-
+    console.error(e)
   }
 }
