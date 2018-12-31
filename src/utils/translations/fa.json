@@ -18,7 +18,7 @@
   "success": "موفقیت آمیز",
   "warning": "هشدار",
   "cancel": "لغو",
-  "remove": "Remove",
+  "remove": "حذف",
   "address": "آدرس",
   "message": "پیام",
   "ex": "تبادل",
@@ -669,14 +669,14 @@
       "msg": "هیچ اطلاعیه ای در حال حاضر در دسترس نیست"
     },
     "notifications": {
-      "title": "notifications"
+      "title": "اطلاعیه ها"
     },
     "signals": {
       "title": "سیگنال ها"
     }
   },
   "contract": {
-    "signMessage": "Don't sign automatically",
-    "time": "Minutes"
+    "signMessage": "توقف امضای خودکار",
+    "time": "دقیقه"
   }
 }
