@@ -669,7 +669,7 @@
       "msg": "알림 메시지가 아직 없습니다"
     },
     "notifications": {
-      "title": "notifications"
+      "title": "알림"
     },
     "signals": {
       "title": "뉴스 알림"
@@ -677,6 +677,6 @@
   },
   "contract": {
     "signMessage": "Don't sign automatically",
-    "time": "Minutes"
+    "time": "분"
   }
 }
