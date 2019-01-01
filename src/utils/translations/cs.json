@@ -18,7 +18,7 @@
   "success": "Úspěch",
   "warning": "Varování",
   "cancel": "Zrušit",
-  "remove": "Remove",
+  "remove": "Odstranit",
   "address": "Adresa",
   "message": "Zpráva",
   "ex": "Burza",
@@ -669,14 +669,14 @@
       "msg": "Momentálně nejsou k dispozici žádná oznámení"
     },
     "notifications": {
-      "title": "notifications"
+      "title": "oznámení"
     },
     "signals": {
       "title": "SIGNÁLY"
     }
   },
   "contract": {
-    "signMessage": "Don't sign automatically",
-    "time": "Minutes"
+    "signMessage": "Přihlašovat se automaticky",
+    "time": "Minuty"
   }
 }
