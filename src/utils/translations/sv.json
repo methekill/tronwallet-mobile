@@ -677,6 +677,6 @@
   },
   "contract": {
     "signMessage": "Signera inte automatiskt",
-    "time": "Minutes"
+    "time": "Minuter"
   }
 }
