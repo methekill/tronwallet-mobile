@@ -1,0 +1,20 @@
+export default {
+  'TRX': 'TRX',
+  'USD': '$',
+  'EUR': '€',
+  'AUD': '$',
+  'GBP': '£',
+  'BTC': 'Ƀ',
+  'ETH': '♦',
+  'BRL': 'R$',
+  'CAD': '$',
+  'CLP': '$',
+  'CNY': '¥',
+  'INR': '₹',
+  'ILS': '₪',
+  'JPY': '¥',
+  'KRW': '₩',
+  'MXN': '$',
+  'NZD': '$',
+  'RUB': '₽'
+}
