@@ -16,6 +16,7 @@ const NewListItem = ({ title, subtitle, rightTitle, avatar, onPress }) => (
     title={title}
     subtitle={subtitle}
     hideChevron
+    titleNumberOfLines={2}
     // subtitleNumberOfLines={3}
     rightTitle={rightTitle}
     avatar={
@@ -40,7 +41,8 @@ const NewListItem = ({ title, subtitle, rightTitle, avatar, onPress }) => (
       color: Colors.primaryText,
       fontFamily: 'Rubik-Medium',
       fontSize: 13,
-      marginBottom: 14
+      marginBottom: 6,
+      maxWidth: '77%'
     }}
     rightTitleStyle={{
       fontFamily: 'Rubik-Regular',
