@@ -17,7 +17,6 @@ const NewListItem = ({ title, subtitle, rightTitle, avatar, onPress }) => (
     subtitle={subtitle}
     hideChevron
     titleNumberOfLines={2}
-    // subtitleNumberOfLines={3}
     rightTitle={rightTitle}
     avatar={
       avatar && (
