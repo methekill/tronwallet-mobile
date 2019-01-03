@@ -253,14 +253,15 @@ class App extends Component {
 
   _getPrice = async (currency = 'TRX') => {
     try {
-      const { data: { data } } = await axios.get(`${Config.TRX_PRICE_API}/?convert=${currency}`)
       const { price } = this.state
-      price[currency] = data.quotes[currency]
-      if (currency !== 'USD') {
-        price.USD = data.quotes.USD
-      }
-      this.setState({ price, circulatingSupply: data.circulating_supply })
+      const { data } = await axios.get(`http://192.168.0.5:3031/rest/prices?currency=${currency}`)
+
+      const currencyData = data[0]
+      price[currency] = currencyData
+
+      this.setState({ price: price, circulatingSupply: currencyData.circulating_supply })
     } catch (e) {
+      this.setState({ price: 1, circulatingSupply: 0 })
       logSentry(e, 'App - GetPrice')
     }
   }

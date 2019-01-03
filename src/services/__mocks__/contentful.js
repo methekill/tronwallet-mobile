@@ -9,7 +9,7 @@ const defaultParams = {
 
 export const BATCH_NUMBER = 30
 
-export const getTokens = async (verifiedOnly = false, start = 0) => {
+export const getTokens = async (start = 0) => {
   const total = 0
   const featured = []
   const assets = []
@@ -18,7 +18,7 @@ export const getTokens = async (verifiedOnly = false, start = 0) => {
   return { featured, assets, allAssets, totalTokens: total }
 }
 
-export const queryToken = async (verifiedOnly = false, name = '', params = defaultParams) => {
+export const queryToken = async (name = '', params = defaultParams) => {
   const total = 0
   const results = []
 
