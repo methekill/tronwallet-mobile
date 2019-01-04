@@ -79,8 +79,7 @@ class BuyScene extends Component {
         onSuccess: () => {
           const { buyAmount, estimatedCost } = this.state
           const { publicKey } = this.props.context
-          MixPanel.trackWithProperties('Pin Validation', {
-            type: 'Exchange',
+          MixPanel.trackWithProperties('Pin Validation - Exchange', {
             buyAmount,
             estimatedCost,
             publicKey
@@ -114,8 +113,7 @@ class BuyScene extends Component {
         expected
       }
 
-      MixPanel.trackWithProperties('Exchange', { type: 'Buying', params: exParams })
-
+      MixPanel.trackWithProperties('Exchange - Buying', { params: exParams })
       const transactionUnsigned = await WalletClient.getExchangeTransaction(exParams)
       const userKey = accounts.find(acc => acc.address === publicKey).privateKey
       const signedTransaction = await RNTron.signTransaction(userKey, transactionUnsigned)

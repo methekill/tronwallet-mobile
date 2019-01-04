@@ -38,7 +38,7 @@ class EditContact extends Component {
           item = store.objectForPrimaryKey('Contact', address)
         }
         store.delete(item)
-        MixPanel.trackWithProperties('Contacts Operation', { type: 'Delete Address' })
+        MixPanel.track('Delete Address')
         if (isUserAccount) {
           context.loadUserData()
         }

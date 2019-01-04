@@ -59,7 +59,7 @@ class Create extends React.Component {
       } else {
         navigation.navigate('SeedSave')
       }
-      MixPanel.trackWithProperties('Wallet Operation', { type: 'Confirm' })
+      MixPanel.track('Confirm seed')
     } catch (e) {
       Alert.alert(tl.t('seed.create.error'))
       logSentry(e, 'Create Seed - Confirm')

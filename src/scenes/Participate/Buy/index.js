@@ -199,7 +199,7 @@ class BuyScene extends Component {
         : await Client.getParticipateTransaction(this.props.context.publicKey, participatePayload)
 
       await this._openTransactionDetails(data)
-      MixPanel.trackWithProperties('Participate', { type: 'Buy token' })
+      MixPanel.trackWithProperties('Buy token', { token: item.name })
     } catch (err) {
       if (err.name === 'DataError') {
         if (err.message === 'INSUFFICIENT_BALANCE') {

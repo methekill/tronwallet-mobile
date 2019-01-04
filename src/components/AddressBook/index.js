@@ -71,19 +71,19 @@ class AddressBook extends Component {
       isUserAccount: this.props.isUserAccount,
       reloadData: this.props.reloadData
     })
-    MixPanel.trackWithProperties('Contacts Operation', { type: 'Edit account' })
+    MixPanel.track('Edit account')
   }
 
   _onSendPress = () => {
     const { currentItem } = this.state
     this._navigate('SendScene', { address: currentItem.address })
-    MixPanel.trackWithProperties('Contacts Operation', { type: 'Navigate to Send' })
+    MixPanel.trackWithProperties('Navigate to Send', { address: currentItem.address })
   }
 
   _onTransactionsPress = () => {
     const { currentItem } = this.state
     this._navigate('TransactionListScene', { contact: currentItem })
-    MixPanel.trackWithProperties('Contacts Operation', { type: 'Navigate to TransactionList' })
+    MixPanel.track('Navigate to TransactionList')
   }
 
   _onDeletePress = () => {
@@ -112,7 +112,7 @@ class AddressBook extends Component {
               store.write(() => {
                 let item = store.objectForPrimaryKey('Contact', currentItem.address)
                 store.delete(item)
-                MixPanel.trackWithProperties('Contacts Operation', { type: 'Delete account' })
+                MixPanel.track('Delete account')
               })
               reloadData()
               this.setState({

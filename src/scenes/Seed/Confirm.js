@@ -58,7 +58,7 @@ class Confirm extends React.Component {
       await confirmSecret(context.pin)
       Answers.logCustom('Wallet Operation', { type: 'Create' })
       await this._handleSuccess()
-      MixPanel.trackWithProperties('Wallet Operation', { type: 'See private key and seed' })
+      MixPanel.track('See private key and seed')
     } catch (error) {
       Alert.alert(
         tl.t('seed.confirm.error.title'),
