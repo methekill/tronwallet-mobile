@@ -677,6 +677,14 @@
   },
   "contract": {
     "signMessage": "Don't sign automatically",
-    "time": "Minutes"
+    "time": "Minutes",
+    "confirmationTitle": "CONFIRM",
+    "siteLabel": "SITE",
+    "contractLabel": "CONTRACT",
+    "costLabel": "COST",
+    "button": {
+      "confirm": "CONFIRM",
+      "reject": "REJECT"
+    }
   }
 }

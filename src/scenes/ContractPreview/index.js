@@ -10,7 +10,7 @@ export default class ContractPreview extends Component {
 
     return (
       <Container>
-        <Content flex={1} paddingVertical='large' justify='center'>
+        <Content flex={1} paddingVertical='big' justify='center' background="white">
           <ContractCard {...this.props} params={params} />
         </Content>
       </Container>

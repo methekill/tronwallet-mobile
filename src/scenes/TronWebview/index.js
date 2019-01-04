@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
-import { WebView, Alert } from 'react-native'
+import { WebView, Alert, Text, Modal } from 'react-native'
 import withContext from '../../utils/hocs/withContext'
 
-import { HeaderContainer, PageWrapper, HeaderView, URLInput, WebViewHome, WebViewLimit } from './elements'
+import { HeaderContainer, PageWrapper, HeaderView, URLInput, WebViewHome, WebViewLimit, CardContainer } from './elements'
 import { FloatingIconButton } from '../../components/Navigation/elements'
 import { Colors } from '../../components/DesignSystem'
 
 import { checkAutoContract } from '../../services/tronweb'
 import { getDApps } from './../../services/contentful/general'
+
+import ContractCard from '../ContractPreview/ContractCard'
 
 class TronWebView extends Component {
   constructor (props) {
@@ -18,7 +20,9 @@ class TronWebView extends Component {
       dapps: [],
       initialized: false,
       url: null,
-      isPageVisible: false
+      isPageVisible: false,
+      isCardVisible: false,
+      contract: {}
     }
   }
 
@@ -46,7 +50,7 @@ class TronWebView extends Component {
       }
 
       if (contract.txID) {
-        this._callContract({
+        return this._callContract({
           tx: contract,
           site: this.state.url,
           address: contract.raw_data.contract[0].parameter.value.contract_address,
@@ -54,7 +58,6 @@ class TronWebView extends Component {
           cb: (tr) => this.webview.postMessage(JSON.stringify(tr))
         })
       }
-      this._callContract(contract)
     } catch (e) {
       Alert.alert(e.message)
     }
@@ -62,7 +65,7 @@ class TronWebView extends Component {
 
   _callContract = (contract) => {
     checkAutoContract(contract)
-    this.props.navigation.navigate('ContractPreview', { ...contract, prevRoute: 'TronWebview' })
+    this.setState({ contract, isCardVisible: true });
   }
 
   _sendMessage = (type, payload) => {
@@ -70,6 +73,10 @@ class TronWebView extends Component {
       type,
       payload
     }))
+  }
+
+  _closeCardDialog = () => {
+    this.setState({ isCardVisible: false, contract: {} })
   }
 
   configInstance = () => {
@@ -178,7 +185,7 @@ class TronWebView extends Component {
   }
 
   render () {
-    const { isPageVisible, url, dapps } = this.state
+    const { isPageVisible, url, dapps, isCardVisible, contract } = this.state
 
     return (
       <PageWrapper>
@@ -217,6 +224,17 @@ class TronWebView extends Component {
 
         <WebViewLimit />
 
+
+          <Modal
+            animationType="fade"
+            presentationStyle="overFullScreen"
+            visible={isCardVisible}
+            transparent
+          >
+          <CardContainer>
+            {isCardVisible ? <ContractCard params={contract} closeDialog={this._closeCardDialog} /> : null}
+          </CardContainer>
+          </Modal>
       </PageWrapper>
     )
   }

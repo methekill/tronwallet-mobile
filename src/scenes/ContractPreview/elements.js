@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import { Text } from '../../components/Utils'
 import ActionSheet from 'react-native-actionsheet'
 
+import { Colors } from '../../components/DesignSystem'
+
 const TouchableContainer = styled(TouchableOpacity)`
   flex: 1;
   justify-content: center;
@@ -22,7 +24,7 @@ export class AutoSignSelector extends PureComponent {
 
     return (
       <TouchableContainer onPress={() => this.ActionSheet.show()}>
-        <Text size='smaller'>{this._formatSignText(autoSign)}</Text>
+        <Text color={Colors.greyBlue} size='smaller'>{this._formatSignText(autoSign)}</Text>
         <ActionSheet
           ref={ref => {
             this.ActionSheet = ref

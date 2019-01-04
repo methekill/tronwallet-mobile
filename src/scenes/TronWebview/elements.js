@@ -72,6 +72,15 @@ const ButtonContainer = styled.View`
   margin-left: 5%;
 `
 
+export const CardContainer = styled.View`
+  flex: 1;
+  padding-horizontal: 3%;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: rgba(${Colors.RGB.background}, 0.90);
+`
+
 const DAppButton = ({ dapp, onPress }) => {
   return (
     <ButtonContainer key={dapp.name}>

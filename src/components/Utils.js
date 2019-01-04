@@ -326,8 +326,13 @@ export const ButtonWrapper = styled.TouchableOpacity`
   padding-horizontal: ${Spacing.small};
   justify-content: center;
   align-items: center;
+  background-color: ${props => props.backgroundColor || 'transparent'};
   ${props => props.side && `${props.side}: ${Spacing.medium}`};
   ${props => props.marginBottom && css` margin-bottom: ${Spacing[props.marginBottom]}px`};
+  ${props => props.width && css`width: ${props.width}`};
+  ${props => props.borderRadius && css`border-radius: ${props.borderRadius}`};
+  ${props => props.height && css`height: ${props.height}`};
+
 `
 ButtonWrapper.propTypes = {
   marginBottom: PropTypes.oneOf(['xsmall', 'small', 'medium', 'big', 'large']),
@@ -335,7 +340,7 @@ ButtonWrapper.propTypes = {
 }
 
 export const Button = ({ secondary, ...props }) => (
-  <ButtonWrapper onPress={props.onPress}>
+  <ButtonWrapper {...props}>
     <Text secondary={secondary}>{props.children}</Text>
   </ButtonWrapper>
 )
