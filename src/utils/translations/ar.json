@@ -674,5 +674,9 @@
     "signals": {
       "title": "مؤشرات"
     }
+  },
+  "contract": {
+    "signMessage": "لا توقع تلقائيا",
+    "time": "دقائق"
   }
 }
