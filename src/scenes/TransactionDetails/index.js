@@ -76,7 +76,7 @@ class TransactionDetails extends React.Component {
   async componentDidMount () {
     const item = this.props.navigation.getParam('item', {})
     this.setState({ item })
-    MixPanel.trackWithProperties('Transactions', { type: 'Transaction Detail' })
+    MixPanel.track('Load transaction detail')
     this.appStateListener = onBackgroundHandler(this._onAppStateChange)
   }
 

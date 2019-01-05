@@ -18,7 +18,7 @@
   "success": "הצלחה",
   "warning": "אזהרה",
   "cancel": "ביטול",
-  "remove": "Remove",
+  "remove": "הסר",
   "address": "כתובת",
   "message": "הודעה",
   "ex": "מסחר",
@@ -669,10 +669,14 @@
       "msg": "ההתראות אינן זמינות כרגע"
     },
     "notifications": {
-      "title": "notifications"
+      "title": "התראות"
     },
     "signals": {
       "title": "אותות"
     }
+  },
+  "contract": {
+    "signMessage": "אל תחתום אוטומטית",
+    "time": "דקות"
   }
 }

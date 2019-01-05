@@ -674,5 +674,9 @@
     "signals": {
       "title": "SIGNAUX"
     }
+  },
+  "contract": {
+    "signMessage": "Don't sign automatically",
+    "time": "Minutes"
   }
 }

@@ -18,7 +18,7 @@
   "success": "Suksess",
   "warning": "Advarsel",
   "cancel": "Avbryt",
-  "remove": "Remove",
+  "remove": "Fjerne",
   "address": "Adresse",
   "message": "Melding",
   "ex": "Exchange",
@@ -669,10 +669,14 @@
       "msg": "Ingen varsler tilgjengelig for øyeblikket"
     },
     "notifications": {
-      "title": "notifications"
+      "title": "varsler"
     },
     "signals": {
       "title": "SIGNALER"
     }
+  },
+  "contract": {
+    "signMessage": "Ikke signer automatisk",
+    "time": "Minutter"
   }
 }

@@ -18,7 +18,7 @@
   "success": "Успіх",
   "warning": "Увага",
   "cancel": "Скасувати",
-  "remove": "Remove",
+  "remove": "Видалити",
   "address": "Адреса",
   "message": "Повідомлення",
   "ex": "Обмін",
@@ -669,10 +669,14 @@
       "msg": "Немає доступних повідомлень на даний момент"
     },
     "notifications": {
-      "title": "notifications"
+      "title": "сповіщення"
     },
     "signals": {
       "title": "СИГНАЛИ"
     }
+  },
+  "contract": {
+    "signMessage": "Не підписувати автоматично",
+    "time": "Хвилин"
   }
 }

@@ -78,7 +78,7 @@ class ParticipateHome extends React.Component {
         featuredTokens: featured,
         currentList: assets
       })
-      MixPanel.trackWithProperties('Participate', { type: 'Initial load participate' })
+      MixPanel.track('load participate')
     } catch (error) {
       logSentry(error, 'Initial load participate')
       this.setState({ error: error.message })
@@ -138,7 +138,7 @@ class ParticipateHome extends React.Component {
     const resultList = [...featuredTokens, ...assetList].filter(ast => regex.test(ast.name.toUpperCase()))
 
     this.setState({ searchName: name }, () => {
-      MixPanel.trackWithProperties('Participate', { type: 'Search Participate', name })
+      MixPanel.trackWithProperties('Search Participate', { name })
       if (resultList.length) {
         const searchedList = name ? resultList : []
         this.setState({ currentList: searchedList })
@@ -162,7 +162,7 @@ class ParticipateHome extends React.Component {
 
   _navigateToBuyToken = (item) => {
     this.props.navigation.navigate('TokenInfo', { item })
-    MixPanel.trackWithProperties('Participate', { type: 'Navigate to Buy token', token: item.name })
+    MixPanel.trackWithProperties('Navigate to Buy token', { token: item.name })
   }
 
   _renderFeaturedTokens = () => {
