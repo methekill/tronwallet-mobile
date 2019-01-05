@@ -55,7 +55,7 @@ const Input = ({
 }) => (
   <Elements.Wrapper>
     <Elements.LabelWrapper color={labelWrapperColor}>
-      <Elements.Label>{label}</Elements.Label>
+      {label && (<Elements.Label>{label}</Elements.Label>)}
     </Elements.LabelWrapper>
     <Elements.InputWrapper>
       {leftContent && leftContent()}
