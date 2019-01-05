@@ -52,7 +52,7 @@ export class TransactionsScene extends Component {
           contactsStoreRef: retults[1],
           assetStore: retults[2]
         }, () => this._loadData())
-        MixPanel.trackWithProperties('Transactions', { type: 'My transactions' })
+        MixPanel.track('Load transactions')
       })
   }
 
