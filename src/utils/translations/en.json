@@ -686,5 +686,12 @@
       "confirm": "CONFIRM",
       "reject": "REJECT"
     }
+  },
+  "dapps": {
+    "title": "DAPPS",
+    "search": {
+      "placeholder": "Search or type www.",
+      "go": "GO"
+    }
   }
 }

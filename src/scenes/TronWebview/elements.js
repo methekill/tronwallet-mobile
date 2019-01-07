@@ -1,10 +1,12 @@
 import React from 'react'
+import { View } from 'react-native'
 import styled from 'styled-components'
 import LinearGradient from 'react-native-linear-gradient'
-import { Text } from '../../components/Utils'
-import { Colors } from '../../components/DesignSystem'
-
+import { Text, Row } from '../../components/Utils'
 import ButtonIconGradient from '../../components/ButtonIconGradient'
+import Icon from 'react-native-vector-icons/Feather'
+
+import { Colors } from '../../components/DesignSystem'
 
 export const HeaderContainer = styled(LinearGradient).attrs({
   colors: [Colors.primaryGradient[0], Colors.primaryGradient[1]],
@@ -25,7 +27,7 @@ export const PageWrapper = styled.View`
   flex: 1;
   flex-direction: column;
   height: 100%;
-  background-color: ${Colors.lightBackground}
+  background-color: ${Colors.lightBackground};
 `
 
 export const HeaderView = styled.View`
@@ -41,7 +43,7 @@ export const URLInput = styled.TextInput`
   width: 85%;
   height: 35%;
   color: ${Colors.titleLabel};
-  borderRadius: 5;
+  border-radius: 5;
   margin-top: 2%;
 `
 
@@ -53,14 +55,14 @@ export const HomeContainer = styled.View`
 export const WebViewLimit = styled.View`
   flex: 0.001;
 `
-const HomeTitle = styled.View`
+export const HomeTitle = styled.View`
   flex: 0.10;
   justify-content: center;
   align-items: flex-start;
   padding-horizontal: 5%;
 `
 
-const HomeSection = styled.View`
+export const HomeSection = styled.View`
   flex: 0.90;
   flex-direction: row;
   padding-horizontal: 5%;
@@ -81,30 +83,69 @@ export const CardContainer = styled.View`
   background-color: rgba(${Colors.RGB.background}, 0.90);
 `
 
-const DAppButton = ({ dapp, onPress }) => {
+export const DAppButton = ({ dapp, onPress }) => {
   return (
-    <ButtonContainer key={dapp.name}>
-      <ButtonIconGradient key={dapp.name}
+    <ButtonContainer>
+      <ButtonIconGradient
         text={dapp.name}
         color={Colors.primaryText}
         onPress={() => onPress(dapp.url)}
+        icon={<View />}
       />
     </ButtonContainer>
   )
 }
 
-export const WebViewHome = ({ dapps, onPress }) => {
-  const dappList = dapps.map(d => <DAppButton dapp={d} onPress={onPress} />)
+export const WebViewHeaderWrapper = styled.View`
+  height: 30px;
+  width: 100%;
+  background-color: ${Colors.slateGrey};
+  padding: 0px 16px;
+`
+export const WebViewHeader = ({ title }) => (
+  <WebViewHeaderWrapper>
+    <Text color={Colors.greyBlue} size='xsmall' font='medium' numberOfLines={1}>{title}</Text>
+  </WebViewHeaderWrapper>
+)
 
-  return (
-    <HomeContainer>
-      <HomeTitle>
-        <Text>Popular</Text>
-      </HomeTitle>
+const WebViewFooterWrapper = styled.View`
+  height: 50px;
+  width: 100%;
+  background-color: ${Colors.slateGrey};
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  z-index: 9;
+`
 
-      <HomeSection>
-        {dappList}
-      </HomeSection>
-    </HomeContainer>
-  )
-}
+const Btn = styled.TouchableOpacity`
+  padding: 5px 16px;
+`
+
+export const WebViewFooter = ({ onGobackPress, onGoForwardPress, onMenuPress, onSearchPress }) => (
+  <WebViewFooterWrapper>
+    <Row width='40%' align='center' justify='space-around' paddingRight='large'>
+      <Btn onPress={onGobackPress}>
+        <Icon name='arrow-left' size={20} color={Colors.primaryText} />
+      </Btn>
+      <Btn onPress={onGoForwardPress} disabled={onGoForwardPress === null}>
+        <Icon name='arrow-right' size={20} color={onGoForwardPress === null ? Colors.greyBlue : Colors.primaryText} />
+      </Btn>
+    </Row>
+    <Row width='60%' align='center' justify='space-between' paddingRight='medium' paddingLeft='medium' >
+      <Btn onPress={onMenuPress}>
+        <Icon name='grid' size={20} color={Colors.primaryText} />
+      </Btn>
+      <Btn onPress={onSearchPress}>
+        <Icon name='search' size={20} color={Colors.primaryText} />
+      </Btn>
+      <Btn>
+        <Icon name='star' size={20} color={Colors.primaryText} />
+      </Btn>
+    </Row>
+  </WebViewFooterWrapper>
+)
+
+export const SearchBtn = styled.TouchableOpacity`
+  padding: 5px 10px;
+`
