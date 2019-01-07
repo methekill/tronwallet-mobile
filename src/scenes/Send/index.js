@@ -96,6 +96,7 @@ class SendScene extends Component {
   }
 
   _loadData = async () => {
+    this.clearInput()
     this.setState({ loading: true })
     const { getCurrentBalances, publicKey, fixedTokens } = this.props.context
     let orderedBalances = []
@@ -174,15 +175,18 @@ class SendScene extends Component {
   clearInput = () => {
     this.setState({
       to: '',
-      token: 'TRX',
+      tokenID: '1',
       amount: '',
       description: ''
     })
   }
 
   _transferAsset = async () => {
-    const { from, to, amount, token, description } = this.state
+    const { from, to, amount, tokenID, description } = this.state
     this.setState({ loadingSign: true, error: null })
+
+    // TEMP FIX
+    const token = tokenID === '1' ? 'TRX' : tokenID
     try {
       const payload = {
         from,
@@ -191,6 +195,8 @@ class SendScene extends Component {
         amount: Number(amount).toFixed(6),
         data: description
       }
+      console.warn('...', payload)
+
       // Serverless
       const data = await Client.getTransferTransaction(payload)
       this._openTransactionDetails(data)
@@ -224,8 +230,8 @@ class SendScene extends Component {
   }
 
   _setMaxAmount = () => {
-    const { balances, token } = this.state
-    const balanceSelected = balances.find(b => b.name === token) || balances[0]
+    const { balances, tokenID } = this.state
+    const balanceSelected = balances.find(b => b.id === tokenID) || balances[0]
     const value =
       balanceSelected.balance < MINIMUM && balanceSelected.balance > 0
         ? balanceSelected.balance.toFixed(7)
@@ -294,7 +300,7 @@ class SendScene extends Component {
   _handleTokenChange = (index, formattedToken) => {
     if (index > 0) {
       this.setState({
-        token: this.state.balances[index - 1].name,
+        tokenID: this.state.balances[index - 1].id,
         formattedToken
       }, this._nextInput('token'))
     }
