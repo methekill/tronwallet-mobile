@@ -12,3 +12,4 @@ export const ADD = 'ADD'
 export const EDIT = 'EDIT'
 export const WALLET_TOKENS = ['TRX', 'TWX']
 export const AUTOSIGN_LIST = '@TronWallet:signList'
+export const DAPPS_SEARCH_HISTORY = '@TronWallet:dappsSearchHistory'
