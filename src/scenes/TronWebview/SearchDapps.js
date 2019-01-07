@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { Animated, Dimensions, FlatList } from 'react-native'
-import { ListItem } from 'react-native-elements'
+import { Animated, Dimensions } from 'react-native'
+import { FlatList } from 'react-navigation'
 import styled, { css } from 'styled-components'
 import Icon from 'react-native-vector-icons/Feather'
 import * as Utils from './../../components/Utils'
 import Input from './../../components/Input'
-import { SearchBtn } from './elements'
+import { SearchBtn, SearchListItem as ListItem } from './elements'
+
 import { Colors } from './../../components/DesignSystem'
 import tl from './../../utils/i18n'
 import { getSearchHistory } from './../../utils/dappUtils'
@@ -21,11 +22,11 @@ const View = Animated.createAnimatedComponent(
 )
 
 const InputWrapper = styled.View`
-  padding: 10px 16px 0px;
+  padding: 10px 14px 0px;
   height: 80px;
   ${props => props.showBorder && css`
-    border-bottom-width: 1px;
-    border-bottom-color: ${Colors.darkThree};
+    border-bottom-width: 1.8px;
+    border-bottom-color: ${Colors.darkerBackground};
   `}
 `
 
@@ -44,13 +45,6 @@ class SearchDapps extends Component {
     heightAnimation: new Animated.Value(MIN_HEIGHT),
     searchValue: '',
     history: []
-  }
-
-  componentDidMount () {
-    getSearchHistory()
-      .then(data => {
-        this.setState({ history: data })
-      })
   }
 
   open = () => {
@@ -83,7 +77,12 @@ class SearchDapps extends Component {
 
   _onInputFocus = () => {
     this.setState({ expanded: true })
-    this._open()
+    this._open(() => {
+      getSearchHistory()
+        .then(data => {
+          this.setState({ history: data })
+        })
+    })
   }
 
   _inputRightContent = () => {
@@ -151,6 +150,7 @@ class SearchDapps extends Component {
               value={searchValue}
               keyboardType='url'
               returnKeyType='go'
+              borderColor={expanded ? 'transparent' : '#51526B'}
             />
           </InputWrapper>
           {expanded && (
@@ -162,6 +162,7 @@ class SearchDapps extends Component {
                   subtitle={item.title ? item.url : null}
                 />
               )}
+              keyExtractor={(item, index) => item.url + index}
             />
           )}
         </Utils.SafeAreaView>

@@ -15,18 +15,8 @@ import SearchDapps from './SearchDapps'
 import WebView from './WebView'
 
 class TronWebView extends Component {
-  constructor (props) {
-    super(props)
-
-    this.webview = null
-    this.state = {
-      dapps: [],
-      initialized: false,
-      url: null,
-      isPageVisible: false,
-      isCardVisible: false,
-      contract: {}
-    }
+  state = {
+    dapps: []
   }
 
   async componentDidMount () {
