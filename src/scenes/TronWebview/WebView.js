@@ -224,7 +224,6 @@ class WebViewWrapper extends Component {
   _goForward = () => {}
 
   _onNavigationStateChange = (navState) => {
-    console.warn(navState)
     this.setState({
       canGoBack: navState.canGoBack,
       canGoForward: navState.canGoForward,
@@ -234,42 +233,43 @@ class WebViewWrapper extends Component {
 
   render () {
     const { isPageVisible, url, title, isCardVisible, contract, canGoForward } = this.state
+
+    console.log(isCardVisible, '<<<< is card visible')
+
     return (
-      <React.Fragment>
-        <Modal
-          style={styles.modal}
-          isVisible={isPageVisible}
-          onBackButtonPress={() => this._onClose()}
-          deviceWidth={deviceSize.width}
-          deviceHeight={deviceSize.height}
-        >
-          <SafeAreaView style={styles.container} forceInset={{ top: 'always', bottom: 'always' }}>
-            <WebViewHeader title={title} />
-            <WebView
-              style={styles.webview}
-              ref={(ref) => (this.webview = ref)}
-              injectedJavaScript={this._injectjs()}
-              onMessage={this._handleMessage}
-              onLoadEnd={this._configInstance}
-              onNavigationStateChange={this._onNavigationStateChange}
-              onError={(e) => console.warn(e)}
-              source={{ uri: url }}
-              nativeConfig={{ props: { webContentsDebuggingEnabled: true } }}
-              javaScriptEnabled
-              automaticallyAdjustContentInsets
-            />
-            <WebViewFooter
-              onGobackPress={this._goBack}
-              onGoForwardPress={canGoForward ? this._goForward : null}
-              onMenuPress={() => this._onClose()}
-              onSearchPress={() => {
-                this._onClose(() => {
-                  this.props.onRequestSearch()
-                })
-              }}
-            />
-          </SafeAreaView>
-        </Modal>
+      <Modal
+        style={styles.modal}
+        isVisible={isPageVisible}
+        onBackButtonPress={() => this._onClose()}
+        deviceWidth={deviceSize.width}
+        deviceHeight={deviceSize.height}
+      >
+        <SafeAreaView style={styles.container} forceInset={{ top: 'always', bottom: 'always' }}>
+          <WebViewHeader title={title} />
+          <WebView
+            style={styles.webview}
+            ref={(ref) => (this.webview = ref)}
+            injectedJavaScript={this._injectjs()}
+            onMessage={this._handleMessage}
+            onLoadEnd={this._configInstance}
+            onNavigationStateChange={this._onNavigationStateChange}
+            onError={(e) => console.warn(e)}
+            source={{ uri: url }}
+            nativeConfig={{ props: { webContentsDebuggingEnabled: true } }}
+            javaScriptEnabled
+            automaticallyAdjustContentInsets
+          />
+          <WebViewFooter
+            onGobackPress={this._goBack}
+            onGoForwardPress={canGoForward ? this._goForward : null}
+            onMenuPress={() => this._onClose()}
+            onSearchPress={() => {
+              this._onClose(() => {
+                this.props.onRequestSearch()
+              })
+            }}
+          />
+        </SafeAreaView>
         <Modal
           animationType='fade'
           presentationStyle='overFullScreen'
@@ -280,7 +280,7 @@ class WebViewWrapper extends Component {
             {isCardVisible ? <ContractCard params={contract} closeDialog={this._closeCardDialog} /> : null}
           </CardContainer>
         </Modal>
-      </React.Fragment>
+      </Modal>
     )
   }
 }

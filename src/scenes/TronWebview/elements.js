@@ -76,7 +76,6 @@ const ButtonContainer = styled.View`
 
 export const CardContainer = styled.View`
   flex: 1;
-  padding-horizontal: 3%;
   align-items: center;
   justify-content: center;
   height: 100%;
