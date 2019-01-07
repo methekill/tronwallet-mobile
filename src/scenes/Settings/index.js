@@ -21,7 +21,6 @@ import ModalWebView from './../../components/ModalWebView'
 import AccountRecover from './RecoverAccount'
 
 // Utils
-import getBalanceStore from '../../store/balance'
 import { USER_PREFERRED_LANGUAGE, USER_FILTERED_TOKENS, ALWAYS_ASK_PIN, USE_BIOMETRY, ENCRYPTED_PIN } from '../../utils/constants'
 import tl, { LANGUAGES } from '../../utils/i18n'
 import fontelloConfig from '../../assets/icons/config.json'
@@ -46,7 +45,6 @@ class Settings extends Component {
     uri: '',
     subscriptionStatus: null,
     changingSubscription: false,
-    userTokens: [],
     userSelectedTokens: [],
     currentSelectedTokens: [],
     hiddenAccounts: [],
@@ -119,17 +117,10 @@ class Settings extends Component {
 
   _getSelectedTokens = async () => {
     try {
-      const store = await getBalanceStore()
-      const tokens = store.objects('Balance')
-        .filtered('TRUEPREDICATE DISTINCT(name)')
-        .filter(({ name }) => name !== 'TRX')
-        .map(({ name }) => ({ id: name, name }))
-
       const filteredTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
       const selectedTokens = filteredTokens ? JSON.parse(filteredTokens) : []
 
       this.setState({
-        userTokens: tokens,
         userSelectedTokens: selectedTokens,
         currentSelectedTokens: selectedTokens
       })
@@ -290,8 +281,8 @@ class Settings extends Component {
   }
 
   _renderList = () => {
-    const { seed, userTokens } = this.state
-    const { secretMode } = this.props.context
+    const { seed } = this.state
+    const { secretMode, balances, publicKey } = this.props.context
     const list = [
       {
         title: tl.t('settings.sectionTitles.wallet'),
@@ -309,7 +300,7 @@ class Settings extends Component {
           {
             title: tl.t('settings.token.title'),
             icon: 'sort,-filter,-arrange,-funnel,-filter',
-            hide: userTokens.length === 0,
+            hide: !balances[publicKey],
             onPress: this._showTokenSelect
           },
           {
@@ -482,24 +473,24 @@ class Settings extends Component {
     )
   }
 
+  _getMultiselectOptions = () => {
+    const { getCurrentBalances } = this.props.context
+    return getCurrentBalances().map(balance => ({name:  `[${balance.id}] ${balance.name}`, id: balance.id}))
+  }
   render() {
     const {
-      userTokens,
       currentSelectedTokens,
-      uri,
       tokenFilterModal,
-      modalVisible,
       accountsModal,
       hiddenAccounts } = this.state
     const languageOptions = LANGUAGES.map(language => language.value)
-
     return (
       <Utils.SafeAreaView>
         <NavigationHeader title={tl.t('menu.title')} />
         <Utils.Container keyboardShouldPersistTaps='always' keyboardDismissMode='interactive'> 
           <SectionedMultiSelect
             ref={ref => { this.SectionedMultiSelect = ref }}
-            items={userTokens}
+            items={this._getMultiselectOptions()}
             uniqueKey='id'
             onSelectedItemsChange={(selected) => this.setState({ currentSelectedTokens: selected })}
             selectedItems={currentSelectedTokens}

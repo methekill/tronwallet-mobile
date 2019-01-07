@@ -26,7 +26,7 @@ import { getActiveRouteName } from './src/utils/navigationUtils'
 
 import Async from './src/utils/asyncStorageUtils'
 
-import { getFixedTokens, getSystemStatus } from './src/services/contentful/general'
+import { getFixedTokens, getSystemStatus, getFixedTokensV2 } from './src/services/contentful/general'
 import NavigationService from './src/utils/hocs/NavigationServices'
 // import './ReactotronConfig'
 
@@ -94,7 +94,7 @@ class App extends Component {
       Async.get(USER_STATUS, null),
       Async.get(USER_FILTERED_TOKENS, null),
       Async.get(USE_BIOMETRY, 'false').then(data => data === 'true'),
-      getFixedTokens(),
+      getFixedTokensV2(),
       Async.get(USER_PREFERRED_CURRENCY, 'TRX'),
       getSystemStatus().then(data => data.systemAddress)
     ]).then(results => {
@@ -303,6 +303,14 @@ class App extends Component {
     return null
   }
 
+  _getCurrentBalances = () => {
+    const { publicKey, balances } = this.state
+    if (balances[publicKey]) {
+      return balances[publicKey]
+    }
+    return []
+  }
+
   render () {
     const contextProps = {
       ...this.state,
@@ -316,7 +324,8 @@ class App extends Component {
       setAskPin: this._setAskPin,
       setUseBiometry: this._setUseBiometry,
       setSecretMode: this._setSecretMode,
-      getCurrentAccount: this._getCurrentAccount
+      getCurrentAccount: this._getCurrentAccount,
+      getCurrentBalances: this._getCurrentBalances
     }
 
     return (

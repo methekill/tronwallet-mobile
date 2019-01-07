@@ -16,7 +16,7 @@ import * as Utils from '../../components/Utils'
 // Utils
 import tl from '../../utils/i18n'
 import { formatNumber } from '../../utils/numberUtils'
-import { orderBalances, parseFixedTokens } from '../../utils/balanceUtils'
+import { parseFixedTokens, orderBalancesV2 } from '../../utils/balanceUtils'
 import { getCustomName } from '../../utils/assetsUtils'
 import { USER_FILTERED_TOKENS, WALLET_TOKENS } from '../../utils/constants'
 import { logSentry } from '../../utils/sentryUtils'
@@ -41,7 +41,7 @@ class WalletBalances extends Component {
         const tokens = unionBy(selectedBalances, parsedTokens, 'name')
         const list = await this._updateListByStoreTokens(tokens)
         this.setState({
-          list: orderBalances(list, fixedTokens)
+          list: orderBalancesV2(list, fixedTokens)
         })
       } catch (e) {
         logSentry(e, 'WalletBalances - Update Data')
@@ -59,7 +59,7 @@ class WalletBalances extends Component {
     return AsyncStorage.getItem(USER_FILTERED_TOKENS).then(tokens => {
       const filteredTokens = JSON.parse(tokens)
       return list.filter(item => {
-        return filteredTokens.indexOf(item.name) === -1
+        return filteredTokens.indexOf(item.id) === -1
       })
     })
   }
@@ -68,7 +68,7 @@ class WalletBalances extends Component {
     const { publicKey, freeze } = this.props.context
     const total = get(freeze, [publicKey, 'total'], 0)
     return list.map(item => {
-      if (item.name === 'TRX') {
+      if (item.id === '1') {
         return { ...item, balance: total + item.balance }
       }
       return item
