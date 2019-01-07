@@ -71,12 +71,13 @@ class BuyScene extends Component {
   }
 
   _updateBalance = async () => {
-    const balances = await this._getBalancesFromStore()
-    if (balances.length) {
-      const currentBalance = this._fixNumber(balances[0].balance)
+    const { getCurrentBalances } = this.props.context
+    const currentBalances = getCurrentBalances()
+    if (currentBalances.length) {
+      const { balance: trxBalance } = currentBalances.find(b => b.id === '1')
       this.setState({
-        trxBalance: currentBalance,
-        totalRemaining: currentBalance,
+        trxBalance: this._fixNumber(trxBalance),
+        totalRemaining: trxBalance,
         amountToBuy: 0
       })
     }

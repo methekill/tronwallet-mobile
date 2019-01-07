@@ -128,10 +128,10 @@ class WalletBalances extends Component {
   )
 
   renderItem = ({ item }) => (
-    <Utils.Content key={item.name} paddingHorizontal='none' paddingVertical='medium'>
-      <TouchableOpacity disabled={item.name === 'TRX'} onPress={() => this._onItemPress(item)}>
+    <Utils.Content key={item.id} paddingHorizontal='none' paddingVertical='medium'>
+      <TouchableOpacity disabled={item.id === '1'} onPress={() => this._onItemPress(item)}>
         <Utils.Row justify='space-between'>
-          <Badge bg={Colors.lightestBackground} guarantee={item.verified}>{getCustomName(item.name)}</Badge>
+          <Badge bg={Colors.lightestBackground} guarantee={item.verified}>{getCustomName(item.name, item.id)}</Badge>
           <Utils.Text>{formatNumber(item.balance)}</Utils.Text>
         </Utils.Row>
       </TouchableOpacity>
@@ -150,7 +150,7 @@ class WalletBalances extends Component {
         <FlatList
           data={this.state.list}
           renderItem={this.renderItem}
-          keyExtractor={(item, index) => item.name}
+          keyExtractor={(item) => item.id}
         />
         {this.renderModalToken()}
       </React.Fragment>

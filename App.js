@@ -26,7 +26,7 @@ import { getActiveRouteName } from './src/utils/navigationUtils'
 
 import Async from './src/utils/asyncStorageUtils'
 
-import { getFixedTokens, getSystemStatus, getFixedTokensV2 } from './src/services/contentful/general'
+import { getSystemStatus, getFixedTokensV2 } from './src/services/contentful/general'
 import NavigationService from './src/utils/hocs/NavigationServices'
 // import './ReactotronConfig'
 
