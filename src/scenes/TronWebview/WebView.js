@@ -271,10 +271,12 @@ class WebViewWrapper extends Component {
           />
         </SafeAreaView>
         <Modal
-          animationType='fade'
-          presentationStyle='overFullScreen'
+          animationIn='fadeIn'
+          animationOut='fadeOut'
           isVisible={isCardVisible}
-          transparent
+          deviceWidth={deviceSize.width}
+          deviceHeight={deviceSize.height}
+          style={styles.modal}
         >
           <CardContainer>
             {isCardVisible ? <ContractCard params={contract} closeDialog={this._closeCardDialog} /> : null}
