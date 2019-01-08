@@ -83,8 +83,9 @@ class ContractCard extends Component {
   }
 
   selectAccount = () => {
-    const { accounts } = this.props.context
-    return accounts.find(acc => acc.alias === '@main_account')
+    const { getCurrentAccount } = this.props.context
+    const currentAccount = getCurrentAccount()
+    return currentAccount
   }
 
   rejectTR = () => {

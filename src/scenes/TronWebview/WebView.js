@@ -234,8 +234,6 @@ class WebViewWrapper extends Component {
   render () {
     const { isPageVisible, url, title, isCardVisible, contract, canGoForward } = this.state
 
-    console.log(isCardVisible, '<<<< is card visible')
-
     return (
       <Modal
         style={styles.modal}
