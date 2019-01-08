@@ -4,10 +4,12 @@ import styled from 'styled-components'
 import LinearGradient from 'react-native-linear-gradient'
 import { ListItem } from 'react-native-elements'
 import PropTypes from 'prop-types'
+import * as Animatable from 'react-native-animatable'
 
 import { Text, Row } from '../../components/Utils'
 import ButtonIconGradient from '../../components/ButtonIconGradient'
-import Icon from 'react-native-vector-icons/Feather'
+import Feather from 'react-native-vector-icons/Feather'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import { Colors } from '../../components/DesignSystem'
 
@@ -53,28 +55,29 @@ export const URLInput = styled.TextInput`
 export const HomeContainer = styled.View`
   flex: 1;
   background-color: ${Colors.lightBackground};
+  padding-top: 10px;
 `
 
 export const WebViewLimit = styled.View`
   flex: 0.001;
 `
 export const HomeTitle = styled.View`
-  flex: 0.10;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   padding-horizontal: 5%;
+  flex-direction: row;
 `
 
 export const HomeSection = styled.View`
-  flex: 0.90;
+  flex: 1;
   flex-direction: row;
-  padding-horizontal: 5%;
   justify-content: flex-start;
   align-items: flex-start;
+  padding-top: 20px;
 `
 
 const ButtonContainer = styled.View`
-  margin-left: 5%;
+  margin: 10px;
 `
 
 export const CardContainer = styled.View`
@@ -85,18 +88,40 @@ export const CardContainer = styled.View`
   background-color: rgba(${Colors.RGB.background}, 0.90);
 `
 
-export const DAppButton = ({ dapp, onPress }) => {
-  return (
-    <ButtonContainer>
-      <ButtonIconGradient
-        text={dapp.name}
-        color={Colors.primaryText}
-        onPress={() => onPress(dapp.url)}
-        icon={<View />}
-      />
-    </ButtonContainer>
-  )
-}
+export const DAppButton = ({ dapp, onPress, onLongPress }) => (
+  <ButtonContainer>
+    <ButtonIconGradient
+      text={dapp.name}
+      color={Colors.primaryText}
+      onPress={() => onPress(dapp.url)}
+      icon={<View />}
+      onLongPress={onLongPress}
+    />
+  </ButtonContainer>
+)
+
+export const BtnRemove = styled(Ionicons).attrs({
+  size: 30,
+  color: '#fff',
+  name: 'ios-close-circle'
+})`
+  position: absolute;
+  top: 0px;
+  right: 5px;
+`
+
+export const DAppButtonWrapper = styled.View`
+  position: relative;
+`
+
+export const BtnCancel = styled.TouchableOpacity`
+  padding: 2px 10px;
+  background-color: #fff;
+  border-color: #fff;
+  border-width: 1px;
+  border-radius: 10px;
+  align-self: flex-end;
+`
 
 export const WebViewHeaderWrapper = styled.View`
   height: 30px;
@@ -124,29 +149,43 @@ const Btn = styled.TouchableOpacity`
   padding: 5px 16px;
 `
 
-export const WebViewFooter = ({ onGobackPress, onGoForwardPress, onMenuPress, onSearchPress }) => (
+export const WebViewFooter = ({ onGobackPress, onGoForwardPress, onMenuPress, onSearchPress, onBookMarkPress, bookmark }) => (
   <WebViewFooterWrapper>
     <Row width='40%' align='center' justify='space-around' paddingRight='large'>
       <Btn onPress={onGobackPress}>
-        <Icon name='arrow-left' size={20} color={Colors.primaryText} />
+        <Feather name='arrow-left' size={20} color={Colors.primaryText} />
       </Btn>
       <Btn onPress={onGoForwardPress} disabled={onGoForwardPress === null}>
-        <Icon name='arrow-right' size={20} color={onGoForwardPress === null ? Colors.greyBlue : Colors.primaryText} />
+        <Feather name='arrow-right' size={20} color={onGoForwardPress === null ? Colors.greyBlue : Colors.primaryText} />
       </Btn>
     </Row>
     <Row width='60%' align='center' justify='space-between' paddingRight='medium' paddingLeft='medium' >
       <Btn onPress={onMenuPress}>
-        <Icon name='grid' size={20} color={Colors.primaryText} />
+        <Feather name='grid' size={20} color={Colors.primaryText} />
       </Btn>
       <Btn onPress={onSearchPress}>
-        <Icon name='search' size={20} color={Colors.primaryText} />
+        <Feather name='search' size={20} color={Colors.primaryText} />
       </Btn>
-      <Btn>
-        <Icon name='star' size={20} color={Colors.primaryText} />
+      <Btn onPress={onBookMarkPress}>
+        {bookmark ? (
+          <Animatable.Text animation='pulse' easing='ease-out' iterationCount={5} delay={500} >
+            <Ionicons name='md-star' size={20} color={Colors.primaryText} />
+          </Animatable.Text>
+        ) : (
+          <Ionicons name='ios-star-outline' size={20} color={Colors.primaryText} />
+        )}
       </Btn>
     </Row>
   </WebViewFooterWrapper>
 )
+
+WebViewFooter.propTypes = {
+  onGobackPress: PropTypes.func,
+  onGoForwardPress: PropTypes.func,
+  onMenuPress: PropTypes.func,
+  onSearchPress: PropTypes.func,
+  onBookMarkPress: PropTypes.func
+}
 
 export const SearchBtn = styled.TouchableOpacity`
   padding: 5px 10px;

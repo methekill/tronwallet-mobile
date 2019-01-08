@@ -8,7 +8,7 @@ import ContractCard from '../ContractPreview/ContractCard'
 
 import { Colors } from './../../components/DesignSystem'
 import { checkAutoContract } from '../../services/tronweb'
-import { updateSearchHistory } from './../../utils/dappUtils'
+import { updateSearchHistory, saveBookmark, isBookmark } from './../../utils/dappUtils'
 
 const deviceSize = Dimensions.get('window')
 
@@ -28,7 +28,8 @@ class WebViewWrapper extends Component {
     canGoBack: false,
     canGoForward: false,
     title: '',
-    url: ''
+    url: '',
+    isBookmark: false
   }
 
   componentDidMount () {
@@ -151,7 +152,10 @@ class WebViewWrapper extends Component {
         confirmed
       })
 
-      this.setState({ initialized: true })
+      this.setState({
+        initialized: true,
+        isBookmark: isBookmark(this.state.url)
+      })
     }
   }
 
@@ -204,7 +208,18 @@ class WebViewWrapper extends Component {
   }
 
   _closeCardDialog = () => {
-    this.setState({ isCardVisible: false, contract: {} })
+    this.setState({ isCardVisible: false, contract: {}, url: '', title: '' })
+  }
+
+  _checkBookmark = () => {
+    const { isBookmark, url, title } = this.state
+    if (!isBookmark) {
+      saveBookmark({ url, title })
+    } else {
+
+    }
+
+    this.setState({ isBookmark: !isBookmark })
   }
 
   _goBack = () => {
@@ -233,6 +248,10 @@ class WebViewWrapper extends Component {
     }
   }
 
+  _onLoadingError = (event) => {
+    console.error('encountered an error loading page', event.nativeEvent)
+  }
+
   render () {
     const { isPageVisible, url, title, isCardVisible, contract, canGoForward } = this.state
 
@@ -253,7 +272,7 @@ class WebViewWrapper extends Component {
             onMessage={this._handleMessage}
             onLoadEnd={this._configInstance}
             onNavigationStateChange={this._onNavigationStateChange}
-            onError={(e) => console.warn(e)}
+            onLoadingError={this._onLoadingError}
             source={{ uri: url }}
             nativeConfig={{ props: { webContentsDebuggingEnabled: true } }}
             javaScriptEnabled
@@ -268,6 +287,8 @@ class WebViewWrapper extends Component {
                 this.props.onRequestSearch()
               })
             }}
+            onBookMarkPress={() => this._checkBookmark()}
+            bookmark={this.state.isBookmark}
           />
         </SafeAreaView>
         <Modal

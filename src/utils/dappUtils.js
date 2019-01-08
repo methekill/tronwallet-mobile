@@ -2,9 +2,9 @@
 import * as Async from './asyncStorageUtils'
 import { AsyncStorage } from 'react-native'
 
-import { DAPPS_SEARCH_HISTORY } from './constants'
+import { DAPPS_SEARCH_HISTORY, DAPPS_BOOKMARK } from './constants'
 
-// AsyncStorage.removeItem(DAPPS_SEARCH_HISTORY)
+// AsyncStorage.removeItem(DAPPS_BOOKMARK)
 
 export function saveSearchHistory (data) {
   return getSearchHistory()
@@ -57,4 +57,40 @@ export const createList = ({ name, limit }) => {
 
 export const deleteList = async (listName) => {
   return AsyncStorage.removeItem(listName)
+}
+
+export function saveBookmark (item) {
+  return Async.get(DAPPS_BOOKMARK, '[]')
+    .then(data => JSON.parse(data))
+    .then(async (result) => {
+      console.warn(result, item)
+      if (result.length === 0) {
+        await createList({ name: DAPPS_BOOKMARK, limit: 50 })
+      }
+
+      addToList(DAPPS_BOOKMARK, item)
+    })
+}
+
+export async function isBookmark (url) {
+  const bookmark = await AsyncStorage.getItem(DAPPS_BOOKMARK).then(data => JSON.parse(data))
+  console.warn(bookmark.data)
+  return bookmark.data.some(mark => mark.url === url)
+}
+
+export function getBookmark () {
+  return Async.get(DAPPS_BOOKMARK, '[]')
+    .then(data => JSON.parse(data))
+}
+
+export function removeBookmark (url) {
+  return getBookmark()
+    .then(result => {
+      const newBookmark = {
+        ...result,
+        data: result.data.filter(item => item.url !== url)
+      }
+      AsyncStorage.setItem(DAPPS_BOOKMARK, JSON.stringify(newBookmark))
+      return newBookmark
+    })
 }

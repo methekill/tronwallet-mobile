@@ -9,6 +9,7 @@ import * as Utils from './Utils'
 const ButtonIcon = ({
   text,
   onPress,
+  onLongPress,
   disabled,
   size,
   full,
@@ -26,6 +27,7 @@ const ButtonIcon = ({
   return (
     <TouchableOpacity
       onPress={onPress}
+      onLongPress={onLongPress}
       disabled={disabled}
       activeOpacity={0.95}
       style={[styles.buttonView, {...flexProps}]}
@@ -34,14 +36,14 @@ const ButtonIcon = ({
         start={{ x: 0.2, y: 0.2 }}
         end={{ x: 1, y: 1 }}
         colors={[Colors.primaryGradient[0], Colors.primaryGradient[1]]}
-        style={[styles.gradientView, {width: size, height: size}]}
+        style={[styles.gradientView, { width: size, height: size }]}
       >
-        <View style={[styles.outterView, {width: size * 0.95, height: size * 0.95, backgroundColor: background}]}>
+        <View style={[styles.outterView, { width: size * 0.95, height: size * 0.95, backgroundColor: background }]}>
           {icon}
         </View>
       </LinearGradient>
       <Utils.VerticalSpacer size={textSpacing} />
-      <Utils.Text style={{fontSize: getAdjustedFontSize(textSize)}} color={color}>{text}</Utils.Text>
+      <Utils.Text style={{ fontSize: getAdjustedFontSize(textSize) }} color={color}>{text}</Utils.Text>
     </TouchableOpacity>
   )
 }
