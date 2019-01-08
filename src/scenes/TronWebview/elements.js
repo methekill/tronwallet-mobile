@@ -3,6 +3,7 @@ import { View } from 'react-native'
 import styled from 'styled-components'
 import LinearGradient from 'react-native-linear-gradient'
 import { ListItem } from 'react-native-elements'
+import PropTypes from 'prop-types'
 
 import { Text, Row } from '../../components/Utils'
 import ButtonIconGradient from '../../components/ButtonIconGradient'
@@ -151,7 +152,7 @@ export const SearchBtn = styled.TouchableOpacity`
   padding: 5px 10px;
 `
 
-export const SearchListItem = ({ title, subtitle }) => (
+export const SearchListItem = ({ title, subtitle, onPress }) => (
   <ListItem
     title={title}
     subtitle={subtitle}
@@ -160,6 +161,28 @@ export const SearchListItem = ({ title, subtitle }) => (
     titleNumberOfLines={1}
     subtitleNumberOfLines={1}
     underlayColor={Colors.lightBackground}
-    containerStyle={{ borderBottomWidth: 0.3, borderBottomColor: '#3e3f5b' }}
+    containerStyle={{
+      borderBottomWidth: 0.3,
+      borderBottomColor: '#3e3f5b',
+      minHeight: 62
+    }}
+    titleStyle={{
+      color: Colors.greyBlue,
+      fontFamily: 'Rubik-Medium',
+      fontSize: 13
+    }}
+    subtitleStyle={{
+      marginTop: 10,
+      color: Colors.primaryText,
+      fontFamily: 'Rubik-Medium',
+      fontSize: 11
+    }}
+    onPress={onPress}
   />
 )
+
+SearchListItem.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  onPress: PropTypes.func
+}

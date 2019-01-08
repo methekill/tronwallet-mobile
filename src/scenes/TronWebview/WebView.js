@@ -8,7 +8,7 @@ import ContractCard from '../ContractPreview/ContractCard'
 
 import { Colors } from './../../components/DesignSystem'
 import { checkAutoContract } from '../../services/tronweb'
-import { saveSearchHistory } from './../../utils/dappUtils'
+import { updateSearchHistory } from './../../utils/dappUtils'
 
 const deviceSize = Dimensions.get('window')
 
@@ -153,11 +153,6 @@ class WebViewWrapper extends Component {
 
       this.setState({ initialized: true })
     }
-
-    saveSearchHistory({
-      url: this.state.url,
-      title: this.state.title
-    })
   }
 
   _callContract = (contract) => {
@@ -227,14 +222,19 @@ class WebViewWrapper extends Component {
     this.setState({
       canGoBack: navState.canGoBack,
       canGoForward: navState.canGoForward,
-      title: navState.title === '' ? this.state.url : navState.title
+      title: navState.title
     })
+
+    if (navState.title !== '') {
+      updateSearchHistory({
+        url: this.state.url,
+        title: navState.title
+      })
+    }
   }
 
   render () {
     const { isPageVisible, url, title, isCardVisible, contract, canGoForward } = this.state
-
-    console.log(isCardVisible, '<<<< is card visible')
 
     return (
       <Modal

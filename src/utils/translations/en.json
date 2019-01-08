@@ -691,7 +691,8 @@
     "title": "DAPPS",
     "search": {
       "placeholder": "Search or type www.",
-      "go": "GO"
+      "go": "GO",
+      "error": "Enter with valid search!"
     }
   }
 }
