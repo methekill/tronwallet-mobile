@@ -34,9 +34,9 @@ export const orderBalancesV2 = (balances, fixedTokens) => {
   })
 
   return [
-    ...orderedBalances.filter(balance => balance),
+    ...orderedBalances,
     ...rest
-  ]
+  ].filter(tkn => tkn && tkn.balance > 0)
 }
 
 export const parseFixedTokens = (tokens) => tokens.map(({name, id}) => ({ name, balance: 0, id }))

@@ -199,8 +199,8 @@ class SellScene extends Component {
 
     const minToSell = Math.round((1 / price) * 1.05) /* Used in Token To Token transaction, it needs to have a hihger variation when selling */
 
-    const firstTokenAlias = { name: firstTokenName, abbr: firstTokenAbbr, image: firstTokenImage }
-    const secondTokenAlias = { name: secondTokenName, abbr: secondTokenAbbr, image: secondTokenImage }
+    const firstTokenAlias = { name: firstTokenName, abbr: firstTokenAbbr, image: firstTokenImage, id: firstTokenId }
+    const secondTokenAlias = { name: secondTokenName, abbr: secondTokenAbbr, image: secondTokenImage, id: secondTokenId }
 
     const firstTokenIdentifier = firstTokenAbbr || firstTokenName
     const secondTokenIdentifier = secondTokenAbbr || secondTokenName
