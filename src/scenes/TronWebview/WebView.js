@@ -8,7 +8,7 @@ import ContractCard from '../ContractPreview/ContractCard'
 
 import { Colors } from './../../components/DesignSystem'
 import { checkAutoContract } from '../../services/tronweb'
-import { saveSearchHistory } from './../../utils/dappUtils'
+import { updateSearchHistory } from './../../utils/dappUtils'
 
 const deviceSize = Dimensions.get('window')
 
@@ -153,11 +153,6 @@ class WebViewWrapper extends Component {
 
       this.setState({ initialized: true })
     }
-
-    saveSearchHistory({
-      url: this.state.url,
-      title: this.state.title
-    })
   }
 
   _callContract = (contract) => {
@@ -227,8 +222,15 @@ class WebViewWrapper extends Component {
     this.setState({
       canGoBack: navState.canGoBack,
       canGoForward: navState.canGoForward,
-      title: navState.title === '' ? this.state.url : navState.title
+      title: navState.title
     })
+
+    if (navState.title !== '') {
+      updateSearchHistory({
+        url: this.state.url,
+        title: navState.title
+      })
+    }
   }
 
   render () {
@@ -269,10 +271,12 @@ class WebViewWrapper extends Component {
           />
         </SafeAreaView>
         <Modal
-          animationType='fade'
-          presentationStyle='overFullScreen'
+          animationIn='fadeIn'
+          animationOut='fadeOut'
           isVisible={isCardVisible}
-          transparent
+          deviceWidth={deviceSize.width}
+          deviceHeight={deviceSize.height}
+          style={styles.modal}
         >
           <CardContainer>
             {isCardVisible ? <ContractCard params={contract} closeDialog={this._closeCardDialog} /> : null}

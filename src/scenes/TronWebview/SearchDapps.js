@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
-import { Animated, Dimensions, FlatList } from 'react-native'
-import { ListItem } from 'react-native-elements'
+import { Animated, Dimensions } from 'react-native'
+import { FlatList } from 'react-navigation'
 import styled, { css } from 'styled-components'
+import Toast from 'react-native-easy-toast'
 import Icon from 'react-native-vector-icons/Feather'
+
 import * as Utils from './../../components/Utils'
 import Input from './../../components/Input'
-import { SearchBtn } from './elements'
+import { SearchBtn, SearchListItem as ListItem } from './elements'
+
 import { Colors } from './../../components/DesignSystem'
 import tl from './../../utils/i18n'
-import { getSearchHistory } from './../../utils/dappUtils'
+import { getSearchHistory, saveSearchHistory } from './../../utils/dappUtils'
+import { isURL } from './../../utils/formatUrl'
 
 const View = Animated.createAnimatedComponent(
   styled.View`
@@ -21,11 +25,11 @@ const View = Animated.createAnimatedComponent(
 )
 
 const InputWrapper = styled.View`
-  padding: 10px 16px 0px;
+  padding: 10px 14px 0px;
   height: 80px;
   ${props => props.showBorder && css`
-    border-bottom-width: 1px;
-    border-bottom-color: ${Colors.darkThree};
+    border-bottom-width: 1.8px;
+    border-bottom-color: ${Colors.darkerBackground};
   `}
 `
 
@@ -46,12 +50,7 @@ class SearchDapps extends Component {
     history: []
   }
 
-  componentDidMount () {
-    getSearchHistory()
-      .then(data => {
-        this.setState({ history: data })
-      })
-  }
+  typingTimeout = null
 
   open = () => {
     this._open(() => {
@@ -84,18 +83,30 @@ class SearchDapps extends Component {
   _onInputFocus = () => {
     this.setState({ expanded: true })
     this._open()
+    getSearchHistory()
+      .then(data => {
+        this.setState({ history: data })
+      })
   }
 
   _inputRightContent = () => {
     const { expanded, searchValue } = this.state
 
     if (!expanded) {
-      return (<Icon name='search' color={Colors.greyBlue} size={14} />)
+      return (
+        <SearchBtn
+          onPress={() => {
+            this.open()
+          }}
+        >
+          <Icon name='search' color={Colors.greyBlue} size={14} />
+        </SearchBtn>
+      )
     }
 
     if (expanded && searchValue !== '') {
       return (
-        <SearchBtn onPress={this._onSearch}>
+        <SearchBtn onPress={() => this._onSearch(searchValue)}>
           <Utils.Text>{tl.t('dapps.search.go')}</Utils.Text>
         </SearchBtn>
       )
@@ -114,26 +125,49 @@ class SearchDapps extends Component {
   }
 
   _parseURL = (url) => {
-    if (!/https?/g.test(url)) {
+    if (!/http(s)?/i.test(url)) {
       return `http://${url}`
     }
     return url
   }
 
-  _onSearch = () => {
-    const { searchValue } = this.state
-    this._input.blur()
-    this.setState({ expanded: false, searchValue: '' })
-    this._close()
-    if (searchValue !== '') {
-      this.props.onSearch(
-        this._parseURL(searchValue)
-      )
+  _onSearch = (searchValue) => {
+    if (isURL(searchValue)) {
+      this._input.blur()
+      this.setState({ expanded: false, searchValue: '' })
+      this._close()
+      if (searchValue !== '') {
+        this._input.clear()
+        const url = this._parseURL(searchValue)
+        this.props.onSearch(url)
+        saveSearchHistory({ url, title: '' })
+      }
+    } else {
+      this.refs.toast.show(tl.t('dapps.search.error'), 800)
     }
   }
 
+  _onChangeText = (text) => {
+    if (this.intervalId) {
+      clearTimeout(this.intervalId)
+    }
+    this.intervalId = setTimeout(() => {
+      this.setState({ searchValue: text })
+    }, 800)
+  }
+
+  _getHistory = () => {
+    const { searchValue, history } = this.state
+    if (searchValue !== '') {
+      const regex = new RegExp(searchValue, 'ig')
+      return history.filter(item => regex.test(item.title) || regex.test(item.url))
+    }
+
+    return history
+  }
+
   render () {
-    const { searchValue, expanded, history } = this.state
+    const { expanded } = this.state
     const style = {
       height: this.state.heightAnimation
     }
@@ -145,26 +179,34 @@ class SearchDapps extends Component {
               innerRef={ref => { this._input = ref }}
               onFocus={this._onInputFocus}
               rightContent={this._inputRightContent}
-              onChangeText={searchValue => this.setState({ searchValue })}
-              onSubmitEditing={this._onSearch}
+              onChangeText={this._onChangeText}
+              onSubmitEditing={() => this._onSearch(this.state.searchValue)}
               placeholder={tl.t('dapps.search.placeholder')}
-              value={searchValue}
               keyboardType='url'
               returnKeyType='go'
+              borderColor={expanded ? 'transparent' : '#51526B'}
+              onPaste={() => console.warn('asdasdad')}
             />
           </InputWrapper>
           {expanded && (
             <FlatList
-              data={history}
-              renderItem={({ item }) => (
-                <ListItem
-                  title={item.title ? item.title : item.url}
-                  subtitle={item.title ? item.url : null}
-                />
-              )}
+              data={this._getHistory()}
+              renderItem={({ item }) => {
+                return (
+                  <ListItem
+                    title={item.title}
+                    subtitle={item.url}
+                    onPress={() => this._onSearch(item.url)}
+                  />
+                )
+              }}
+              keyExtractor={(item, index) => item.url + index}
+              keyboardShouldPersistTaps='always'
+              keyboardDismissMode='on-drag'
             />
           )}
         </Utils.SafeAreaView>
+        <Toast ref='toast' position='top' />
       </View>
     )
   }

@@ -6,17 +6,34 @@ import { DAPPS_SEARCH_HISTORY } from './constants'
 
 // AsyncStorage.removeItem(DAPPS_SEARCH_HISTORY)
 
-export function saveSearchHistory (value) {
-  Async.get(DAPPS_SEARCH_HISTORY, '[]')
+export function saveSearchHistory (data) {
+  return getSearchHistory()
     .then(result => {
-      const currentHistory = JSON.parse(result)
-      currentHistory.push(value)
-      Async.set(DAPPS_SEARCH_HISTORY, JSON.stringify(currentHistory))
+      if (result.some(item => item.url === data.url)) {
+        return null
+      }
+      result.push(data)
+      Async.set(DAPPS_SEARCH_HISTORY, JSON.stringify(result))
+      return result
     })
 }
 
 export function getSearchHistory () {
   return Async.get(DAPPS_SEARCH_HISTORY, '[]').then(data => JSON.parse(data))
+}
+
+export function updateSearchHistory (item) {
+  return getSearchHistory()
+    .then(result => {
+      if (result.length === 0) return null
+
+      const itemIndex = result.findIndex(data => data.url === item.url)
+      if (itemIndex > -1) {
+        result[itemIndex].title = item.title
+        Async.set(DAPPS_SEARCH_HISTORY, JSON.stringify(result))
+      }
+      return result
+    })
 }
 
 export const addToList = async (name, data) => {

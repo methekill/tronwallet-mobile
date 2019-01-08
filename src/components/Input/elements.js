@@ -11,7 +11,7 @@ export const InputWrapper = styled.View`
   padding-vertical: 5.5px;
   border-radius: 4px;
   border-width: 1px;
-  border-color: #51526B;
+  border-color: ${props => props.borderColor};
   flex-direction: row;
   align-items: center;
 `
