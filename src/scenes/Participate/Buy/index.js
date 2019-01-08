@@ -23,7 +23,6 @@ import {
 
 // Utils
 import tl from '../../../utils/i18n'
-import getBalanceStore from '../../../store/balance'
 import { formatNumber } from '../../../utils/numberUtils'
 import Client, { ONE_TRX } from '../../../services/client'
 import { signTransaction } from '../../../utils/transactionUtils'
@@ -81,16 +80,6 @@ class BuyScene extends Component {
         amountToBuy: 0
       })
     }
-  }
-
-  _getBalancesFromStore = async () => {
-    const store = await getBalanceStore()
-    const { publicKey } = this.props.context
-
-    return store
-      .objects('Balance')
-      .filtered(`name = 'TRX' AND account = '${publicKey}'`)
-      .map(item => Object.assign({}, item))
   }
 
   _fixNumber = value => {
@@ -191,7 +180,7 @@ class BuyScene extends Component {
         }
         : {
           participateAddress: item.ownerAddress,
-          participateToken: item.name,
+          participateToken: item.id,
           participateAmount: this._fixNumber(amountToPay)
         }
 

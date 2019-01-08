@@ -15,7 +15,8 @@ class ClientWallet {
     this.tronwalletApi = Config.TRONWALLET_API
     this.tronwalletDB = Config.TRONWALLET_DB
     this.tronwalletExApi = Config.TRONWALLET_EX
-    this.apiVersion = 3.0
+    this.dbApiVersion = 3.0
+    this.slsApiVersion = 2.0
   }
 
   //* ============TronScan Api============*//
@@ -69,7 +70,7 @@ class ClientWallet {
   }
 
   async getTransactionsList (address) {
-    const reqBody = { '$or': [{ 'toAddress': address }, { 'ownerAddress': address }], 'version': this.apiVersion }
+    const reqBody = { '$or': [{ 'toAddress': address }, { 'ownerAddress': address }], 'version': this.dbApiVersion }
     const { data: result } = await axios.post(`${this.tronwalletDB}/transactions/find`, reqBody)
     return result.map(tx =>
       tx.contractType <= 2
@@ -103,9 +104,8 @@ class ClientWallet {
   }
 
   async getAssetList () {
-    const { nodeIp } = await NodesIp.getAllNodesIp()
     const { data } = await axios.get(
-      `${this.tronwalletApi}/vote/list?node=${nodeIp}`
+      `${this.tronwalletApi}/asset/list`
     )
     return data
   }
@@ -143,11 +143,7 @@ class ClientWallet {
   }
 
   async broadcastTransaction (transactionSigned) {
-    const { nodeIp } = await NodesIp.getAllNodesIp()
-    const reqBody = {
-      transactionSigned,
-      node: nodeIp
-    }
+    const reqBody = { transactionSigned }
     const { data: { result } } = await axios.post(
       `${this.tronwalletApi}/transaction/broadcast`,
       reqBody
@@ -156,14 +152,13 @@ class ClientWallet {
   }
 
   async getTransferTransaction ({ to, from, token, amount, data }) {
-    const { nodeIp } = await NodesIp.getAllNodesIp()
     const reqBody = {
       from,
       to,
       amount,
       token,
       data,
-      node: nodeIp
+      version: this.slsApiVersion
     }
     const { data: { transaction } } = await axios.post(
       `${this.tronwalletApi}/unsigned/send`,
@@ -173,12 +168,10 @@ class ClientWallet {
   }
 
   async getFreezeTransaction (address, freezeAmount) {
-    const { nodeIp } = await NodesIp.getAllNodesIp()
     const reqBody = {
       address,
       freezeAmount,
-      freezeDuration: 3,
-      node: nodeIp
+      freezeDuration: 3
     }
     const { data: { transaction } } = await axios.post(
       `${this.tronwalletApi}/unsigned/freeze`,
@@ -187,12 +180,8 @@ class ClientWallet {
     return transaction
   }
 
-  async getUnfreezeTransaction (address, pin) {
-    const { nodeIp } = await NodesIp.getAllNodesIp()
-    const reqBody = {
-      address,
-      node: nodeIp
-    }
+  async getUnfreezeTransaction (address) {
+    const reqBody = { address }
     const { data: { transaction } } = await axios.post(
       `${this.tronwalletApi}/unsigned/unfreeze`,
       reqBody
@@ -205,13 +194,12 @@ class ClientWallet {
     participateToken,
     participateAddress
   }) {
-    const { nodeIp } = await NodesIp.getAllNodesIp()
     const reqBody = {
       address,
       participateAmount,
       participateToken,
       participateAddress,
-      node: nodeIp
+      version: this.slsApiVersion
     }
     const { data: { transaction } } = await axios.post(
       `${this.tronwalletApi}/unsigned/participate`,
@@ -221,12 +209,7 @@ class ClientWallet {
   }
 
   async getVoteWitnessTransaction (address, votes) {
-    const { nodeIp } = await NodesIp.getAllNodesIp()
-    const reqBody = {
-      address,
-      votes,
-      node: nodeIp
-    }
+    const reqBody = { address, votes }
     const { data: { transaction } } = await axios.post(
       `${this.tronwalletApi}/unsigned/vote`,
       reqBody

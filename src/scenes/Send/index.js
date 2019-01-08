@@ -185,7 +185,6 @@ class SendScene extends Component {
     const { from, to, amount, tokenID, description } = this.state
     this.setState({ loadingSign: true, error: null })
 
-    // TEMP FIX
     const token = tokenID === '1' ? 'TRX' : tokenID
     try {
       const payload = {
@@ -195,7 +194,6 @@ class SendScene extends Component {
         amount: Number(amount).toFixed(6),
         data: description
       }
-      console.warn('...', payload)
 
       // Serverless
       const data = await Client.getTransferTransaction(payload)
