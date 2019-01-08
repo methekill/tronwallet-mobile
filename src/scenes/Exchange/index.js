@@ -62,10 +62,12 @@ export class ExchangeScene extends Component {
       }
     }
 
-    _getBalanceByName = tokenName => {
-      const { balances, publicKey } = this.props.context
-      if (balances[publicKey]) {
-        const { balance } = balances[publicKey].find(bl => bl.name === tokenName) || { balance: 0 }
+    _getBalanceById = tokenId => {
+      const { getCurrentBalances } = this.props.context
+      const currentBalances = getCurrentBalances()
+
+      if (currentBalances.length) {
+        const { balance } = currentBalances.find(bl => bl.id === tokenId) || { balance: 0 }
         return formatNumber(balance)
       }
       return formatNumber(0, true)
@@ -73,8 +75,8 @@ export class ExchangeScene extends Component {
 
     _sortExList = (list, favList) => (
       sortBy(
-        list.map(ex => ({...ex, favorited: favList.indexOf(ex.exchangeId) > -1, firstTokenUserBalance: this._getBalanceByName(ex.firstTokenId)})),
-        [(ex) => !ex.favorited, (ex) => ex.firstTokenId !== 'TWX', (ex) => -(ex.variation || -999)]
+        list.map(ex => ({...ex, favorited: favList.indexOf(ex.exchangeId) > -1, firstTokenUserBalance: this._getBalanceById(ex.firstTokenId)})),
+        [(ex) => !ex.favorited, (ex) => ex.firstTokenId !== '1000018', (ex) => -(ex.variation || -999)]
       )
     )
 

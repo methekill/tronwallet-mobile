@@ -17,7 +17,7 @@ import { Context } from './src/store/context'
 import NodesIp from './src/utils/nodeIp'
 import { getUserSecrets } from './src/utils/secretsUtils'
 import getBalanceStore from './src/store/balance'
-import { USER_PREFERRED_CURRENCY, ALWAYS_ASK_PIN, USER_STATUS, USER_FILTERED_TOKENS, USE_BIOMETRY } from './src/utils/constants'
+import { USER_PREFERRED_CURRENCY, ALWAYS_ASK_PIN, USER_STATUS, USER_FILTERED_TOKENS, USE_BIOMETRY, WALLET_TOKENS } from './src/utils/constants'
 import { ONE_SIGNAL_KEY, MIXPANEL_TOKEN } from './config'
 import ConfigJson from './package.json'
 import SecretStore from './src/store/secrets'
@@ -60,7 +60,7 @@ class App extends Component {
     alwaysAskPin: true,
     currency: null,
     secretMode: 'mnemonic',
-    fixedTokens: ['TRX', 'TWX'],
+    fixedTokens: WALLET_TOKENS,
     hasUnreadNotification: false
   }
 

@@ -12,9 +12,9 @@ class ClientWallet {
     this.api = Config.MAIN_API_URL
     this.apiTest = Config.API_URL
     this.notifier = Config.NOTIFIER_API_URL
-    this.tronwalletApi = Config.TRONWALLET_API
+    this.tronwalletApi = 'https://l2rl65r7h8.execute-api.us-east-1.amazonaws.com/dev/tron'
     this.tronwalletDB = Config.TRONWALLET_DB
-    this.tronwalletExApi = Config.TRONWALLET_EX
+    this.tronwalletExApi = ' https://ccwag9ulok.execute-api.us-east-1.amazonaws.com/dev/exchange'
     this.dbApiVersion = 3.0
     this.slsApiVersion = 2.0
   }
@@ -118,21 +118,20 @@ class ClientWallet {
 
   async getExchangesList () {
     const [fullExchangeList, selectedExchangeList] = await Promise.all([
-      axios.get(`${this.tronwalletExApi}/list`),
+      axios.get(`${this.tronwalletExApi}/v2/list`),
       getExchangeContentful()
     ])
-
     let { data: exchangeList } = fullExchangeList
     const filteredExchangeList = exchangeList
       .map((ex) => {
         const exAvailable = selectedExchangeList.find(selectedEx => selectedEx.exchangeId === ex.exchangeId)
         return exAvailable ? {...ex, ...exAvailable} : ex
       })
-    return sortBy(filteredExchangeList, [(ex) => ex.firstTokenId !== 'TWX', (ex) => -(ex.variation || -999)])
+    return sortBy(filteredExchangeList, [(ex) => ex.firstTokenId !== '1000018', (ex) => -(ex.variation || -999)])
   }
 
   async getExchangeById (id) {
-    const { data: exchange } = await axios.post(`${this.tronwalletExApi}`, {id})
+    const { data: exchange } = await axios.post(`${this.tronwalletExApi}/v2`, {id})
     return exchange
   }
 
@@ -218,7 +217,7 @@ class ClientWallet {
   }
 
   async getExchangeTransaction ({address, tokenId, exchangeId, quant, expected}) {
-    const reqBody = { address, tokenId, exchangeId, quant, expected }
+    const reqBody = { address, tokenId, exchangeId, quant, expected, version: 2.0 }
     const { data: { transaction } } = await axios.post(`${this.tronwalletExApi}/unsigned`, reqBody)
     return transaction
   }
