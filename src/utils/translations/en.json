@@ -693,6 +693,12 @@
       "placeholder": "Search or type www.",
       "go": "GO",
       "error": "Enter with valid search!"
+    },
+    "home": {
+      "bookmark": {
+        "title": "Bookmark",
+        "cancelOperation": "done"
+      }
     }
   }
 }

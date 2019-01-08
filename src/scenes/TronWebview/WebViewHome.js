@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { ScrollView } from 'react-native'
 import * as Animatable from 'react-native-animatable'
 import { Text } from '../../components/Utils'
+import tl from './../../utils/i18n'
 
 import { DAppButton, HomeContainer, HomeTitle, HomeSection, BtnRemove, DAppButtonWrapper, BtnCancel } from './elements'
 import { getBookmark, removeBookmark } from './../../utils/dappUtils'
@@ -11,6 +12,7 @@ const Remove = Animatable.createAnimatableComponent(BtnRemove)
 
 class WebViewHome extends Component {
   static displayName = 'WebView Home'
+
   static defaultProps = {
     onPress: () => { }
   }
@@ -51,11 +53,11 @@ class WebViewHome extends Component {
     return (
       <HomeContainer>
         <HomeTitle>
-          <Text>History</Text>
+          <Text>{tl.t('dapps.home.bookmark.title')}</Text>
           {this.state.showRemoveIcon && (
             <Animatable.View animation='fadeIn' iterationCount={1} >
               <BtnCancel onPress={() => this.setState({ showRemoveIcon: false })}>
-                <Text color='#000' size='xsmall'>done</Text>
+                <Text color='#000' size='xsmall'>{tl.t('dapps.home.bookmark.cancelOperation')}</Text>
               </BtnCancel>
             </Animatable.View>
           )}

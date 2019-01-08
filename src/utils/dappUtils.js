@@ -74,7 +74,6 @@ export function saveBookmark (item) {
 
 export async function isBookmark (url) {
   const bookmark = await AsyncStorage.getItem(DAPPS_BOOKMARK).then(data => JSON.parse(data))
-  console.warn(bookmark.data)
   return bookmark.data.some(mark => mark.url === url)
 }
 

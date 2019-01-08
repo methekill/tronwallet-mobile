@@ -149,7 +149,7 @@ const Btn = styled.TouchableOpacity`
   padding: 5px 16px;
 `
 
-export const WebViewFooter = ({ onGobackPress, onGoForwardPress, onMenuPress, onSearchPress, onBookMarkPress, bookmark }) => (
+export const WebViewFooter = ({ onGobackPress, onGoForwardPress, onMenuPress, onSearchPress, onBookMarkPress, isBookmark }) => (
   <WebViewFooterWrapper>
     <Row width='40%' align='center' justify='space-around' paddingRight='large'>
       <Btn onPress={onGobackPress}>
@@ -166,15 +166,17 @@ export const WebViewFooter = ({ onGobackPress, onGoForwardPress, onMenuPress, on
       <Btn onPress={onSearchPress}>
         <Feather name='search' size={20} color={Colors.primaryText} />
       </Btn>
-      <Btn onPress={onBookMarkPress}>
-        {bookmark ? (
+      {isBookmark ? (
+        <Btn onPress={onBookMarkPress}>
           <Animatable.Text animation='pulse' easing='ease-out' iterationCount={5} delay={500} >
             <Ionicons name='md-star' size={20} color={Colors.primaryText} />
           </Animatable.Text>
-        ) : (
+        </Btn>
+      ) : (
+        <Btn onPress={onBookMarkPress}>
           <Ionicons name='ios-star-outline' size={20} color={Colors.primaryText} />
-        )}
-      </Btn>
+        </Btn>
+      )}
     </Row>
   </WebViewFooterWrapper>
 )

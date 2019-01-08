@@ -3,7 +3,7 @@ import { WebView, Alert, StyleSheet, Dimensions, BackHandler } from 'react-nativ
 import { SafeAreaView } from 'react-navigation'
 import Modal from 'react-native-modal'
 import { WebViewHeader, WebViewFooter, CardContainer } from './elements'
-// import Loading from './../../components/LoadingScene'
+import Loading from './../../components/LoadingScene'
 import ContractCard from '../ContractPreview/ContractCard'
 
 import { Colors } from './../../components/DesignSystem'
@@ -153,9 +153,13 @@ class WebViewWrapper extends Component {
       })
 
       this.setState({
-        initialized: true,
-        isBookmark: isBookmark(this.state.url)
+        initialized: true
       })
+
+      isBookmark(this.state.url)
+        .then(result => {
+          this.setState({ isBookmark: result })
+        })
     }
   }
 
@@ -253,7 +257,7 @@ class WebViewWrapper extends Component {
   }
 
   render () {
-    const { isPageVisible, url, title, isCardVisible, contract, canGoForward } = this.state
+    const { isPageVisible, url, title, isCardVisible, contract, canGoForward, isBookmark } = this.state
 
     return (
       <Modal
@@ -277,6 +281,8 @@ class WebViewWrapper extends Component {
             nativeConfig={{ props: { webContentsDebuggingEnabled: true } }}
             javaScriptEnabled
             automaticallyAdjustContentInsets
+            renderLoading={() => <Loading />}
+            startInLoadingState
           />
           <WebViewFooter
             onGobackPress={this._goBack}
@@ -288,7 +294,7 @@ class WebViewWrapper extends Component {
               })
             }}
             onBookMarkPress={() => this._checkBookmark()}
-            bookmark={this.state.isBookmark}
+            isBookmark={isBookmark}
           />
         </SafeAreaView>
         <Modal
@@ -312,16 +318,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.slateGrey
-    // position: 'absolute',
-    // top: 0,
-    // left: 0,
-    // right: 0,
-    // bottom: 0
   },
   webview: {
-    // flex: 1,
-    width: '100%'
-    // height: '100%'
+    width: '100%',
+    backgroundColor: Colors.background
   },
   modal: {
     padding: 0,
