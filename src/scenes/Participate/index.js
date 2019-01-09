@@ -118,7 +118,7 @@ class ParticipateHome extends React.Component {
   }
 
   _filterOrderedAssets = assets =>
-    assets.filter(({ issuedPercentage, name, startTime, endTime }) => issuedPercentage < 100 && startTime < Date.now() && endTime > Date.now())
+    assets.filter(({ issuedPercentage, startTime, endTime }) => issuedPercentage < 100 && startTime < Date.now() && endTime > Date.now())
 
   _onSearchPressed = () => {
     const { isSearching, assetList } = this.state
@@ -168,7 +168,7 @@ class ParticipateHome extends React.Component {
   _renderFeaturedTokens = () => {
     const { isSearching, featuredTokens, searching, searchName } = this.state
     const featTokens = featuredTokens.map(token => (
-      <React.Fragment key={token.name}>
+      <React.Fragment key={token.id}>
         {isSearching
           ? this._renderCardContent(token)
           : this._renderFeaturedCardContent(token)}
@@ -192,13 +192,13 @@ class ParticipateHome extends React.Component {
   }
 
   _renderFeaturedCardContent = asset => {
-    const { name, abbr, issuedPercentage, endTime } = asset
+    const { name, abbr, issuedPercentage, endTime, id } = asset
     return (
       <GradientCard>
         <WhiteLabelText label={abbr.toUpperCase()} />
         <HorizontalSpacer size={18} />
         <View flex={1} justify='space-between'>
-          <FeaturedTokenName>{getCustomName(name)}</FeaturedTokenName>
+          <FeaturedTokenName>{getCustomName(name, id)}</FeaturedTokenName>
           <VerticalSpacer size={36} />
           <View>
             <ProgressBar
@@ -229,7 +229,7 @@ class ParticipateHome extends React.Component {
   }
 
   _renderCardContent = asset => {
-    const { name, abbr, price, issuedPercentage, endTime, isVerified } = asset
+    const { name, abbr, price, issuedPercentage, endTime, isVerified, id } = asset
     return (
       <Card>
         <TokenLabel label={abbr.toUpperCase()} />
@@ -238,7 +238,7 @@ class ParticipateHome extends React.Component {
           {isVerified
             ? (
               <Row align='center'>
-                <FeaturedTokenName>{getCustomName(name)}</FeaturedTokenName>
+                <FeaturedTokenName>{getCustomName(name, id)}</FeaturedTokenName>
                 <HorizontalSpacer size={4} />
                 <FontelloIcon
                   name='guarantee'

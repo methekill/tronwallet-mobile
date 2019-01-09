@@ -667,7 +667,6 @@ class TransactionDetails extends React.Component {
       }
       this.setState({ item: transaction, refreshing: false })
     } catch (e) {
-      console.warn('err.', e.message)
       this.setState({ refreshing: false })
       logSentry(e, 'Transaction Detail - on refresh')
     }

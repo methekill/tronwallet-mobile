@@ -41,15 +41,20 @@ class BuyScene extends Component {
   _submit = () => {
     const { buyAmount, estimatedCost } = this.state
     const { askPinEx, exchangeData, context } = this.props
-    const { balances, publicKey } = context
-    const { firstTokenBalance, secondTokenBalance, firstTokenId, secondTokenId } = exchangeData
+    const { getCurrentBalances } = context
+    const {
+      firstTokenName,
+      firstTokenBalance,
+      secondTokenName,
+      secondTokenBalance,
+      secondTokenId } = exchangeData
 
     if (buyAmount <= 0 || !buyAmount) {
       this.buyAmount.focus()
       return
     }
 
-    const expecBuy = estimatedCost || estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount, secondTokenId === 'TRX')
+    const expecBuy = estimatedCost || estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount, secondTokenId === '_')
 
     if (expecBuy <= 0) {
       Alert.alert(tl.t('warning'), `Not enough estimated cost `)
@@ -64,11 +69,11 @@ class BuyScene extends Component {
       return
     }
 
-    const { balance: userSecondTokenBalance } =
-      balances[publicKey].find(bl => bl.name === secondTokenId) || { balance: 0 }
+    const secondBalanceId = secondTokenId === '_' ? '1' : secondTokenId
+    const { balance: userSecondTokenBalance } = getCurrentBalances().find(bl => bl.id === secondBalanceId) || { balance: 0 }
 
     if (userSecondTokenBalance <= 0 || userSecondTokenBalance < expecBuy) {
-      Alert.alert(tl.t('warning'), `You don't have enough ${secondTokenId} to buy ${firstTokenId}`)
+      Alert.alert(tl.t('warning'), `You don't have enough ${secondTokenName} to buy ${firstTokenName}`)
       return
     }
 
@@ -98,10 +103,10 @@ class BuyScene extends Component {
     const { exchangeId, firstTokenBalance, secondTokenBalance, secondTokenId, firstTokenId } = this.props.exchangeData
 
     const quant = estimatedCost
-      ? trxValueParse(estimatedCost, secondTokenId === 'TRX')
+      ? trxValueParse(estimatedCost, secondTokenId === '_')
       : estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount)
 
-    const expected = trxValueParse(buyAmount, firstTokenId === 'TRX')
+    const expected = trxValueParse(buyAmount, firstTokenId === '_')
 
     this.setState({ loading: true })
     try {
@@ -141,21 +146,22 @@ class BuyScene extends Component {
   }
 
   _setPercentage = percentage => {
-    const { balances, publicKey } = this.props.context
+    const { getCurrentBalances } = this.props.context
     const { secondTokenId, price, secondTokenBalance, firstTokenBalance } = this.props.exchangeData
 
-    const { balance } = balances[publicKey].find(bl => bl.name === secondTokenId) || { balance: 0 }
+    const secondBalanceId = secondTokenId === '_' ? '1' : secondTokenId
+    const { balance } = getCurrentBalances().find(bl => bl.id === secondBalanceId) || { balance: 0 }
 
     const amountWanted = balance * percentage
 
-    const buyAmount = secondTokenId === 'TRX'
+    const buyAmount = secondTokenId === '_'
       ? amountWanted * LOW_VARIATION / price
       : estimatedBuyWanted(firstTokenBalance, secondTokenBalance, amountWanted)
 
     this._changeBuyAmount(buyAmount)
   }
 
-  _getInputType = tokenId => tokenId === 'TRX' ? 'float' : 'int'
+  _getInputType = tokenId => tokenId === '_' ? 'float' : 'int'
 
   _changeBuyAmount = buyAmount => {
     const {
@@ -163,7 +169,7 @@ class BuyScene extends Component {
       secondTokenId,
       secondTokenBalance
     } = this.props.exchangeData
-    const estimatedCost = estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount || 0, secondTokenId === 'TRX')
+    const estimatedCost = estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount || 0, secondTokenId === '_')
 
     this.setState({buyAmount: Math.round(buyAmount), estimatedCost})
   }
@@ -184,28 +190,30 @@ class BuyScene extends Component {
     const {
       firstTokenBalance,
       firstTokenId,
+      firstTokenName,
       firstTokenAbbr,
       firstTokenImage,
       secondTokenId,
+      secondTokenName,
       secondTokenAbbr,
       secondTokenBalance,
       price,
       secondTokenImage } = this.props.exchangeData
 
-    const cost = estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount || 0, secondTokenId === 'TRX')
+    const cost = estimatedBuyCost(firstTokenBalance, secondTokenBalance, buyAmount || 0, secondTokenId === '_')
     const formattedCost = formatFloat(cost)
 
-    const isTokenToToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
+    const isTokenToToken = firstTokenId !== '_' && secondTokenId !== '_'
     const buyType = getInputType(firstTokenId)
     const estimatedType = getInputType(secondTokenId)
 
     const minBuy = Math.floor(cost / price)
 
-    const firstToken = { name: firstTokenId, abbr: firstTokenAbbr, image: firstTokenImage }
-    const secondToken = { name: secondTokenId, abbr: secondTokenAbbr, image: secondTokenImage }
+    const firstTokenAlias = { name: firstTokenName, abbr: firstTokenAbbr, image: firstTokenImage, id: firstTokenId }
+    const secondTokenAlias = { name: secondTokenName, abbr: secondTokenAbbr, image: secondTokenImage, id: secondTokenId }
 
-    const firstTokenIdentifier = firstTokenAbbr || firstTokenId
-    const secondTokenIdentifier = secondTokenAbbr || secondTokenId
+    const firstTokenIdentifier = firstTokenAbbr || firstTokenName
+    const secondTokenIdentifier = secondTokenAbbr || secondTokenName
 
     return (
       <ScrollWrapper>
@@ -213,12 +221,12 @@ class BuyScene extends Component {
         <Utils.View paddingX='medium'>
 
           <ExchangeBalancePair
-            firstToken={secondToken}
-            secondToken={firstToken}
+            firstToken={secondTokenAlias}
+            secondToken={firstTokenAlias}
           />
           <ExchangePair
-            firstToken={firstTokenId}
-            secondToken={secondTokenId}
+            firstToken={firstTokenName}
+            secondToken={secondTokenName}
             price={price}
           />
           <Utils.View paddingY='small'>
@@ -241,7 +249,7 @@ class BuyScene extends Component {
             />
             {isTokenToToken &&
             <Utils.Text size='tiny' font='regular' align='right'>
-              {tl.t('exchange.minToBuy', {min: minBuy, tokenId: firstTokenId})}
+              {tl.t('exchange.minToBuy', {min: minBuy, tokenId: firstTokenName})}
             </Utils.Text>}
             <Input
               label={tl.t('exchange.estimatedCost')}

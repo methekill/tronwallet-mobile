@@ -25,9 +25,9 @@ export const queryToken = async (verifiedOnly = false, name = '', params = defau
   return { total, results }
 }
 
-export const getFixedTokens = async () => {
-  const fixedNames = []
-  return ['TRX', ...fixedNames]
+export const getFixedTokensV2 = async () => {
+  const fixedTokensId = []
+  return [{name: 'TRX', id: '1'}, ...fixedTokensId]
 }
 
 export const getSystemStatus = async () => {
