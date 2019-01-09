@@ -12,10 +12,12 @@ import { formatNumber } from '../../../utils/numberUtils'
 const ARROW_GRADIENT = require('../../../assets/arrow-right-gradient.png')
 
 class ExchangeBalancePair extends Component {
-  _findTokenBalance = (tokenName) => {
-    const { balances, publicKey } = this.props.context
-    if (balances[publicKey]) {
-      const { balance: tokenBalance } = balances[publicKey].find(bl => bl.name === tokenName) || { balance: 0 }
+  _findTokenBalance = tokenId => {
+    const { getCurrentBalances } = this.props.context
+    const currentBalances = getCurrentBalances()
+    if (currentBalances.length) {
+      const tokenIdParse = tokenId === '_' ? '1' : tokenId
+      const { balance: tokenBalance } = currentBalances.find(bl => bl.id === tokenIdParse) || { balance: 0 }
       return tokenBalance
     }
     return { balance: 0 }
@@ -24,8 +26,8 @@ class ExchangeBalancePair extends Component {
   render () {
     const { firstToken, secondToken } = this.props
 
-    const firstTokenBalance = this._findTokenBalance(firstToken.name)
-    const secondTokenBalance = this._findTokenBalance(secondToken.name)
+    const firstTokenBalance = this._findTokenBalance(firstToken.id)
+    const secondTokenBalance = this._findTokenBalance(secondToken.id)
 
     const firstTokenIdentifier = firstToken.abbr || firstToken.name
     const secondTokenIdentifier = secondToken.abbr || secondToken.name
@@ -84,12 +86,14 @@ ExchangeBalancePair.defaultProps = {
   firstToken: {
     name: '',
     abbr: '',
-    image: ''
+    image: '',
+    id: ''
   },
   secondToken: {
     name: '',
     abbr: '',
-    image: ''
+    image: '',
+    id: ''
   }
 }
 export default withContext(ExchangeBalancePair)
