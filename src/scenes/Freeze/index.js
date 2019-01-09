@@ -104,7 +104,7 @@ class FreezeScene extends Component {
     const { balances, publicKey } = this.props.context
     const { balance } = balances[publicKey].find(bl => bl.name === 'TRX') || { balance: 0 }
     const amountWanted = Math.floor(balance * percentage)
-    this.setState({amount: formatNumber(amountWanted)})
+    this._changeFreeze(amountWanted.toString())
   }
 
   _submitUnfreeze = async () => {

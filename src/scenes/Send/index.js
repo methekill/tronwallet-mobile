@@ -213,7 +213,7 @@ class SendScene extends Component {
           tx: transactionSigned
         })
       })
-      MixPanel.trackWithProperties('Send Operation', { type: 'Open Tx' })
+      MixPanel.trackWithProperties('Navigate to transaction details', { type: 'Open Tx' })
     } catch (error) {
       Alert.alert(tl.t('warning'), tl.t('error.default'))
       this.setState({ loadingSign: false })
