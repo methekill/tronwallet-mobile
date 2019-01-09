@@ -79,7 +79,7 @@ class ContactsForm extends Component {
         try {
           await store.write(() => { store.create('UserSecret', account, true) })
           this.props.navigation.goBack()
-          MixPanel.trackWithProperties('Contacts Operation', { type: 'WriteUserSecret' })
+          MixPanel.track('New Account')
         } catch (e) {
           this.setState({
             generalError: tl.t('addressBook.form.generalError')
@@ -91,7 +91,7 @@ class ContactsForm extends Component {
         try {
           await store.write(() => { store.create('Contact', data, true) })
           this.props.navigation.goBack()
-          MixPanel.trackWithProperties('Contacts Operation', { type: 'WriteContact' })
+          MixPanel.track('New Account')
         } catch (e) {
           this.setState({
             generalError: tl.t('addressBook.form.generalError')
@@ -187,7 +187,7 @@ class ContactsForm extends Component {
     if (address) {
       this._changeAddress(address)
       this._nextInput('submit')
-      MixPanel.trackWithProperties('Contacts Operation', { type: 'Paste address' })
+      MixPanel.track('Paste contact address')
     }
   }
 
@@ -197,7 +197,7 @@ class ContactsForm extends Component {
 
   _readPublicKey = e => {
     this.address.focus()
-    MixPanel.trackWithProperties('Contacts Operation', { type: 'Scan address' })
+    MixPanel.track('Scan contact address')
     this.setState({ address: e.data }, () => {
       this._closeModal()
     })

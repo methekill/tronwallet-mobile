@@ -18,7 +18,7 @@
   "success": "Éxito",
   "warning": "Advertencia",
   "cancel": "Cancelar",
-  "remove": "Remove",
+  "remove": "Quitar",
   "address": "Dirección",
   "message": "Mensaje",
   "ex": "Intercambio",
@@ -669,10 +669,14 @@
       "msg": "No hay notificaciones disponibles en el momento"
     },
     "notifications": {
-      "title": "notifications"
+      "title": "Notificaciones"
     },
     "signals": {
       "title": "SEÑALES"
     }
+  },
+  "contract": {
+    "signMessage": "No firmar automáticamente",
+    "time": "Minutos"
   }
 }

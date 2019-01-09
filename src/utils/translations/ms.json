@@ -18,7 +18,7 @@
   "success": "Berjaya",
   "warning": "Amaran",
   "cancel": "Batal",
-  "remove": "Remove",
+  "remove": "Keluarkan",
   "address": "Alamat",
   "message": "Mesej",
   "ex": "Bursa",
@@ -669,10 +669,14 @@
       "msg": "Pemberitahuan tidak tersedia pada masa ini"
     },
     "notifications": {
-      "title": "notifications"
+      "title": "pemberitahuan"
     },
     "signals": {
       "title": "ISYARAT"
     }
+  },
+  "contract": {
+    "signMessage": "Jangan menandatangani secara automatik",
+    "time": "Minit"
   }
 }

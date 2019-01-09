@@ -669,10 +669,14 @@
       "msg": "Inga notifikationer tillgängliga just nu"
     },
     "notifications": {
-      "title": "notifications"
+      "title": "notifikationer"
     },
     "signals": {
       "title": "MEDDELANDEN"
     }
+  },
+  "contract": {
+    "signMessage": "Signera inte automatiskt",
+    "time": "Minuter"
   }
 }
