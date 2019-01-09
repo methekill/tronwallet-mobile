@@ -80,7 +80,7 @@ class MakePayment extends PureComponent {
           testInput: pin => pin === context.pin,
           onSuccess: () => {
             const payload = { from, to: address, amount, tokenId, data: description }
-            MixPanel.trackWithProperties('Pin Validation', payload)
+            MixPanel.trackWithProperties('Pin Validation - check payment', payload)
             this._buildTransaction(payload)
           }
         })
@@ -132,7 +132,7 @@ class MakePayment extends PureComponent {
             Answers.logCustom('Payment Operation', { type: transaction.type })
           }
 
-          MixPanel.trackWithProperties('Payment Operation', {
+          MixPanel.trackWithProperties('Submit Transaction', {
             'payment.type': transaction.type,
             'payment.transferFromAddress': transaction.contractData.transferFromAddress,
             'payment.transferToAddress': transaction.contractData.transferToAddress,

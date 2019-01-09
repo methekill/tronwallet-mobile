@@ -36,7 +36,7 @@ export default class Contacts extends Component {
         contacts,
         error: null
       })
-      MixPanel.trackWithProperties('Contacts Operation', { type: 'Load Contacts' })
+      MixPanel.track('Load Contacts')
     } catch (e) {
       this.setState({
         error: tl.t('addressBook.contacts.loadError')

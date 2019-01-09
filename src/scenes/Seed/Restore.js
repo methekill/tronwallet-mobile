@@ -55,7 +55,7 @@ class Restore extends React.Component {
       Alert.alert(tl.t('seed.restore.success'))
       this.setState({ loading: false }, this._navigateToFirstTime)
       Answers.logCustom('Wallet Operation', { type: 'Restore' })
-      MixPanel.trackWithProperties('Wallet Operation', { type: 'Restore' })
+      MixPanel.track('Restore wallet')
     } catch (err) {
       Alert.alert(tl.t('warning'), tl.t('seed.restore.error'))
       this.setState({ loading: false })

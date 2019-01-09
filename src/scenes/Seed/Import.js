@@ -68,7 +68,7 @@ class Restore extends Component {
       await loadUserData()
       this.props.navigation.dispatch(resetAction)
       Answers.logCustom('Wallet Operation', { type: 'Import from PrivateKey' })
-      MixPanel.trackWithProperties('Wallet Operation', { type: 'Import from PrivateKey' })
+      MixPanel.track('Import wallet from private key')
     } catch (error) {
       Alert.alert(tl.t('warning'), 'Address or private key not valid')
     } finally {

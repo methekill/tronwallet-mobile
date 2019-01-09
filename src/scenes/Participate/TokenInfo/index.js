@@ -34,7 +34,7 @@ class TokenInfo extends PureComponent {
       navigation.navigate('Buy', { item })
     }
 
-    Mixpanel.trackWithProperties('Token info', { type: 'Buy token', token: item.name })
+    Mixpanel.trackWithProperties('Navigate to buy token', { token: item.name })
   }
 
   render () {

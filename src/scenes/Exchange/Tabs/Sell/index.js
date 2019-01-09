@@ -76,8 +76,7 @@ class SellScene extends Component {
         testInput: pin => pin === this.props.context.pin,
         onSuccess: () => {
           const { publicKey } = this.props.context
-          MixPanel.trackWithProperties('Pin Validation', {
-            type: 'Sell',
+          MixPanel.trackWithProperties('Pin Validation - Sell', {
             sellAmount,
             estimatedRevenue,
             publicKey
@@ -111,7 +110,7 @@ class SellScene extends Component {
         exchangeId,
         expected
       }
-      MixPanel.trackWithProperties('Exchange', { type: 'Selling', params: exParams })
+      MixPanel.trackWithProperties('Exchange - Selling', { params: exParams })
 
       const transactionUnsigned = await WalletClient.getExchangeTransaction(exParams)
       const userKey = accounts.find(acc => acc.address === publicKey).privateKey

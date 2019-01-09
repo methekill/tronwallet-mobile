@@ -116,7 +116,7 @@ export class ExchangeScene extends Component {
         regex.test(ast.secondTokenId.toUpperCase()))
 
       this.setState({ searchName: name }, () => {
-        MixPanel.trackWithProperties('Exchange', { type: 'Searching Exchange', name })
+        MixPanel.trackWithProperties('Searching Exchange', { name })
         const searchedList = name ? resultList : []
         this.setState({ currentList: searchedList })
       })
@@ -140,8 +140,7 @@ export class ExchangeScene extends Component {
       navigation.navigate('ExchangeTabs', { exData: item })
       this.setState({ isSearching: false, currentList: exchangeList, searchName: '' })
 
-      MixPanel.trackWithProperties('Exchange', {
-        type: 'Entering Exchange',
+      MixPanel.trackWithProperties('Entering Exchange', {
         name: `${item.firstTokenId}/${item.secondTokenId}`
       })
     }

@@ -90,7 +90,7 @@ class WalletBalances extends Component {
         if (results.length) {
           this.setState({ modalTokenVisible: false, errorToken: null }, () => {
             this._navigateToTokenDetails(results[0])
-            MixPanel.trackWithProperties('Account Operation', { type: 'Navigate to Token Info', token: tokenName })
+            MixPanel.trackWithProperties('Navigate to Token Info', { token: tokenName })
           })
         } else {
           this.setState({ errorToken: tl.t('balanceToken.notAvailable') })

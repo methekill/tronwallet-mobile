@@ -71,7 +71,6 @@ class Settings extends Component {
     )
     this._didFocus = this.props.navigation.addListener('didFocus', () => this._onLoadData(), this._getSelectedTokens)
     this.appStateListener = onBackgroundHandler(this._onAppStateChange)
-    MixPanel.trackWithProperties('Settings Operation', { type: 'Load data' })
   }
 
   componentWillUnmount () {
@@ -133,7 +132,7 @@ class Settings extends Component {
     const { alwaysAskPin } = this.props.context
     await AsyncStorage.setItem(ALWAYS_ASK_PIN, `${!alwaysAskPin}`)
     this.props.context.setAskPin(!alwaysAskPin)
-    MixPanel.trackWithProperties('Settings Operation', { type: 'Setting ask pin', value: !alwaysAskPin })
+    MixPanel.trackWithProperties('Setting ask pin', { value: !alwaysAskPin })
   }
 
   _resetWallet = async () => {
@@ -151,7 +150,7 @@ class Settings extends Component {
               await hardResetWalletData(this.props.context.pin)
               const { accounts } = this.props.context
               this.props.context.resetAccount(true)
-              MixPanel.trackWithProperties('Pin Validation', { type: 'Reset Wallet', accounts })
+              MixPanel.trackWithProperties('Pin Validation - Reset Wallet', { accounts })
             }
           })
         }
@@ -182,7 +181,7 @@ class Settings extends Component {
           shouldDoubleCheck: true,
           shouldGoBack: true,
           onSuccess: pin => {
-            MixPanel.trackWithProperties('Pin Validation', { type: 'Change PIN' })
+            MixPanel.track('Pin Validation - Change PIN')
             this.props.context.setPin(pin, () => this.refs.settingsToast.show(tl.t('settings.pin.success')))
           }
         })
@@ -222,7 +221,7 @@ class Settings extends Component {
             {
               text: tl.t('settings.language.button.confirm'),
               onPress: () => {
-                MixPanel.trackWithProperties('Settings Operation', { type: 'Change language', value: language.value })
+                MixPanel.trackWithProperties('Change language', { value: language.value })
                 RNRestart.Restart()
               }
             }
@@ -241,7 +240,7 @@ class Settings extends Component {
     try {
       await AsyncStorage.setItem(USER_FILTERED_TOKENS, JSON.stringify(currentSelectedTokens))
       this.setState({ userSelectedTokens: currentSelectedTokens, tokenFilterModal: false })
-      MixPanel.trackWithProperties('Settings Operation', { type: 'Token filter' })
+      MixPanel.trackWithProperties('Token filter', { tokens: currentSelectedTokens })
     } catch (error) {
       this.setState({ tokenFilterModal: false })
       logSentry(error, 'Settings - Save tokens')
@@ -258,7 +257,7 @@ class Settings extends Component {
       }
       await AsyncStorage.setItem(USE_BIOMETRY, `${!useBiometry}`)
       this.props.context.setUseBiometry(!useBiometry)
-      MixPanel.trackWithProperties('Settings Operation', { type: 'Save Biometry', value: !useBiometry })
+      MixPanel.track('Save Biometry')
     } catch (error) {
       logSentry(error, 'Settings - Save Biometry')
       Alert.alert(tl.t('biometry.auth.title'), tl.t('biometry.auth.error'))

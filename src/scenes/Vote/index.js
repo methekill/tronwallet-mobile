@@ -153,7 +153,7 @@ class VoteScene extends Component {
       this.candidateStoreRef = await getCandidateStore()
       this.transactionsStoreRef = await getTransactionStore()
       this._loadData()
-      MixPanel.trackWithProperties('Vote Operation', { type: 'Load Data' })
+      MixPanel.track('Load Votes')
     } catch (e) {
       logSentry(e, 'Load Candidates Error')
     }
