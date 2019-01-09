@@ -46,7 +46,7 @@ class SendScene extends Component {
     from: '',
     to: this.props.navigation.getParam('address', ''),
     amount: '',
-    tokenID: '1',
+    tokenId: '1',
     description: '',
     addressError: null,
     formattedToken: '',
@@ -101,13 +101,13 @@ class SendScene extends Component {
     const { getCurrentBalances, publicKey, fixedTokens } = this.props.context
     let orderedBalances = []
     let balance = 0
-    let tokenID = 0
+    let tokenId = 0
     let currentBalances = getCurrentBalances()
 
     if (currentBalances.length) {
       const assetBalance = currentBalances.find(asset => asset.id === '1')
       balance = assetBalance.balance
-      tokenID = assetBalance.id
+      tokenId = assetBalance.id
 
       const userTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
       const filteredBalances = currentBalances.filter(asset => JSON.parse(userTokens).findIndex(id => id === asset.id) === -1)
@@ -119,7 +119,7 @@ class SendScene extends Component {
       balances: orderedBalances,
       loadingData: false,
       trxBalance: balance,
-      formattedToken: this._formatBalance('TRX', balance, tokenID),
+      formattedToken: this._formatBalance('TRX', balance, tokenId),
       warning: balance === 0 ? tl.t('send.error.insufficientBalance') : null
     })
   }
@@ -147,13 +147,13 @@ class SendScene extends Component {
   }
 
   _submit = () => {
-    const { amount, to, balances, tokenID, from, description } = this.state
+    const { amount, to, balances, tokenId, from, description } = this.state
     if (!isAddressValid(to) || from === to) {
       this.setState({ error: tl.t('send.error.invalidReceiver') })
       return
     }
 
-    const balanceSelected = balances.find(b => b.id === tokenID)
+    const balanceSelected = balances.find(b => b.id === tokenId)
     if (!balanceSelected) {
       this.setState({ error: tl.t('send.error.selectBalance') })
       return
@@ -175,22 +175,21 @@ class SendScene extends Component {
   clearInput = () => {
     this.setState({
       to: '',
-      tokenID: '1',
+      tokenId: '1',
       amount: '',
       description: ''
     })
   }
 
   _transferAsset = async () => {
-    const { from, to, amount, tokenID, description } = this.state
+    const { from, to, amount, tokenId, description } = this.state
     this.setState({ loadingSign: true, error: null })
 
-    const token = tokenID === '1' ? 'TRX' : tokenID
     try {
       const payload = {
         from,
         to,
-        token,
+        token: tokenId,
         amount: Number(amount).toFixed(6),
         data: description
       }
@@ -228,8 +227,8 @@ class SendScene extends Component {
   }
 
   _setMaxAmount = () => {
-    const { balances, tokenID } = this.state
-    const balanceSelected = balances.find(b => b.id === tokenID) || balances[0]
+    const { balances, tokenId } = this.state
+    const balanceSelected = balances.find(b => b.id === tokenId) || balances[0]
     const value =
       balanceSelected.balance < MINIMUM && balanceSelected.balance > 0
         ? balanceSelected.balance.toFixed(7)
@@ -259,7 +258,7 @@ class SendScene extends Component {
     }
   }
 
-  _formatBalance = (token, balance, tokenID) => `[${tokenID}] ${token} - ${formatNumber(balance)}`
+  _formatBalance = (token, balance, tokenId) => `[${tokenId}] ${token} - ${formatNumber(balance)}`
 
   _rightContentTo = () => (
     <React.Fragment>
@@ -298,7 +297,7 @@ class SendScene extends Component {
   _handleTokenChange = (index, formattedToken) => {
     if (index > 0) {
       this.setState({
-        tokenID: this.state.balances[index - 1].id,
+        tokenId: this.state.balances[index - 1].id,
         formattedToken
       }, this._nextInput('token'))
     }
@@ -308,7 +307,7 @@ class SendScene extends Component {
     const {
       loadingSign,
       loadingData,
-      tokenID,
+      tokenId,
       error,
       to,
       amount,
@@ -316,7 +315,7 @@ class SendScene extends Component {
       addressError
     } = this.state
     const tokenOptions = balances.map(({ name, balance, id }) => this._formatBalance(name, balance, id))
-    const balanceSelected = balances.find(b => b.id === tokenID) || balances[0]
+    const balanceSelected = balances.find(b => b.id === tokenId) || balances[0]
     tokenOptions.unshift(tl.t('cancel'))
     return (
       <Utils.SafeAreaView>

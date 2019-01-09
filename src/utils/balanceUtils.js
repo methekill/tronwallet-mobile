@@ -24,7 +24,7 @@ export const orderBalancesV2 = (balances, fixedTokens) => {
   let rest = []
 
   balances.forEach(balance => {
-    const verifiedIndex = fixedTokens.findIndex(({id: tokenID}) => tokenID === balance.id)
+    const verifiedIndex = fixedTokens.findIndex(({id: tokenId}) => tokenId === balance.id)
     if (verifiedIndex > -1) {
       balance.verified = true
       orderedBalances[verifiedIndex] = balance

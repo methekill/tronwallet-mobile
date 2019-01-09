@@ -26,10 +26,9 @@ class ClientWallet {
     return isTestnet ? this.apiTest : this.api
   }
 
-  async getTokenList (start, limit, name) {
-    const apiUrl = await this.getTronscanUrl()
+  async getTokenList (start, limit, id) {
     const { data: { data } } = await axios.get(
-      `${apiUrl}/token?sort=-name&limit=${limit}&name=%25${name}%25&`
+      `${Config.ASSET_API_URL}/token?sort=-name&limit=${limit}&start=${start}&id=${id}`
     )
     return data
   }
@@ -223,7 +222,13 @@ class ClientWallet {
   }
 
   async registerDeviceForNotifications (deviceId, publicKey, removeExtraDeviceIds) {
-    return axios.post(`${this.tronwalletApi}/user/put`, { deviceId, publicKey, refresh: removeExtraDeviceIds })
+    // TO-DO Review Serverless on this lambda
+    try {
+      const { data: { result } } = await axios.post(`${this.tronwalletApi}/user/put`, { deviceId, publicKey, refresh: removeExtraDeviceIds })
+      return result
+    } catch (error) {
+      return false
+    }
   }
 
   async notifyNewTransactions (id, transactions) {

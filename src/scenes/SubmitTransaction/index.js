@@ -114,8 +114,10 @@ class TransactionDetail extends Component {
       contractType,
       ownerAddress,
       toAddress,
-      assetName
+      assetName,
+      assetID
     } = transactionData
+
     const type = Client.getContractType(contractType)
     const transaction = {
       id: hash,
@@ -123,7 +125,8 @@ class TransactionDetail extends Component {
       contractData: {
         transferFromAddress: ownerAddress,
         transferToAddress: toAddress,
-        tokenName: type === 'Transfer' ? 'TRX' : assetName
+        tokenName: type === 'Transfer' ? 'TRX' : assetName,
+        tokenId: (type === 'Transfer Asset' || type === 'Participate') ? assetID : ''
       },
       ownerAddress: ownerAddress,
       timestamp: new Date().getTime(),
@@ -274,14 +277,16 @@ class TransactionDetail extends Component {
         store.create('Transaction', transaction, true)
       })
       const { code } = await Client.broadcastTransaction(signedTransaction)
+
       if (code === 'SUCCESS') {
         if (ANSWERS_TRANSACTIONS.includes(transaction.type)) {
           Answers.logCustom('Transaction Operation', { type: transaction.type })
         }
         await this.props.context.loadUserData()
         // TODO - Remove this piece of code when transactions come with Participate Price
+
         if (transaction.type === 'Participate') {
-          updateAssets(0, 2, transaction.contractData.tokenName)
+          updateAssets(0, 2, transaction.contractData.tokenId)
         }
       }
       this.setState({ submitError: null, loadingSubmit: false, submitted: true }, this._navigateNext)

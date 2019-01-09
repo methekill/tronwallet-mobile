@@ -8,13 +8,13 @@ import { FEATURED_TOKENS, VERIFIED_TOKENS } from './constants'
 function assetAdapter (asset) {
   return {
     ...asset,
-    id: asset.name + asset.ownerAddress,
+    id: asset.tokenID.toString(),
     transaction: asset.transaction || 'N/A'
   }
 }
 
-export const updateAssets = async (start = 0, limit = 100, name = '') => {
-  const assets = await Client.getTokenList(start, limit, name)
+export const updateAssets = async (start = 0, limit = 100, tokenId = '') => {
+  const assets = await Client.getTokenList(start, limit, tokenId)
   const store = await getAssetsStore()
   store.write(() => assets.map(asset => {
     store.create('Asset', assetAdapter(asset), true)
