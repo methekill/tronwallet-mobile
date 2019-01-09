@@ -31,7 +31,8 @@ class RequestPayment extends Component {
     amount: '',
     amountTrx: '0',
     description: '',
-    token: 'TRX',
+    tokenName: 'TRX',
+    tokenId: '1',
     currencySelected: 'USD',
     currencyPrices: {
       'USD': '1',
@@ -71,7 +72,7 @@ class RequestPayment extends Component {
       this.setState({ currencyPrices: newCurrencyPrices })
       const currencyAccount = this.props.context.getCurrentAccount()
       if (currencyAccount) {
-        const { amount, token, currencySelected } = this.state
+        const { amount, tokenName, tokenId, currencySelected } = this.state
         MixPanel.trackWithProperties('Build Payment', {
           'account.address': currencyAccount.address,
           'account.balance': currencyAccount.balance || 0,
@@ -79,7 +80,8 @@ class RequestPayment extends Component {
           usd: newCurrencyPrices['USD'],
           eur: newCurrencyPrices['EUR'],
           amount,
-          token
+          tokenId,
+          tokenName
         })
       }
     } catch (err) {
@@ -116,9 +118,10 @@ class RequestPayment extends Component {
   }
 
   _buildQrData = () => {
-    const { amountTrx, token, description } = this.state
+    const { amountTrx, tokenName, tokenId, description } = this.state
     const address = this.props.context.publicKey
-    return JSON.stringify({amount: amountTrx, data: description, token, address})
+
+    return JSON.stringify({amount: amountTrx, data: description, tokenName, tokenId, address})
   }
 
   _renderInputCurreny = () => (

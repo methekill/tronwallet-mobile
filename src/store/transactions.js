@@ -16,6 +16,7 @@ const ContractDataSchema = {
     transferFromAddress: 'string?',
     transferToAddress: 'string?',
     tokenName: 'string?',
+    tokenId: 'string?',
     votes: 'Vote[]',
     description: 'string?',
     startTime: 'int?',
@@ -43,13 +44,17 @@ const TransactionSchema = {
 export const createNewTransactionStore = () => Realm.open({
   path: 'Realm.transactions',
   schema: [TransactionSchema, ContractDataSchema, VoteSchema],
-  schemaVersion: 15,
+  schemaVersion: 16,
   migration: (oldRealm, newRealm) => {
-    if (oldRealm.schemaVersion < 15) {
-      const transactions = newRealm.objects('Transaction')
-
-      for (let i = 0; i < transactions.length; i++) {
+    const transactions = newRealm.objects('Transaction')
+    for (let i = 0; i < transactions.length; i++) {
+      if (oldRealm.schemaVersion < 15) {
         transactions[i].notified = true
+      }
+      if (oldRealm.schemaVersion < 16) {
+        if (transactions[i].contractData.assetName) {
+          transactions[i].contractData.tokenId = transactions[i].contractData.assetName
+        }
       }
     }
   }
