@@ -79,12 +79,13 @@ class WalletBalances extends Component {
     this.props.navigation.navigate('TokenDetailScene', { item, fromBalance: true })
   }
 
-  _onItemPress = ({ name: tokenName }) => {
+  _onItemPress = ({ name: tokenName, id: tokenId }) => {
     this.setState({ modalTokenVisible: true, errorToken: null }, async () => {
       try {
         const customParams = {
           content_type: 'asset',
-          order: '-fields.isFeatured,-fields.isVerified,fields.position'
+          order: '-fields.isFeatured,-fields.isVerified,fields.position',
+          'fields.id[match]': tokenId
         }
         const { results } = await queryToken(tokenName, customParams)
         if (results.length) {
