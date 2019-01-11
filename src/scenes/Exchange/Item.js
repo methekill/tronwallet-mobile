@@ -20,6 +20,7 @@ class ExchangeItem extends Component {
         ]
       )
     }
+
     _renderPercentageIndicator = variation => {
       if (!variation) return null
 

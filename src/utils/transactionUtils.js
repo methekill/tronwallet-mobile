@@ -57,7 +57,8 @@ const createTransaction = (item, address) => {
       transferFromAddress: item.ownerAddress,
       transferToAddress: item.toAddress,
       amount: item.amount,
-      tokenName: item.assetName || 'TRX'
+      tokenName: item.assetName || 'TRX', // if contractType === 1 then it's a Transfer (TRX) transaction
+      tokenId: item.assetId || '1'
     }
   }
   if (item.type === 'Create') {
@@ -88,9 +89,12 @@ const createTransaction = (item, address) => {
     }
   }
   if (item.type === 'Exchange') {
+    const tokenName = item.tokenName || (item.tokenId === '_' ? 'TRX' : item.tokenId)
     transaction.contractData = {
       amount: item.quant,
-      tokenName: item.tokenId === '_' ? 'TRX' : item.tokenId
+      tokenId: item.tokenId,
+      tokenName // condition for old Apps
+
     }
   }
 

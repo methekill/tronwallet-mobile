@@ -27,6 +27,7 @@ import { ONE_TRX } from '../../services/client'
 import { rgb } from '../../../node_modules/polished'
 import ActionModal from '../../components/ActionModal'
 import FontelloIcon from '../../components/FontelloIcon'
+import { Badge } from '../../components/Navigation/elements'
 
 import { formatFloat, formatNumber } from '../../utils/numberUtils'
 import getAssetsStore from '../../store/assets'
@@ -308,7 +309,7 @@ class TransactionDetails extends React.Component {
 
   _renderHeader = () => {
     const { item: { type, contractData, tokenPrice } } = this.state
-    const tokenName = contractData.tokenName
+    const {tokenName, tokenId} = contractData
     const tokenToDisplay = this._getHeaderToken(type, tokenName)
     const amountText = this._getHeaderAmountText(type)
     const amountValue = this._getHeaderAmount()
@@ -369,7 +370,7 @@ class TransactionDetails extends React.Component {
                     paddingHorizontal: 8
                   }}
                 >
-                  <Elements.BadgeText>{tokenToDisplay}</Elements.BadgeText>
+                  <Badge id={tokenId}>{tokenToDisplay}</Badge>
                 </View>
                 <Utils.HorizontalSpacer size='medium' />
                 {this._getHeaderArrowIcon(type)}

@@ -8,8 +8,8 @@ import { Colors } from '../../components/DesignSystem'
 const Icon = createIconSetFromFontello(fontelloConfig, 'tronwallet')
 
 /* Functions that format the amount information to be displayed on screen. */
-const transferAmount = ({ tokenName, amount }) => {
-  if (tokenName === 'TRX') {
+const transferAmount = ({ tokenName, amount, tokenId }) => {
+  if (tokenId === '1') {
     return `${amount / ONE_TRX} ${tokenName}`
   }
   return `${amount} ${tokenName}`
@@ -17,8 +17,8 @@ const transferAmount = ({ tokenName, amount }) => {
 const freezeAmount = ({frozenBalance}) => `${frozenBalance / ONE_TRX} TRX`
 const participateAmount = ({amount, tokenName}, tokenPrice) => `${(amount) / (tokenPrice)} ${tokenName}`
 
-const exchangeAmount = (amount, tokenName) =>
-  `${formatNumber(amount / (tokenName === 'TRX' ? ONE_TRX : 1))} ${tokenName}`
+const exchangeAmount = ({amount, tokenName, tokenId}) =>
+  `${formatNumber(amount / (tokenId === '_' ? ONE_TRX : 1))} ${tokenName}`
 
 /* Configures the object used to hidrate the render components with the proper
 texts and icons. */
@@ -104,7 +104,7 @@ export const configureTransaction = (item, { topRow, addressRow, publicKey, curr
       break
     case 'Exchange':
       config.topRow = () => topRow({
-        amount: exchangeAmount(contractData.amount, contractData.tokenName),
+        amount: exchangeAmount(contractData),
         icon: {
           Type: Icon,
           name: 'exchange',
