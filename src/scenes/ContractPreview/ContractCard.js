@@ -44,7 +44,7 @@ const Line = styled(Row)`
 
 const RejectButton = styled(Button)`
   border-radius: 4px;
-  height: 100%;
+  height: 50px;
   width: 100%;
 `
 
@@ -125,18 +125,18 @@ class ContractCard extends Component {
         <Line />
 
         <Row style={{ marginTop: 15 }}>
-          <View style={{ flex: 0.4, marginRight: '1%' }}>
+          <View style={{ flex: 0.5, marginRight: '1%' }}>
             <RejectButton backgroundColor={Colors.greyBlue} text={tl.t('contract.button.reject')} onPress={this.rejectTR} textSize='tiny'>
               <Text size='button'>{tl.t('contract.button.reject')}</Text>
             </RejectButton>
           </View>
 
-          <View style={{ flex: 0.6, marginLeft: '1%' }}>
-            <ButtonGradient width={'100%'} text={tl.t('contract.button.confirm')} onPress={this.submitContract} />
+          <View style={{ flex: 0.5, marginLeft: '1%' }}>
+            <ButtonGradient size='large' text={tl.t('contract.button.confirm')} onPress={this.submitContract} />
           </View>
         </Row>
 
-        <Row noPadding>
+        <Row>
           <AutoSignSelector
             options={options}
             autoSign={autoSign}
