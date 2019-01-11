@@ -685,6 +685,12 @@
     "button": {
       "confirm": "CONFIRM",
       "reject": "REJECT"
+    },
+    "card": {
+      "options": {
+        "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
+      },
+      "switchLabel": "Sign automatically"
     }
   },
   "dapps": {
@@ -695,9 +701,12 @@
       "error": "Enter with valid search!"
     },
     "home": {
+      "cancelOperation": "done",
       "bookmark": {
-        "title": "Bookmark",
-        "cancelOperation": "done"
+        "title": "Bookmark"
+      },
+      "history": {
+        "title": "History"
       }
     }
   }
