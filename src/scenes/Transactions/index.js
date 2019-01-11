@@ -166,8 +166,7 @@ export class TransactionsScene extends Component {
   _updateParticipateTransactions = (transactions, assetStore) =>
     transactions.map(transaction => {
       if (transaction.type === 'Participate') {
-        const tokenRepresentative = transaction.contractData.tokenId || transaction.contractData.tokenName
-        const tokenPrice = getTokenPriceFromStore(tokenRepresentative, assetStore)
+        const tokenPrice = getTokenPriceFromStore(transaction.contractData.tokenId, assetStore)
 
         return { ...transaction, tokenPrice }
       } else {

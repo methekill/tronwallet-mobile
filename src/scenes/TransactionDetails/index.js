@@ -662,8 +662,7 @@ class TransactionDetails extends React.Component {
       const transaction = await this._getTransactionByHash(item.id)
       if (transaction.type === 'Participate') {
         const assetStore = await getAssetsStore()
-        const tokenRepresentative = transaction.contractData.tokenId || transaction.contractData.tokenName
-        const tokenPrice = getTokenPriceFromStore(tokenRepresentative, assetStore)
+        const tokenPrice = getTokenPriceFromStore(transaction.contractData.tokenId, assetStore)
         transaction.tokenPrice = tokenPrice
       }
       this.setState({ item: transaction, refreshing: false })
