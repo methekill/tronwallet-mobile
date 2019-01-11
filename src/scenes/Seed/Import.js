@@ -78,7 +78,7 @@ class Restore extends Component {
 
   _checkAccount = async () => {
     const { address, privateKey } = this.state
-    const mockTransaction = { from: address, to: 'TJo2xFo14Rnx9vvMSm1kRTQhVHPW4KPQ76', amount: 0, token: 'TRX' }
+    const mockTransaction = { from: address, to: 'TJo2xFo14Rnx9vvMSm1kRTQhVHPW4KPQ76', amount: 0, token: '1', version: 2.0 }
     try {
       const transactionUnsigned = await WalletClient.getTransferTransaction(mockTransaction)
       const transactionSigned = await RNTron.signTransaction(privateKey, transactionUnsigned)

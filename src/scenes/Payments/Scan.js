@@ -34,7 +34,7 @@ class ScanPayment extends Component {
     scanned: false
   }
 
-  _checkAmount = (amount, token) => amount && amount >= 1 / ONE_TRX
+  _checkAmount = amount => amount && amount >= 1 / ONE_TRX
 
   _checkDescription = description => description.length <= 500
 
@@ -48,12 +48,12 @@ class ScanPayment extends Component {
     this.setState({ loading: true })
     try {
       const parseData = JSON.parse(data)
-      const { address, amount, token, data: description } = parseData
+      const { address, amount, tokenName, tokenId, data: description } = parseData
 
       if (!isAddressValid(address)) {
         throw new DataError(tl.t('scanPayment.error.receiver'))
       }
-      if (!token) throw new DataError(tl.t('scanPayment.error.token'))
+      if (!tokenId && !tokenName) throw new DataError(tl.t('scanPayment.error.token'))
       if (!this._checkAmount(amount)) {
         throw new DataError(tl.t('scanPayment.error.amount'))
       }
@@ -63,14 +63,15 @@ class ScanPayment extends Component {
 
       this.setState({ loading: false })
       navigation.navigate('MakePayScene', {
-        payment: { address, amount, token, description }
+        payment: { address, amount, tokenName, tokenId, description }
       })
       const currentAccount = this.props.context.getCurrentAccount()
       if (currentAccount) {
         MixPanel.trackWithProperties('Scan Payment', {
           'payment.address': address,
           'payment.amount': amount,
-          'payment.token': token,
+          'payment.tokenId': tokenId,
+          'payment.tokenName': tokenName,
           'currentAccount.address': currentAccount.address,
           'currentAccount.balance': currentAccount.balance
         })

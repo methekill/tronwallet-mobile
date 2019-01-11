@@ -532,7 +532,7 @@
     "votedAddress": "INDIRIZZO VOTATO"
   },
   "transactionSuccess": {
-    "submitted": "TRANSAZIONE TRSMESSA IN RETE!",
+    "submitted": "TRANSAZIONE TRASMESSA IN RETE!",
     "success": "SUCCESSO!"
   },
   "votes": {

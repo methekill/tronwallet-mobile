@@ -40,32 +40,33 @@ class SellScene extends Component {
   _submit = () => {
     const { sellAmount, estimatedRevenue } = this.state
     const { askPinEx, context, exchangeData } = this.props
-    const { balances, publicKey } = context
-    const { firstTokenBalance, secondTokenBalance, firstTokenId, secondTokenId } = exchangeData
+    const { getCurrentBalances } = context
+    const { firstTokenBalance, secondTokenBalance, firstTokenId, firstTokenName, secondTokenId, secondTokenName } = exchangeData
 
     if (sellAmount <= 0 || !sellAmount) {
       this.sellAmount.focus()
       return
     }
-    const expecRev = estimatedRevenue || estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount, secondTokenId === 'TRX')
+    const expecRev = estimatedRevenue || estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount, secondTokenId === '_')
 
-    if ((firstTokenId !== 'TRX' && parseInt(sellAmount) !== Number(sellAmount)) ||
-        (secondTokenId !== 'TRX' && parseInt(expecRev) !== Number(expecRev))) {
+    if ((firstTokenId !== '_' && parseInt(sellAmount) !== Number(sellAmount)) ||
+        (secondTokenId !== '_' && parseInt(expecRev) !== Number(expecRev))) {
       Alert.alert(tl.t('warning'), `Can only trade whole Assets amount`)
       return
     }
 
     if (expecRev <= 0) {
-      Alert.alert(tl.t('warning'), `Can't trade ${estimatedRevenue} ${secondTokenId}`)
+      Alert.alert(tl.t('warning'), `Can't trade ${estimatedRevenue} ${secondTokenName}`)
       this.sellAmount.focus()
       return
     }
 
+    const firstBalanceId = firstTokenId === '_' ? '1' : firstTokenId
     const { balance: userFirstTokenBalance } =
-      balances[publicKey].find(bl => bl.name === firstTokenId) || { balance: 0 }
+    getCurrentBalances().find(bl => bl.id === firstBalanceId) || { balance: 0 }
 
     if (userFirstTokenBalance <= 0 || userFirstTokenBalance < sellAmount) {
-      Alert.alert(tl.t('warning'), `You don't have enough ${firstTokenId} to sell`)
+      Alert.alert(tl.t('warning'), `You don't have enough ${firstTokenName} to sell`)
       return
     }
 
@@ -74,6 +75,7 @@ class SellScene extends Component {
         shouldGoBack: true,
         testInput: pin => pin === this.props.context.pin,
         onSuccess: () => {
+          const { publicKey } = this.props.context
           MixPanel.trackWithProperties('Pin Validation - Sell', {
             sellAmount,
             estimatedRevenue,
@@ -92,10 +94,10 @@ class SellScene extends Component {
     const { exchangeId, firstTokenId, secondTokenId, firstTokenBalance, secondTokenBalance } = this.props.exchangeData
     const { publicKey, accounts, loadUserData } = this.props.context
 
-    const quant = trxValueParse(sellAmount, firstTokenId === 'TRX')
+    const quant = trxValueParse(sellAmount, firstTokenId === '_')
 
     const expected = estimatedRevenue
-      ? trxValueParse(estimatedRevenue, secondTokenId === 'TRX')
+      ? trxValueParse(estimatedRevenue, secondTokenId === '_')
       : estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount)
 
     this.setState({loading: true})
@@ -138,12 +140,15 @@ class SellScene extends Component {
   }
 
   _setPercentage = percentage => {
-    const { balances, publicKey } = this.props.context
+    const { getCurrentBalances } = this.props.context
     const { firstTokenId } = this.props.exchangeData
 
-    const { balance } = balances[publicKey].find(bl => bl.name === firstTokenId) || { balance: 0 }
+    const firstBalanceId = firstTokenId === '_' ? '1' : firstTokenId
+    const { balance } = getCurrentBalances().find(bl => bl.id === firstBalanceId) || { balance: 0 }
+
     const amountWanted = balance * percentage
-    const sellAmount = firstTokenId === 'TRX' ? amountWanted * HIGH_VARIATION : Math.floor(amountWanted)
+    const sellAmount = firstTokenId === '_' ? amountWanted * HIGH_VARIATION : Math.floor(amountWanted)
+
     this._changeSellAmount(sellAmount)
   }
 
@@ -153,7 +158,7 @@ class SellScene extends Component {
       secondTokenId,
       secondTokenBalance
     } = this.props.exchangeData
-    const estimatedRevenue = estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount || 0, secondTokenId === 'TRX')
+    const estimatedRevenue = estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount || 0, secondTokenId === '_')
 
     this.setState({sellAmount, estimatedRevenue})
   }
@@ -171,31 +176,33 @@ class SellScene extends Component {
       estimatedRevenue,
       result } = this.state
     const {
-      firstTokenBalance,
       firstTokenId,
+      firstTokenBalance,
+      firstTokenName,
       firstTokenAbbr,
       firstTokenImage,
       secondTokenId,
+      secondTokenName,
       secondTokenAbbr,
       secondTokenBalance,
       price,
       secondTokenImage
     } = this.props.exchangeData
 
-    const cost = estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount || 0, secondTokenId === 'TRX')
+    const cost = estimatedSellCost(firstTokenBalance, secondTokenBalance, sellAmount || 0, secondTokenName === '_')
     const formattedCost = formatFloat(cost)
 
-    const isTokenToToken = secondTokenId !== 'TRX' && firstTokenId !== 'TRX'
+    const isTokenToToken = firstTokenId !== '_' && secondTokenId !== '_'
     const sellType = getInputType(firstTokenId)
     const estimatedType = getInputType(secondTokenId)
 
     const minToSell = Math.round((1 / price) * 1.05) /* Used in Token To Token transaction, it needs to have a hihger variation when selling */
 
-    const firstToken = { name: firstTokenId, abbr: firstTokenAbbr, image: firstTokenImage }
-    const secondToken = { name: secondTokenId, abbr: secondTokenAbbr, image: secondTokenImage }
+    const firstTokenAlias = { name: firstTokenName, abbr: firstTokenAbbr, image: firstTokenImage, id: firstTokenId }
+    const secondTokenAlias = { name: secondTokenName, abbr: secondTokenAbbr, image: secondTokenImage, id: secondTokenId }
 
-    const firstTokenIdentifier = firstTokenAbbr || firstTokenId
-    const secondTokenIdentifier = secondTokenAbbr || secondTokenId
+    const firstTokenIdentifier = firstTokenAbbr || firstTokenName
+    const secondTokenIdentifier = secondTokenAbbr || secondTokenName
 
     return (
       <ScrollWrapper>
@@ -203,12 +210,12 @@ class SellScene extends Component {
         <Utils.View paddingX='medium'>
 
           <ExchangeBalancePair
-            firstToken={firstToken}
-            secondToken={secondToken}
+            firstToken={firstTokenAlias}
+            secondToken={secondTokenAlias}
           />
           <ExchangePair
-            firstToken={firstTokenId}
-            secondToken={secondTokenId}
+            firstToken={firstTokenName}
+            secondToken={secondTokenName}
             price={price}
           />
           <Utils.View paddingY='small'>
@@ -231,7 +238,7 @@ class SellScene extends Component {
             />
             {isTokenToToken &&
               <Utils.Text size='tiny' font='regular' align='right'>
-                {tl.t('exchange.minToSell', {min: minToSell, tokenId: firstTokenId})}
+                {tl.t('exchange.minToSell', {min: minToSell, tokenId: firstTokenName})}
               </Utils.Text>}
             <Input
               label={tl.t('exchange.estimatedRevenue')}
