@@ -159,14 +159,16 @@ export class TransactionsScene extends Component {
     const userTokens = await AsyncStorage.getItem(USER_FILTERED_TOKENS)
     return transactions.filter(({ type, contractData }) =>
       contractData.tokenName === null ||
-        JSON.parse(userTokens).findIndex(name => name === contractData.tokenName) === -1
+        JSON.parse(userTokens).findIndex(tokenId => tokenId === contractData.tokenId || contractData.assetId) === -1
     )
   }
 
   _updateParticipateTransactions = (transactions, assetStore) =>
     transactions.map(transaction => {
       if (transaction.type === 'Participate') {
-        const tokenPrice = getTokenPriceFromStore(transaction.contractData.tokenName, assetStore)
+        const tokenRepresentative = transaction.contractData.tokenId || transaction.contractData.tokenName
+        const tokenPrice = getTokenPriceFromStore(tokenRepresentative, assetStore)
+
         return { ...transaction, tokenPrice }
       } else {
         return transaction

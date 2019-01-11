@@ -130,11 +130,11 @@ export const openDeepLink = async dataToSend => {
   return Linking.openURL(url)
 }
 
-export const getTokenPriceFromStore = (tokenName, assetStore) => {
+export const getTokenPriceFromStore = (tokenId, assetStore) => {
   const filtered = assetStore
     .objects('Asset')
     .filtered(
-      `name == '${tokenName}'`
+      `id ='${tokenId}'`
     )
     .map(item => Object.assign({}, item))
 
