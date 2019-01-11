@@ -51,23 +51,25 @@ describe('Transaction Utils', () => {
     beforeEach(async () => {
       assetStore = await getAssetsStore()
       assetStore.write(() => {
-        assetStore.create('Asset', { id: 1, name: 'TWX', price: 1000 })
-        assetStore.create('Asset', { id: 2, name: 'ANOTHER_TOKEN', price: 100 })
+        assetStore.create('Asset', { id: '1', name: 'TWX', price: 1000 })
+        assetStore.create('Asset', { id: '2', name: 'ANOTHER_TOKEN', price: 100 })
       })
 
       // Mock the realm filtered method
       assetStore.filtered = (store, query) => (
-        assetStore.objects(store).filter(a => `name == '${a.name}'` === query)
+        // assetStore.objects(store).filter(a => `name == '${a.name}'` === query)
+        assetStore.objects(store).filter(a => (`id ='${a.id}'` === query))
       )
     })
 
     test('Should return the TWX price', async () => {
-      const price = await getTokenPriceFromStore('TWX', assetStore)
+      const price = await getTokenPriceFromStore('1', assetStore)
+      console.log('...', price)
       expect(price).toBe(1000)
     })
 
     test('Should return ANOTHER_TOKEN price', async () => {
-      const price = await getTokenPriceFromStore('ANOTHER_TOKEN', assetStore)
+      const price = await getTokenPriceFromStore('2', assetStore)
       expect(price).toBe(100)
     })
   })
