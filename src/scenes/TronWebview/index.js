@@ -15,6 +15,7 @@ import WebView from './WebView'
 class TronWebView extends Component {
   _onSearch = (url) => {
     this._webView.open(url)
+    this._home.syncData()
   }
 
   render () {
@@ -25,11 +26,15 @@ class TronWebView extends Component {
             title={tl.t('dapps.title')}
             onBack={() => this.props.navigation.goBack()}
           />
-          <WebViewHome onPress={url => this._webView.open(url)} />
+          <WebViewHome ref={ref => (this._home = ref)} onPress={url => this._webView.open(url)} />
           <WebView
             ref={ref => (this._webView = ref)}
             accounts={this.props.context.accounts}
-            onRequestSearch={() => this._search.open()}
+            onRequestSearch={() => {
+              this._search.open()
+              this._home.syncData()
+            }}
+            onClose={() => this._home.syncData()}
           />
         </PageWrapper>
         <SearchDapps ref={ref => (this._search = ref)} onSearch={this._onSearch} />

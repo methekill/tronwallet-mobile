@@ -47,6 +47,9 @@ class WebViewWrapper extends Component {
 
   _onClose = (cb) => {
     this.setState({ isPageVisible: false }, cb)
+    if (this.props.onClose) {
+      this.props.onClose()
+    }
   }
 
   _injectDebuggScript = () => `
@@ -235,7 +238,11 @@ class WebViewWrapper extends Component {
     this.webview.goBack()
   }
 
-  _goForward = () => {}
+  _goForward = () => {
+    if (this.webview) {
+      this.webview.goForward()
+    }
+  }
 
   _onNavigationStateChange = (navState) => {
     this.setState({
@@ -257,7 +264,7 @@ class WebViewWrapper extends Component {
   }
 
   render () {
-    const { isPageVisible, url, title, isCardVisible, contract, canGoForward, isBookmark } = this.state
+    const { isPageVisible, url, title, isCardVisible, contract, canGoForward, isBookmark, initialized } = this.state
 
     return (
       <Modal
@@ -285,6 +292,7 @@ class WebViewWrapper extends Component {
             startInLoadingState
           />
           <WebViewFooter
+            disabled={!initialized}
             onGobackPress={this._goBack}
             onGoForwardPress={canGoForward ? this._goForward : null}
             onMenuPress={() => this._onClose()}

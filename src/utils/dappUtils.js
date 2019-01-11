@@ -2,94 +2,112 @@
 import * as Async from './asyncStorageUtils'
 import { AsyncStorage } from 'react-native'
 
-import { DAPPS_SEARCH_HISTORY, DAPPS_BOOKMARK } from './constants'
+import { DAPPS_SEARCH_HISTORY, DAPPS_BOOKMARK, DAPPS_HOME_HISTORY } from './constants'
 
+// AsyncStorage.removeItem(DAPPS_SEARCH_HISTORY)
 // AsyncStorage.removeItem(DAPPS_BOOKMARK)
+// AsyncStorage.removeItem(DAPPS_HOME_HISTORY)
 
-export function saveSearchHistory (data) {
-  return getSearchHistory()
-    .then(result => {
-      if (result.some(item => item.url === data.url)) {
-        return null
-      }
-      result.push(data)
-      Async.set(DAPPS_SEARCH_HISTORY, JSON.stringify(result))
-      return result
-    })
-}
-
-export function getSearchHistory () {
-  return Async.get(DAPPS_SEARCH_HISTORY, '[]').then(data => JSON.parse(data))
-}
-
-export function updateSearchHistory (item) {
-  return getSearchHistory()
-    .then(result => {
-      if (result.length === 0) return null
-
-      const itemIndex = result.findIndex(data => data.url === item.url)
-      if (itemIndex > -1) {
-        result[itemIndex].title = item.title
-        Async.set(DAPPS_SEARCH_HISTORY, JSON.stringify(result))
-      }
-      return result
-    })
-}
-
-export const addToList = async (name, data) => {
-  const list = JSON.parse(await AsyncStorage.getItem(name))
+const addToList = async (name, data) => {
+  const list = await Async.json(name, '{ "limit": 50, "data": [] }')
 
   list.data.push(data)
   list.data.reverse()
   list.data = list.data.slice(0, list.limit)
   list.data.reverse()
-
-  return AsyncStorage.setItem(name, JSON.stringify(list))
+  return Async.setJSON(name, list)
 }
 
-export const readList = async (listName) => {
-  return JSON.parse(await AsyncStorage.getItem(listName)).data
+const readList = async (listName) => {
+  return Async.json(listName, '{ "limit": 50, "data": [] }')
 }
 
-export const createList = ({ name, limit }) => {
-  return AsyncStorage.setItem(name, JSON.stringify({ limit, data: [] }))
+const updateItem = async (listName, item) => {
+  return readList(listName)
+    .then(async (result) => {
+      const list = Object.assign(result)
+      const itemIndex = list.data.findIndex(data => data.url === item.url)
+      if (itemIndex > -1) {
+        list.data[itemIndex].title = item.title
+        await Async.setJSON(listName, list)
+      }
+    })
 }
 
-export const deleteList = async (listName) => {
-  return AsyncStorage.removeItem(listName)
+export function getSearchHistory () {
+  return Async.json(DAPPS_SEARCH_HISTORY, '{ "limit": 50, "data": [] }')
+}
+
+export function saveSearchHistory (item) {
+  return getSearchHistory()
+    .then(async (result) => {
+      if (result.data.some(dataItem => dataItem.url === item.url)) {
+        return null
+      }
+
+      return addToList(DAPPS_SEARCH_HISTORY, item)
+    })
+}
+
+export function updateSearchHistory (item) {
+  return getSearchHistory()
+    .then(async (result) => {
+      if (result.data.length === 0) return null
+      return updateItem(DAPPS_SEARCH_HISTORY, item)
+    })
+}
+
+export function getBookmarks () {
+  return Async.json(DAPPS_BOOKMARK, '{ "limit": 50, "data": [] }')
 }
 
 export function saveBookmark (item) {
-  return Async.get(DAPPS_BOOKMARK, '[]')
-    .then(data => JSON.parse(data))
-    .then(async (result) => {
-      console.warn(result, item)
-      if (result.length === 0) {
-        await createList({ name: DAPPS_BOOKMARK, limit: 50 })
-      }
-
-      addToList(DAPPS_BOOKMARK, item)
+  return getBookmarks()
+    .then((result) => {
+      return addToList(DAPPS_BOOKMARK, item)
     })
 }
 
 export async function isBookmark (url) {
-  const bookmark = await AsyncStorage.getItem(DAPPS_BOOKMARK).then(data => JSON.parse(data))
-  return bookmark.data.some(mark => mark.url === url)
-}
-
-export function getBookmark () {
-  return Async.get(DAPPS_BOOKMARK, '[]')
-    .then(data => JSON.parse(data))
+  const bookmark = await getBookmarks().then(result => result.data)
+  return bookmark.some(mark => mark.url === url)
 }
 
 export function removeBookmark (url) {
-  return getBookmark()
-    .then(result => {
+  return getBookmarks()
+    .then(async (result) => {
       const newBookmark = {
         ...result,
         data: result.data.filter(item => item.url !== url)
       }
-      AsyncStorage.setItem(DAPPS_BOOKMARK, JSON.stringify(newBookmark))
+      await AsyncStorage.setItem(DAPPS_BOOKMARK, JSON.stringify(newBookmark))
       return newBookmark
+    })
+}
+
+export function getHomeHistory () {
+  return Async.json(DAPPS_HOME_HISTORY, '{ "limit": 50, "data": [] }')
+}
+
+export function saveHomeHistory (item) {
+  return getHomeHistory()
+    .then(async (result) => {
+      if (result.data.some(mark => mark.url === item.url)) {
+        return updateItem(DAPPS_HOME_HISTORY, { ...item, update_at: new Date().toISOString() })
+      }
+      return addToList(DAPPS_HOME_HISTORY, { ...item, update_at: new Date().toISOString() })
+    })
+}
+
+export function removeHomeHistory (url) {
+  return getHomeHistory()
+    .then(async (result) => {
+      const newData = result.data.filter(item => item.url !== url)
+      const newHomeHistory = {
+        ...result,
+        data: newData
+      }
+      await Async.setJSON(DAPPS_HOME_HISTORY, newHomeHistory)
+      return newHomeHistory
     })
 }

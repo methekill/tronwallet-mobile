@@ -1,12 +1,11 @@
 import React from 'react'
-import { View } from 'react-native'
 import styled from 'styled-components'
 import LinearGradient from 'react-native-linear-gradient'
 import { ListItem } from 'react-native-elements'
 import PropTypes from 'prop-types'
 import * as Animatable from 'react-native-animatable'
 
-import { Text, Row } from '../../components/Utils'
+import { Text, Row, TWIcon } from '../../components/Utils'
 import ButtonIconGradient from '../../components/ButtonIconGradient'
 import Feather from 'react-native-vector-icons/Feather'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -56,6 +55,7 @@ export const HomeContainer = styled.View`
   flex: 1;
   background-color: ${Colors.lightBackground};
   padding-top: 10px;
+  padding-bottom: 20px;
 `
 
 export const WebViewLimit = styled.View`
@@ -78,6 +78,8 @@ export const HomeSection = styled.View`
 
 const ButtonContainer = styled.View`
   margin: 10px;
+  width: 68px;
+  height: 70px;
 `
 
 export const CardContainer = styled.View`
@@ -86,6 +88,24 @@ export const CardContainer = styled.View`
   justify-content: center;
   height: 100%;
   background-color: rgba(${Colors.RGB.background}, 0.90);
+  padding: 0px 20px;
+`
+
+const getDefaultFavIcon = (url) => `https://s2.googleusercontent.com/s2/favicons?domain_url=${url}`
+
+const BtnImage = styled.Image.attrs({
+  resizeMode: 'cover'
+})`
+  width: 60px;
+  height: 60px;
+  border-width: 1px;
+  border-radius: 31px;
+`
+
+const BtnIcon = styled(BtnImage)`
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
 `
 
 export const DAppButton = ({ dapp, onPress, onLongPress }) => (
@@ -94,9 +114,22 @@ export const DAppButton = ({ dapp, onPress, onLongPress }) => (
       text={dapp.name}
       color={Colors.primaryText}
       onPress={() => onPress(dapp.url)}
-      icon={<View />}
+      size={64}
+      icon={
+        dapp.image ? (
+          <BtnImage source={{ url: dapp.image }} />
+        ) : (
+          <BtnIcon
+            source={{
+              uri: getDefaultFavIcon(dapp.url)
+            }}
+            resizeMode='contain'
+          />
+        )
+      }
       onLongPress={onLongPress}
     />
+
   </ButtonContainer>
 )
 
@@ -149,7 +182,7 @@ const Btn = styled.TouchableOpacity`
   padding: 5px 16px;
 `
 
-export const WebViewFooter = ({ onGobackPress, onGoForwardPress, onMenuPress, onSearchPress, onBookMarkPress, isBookmark }) => (
+export const WebViewFooter = ({ onGobackPress, onGoForwardPress, onMenuPress, onSearchPress, onBookMarkPress, isBookmark, disabled }) => (
   <WebViewFooterWrapper>
     <Row width='40%' align='center' justify='space-around' paddingRight='large'>
       <Btn onPress={onGobackPress}>
@@ -160,20 +193,20 @@ export const WebViewFooter = ({ onGobackPress, onGoForwardPress, onMenuPress, on
       </Btn>
     </Row>
     <Row width='60%' align='center' justify='space-between' paddingRight='medium' paddingLeft='medium' >
-      <Btn onPress={onMenuPress}>
-        <Feather name='grid' size={20} color={Colors.primaryText} />
+      <Btn onPress={onMenuPress} disabled={disabled}>
+        <TWIcon name='dapps' size={20} color={Colors.primaryText} />
       </Btn>
-      <Btn onPress={onSearchPress}>
+      <Btn onPress={onSearchPress} disabled={disabled} >
         <Feather name='search' size={20} color={Colors.primaryText} />
       </Btn>
       {isBookmark ? (
-        <Btn onPress={onBookMarkPress}>
+        <Btn onPress={onBookMarkPress} disabled={disabled}>
           <Animatable.Text animation='pulse' easing='ease-out' iterationCount={5} delay={500} >
             <Ionicons name='md-star' size={20} color={Colors.primaryText} />
           </Animatable.Text>
         </Btn>
       ) : (
-        <Btn onPress={onBookMarkPress}>
+        <Btn onPress={onBookMarkPress} disabled={disabled}>
           <Ionicons name='ios-star-outline' size={20} color={Colors.primaryText} />
         </Btn>
       )}

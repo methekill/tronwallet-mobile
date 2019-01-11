@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { Animated, Dimensions } from 'react-native'
+import { Animated, Dimensions, Keyboard, Platform, StatusBar } from 'react-native'
 import { FlatList } from 'react-navigation'
 import styled, { css } from 'styled-components'
-import Toast from 'react-native-easy-toast'
 import Icon from 'react-native-vector-icons/Feather'
 
 import * as Utils from './../../components/Utils'
@@ -52,16 +51,50 @@ class SearchDapps extends Component {
 
   typingTimeout = null
 
-  open = () => {
-    this._open(() => {
-      this._input.focus()
-    })
-    this.setState({ expanded: true })
+  _input = React.createRef()
+
+  componentDidMount () {
+    this.keyboardShow = Keyboard.addListener(
+      Platform.select({ android: 'keyboardDidShow', ios: 'keyboardWillShow' }),
+      this._onKeyboardShow
+    )
+    this.keyboardHide = Keyboard.addListener(
+      Platform.select({ android: 'keyboardDidHide', ios: 'keyboardWillHide' }),
+      this._onKeyboardHide
+    )
   }
 
-  _open = (cb) => {
+  componentWillUnmount () {
+    this.keyboardShow.remove()
+    this.keyboardHide.remove()
+  }
+
+  open = () => {
+    this._input.current.focus()
+  }
+
+  _onKeyboardShow = (event) => {
+    this.setState({ expanded: true })
+    this._open(event.endCoordinates.height)
+    getSearchHistory()
+      .then(result => {
+        this.setState({
+          history: result.data
+        })
+      })
+  }
+
+  _onKeyboardHide = () => {
+    this.setState({ expanded: false })
+    this._close()
+  }
+
+  _open = (androidKeyBoardHeight, cb) => {
     Animated.spring(this.state.heightAnimation, {
-      toValue: MAX_HEIGHT
+      toValue: Platform.select({
+        android: MAX_HEIGHT - androidKeyBoardHeight - StatusBar.currentHeight,
+        ios: MAX_HEIGHT
+      })
     }).start(cb)
   }
 
@@ -69,24 +102,6 @@ class SearchDapps extends Component {
     Animated.spring(this.state.heightAnimation, {
       toValue: MIN_HEIGHT
     }).start(cb)
-  }
-
-  _toogle = () => {
-    Animated.spring(this.state.heightAnimation, {
-      toValue: this.state.expanded ? MIN_HEIGHT : MAX_HEIGHT
-    }).start()
-    this.setState({
-      expanded: !this.state.expanded
-    })
-  }
-
-  _onInputFocus = () => {
-    this.setState({ expanded: true })
-    this._open()
-    getSearchHistory()
-      .then(data => {
-        this.setState({ history: data })
-      })
   }
 
   _inputRightContent = () => {
@@ -115,8 +130,7 @@ class SearchDapps extends Component {
     return (
       <SearchBtn
         onPress={() => {
-          this._toogle()
-          this._input.blur()
+          Keyboard.dismiss()
         }}
       >
         <Utils.Text>{tl.t('cancel')}</Utils.Text>
@@ -132,18 +146,14 @@ class SearchDapps extends Component {
   }
 
   _onSearch = (searchValue) => {
+    this._input.current.clear()
     if (isURL(searchValue)) {
-      this._input.blur()
       this.setState({ expanded: false, searchValue: '' })
-      this._close()
       if (searchValue !== '') {
-        this._input.clear()
         const url = this._parseURL(searchValue)
         this.props.onSearch(url)
         saveSearchHistory({ url, title: '' })
       }
-    } else {
-      this.refs.toast.show(tl.t('dapps.search.error'), 800)
     }
   }
 
@@ -153,7 +163,7 @@ class SearchDapps extends Component {
     }
     this.intervalId = setTimeout(() => {
       this.setState({ searchValue: text })
-    }, 800)
+    }, 500)
   }
 
   _getHistory = () => {
@@ -176,8 +186,7 @@ class SearchDapps extends Component {
         <Utils.SafeAreaView>
           <InputWrapper showBorder={expanded}>
             <Input
-              innerRef={ref => { this._input = ref }}
-              onFocus={this._onInputFocus}
+              innerRef={this._input}
               rightContent={this._inputRightContent}
               onChangeText={this._onChangeText}
               onSubmitEditing={() => this._onSearch(this.state.searchValue)}
@@ -206,7 +215,6 @@ class SearchDapps extends Component {
             />
           )}
         </Utils.SafeAreaView>
-        <Toast ref='toast' position='top' />
       </View>
     )
   }
