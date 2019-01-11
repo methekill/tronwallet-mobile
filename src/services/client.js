@@ -97,6 +97,7 @@ class ClientWallet {
   }
 
   async getTransactionFromExchange ({address, asset, amount, bot}) {
+    // TO-DO Check for AssetId instead of AssetName
     const reqBody = { 'toAddress': address, 'ownerAddress': bot, assetName: asset }
     const { data: result } = await axios.post(`${this.tronwalletDB}/transactions/find/`, reqBody)
     return result.length ? result[0] : null

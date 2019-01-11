@@ -35,7 +35,7 @@ class TransactionDetail extends Component {
     submitError: null,
     isConnected: null,
     tokenAmount: null,
-    exchangeOption: { trxAmount: 0, isExchangeable: false, assetName: '' },
+    exchangeOption: { trxAmount: 0, isExchangeable: false, assetName: '', assetId: '' },
     exchange: {
       loading: {
         send: false,

@@ -232,7 +232,8 @@ class BuyScene extends Component {
           exchangeOption: {
             isExchangeable: item.isExchangeable,
             trxAmount: amountToBuy * item.price / ONE_TRX,
-            assetName: item.name
+            assetName: item.name,
+            assetId: item.id
           }
         })
       })
