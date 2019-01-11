@@ -176,14 +176,13 @@ class BuyScene extends Component {
           to: systemAddress.exchangeBot.address,
           token: 'TRX',
           amount: this._fixNumber(amountToPay),
-          data: `@token=${item.id}`
+          data: `@token=${item.contentfulId}`
         }
         : {
           participateAddress: item.ownerAddress,
           participateToken: item.id,
           participateAmount: this._fixNumber(amountToPay)
         }
-
       const data = item.isExchangeable
         ? await Client.getTransferTransaction(participatePayload)
         : await Client.getParticipateTransaction(this.props.context.publicKey, participatePayload)
