@@ -184,7 +184,6 @@ class BuyScene extends Component {
           participateAmount: this._fixNumber(amountToPay)
         }
 
-      console.warn('...', participatePayload)
       const data = item.isExchangeable
         ? await Client.getTransferTransaction(participatePayload)
         : await Client.getParticipateTransaction(this.props.context.publicKey, participatePayload)
