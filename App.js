@@ -253,14 +253,32 @@ class App extends Component {
 
   _getPrice = async (currency = 'TRX') => {
     try {
-      const { data: { data } } = await axios.get(`${Config.TRX_PRICE_API}/?convert=${currency}`)
       const { price } = this.state
-      price[currency] = data.quotes[currency]
-      if (currency !== 'USD') {
-        price.USD = data.quotes.USD
-      }
-      this.setState({ price, circulatingSupply: data.circulating_supply })
+      const { data } = await axios.get(`${Config.TRONWALLET_DB}/prices?currency=${currency},USD`)
+
+      const currencyData = data.find(d => d.name === currency)
+      const usdData = data.find(d => d.name === 'USD')
+
+      if (!currencyData) return this._setCurrency('TRX')
+
+      price[currency] = currencyData
+      price['USD'] = usdData
+
+      this.setState({ price, circulatingSupply: currencyData.circulating_supply })
     } catch (e) {
+      this.setState({
+        currency: 'TRX',
+        price: {
+          'TRX': { name: 'TRX',
+            price: 1,
+            volume_24h: 0,
+            percent_change_1h: 0,
+            percent_change_24h: 0,
+            percent_change_7d: 0,
+            market_cap: 0,
+            total_supply: 0
+          }},
+        circulatingSupply: 0 })
       logSentry(e, 'App - GetPrice')
     }
   }
