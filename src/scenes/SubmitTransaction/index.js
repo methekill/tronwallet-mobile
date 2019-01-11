@@ -165,15 +165,18 @@ class TransactionDetail extends Component {
   _getExchangeResult = async () => {
     const { context, navigation } = this.props
     const { tokenAmount, exchange, exchangeOption, nowDate } = this.state
+    const { systemAddress } = context
+
     for (let i = 0; i < 5; i++) {
       try {
         const params = {
           address: context.publicKey,
           amount: tokenAmount,
           asset: exchangeOption.assetName,
-          bot: context.exchangeBot
+          bot: systemAddress.exchangeBot.address
         }
         const result = await Client.getTransactionFromExchange(params)
+
         if (result && new Date(result.createdAt).getTime() > nowDate) {
           this.setState({
             exchange: {
