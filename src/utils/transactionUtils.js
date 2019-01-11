@@ -74,6 +74,7 @@ const createTransaction = (item, address) => {
   if (item.type === 'Participate') {
     transaction.contractData = {
       tokenName: item.assetName,
+      tokenId: item.assetId,
       transferFromAddress: item.toAddress,
       amount: item.amount
     }

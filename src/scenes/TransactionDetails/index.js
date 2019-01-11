@@ -27,7 +27,7 @@ import { ONE_TRX } from '../../services/client'
 import { rgb } from '../../../node_modules/polished'
 import ActionModal from '../../components/ActionModal'
 import FontelloIcon from '../../components/FontelloIcon'
-import { Badge } from '../../components/Navigation/elements'
+import Badge from '../../components/Badge'
 
 import { formatFloat, formatNumber } from '../../utils/numberUtils'
 import getAssetsStore from '../../store/assets'
@@ -362,7 +362,6 @@ class TransactionDetails extends React.Component {
                 <View style={{ width: 11, height: 1 }} />
                 <View
                   style={{
-                    backgroundColor: rgb(46, 47, 71),
                     borderRadius: 2,
                     opacity: 0.97,
                     height: 24,
