@@ -110,9 +110,12 @@ export const getDApps = async () => {
     const queryEntry = { content_type: 'dApps' }
     const { items } = await contentfulClient.getEntries(queryEntry)
 
-    return items.map(({ fields }) => fields).filter(dapp => {
-      if (dapp.isVisible) return dapp
-    })
+    return items
+      .map(({ fields }) => fields)
+      .filter(dapp => {
+        if (dapp.isVisible) return dapp
+      })
+      .map(item => ({ ...item, image: `https:${item.image.fields.file.url}` }))
   } catch (e) {
     return []
   }

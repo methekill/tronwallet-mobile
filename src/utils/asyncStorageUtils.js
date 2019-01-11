@@ -19,7 +19,17 @@ export function set (key, data = null) {
   }
 }
 
+export function json (key, defaultReturnValue = null) {
+  return get(key, defaultReturnValue).then(result => JSON.parse(result))
+}
+
+export function setJSON (key, data = null) {
+  return set(key, JSON.stringify(data))
+}
+
 export default {
   get,
-  set
+  set,
+  json,
+  setJSON
 }

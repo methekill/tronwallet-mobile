@@ -183,7 +183,6 @@ class BuyScene extends Component {
           participateToken: item.id,
           participateAmount: this._fixNumber(amountToPay)
         }
-
       const data = item.isExchangeable
         ? await Client.getTransferTransaction(participatePayload)
         : await Client.getParticipateTransaction(this.props.context.publicKey, participatePayload)
@@ -232,7 +231,8 @@ class BuyScene extends Component {
           exchangeOption: {
             isExchangeable: item.isExchangeable,
             trxAmount: amountToBuy * item.price / ONE_TRX,
-            assetName: item.name
+            assetName: item.name,
+            assetId: item.id
           }
         })
       })

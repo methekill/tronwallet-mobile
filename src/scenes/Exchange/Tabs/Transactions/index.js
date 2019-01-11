@@ -23,10 +23,10 @@ export class LatestTransactions extends PureComponent {
       Alert.alert('Clipboard', 'Text copied')
     }
 
-    _getTokenIdentifier = tokenId => {
-      const { firstTokenId, secondTokenId, secondTokenAbbr, firstTokenAbbr } = this.props.exchangeData
-      if (tokenId === '_') return 'TRX'
-      return tokenId === firstTokenId ? (firstTokenAbbr || firstTokenId) : (secondTokenAbbr || secondTokenId)
+    _getTokenIdentifier = tokenName => {
+      const { firstTokenName, secondTokenName, secondTokenAbbr, firstTokenAbbr } = this.props.exchangeData
+      if (tokenName === '_') return 'TRX'
+      return tokenName === firstTokenName ? (firstTokenAbbr || firstTokenName) : (secondTokenAbbr || secondTokenName)
     }
 
     _renderHeader = () => (
@@ -39,8 +39,7 @@ export class LatestTransactions extends PureComponent {
 
     _renderCollapseView = (expanded, item) => {
       const amount = item.tokenId === '_' ? (item.quant / ONE_TRX).toFixed(3) : item.quant
-      const tokenIdentifier = this._getTokenIdentifier(item.tokenId)
-
+      const tokenIdentifier = this._getTokenIdentifier(item.tokenName)
       return <Utils.View paddingX='medium'>
         <TransactionRow>
           <Utils.Text flex={0.3} size='tiny'>

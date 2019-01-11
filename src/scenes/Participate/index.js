@@ -15,6 +15,7 @@ import {
   Card,
   TokenPrice,
   Text,
+  TextId,
   TokenName,
   VerticalSpacer,
   FeaturedTokenName,
@@ -198,7 +199,10 @@ class ParticipateHome extends React.Component {
         <WhiteLabelText label={abbr.toUpperCase()} />
         <HorizontalSpacer size={18} />
         <View flex={1} justify='space-between'>
-          <FeaturedTokenName>{getCustomName(name, id)}</FeaturedTokenName>
+          <Row align='center'>
+            <FeaturedTokenName>{getCustomName(name, id)}</FeaturedTokenName>
+            <TextId>#{id}</TextId>
+          </Row>
           <VerticalSpacer size={36} />
           <View>
             <ProgressBar
@@ -247,7 +251,11 @@ class ParticipateHome extends React.Component {
                 />
               </Row>
             )
-            : (<TokenName>{name}</TokenName>)}
+            : <Row align='center'>
+              <TokenName>{name}</TokenName>
+              <TextId>#{id}</TextId>
+            </Row>
+          }
           <View>
             <ProgressBar
               progress={Math.round(issuedPercentage) / 100}

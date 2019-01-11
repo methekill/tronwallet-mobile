@@ -12,3 +12,6 @@ export const ADD = 'ADD'
 export const EDIT = 'EDIT'
 export const WALLET_TOKENS = [{name: 'TRX', id: '1'}, {name: 'TWX', id: '1000018'}]
 export const AUTOSIGN_LIST = '@TronWallet:signList'
+export const DAPPS_HOME_HISTORY = '@TronWallet:dappsHomehHistory'
+export const DAPPS_SEARCH_HISTORY = '@TronWallet:dappsSearchHistory'
+export const DAPPS_BOOKMARK = '@TronWallet:dappsBookmark'

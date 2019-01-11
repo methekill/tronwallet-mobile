@@ -63,7 +63,6 @@ const defaultCardStyle = {
 
 const SettingsStack = createStackNavigator({
   Settings,
-  TronWebview,
   Market,
   About,
   SeedSave,
@@ -238,7 +237,8 @@ const RootNavigator = createStackNavigator({
   },
   TransactionSuccess,
   Freeze: FreezeVoteScene,
-  Rewards: RewardsScene
+  Rewards: RewardsScene,
+  TronWebview
 }, {
   mode: 'modal',
   headerMode: 'none',

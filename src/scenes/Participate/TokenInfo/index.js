@@ -67,7 +67,7 @@ class TokenInfo extends PureComponent {
             </Utils.View>
             <Utils.View flex={1} paddingLeft='medium'>
               <Utils.Text font='bold' size='average'>{name}</Utils.Text>
-              <Utils.Text size='tiny' marginY={4}>{id}</Utils.Text>
+              <Utils.Text size='tiny'>{id}</Utils.Text>
               <Utils.View paddingY='small'>
                 <Utils.SectionTitle small>{tl.t('participate.pricePerToken')}</Utils.SectionTitle>
                 <Utils.View height={5} />
