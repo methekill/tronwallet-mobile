@@ -309,22 +309,24 @@ class TransactionDetails extends React.Component {
 
   _renderHeader = () => {
     const { item: { type, contractData, tokenPrice } } = this.state
-    const {tokenName, tokenId} = contractData
+    let {tokenName, tokenId} = contractData
     const tokenToDisplay = this._getHeaderToken(type, tokenName)
     const amountText = this._getHeaderAmountText(type)
     const amountValue = this._getHeaderAmount()
 
     let amount
-    if (type === 'Freeze' || type === 'Unfreeze' || (type === 'Transfer' && tokenName === 'TRX')) {
+    if (type === 'Freeze' || type === 'Unfreeze' || (type === 'Transfer' && tokenId === '1')) {
       amount = amountValue / ONE_TRX
     } else if (type === 'Participate') {
       amount = amountValue / ONE_TRX / (tokenPrice / ONE_TRX)
     } else if (type === 'Exchange') {
-      amount = amountValue / (tokenName === 'TRX' ? ONE_TRX : 1)
+      amount = amountValue / (tokenId === '_' ? ONE_TRX : 1)
     } else {
       amount = amountValue
     }
     amount = formatNumber(amount)
+    tokenId = tokenId === '_' ? '1' : tokenId
+
     return (
       <View style={{ alignItems: 'center' }} >
         <View

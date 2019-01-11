@@ -125,8 +125,8 @@ class TransactionDetail extends Component {
       contractData: {
         transferFromAddress: ownerAddress,
         transferToAddress: toAddress,
-        tokenName: type === 'Transfer' ? 'TRX' : assetName,
-        tokenId: (type === 'Transfer Asset' || type === 'Participate') ? assetId : ''
+        tokenName: contractType === 1 ? 'TRX' : assetName,
+        tokenId: (contractType === 2 || contractType === 9) ? assetId : '1'
       },
       ownerAddress: ownerAddress,
       timestamp: new Date().getTime(),

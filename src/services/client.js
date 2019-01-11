@@ -73,7 +73,7 @@ class ClientWallet {
     const { data: result } = await axios.post(`${this.tronwalletDB}/transactions/find`, reqBody)
     return result.map(tx =>
       tx.contractType <= 2
-        ? {...tx, contractType: 1, type: 'Transfer'}
+        ? {...tx, type: 'Transfer'}
         : {...tx, type: this.getContractType(tx.contractType)})
   }
 
@@ -89,7 +89,7 @@ class ClientWallet {
     if (result.length) {
       const transactionDetail = result[0]
       return transactionDetail.contractType <= 2
-        ? {...transactionDetail, contractType: 1, type: 'Transfer', confirmed: true}
+        ? {...transactionDetail, type: 'Transfer', confirmed: true}
         : {...transactionDetail, type: this.getContractType(transactionDetail.contractType), confirmed: true}
     } else {
       return { confirmed: false }

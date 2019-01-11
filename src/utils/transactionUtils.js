@@ -53,12 +53,14 @@ const createTransaction = (item, address) => {
     timestamp: new Date(item.createdAt).getTime()
   }
   if (item.type === 'Transfer') {
+    const tokenName = item.contractType === 1 ? 'TRX' : item.assetName
+    const tokenId = item.contractType === 1 ? '1' : item.assetId
     transaction.contractData = {
       transferFromAddress: item.ownerAddress,
       transferToAddress: item.toAddress,
       amount: item.amount,
-      tokenName: item.assetName || 'TRX', // if contractType === 1 then it's a Transfer (TRX) transaction
-      tokenId: item.assetId || '1'
+      tokenName,
+      tokenId
     }
   }
   if (item.type === 'Create') {
@@ -90,12 +92,12 @@ const createTransaction = (item, address) => {
     }
   }
   if (item.type === 'Exchange') {
+    // condition for old Apps
     const tokenName = item.tokenName || (item.tokenId === '_' ? 'TRX' : item.tokenId)
     transaction.contractData = {
       amount: item.quant,
       tokenId: item.tokenId,
-      tokenName // condition for old Apps
-
+      tokenName
     }
   }
 
