@@ -17,6 +17,7 @@ import LeftBackButton from '../../components/Navigation/LeftBackButton'
 import { formatNumber } from '../../utils/numberUtils'
 import { USER_PREFERRED_CURRENCY } from '../../utils/constants'
 import withContext from '../../utils/hocs/withContext'
+import SYMBOLS from './fiatSymbols'
 
 const Line = ({ line }) => (
   <Path
@@ -177,7 +178,7 @@ class MarketScene extends Component {
               >
                 {value => (
                   <Utils.Text size='medium'>
-                    $ {formatNumber(value.data)}
+                    {SYMBOLS[currency] || '$'} {formatNumber(value.data)}
                   </Utils.Text>
                 )}
               </Motion>
