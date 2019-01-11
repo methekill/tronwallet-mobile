@@ -43,7 +43,7 @@ const ButtonIcon = ({
         </View>
       </LinearGradient>
       <Utils.VerticalSpacer size={textSpacing} />
-      <Utils.Text style={{ fontSize: getAdjustedFontSize(textSize) }} color={color}>{text}</Utils.Text>
+      <Utils.Text style={{ fontSize: getAdjustedFontSize(textSize) }} numberOfline={1} color={color}>{text}</Utils.Text>
     </TouchableOpacity>
   )
 }
