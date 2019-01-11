@@ -15,41 +15,8 @@ import tl from '../../../utils/i18n'
 
 const CURRENCIES = [
   tl.t('cancel'),
-  'TRX',
-  'USD',
-  'EUR',
-  'AUD',
-  'GBP',
-  'BTC',
-  'ETH',
-  'BRL',
-  'CAD',
-  'CLP',
-  'CNY',
-  'CZK',
-  'DKK',
-  'HKD',
-  'HUF',
-  'INR',
-  'IDR',
-  'ILS',
-  'JPY',
-  'KRW',
-  'MYR',
-  'MXN',
-  'NZD',
-  'NOK',
-  'PKR',
-  'PHP',
-  'PLN',
-  'RUB',
-  'SGD',
-  'ZAR',
-  'SEK',
-  'CHF',
-  'TWD',
-  'THB',
-  'TRY'
+  'TRX', 'USD', 'EUR', 'AUD', 'GBP', 'BTC', 'ETH', 'BRL', 'CAD',
+  'CLP', 'CNY', 'INR', 'ILS', 'JPY', 'KRW', 'MXN', 'NZD', 'RUB'
 ]
 
 export class AccountsCarousel extends React.Component {
