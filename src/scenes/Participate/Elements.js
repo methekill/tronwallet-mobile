@@ -9,7 +9,10 @@ export const Text = styled.Text`
   font-family: 'Rubik-Regular';
   font-size: 10;
 `
-
+export const TextId = Text.extend`
+  margin-left: 5;
+  font-size: 9;
+`
 export const TokenPrice = styled.Text`
   color: white;
   font-size: 14;

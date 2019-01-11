@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import * as Utils from '../../components/Utils'
+import { Colors } from '../DesignSystem'
 
 const Wrapper = styled.View`
   background-color: ${props => props.bg};
@@ -14,6 +15,7 @@ const Wrapper = styled.View`
   shadow-color: #000000;
   shadow-opacity: 0.1;
   justify-content: center;
+  flex-direction: row;
   position: relative;
 `
 
@@ -23,6 +25,14 @@ const Text = styled.Text`
   font-family: Rubik-Medium;
   line-height: ${props => props.large ? 18 : 14}px;
   color: ${props => props.color};
+`
+const TextId = styled.Text`
+  top: 1px;
+  font-size: 10px;
+  font-family: Rubik-Regular;
+  line-height: 14px;
+  color: ${Colors.greyBlue};
+  margin-left: 10px;
 `
 
 const Guarantee = styled.View`
@@ -36,10 +46,11 @@ const Image = styled.Image`
   height: 15px;
 `
 
-const Badge = ({ bg = '#2E2F47', textColor = '#FFFFFF', large, guarantee, children }) => (
+const Badge = ({ bg = '#2E2F47', textColor = '#FFFFFF', large, guarantee, children, id }) => (
   <Utils.Row align='center'>
     <Wrapper large={large} bg={bg}>
       {typeof children === 'string' ? <Text color={textColor} large={large}>{children}</Text> : children}
+      {id && <TextId color={textColor}>#{id}</TextId>}
     </Wrapper>
     {guarantee && (
       <Guarantee>

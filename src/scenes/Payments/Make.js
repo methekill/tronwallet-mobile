@@ -174,7 +174,7 @@ class MakePayment extends PureComponent {
             <Utils.Row justify='space-between' align='center'>
               <Utils.Text size='large'>{formatNumber(amount, true)}</Utils.Text>
               <Utils.HorizontalSpacer />
-              <Badge>{`${tokenName} ${tokenId}`}</Badge>
+              <Badge id={tokenId}>{tokenName}</Badge>
             </Utils.Row>
           </Utils.View>
           <Divider size='medium' marginBottom={10} />

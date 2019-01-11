@@ -79,12 +79,13 @@ class WalletBalances extends Component {
     this.props.navigation.navigate('TokenDetailScene', { item, fromBalance: true })
   }
 
-  _onItemPress = ({ name: tokenName }) => {
+  _onItemPress = ({ name: tokenName, id: tokenId }) => {
     this.setState({ modalTokenVisible: true, errorToken: null }, async () => {
       try {
         const customParams = {
           content_type: 'asset',
-          order: '-fields.isFeatured,-fields.isVerified,fields.position'
+          order: '-fields.isFeatured,-fields.isVerified,fields.position',
+          'fields.id[match]': tokenId
         }
         const { results } = await queryToken(tokenName, customParams)
         if (results.length) {
@@ -131,7 +132,12 @@ class WalletBalances extends Component {
     <Utils.Content key={item.id} paddingHorizontal='none' paddingVertical='medium'>
       <TouchableOpacity disabled={item.id === '1'} onPress={() => this._onItemPress(item)}>
         <Utils.Row justify='space-between'>
-          <Badge bg={Colors.lightestBackground} guarantee={item.verified}>{getCustomName(item.name, item.id)}</Badge>
+          <Badge
+            id={item.id}
+            bg={Colors.lightestBackground}
+            guarantee={item.verified}>
+            {getCustomName(item.name, item.id)}
+          </Badge>
           <Utils.Text>{formatNumber(item.balance)}</Utils.Text>
         </Utils.Row>
       </TouchableOpacity>

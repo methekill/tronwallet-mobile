@@ -35,7 +35,7 @@ class TransactionDetail extends Component {
     submitError: null,
     isConnected: null,
     tokenAmount: null,
-    exchangeOption: { trxAmount: 0, isExchangeable: false, assetName: '' },
+    exchangeOption: { trxAmount: 0, isExchangeable: false, assetName: '', assetId: '' },
     exchange: {
       loading: {
         send: false,
@@ -125,8 +125,7 @@ class TransactionDetail extends Component {
       contractData: {
         transferFromAddress: ownerAddress,
         transferToAddress: toAddress,
-        tokenName: type === 'Transfer' ? 'TRX' : assetName,
-        tokenId: (type === 'Transfer Asset' || type === 'Participate') ? assetId : ''
+        tokenName: contractType === 1 ? 'TRX' : assetName
       },
       ownerAddress: ownerAddress,
       timestamp: new Date().getTime(),
@@ -134,6 +133,14 @@ class TransactionDetail extends Component {
     }
 
     switch (type) {
+      case 'Transfer':
+        transaction.contractData.tokenId = '1'
+        transaction.contractData.amount = amount
+        break
+      case 'Transfer Asset':
+        transaction.contractData.tokenId = assetId
+        transaction.contractData.amount = amount
+        break
       case 'Freeze':
         transaction.contractData.frozenBalance = transactionData.frozenBalance
         break
@@ -143,6 +150,7 @@ class TransactionDetail extends Component {
       case 'Participate':
         transaction.tokenPrice = amount / tokenAmount
         transaction.contractData.amount = amount
+        transaction.contractData.tokenId = assetId
         break
       case 'Unfreeze':
         transaction.contractData.frozenBalance = tokenAmount
