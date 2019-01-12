@@ -678,13 +678,13 @@
   "contract": {
     "signMessage": "Не подписывать автоматически",
     "time": "Минут",
-    "confirmationTitle": "CONFIRM",
-    "siteLabel": "SITE",
-    "contractLabel": "CONTRACT",
-    "costLabel": "COST",
+    "confirmationTitle": "ПОДТВЕРДИТЬ",
+    "siteLabel": "САЙТ",
+    "contractLabel": "КОНТРАКТ",
+    "costLabel": "СТОИМОСТЬ",
     "button": {
-      "confirm": "CONFIRM",
-      "reject": "REJECT"
+      "confirm": "ПОДТВЕРДИТЬ",
+      "reject": "ОТМЕНИТЬ"
     },
     "card": {
       "options": {
