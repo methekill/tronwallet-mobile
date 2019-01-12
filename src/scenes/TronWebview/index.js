@@ -31,8 +31,9 @@ class TronWebView extends Component {
             ref={ref => (this._webView = ref)}
             accounts={this.props.context.accounts}
             onRequestSearch={() => {
-              this._search.open()
-              this._home.syncData()
+              setTimeout(() => {
+                this._search.open()
+              }, 800)
             }}
             onClose={() => this._home.syncData()}
           />

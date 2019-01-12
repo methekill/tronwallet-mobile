@@ -22,7 +22,7 @@ function navigate (routeName, params) {
 
 function setNotification (data = {}) {
   const { type } = data
-  if (NOTIFICATIONS_TYPE.indexOf(type) < 0) {
+  if (NOTIFICATIONS_TYPE.indexOf(type) === -1) {
     return null
   }
   _notifications = data
