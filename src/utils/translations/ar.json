@@ -677,6 +677,37 @@
   },
   "contract": {
     "signMessage": "لا توقع تلقائيا",
-    "time": "دقائق"
+    "time": "دقائق",
+    "confirmationTitle": "تأكيد",
+    "siteLabel": "موقع",
+    "contractLabel": "عقد",
+    "costLabel": "تكلفة",
+    "button": {
+      "confirm": "تأكيد",
+      "reject": "رفض"
+    },
+    "card": {
+      "options": {
+        "title": "عند تعيين هذا الخيار ، سيتم توقيع جميع العقود الذكية القادمة من هذا العنوان والاتصال بهذه الوظيفة بشكل اوتوماتيكي"
+      },
+      "switchLabel": "تسجيل اوتوماتيكي"
+    }
+  },
+  "dapps": {
+    "title": "DAPPS",
+    "search": {
+      "placeholder": "ابحث أو اكتب www.",
+      "go": "اذهب",
+      "error": "أدخل مع بحث صحيح!"
+    },
+    "home": {
+      "cancelOperation": "تم",
+      "bookmark": {
+        "title": "الإشارة المرجعية"
+      },
+      "history": {
+        "title": "التاريخ"
+      }
+    }
   }
 }
