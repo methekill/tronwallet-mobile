@@ -696,7 +696,7 @@
   "dapps": {
     "title": "DAPPS",
     "search": {
-      "placeholder": "Поиск или ввод с www.",
+      "placeholder": "Поиск или ввод www.",
       "go": "ПЕРЕЙТИ",
       "error": "Введите корректный адрес!"
     },
