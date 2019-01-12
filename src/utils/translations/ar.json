@@ -678,13 +678,13 @@
   "contract": {
     "signMessage": "لا توقع تلقائيا",
     "time": "دقائق",
-    "confirmationTitle": "CONFIRM",
-    "siteLabel": "SITE",
-    "contractLabel": "CONTRACT",
-    "costLabel": "COST",
+    "confirmationTitle": "تأكيد",
+    "siteLabel": "موقع",
+    "contractLabel": "عقد",
+    "costLabel": "تكلفة",
     "button": {
-      "confirm": "CONFIRM",
-      "reject": "REJECT"
+      "confirm": "تأكيد",
+      "reject": "رفض"
     },
     "card": {
       "options": {
