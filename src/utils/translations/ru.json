@@ -688,25 +688,25 @@
     },
     "card": {
       "options": {
-        "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
+        "title": "При выборе этого параметра, все триггерные смарт-контракты, приходящие с этого адреса и вызывающие эту функцию, будут подписаны автоматически"
       },
-      "switchLabel": "Sign automatically"
+      "switchLabel": "Подписывать автоматически"
     }
   },
   "dapps": {
     "title": "DAPPS",
     "search": {
-      "placeholder": "Search or type www.",
-      "go": "GO",
-      "error": "Enter with valid search!"
+      "placeholder": "Ищите или введите www.",
+      "go": "ПЕРЕЙТИ",
+      "error": "Введите корректные данные!"
     },
     "home": {
-      "cancelOperation": "done",
+      "cancelOperation": "готово",
       "bookmark": {
-        "title": "Bookmark"
+        "title": "Закладка"
       },
       "history": {
-        "title": "History"
+        "title": "История"
       }
     }
   }
