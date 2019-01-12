@@ -688,25 +688,25 @@
     },
     "card": {
       "options": {
-        "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
+        "title": "عند تعيين هذا الخيار ، سيتم توقيع جميع العقود الذكية القادمة من هذا العنوان والاتصال بهذه الوظيفة بشكل اوتوماتيكي"
       },
-      "switchLabel": "Sign automatically"
+      "switchLabel": "تسجيل اوتوماتيكي"
     }
   },
   "dapps": {
     "title": "DAPPS",
     "search": {
-      "placeholder": "Search or type www.",
-      "go": "GO",
-      "error": "Enter with valid search!"
+      "placeholder": "ابحث أو اكتب www.",
+      "go": "اذهب",
+      "error": "أدخل مع بحث صحيح!"
     },
     "home": {
-      "cancelOperation": "done",
+      "cancelOperation": "تم",
       "bookmark": {
-        "title": "Bookmark"
+        "title": "الإشارة المرجعية"
       },
       "history": {
-        "title": "History"
+        "title": "التاريخ"
       }
     }
   }
