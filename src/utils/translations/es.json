@@ -678,12 +678,12 @@
   "contract": {
     "signMessage": "No firmar automáticamente",
     "time": "Minutos",
-    "confirmationTitle": "CONFIRM",
+    "confirmationTitle": "CONFIRMAR",
     "siteLabel": "SITE",
-    "contractLabel": "CONTRACT",
+    "contractLabel": "CONTRATO",
     "costLabel": "COST",
     "button": {
-      "confirm": "CONFIRM",
+      "confirm": "CONFIRMAR",
       "reject": "REJECT"
     },
     "card": {
