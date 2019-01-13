@@ -686,6 +686,10 @@
       "confirm": "ПОДТВЕРДИТЬ",
       "reject": "ОТМЕНИТЬ"
     },
+    "error": {
+      "invalidContract": "Invalid contract, try again or contact the support for help",
+      "noAmount": "You dont have enought amount to run this contract"
+    },
     "card": {
       "options": {
         "title": "При выборе этого параметра, все триггеры смарт-контрактов, приходящие с этого адреса и вызывающие эту функцию, будут подписаны автоматически"
