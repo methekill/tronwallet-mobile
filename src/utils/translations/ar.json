@@ -686,6 +686,10 @@
       "confirm": "تأكيد",
       "reject": "رفض"
     },
+    "error": {
+      "invalidContract": "Invalid contract, try again or contact the support for help",
+      "noAmount": "You dont have enought amount to run this contract"
+    },
     "card": {
       "options": {
         "title": "عند تعيين هذا الخيار ، سيتم توقيع جميع العقود الذكية القادمة من هذا العنوان والاتصال بهذه الوظيفة بشكل اوتوماتيكي"
