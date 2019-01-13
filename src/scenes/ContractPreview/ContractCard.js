@@ -1,63 +1,17 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
-import styled from 'styled-components'
 
 import { withContext } from '../../store/context'
 
 import { Colors } from '../../components/DesignSystem'
 import ButtonGradient from '../../components/ButtonGradient'
-import { AutoSignSelector } from './elements'
+import { AutoSignSelector, Card, Row, Line, RejectButton } from './elements'
 
 import { signSmartContract } from '../../services/tronweb'
 import { ONE_TRX } from '../../services/client'
-import { Button, Text } from '../../components/Utils'
+import { Text } from '../../components/Utils'
 
 import tl from '../../utils/i18n'
-
-const Card = styled.View`
-  display: flex;
-  flex: 0.6;
-  align-self: center;
-  width: 100%;
-  background-color: ${Colors.dusk};
-  border-radius: 10px;
-  align-items: center;
-  justify-content: center;
-`
-
-const Row = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 11%;
-  background-color: transparent;
-  padding-horizontal: ${({ noPadding }) => noPadding ? '0%' : '10%'};
-`
-
-const Line = styled(Row)`
-  width: 80%;
-  height: 2px;
-  backgroundColor: ${Colors.slateGrey};
-`
-
-const RejectButton = styled(Button)`
-  border-radius: 4px;
-  height: 50px;
-  width: 100%;
-`
-
-// const ContractParams = styled.View`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: row;
-//   background-color: white;
-//   width: 80%;
-//   height: 15%;
-//   border-radius: 10px;
-// `
 
 const options = [
   { text: tl.t('contract.signMessage'), value: null },
@@ -124,7 +78,7 @@ class ContractCard extends Component {
 
         <Line />
 
-        <Row style={{ marginTop: 15 }}>
+        <Row style={{ marginTop: 15, marginBottom: 15 }}>
           <View style={{ flex: 0.5, marginRight: '1%' }}>
             <RejectButton backgroundColor={Colors.greyBlue} text={tl.t('contract.button.reject')} onPress={this.rejectTR} textSize='tiny'>
               <Text size='button'>{tl.t('contract.button.reject')}</Text>
@@ -136,7 +90,8 @@ class ContractCard extends Component {
           </View>
         </Row>
 
-        <Row>
+        <Line />
+        <Row style={{ marginTop: 15 }}>
           <AutoSignSelector
             options={options}
             autoSign={autoSign}

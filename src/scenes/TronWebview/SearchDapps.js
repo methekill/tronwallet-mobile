@@ -33,7 +33,7 @@ const InputWrapper = styled.View`
 `
 
 const MAX_HEIGHT = Dimensions.get('window').height
-const MIN_HEIGHT = 90
+const MIN_HEIGHT = 70
 
 class SearchDapps extends Component {
   static displayName = 'Dapps search component'
@@ -58,35 +58,39 @@ class SearchDapps extends Component {
       Platform.select({ android: 'keyboardDidShow', ios: 'keyboardWillShow' }),
       this._onKeyboardShow
     )
-    this.keyboardHide = Keyboard.addListener(
-      Platform.select({ android: 'keyboardDidHide', ios: 'keyboardWillHide' }),
-      this._onKeyboardHide
-    )
+    // this.keyboardHide = Keyboard.addListener(
+    //   Platform.select({ android: 'keyboardDidHide', ios: 'keyboardWillHide' }),
+    //   this._onKeyboardHide
+    // )
   }
 
   componentWillUnmount () {
     this.keyboardShow.remove()
-    this.keyboardHide.remove()
+    // this.keyboardHide.remove()
   }
 
   open = () => {
     this._input.current.focus()
   }
 
-  _onKeyboardShow = (event) => {
-    this.setState({ expanded: true })
-    this._open(event.endCoordinates.height)
-    getSearchHistory()
-      .then(result => {
-        this.setState({
-          history: result.data
-        })
-      })
+  close = () => {
+    Keyboard.dismiss()
+    this.setState({ expanded: false, searchValue: '' }, () => {
+      this._close()
+    })
   }
 
-  _onKeyboardHide = () => {
-    this.setState({ expanded: false })
-    this._close()
+  _onKeyboardShow = (event) => {
+    if (!this.state.expanded) {
+      this.setState({ expanded: true })
+      this._open(event.endCoordinates.height)
+      getSearchHistory()
+        .then(result => {
+          this.setState({
+            history: result.data
+          })
+        })
+    }
   }
 
   _open = (androidKeyBoardHeight, cb) => {
@@ -130,7 +134,7 @@ class SearchDapps extends Component {
     return (
       <SearchBtn
         onPress={() => {
-          Keyboard.dismiss()
+          this.close()
         }}
       >
         <Utils.Text>{tl.t('cancel')}</Utils.Text>
@@ -146,9 +150,9 @@ class SearchDapps extends Component {
   }
 
   _onSearch = (searchValue) => {
-    this._input.current.clear()
     if (isURL(searchValue)) {
-      this.setState({ expanded: false, searchValue: '' })
+      this._input.current.clear()
+      this.close()
       if (searchValue !== '') {
         const url = this._parseURL(searchValue)
         this.props.onSearch(url)
@@ -194,7 +198,6 @@ class SearchDapps extends Component {
               keyboardType='url'
               returnKeyType='go'
               borderColor={expanded ? 'transparent' : '#51526B'}
-              onPaste={() => console.warn('asdasdad')}
             />
           </InputWrapper>
           {expanded && (
