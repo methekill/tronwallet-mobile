@@ -686,6 +686,10 @@
       "confirm": "CONFIRM",
       "reject": "REJECT"
     },
+    "error": {
+      "invalidContract": "Invalid contract, try again or contact the support for help",
+      "noAmount": "You dont have enought amount to run this contract"
+    },
     "card": {
       "options": {
         "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
