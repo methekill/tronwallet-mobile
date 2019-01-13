@@ -687,7 +687,7 @@
       "reject": "ОТМЕНИТЬ"
     },
     "error": {
-      "invalidContract": "Invalid contract, try again or contact the support for help",
+      "invalidContract": "Неверный контракт. Попробуйте еще раз или свяжитесь с поддержкой",
       "noAmount": "Недостаточное количество для запуска этого контракта"
     },
     "card": {
