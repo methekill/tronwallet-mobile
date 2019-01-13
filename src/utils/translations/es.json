@@ -686,6 +686,10 @@
       "confirm": "CONFIRMAR",
       "reject": "RECHAZAR"
     },
+    "error": {
+      "invalidContract": "Invalid contract, try again or contact the support for help",
+      "noAmount": "You dont have enought amount to run this contract"
+    },
     "card": {
       "options": {
         "title": "Seleccionar está opción todos los contratos inteligentes procedentes de esta dirección y llamar a esa función serán automáticamente firmados"
