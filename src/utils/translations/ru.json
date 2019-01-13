@@ -688,7 +688,7 @@
     },
     "error": {
       "invalidContract": "Invalid contract, try again or contact the support for help",
-      "noAmount": "You dont have enought amount to run this contract"
+      "noAmount": "Недостаточное количество для запуска этого контракта"
     },
     "card": {
       "options": {
