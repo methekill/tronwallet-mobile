@@ -2,13 +2,17 @@ import React, { Component } from 'react'
 import { WebView, Alert, StyleSheet, Dimensions, BackHandler } from 'react-native'
 import { SafeAreaView } from 'react-navigation'
 import Modal from 'react-native-modal'
+import MixPanel from 'react-native-mixpanel'
+import { Answers } from 'react-native-fabric'
+
 import { WebViewHeader, WebViewFooter, CardContainer } from './elements'
 import Loading from './../../components/LoadingScene'
 import ContractCard from '../ContractPreview/ContractCard'
 
 import { Colors } from './../../components/DesignSystem'
 import { checkAutoContract } from '../../services/tronweb'
-import { updateSearchHistory, saveBookmark, isBookmark } from './../../utils/dappUtils'
+import { updateSearchHistory, saveBookmark, isBookmark, removeBookmark } from './../../utils/dappUtils'
+import tl from './../../utils/i18n'
 
 const deviceSize = Dimensions.get('window')
 
@@ -39,11 +43,11 @@ class WebViewWrapper extends Component {
     BackHandler.removeEventListener('hardwareBackPress', this._goBack)
   }
 
-  open = (url) => this.setState({
-    url,
-    isPageVisible: true,
-    title: url
-  })
+  open = (url) => {
+    this.setState({ url, isPageVisible: true, title: url }, () => {
+      MixPanel.trackWithProperties('Open Dapp', { url })
+    })
+  }
 
   _onClose = (cb) => {
     this.setState({ isPageVisible: false }, cb)
@@ -130,12 +134,13 @@ class WebViewWrapper extends Component {
     const { address } = accounts.find(acc => acc.alias === '@main_account')
 
     let jsCode = `
+        window.postMessage = String(Object.hasOwnProperty).replace('hasOwnProperty', 'postMessage')
         var script   = document.createElement("script");
         script.type  = "text/javascript";
         script.text  = "function callTronWallet(data) {postMessage(JSON.stringify(data))}"
         document.body.appendChild(script);
         document.useragent = "TronWallet1.3"
-
+      
         ${this._injectTronWeb(address)}
     `
     return jsCode
@@ -193,11 +198,11 @@ class WebViewWrapper extends Component {
       }
 
       if ((!balance && balance !== 0) || !address) {
-        throw new Error('Invalid contract, try again or contact the support for help')
+        throw new Error(tl.t('contract.error.invalidContract'))
       }
 
       if (balance < contract.amount) {
-        throw new Error('You dont have enought amount to run this contract')
+        throw new Error(tl.t('contract.error.noAmount'))
       }
 
       if (contract.txID) {
@@ -210,7 +215,13 @@ class WebViewWrapper extends Component {
         })
       }
     } catch (e) {
-      Alert.alert(e.message)
+      if (e instanceof SyntaxError) {
+        // console.warn(`[${e.name}]: ${e.message}`)
+        Alert.alert(tl.t('message'), tl.t('error.default'))
+        Answers.logContentView('Browser Dapps', e.message)
+      } else {
+        Alert.alert(tl.t('message'), e.message)
+      }
     }
   }
 
@@ -223,7 +234,7 @@ class WebViewWrapper extends Component {
     if (!isBookmark) {
       saveBookmark({ url, title })
     } else {
-
+      removeBookmark(url)
     }
 
     this.setState({ isBookmark: !isBookmark })

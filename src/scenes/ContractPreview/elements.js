@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { View } from 'react-native'
 import styled from 'styled-components'
-import { Text } from '../../components/Utils'
+import { Text, Button } from '../../components/Utils'
 import ActionSheet from 'react-native-actionsheet'
 import Switch from 'react-native-switch-pro'
 
@@ -13,6 +13,42 @@ const Center = styled.View`
   justify-content: center;
   align-content: center;
   align-items: center;
+  height: 40px;
+  width: 100%;
+`
+
+export const Card = styled.View`
+  display: flex;
+  flex: 0.6;
+  align-self: center;
+  width: 100%;
+  background-color: ${Colors.dusk};
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+`
+
+export const Row = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 11%;
+  background-color: transparent;
+  padding-horizontal: ${({ noPadding }) => noPadding ? '0%' : '10%'};
+`
+
+export const Line = styled(Row)`
+  width: 80%;
+  height: 2px;
+  background-color: ${Colors.slateGrey};
+`
+
+export const RejectButton = styled(Button)`
+  border-radius: 4px;
+  height: 50px;
+  width: 100%;
 `
 
 export class AutoSignSelector extends PureComponent {
@@ -47,18 +83,25 @@ export class AutoSignSelector extends PureComponent {
             }}
           />
         </View>
-        <View>
-          <Text marginY='16'>{tl.t('contract.card.switchLabel')}</Text>
-          <Text light marginY='16' color={Colors.greyBlue} size='smaller'>{this._formatSignText(autoSign)}</Text>
+        <View style={{marginLeft: 20}}>
+          <Text size='smaller' numberOfLines={1}>{tl.t('contract.card.switchLabel')}</Text>
+          <Text light color={Colors.greyBlue} size='tiny'>{this._formatSignText(autoSign)}</Text>
         </View>
         <ActionSheet
           ref={ref => {
             this.ActionSheet = ref
           }}
           title={tl.t('contract.options.title')}
-          options={options.map(({text}) => text)}
+          options={options.map(({ text }) => text)}
           cancelButtonIndex={0}
-          onPress={index => onChange(options[index])}
+          onPress={index => {
+            onChange(options[index])
+            if (index === 0) {
+              this.setState({
+                active: false
+              })
+            }
+          }}
         />
       </Center>
     )

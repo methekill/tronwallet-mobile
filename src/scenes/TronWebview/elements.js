@@ -160,7 +160,7 @@ export const WebViewHeaderWrapper = styled.View`
   height: 30px;
   width: 100%;
   background-color: ${Colors.slateGrey};
-  padding: 0px 16px;
+  padding: 8px;
 `
 export const WebViewHeader = ({ title }) => (
   <WebViewHeaderWrapper>
@@ -260,3 +260,9 @@ SearchListItem.propTypes = {
   subtitle: PropTypes.string,
   onPress: PropTypes.func
 }
+
+export const ScrollView = styled.ScrollView.attrs({
+  showsHorizontalScrollIndicator: false
+})`
+  padding-left: 16px;
+`

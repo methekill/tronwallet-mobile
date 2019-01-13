@@ -1,14 +1,7 @@
 import { AsyncStorage } from 'react-native'
 
 export function get (key, defaultReturnValue = null) {
-  try {
-    return AsyncStorage.getItem(key)
-      .then(data => {
-        return data || defaultReturnValue
-      })
-  } catch (error) {
-    return defaultReturnValue
-  }
+  return AsyncStorage.getItem(key).then(data => data || defaultReturnValue)
 }
 
 export function set (key, data = null) {

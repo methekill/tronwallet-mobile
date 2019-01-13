@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { ScrollView } from 'react-native'
+import { RefreshControl } from 'react-native'
 import * as Animatable from 'react-native-animatable'
 import sortBy from 'lodash/sortBy'
 import { Text } from '../../components/Utils'
 import tl from './../../utils/i18n'
 
-import { DAppButton, HomeContainer, HomeTitle, HomeSection, BtnRemove, DAppButtonWrapper, BtnCancel } from './elements'
+import { DAppButton, HomeContainer, HomeTitle, HomeSection, BtnRemove, DAppButtonWrapper, BtnCancel, ScrollView } from './elements'
 import { getBookmarks, removeBookmark, saveHomeHistory, getHomeHistory, removeHomeHistory } from './../../utils/dappUtils'
 import { getDApps } from './../../services/contentful/general'
 
@@ -20,31 +20,32 @@ class WebViewHome extends Component {
 
   state = {
     dapps: [],
-    bookmark: [],
+    bookmarks: [],
     history: [],
-    showRemoveIcon: false
+    showRemoveIcon: false,
+    refreshing: false
   }
 
   componentDidMount () {
-    this._load()
+    setTimeout(() => {
+      this._load()
+    }, 500)
   }
 
   syncData = () => this._load()
 
-  _load = () => {
-    Promise.all([
-      getDApps(),
-      getBookmarks().then(result => result.data),
-      getHomeHistory()
-        .then(result => sortBy(result.data, arr => new Date(arr.update_at)).reverse())
-    ])
-      .then(([dapps, bookmark, history]) => {
-        this.setState({
-          dapps,
-          bookmark,
-          history
-        })
-      })
+  _load = async () => {
+    this.setState({ refreshing: true })
+    const { data: bookmarks } = await getBookmarks()
+    const { data: history } = await getHomeHistory()
+    const dapps = await getDApps()
+
+    this.setState({
+      bookmarks,
+      history: sortBy(history, arr => new Date(arr.update_at)).reverse(),
+      dapps,
+      refreshing: false
+    })
   }
 
   _removeBookmark = (item) => {
@@ -70,9 +71,13 @@ class WebViewHome extends Component {
       })
   }
 
+  _onRefresh = () => {
+    this._load()
+  }
+
   _renderBookmark = () => {
-    const { bookmark } = this.state
-    if (!bookmark.length) return null
+    const { bookmarks } = this.state
+    if (!bookmarks.length) return null
 
     return (
       <HomeContainer>
@@ -87,8 +92,8 @@ class WebViewHome extends Component {
           )}
         </HomeTitle>
         <HomeSection>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingLeft: 16 }} >
-            {bookmark.map((d, index) => {
+          <ScrollView horizontal>
+            {bookmarks.map((d, index) => {
               if (this.state.showRemoveIcon) {
                 return (
                   <DAppButtonWrapper key={index}>
@@ -132,7 +137,7 @@ class WebViewHome extends Component {
           )}
         </HomeTitle>
         <HomeSection>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingLeft: 16 }} >
+          <ScrollView horizontal>
             {history.map((d, index) => {
               const dapp = { ...d, name: d.name || d.title }
               if (this.state.showRemoveIcon) {
@@ -165,7 +170,15 @@ class WebViewHome extends Component {
     const { dapps } = this.state
 
     return (
-      <ScrollView scrollEventThrottle={16}>
+      <ScrollView
+        scrollEventThrottle={16}
+        refreshControl={
+          <RefreshControl
+            refreshing={this.state.refreshing}
+            onRefresh={this._onRefresh}
+          />
+        }
+      >
         {this._renderHistory()}
         {this._renderBookmark()}
         <HomeContainer>
@@ -173,7 +186,7 @@ class WebViewHome extends Component {
             <Text>Popular</Text>
           </HomeTitle>
           <HomeSection>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingLeft: 16 }} >
+            <ScrollView horizontal>
               {dapps.map((d, index) => <DAppButton key={index} dapp={d} onPress={() => this._onPress(d)} />)}
             </ScrollView>
           </HomeSection>
