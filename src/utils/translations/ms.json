@@ -687,14 +687,14 @@
       "reject": "MENOLAK"
     },
     "error": {
-      "invalidContract": "Invalid contract, try again or contact the support for help",
-      "noAmount": "You dont have enought amount to run this contract"
+      "invalidContract": "Kontrak yang tidak sah, cuba lagi atau hubungi sokongan untuk bantuan",
+      "noAmount": "Anda tidak mempunyai amaun yang mencukupi untuk menjalankan kontrak ini"
     },
     "card": {
       "options": {
-        "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
+        "title": "Dengan menetapkan pilihan ini, semua pencetus kontrak pintar yang datang dari alamat ini dan memanggil fungsi ini akan ditandatangani secara automatik"
       },
-      "switchLabel": "Sign automatically"
+      "switchLabel": "Menandatangani secara automatik"
     }
   },
   "dapps": {
@@ -702,15 +702,15 @@
     "search": {
       "placeholder": "Cari atau taip www.",
       "go": "PERGI",
-      "error": "Enter with valid search!"
+      "error": "Masukkan dengan carian yang sah!"
     },
     "home": {
-      "cancelOperation": "done",
+      "cancelOperation": "dilakukan",
       "bookmark": {
-        "title": "Bookmark"
+        "title": "Penanda buku"
       },
       "history": {
-        "title": "History"
+        "title": "Sejarah"
       }
     }
   }
