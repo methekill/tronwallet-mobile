@@ -67,7 +67,7 @@ class Save extends React.Component {
       <SecretCard>
         <Utils.View align='flex-end' justify='center' height={30} padding={0} >
           <Utils.Button width={28} height={28} justify='center' onPress={this._onCopyClipboard(eventName, secret)} >
-            <FontelloIcon name='copy' size={20} color={Colors.secondaryText} />
+            <FontelloIcon name='copy' size={14} color={Colors.secondaryText} />
           </Utils.Button>
         </Utils.View>
         <Secret secret={secret} />
