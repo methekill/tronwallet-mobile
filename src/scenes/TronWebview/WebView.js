@@ -134,7 +134,7 @@ class WebViewWrapper extends Component {
     const { address } = accounts.find(acc => acc.alias === '@main_account')
 
     let jsCode = `
-        window.postMessage = String(Object.hasOwnProperty).replace('hasOwnProperty', 'postMessage')
+        
         var script   = document.createElement("script");
         script.type  = "text/javascript";
         script.text  = "function callTronWallet(data) {postMessage(JSON.stringify(data))}"
