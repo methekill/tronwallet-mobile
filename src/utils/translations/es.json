@@ -687,8 +687,8 @@
       "reject": "RECHAZAR"
     },
     "error": {
-      "invalidContract": "Invalid contract, try again or contact the support for help",
-      "noAmount": "You dont have enought amount to run this contract"
+      "invalidContract": "Contrato no válido, inténtelo de nuevo o póngase en contacto con el servicio de asistencia técnica para obtener ayuda.",
+      "noAmount": "No tienes la cantidad suficiente para ejecutar este contrato."
     },
     "card": {
       "options": {
