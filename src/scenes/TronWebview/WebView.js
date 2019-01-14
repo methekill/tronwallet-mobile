@@ -104,18 +104,22 @@ class WebViewWrapper extends Component {
 
           return window.tronWeb.trx.sign = (transaction, _pk, _useTronHeader, callback) => {
             return new Promise((resolve, reject) => {
-              window.callTronWallet(transaction)
+              try {
+                window.callTronWallet(transaction)
 
-              document.addEventListener("message", function(data) {
-                var tr = JSON.parse(data.data);
-                
-                resolve(tr)
+                document.addEventListener("message", function(data) {
+                  var tr = JSON.parse(data.data);
+                  
+                  resolve(tr)
 
-                if(callback) {
-                  callback(tr);
-                }
-                
-              });
+                  if(callback) {
+                    callback(tr);
+                  }
+                  
+                });
+              } catch(e) {
+                reject(e);
+              }
             })
             
           };
@@ -226,7 +230,7 @@ class WebViewWrapper extends Component {
   }
 
   _closeCardDialog = () => {
-    this.setState({ isCardVisible: false, contract: {}, url: '', title: '' })
+    this.setState({ isCardVisible: false, contract: {} })
   }
 
   _checkBookmark = () => {
