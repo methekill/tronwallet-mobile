@@ -687,8 +687,8 @@
       "reject": "رفض"
     },
     "error": {
-      "invalidContract": "Invalid contract, try again or contact the support for help",
-      "noAmount": "You dont have enought amount to run this contract"
+      "invalidContract": "عقد غير صالح ، حاول مرة أخرى أو اتصل بالدعم للمساعدة",
+      "noAmount": "ليس لديك كمية كافية لتشغيل هذا العقد"
     },
     "card": {
       "options": {
