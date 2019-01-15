@@ -678,39 +678,39 @@
   "contract": {
     "signMessage": "توقف امضای خودکار",
     "time": "دقیقه",
-    "confirmationTitle": "CONFIRM",
-    "siteLabel": "SITE",
-    "contractLabel": "CONTRACT",
-    "costLabel": "COST",
+    "confirmationTitle": "تایید",
+    "siteLabel": "سایت",
+    "contractLabel": "قرارداد",
+    "costLabel": "هزینه",
     "button": {
-      "confirm": "CONFIRM",
-      "reject": "REJECT"
+      "confirm": "تایید",
+      "reject": "رد کردن"
     },
     "error": {
-      "invalidContract": "Invalid contract, try again or contact the support for help",
-      "noAmount": "You dont have enought amount to run this contract"
+      "invalidContract": "قرارداد نامعتبر، دوباره سعی کنید و یا با پشتیبانی تماس بگیرید",
+      "noAmount": "مقدار کافی برای اجرای این قرارداد ندارید"
     },
     "card": {
       "options": {
-        "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
+        "title": "با تنظیم این گزینه، تمام قراردادهای هوشمند از این آدرس فراخوانده شده و فراخوانی آن تابع به صورت خودکار امضا خواهد شد"
       },
-      "switchLabel": "Sign automatically"
+      "switchLabel": "امضای خودکار"
     }
   },
   "dapps": {
     "title": "DAPPS",
     "search": {
-      "placeholder": "Search or type www.",
-      "go": "GO",
-      "error": "Enter with valid search!"
+      "placeholder": "جستجو کنید و یا تایپ کنید www.",
+      "go": "برو",
+      "error": "یک جستجو معتبر وارد کنید!"
     },
     "home": {
-      "cancelOperation": "done",
+      "cancelOperation": "انجام شد",
       "bookmark": {
-        "title": "Bookmark"
+        "title": "نشانه گذاری"
       },
       "history": {
-        "title": "History"
+        "title": "تاریخچه"
       }
     }
   }
