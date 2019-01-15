@@ -678,39 +678,39 @@
   "contract": {
     "signMessage": "Non confermare automaticamente",
     "time": "Minuti",
-    "confirmationTitle": "CONFIRM",
-    "siteLabel": "SITE",
-    "contractLabel": "CONTRACT",
-    "costLabel": "COST",
+    "confirmationTitle": "CONFERMA",
+    "siteLabel": "SITO",
+    "contractLabel": "CONTRATTO",
+    "costLabel": "COSTO",
     "button": {
-      "confirm": "CONFIRM",
-      "reject": "REJECT"
+      "confirm": "CONFERMA",
+      "reject": "RIFIUTA"
     },
     "error": {
-      "invalidContract": "Invalid contract, try again or contact the support for help",
-      "noAmount": "You dont have enought amount to run this contract"
+      "invalidContract": "Contratto non valido, riprova o contatta il supporto per l'aiuto",
+      "noAmount": "Non hai una quantità sufficiente per eseguire questo contratto"
     },
     "card": {
       "options": {
         "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
       },
-      "switchLabel": "Sign automatically"
+      "switchLabel": "Accedi automaticamente"
     }
   },
   "dapps": {
-    "title": "DAPPS",
+    "title": "DAPP",
     "search": {
-      "placeholder": "Search or type www.",
-      "go": "GO",
-      "error": "Enter with valid search!"
+      "placeholder": "Cerca o digita www.",
+      "go": "VAI",
+      "error": "Immetti una ricerca valida!"
     },
     "home": {
-      "cancelOperation": "done",
+      "cancelOperation": "fatto",
       "bookmark": {
-        "title": "Bookmark"
+        "title": "Preferiti"
       },
       "history": {
-        "title": "History"
+        "title": "Storia"
       }
     }
   }
