@@ -31,7 +31,7 @@ export const PageWrapper = styled.View`
   flex: 1;
   flex-direction: column;
   height: 100%;
-  background-color: ${Colors.lightBackground};
+  background-color: ${Colors.background};
 `
 
 export const HeaderView = styled.View`
@@ -53,7 +53,7 @@ export const URLInput = styled.TextInput`
 
 export const HomeContainer = styled.View`
   flex: 1;
-  background-color: ${Colors.lightBackground};
+  background-color: transparent;
   padding-top: 10px;
   padding-bottom: 20px;
 `
