@@ -680,15 +680,15 @@
     "time": "Хвилин",
     "confirmationTitle": "ПІДТВЕРДИТИ",
     "siteLabel": "SITE",
-    "contractLabel": "CONTRACT",
-    "costLabel": "COST",
+    "contractLabel": "ДОГОВІР",
+    "costLabel": "ВАРТІСТЬ",
     "button": {
-      "confirm": "CONFIRM",
-      "reject": "REJECT"
+      "confirm": "ПІДТВЕРДИТИ",
+      "reject": "ВІДХИЛИТИ"
     },
     "error": {
-      "invalidContract": "Invalid contract, try again or contact the support for help",
-      "noAmount": "You dont have enought amount to run this contract"
+      "invalidContract": "Невірний контракт, спробуйте ще раз або зверніться до підтримки по допомогу",
+      "noAmount": "Ви не маєте достатньої суми для запуску цього контракту"
     },
     "card": {
       "options": {
