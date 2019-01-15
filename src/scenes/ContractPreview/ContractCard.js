@@ -72,12 +72,6 @@ class ContractCard extends Component {
           <Text>{amount / ONE_TRX} TRX</Text>
         </Row>
 
-        {/* <ContractParams>
-          <Text color='black'>{command}</Text>
-        </ContractParams> */}
-
-        <Line />
-
         <Row style={{ marginTop: 15, marginBottom: 15 }}>
           <View style={{ flex: 0.5, marginRight: '1%' }}>
             <RejectButton backgroundColor={Colors.greyBlue} text={tl.t('contract.button.reject')} onPress={this.rejectTR} textSize='tiny'>

@@ -694,7 +694,7 @@
       "options": {
         "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
       },
-      "switchLabel": "Sign automatically"
+      "switchLabel": "Auto Sign"
     }
   },
   "dapps": {
