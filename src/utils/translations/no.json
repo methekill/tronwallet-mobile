@@ -678,17 +678,17 @@
   "contract": {
     "signMessage": "Ikke signer automatisk",
     "time": "Minutter",
-    "confirmationTitle": "CONFIRM",
-    "siteLabel": "SITE",
-    "contractLabel": "CONTRACT",
-    "costLabel": "COST",
+    "confirmationTitle": "BEKREFTE",
+    "siteLabel": "NETTSTEDET",
+    "contractLabel": "KONTRAKT",
+    "costLabel": "KOSTNAD",
     "button": {
-      "confirm": "CONFIRM",
-      "reject": "REJECT"
+      "confirm": "BEKREFTE",
+      "reject": "AVVIS"
     },
     "error": {
-      "invalidContract": "Invalid contract, try again or contact the support for help",
-      "noAmount": "You dont have enought amount to run this contract"
+      "invalidContract": "Ugyldig kontrakt, prøv igjen eller kontakt supporten for hjelp",
+      "noAmount": "Du har ikke nok beløp til å drive denne kontrakten"
     },
     "card": {
       "options": {
@@ -700,17 +700,17 @@
   "dapps": {
     "title": "DAPPS",
     "search": {
-      "placeholder": "Search or type www.",
-      "go": "GO",
-      "error": "Enter with valid search!"
+      "placeholder": "Søk eller taste www.",
+      "go": "GÅ",
+      "error": "Angi gyldig søk!"
     },
     "home": {
-      "cancelOperation": "done",
+      "cancelOperation": "gjort",
       "bookmark": {
         "title": "Bookmark"
       },
       "history": {
-        "title": "History"
+        "title": "Historie"
       }
     }
   }
