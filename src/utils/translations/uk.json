@@ -692,25 +692,25 @@
     },
     "card": {
       "options": {
-        "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
+        "title": "Втановлюючі цю опцію, усі смарт-контракти виходячи з цією адреси та використовуючі ці функції будуть автоматично підписані"
       },
-      "switchLabel": "Sign automatically"
+      "switchLabel": "Підписувати автоматично"
     }
   },
   "dapps": {
     "title": "DAPPS",
     "search": {
-      "placeholder": "Search or type www.",
-      "go": "GO",
-      "error": "Enter with valid search!"
+      "placeholder": "Пошук або введіть www.",
+      "go": "ВПЕРЕД",
+      "error": "Введіть дійсний запит!"
     },
     "home": {
-      "cancelOperation": "done",
+      "cancelOperation": "виконано",
       "bookmark": {
-        "title": "Bookmark"
+        "title": "Закладка"
       },
       "history": {
-        "title": "History"
+        "title": "Історія"
       }
     }
   }
