@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   createStackNavigator,
-  createMaterialTopTabNavigator,
   createSwitchNavigator,
   SafeAreaView,
   createAppContainer
@@ -53,6 +52,7 @@ import Notifications from './src/scenes/Notifications'
 import Signals from './src/scenes/Signals'
 import ExchangeList from './src/scenes/Exchange'
 import ExchangeTabs from './src/scenes/Exchange/Tabs'
+import createCustomTopTabNavigator from './src/components/Navigation/createCustomTopTabNavigator'
 
 import tl from './src/utils/i18n'
 
@@ -61,54 +61,13 @@ const defaultCardStyle = {
   backgroundColor: Colors.background
 }
 
-const SettingsStack = createStackNavigator({
-  Settings,
-  Market,
-  About,
-  SeedSave,
-  SeedConfirm,
-  NetworkConnection
-}, {
-  mode: 'modal',
-  headerMode: 'none',
-  navigationOptions: {
-    gesturesEnabled: false
-  },
-  cardStyle: defaultCardStyle
-})
-
-const tabWidth = ScreenSize.width / 2
-const indicatorWidth = 15
-const AddressBookTabs = createMaterialTopTabNavigator({
+const AddressBookTabs = createCustomTopTabNavigator({
   Contacts: ContactsScene,
   Accounts: AccountsScene
 }, {
-  navigationOptions: {
-    header: ({ navigation }) => (
-      <SafeAreaView style={{ backgroundColor: Colors.background }}>
-        <NavigationHeader onBack={() => navigation.navigate('Settings')} title={tl.t('addressBook.title')} />
-      </SafeAreaView>
-    ),
-    gesturesEnabled: false
-  },
   tabBarOptions: {
-    activeTintColor: Colors.primaryText,
-    inactiveTintColor: '#66688f',
-    style: {
-      paddingTop: 10,
-      backgroundColor: Colors.background,
-      elevation: 0
-    },
-    labelStyle: {
-      fontSize: 12,
-      lineHeight: 12,
-      letterSpacing: 0.6,
-      fontFamily: 'Rubik-Medium'
-    },
-    indicatorStyle: {
-      width: indicatorWidth,
-      height: 1.2,
-      marginLeft: tabWidth / 2 - indicatorWidth / 2
+    header: {
+      title: tl.t('addressBook.title')
     }
   }
 })
@@ -119,6 +78,27 @@ const AddressBookStack = createStackNavigator({
   AddContact: AddContactScene
 }, {
   mode: 'modal',
+  headerMode: 'none',
+  navigationOptions: {
+    gesturesEnabled: false
+  },
+  cardStyle: defaultCardStyle
+})
+
+const SettingsStack = createStackNavigator({
+  Settings,
+  Market,
+  About,
+  SeedSave,
+  SeedConfirm,
+  NetworkConnection,
+  AddressBook: AddressBookStack
+}, {
+  mode: 'modal',
+  headerMode: 'none',
+  navigationOptions: {
+    gesturesEnabled: false
+  },
   cardStyle: defaultCardStyle
 })
 
@@ -234,7 +214,6 @@ const RootNavigator = createStackNavigator({
   ContractPreview,
   App: AppTabs,
   GetVault: GetVaultScene,
-  AddressBook: AddressBookStack,
   SubmitTransaction: {
     screen: SubmitTransactionScene,
     path: 'transaction/:tx'
