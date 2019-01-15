@@ -692,9 +692,9 @@
     },
     "card": {
       "options": {
-        "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
+        "title": "Angir dette alternativet, logges alle smart kontrakter som kommer fra denne adressen og kaller denne funksjonen vil bli automatisk signert"
       },
-      "switchLabel": "Sign automatically"
+      "switchLabel": "Signer automatisk"
     }
   },
   "dapps": {
@@ -707,7 +707,7 @@
     "home": {
       "cancelOperation": "gjort",
       "bookmark": {
-        "title": "Bookmark"
+        "title": "Bokmerke"
       },
       "history": {
         "title": "Historie"
