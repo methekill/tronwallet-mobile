@@ -1,32 +1,39 @@
 import React, { Component } from 'react'
-import { ScrollView, Alert } from 'react-native'
+import { ScrollView, Alert, StyleSheet } from 'react-native'
 import Switch from 'react-native-switch-pro'
 import MixPanel from 'react-native-mixpanel'
+import Markdown from 'react-native-markdown-renderer'
 
 import * as Utils from '../../components/Utils'
 import ButtonGradient from './../../components/ButtonGradient'
-import { PolicyText } from './elements'
-import { Colors, Spacing } from './../../components/DesignSystem'
+// import { PolicyText } from './elements'
+import { Colors, Spacing, FontSize } from './../../components/DesignSystem'
 import tl from '../../utils/i18n'
 import Async from './../../utils/asyncStorageUtils'
 import { USER_PRIVACY } from './../../utils/constants'
+import { getPrivacyPolicy } from './../../services/contentful/general'
 
 class PrivacyPolicy extends Component {
   state = {
-    userAccepted: false
+    userAccepted: false,
+    policy: ''
   }
 
   async componentDidMount () {
-    if (await Async.get(USER_PRIVACY, false)) {
+    if (await Async.json(USER_PRIVACY, false)) {
       this.props.navigation.navigate('First', this.props.navigation.state)
     }
+    const policy = await getPrivacyPolicy()
+    this.setState({
+      policy: policy.description
+    })
   }
 
   onPressConfirm = () => {
     if (!this.state.userAccepted) {
       Alert.alert(tl.t('warning'), tl.t('privacyPolicy.error'))
     } else {
-      Async.set(USER_PRIVACY, 'true')
+      Async.setJSON(USER_PRIVACY, true)
       this.props.navigation.navigate('First', this.props.navigation.state)
       MixPanel.track('Privacy Policy')
     }
@@ -70,7 +77,8 @@ class PrivacyPolicy extends Component {
 
             <Utils.View height='60%'>
               <ScrollView>
-                <PolicyText />
+                <Markdown style={styles}>{this.state.policy}</Markdown>
+                {/* <PolicyText /> */}
               </ScrollView>
               <Utils.VerticalSpacer size='medium' />
             </Utils.View>
@@ -99,5 +107,53 @@ class PrivacyPolicy extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  heading: {
+    borderBottomWidth: 1,
+    borderColor: Colors.primaryText,
+    color: Colors.primaryText
+  },
+  heading1: {
+    fontSize: 32,
+    color: Colors.primaryText
+  },
+  heading2: {
+    fontSize: 24,
+    color: Colors.primaryText
+  },
+  heading3: {
+    fontSize: 18,
+    color: Colors.primaryText
+  },
+  heading4: {
+    color: Colors.primaryText,
+    fontSize: 16
+  },
+  heading5: {
+    color: Colors.primaryText,
+    fontSize: 13
+  },
+  heading6: {
+    color: Colors.primaryText,
+    fontSize: 11
+  },
+  text: {
+    color: Colors.primaryText,
+    fontSize: FontSize.smaller
+  },
+  span: {
+    color: Colors.primaryText,
+    fontSize: FontSize.smaller
+  },
+  strong: {
+    color: Colors.primaryText,
+    fontSize: FontSize.smaller
+  },
+  link: {
+    color: Colors.primaryText,
+    fontWeight: 'bold'
+  }
+})
 
 export default PrivacyPolicy
