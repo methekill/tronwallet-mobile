@@ -24,7 +24,6 @@ class TronWebView extends Component {
         <PageWrapper>
           <Header
             title={tl.t('dapps.title')}
-            onBack={() => this.props.navigation.goBack()}
           />
           <WebViewHome ref={ref => (this._home = ref)} onPress={url => this._webView.open(url)} />
           <WebView

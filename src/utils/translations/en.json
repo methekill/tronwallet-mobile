@@ -358,11 +358,11 @@
       "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "ACCOUNTS MANAGEMENT"
     },
+    "addressBook": {
+      "title": "Address Book"
+    },
     "notifications": {
       "title": "Notifications"
-    },
-    "dappBrowser": {
-      "title": "DApp Browser"
     },
     "network": {
       "title": "Network",

@@ -63,15 +63,30 @@ class WebViewWrapper extends Component {
     });
   `
 
+  _protectPostMessage = () => `
+    (function() {
+      var originalPostMessage = window.postMessage;
+    
+      var patchedPostMessage = function(message, targetOrigin, transfer) { 
+        originalPostMessage(message, targetOrigin, transfer);
+      };
+    
+      patchedPostMessage.toString = function() { 
+        return String(Object.hasOwnProperty).replace('hasOwnProperty', 'postMessage'); 
+      };
+    
+      window.postMessage = patchedPostMessage;
+    })();
+  `
+
   _injectTronWeb = (address) => (`
     try {
       const tweb = document.createElement('script');
       tweb.setAttribute('src', 'https://unpkg.com/tronweb@2.1.17/dist/TronWeb.js');
       document.head.appendChild(tweb);
 
-      console.log = function(msg){postMessage(JSON.stringify({ msg: msg, type: "LOG" }))}
-      console.error = function(msg){postMessage(JSON.stringify({ msg: msg, type: "LOG" }))}
-  
+      ${this._protectPostMessage()}
+
       const injectWatcher = setInterval(function() {
         if(window.TronWeb) {
           clearInterval(injectWatcher)
@@ -104,18 +119,22 @@ class WebViewWrapper extends Component {
 
           return window.tronWeb.trx.sign = (transaction, _pk, _useTronHeader, callback) => {
             return new Promise((resolve, reject) => {
-              window.callTronWallet(transaction)
+              try {
+                window.callTronWallet(transaction)
 
-              document.addEventListener("message", function(data) {
-                var tr = JSON.parse(data.data);
-                
-                resolve(tr)
+                document.addEventListener("message", function(data) {
+                  var tr = JSON.parse(data.data);
+                  
+                  resolve(tr)
 
-                if(callback) {
-                  callback(tr);
-                }
-                
-              });
+                  if(callback) {
+                    callback(tr);
+                  }
+                  
+                });
+              } catch(e) {
+                reject(e);
+              }
             })
             
           };
@@ -217,7 +236,7 @@ class WebViewWrapper extends Component {
     } catch (e) {
       if (e instanceof SyntaxError) {
         // console.warn(`[${e.name}]: ${e.message}`)
-        Alert.alert(tl.t('message'), tl.t('error.default'))
+        // Alert.alert(tl.t('message'), tl.t('error.default'))
         Answers.logContentView('Browser Dapps', e.message)
       } else {
         Alert.alert(tl.t('message'), e.message)
@@ -226,7 +245,7 @@ class WebViewWrapper extends Component {
   }
 
   _closeCardDialog = () => {
-    this.setState({ isCardVisible: false, contract: {}, url: '', title: '' })
+    this.setState({ isCardVisible: false, contract: {} })
   }
 
   _checkBookmark = () => {
@@ -271,7 +290,7 @@ class WebViewWrapper extends Component {
   }
 
   _onLoadingError = (event) => {
-    console.error('encountered an error loading page', event.nativeEvent)
+    console.warn('encountered an error loading page', event.nativeEvent)
   }
 
   render () {
@@ -293,6 +312,8 @@ class WebViewWrapper extends Component {
             injectedJavaScript={this._injectjs()}
             onMessage={this._handleMessage}
             onLoadEnd={this._configInstance}
+            onError={(e) => console.warn(e)}
+            renderError={(e) => console.warn(e)}
             onNavigationStateChange={this._onNavigationStateChange}
             onLoadingError={this._onLoadingError}
             source={{ uri: url }}

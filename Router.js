@@ -84,9 +84,9 @@ const AddressBookTabs = createMaterialTopTabNavigator({
   Accounts: AccountsScene
 }, {
   navigationOptions: {
-    header: (
+    header: ({ navigation }) => (
       <SafeAreaView style={{ backgroundColor: Colors.background }}>
-        <NavigationHeader title={tl.t('addressBook.title')} />
+        <NavigationHeader onBack={() => navigation.navigate('Settings')} title={tl.t('addressBook.title')} />
       </SafeAreaView>
     ),
     gesturesEnabled: false
@@ -165,14 +165,14 @@ const ParticipateStack = createStackNavigator({
 
 const AppTabs = createMaterialBottomTabNavigator({
   Exchange: ExchangeStack,
+  Participate: ParticipateStack,
   Vote: {
     screen: VoteScene,
     path: 'vote'
   },
-  AddressBook: AddressBookStack,
   Balance: BalanceStack,
   Transactions: TransactionList,
-  Participate: ParticipateStack,
+  TronWebview: TronWebview,
   Settings: SettingsStack
 }, {
   defaultNavigationOptions: ({ navigation }) => ({
@@ -184,8 +184,8 @@ const AppTabs = createMaterialBottomTabNavigator({
         iconName = `wallet,-money,-cash,-balance,-purse`
       } else if (routeName === 'Transfer') {
         iconName = `fly,-send,-paper,-submit,-plane`
-      } else if (routeName === 'AddressBook') {
-        iconName = `diary,-contact,-address,-organizer,-book`
+      // } else if (routeName === 'AddressBook') {
+      //   iconName = `diary,-contact,-address,-organizer,-book`
       } else if (routeName === 'Vote') {
         iconName = `shout-out,-speaker,-offer,-announcement,-loud`
       } else if (routeName === 'Transactions') {
@@ -199,6 +199,9 @@ const AppTabs = createMaterialBottomTabNavigator({
         iconName = `dollar,-currency,-money,-cash,-coin`
       } else if (routeName === 'Exchange') {
         iconName = 'exchange'
+        iconSize = 22
+      } else if (routeName === 'TronWebview') {
+        iconName = 'earth,-globe,-planet,-world,-universe'
         iconSize = 22
       }
 
@@ -231,14 +234,14 @@ const RootNavigator = createStackNavigator({
   ContractPreview,
   App: AppTabs,
   GetVault: GetVaultScene,
+  AddressBook: AddressBookStack,
   SubmitTransaction: {
     screen: SubmitTransactionScene,
     path: 'transaction/:tx'
   },
   TransactionSuccess,
   Freeze: FreezeVoteScene,
-  Rewards: RewardsScene,
-  TronWebview
+  Rewards: RewardsScene
 }, {
   mode: 'modal',
   headerMode: 'none',
