@@ -678,13 +678,13 @@
   "contract": {
     "signMessage": "자동 서명 금지",
     "time": "분",
-    "confirmationTitle": "CONFIRM",
+    "confirmationTitle": "확인",
     "siteLabel": "SITE",
-    "contractLabel": "CONTRACT",
+    "contractLabel": "컨트랙트",
     "costLabel": "COST",
     "button": {
-      "confirm": "CONFIRM",
-      "reject": "REJECT"
+      "confirm": "확인",
+      "reject": "거절"
     },
     "error": {
       "invalidContract": "Invalid contract, try again or contact the support for help",
@@ -707,10 +707,10 @@
     "home": {
       "cancelOperation": "done",
       "bookmark": {
-        "title": "Bookmark"
+        "title": "즐겨찾기"
       },
       "history": {
-        "title": "History"
+        "title": "방문기록"
       }
     }
   }
