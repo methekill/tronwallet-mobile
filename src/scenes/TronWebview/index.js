@@ -28,7 +28,7 @@ class TronWebView extends Component {
           <WebViewHome ref={ref => (this._home = ref)} onPress={url => this._webView.open(url)} />
           <WebView
             ref={ref => (this._webView = ref)}
-            accounts={this.props.context.accounts}
+            account={this.props.context.getCurrentAccount()}
             onRequestSearch={() => {
               setTimeout(() => {
                 this._search.open()

@@ -51,7 +51,15 @@ export const RejectButton = styled(Button)`
 
 export class AutoSignSelector extends PureComponent {
   state = {
-    active: false
+    active: this.props.autoSign.value
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.autoSign !== this.props.autoSign) {
+      this.setState({
+        active: nextProps.autoSign.value
+      })
+    }
   }
 
   _formatSignText = (option) => {
@@ -70,20 +78,18 @@ export class AutoSignSelector extends PureComponent {
             circleStyle={{ backgroundColor: Colors.orange }}
             backgroundActive={Colors.yellow}
             backgroundInactive={Colors.secondaryText}
-            value={this.state.active}
-            onAsyncPress={(callback) => {
-              this.setState({ active: true }, () => {
-                callback(this.state.active)
-                if (this.state.active) {
-                  this.ActionSheet.show()
-                }
-              })
+            value={this.state.active !== null}
+            onSyncPress={(value) => {
+              this.setState({ active: value })
+              if (value) {
+                this.ActionSheet.show()
+              }
             }}
           />
         </View>
         <View style={{ marginLeft: 20 }}>
           <Text size='smaller' numberOfLines={1} color={Colors.greyBlue}>{tl.t('contract.card.switchLabel')}</Text>
-          {this.state.active && (
+          {autoSign.value && (
             <Text light color={Colors.greyBlue} size='tiny'>{this._formatSignText(autoSign)}</Text>
           )}
         </View>
@@ -97,9 +103,7 @@ export class AutoSignSelector extends PureComponent {
           onPress={index => {
             onChange(options[index])
             if (index === 0) {
-              this.setState({
-                active: false
-              })
+              this.setState({ active: false })
             }
           }}
         />
