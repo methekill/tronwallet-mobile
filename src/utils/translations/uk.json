@@ -678,7 +678,7 @@
   "contract": {
     "signMessage": "Не підписувати автоматично",
     "time": "Хвилин",
-    "confirmationTitle": "CONFIRM",
+    "confirmationTitle": "ПІДТВЕРДИТИ",
     "siteLabel": "SITE",
     "contractLabel": "CONTRACT",
     "costLabel": "COST",
