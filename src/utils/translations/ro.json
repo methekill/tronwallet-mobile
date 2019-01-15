@@ -678,39 +678,39 @@
   "contract": {
     "signMessage": "Nu vă logati automat",
     "time": "Minute",
-    "confirmationTitle": "CONFIRM",
+    "confirmationTitle": "CONFIRMĂ",
     "siteLabel": "SITE",
     "contractLabel": "CONTRACT",
-    "costLabel": "COST",
+    "costLabel": "COSTUL",
     "button": {
-      "confirm": "CONFIRM",
-      "reject": "REJECT"
+      "confirm": "CONFIRMĂ",
+      "reject": "RESPINGE"
     },
     "error": {
-      "invalidContract": "Invalid contract, try again or contact the support for help",
-      "noAmount": "You dont have enought amount to run this contract"
+      "invalidContract": "Contract valid, încearcă din nou sau contacteaza suport technic pentru ajutor",
+      "noAmount": "Nu ai cantitatea suficienta pentru a rula acest contract"
     },
     "card": {
       "options": {
         "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
       },
-      "switchLabel": "Sign automatically"
+      "switchLabel": "Logati-vă automat"
     }
   },
   "dapps": {
     "title": "DAPPS",
     "search": {
-      "placeholder": "Search or type www.",
-      "go": "GO",
-      "error": "Enter with valid search!"
+      "placeholder": "Căutaţi sau scrieţi www.",
+      "go": "DU-TE",
+      "error": "Introduceţi căutare valida!"
     },
     "home": {
-      "cancelOperation": "done",
+      "cancelOperation": "gata",
       "bookmark": {
         "title": "Bookmark"
       },
       "history": {
-        "title": "History"
+        "title": "Istorie"
       }
     }
   }
