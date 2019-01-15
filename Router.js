@@ -2,12 +2,11 @@ import React from 'react'
 import {
   createStackNavigator,
   createSwitchNavigator,
-  SafeAreaView,
   createAppContainer
 } from 'react-navigation'
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
 
-import { Colors, ScreenSize } from './src/components/DesignSystem'
+import { Colors } from './src/components/DesignSystem'
 import { TWIcon } from './src/components/Utils'
 
 import Loading from './src/scenes/Loading'
@@ -39,7 +38,6 @@ import AccountsScene from './src/scenes/Accounts'
 import ContactsScene from './src/scenes/Contacts'
 import EditAddressBookItem from './src/scenes/EditAddressBookItem'
 import AddContactScene from './src/scenes/Contacts/Add'
-import NavigationHeader from './src/components/Navigation/Header'
 import MakePayScene from './src/scenes/Payments/Make'
 import PaymentsScene from './src/scenes/Payments'
 import ScanPayScene from './src/scenes/Payments/Scan'
