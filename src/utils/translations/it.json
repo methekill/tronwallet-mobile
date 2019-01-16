@@ -358,11 +358,11 @@
       "idiomAndLocalization": "LINGUA E LOCALIZZAZIONE",
       "accounts": "GESTIONE DEI CONTI"
     },
+    "addressBook": {
+      "title": "Address Book"
+    },
     "notifications": {
       "title": "Notifiche"
-    },
-    "dappBrowser": {
-      "title": "DApp Browser"
     },
     "network": {
       "title": "Rete",
@@ -688,13 +688,13 @@
     },
     "error": {
       "invalidContract": "Contratto non valido, riprova o contatta il supporto per l'aiuto",
-      "noAmount": "Non hai una quantità sufficiente per eseguire questo contratto"
+      "noAmount": "You don't have enough amount to run this contract"
     },
     "card": {
       "options": {
-        "title": "Impostando questa opzione, tutti i contratti smart trigger provenienti da questo indirizzo e che chiamano tale funzione verranno automaticamente firmati"
+        "title": "Setting this option, all the trigger smart contracts coming from this address and calling that function will be automatically signed"
       },
-      "switchLabel": "Accedi automaticamente"
+      "switchLabel": "Auto Sign"
     }
   },
   "dapps": {
