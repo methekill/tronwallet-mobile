@@ -42,13 +42,24 @@ class ScanPayment extends Component {
 
   _checkDescription = description => description.length <= 500
 
+  _checkCurrencyPoppy = currency => {
+    const { getCurrentBalances } = this.props.context
+    if (currency === 'TRX') return { tokenName: 'TRX', tokenId: '1' }
+    const currentBalance = getCurrentBalances().find(bl => bl.id === currency)
+    if (currentBalance) {
+      return { tokenName: currentBalance.name, tokenId: currentBalance.id }
+    } else {
+      throw new DataError(tl.t('scanPayment.error.token'))
+    }
+  }
+
   _handlePoppyProtocol = data => {
     const { address, amount, currency, data: description } = data
 
     if (!isAddressValid(address)) throw new DataError(tl.t('scanPayment.error.receiver'))
-    if (!currency) throw new DataError(tl.t('scanPayment.error.token'))
     if (!amount > 0 || !currency) throw new DataError(tl.t('scanPayment.error.amount'))
     if (!description) throw new DataError(tl.t('scanPayment.error.description'))
+    const { tokenId, tokenName } = this._checkCurrencyPoppy(currency)
 
     const currentAccount = this.props.context.getCurrentAccount()
     if (currentAccount) {
@@ -61,7 +72,7 @@ class ScanPayment extends Component {
         'currentAccount.balance': currentAccount.balance
       })
     }
-    return { address, amount, tokenName: currency, tokenId: currency, description }
+    return { address, amount, tokenName, tokenId, description }
   }
 
   _handleTronWalletProtocol = data => {
