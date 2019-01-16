@@ -162,8 +162,6 @@ const AppTabs = createMaterialBottomTabNavigator({
         iconName = `wallet,-money,-cash,-balance,-purse`
       } else if (routeName === 'Transfer') {
         iconName = `fly,-send,-paper,-submit,-plane`
-      // } else if (routeName === 'AddressBook') {
-      //   iconName = `diary,-contact,-address,-organizer,-book`
       } else if (routeName === 'Vote') {
         iconName = `shout-out,-speaker,-offer,-announcement,-loud`
       } else if (routeName === 'Transactions') {
