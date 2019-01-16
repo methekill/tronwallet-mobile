@@ -1,6 +1,6 @@
 {
   "name": "tronwallet2",
-  "version": "1.3.85",
+  "version": "1.3.86",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
@@ -48,6 +48,7 @@
     "react-native-i18n": "^2.0.15",
     "react-native-keyboard-aware-scroll-view": "^0.5.0",
     "react-native-linear-gradient": "^2.4.0",
+    "react-native-markdown-renderer": "^3.2.8",
     "react-native-mixpanel": "^1.1.1",
     "react-native-modal": "^6.0.0",
     "react-native-motion": "^0.2.0",

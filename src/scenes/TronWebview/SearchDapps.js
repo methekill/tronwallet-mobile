@@ -32,7 +32,8 @@ const InputWrapper = styled.View`
   `}
 `
 
-const MAX_HEIGHT = Dimensions.get('window').height
+const TAB_BAR_HEIGHT = 56
+const MAX_HEIGHT = Dimensions.get('window').height - TAB_BAR_HEIGHT
 const MIN_HEIGHT = 70
 
 class SearchDapps extends Component {

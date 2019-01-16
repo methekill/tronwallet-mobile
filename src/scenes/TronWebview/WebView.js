@@ -3,16 +3,16 @@ import { WebView, Alert, StyleSheet, Dimensions, BackHandler } from 'react-nativ
 import { SafeAreaView } from 'react-navigation'
 import Modal from 'react-native-modal'
 import MixPanel from 'react-native-mixpanel'
-import { Answers } from 'react-native-fabric'
 
 import { WebViewHeader, WebViewFooter, CardContainer } from './elements'
 import Loading from './../../components/LoadingScene'
 import ContractCard from '../ContractPreview/ContractCard'
 
 import { Colors } from './../../components/DesignSystem'
-import { checkAutoContract } from '../../services/tronweb'
+import { checkAutoContract, signSmartContract } from '../../services/tronweb'
 import { updateSearchHistory, saveBookmark, isBookmark, removeBookmark } from './../../utils/dappUtils'
 import tl from './../../utils/i18n'
+import { logSentry } from '../../utils/sentryUtils'
 
 const deviceSize = Dimensions.get('window')
 
@@ -63,15 +63,30 @@ class WebViewWrapper extends Component {
     });
   `
 
+  _protectPostMessage = () => `
+    (function() {
+      var originalPostMessage = window.postMessage;
+    
+      var patchedPostMessage = function(message, targetOrigin, transfer) { 
+        originalPostMessage(message, targetOrigin, transfer);
+      };
+    
+      patchedPostMessage.toString = function() { 
+        return String(Object.hasOwnProperty).replace('hasOwnProperty', 'postMessage'); 
+      };
+    
+      window.postMessage = patchedPostMessage;
+    })();
+  `
+
   _injectTronWeb = (address) => (`
     try {
       const tweb = document.createElement('script');
       tweb.setAttribute('src', 'https://unpkg.com/tronweb@2.1.17/dist/TronWeb.js');
       document.head.appendChild(tweb);
 
-      console.log = function(msg){postMessage(JSON.stringify({ msg: msg, type: "LOG" }))}
-      console.error = function(msg){postMessage(JSON.stringify({ msg: msg, type: "LOG" }))}
-  
+      ${this._protectPostMessage()}
+
       const injectWatcher = setInterval(function() {
         if(window.TronWeb) {
           clearInterval(injectWatcher)
@@ -104,18 +119,22 @@ class WebViewWrapper extends Component {
 
           return window.tronWeb.trx.sign = (transaction, _pk, _useTronHeader, callback) => {
             return new Promise((resolve, reject) => {
-              window.callTronWallet(transaction)
+              try {
+                window.callTronWallet(transaction)
 
-              document.addEventListener("message", function(data) {
-                var tr = JSON.parse(data.data);
-                
-                resolve(tr)
+                document.addEventListener("message", function(data) {
+                  var tr = JSON.parse(data.data);
+                  
+                  resolve(tr)
 
-                if(callback) {
-                  callback(tr);
-                }
-                
-              });
+                  if(callback) {
+                    callback(tr);
+                  }
+                  
+                });
+              } catch(e) {
+                reject(e);
+              }
             })
             
           };
@@ -129,12 +148,11 @@ class WebViewWrapper extends Component {
   `)
 
   _injectjs () {
-    const { accounts } = this.props
-    if (accounts.length === 0) return null
-    const { address } = accounts.find(acc => acc.alias === '@main_account')
+    const { account } = this.props
+    const { address } = account
 
     let jsCode = `
-        window.postMessage = String(Object.hasOwnProperty).replace('hasOwnProperty', 'postMessage')
+        
         var script   = document.createElement("script");
         script.type  = "text/javascript";
         script.text  = "function callTronWallet(data) {postMessage(JSON.stringify(data))}"
@@ -147,10 +165,8 @@ class WebViewWrapper extends Component {
   }
 
   _configInstance = () => {
-    const { accounts } = this.props
-
-    if (accounts.length === 0) return null
-    const { balance, address, tronPower, confirmed } = accounts.find(acc => acc.alias === '@main_account')
+    const { account } = this.props
+    const { balance, address, tronPower, confirmed } = account
 
     if (this.webview) {
       this._sendMessage('ADDRESS', {
@@ -171,9 +187,22 @@ class WebViewWrapper extends Component {
     }
   }
 
-  _callContract = (contract) => {
-    checkAutoContract(contract)
-    this.setState({ contract, isCardVisible: true })
+  _callContract = async (contract) => {
+    const result = await checkAutoContract(contract)
+    if (result) {
+      this.submitContract(contract)
+    } else {
+      this.setState({ contract, isCardVisible: true })
+    }
+  }
+
+  submitContract = async (contract) => {
+    const { account } = this.props
+    const { tx: TR, cb } = contract
+
+    const signedTR = await signSmartContract(TR, account.privateKey)
+    cb(signedTR)
+    this.setState({ contract })
   }
 
   _sendMessage = (type, payload) => {
@@ -184,11 +213,8 @@ class WebViewWrapper extends Component {
   }
 
   _handleMessage = (ev) => {
-    const { accounts = [] } = this.props
-
-    if (accounts.length === 0) return null
-
-    const { balance, address } = accounts.find(acc => acc.alias === '@main_account')
+    const { account } = this.props
+    const { balance, address } = account
 
     try {
       const contract = JSON.parse(ev.nativeEvent.data)
@@ -216,9 +242,7 @@ class WebViewWrapper extends Component {
       }
     } catch (e) {
       if (e instanceof SyntaxError) {
-        // console.warn(`[${e.name}]: ${e.message}`)
-        Alert.alert(tl.t('message'), tl.t('error.default'))
-        Answers.logContentView('Browser Dapps', e.message)
+        logSentry(e, 'Browser Dapps')
       } else {
         Alert.alert(tl.t('message'), e.message)
       }
@@ -226,7 +250,7 @@ class WebViewWrapper extends Component {
   }
 
   _closeCardDialog = () => {
-    this.setState({ isCardVisible: false, contract: {}, url: '', title: '' })
+    this.setState({ isCardVisible: false, contract: {} })
   }
 
   _checkBookmark = () => {
@@ -271,7 +295,7 @@ class WebViewWrapper extends Component {
   }
 
   _onLoadingError = (event) => {
-    console.error('encountered an error loading page', event.nativeEvent)
+    console.warn('encountered an error loading page', event.nativeEvent)
   }
 
   render () {
@@ -293,6 +317,8 @@ class WebViewWrapper extends Component {
             injectedJavaScript={this._injectjs()}
             onMessage={this._handleMessage}
             onLoadEnd={this._configInstance}
+            onError={(e) => console.warn(e)}
+            renderError={(e) => console.warn(e)}
             onNavigationStateChange={this._onNavigationStateChange}
             onLoadingError={this._onLoadingError}
             source={{ uri: url }}
