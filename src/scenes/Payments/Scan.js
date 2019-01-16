@@ -106,7 +106,7 @@ class ScanPayment extends Component {
       const { protocol } = parseData
 
       let paymentParams = {}
-      if (protocol && protocol.indexOf('poppy') > -1) {
+      if (protocol && protocol.indexOf('Poppy') > -1) {
         paymentParams = this._handlePoppyProtocol(parseData)
       } else {
         paymentParams = this._handleTronWalletProtocol(parseData)
