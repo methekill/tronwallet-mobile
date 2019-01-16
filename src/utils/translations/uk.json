@@ -358,11 +358,11 @@
       "idiomAndLocalization": "ІДІОМИ Й ЛОКАЛІЗАЦІЇ",
       "accounts": "УПРАВЛІННЯ РАХУНКАМИ"
     },
+    "addressBook": {
+      "title": "Address Book"
+    },
     "notifications": {
       "title": "Сповіщення"
-    },
-    "dappBrowser": {
-      "title": "Браузер DApp"
     },
     "network": {
       "title": "Мережа",
@@ -688,13 +688,13 @@
     },
     "error": {
       "invalidContract": "Невірний контракт, спробуйте ще раз або зверніться до підтримки по допомогу",
-      "noAmount": "Ви не маєте достатньої суми для запуску цього контракту"
+      "noAmount": "You don't have enough amount to run this contract"
     },
     "card": {
       "options": {
-        "title": "Втановлюючі цю опцію, усі смарт-контракти виходячи з цією адреси та використовуючі ці функції будуть автоматично підписані"
+        "title": "Setting this option, all the trigger smart contracts coming from this address and calling that function will be automatically signed"
       },
-      "switchLabel": "Підписувати автоматично"
+      "switchLabel": "Auto Sign"
     }
   },
   "dapps": {
