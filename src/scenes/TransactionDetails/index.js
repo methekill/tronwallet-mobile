@@ -342,7 +342,7 @@ class TransactionDetails extends React.Component {
             {getTranslatedType(type).toUpperCase()}
           </Elements.BadgeText>
         </View>
-        <View style={{ height: 15 }} />
+        <View style={{ height: 12 }} />
         {type.toLowerCase() !== 'create' &&
           type.toLowerCase() !== 'unfreeze' && (
             <React.Fragment>
@@ -358,19 +358,20 @@ class TransactionDetails extends React.Component {
                 {amountText}
               </Text>
               <Utils.Row align='center'>
-                <Elements.AmountText>
-                  {amount < 1 ? amount : formatFloat(amount)}
-                </Elements.AmountText>
+
                 <View style={{ width: 11, height: 1 }} />
                 <View
                   style={{
                     borderRadius: 2,
                     opacity: 0.97,
-                    height: 24,
                     justifyContent: 'center',
+                    alignItems: 'center',
                     paddingHorizontal: 8
                   }}
                 >
+                  <Elements.AmountText>
+                    {amount < 1 ? amount : formatFloat(amount)}
+                  </Elements.AmountText>
                   <Badge id={tokenId}>{tokenToDisplay}</Badge>
                 </View>
                 <Utils.HorizontalSpacer size='medium' />

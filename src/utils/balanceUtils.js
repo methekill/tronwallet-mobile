@@ -1,3 +1,4 @@
+import { WALLET_TOKENS } from './constants'
 // Deprecated
 // export const orderBalances = (balances, fixedTokens) => {
 //   let orderedBalances = []
@@ -20,11 +21,13 @@
 // }
 
 export const orderBalancesV2 = (balances, fixedTokens) => {
+  const fixedBalancesIds = fixedTokens.map(tkn => tkn.id)
+  const fixedWalletIds = WALLET_TOKENS.map(tkn => tkn.id)
   let orderedBalances = []
   let rest = []
 
   balances.forEach(balance => {
-    const verifiedIndex = fixedTokens.findIndex(({id: tokenId}) => tokenId === balance.id)
+    const verifiedIndex = fixedBalancesIds.indexOf(balance.id)
     if (verifiedIndex > -1) {
       balance.verified = true
       orderedBalances[verifiedIndex] = balance
@@ -36,7 +39,7 @@ export const orderBalancesV2 = (balances, fixedTokens) => {
   return [
     ...orderedBalances,
     ...rest
-  ].filter(tkn => tkn && tkn.balance > 0)
+  ].filter(tkn => (tkn && (tkn.balance > 0 || fixedWalletIds.indexOf(tkn.id) > -1)))
 }
 
 export const parseFixedTokens = (tokens) => tokens.map(({name, id}) => ({ name, balance: 0, id }))

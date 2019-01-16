@@ -6,7 +6,6 @@ import Markdown from 'react-native-markdown-renderer'
 
 import * as Utils from '../../components/Utils'
 import ButtonGradient from './../../components/ButtonGradient'
-// import { PolicyText } from './elements'
 import { Colors, Spacing, FontSize } from './../../components/DesignSystem'
 import tl from '../../utils/i18n'
 import Async from './../../utils/asyncStorageUtils'
@@ -76,14 +75,14 @@ class PrivacyPolicy extends Component {
             </Utils.View>
 
             <Utils.View height='60%'>
+              <Utils.VerticalSpacer size='large' />
               <ScrollView>
                 <Markdown style={styles}>{this.state.policy}</Markdown>
-                {/* <PolicyText /> */}
               </ScrollView>
-              <Utils.VerticalSpacer size='medium' />
             </Utils.View>
 
             <Utils.View height='20%'>
+              <Utils.VerticalSpacer />
               <Utils.Row align='center' justify='center'>
                 <Switch
                   style={{ marginRight: 10 }}
