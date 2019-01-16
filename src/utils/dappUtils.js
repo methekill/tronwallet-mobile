@@ -25,12 +25,14 @@ const updateItem = async (listName, item) => {
   const result = await readList(listName)
   const list = Object.assign(result)
 
-  if (list.data.length === 0) return null
+  if (list.data && list.data.length === 0) return null
 
-  const itemIndex = list.data.findIndex(data => data.url === item.url)
-  if (itemIndex > -1) {
-    list.data[itemIndex].title = item.title
-    await Async.setJSON(listName, list)
+  if (list.data && list.data.length > 0) {
+    const itemIndex = list.data.findIndex(data => data.url === item.url)
+    if (itemIndex > -1) {
+      list.data[itemIndex].title = item.title
+      await Async.setJSON(listName, list)
+    }
   }
 }
 

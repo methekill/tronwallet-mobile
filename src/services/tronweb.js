@@ -1,5 +1,5 @@
 import TronWeb from 'tronweb'
-
+import moment from 'moment'
 import { AsyncStorage } from 'react-native'
 import { AUTOSIGN_LIST } from '../utils/constants'
 
@@ -50,16 +50,16 @@ export const checkAutoContract = async (contract) => {
     }
 
     if (list && list.length > 0) {
-      return list.find(c => {
-        if (c.address === contract.address && c.command === contract.command) {
-          return true
-        }
-      })
+      const result = list.find(c => c.address === contract.address && c.command === contract.command)
+      const now = moment(new Date())
+      const diff = now.diff(result.createdAt)
+      return diff <= result.autoSign
     }
 
     return false
   } catch (e) {
     console.error(e)
+    return false
   }
 }
 
@@ -67,6 +67,27 @@ export const addToAutoContract = async (contract, autoSign) => {
   try {
     const list = JSON.parse(await AsyncStorage.getItem(AUTOSIGN_LIST))
     list.push({ ...contract, autoSign, createdAt: new Date() })
+    AsyncStorage.setItem(AUTOSIGN_LIST, JSON.stringify(list))
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+export const getAutoContract = async (contract) => {
+  try {
+    const list = JSON.parse(await AsyncStorage.getItem(AUTOSIGN_LIST))
+    const result = list.find(c => c.address === contract.address && c.command === contract.command)
+    return result
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+export const removeAutContract = async (contract) => {
+  try {
+    const list = JSON.parse(await AsyncStorage.getItem(AUTOSIGN_LIST))
+    const newList = list.filter(c => c.address !== contract.address && c.command !== contract.command)
+    AsyncStorage.setItem(AUTOSIGN_LIST, JSON.stringify(newList))
   } catch (e) {
     console.error(e)
   }

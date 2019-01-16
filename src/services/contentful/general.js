@@ -120,3 +120,13 @@ export const getDApps = async () => {
     return []
   }
 }
+
+export const getPrivacyPolicy = async () => {
+  try {
+    const queryEntry = { content_type: 'privacyPolicy' }
+    const { items } = await contentfulClient.getEntries(queryEntry)
+    return items.map(({ fields }) => fields)[0]
+  } catch (e) {
+    return []
+  }
+}

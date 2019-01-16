@@ -8,28 +8,26 @@ import Switch from 'react-native-switch-pro'
 import { Colors } from '../../components/DesignSystem'
 import tl from './../../utils/i18n'
 
-const Center = styled.View`
+const Content = styled.View`
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: center;
   align-items: center;
   height: 40px;
   width: 100%;
 `
 
-export const Card = styled.View`
-  display: flex;
+export const Card = styled.View`  
   flex: 0.6;
   align-self: center;
   width: 100%;
   background-color: ${Colors.dusk};
-  border-radius: 10px;
+  border-radius: 4px;
   align-items: center;
   justify-content: center;
 `
 
-export const Row = styled.View`
-  display: flex;
+export const Row = styled.View`  
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -53,7 +51,15 @@ export const RejectButton = styled(Button)`
 
 export class AutoSignSelector extends PureComponent {
   state = {
-    active: false
+    active: this.props.autoSign.value
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.autoSign !== this.props.autoSign) {
+      this.setState({
+        active: nextProps.autoSign.value
+      })
+    }
   }
 
   _formatSignText = (option) => {
@@ -66,44 +72,42 @@ export class AutoSignSelector extends PureComponent {
     const { autoSign, options, onChange } = this.props
 
     return (
-      <Center>
+      <Content>
         <View>
           <Switch
             circleStyle={{ backgroundColor: Colors.orange }}
             backgroundActive={Colors.yellow}
             backgroundInactive={Colors.secondaryText}
-            value={this.state.active}
-            onAsyncPress={(callback) => {
-              this.setState({ active: true }, () => {
-                callback(this.state.active)
-                if (this.state.active) {
-                  this.ActionSheet.show()
-                }
-              })
+            value={this.state.active !== null}
+            onSyncPress={(value) => {
+              this.setState({ active: value })
+              if (value) {
+                this.ActionSheet.show()
+              }
             }}
           />
         </View>
-        <View style={{marginLeft: 20}}>
-          <Text size='smaller' numberOfLines={1}>{tl.t('contract.card.switchLabel')}</Text>
-          <Text light color={Colors.greyBlue} size='tiny'>{this._formatSignText(autoSign)}</Text>
+        <View style={{ marginLeft: 20 }}>
+          <Text size='smaller' numberOfLines={1} color={Colors.greyBlue}>{tl.t('contract.card.switchLabel')}</Text>
+          {autoSign.value && (
+            <Text light color={Colors.greyBlue} size='tiny'>{this._formatSignText(autoSign)}</Text>
+          )}
         </View>
         <ActionSheet
           ref={ref => {
             this.ActionSheet = ref
           }}
-          title={tl.t('contract.options.title')}
+          title={tl.t('contract.card.options.title')}
           options={options.map(({ text }) => text)}
           cancelButtonIndex={0}
           onPress={index => {
             onChange(options[index])
             if (index === 0) {
-              this.setState({
-                active: false
-              })
+              this.setState({ active: false })
             }
           }}
         />
-      </Center>
+      </Content>
     )
   }
 }
