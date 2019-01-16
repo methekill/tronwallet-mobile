@@ -47,7 +47,7 @@ class ScanPayment extends Component {
 
     if (!isAddressValid(address)) throw new DataError(tl.t('scanPayment.error.receiver'))
     if (!currency) throw new DataError(tl.t('scanPayment.error.token'))
-    if (!amount <= 0 && !currency) throw new DataError(tl.t('scanPayment.error.amount'))
+    if (!amount > 0 || !currency) throw new DataError(tl.t('scanPayment.error.amount'))
     if (!description) throw new DataError(tl.t('scanPayment.error.description'))
 
     const currentAccount = this.props.context.getCurrentAccount()
