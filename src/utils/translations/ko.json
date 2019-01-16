@@ -358,11 +358,11 @@
       "idiomAndLocalization": "언어 및 단위 설정",
       "accounts": "계정 관리"
     },
+    "addressBook": {
+      "title": "Address Book"
+    },
     "notifications": {
       "title": "알림"
-    },
-    "dappBrowser": {
-      "title": "DApp 브라우저"
     },
     "network": {
       "title": "네트워크",
@@ -688,13 +688,13 @@
     },
     "error": {
       "invalidContract": "올바르지 않은 컨트랙트입니다. 다시 시도하시거나 관련 dapp에 도움을 요청하시길 바랍니다.",
-      "noAmount": "You dont have enought amount to run this contract"
+      "noAmount": "You don't have enough amount to run this contract"
     },
     "card": {
       "options": {
-        "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
+        "title": "Setting this option, all the trigger smart contracts coming from this address and calling that function will be automatically signed"
       },
-      "switchLabel": "자동 서명"
+      "switchLabel": "Auto Sign"
     }
   },
   "dapps": {
