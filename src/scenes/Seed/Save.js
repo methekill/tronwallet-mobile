@@ -44,7 +44,7 @@ class Save extends React.Component {
   _onCopyClipboard = (eventName, string) => async () => {
     await Clipboard.setString(string)
     const typeOfEvent = eventName === 'seed' ? 'publicKey' : 'privateKey'
-    MixPanel.trackWithProperties('Copy to clipboard', {
+    MixPanel.trackWithProperties(`Copy ${typeOfEvent} to clipboard`, {
       type: typeOfEvent,
       location: 'Backup Wallet'
     })
@@ -67,7 +67,7 @@ class Save extends React.Component {
       <SecretCard>
         <Utils.View align='flex-end' justify='center' height={30} padding={0} >
           <Utils.Button width={28} height={28} justify='center' onPress={this._onCopyClipboard(eventName, secret)} >
-            <FontelloIcon name='copy' size={20} color={Colors.secondaryText} />
+            <FontelloIcon name='copy' size={14} color={Colors.secondaryText} />
           </Utils.Button>
         </Utils.View>
         <Secret secret={secret} />

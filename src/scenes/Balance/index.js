@@ -5,6 +5,7 @@ import { Answers } from 'react-native-fabric'
 import Feather from 'react-native-vector-icons/Feather'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MixPanel from 'react-native-mixpanel'
+import DeviceInfo from 'react-native-device-info'
 
 import FormModal from '../../components/FormModal'
 import SyncButton from '../../components/SyncButton'
@@ -87,6 +88,13 @@ export class BalanceScene extends Component {
       await this.props.context.loadUserData()
       const currentAccount = this.props.context.getCurrentAccount()
       if (currentAccount) {
+        MixPanel.identify(currentAccount.address)
+        MixPanel.set({
+          '$email': currentAccount.address,
+          'Address2': currentAccount.address,
+          'DeviceId': DeviceInfo.getDeviceId(),
+          'DeviceUniqueId': DeviceInfo.getUniqueID()
+        })
         MixPanel.trackWithProperties('Balance load', {
           name: currentAccount.name,
           address: currentAccount.address,

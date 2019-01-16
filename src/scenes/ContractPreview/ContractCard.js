@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
-
+import moment from 'moment'
 import { withContext } from '../../store/context'
 
 import { Colors } from '../../components/DesignSystem'
 import ButtonGradient from '../../components/ButtonGradient'
 import { AutoSignSelector, Card, Row, Line, RejectButton } from './elements'
 
-import { signSmartContract } from '../../services/tronweb'
+import { signSmartContract, addToAutoContract, getAutoContract, removeAutContract } from '../../services/tronweb'
 import { ONE_TRX } from '../../services/client'
 import { Text } from '../../components/Utils'
 
@@ -24,6 +24,23 @@ class ContractCard extends Component {
     autoSign: options[0]
   }
 
+  async componentDidMount () {
+    const { params: contract } = this.props
+    const result = await getAutoContract(contract)
+
+    if (result) {
+      const now = moment(new Date())
+      const diff = now.diff(result.createdAt)
+      if (diff <= result.autoSign) {
+        this.setState({
+          autoSign: options.find(opt => opt.value === result.autoSign)
+        })
+      } else {
+        removeAutContract(contract)
+      }
+    }
+  }
+
   submitContract = async () => {
     const account = this.selectAccount()
     const { closeDialog, params } = this.props
@@ -31,6 +48,9 @@ class ContractCard extends Component {
 
     const signedTR = await signSmartContract(TR, account.privateKey)
     // Set autosign to X time
+    if (this.state.autoSign.value) {
+      addToAutoContract(this.props.params, this.state.autoSign.value)
+    }
 
     closeDialog()
     cb(signedTR)
@@ -72,12 +92,6 @@ class ContractCard extends Component {
           <Text>{amount / ONE_TRX} TRX</Text>
         </Row>
 
-        {/* <ContractParams>
-          <Text color='black'>{command}</Text>
-        </ContractParams> */}
-
-        <Line />
-
         <Row style={{ marginTop: 15, marginBottom: 15 }}>
           <View style={{ flex: 0.5, marginRight: '1%' }}>
             <RejectButton backgroundColor={Colors.greyBlue} text={tl.t('contract.button.reject')} onPress={this.rejectTR} textSize='tiny'>
@@ -95,7 +109,9 @@ class ContractCard extends Component {
           <AutoSignSelector
             options={options}
             autoSign={autoSign}
-            onChange={(autoSign) => this.setState({ autoSign })}
+            onChange={(autoSign) => {
+              this.setState({ autoSign })
+            }}
           />
         </Row>
 

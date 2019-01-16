@@ -36,7 +36,7 @@ class MakePayment extends PureComponent {
     }
 
     _getTransactionObject = (transactionData) => {
-      const { hash, amount, contractType, ownerAddress, toAddress, assetName } = transactionData
+      const { hash, amount, assetId, contractType, ownerAddress, toAddress, assetName } = transactionData
       const type = WalletClient.getContractType(contractType)
       const transaction = {
         id: hash,
@@ -45,6 +45,7 @@ class MakePayment extends PureComponent {
           transferFromAddress: ownerAddress,
           transferToAddress: toAddress,
           tokenName: type === 'Transfer' ? 'TRX' : assetName,
+          tokenId: type === 'Transfer' ? '1' : assetId,
           amount
         },
         ownerAddress: ownerAddress,
@@ -127,6 +128,7 @@ class MakePayment extends PureComponent {
           store.create('Transaction', transaction, true)
         })
         const { code } = await WalletClient.broadcastTransaction(transactionSigned)
+
         if (code === 'SUCCESS') {
           if (NOTIFICATION_TRANSACTIONS.includes(transaction.type)) {
             Answers.logCustom('Payment Operation', { type: transaction.type })
