@@ -34,12 +34,67 @@ class ScanPayment extends Component {
     scanned: false
   }
 
+  componentWillUnmount () {
+    clearTimeout(this.scannerTimeout)
+  }
+
   _checkAmount = amount => amount && amount >= 1 / ONE_TRX
 
   _checkDescription = description => description.length <= 500
 
-  componentWillUnmount () {
-    clearTimeout(this.scannerTimeout)
+  _checkCurrencyPoppy = currency => {
+    const { getCurrentBalances } = this.props.context
+    if (currency === 'TRX') return { tokenName: 'TRX', tokenId: '1' }
+    const currentBalance = getCurrentBalances().find(bl => bl.id === currency)
+    if (currentBalance) {
+      return { tokenName: currentBalance.name, tokenId: currentBalance.id }
+    } else {
+      throw new DataError(tl.t('scanPayment.error.token'))
+    }
+  }
+
+  _handlePoppyProtocol = data => {
+    const { address, amount, currency, data: description } = data
+
+    if (!isAddressValid(address)) throw new DataError(tl.t('scanPayment.error.receiver'))
+    if (!amount > 0 || !currency) throw new DataError(tl.t('scanPayment.error.amount'))
+    if (!description) throw new DataError(tl.t('scanPayment.error.description'))
+    const { tokenId, tokenName } = this._checkCurrencyPoppy(currency)
+
+    const currentAccount = this.props.context.getCurrentAccount()
+    if (currentAccount) {
+      MixPanel.trackWithProperties('Scan Payment', {
+        'payment.address': address,
+        'payment.amount': amount,
+        'payment.tokenId': currency,
+        'payment.tokenName': currency,
+        'currentAccount.address': currentAccount.address,
+        'currentAccount.balance': currentAccount.balance
+      })
+    }
+    return { address, amount, tokenName, tokenId, description }
+  }
+
+  _handleTronWalletProtocol = data => {
+    const { address, amount, tokenName, tokenId, data: description } = data
+
+    if (!isAddressValid(address)) throw new DataError(tl.t('scanPayment.error.receiver'))
+    if (!tokenId && !tokenName) throw new DataError(tl.t('scanPayment.error.token'))
+    if (!this._checkAmount(amount)) throw new DataError(tl.t('scanPayment.error.amount'))
+    if (description && !this._checkDescription(description)) throw new DataError(tl.t('scanPayment.error.description'))
+
+    const currentAccount = this.props.context.getCurrentAccount()
+    if (currentAccount) {
+      MixPanel.trackWithProperties('Scan Payment', {
+        'payment.address': address,
+        'payment.amount': amount,
+        'payment.tokenId': tokenId,
+        'payment.tokenName': tokenName,
+        'currentAccount.address': currentAccount.address,
+        'currentAccount.balance': currentAccount.balance
+      })
+    }
+    return { address, amount, tokenName, tokenId, description }
   }
 
   _onRead = event => {
@@ -48,34 +103,17 @@ class ScanPayment extends Component {
     this.setState({ loading: true })
     try {
       const parseData = JSON.parse(data)
-      const { address, amount, tokenName, tokenId, data: description } = parseData
+      const { protocol } = parseData
 
-      if (!isAddressValid(address)) {
-        throw new DataError(tl.t('scanPayment.error.receiver'))
-      }
-      if (!tokenId && !tokenName) throw new DataError(tl.t('scanPayment.error.token'))
-      if (!this._checkAmount(amount)) {
-        throw new DataError(tl.t('scanPayment.error.amount'))
-      }
-      if (description && !this._checkDescription(description)) {
-        throw new DataError(tl.t('scanPayment.error.description'))
+      let paymentParams = {}
+      if (protocol && protocol.indexOf('Poppy') > -1) {
+        paymentParams = this._handlePoppyProtocol(parseData)
+      } else {
+        paymentParams = this._handleTronWalletProtocol(parseData)
       }
 
       this.setState({ loading: false })
-      navigation.navigate('MakePayScene', {
-        payment: { address, amount, tokenName, tokenId, description }
-      })
-      const currentAccount = this.props.context.getCurrentAccount()
-      if (currentAccount) {
-        MixPanel.trackWithProperties('Scan Payment', {
-          'payment.address': address,
-          'payment.amount': amount,
-          'payment.tokenId': tokenId,
-          'payment.tokenName': tokenName,
-          'currentAccount.address': currentAccount.address,
-          'currentAccount.balance': currentAccount.balance
-        })
-      }
+      navigation.navigate('MakePayScene', { payment: paymentParams })
     } catch (error) {
       if (error.name === 'DataError') {
         Alert.alert(tl.t('warning'), error.message)
