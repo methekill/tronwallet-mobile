@@ -358,11 +358,11 @@
       "idiomAndLocalization": "IDIOMA Y LOCALIZACIÓN",
       "accounts": "GESTIÓN DE CUENTAS"
     },
+    "addressBook": {
+      "title": "Address Book"
+    },
     "notifications": {
       "title": "Notificaciones"
-    },
-    "dappBrowser": {
-      "title": "Navegador de DApp"
     },
     "network": {
       "title": "Red",
@@ -678,35 +678,39 @@
   "contract": {
     "signMessage": "No firmar automáticamente",
     "time": "Minutos",
-    "confirmationTitle": "CONFIRM",
-    "siteLabel": "SITE",
-    "contractLabel": "CONTRACT",
-    "costLabel": "COST",
+    "confirmationTitle": "CONFIRMAR",
+    "siteLabel": "SITIO",
+    "contractLabel": "CONTRATO",
+    "costLabel": "COSTE",
     "button": {
-      "confirm": "CONFIRM",
-      "reject": "REJECT"
+      "confirm": "CONFIRMAR",
+      "reject": "RECHAZAR"
+    },
+    "error": {
+      "invalidContract": "Contrato no válido, inténtelo de nuevo o póngase en contacto con el servicio de asistencia técnica para obtener ayuda.",
+      "noAmount": "You don't have enough amount to run this contract"
     },
     "card": {
       "options": {
-        "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
+        "title": "Setting this option, all the trigger smart contracts coming from this address and calling that function will be automatically signed"
       },
-      "switchLabel": "Sign automatically"
+      "switchLabel": "Auto Sign"
     }
   },
   "dapps": {
     "title": "DAPPS",
     "search": {
-      "placeholder": "Search or type www.",
-      "go": "GO",
-      "error": "Enter with valid search!"
+      "placeholder": "Busque o escriba www.",
+      "go": "IR",
+      "error": "¡Introduzca búsqueda válida!"
     },
     "home": {
-      "cancelOperation": "done",
+      "cancelOperation": "hecho",
       "bookmark": {
-        "title": "Bookmark"
+        "title": "Marcador"
       },
       "history": {
-        "title": "History"
+        "title": "Historia"
       }
     }
   }

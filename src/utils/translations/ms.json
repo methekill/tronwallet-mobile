@@ -358,11 +358,11 @@
       "idiomAndLocalization": "IDIOM DAN PENYETEMPATAN",
       "accounts": "PENGURUSAN AKAUN"
     },
+    "addressBook": {
+      "title": "Address Book"
+    },
     "notifications": {
       "title": "Pemberitahuan"
-    },
-    "dappBrowser": {
-      "title": "Pelayar DApp"
     },
     "network": {
       "title": "Rangkaian",
@@ -678,35 +678,39 @@
   "contract": {
     "signMessage": "Jangan menandatangani secara automatik",
     "time": "Minit",
-    "confirmationTitle": "CONFIRM",
-    "siteLabel": "SITE",
-    "contractLabel": "CONTRACT",
-    "costLabel": "COST",
+    "confirmationTitle": "SAHKAN",
+    "siteLabel": "LAMAN WEB",
+    "contractLabel": "KONTRAK",
+    "costLabel": "KOS",
     "button": {
-      "confirm": "CONFIRM",
-      "reject": "REJECT"
+      "confirm": "SAHKAN",
+      "reject": "MENOLAK"
+    },
+    "error": {
+      "invalidContract": "Kontrak yang tidak sah, cuba lagi atau hubungi sokongan untuk bantuan",
+      "noAmount": "You don't have enough amount to run this contract"
     },
     "card": {
       "options": {
-        "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
+        "title": "Setting this option, all the trigger smart contracts coming from this address and calling that function will be automatically signed"
       },
-      "switchLabel": "Sign automatically"
+      "switchLabel": "Auto Sign"
     }
   },
   "dapps": {
     "title": "DAPPS",
     "search": {
-      "placeholder": "Search or type www.",
-      "go": "GO",
-      "error": "Enter with valid search!"
+      "placeholder": "Cari atau taip www.",
+      "go": "PERGI",
+      "error": "Masukkan dengan carian yang sah!"
     },
     "home": {
-      "cancelOperation": "done",
+      "cancelOperation": "dilakukan",
       "bookmark": {
-        "title": "Bookmark"
+        "title": "Penanda buku"
       },
       "history": {
-        "title": "History"
+        "title": "Sejarah"
       }
     }
   }

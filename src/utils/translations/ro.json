@@ -358,11 +358,11 @@
       "idiomAndLocalization": "IDIOM ŞI LOCALIZARE",
       "accounts": "ADMINISTRAREA CONTURILOR"
     },
+    "addressBook": {
+      "title": "Address Book"
+    },
     "notifications": {
       "title": "Notificări"
-    },
-    "dappBrowser": {
-      "title": "Browser DApp"
     },
     "network": {
       "title": "Reţea",
@@ -678,35 +678,39 @@
   "contract": {
     "signMessage": "Nu vă logati automat",
     "time": "Minute",
-    "confirmationTitle": "CONFIRM",
+    "confirmationTitle": "CONFIRMĂ",
     "siteLabel": "SITE",
     "contractLabel": "CONTRACT",
-    "costLabel": "COST",
+    "costLabel": "COSTUL",
     "button": {
-      "confirm": "CONFIRM",
-      "reject": "REJECT"
+      "confirm": "CONFIRMĂ",
+      "reject": "RESPINGE"
+    },
+    "error": {
+      "invalidContract": "Contract valid, încearcă din nou sau contacteaza suport technic pentru ajutor",
+      "noAmount": "You don't have enough amount to run this contract"
     },
     "card": {
       "options": {
-        "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
+        "title": "Setting this option, all the trigger smart contracts coming from this address and calling that function will be automatically signed"
       },
-      "switchLabel": "Sign automatically"
+      "switchLabel": "Auto Sign"
     }
   },
   "dapps": {
     "title": "DAPPS",
     "search": {
-      "placeholder": "Search or type www.",
-      "go": "GO",
-      "error": "Enter with valid search!"
+      "placeholder": "Căutaţi sau scrieţi www.",
+      "go": "DU-TE",
+      "error": "Introduceţi căutare valida!"
     },
     "home": {
-      "cancelOperation": "done",
+      "cancelOperation": "gata",
       "bookmark": {
         "title": "Bookmark"
       },
       "history": {
-        "title": "History"
+        "title": "Istorie"
       }
     }
   }

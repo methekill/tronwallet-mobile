@@ -358,11 +358,11 @@
       "idiomAndLocalization": "ПОНЯТИЯ И ЛОКАЛИЗАЦИЯ",
       "accounts": "УПРАВЛЕНИЕ УЧЕТНЫМИ ЗАПИСЯМИ"
     },
+    "addressBook": {
+      "title": "Address Book"
+    },
     "notifications": {
       "title": "Уведомления"
-    },
-    "dappBrowser": {
-      "title": "DApp браузер"
     },
     "network": {
       "title": "Сеть",
@@ -686,11 +686,15 @@
       "confirm": "ПОДТВЕРДИТЬ",
       "reject": "ОТМЕНИТЬ"
     },
+    "error": {
+      "invalidContract": "Неверный контракт. Попробуйте еще раз или свяжитесь с поддержкой",
+      "noAmount": "You don't have enough amount to run this contract"
+    },
     "card": {
       "options": {
-        "title": "При выборе этого параметра, все триггеры смарт-контрактов, приходящие с этого адреса и вызывающие эту функцию, будут подписаны автоматически"
+        "title": "Setting this option, all the trigger smart contracts coming from this address and calling that function will be automatically signed"
       },
-      "switchLabel": "Подписывать автоматически"
+      "switchLabel": "Auto Sign"
     }
   },
   "dapps": {

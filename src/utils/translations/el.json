@@ -358,11 +358,11 @@
       "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "ΔΙΑΧΕΙΡΙΣΗ ΛΟΓΑΡΙΑΣΜΩΝ"
     },
+    "addressBook": {
+      "title": "Address Book"
+    },
     "notifications": {
       "title": "Ειδοποιήσεις"
-    },
-    "dappBrowser": {
-      "title": "DApp Browser"
     },
     "network": {
       "title": "Δίκτυο",
@@ -686,11 +686,15 @@
       "confirm": "CONFIRM",
       "reject": "REJECT"
     },
+    "error": {
+      "invalidContract": "Invalid contract, try again or contact the support for help",
+      "noAmount": "You don't have enough amount to run this contract"
+    },
     "card": {
       "options": {
-        "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
+        "title": "Setting this option, all the trigger smart contracts coming from this address and calling that function will be automatically signed"
       },
-      "switchLabel": "Sign automatically"
+      "switchLabel": "Auto Sign"
     }
   },
   "dapps": {

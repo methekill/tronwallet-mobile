@@ -358,11 +358,11 @@
       "idiomAndLocalization": "تنظیمات محلی",
       "accounts": "مدیریت حساب ها"
     },
+    "addressBook": {
+      "title": "Address Book"
+    },
     "notifications": {
       "title": "اطلاعیه ها"
-    },
-    "dappBrowser": {
-      "title": "مرورگر DApp"
     },
     "network": {
       "title": "شبکه",
@@ -678,35 +678,39 @@
   "contract": {
     "signMessage": "توقف امضای خودکار",
     "time": "دقیقه",
-    "confirmationTitle": "CONFIRM",
-    "siteLabel": "SITE",
-    "contractLabel": "CONTRACT",
-    "costLabel": "COST",
+    "confirmationTitle": "تایید",
+    "siteLabel": "سایت",
+    "contractLabel": "قرارداد",
+    "costLabel": "هزینه",
     "button": {
-      "confirm": "CONFIRM",
-      "reject": "REJECT"
+      "confirm": "تایید",
+      "reject": "رد کردن"
+    },
+    "error": {
+      "invalidContract": "قرارداد نامعتبر، دوباره سعی کنید و یا با پشتیبانی تماس بگیرید",
+      "noAmount": "You don't have enough amount to run this contract"
     },
     "card": {
       "options": {
-        "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
+        "title": "Setting this option, all the trigger smart contracts coming from this address and calling that function will be automatically signed"
       },
-      "switchLabel": "Sign automatically"
+      "switchLabel": "Auto Sign"
     }
   },
   "dapps": {
     "title": "DAPPS",
     "search": {
-      "placeholder": "Search or type www.",
-      "go": "GO",
-      "error": "Enter with valid search!"
+      "placeholder": "جستجو کنید و یا تایپ کنید www.",
+      "go": "برو",
+      "error": "یک جستجو معتبر وارد کنید!"
     },
     "home": {
-      "cancelOperation": "done",
+      "cancelOperation": "انجام شد",
       "bookmark": {
-        "title": "Bookmark"
+        "title": "نشانه گذاری"
       },
       "history": {
-        "title": "History"
+        "title": "تاریخچه"
       }
     }
   }
