@@ -692,7 +692,7 @@
     },
     "card": {
       "options": {
-        "title": "Setting this option, all the trigger smart contracts comming from this address and calling that function will be automatically signed"
+        "title": "Impostando questa opzione, tutti i contratti smart trigger provenienti da questo indirizzo e che chiamano tale funzione verranno automaticamente firmati"
       },
       "switchLabel": "Accedi automaticamente"
     }
