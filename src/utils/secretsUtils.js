@@ -84,7 +84,8 @@ const generateKeypair = async (pin, oneSignalId, mnemonic, vaultNumber, randomly
   await resetSecretData(pin)
   const secretsStore = await getSecretsStore(pin)
   await secretsStore.write(() => secretsStore.create('UserSecret', generatedKeypair, true))
-  Client.registerDeviceForNotifications(oneSignalId, generatedKeypair.address, removeExtraDeviceIds)
+  // TO-DO Review Serverless on this lambda
+  Client.registerDeviceForNotifications(oneSignalId, generatedKeypair.address, removeExtraDeviceIds).catch(err => console.log(err))
 }
 
 export const restoreFromPrivateKey = async (pin, oneSignalId, address, privateKey) => {

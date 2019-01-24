@@ -27,6 +27,7 @@ import { ONE_TRX } from '../../services/client'
 import { rgb } from '../../../node_modules/polished'
 import ActionModal from '../../components/ActionModal'
 import FontelloIcon from '../../components/FontelloIcon'
+import Badge from '../../components/Badge'
 
 import { formatFloat, formatNumber } from '../../utils/numberUtils'
 import getAssetsStore from '../../store/assets'
@@ -76,7 +77,7 @@ class TransactionDetails extends React.Component {
   async componentDidMount () {
     const item = this.props.navigation.getParam('item', {})
     this.setState({ item })
-    MixPanel.trackWithProperties('Transactions', { type: 'Transaction Detail' })
+    MixPanel.track('Load transaction detail')
     this.appStateListener = onBackgroundHandler(this._onAppStateChange)
   }
 
@@ -308,22 +309,24 @@ class TransactionDetails extends React.Component {
 
   _renderHeader = () => {
     const { item: { type, contractData, tokenPrice } } = this.state
-    const tokenName = contractData.tokenName
+    let {tokenName, tokenId} = contractData
     const tokenToDisplay = this._getHeaderToken(type, tokenName)
     const amountText = this._getHeaderAmountText(type)
     const amountValue = this._getHeaderAmount()
 
     let amount
-    if (type === 'Freeze' || type === 'Unfreeze' || (type === 'Transfer' && tokenName === 'TRX')) {
+    if (type === 'Freeze' || type === 'Unfreeze' || (type === 'Transfer' && tokenId === '1')) {
       amount = amountValue / ONE_TRX
     } else if (type === 'Participate') {
       amount = amountValue / ONE_TRX / (tokenPrice / ONE_TRX)
     } else if (type === 'Exchange') {
-      amount = amountValue / (tokenName === 'TRX' ? ONE_TRX : 1)
+      amount = amountValue / (tokenId === '_' ? ONE_TRX : 1)
     } else {
       amount = amountValue
     }
     amount = formatNumber(amount)
+    tokenId = tokenId === '_' ? '1' : tokenId
+
     return (
       <View style={{ alignItems: 'center' }} >
         <View
@@ -339,7 +342,7 @@ class TransactionDetails extends React.Component {
             {getTranslatedType(type).toUpperCase()}
           </Elements.BadgeText>
         </View>
-        <View style={{ height: 15 }} />
+        <View style={{ height: 12 }} />
         {type.toLowerCase() !== 'create' &&
           type.toLowerCase() !== 'unfreeze' && (
             <React.Fragment>
@@ -355,21 +358,21 @@ class TransactionDetails extends React.Component {
                 {amountText}
               </Text>
               <Utils.Row align='center'>
-                <Elements.AmountText>
-                  {amount < 1 ? amount : formatFloat(amount)}
-                </Elements.AmountText>
+
                 <View style={{ width: 11, height: 1 }} />
                 <View
                   style={{
-                    backgroundColor: rgb(46, 47, 71),
                     borderRadius: 2,
                     opacity: 0.97,
-                    height: 24,
                     justifyContent: 'center',
+                    alignItems: 'center',
                     paddingHorizontal: 8
                   }}
                 >
-                  <Elements.BadgeText>{tokenToDisplay}</Elements.BadgeText>
+                  <Elements.AmountText>
+                    {amount < 1 ? amount : formatFloat(amount)}
+                  </Elements.AmountText>
+                  <Badge id={tokenId}>{tokenToDisplay}</Badge>
                 </View>
                 <Utils.HorizontalSpacer size='medium' />
                 {this._getHeaderArrowIcon(type)}
@@ -662,12 +665,11 @@ class TransactionDetails extends React.Component {
       const transaction = await this._getTransactionByHash(item.id)
       if (transaction.type === 'Participate') {
         const assetStore = await getAssetsStore()
-        const tokenPrice = getTokenPriceFromStore(transaction.contractData.tokenName, assetStore)
+        const tokenPrice = getTokenPriceFromStore(transaction.contractData.tokenId, assetStore)
         transaction.tokenPrice = tokenPrice
       }
       this.setState({ item: transaction, refreshing: false })
     } catch (e) {
-      console.warn('err.', e.message)
       this.setState({ refreshing: false })
       logSentry(e, 'Transaction Detail - on refresh')
     }

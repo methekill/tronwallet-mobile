@@ -358,11 +358,11 @@
       "idiomAndLocalization": "ІДІОМИ Й ЛОКАЛІЗАЦІЇ",
       "accounts": "УПРАВЛІННЯ РАХУНКАМИ"
     },
+    "addressBook": {
+      "title": "Address Book"
+    },
     "notifications": {
       "title": "Сповіщення"
-    },
-    "dappBrowser": {
-      "title": "Браузер DApp"
     },
     "network": {
       "title": "Мережа",
@@ -677,6 +677,41 @@
   },
   "contract": {
     "signMessage": "Не підписувати автоматично",
-    "time": "Хвилин"
+    "time": "Хвилин",
+    "confirmationTitle": "ПІДТВЕРДИТИ",
+    "siteLabel": "САЙТ",
+    "contractLabel": "ДОГОВІР",
+    "costLabel": "ВАРТІСТЬ",
+    "button": {
+      "confirm": "ПІДТВЕРДИТИ",
+      "reject": "ВІДХИЛИТИ"
+    },
+    "error": {
+      "invalidContract": "Невірний контракт, спробуйте ще раз або зверніться до підтримки по допомогу",
+      "noAmount": "You don't have enough amount to run this contract"
+    },
+    "card": {
+      "options": {
+        "title": "Setting this option, all the trigger smart contracts coming from this address and calling that function will be automatically signed"
+      },
+      "switchLabel": "Auto Sign"
+    }
+  },
+  "dapps": {
+    "title": "DAPPS",
+    "search": {
+      "placeholder": "Пошук або введіть www.",
+      "go": "ВПЕРЕД",
+      "error": "Введіть дійсний запит!"
+    },
+    "home": {
+      "cancelOperation": "виконано",
+      "bookmark": {
+        "title": "Закладка"
+      },
+      "history": {
+        "title": "Історія"
+      }
+    }
   }
 }

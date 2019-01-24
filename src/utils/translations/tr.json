@@ -358,11 +358,11 @@
       "idiomAndLocalization": "IDIOM AND LOCALIZATION",
       "accounts": "ACCOUNTS MANAGEMENT"
     },
+    "addressBook": {
+      "title": "Address Book"
+    },
     "notifications": {
       "title": "Notifications"
-    },
-    "dappBrowser": {
-      "title": "DApp Browser"
     },
     "network": {
       "title": "Network",
@@ -677,6 +677,41 @@
   },
   "contract": {
     "signMessage": "Don't sign automatically",
-    "time": "Minutes"
+    "time": "Minutes",
+    "confirmationTitle": "CONFIRM",
+    "siteLabel": "SITE",
+    "contractLabel": "CONTRACT",
+    "costLabel": "COST",
+    "button": {
+      "confirm": "CONFIRM",
+      "reject": "REJECT"
+    },
+    "error": {
+      "invalidContract": "Invalid contract, try again or contact the support for help",
+      "noAmount": "You don't have enough amount to run this contract"
+    },
+    "card": {
+      "options": {
+        "title": "Setting this option, all the trigger smart contracts coming from this address and calling that function will be automatically signed"
+      },
+      "switchLabel": "Auto Sign"
+    }
+  },
+  "dapps": {
+    "title": "DAPPS",
+    "search": {
+      "placeholder": "Search or type www.",
+      "go": "GO",
+      "error": "Enter with valid search!"
+    },
+    "home": {
+      "cancelOperation": "done",
+      "bookmark": {
+        "title": "Bookmark"
+      },
+      "history": {
+        "title": "History"
+      }
+    }
   }
 }

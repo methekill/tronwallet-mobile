@@ -53,11 +53,14 @@ const createTransaction = (item, address) => {
     timestamp: new Date(item.createdAt).getTime()
   }
   if (item.type === 'Transfer') {
+    const tokenName = item.contractType === 1 ? 'TRX' : item.assetName
+    const tokenId = item.contractType === 1 ? '1' : item.assetId
     transaction.contractData = {
       transferFromAddress: item.ownerAddress,
       transferToAddress: item.toAddress,
       amount: item.amount,
-      tokenName: item.assetName || 'TRX'
+      tokenName,
+      tokenId
     }
   }
   if (item.type === 'Create') {
@@ -73,6 +76,7 @@ const createTransaction = (item, address) => {
   if (item.type === 'Participate') {
     transaction.contractData = {
       tokenName: item.assetName,
+      tokenId: item.assetId,
       transferFromAddress: item.toAddress,
       amount: item.amount
     }
@@ -88,9 +92,12 @@ const createTransaction = (item, address) => {
     }
   }
   if (item.type === 'Exchange') {
+    // condition for old Apps
+    const tokenName = item.tokenName || (item.tokenId === '_' ? 'TRX' : item.tokenId)
     transaction.contractData = {
       amount: item.quant,
-      tokenName: item.tokenId === '_' ? 'TRX' : item.tokenId
+      tokenId: item.tokenId,
+      tokenName
     }
   }
 
@@ -125,11 +132,11 @@ export const openDeepLink = async dataToSend => {
   return Linking.openURL(url)
 }
 
-export const getTokenPriceFromStore = (tokenName, assetStore) => {
+export const getTokenPriceFromStore = (tokenId, assetStore) => {
   const filtered = assetStore
     .objects('Asset')
     .filtered(
-      `name == '${tokenName}'`
+      `id ='${tokenId}'`
     )
     .map(item => Object.assign({}, item))
 

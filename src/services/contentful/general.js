@@ -49,18 +49,31 @@ export const queryToken = async (name = '', params = defaultParams) => {
   const results = assets.map(({fields}) => fields)
   return { total, results }
 }
+// Deprecated
+// export const getFixedTokens = async () => {
+//   const queryEntry = {
+//     content_type: 'asset',
+//     order: '-fields.isFeatured,fields.position',
+//     select: 'fields.name',
+//     'fields.isVerified': true
+//   }
 
-export const getFixedTokens = async () => {
+//   const { items: featuredTokens } = await contentfulClient.getEntries(queryEntry)
+//   const fixedNames = featuredTokens.map(({fields: token}) => token.name)
+//   return ['TRX', ...fixedNames]
+// }
+
+export const getFixedTokensV2 = async () => {
   const queryEntry = {
     content_type: 'asset',
     order: '-fields.isFeatured,fields.position',
-    select: 'fields.name',
+    select: 'fields.name,fields.id',
     'fields.isVerified': true
   }
 
   const { items: featuredTokens } = await contentfulClient.getEntries(queryEntry)
-  const fixedNames = featuredTokens.map(({fields: token}) => token.name)
-  return ['TRX', ...fixedNames]
+  const fixedTokensId = featuredTokens.map(({fields: token}) => ({id: token.id, name: token.name}))
+  return [{name: 'TRX', id: '1'}, ...fixedTokensId]
 }
 
 export const getSystemStatus = async () => {
@@ -97,9 +110,22 @@ export const getDApps = async () => {
     const queryEntry = { content_type: 'dApps' }
     const { items } = await contentfulClient.getEntries(queryEntry)
 
-    return items.map(({ fields }) => fields).filter(dapp => {
-      if (dapp.isVisible) return dapp
-    })
+    return items
+      .map(({ fields }) => fields)
+      .filter(dapp => {
+        if (dapp.isVisible) return dapp
+      })
+      .map(item => ({ ...item, image: `https:${item.image.fields.file.url}` }))
+  } catch (e) {
+    return []
+  }
+}
+
+export const getPrivacyPolicy = async () => {
+  try {
+    const queryEntry = { content_type: 'privacyPolicy' }
+    const { items } = await contentfulClient.getEntries(queryEntry)
+    return items.map(({ fields }) => fields)[0]
   } catch (e) {
     return []
   }

@@ -59,7 +59,7 @@ class Create extends React.Component {
       } else {
         navigation.navigate('SeedSave')
       }
-      MixPanel.trackWithProperties('Wallet Operation', { type: 'Confirm' })
+      MixPanel.track('Confirm seed')
     } catch (e) {
       Alert.alert(tl.t('seed.create.error'))
       logSentry(e, 'Create Seed - Confirm')
@@ -110,7 +110,7 @@ class Create extends React.Component {
             <MainCard>
               <View align='flex-end' justify='center' height={30} >
                 <Button width={30} height={30} justify='center' onPress={this._onCopySeed} >
-                  <FontelloIcon name='copy' size={20} color={Colors.greyBlue} />
+                  <FontelloIcon name='copy' size={14} color={Colors.greyBlue} />
                 </Button>
               </View>
               <View height={32} />

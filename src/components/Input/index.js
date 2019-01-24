@@ -51,13 +51,14 @@ const Input = ({
   type,
   editable,
   placeholder,
+  borderColor,
   ...props
 }) => (
   <Elements.Wrapper>
     <Elements.LabelWrapper color={labelWrapperColor}>
-      <Elements.Label>{label}</Elements.Label>
+      {label && (<Elements.Label>{label}</Elements.Label>)}
     </Elements.LabelWrapper>
-    <Elements.InputWrapper>
+    <Elements.InputWrapper borderColor={borderColor}>
       {leftContent && leftContent()}
       {/* Do not change the order of props in the component
         below. It needs to be first so that keyboardType comes
@@ -86,7 +87,8 @@ Input.defaultProps = {
   returnKeyType: 'send',
   numbersOnly: false,
   editable: true,
-  showPlaceholder: true
+  showPlaceholder: true,
+  borderColor: '#51526B'
 }
 
 export default Input

@@ -35,7 +35,7 @@ class TransactionDetail extends Component {
     submitError: null,
     isConnected: null,
     tokenAmount: null,
-    exchangeOption: { trxAmount: 0, isExchangeable: false, assetName: '' },
+    exchangeOption: { trxAmount: 0, isExchangeable: false, assetName: '', assetId: '' },
     exchange: {
       loading: {
         send: false,
@@ -114,8 +114,10 @@ class TransactionDetail extends Component {
       contractType,
       ownerAddress,
       toAddress,
-      assetName
+      assetName,
+      assetId
     } = transactionData
+
     const type = Client.getContractType(contractType)
     const transaction = {
       id: hash,
@@ -123,7 +125,7 @@ class TransactionDetail extends Component {
       contractData: {
         transferFromAddress: ownerAddress,
         transferToAddress: toAddress,
-        tokenName: type === 'Transfer' ? 'TRX' : assetName
+        tokenName: contractType === 1 ? 'TRX' : assetName
       },
       ownerAddress: ownerAddress,
       timestamp: new Date().getTime(),
@@ -131,6 +133,14 @@ class TransactionDetail extends Component {
     }
 
     switch (type) {
+      case 'Transfer':
+        transaction.contractData.tokenId = '1'
+        transaction.contractData.amount = amount
+        break
+      case 'Transfer Asset':
+        transaction.contractData.tokenId = assetId
+        transaction.contractData.amount = amount
+        break
       case 'Freeze':
         transaction.contractData.frozenBalance = transactionData.frozenBalance
         break
@@ -140,6 +150,7 @@ class TransactionDetail extends Component {
       case 'Participate':
         transaction.tokenPrice = amount / tokenAmount
         transaction.contractData.amount = amount
+        transaction.contractData.tokenId = assetId
         break
       case 'Unfreeze':
         transaction.contractData.frozenBalance = tokenAmount
@@ -154,15 +165,18 @@ class TransactionDetail extends Component {
   _getExchangeResult = async () => {
     const { context, navigation } = this.props
     const { tokenAmount, exchange, exchangeOption, nowDate } = this.state
+    const { systemAddress } = context
+
     for (let i = 0; i < 5; i++) {
       try {
         const params = {
           address: context.publicKey,
           amount: tokenAmount,
           asset: exchangeOption.assetName,
-          bot: context.exchangeBot
+          bot: systemAddress.exchangeBot.address
         }
         const result = await Client.getTransactionFromExchange(params)
+
         if (result && new Date(result.createdAt).getTime() > nowDate) {
           this.setState({
             exchange: {
@@ -274,14 +288,16 @@ class TransactionDetail extends Component {
         store.create('Transaction', transaction, true)
       })
       const { code } = await Client.broadcastTransaction(signedTransaction)
+
       if (code === 'SUCCESS') {
         if (ANSWERS_TRANSACTIONS.includes(transaction.type)) {
           Answers.logCustom('Transaction Operation', { type: transaction.type })
         }
         await this.props.context.loadUserData()
         // TODO - Remove this piece of code when transactions come with Participate Price
+
         if (transaction.type === 'Participate') {
-          updateAssets(0, 2, transaction.contractData.tokenName)
+          updateAssets(0, 2, transaction.contractData.tokenId)
         }
       }
       this.setState({ submitError: null, loadingSubmit: false, submitted: true }, this._navigateNext)

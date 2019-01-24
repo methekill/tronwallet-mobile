@@ -358,11 +358,11 @@
       "idiomAndLocalization": "اللغة والتمركز",
       "accounts": "إدارة الحسابات"
     },
+    "addressBook": {
+      "title": "Address Book"
+    },
     "notifications": {
       "title": "الإشعارات"
-    },
-    "dappBrowser": {
-      "title": "متصفح DApp"
     },
     "network": {
       "title": "شبكة",
@@ -677,6 +677,41 @@
   },
   "contract": {
     "signMessage": "لا توقع تلقائيا",
-    "time": "دقائق"
+    "time": "دقائق",
+    "confirmationTitle": "تأكيد",
+    "siteLabel": "موقع",
+    "contractLabel": "عقد",
+    "costLabel": "تكلفة",
+    "button": {
+      "confirm": "تأكيد",
+      "reject": "رفض"
+    },
+    "error": {
+      "invalidContract": "عقد غير صالح ، حاول مرة أخرى أو اتصل بالدعم للمساعدة",
+      "noAmount": "You don't have enough amount to run this contract"
+    },
+    "card": {
+      "options": {
+        "title": "Setting this option, all the trigger smart contracts coming from this address and calling that function will be automatically signed"
+      },
+      "switchLabel": "Auto Sign"
+    }
+  },
+  "dapps": {
+    "title": "DAPPS",
+    "search": {
+      "placeholder": "ابحث أو اكتب www.",
+      "go": "اذهب",
+      "error": "أدخل مع بحث صحيح!"
+    },
+    "home": {
+      "cancelOperation": "تم",
+      "bookmark": {
+        "title": "الإشارة المرجعية"
+      },
+      "history": {
+        "title": "التاريخ"
+      }
+    }
   }
 }

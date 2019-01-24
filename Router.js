@@ -1,14 +1,12 @@
 import React from 'react'
 import {
   createStackNavigator,
-  createMaterialTopTabNavigator,
   createSwitchNavigator,
-  SafeAreaView,
   createAppContainer
 } from 'react-navigation'
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
 
-import { Colors, ScreenSize } from './src/components/DesignSystem'
+import { Colors } from './src/components/DesignSystem'
 import { TWIcon } from './src/components/Utils'
 
 import Loading from './src/scenes/Loading'
@@ -40,7 +38,6 @@ import AccountsScene from './src/scenes/Accounts'
 import ContactsScene from './src/scenes/Contacts'
 import EditAddressBookItem from './src/scenes/EditAddressBookItem'
 import AddContactScene from './src/scenes/Contacts/Add'
-import NavigationHeader from './src/components/Navigation/Header'
 import MakePayScene from './src/scenes/Payments/Make'
 import PaymentsScene from './src/scenes/Payments'
 import ScanPayScene from './src/scenes/Payments/Scan'
@@ -53,6 +50,7 @@ import Notifications from './src/scenes/Notifications'
 import Signals from './src/scenes/Signals'
 import ExchangeList from './src/scenes/Exchange'
 import ExchangeTabs from './src/scenes/Exchange/Tabs'
+import createCustomTopTabNavigator from './src/components/Navigation/createCustomTopTabNavigator'
 
 import tl from './src/utils/i18n'
 
@@ -61,55 +59,13 @@ const defaultCardStyle = {
   backgroundColor: Colors.background
 }
 
-const SettingsStack = createStackNavigator({
-  Settings,
-  TronWebview,
-  Market,
-  About,
-  SeedSave,
-  SeedConfirm,
-  NetworkConnection
-}, {
-  mode: 'modal',
-  headerMode: 'none',
-  navigationOptions: {
-    gesturesEnabled: false
-  },
-  cardStyle: defaultCardStyle
-})
-
-const tabWidth = ScreenSize.width / 2
-const indicatorWidth = 15
-const AddressBookTabs = createMaterialTopTabNavigator({
+const AddressBookTabs = createCustomTopTabNavigator({
   Contacts: ContactsScene,
   Accounts: AccountsScene
 }, {
-  navigationOptions: {
-    header: (
-      <SafeAreaView style={{ backgroundColor: Colors.background }}>
-        <NavigationHeader title={tl.t('addressBook.title')} />
-      </SafeAreaView>
-    ),
-    gesturesEnabled: false
-  },
   tabBarOptions: {
-    activeTintColor: Colors.primaryText,
-    inactiveTintColor: '#66688f',
-    style: {
-      paddingTop: 10,
-      backgroundColor: Colors.background,
-      elevation: 0
-    },
-    labelStyle: {
-      fontSize: 12,
-      lineHeight: 12,
-      letterSpacing: 0.6,
-      fontFamily: 'Rubik-Medium'
-    },
-    indicatorStyle: {
-      width: indicatorWidth,
-      height: 1.2,
-      marginLeft: tabWidth / 2 - indicatorWidth / 2
+    header: {
+      title: tl.t('addressBook.title')
     }
   }
 })
@@ -120,6 +76,27 @@ const AddressBookStack = createStackNavigator({
   AddContact: AddContactScene
 }, {
   mode: 'modal',
+  headerMode: 'none',
+  navigationOptions: {
+    gesturesEnabled: false
+  },
+  cardStyle: defaultCardStyle
+})
+
+const SettingsStack = createStackNavigator({
+  Settings,
+  Market,
+  About,
+  SeedSave,
+  SeedConfirm,
+  NetworkConnection,
+  AddressBook: AddressBookStack
+}, {
+  mode: 'modal',
+  headerMode: 'none',
+  navigationOptions: {
+    gesturesEnabled: false
+  },
   cardStyle: defaultCardStyle
 })
 
@@ -166,14 +143,14 @@ const ParticipateStack = createStackNavigator({
 
 const AppTabs = createMaterialBottomTabNavigator({
   Exchange: ExchangeStack,
+  Participate: ParticipateStack,
   Vote: {
     screen: VoteScene,
     path: 'vote'
   },
-  AddressBook: AddressBookStack,
   Balance: BalanceStack,
   Transactions: TransactionList,
-  Participate: ParticipateStack,
+  TronWebview: TronWebview,
   Settings: SettingsStack
 }, {
   defaultNavigationOptions: ({ navigation }) => ({
@@ -185,8 +162,6 @@ const AppTabs = createMaterialBottomTabNavigator({
         iconName = `wallet,-money,-cash,-balance,-purse`
       } else if (routeName === 'Transfer') {
         iconName = `fly,-send,-paper,-submit,-plane`
-      } else if (routeName === 'AddressBook') {
-        iconName = `diary,-contact,-address,-organizer,-book`
       } else if (routeName === 'Vote') {
         iconName = `shout-out,-speaker,-offer,-announcement,-loud`
       } else if (routeName === 'Transactions') {
@@ -200,6 +175,9 @@ const AppTabs = createMaterialBottomTabNavigator({
         iconName = `dollar,-currency,-money,-cash,-coin`
       } else if (routeName === 'Exchange') {
         iconName = 'exchange'
+        iconSize = 22
+      } else if (routeName === 'TronWebview') {
+        iconName = 'earth,-globe,-planet,-world,-universe'
         iconSize = 22
       }
 

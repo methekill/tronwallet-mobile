@@ -20,6 +20,7 @@ class ExchangeItem extends Component {
         ]
       )
     }
+
     _renderPercentageIndicator = variation => {
       if (!variation) return null
 
@@ -40,9 +41,9 @@ class ExchangeItem extends Component {
     render () {
       const { onItemPress } = this.props
       const {
-        firstTokenId,
+        firstTokenName,
         firstTokenUserBalance,
-        secondTokenId,
+        secondTokenName,
         firstTokenAbbr,
         secondTokenAbbr,
         firstTokenImage,
@@ -51,8 +52,8 @@ class ExchangeItem extends Component {
         favorited } = this.props.exchangeData
 
       const icon = favorited ? 'star-fill' : '-mark,-highlight,-bookmark,-save'
-      const firstTokenIdentifier = firstTokenAbbr || firstTokenId
-      const secondTokenIdentifier = secondTokenAbbr || secondTokenId
+      const firstTokenIdentifier = firstTokenAbbr || firstTokenName
+      const secondTokenIdentifier = secondTokenAbbr || secondTokenName
 
       return (
         <ExchangeRow onLongPress={this._onLongPress} onPress={() => onItemPress(this.props.exchangeData)}>
@@ -88,7 +89,9 @@ ExchangeItem.propTypes = {
   onFavoritePress: PropTypes.func.isRequired,
   exchangeData: PropTypes.shape({
     firstTokenId: PropTypes.string,
+    firstTokenName: PropTypes.string,
     secondTokenId: PropTypes.string,
+    secondTokenName: PropTypes.string,
     firstTokenAbbr: PropTypes.string,
     secondTokenAbbr: PropTypes.string,
     price: PropTypes.number,

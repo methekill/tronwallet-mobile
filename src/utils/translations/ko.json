@@ -358,11 +358,11 @@
       "idiomAndLocalization": "언어 및 단위 설정",
       "accounts": "계정 관리"
     },
+    "addressBook": {
+      "title": "Address Book"
+    },
     "notifications": {
       "title": "알림"
-    },
-    "dappBrowser": {
-      "title": "DApp 브라우저"
     },
     "network": {
       "title": "네트워크",
@@ -676,7 +676,42 @@
     }
   },
   "contract": {
-    "signMessage": "Don't sign automatically",
-    "time": "분"
+    "signMessage": "자동 서명 금지",
+    "time": "분",
+    "confirmationTitle": "확인",
+    "siteLabel": "웹사이트",
+    "contractLabel": "컨트랙트",
+    "costLabel": "비용",
+    "button": {
+      "confirm": "확인",
+      "reject": "거절"
+    },
+    "error": {
+      "invalidContract": "올바르지 않은 컨트랙트입니다. 다시 시도하시거나 관련 dapp에 도움을 요청하시길 바랍니다.",
+      "noAmount": "You don't have enough amount to run this contract"
+    },
+    "card": {
+      "options": {
+        "title": "Setting this option, all the trigger smart contracts coming from this address and calling that function will be automatically signed"
+      },
+      "switchLabel": "Auto Sign"
+    }
+  },
+  "dapps": {
+    "title": "DAPPS",
+    "search": {
+      "placeholder": "검색어 또는 www를 입력하세요",
+      "go": "이동",
+      "error": "검색어를 제대로 입력했는지 확인하세요!"
+    },
+    "home": {
+      "cancelOperation": "완료",
+      "bookmark": {
+        "title": "즐겨찾기"
+      },
+      "history": {
+        "title": "방문기록"
+      }
+    }
   }
 }

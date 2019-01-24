@@ -43,7 +43,7 @@ class Restore extends React.Component {
   }
 
   _restoreWallet = async () => {
-    const { loadUserData, pin, oneSignalId } = this.props.context
+    const { pin, oneSignalId } = this.props.context
     const seed = this.state.seed.trim()
 
     Keyboard.dismiss()
@@ -52,11 +52,10 @@ class Restore extends React.Component {
       await RNTron.validateMnemonic(seed)
       await this._softResetData()
       await recoverUserKeypair(pin, oneSignalId, seed)
-      await loadUserData()
       Alert.alert(tl.t('seed.restore.success'))
       this.setState({ loading: false }, this._navigateToFirstTime)
       Answers.logCustom('Wallet Operation', { type: 'Restore' })
-      MixPanel.trackWithProperties('Wallet Operation', { type: 'Restore' })
+      MixPanel.track('Restore wallet')
     } catch (err) {
       Alert.alert(tl.t('warning'), tl.t('seed.restore.error'))
       this.setState({ loading: false })

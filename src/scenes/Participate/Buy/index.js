@@ -23,7 +23,6 @@ import {
 
 // Utils
 import tl from '../../../utils/i18n'
-import getBalanceStore from '../../../store/balance'
 import { formatNumber } from '../../../utils/numberUtils'
 import Client, { ONE_TRX } from '../../../services/client'
 import { signTransaction } from '../../../utils/transactionUtils'
@@ -71,25 +70,16 @@ class BuyScene extends Component {
   }
 
   _updateBalance = async () => {
-    const balances = await this._getBalancesFromStore()
-    if (balances.length) {
-      const currentBalance = this._fixNumber(balances[0].balance)
+    const { getCurrentBalances } = this.props.context
+    const currentBalances = getCurrentBalances()
+    if (currentBalances.length) {
+      const { balance: trxBalance } = currentBalances.find(b => b.id === '1')
       this.setState({
-        trxBalance: currentBalance,
-        totalRemaining: currentBalance,
+        trxBalance: this._fixNumber(trxBalance),
+        totalRemaining: trxBalance,
         amountToBuy: 0
       })
     }
-  }
-
-  _getBalancesFromStore = async () => {
-    const store = await getBalanceStore()
-    const { publicKey } = this.props.context
-
-    return store
-      .objects('Balance')
-      .filtered(`name = 'TRX' AND account = '${publicKey}'`)
-      .map(item => Object.assign({}, item))
   }
 
   _fixNumber = value => {
@@ -190,16 +180,15 @@ class BuyScene extends Component {
         }
         : {
           participateAddress: item.ownerAddress,
-          participateToken: item.name,
+          participateToken: item.id,
           participateAmount: this._fixNumber(amountToPay)
         }
-
       const data = item.isExchangeable
         ? await Client.getTransferTransaction(participatePayload)
         : await Client.getParticipateTransaction(this.props.context.publicKey, participatePayload)
 
       await this._openTransactionDetails(data)
-      MixPanel.trackWithProperties('Participate', { type: 'Buy token' })
+      MixPanel.trackWithProperties('Buy token', { token: item.name })
     } catch (err) {
       if (err.name === 'DataError') {
         if (err.message === 'INSUFFICIENT_BALANCE') {
@@ -242,7 +231,8 @@ class BuyScene extends Component {
           exchangeOption: {
             isExchangeable: item.isExchangeable,
             trxAmount: amountToBuy * item.price / ONE_TRX,
-            assetName: item.name
+            assetName: item.name,
+            assetId: item.id
           }
         })
       })

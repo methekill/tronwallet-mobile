@@ -68,7 +68,7 @@ class Restore extends Component {
       await loadUserData()
       this.props.navigation.dispatch(resetAction)
       Answers.logCustom('Wallet Operation', { type: 'Import from PrivateKey' })
-      MixPanel.trackWithProperties('Wallet Operation', { type: 'Import from PrivateKey' })
+      MixPanel.track('Import wallet from private key')
     } catch (error) {
       Alert.alert(tl.t('warning'), 'Address or private key not valid')
     } finally {
@@ -78,7 +78,7 @@ class Restore extends Component {
 
   _checkAccount = async () => {
     const { address, privateKey } = this.state
-    const mockTransaction = { from: address, to: 'TJo2xFo14Rnx9vvMSm1kRTQhVHPW4KPQ76', amount: 0, token: 'TRX' }
+    const mockTransaction = { from: address, to: 'TJo2xFo14Rnx9vvMSm1kRTQhVHPW4KPQ76', amount: 0, token: '1', version: 2.0 }
     try {
       const transactionUnsigned = await WalletClient.getTransferTransaction(mockTransaction)
       const transactionSigned = await RNTron.signTransaction(privateKey, transactionUnsigned)

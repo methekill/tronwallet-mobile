@@ -34,7 +34,7 @@ class TokenInfo extends PureComponent {
       navigation.navigate('Buy', { item })
     }
 
-    Mixpanel.trackWithProperties('Token info', { type: 'Buy token', token: item.name })
+    Mixpanel.trackWithProperties('Navigate to buy token', { token: item.name })
   }
 
   render () {
@@ -51,7 +51,8 @@ class TokenInfo extends PureComponent {
       description,
       transaction,
       ownerAddress,
-      abbr
+      abbr,
+      id
     } = item
     return (
       <Utils.SafeAreaView>
@@ -66,6 +67,7 @@ class TokenInfo extends PureComponent {
             </Utils.View>
             <Utils.View flex={1} paddingLeft='medium'>
               <Utils.Text font='bold' size='average'>{name}</Utils.Text>
+              <Utils.Text size='tiny'>{id}</Utils.Text>
               <Utils.View paddingY='small'>
                 <Utils.SectionTitle small>{tl.t('participate.pricePerToken')}</Utils.SectionTitle>
                 <Utils.View height={5} />

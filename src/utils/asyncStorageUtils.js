@@ -1,14 +1,7 @@
 import { AsyncStorage } from 'react-native'
 
 export function get (key, defaultReturnValue = null) {
-  try {
-    return AsyncStorage.getItem(key)
-      .then(data => {
-        return data || defaultReturnValue
-      })
-  } catch (error) {
-    return defaultReturnValue
-  }
+  return AsyncStorage.getItem(key).then(data => data || defaultReturnValue)
 }
 
 export function set (key, data = null) {
@@ -19,7 +12,17 @@ export function set (key, data = null) {
   }
 }
 
+export function json (key, defaultReturnValue = null) {
+  return get(key, defaultReturnValue).then(result => JSON.parse(result))
+}
+
+export function setJSON (key, data = null) {
+  return set(key, JSON.stringify(data))
+}
+
 export default {
   get,
-  set
+  set,
+  json,
+  setJSON
 }

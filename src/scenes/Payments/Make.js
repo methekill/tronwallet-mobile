@@ -36,7 +36,7 @@ class MakePayment extends PureComponent {
     }
 
     _getTransactionObject = (transactionData) => {
-      const { hash, amount, contractType, ownerAddress, toAddress, assetName } = transactionData
+      const { hash, amount, assetId, contractType, ownerAddress, toAddress, assetName } = transactionData
       const type = WalletClient.getContractType(contractType)
       const transaction = {
         id: hash,
@@ -45,6 +45,7 @@ class MakePayment extends PureComponent {
           transferFromAddress: ownerAddress,
           transferToAddress: toAddress,
           tokenName: type === 'Transfer' ? 'TRX' : assetName,
+          tokenId: type === 'Transfer' ? '1' : assetId,
           amount
         },
         ownerAddress: ownerAddress,
@@ -60,9 +61,9 @@ class MakePayment extends PureComponent {
       replaceRoute(this.props.navigation, 'TransactionSuccess', {stackToReset: 'BalanceScene', transaction: lastTransaction})
     }
 
-    _checkToken = token => !!this.state.balances.find(b => b.name === token)
+    _checkToken = tokenId => !!this.state.balances.find(b => b.id === tokenId)
 
-    _checkAmount = (amount, token) => this.state.balances.find(b => b.name === token).balance > amount
+    _checkAmount = (amount, tokenId) => this.state.balances.find(b => b.id === tokenId).balance > amount
 
     _checkPayment = () => {
       const { context, navigation } = this.props
@@ -70,17 +71,17 @@ class MakePayment extends PureComponent {
       const from = publicKey
       this.setState({ loading: true })
       try {
-        const { address, amount, token, description } = navigation.getParam('payment')
+        const { address, amount, tokenId, description } = navigation.getParam('payment')
         if (from === address) throw new DataError(tl.t('makePayment.error.receiver'))
-        if (!this._checkToken(token)) throw new DataError(tl.t('makePayment.error.token'))
-        if (!this._checkAmount(amount, token)) throw new DataError(tl.t('makePayment.error.amount'))
+        if (!this._checkToken(tokenId)) throw new DataError(tl.t('makePayment.error.token'))
+        if (!this._checkAmount(amount, tokenId)) throw new DataError(tl.t('makePayment.error.amount'))
 
         navigation.navigate('Pin', {
           shouldGoBack: true,
           testInput: pin => pin === context.pin,
           onSuccess: () => {
-            const payload = { from, to: address, amount, token, data: description }
-            MixPanel.trackWithProperties('Pin Validation', payload)
+            const payload = { from, to: address, amount, tokenId, data: description }
+            MixPanel.trackWithProperties('Pin Validation - check payment', payload)
             this._buildTransaction(payload)
           }
         })
@@ -95,10 +96,10 @@ class MakePayment extends PureComponent {
       }
     }
 
-    _buildTransaction = async ({ to, amount, token, from, data }) => {
+    _buildTransaction = async ({ to, amount, tokenId, from, data }) => {
       try {
         // Build Transaction
-        const transactionUnsigned = await WalletClient.getTransferTransaction({ from, to, amount, token, data })
+        const transactionUnsigned = await WalletClient.getTransferTransaction({ from, to, amount, token: tokenId, data })
         // Sign Transaction
         const { accounts, publicKey } = this.props.context
         const transactionSigned = await signTransaction(
@@ -127,12 +128,13 @@ class MakePayment extends PureComponent {
           store.create('Transaction', transaction, true)
         })
         const { code } = await WalletClient.broadcastTransaction(transactionSigned)
+
         if (code === 'SUCCESS') {
           if (NOTIFICATION_TRANSACTIONS.includes(transaction.type)) {
             Answers.logCustom('Payment Operation', { type: transaction.type })
           }
 
-          MixPanel.trackWithProperties('Payment Operation', {
+          MixPanel.trackWithProperties('Submit Transaction', {
             'payment.type': transaction.type,
             'payment.transferFromAddress': transaction.contractData.transferFromAddress,
             'payment.transferToAddress': transaction.contractData.transferToAddress,
@@ -159,7 +161,7 @@ class MakePayment extends PureComponent {
     render () {
       const { navigation } = this.props
       const { loading } = this.state
-      const { address, amount, token, description } = this.props.navigation.getParam('payment')
+      const { address, amount, tokenName, tokenId, description } = this.props.navigation.getParam('payment')
 
       return (
         <Utils.Container>
@@ -174,7 +176,7 @@ class MakePayment extends PureComponent {
             <Utils.Row justify='space-between' align='center'>
               <Utils.Text size='large'>{formatNumber(amount, true)}</Utils.Text>
               <Utils.HorizontalSpacer />
-              <Badge>{token}</Badge>
+              <Badge id={tokenId}>{tokenName}</Badge>
             </Utils.Row>
           </Utils.View>
           <Divider size='medium' marginBottom={10} />

@@ -7,7 +7,6 @@ import { ActivityIndicator, TouchableOpacity, Image, AsyncStorage } from 'react-
 import { Motion, spring } from 'react-motion'
 import { Answers } from 'react-native-fabric'
 import Config from 'react-native-config'
-import MixPanel from 'react-native-mixpanel'
 
 import Gradient from '../../components/Gradient'
 import tl from '../../utils/i18n'
@@ -18,6 +17,7 @@ import LeftBackButton from '../../components/Navigation/LeftBackButton'
 import { formatNumber } from '../../utils/numberUtils'
 import { USER_PREFERRED_CURRENCY } from '../../utils/constants'
 import withContext from '../../utils/hocs/withContext'
+import SYMBOLS from './fiatSymbols'
 
 const Line = ({ line }) => (
   <Path
@@ -70,7 +70,6 @@ class MarketScene extends Component {
     this._navListener = this.props.navigation.addListener('didFocus', () => {
       this._loadData()
       this._loadGraphData()
-      MixPanel.trackWithProperties('Market Operation', { type: 'Load data' })
     })
   }
 
@@ -179,7 +178,7 @@ class MarketScene extends Component {
               >
                 {value => (
                   <Utils.Text size='medium'>
-                    $ {formatNumber(value.data)}
+                    {SYMBOLS[currency] || '$'} {formatNumber(value.data)}
                   </Utils.Text>
                 )}
               </Motion>
